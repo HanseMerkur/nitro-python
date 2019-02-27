@@ -17,15 +17,15 @@
 #
 
 import sys
-from nssrc.com.citrix.netscaler.nitro.exception.nitro_exception import nitro_exception
-from nssrc.com.citrix.netscaler.nitro.resource.stat.basic.service_stats import service_stats
-from nssrc.com.citrix.netscaler.nitro.resource.stat.basic.servicegroupmember_stats import servicegroupmember_stats
-from nssrc.com.citrix.netscaler.nitro.resource.stat.lb.lbvserver_stats import lbvserver_stats
-from nssrc.com.citrix.netscaler.nitro.resource.stat.network.Interface_stats import Interface_stats
-from nssrc.com.citrix.netscaler.nitro.resource.stat.ns.ns_stats import ns_stats
-from nssrc.com.citrix.netscaler.nitro.resource.stat.system.system_stats import system_stats
-from nssrc.com.citrix.netscaler.nitro.resource.stat.vpn.vpn_stats import vpn_stats
-from nssrc.com.citrix.netscaler.nitro.service.nitro_service import nitro_service
+from nitro.exception.nitro_exception import nitro_exception
+from nitro.resource.stat.basic.service_stats import service_stats
+from nitro.resource.stat.basic.servicegroupmember_stats import servicegroupmember_stats
+from nitro.resource.stat.lb.lbvserver_stats import lbvserver_stats
+from nitro.resource.stat.network.Interface_stats import Interface_stats
+from nitro.resource.stat.ns.ns_stats import ns_stats
+from nitro.resource.stat.system.system_stats import system_stats
+from nitro.resource.stat.vpn.vpn_stats import vpn_stats
+from nitro.service.nitro_service import nitro_service
 
 
 class stat_config :

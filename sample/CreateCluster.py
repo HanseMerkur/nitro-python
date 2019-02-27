@@ -18,12 +18,12 @@
 
 import sys
 import time
-from nssrc.com.citrix.netscaler.nitro.exception.nitro_exception import nitro_exception
-from nssrc.com.citrix.netscaler.nitro.resource.config.cluster.cluster import cluster
-from nssrc.com.citrix.netscaler.nitro.resource.config.cluster.clusterinstance import clusterinstance
-from nssrc.com.citrix.netscaler.nitro.resource.config.cluster.clusternode import clusternode
-from nssrc.com.citrix.netscaler.nitro.resource.config.ns.nsip import nsip
-from nssrc.com.citrix.netscaler.nitro.service.nitro_service import nitro_service
+from nitro.exception.nitro_exception import nitro_exception
+from nitro.resource.config.cluster.cluster import cluster
+from nitro.resource.config.cluster.clusterinstance import clusterinstance
+from nitro.resource.config.cluster.clusternode import clusternode
+from nitro.resource.config.ns.nsip import nsip
+from nitro.service.nitro_service import nitro_service
 
 # Sample code to create a two-node NetScaler cluster.
 

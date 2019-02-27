@@ -18,31 +18,31 @@
 
 import sys 
 
-from nssrc.com.citrix.netscaler.nitro.exception.nitro_exception import nitro_exception
-from nssrc.com.citrix.netscaler.nitro.resource.base.base_response import base_response
-from nssrc.com.citrix.netscaler.nitro.resource.config.appfw.appfwconfidfield import appfwconfidfield
-from nssrc.com.citrix.netscaler.nitro.resource.config.appfw.appfwprofile import appfwprofile
-from nssrc.com.citrix.netscaler.nitro.resource.config.basic.service import service
-from nssrc.com.citrix.netscaler.nitro.resource.config.basic.servicegroup import servicegroup
-from nssrc.com.citrix.netscaler.nitro.resource.config.basic.servicegroup_servicegroupmember_binding import servicegroup_servicegroupmember_binding
-from nssrc.com.citrix.netscaler.nitro.resource.config.cs.cspolicy import cspolicy
-from nssrc.com.citrix.netscaler.nitro.resource.config.cs.csvserver import csvserver
-from nssrc.com.citrix.netscaler.nitro.resource.config.filter.filterprebodyinjection import filterprebodyinjection
-from nssrc.com.citrix.netscaler.nitro.resource.config.gslb.gslbservice import gslbservice
-from nssrc.com.citrix.netscaler.nitro.resource.config.gslb.gslbsite import gslbsite
-from nssrc.com.citrix.netscaler.nitro.resource.config.gslb.gslbvserver import gslbvserver
-from nssrc.com.citrix.netscaler.nitro.resource.config.gslb.gslbvserver_gslbservice_binding import gslbvserver_gslbservice_binding
-from nssrc.com.citrix.netscaler.nitro.resource.config.lb.lbmonitor import lbmonitor
-from nssrc.com.citrix.netscaler.nitro.resource.config.lb.lbmonitor_service_binding import lbmonitor_service_binding
-from nssrc.com.citrix.netscaler.nitro.resource.config.lb.lbvserver import lbvserver
-from nssrc.com.citrix.netscaler.nitro.resource.config.lb.lbvserver_service_binding import lbvserver_service_binding
-from nssrc.com.citrix.netscaler.nitro.resource.config.network.channel import channel
-from nssrc.com.citrix.netscaler.nitro.resource.config.network.route6 import route6
-from nssrc.com.citrix.netscaler.nitro.resource.config.snmp.snmpengineid import snmpengineid
-from nssrc.com.citrix.netscaler.nitro.resource.config.snmp.snmpgroup import snmpgroup
-from nssrc.com.citrix.netscaler.nitro.resource.config.snmp.snmpmanager import snmpmanager
-from nssrc.com.citrix.netscaler.nitro.resource.config.snmp.snmptrap import snmptrap
-from nssrc.com.citrix.netscaler.nitro.service.nitro_service import nitro_service
+from nitro.exception.nitro_exception import nitro_exception
+from nitro.resource.base.base_response import base_response
+from nitro.resource.config.appfw.appfwconfidfield import appfwconfidfield
+from nitro.resource.config.appfw.appfwprofile import appfwprofile
+from nitro.resource.config.basic.service import service
+from nitro.resource.config.basic.servicegroup import servicegroup
+from nitro.resource.config.basic.servicegroup_servicegroupmember_binding import servicegroup_servicegroupmember_binding
+from nitro.resource.config.cs.cspolicy import cspolicy
+from nitro.resource.config.cs.csvserver import csvserver
+from nitro.resource.config.filter.filterprebodyinjection import filterprebodyinjection
+from nitro.resource.config.gslb.gslbservice import gslbservice
+from nitro.resource.config.gslb.gslbsite import gslbsite
+from nitro.resource.config.gslb.gslbvserver import gslbvserver
+from nitro.resource.config.gslb.gslbvserver_gslbservice_binding import gslbvserver_gslbservice_binding
+from nitro.resource.config.lb.lbmonitor import lbmonitor
+from nitro.resource.config.lb.lbmonitor_service_binding import lbmonitor_service_binding
+from nitro.resource.config.lb.lbvserver import lbvserver
+from nitro.resource.config.lb.lbvserver_service_binding import lbvserver_service_binding
+from nitro.resource.config.network.channel import channel
+from nitro.resource.config.network.route6 import route6
+from nitro.resource.config.snmp.snmpengineid import snmpengineid
+from nitro.resource.config.snmp.snmpgroup import snmpgroup
+from nitro.resource.config.snmp.snmpmanager import snmpmanager
+from nitro.resource.config.snmp.snmptrap import snmptrap
+from nitro.service.nitro_service import nitro_service
 
 
 class rm_config :

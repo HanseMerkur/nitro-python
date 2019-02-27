@@ -17,9 +17,9 @@
 #
 
 import sys
-from nssrc.com.citrix.netscaler.nitro.exception.nitro_exception import nitro_exception
-from nssrc.com.citrix.netscaler.nitro.resource.config.lb.lbvserver import lbvserver
-from nssrc.com.citrix.netscaler.nitro.service.nitro_service import nitro_service
+from nitro.exception.nitro_exception import nitro_exception
+from nitro.resource.config.lb.lbvserver import lbvserver
+from nitro.service.nitro_service import nitro_service
 
 # This sample code demonstrates basic usage of the NITRO APIs
 class MyFirstNitroApplication : 
