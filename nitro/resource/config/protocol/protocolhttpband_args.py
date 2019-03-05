@@ -16,30 +16,32 @@
 
 
 class protocolhttpband_args :
-	r""" Provides additional arguments required for fetching the protocolhttpband resource.
-	"""
-	def __init__(self) :
-		self._type = ""
+    """Provides additional arguments required for fetching the protocolhttpband resource."""
+    def __init__(self) :
+        self._type = ""
 
-	@property
-	def type(self) :
-		r"""Type of statistics to display.<br/>Possible values = REQUEST, RESPONSE.
-		"""
-		try :
-			return self._type
-		except Exception as e:
-			raise e
+    @property
+    def type(self) :
+        """Type of statistics to display.<br/>Possible values = REQUEST, RESPONSE."""
+        try :
+            return self._type
+        except Exception as e:
+            raise e
 
-	@type.setter
-	def type(self, type) :
-		r"""Type of statistics to display.<br/>Possible values = REQUEST, RESPONSE
-		"""
-		try :
-			self._type = type
-		except Exception as e:
-			raise e
+    @type.setter
+    def type(self, type) :
+        """Type of statistics to display.<br/>Possible values = REQUEST, RESPONSE
 
-	class Type:
-		REQUEST = "REQUEST"
-		RESPONSE = "RESPONSE"
+        :param type: 
+
+        """
+        try :
+            self._type = type
+        except Exception as e:
+            raise e
+
+    class Type:
+        """ """
+        REQUEST = "REQUEST"
+        RESPONSE = "RESPONSE"
 

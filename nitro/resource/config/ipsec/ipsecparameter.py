@@ -22,279 +22,322 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class ipsecparameter(base_resource) :
-	""" Configuration for IPSEC paramter resource. """
-	def __init__(self) :
-		self._ikeversion = ""
-		self._encalgo = []
-		self._hashalgo = []
-		self._lifetime = 0
-		self._livenesscheckinterval = 0
-		self._replaywindowsize = 0
-		self._ikeretryinterval = 0
-		self._perfectforwardsecrecy = ""
-		self._retransmissiontime = 0
+    """Configuration for IPSEC paramter resource."""
+    def __init__(self) :
+        self._ikeversion = ""
+        self._encalgo = []
+        self._hashalgo = []
+        self._lifetime = 0
+        self._livenesscheckinterval = 0
+        self._replaywindowsize = 0
+        self._ikeretryinterval = 0
+        self._perfectforwardsecrecy = ""
+        self._retransmissiontime = 0
 
-	@property
-	def ikeversion(self) :
-		r"""IKE Protocol Version.<br/>Default value: V2<br/>Possible values = V1, V2.
-		"""
-		try :
-			return self._ikeversion
-		except Exception as e:
-			raise e
+    @property
+    def ikeversion(self) :
+        """IKE Protocol Version.<br/>Default value: V2<br/>Possible values = V1, V2."""
+        try :
+            return self._ikeversion
+        except Exception as e:
+            raise e
 
-	@ikeversion.setter
-	def ikeversion(self, ikeversion) :
-		r"""IKE Protocol Version.<br/>Default value: V2<br/>Possible values = V1, V2
-		"""
-		try :
-			self._ikeversion = ikeversion
-		except Exception as e:
-			raise e
+    @ikeversion.setter
+    def ikeversion(self, ikeversion) :
+        """IKE Protocol Version.<br/>Default value: V2<br/>Possible values = V1, V2
 
-	@property
-	def encalgo(self) :
-		r"""Type of encryption algorithm.<br/>Default value: AES<br/>Possible values = AES, 3DES.
-		"""
-		try :
-			return self._encalgo
-		except Exception as e:
-			raise e
+        :param ikeversion: 
 
-	@encalgo.setter
-	def encalgo(self, encalgo) :
-		r"""Type of encryption algorithm.<br/>Default value: AES<br/>Possible values = AES, 3DES
-		"""
-		try :
-			self._encalgo = encalgo
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._ikeversion = ikeversion
+        except Exception as e:
+            raise e
 
-	@property
-	def hashalgo(self) :
-		r"""Type of hashing algorithm.<br/>Default value: HMAC_SHA256<br/>Possible values = HMAC_SHA1, HMAC_SHA256, HMAC_SHA384, HMAC_SHA512, HMAC_MD5.
-		"""
-		try :
-			return self._hashalgo
-		except Exception as e:
-			raise e
+    @property
+    def encalgo(self) :
+        """Type of encryption algorithm.<br/>Default value: AES<br/>Possible values = AES, 3DES."""
+        try :
+            return self._encalgo
+        except Exception as e:
+            raise e
 
-	@hashalgo.setter
-	def hashalgo(self, hashalgo) :
-		r"""Type of hashing algorithm.<br/>Default value: HMAC_SHA256<br/>Possible values = HMAC_SHA1, HMAC_SHA256, HMAC_SHA384, HMAC_SHA512, HMAC_MD5
-		"""
-		try :
-			self._hashalgo = hashalgo
-		except Exception as e:
-			raise e
+    @encalgo.setter
+    def encalgo(self, encalgo) :
+        """Type of encryption algorithm.<br/>Default value: AES<br/>Possible values = AES, 3DES
 
-	@property
-	def lifetime(self) :
-		r"""Lifetime of IKE SA in seconds. Lifetime of IPSec SA will be (lifetime of IKE SA/8).<br/>Minimum length =  480<br/>Maximum length =  31536000.
-		"""
-		try :
-			return self._lifetime
-		except Exception as e:
-			raise e
+        :param encalgo: 
 
-	@lifetime.setter
-	def lifetime(self, lifetime) :
-		r"""Lifetime of IKE SA in seconds. Lifetime of IPSec SA will be (lifetime of IKE SA/8).<br/>Minimum length =  480<br/>Maximum length =  31536000
-		"""
-		try :
-			self._lifetime = lifetime
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._encalgo = encalgo
+        except Exception as e:
+            raise e
 
-	@property
-	def livenesscheckinterval(self) :
-		r"""Number of seconds after which a notify payload is sent to check the liveliness of the peer. Additional retries are done as per retransmit interval setting. Zero value disables liveliness checks.<br/>Maximum length =  64999.
-		"""
-		try :
-			return self._livenesscheckinterval
-		except Exception as e:
-			raise e
+    @property
+    def hashalgo(self) :
+        """Type of hashing algorithm.<br/>Default value: HMAC_SHA256<br/>Possible values = HMAC_SHA1, HMAC_SHA256, HMAC_SHA384, HMAC_SHA512, HMAC_MD5."""
+        try :
+            return self._hashalgo
+        except Exception as e:
+            raise e
 
-	@livenesscheckinterval.setter
-	def livenesscheckinterval(self, livenesscheckinterval) :
-		r"""Number of seconds after which a notify payload is sent to check the liveliness of the peer. Additional retries are done as per retransmit interval setting. Zero value disables liveliness checks.<br/>Maximum length =  64999
-		"""
-		try :
-			self._livenesscheckinterval = livenesscheckinterval
-		except Exception as e:
-			raise e
+    @hashalgo.setter
+    def hashalgo(self, hashalgo) :
+        """Type of hashing algorithm.<br/>Default value: HMAC_SHA256<br/>Possible values = HMAC_SHA1, HMAC_SHA256, HMAC_SHA384, HMAC_SHA512, HMAC_MD5
 
-	@property
-	def replaywindowsize(self) :
-		r"""IPSec Replay window size for the data traffic.<br/>Maximum length =  16384.
-		"""
-		try :
-			return self._replaywindowsize
-		except Exception as e:
-			raise e
+        :param hashalgo: 
 
-	@replaywindowsize.setter
-	def replaywindowsize(self, replaywindowsize) :
-		r"""IPSec Replay window size for the data traffic.<br/>Maximum length =  16384
-		"""
-		try :
-			self._replaywindowsize = replaywindowsize
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._hashalgo = hashalgo
+        except Exception as e:
+            raise e
 
-	@property
-	def ikeretryinterval(self) :
-		r"""IKE retry interval for bringing up the connection.<br/>Minimum length =  60<br/>Maximum length =  3600.
-		"""
-		try :
-			return self._ikeretryinterval
-		except Exception as e:
-			raise e
+    @property
+    def lifetime(self) :
+        """Lifetime of IKE SA in seconds. Lifetime of IPSec SA will be (lifetime of IKE SA/8).<br/>Minimum length =  480<br/>Maximum length =  31536000."""
+        try :
+            return self._lifetime
+        except Exception as e:
+            raise e
 
-	@ikeretryinterval.setter
-	def ikeretryinterval(self, ikeretryinterval) :
-		r"""IKE retry interval for bringing up the connection.<br/>Minimum length =  60<br/>Maximum length =  3600
-		"""
-		try :
-			self._ikeretryinterval = ikeretryinterval
-		except Exception as e:
-			raise e
+    @lifetime.setter
+    def lifetime(self, lifetime) :
+        """Lifetime of IKE SA in seconds. Lifetime of IPSec SA will be (lifetime of IKE SA/8).<br/>Minimum length =  480<br/>Maximum length =  31536000
 
-	@property
-	def perfectforwardsecrecy(self) :
-		r"""Enable/Disable PFS.<br/>Default value: DISABLE<br/>Possible values = ENABLE, DISABLE.
-		"""
-		try :
-			return self._perfectforwardsecrecy
-		except Exception as e:
-			raise e
+        :param lifetime: 
 
-	@perfectforwardsecrecy.setter
-	def perfectforwardsecrecy(self, perfectforwardsecrecy) :
-		r"""Enable/Disable PFS.<br/>Default value: DISABLE<br/>Possible values = ENABLE, DISABLE
-		"""
-		try :
-			self._perfectforwardsecrecy = perfectforwardsecrecy
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._lifetime = lifetime
+        except Exception as e:
+            raise e
 
-	@property
-	def retransmissiontime(self) :
-		r"""The interval in seconds to retry sending the IKE messages to peer, three consecutive attempts are done with doubled interval after every failure,
-		increases for every retransmit till 6 retransmits.<br/>Minimum length =  1<br/>Maximum length =  99.
-		"""
-		try :
-			return self._retransmissiontime
-		except Exception as e:
-			raise e
+    @property
+    def livenesscheckinterval(self) :
+        """Number of seconds after which a notify payload is sent to check the liveliness of the peer. Additional retries are done as per retransmit interval setting. Zero value disables liveliness checks.<br/>Maximum length =  64999."""
+        try :
+            return self._livenesscheckinterval
+        except Exception as e:
+            raise e
 
-	@retransmissiontime.setter
-	def retransmissiontime(self, retransmissiontime) :
-		r"""The interval in seconds to retry sending the IKE messages to peer, three consecutive attempts are done with doubled interval after every failure,
-		increases for every retransmit till 6 retransmits.<br/>Minimum length =  1<br/>Maximum length =  99
-		"""
-		try :
-			self._retransmissiontime = retransmissiontime
-		except Exception as e:
-			raise e
+    @livenesscheckinterval.setter
+    def livenesscheckinterval(self, livenesscheckinterval) :
+        """Number of seconds after which a notify payload is sent to check the liveliness of the peer. Additional retries are done as per retransmit interval setting. Zero value disables liveliness checks.<br/>Maximum length =  64999
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(ipsecparameter_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.ipsecparameter
-		except Exception as e :
-			raise e
+        :param livenesscheckinterval: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._livenesscheckinterval = livenesscheckinterval
+        except Exception as e:
+            raise e
+
+    @property
+    def replaywindowsize(self) :
+        """IPSec Replay window size for the data traffic.<br/>Maximum length =  16384."""
+        try :
+            return self._replaywindowsize
+        except Exception as e:
+            raise e
+
+    @replaywindowsize.setter
+    def replaywindowsize(self, replaywindowsize) :
+        """IPSec Replay window size for the data traffic.<br/>Maximum length =  16384
+
+        :param replaywindowsize: 
+
+        """
+        try :
+            self._replaywindowsize = replaywindowsize
+        except Exception as e:
+            raise e
+
+    @property
+    def ikeretryinterval(self) :
+        """IKE retry interval for bringing up the connection.<br/>Minimum length =  60<br/>Maximum length =  3600."""
+        try :
+            return self._ikeretryinterval
+        except Exception as e:
+            raise e
+
+    @ikeretryinterval.setter
+    def ikeretryinterval(self, ikeretryinterval) :
+        """IKE retry interval for bringing up the connection.<br/>Minimum length =  60<br/>Maximum length =  3600
+
+        :param ikeretryinterval: 
+
+        """
+        try :
+            self._ikeretryinterval = ikeretryinterval
+        except Exception as e:
+            raise e
+
+    @property
+    def perfectforwardsecrecy(self) :
+        """Enable/Disable PFS.<br/>Default value: DISABLE<br/>Possible values = ENABLE, DISABLE."""
+        try :
+            return self._perfectforwardsecrecy
+        except Exception as e:
+            raise e
+
+    @perfectforwardsecrecy.setter
+    def perfectforwardsecrecy(self, perfectforwardsecrecy) :
+        """Enable/Disable PFS.<br/>Default value: DISABLE<br/>Possible values = ENABLE, DISABLE
+
+        :param perfectforwardsecrecy: 
+
+        """
+        try :
+            self._perfectforwardsecrecy = perfectforwardsecrecy
+        except Exception as e:
+            raise e
+
+    @property
+    def retransmissiontime(self) :
+        """The interval in seconds to retry sending the IKE messages to peer, three consecutive attempts are done with doubled interval after every failure,
+        increases for every retransmit till 6 retransmits.<br/>Minimum length =  1<br/>Maximum length =  99.
 
 
+        """
+        try :
+            return self._retransmissiontime
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update ipsecparameter.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = ipsecparameter()
-				updateresource.ikeversion = resource.ikeversion
-				updateresource.encalgo = resource.encalgo
-				updateresource.hashalgo = resource.hashalgo
-				updateresource.lifetime = resource.lifetime
-				updateresource.livenesscheckinterval = resource.livenesscheckinterval
-				updateresource.replaywindowsize = resource.replaywindowsize
-				updateresource.ikeretryinterval = resource.ikeretryinterval
-				updateresource.perfectforwardsecrecy = resource.perfectforwardsecrecy
-				updateresource.retransmissiontime = resource.retransmissiontime
-				return updateresource.update_resource(client)
-		except Exception as e :
-			raise e
+    @retransmissiontime.setter
+    def retransmissiontime(self, retransmissiontime) :
+        """The interval in seconds to retry sending the IKE messages to peer, three consecutive attempts are done with doubled interval after every failure,
+        increases for every retransmit till 6 retransmits.<br/>Minimum length =  1<br/>Maximum length =  99
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of ipsecparameter resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = ipsecparameter()
-				return unsetresource.unset_resource(client, args)
-		except Exception as e :
-			raise e
+        :param retransmissiontime: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the ipsecparameter resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = ipsecparameter()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._retransmissiontime = retransmissiontime
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(ipsecparameter_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.ipsecparameter
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
-	class Perfectforwardsecrecy:
-		ENABLE = "ENABLE"
-		DISABLE = "DISABLE"
 
-	class Encalgo:
-		AES = "AES"
-		_3DES = "3DES"
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update ipsecparameter.
 
-	class Ikeversion:
-		V1 = "V1"
-		V2 = "V2"
+        :param client: 
+        :param resource: 
 
-	class Hashalgo:
-		HMAC_SHA1 = "HMAC_SHA1"
-		HMAC_SHA256 = "HMAC_SHA256"
-		HMAC_SHA384 = "HMAC_SHA384"
-		HMAC_SHA512 = "HMAC_SHA512"
-		HMAC_MD5 = "HMAC_MD5"
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = ipsecparameter()
+                updateresource.ikeversion = resource.ikeversion
+                updateresource.encalgo = resource.encalgo
+                updateresource.hashalgo = resource.hashalgo
+                updateresource.lifetime = resource.lifetime
+                updateresource.livenesscheckinterval = resource.livenesscheckinterval
+                updateresource.replaywindowsize = resource.replaywindowsize
+                updateresource.ikeretryinterval = resource.ikeretryinterval
+                updateresource.perfectforwardsecrecy = resource.perfectforwardsecrecy
+                updateresource.retransmissiontime = resource.retransmissiontime
+                return updateresource.update_resource(client)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of ipsecparameter resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = ipsecparameter()
+                return unsetresource.unset_resource(client, args)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the ipsecparameter resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = ipsecparameter()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    class Perfectforwardsecrecy:
+        """ """
+        ENABLE = "ENABLE"
+        DISABLE = "DISABLE"
+
+    class Encalgo:
+        """ """
+        AES = "AES"
+        _3DES = "3DES"
+
+    class Ikeversion:
+        """ """
+        V1 = "V1"
+        V2 = "V2"
+
+    class Hashalgo:
+        """ """
+        HMAC_SHA1 = "HMAC_SHA1"
+        HMAC_SHA256 = "HMAC_SHA256"
+        HMAC_SHA384 = "HMAC_SHA384"
+        HMAC_SHA512 = "HMAC_SHA512"
+        HMAC_MD5 = "HMAC_MD5"
 
 class ipsecparameter_response(base_response) :
-	def __init__(self, length=1) :
-		self.ipsecparameter = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.ipsecparameter = [ipsecparameter() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.ipsecparameter = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.ipsecparameter = [ipsecparameter() for _ in range(length)]
 

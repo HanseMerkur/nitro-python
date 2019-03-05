@@ -22,232 +22,232 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class clusternode_stats(base_resource) :
-	r""" Statistics for cluster node resource.
-	"""
-	def __init__(self) :
-		self._nodeid = 0
-		self._clearstats = ""
-		self._clsyncstate = ""
-		self._clnodeeffectivehealth = ""
-		self._clnodeip = ""
-		self._clmasterstate = ""
-		self._cltothbtx = 0
-		self._cltothbrx = 0
-		self._nnmcurconn = 0
-		self._nnmtotconntx = 0
-		self._nnmtotconnrx = 0
-		self._clptpstate = ""
-		self._clptptx = 0
-		self._clptprx = 0
-		self._nnmerrmsend = 0
+    """Statistics for cluster node resource."""
+    def __init__(self) :
+        self._nodeid = 0
+        self._clearstats = ""
+        self._clsyncstate = ""
+        self._clnodeeffectivehealth = ""
+        self._clnodeip = ""
+        self._clmasterstate = ""
+        self._cltothbtx = 0
+        self._cltothbrx = 0
+        self._nnmcurconn = 0
+        self._nnmtotconntx = 0
+        self._nnmtotconnrx = 0
+        self._clptpstate = ""
+        self._clptptx = 0
+        self._clptprx = 0
+        self._nnmerrmsend = 0
 
-	@property
-	def nodeid(self) :
-		r"""ID of the cluster node for which to display statistics. If an ID is not provided, statistics are shown for all nodes.<br/>Minimum value =  0<br/>Maximum value =  31.
-		"""
-		try :
-			return self._nodeid
-		except Exception as e:
-			raise e
+    @property
+    def nodeid(self) :
+        """ID of the cluster node for which to display statistics. If an ID is not provided, statistics are shown for all nodes.<br/>Minimum value =  0<br/>Maximum value =  31."""
+        try :
+            return self._nodeid
+        except Exception as e:
+            raise e
 
-	@nodeid.setter
-	def nodeid(self, nodeid) :
-		r"""ID of the cluster node for which to display statistics. If an ID is not provided, statistics are shown for all nodes.
-		"""
-		try :
-			self._nodeid = nodeid
-		except Exception as e:
-			raise e
+    @nodeid.setter
+    def nodeid(self, nodeid) :
+        """ID of the cluster node for which to display statistics. If an ID is not provided, statistics are shown for all nodes.
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+        :param nodeid: 
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._nodeid = nodeid
+        except Exception as e:
+            raise e
 
-	@property
-	def clnodeip(self) :
-		r"""NSIP address of the cluster node.
-		"""
-		try :
-			return self._clnodeip
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def clsyncstate(self) :
-		r"""Sync state of the cluster node.
-		"""
-		try :
-			return self._clsyncstate
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def nnmcurconn(self) :
-		r"""Number of connections open for node-to-node communication.
-		"""
-		try :
-			return self._nnmcurconn
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def nnmerrmsend(self) :
-		r"""Number of errors in sending node-to-node multicast/broadcast messages. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics.
-		"""
-		try :
-			return self._nnmerrmsend
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def clnodeeffectivehealth(self) :
-		r"""Health of the cluster node.
-		"""
-		try :
-			return self._clnodeeffectivehealth
-		except Exception as e:
-			raise e
+    @property
+    def clnodeip(self) :
+        """NSIP address of the cluster node."""
+        try :
+            return self._clnodeip
+        except Exception as e:
+            raise e
 
-	@property
-	def nnmtotconnrx(self) :
-		r"""Number of node-to-node messages received. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics.
-		"""
-		try :
-			return self._nnmtotconnrx
-		except Exception as e:
-			raise e
+    @property
+    def clsyncstate(self) :
+        """Sync state of the cluster node."""
+        try :
+            return self._clsyncstate
+        except Exception as e:
+            raise e
 
-	@property
-	def cltothbrx(self) :
-		r"""Number of heartbeats received. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics.
-		"""
-		try :
-			return self._cltothbrx
-		except Exception as e:
-			raise e
+    @property
+    def nnmcurconn(self) :
+        """Number of connections open for node-to-node communication."""
+        try :
+            return self._nnmcurconn
+        except Exception as e:
+            raise e
 
-	@property
-	def clptprx(self) :
-		r"""Number of PTP packets received on the node. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics.
-		"""
-		try :
-			return self._clptprx
-		except Exception as e:
-			raise e
+    @property
+    def nnmerrmsend(self) :
+        """Number of errors in sending node-to-node multicast/broadcast messages. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics."""
+        try :
+            return self._nnmerrmsend
+        except Exception as e:
+            raise e
 
-	@property
-	def nnmtotconntx(self) :
-		r"""Number of node-to-node messages sent. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics.
-		"""
-		try :
-			return self._nnmtotconntx
-		except Exception as e:
-			raise e
+    @property
+    def clnodeeffectivehealth(self) :
+        """Health of the cluster node."""
+        try :
+            return self._clnodeeffectivehealth
+        except Exception as e:
+            raise e
 
-	@property
-	def clmasterstate(self) :
-		r"""Operational state of the cluster node.
-		"""
-		try :
-			return self._clmasterstate
-		except Exception as e:
-			raise e
+    @property
+    def nnmtotconnrx(self) :
+        """Number of node-to-node messages received. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics."""
+        try :
+            return self._nnmtotconnrx
+        except Exception as e:
+            raise e
 
-	@property
-	def clptptx(self) :
-		r"""Number of PTP packets transmitted by the node. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics.
-		"""
-		try :
-			return self._clptptx
-		except Exception as e:
-			raise e
+    @property
+    def cltothbrx(self) :
+        """Number of heartbeats received. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics."""
+        try :
+            return self._cltothbrx
+        except Exception as e:
+            raise e
 
-	@property
-	def clptpstate(self) :
-		r"""PTP state of the node. This state is Master for one node and Slave for the rest. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows UNKNOWN. When executed from the cluster IP address, shows all the statistics.
-		"""
-		try :
-			return self._clptpstate
-		except Exception as e:
-			raise e
+    @property
+    def clptprx(self) :
+        """Number of PTP packets received on the node. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics."""
+        try :
+            return self._clptprx
+        except Exception as e:
+            raise e
 
-	@property
-	def cltothbtx(self) :
-		r"""Number of heartbeats sent. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics.
-		"""
-		try :
-			return self._cltothbtx
-		except Exception as e:
-			raise e
+    @property
+    def nnmtotconntx(self) :
+        """Number of node-to-node messages sent. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics."""
+        try :
+            return self._nnmtotconntx
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(clusternode_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.clusternode
-		except Exception as e :
-			raise e
+    @property
+    def clmasterstate(self) :
+        """Operational state of the cluster node."""
+        try :
+            return self._clmasterstate
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.nodeid is not None :
-				return str(self.nodeid)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def clptptx(self) :
+        """Number of PTP packets transmitted by the node. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics."""
+        try :
+            return self._clptptx
+        except Exception as e:
+            raise e
+
+    @property
+    def clptpstate(self) :
+        """PTP state of the node. This state is Master for one node and Slave for the rest. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows UNKNOWN. When executed from the cluster IP address, shows all the statistics."""
+        try :
+            return self._clptpstate
+        except Exception as e:
+            raise e
+
+    @property
+    def cltothbtx(self) :
+        """Number of heartbeats sent. When executed from the NSIP address, shows the statistics for local node only. For remote node it shows a value of 0. When executed from the cluster IP address, shows all the statistics."""
+        try :
+            return self._cltothbtx
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(clusternode_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.clusternode
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.nodeid is not None :
+                return str(self.nodeid)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all clusternode_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = clusternode_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			else :
-				obj.nodeid = name
-				response = obj.stat_resource(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all clusternode_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = clusternode_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            else :
+                obj.nodeid = name
+                response = obj.stat_resource(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class clusternode_response(base_response) :
-	def __init__(self, length=1) :
-		self.clusternode = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.clusternode = [clusternode_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.clusternode = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.clusternode = [clusternode_stats() for _ in range(length)]
 

@@ -22,267 +22,310 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class spilloveraction(base_resource) :
-	""" Configuration for Spillover action resource. """
-	def __init__(self) :
-		self._name = ""
-		self._action = ""
-		self._newname = ""
-		self._builtin = []
-		self.___count = 0
+    """Configuration for Spillover action resource."""
+    def __init__(self) :
+        self._name = ""
+        self._action = ""
+        self._newname = ""
+        self._builtin = []
+        self.___count = 0
 
-	@property
-	def name(self) :
-		r"""Name of the spillover action.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the spillover action."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the spillover action.
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the spillover action.
 
-	@property
-	def action(self) :
-		r"""Spillover action. Currently only type SPILLOVER is supported.<br/>Possible values = SPILLOVER.
-		"""
-		try :
-			return self._action
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@action.setter
-	def action(self, action) :
-		r"""Spillover action. Currently only type SPILLOVER is supported.<br/>Possible values = SPILLOVER
-		"""
-		try :
-			self._action = action
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def newname(self) :
-		r"""New name for the spillover action. Must begin with an ASCII alphabetic or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at
-		(@), equals (=), and hyphen (-) characters. 
-		Choose a name that can be correlated with the function that the action performs. 
-		The following requirement applies only to the NetScaler CLI:
-		If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my action" or 'my action').<br/>Minimum length =  1.
-		"""
-		try :
-			return self._newname
-		except Exception as e:
-			raise e
+    @property
+    def action(self) :
+        """Spillover action. Currently only type SPILLOVER is supported.<br/>Possible values = SPILLOVER."""
+        try :
+            return self._action
+        except Exception as e:
+            raise e
 
-	@newname.setter
-	def newname(self, newname) :
-		r"""New name for the spillover action. Must begin with an ASCII alphabetic or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at
-		(@), equals (=), and hyphen (-) characters. 
-		Choose a name that can be correlated with the function that the action performs. 
-		The following requirement applies only to the NetScaler CLI:
-		If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my action" or 'my action').<br/>Minimum length =  1
-		"""
-		try :
-			self._newname = newname
-		except Exception as e:
-			raise e
+    @action.setter
+    def action(self, action) :
+        """Spillover action. Currently only type SPILLOVER is supported.<br/>Possible values = SPILLOVER
 
-	@property
-	def builtin(self) :
-		r"""Flag to determine whether compression is default or not.<br/>Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL.
-		"""
-		try :
-			return self._builtin
-		except Exception as e:
-			raise e
+        :param action: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(spilloveraction_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.spilloveraction
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._action = action
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def newname(self) :
+        """New name for the spillover action. Must begin with an ASCII alphabetic or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at
+        (@), equals (=), and hyphen (-) characters.
+        Choose a name that can be correlated with the function that the action performs.
+        The following requirement applies only to the NetScaler CLI:
+        If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my action" or 'my action').<br/>Minimum length =  1.
 
 
+        """
+        try :
+            return self._newname
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		r""" Use this API to add spilloveraction.
-		"""
-		try :
-			if type(resource) is not list :
-				addresource = spilloveraction()
-				addresource.name = resource.name
-				addresource.action = resource.action
-				return addresource.add_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					addresources = [ spilloveraction() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						addresources[i].name = resource[i].name
-						addresources[i].action = resource[i].action
-				result = cls.add_bulk_request(client, addresources)
-			return result
-		except Exception as e :
-			raise e
+    @newname.setter
+    def newname(self, newname) :
+        """New name for the spillover action. Must begin with an ASCII alphabetic or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at
+        (@), equals (=), and hyphen (-) characters.
+        Choose a name that can be correlated with the function that the action performs.
+        The following requirement applies only to the NetScaler CLI:
+        If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my action" or 'my action').<br/>Minimum length =  1
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete spilloveraction.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = spilloveraction()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.name = resource
-				else :
-					deleteresource.name = resource.name
-				return deleteresource.delete_resource(client)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ spilloveraction() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].name = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ spilloveraction() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].name = resource[i].name
-				result = cls.delete_bulk_request(client, deleteresources)
-			return result
-		except Exception as e :
-			raise e
+        :param newname: 
 
-	@classmethod
-	def rename(cls, client, resource, new_name) :
-		r""" Use this API to rename a spilloveraction resource.
-		"""
-		try :
-			renameresource = spilloveraction()
-			if type(resource) == cls :
-				renameresource.name = resource.name
-			else :
-				renameresource.name = resource
-			return renameresource.rename_resource(client,new_name)
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._newname = newname
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the spilloveraction resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = spilloveraction()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = spilloveraction()
-						obj.name = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [spilloveraction() for _ in range(len(name))]
-							obj = [spilloveraction() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = spilloveraction()
-								obj[i].name = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    @property
+    def builtin(self) :
+        """Flag to determine whether compression is default or not.<br/>Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL."""
+        try :
+            return self._builtin
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(spilloveraction_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.spilloveraction
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of spilloveraction resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = spilloveraction()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def add(cls, client, resource) :
+        """Use this API to add spilloveraction.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                addresource = spilloveraction()
+                addresource.name = resource.name
+                addresource.action = resource.action
+                return addresource.add_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    addresources = [ spilloveraction() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        addresources[i].name = resource[i].name
+                        addresources[i].action = resource[i].action
+                result = cls.add_bulk_request(client, addresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete spilloveraction.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = spilloveraction()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.name = resource
+                else :
+                    deleteresource.name = resource.name
+                return deleteresource.delete_resource(client)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ spilloveraction() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].name = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ spilloveraction() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].name = resource[i].name
+                result = cls.delete_bulk_request(client, deleteresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def rename(cls, client, resource, new_name) :
+        """Use this API to rename a spilloveraction resource.
+
+        :param client: 
+        :param resource: 
+        :param new_name: 
+
+        """
+        try :
+            renameresource = spilloveraction()
+            if type(resource) == cls :
+                renameresource.name = resource.name
+            else :
+                renameresource.name = resource
+            return renameresource.rename_resource(client,new_name)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the spilloveraction resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = spilloveraction()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = spilloveraction()
+                        obj.name = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [spilloveraction() for _ in range(len(name))]
+                            obj = [spilloveraction() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = spilloveraction()
+                                obj[i].name = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the spilloveraction resources configured on NetScaler.
-		"""
-		try :
-			obj = spilloveraction()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of spilloveraction resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of spilloveraction resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = spilloveraction()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = spilloveraction()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	class Builtin:
-		MODIFIABLE = "MODIFIABLE"
-		DELETABLE = "DELETABLE"
-		IMMUTABLE = "IMMUTABLE"
-		PARTITION_ALL = "PARTITION_ALL"
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the spilloveraction resources configured on NetScaler.
 
-	class Action:
-		SPILLOVER = "SPILLOVER"
+        :param client: 
+
+        """
+        try :
+            obj = spilloveraction()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of spilloveraction resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = spilloveraction()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+
+    class Builtin:
+        """ """
+        MODIFIABLE = "MODIFIABLE"
+        DELETABLE = "DELETABLE"
+        IMMUTABLE = "IMMUTABLE"
+        PARTITION_ALL = "PARTITION_ALL"
+
+    class Action:
+        """ """
+        SPILLOVER = "SPILLOVER"
 
 class spilloveraction_response(base_response) :
-	def __init__(self, length=1) :
-		self.spilloveraction = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.spilloveraction = [spilloveraction() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.spilloveraction = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.spilloveraction = [spilloveraction() for _ in range(length)]
 

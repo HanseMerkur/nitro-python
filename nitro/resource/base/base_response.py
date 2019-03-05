@@ -15,8 +15,7 @@
 
 
 class base_response:
-    """ base_response is a abstract base class for all the netscaler config/stat response classes.
-    """
+    """base_response is a abstract base class for all the netscaler config/stat response classes."""
     def __init__(self): 
         self.errorcode = 0 
         self.message = "" 

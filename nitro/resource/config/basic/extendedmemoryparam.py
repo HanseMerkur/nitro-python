@@ -22,130 +22,150 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class extendedmemoryparam(base_resource) :
-	""" Configuration for Parameter for extended memory used by LSN and Subscriber Store resource. """
-	def __init__(self) :
-		self._memlimit = 0
-		self._memlimitactive = 0
-		self._maxmemlimit = 0
-		self._minrequiredmemory = 0
+    """Configuration for Parameter for extended memory used by LSN and Subscriber Store resource."""
+    def __init__(self) :
+        self._memlimit = 0
+        self._memlimitactive = 0
+        self._maxmemlimit = 0
+        self._minrequiredmemory = 0
 
-	@property
-	def memlimit(self) :
-		r"""Amount of NetScaler memory to reserve for the memory used by LSN and Subscriber Session Store feature, in multiples of 2MB.
-		Note: If you later reduce the value of this parameter, the amount of active memory is not reduced. Changing the configured memory limit can only increase the amount of active memory.
-		"""
-		try :
-			return self._memlimit
-		except Exception as e:
-			raise e
-
-	@memlimit.setter
-	def memlimit(self, memlimit) :
-		r"""Amount of NetScaler memory to reserve for the memory used by LSN and Subscriber Session Store feature, in multiples of 2MB.
-		Note: If you later reduce the value of this parameter, the amount of active memory is not reduced. Changing the configured memory limit can only increase the amount of active memory.
-		"""
-		try :
-			self._memlimit = memlimit
-		except Exception as e:
-			raise e
-
-	@property
-	def memlimitactive(self) :
-		r"""The active memory limit for extendedmemory on the system. Active memory limit could be different from configured memory limit. This could happen when memory limit could not be increased due to unavailability, or could not be decreased as it is already in use. This active memory limit configures the current memory limit for LSN and Subscriber Session Store.
-		"""
-		try :
-			return self._memlimitactive
-		except Exception as e:
-			raise e
-
-	@property
-	def maxmemlimit(self) :
-		r"""The maximum value of memory limit for extendedmemory on the system. Actual available memory may be less. This is maximum memory that can be utilized by LSN and Subscriber Session Store modules.
-		"""
-		try :
-			return self._maxmemlimit
-		except Exception as e:
-			raise e
-
-	@property
-	def minrequiredmemory(self) :
-		r"""The minimum memory requirement for extendedmemory. This is minimum memory required for LSN and Subscriber Session Store Modules.
-		"""
-		try :
-			return self._minrequiredmemory
-		except Exception as e:
-			raise e
-
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(extendedmemoryparam_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.extendedmemoryparam
-		except Exception as e :
-			raise e
-
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @property
+    def memlimit(self) :
+        """Amount of NetScaler memory to reserve for the memory used by LSN and Subscriber Session Store feature, in multiples of 2MB.
+        Note: If you later reduce the value of this parameter, the amount of active memory is not reduced. Changing the configured memory limit can only increase the amount of active memory.
 
 
+        """
+        try :
+            return self._memlimit
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update extendedmemoryparam.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = extendedmemoryparam()
-				updateresource.memlimit = resource.memlimit
-				return updateresource.update_resource(client)
-		except Exception as e :
-			raise e
+    @memlimit.setter
+    def memlimit(self, memlimit) :
+        """Amount of NetScaler memory to reserve for the memory used by LSN and Subscriber Session Store feature, in multiples of 2MB.
+        Note: If you later reduce the value of this parameter, the amount of active memory is not reduced. Changing the configured memory limit can only increase the amount of active memory.
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of extendedmemoryparam resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = extendedmemoryparam()
-				return unsetresource.unset_resource(client, args)
-		except Exception as e :
-			raise e
+        :param memlimit: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the extendedmemoryparam resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = extendedmemoryparam()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._memlimit = memlimit
+        except Exception as e:
+            raise e
+
+    @property
+    def memlimitactive(self) :
+        """The active memory limit for extendedmemory on the system. Active memory limit could be different from configured memory limit. This could happen when memory limit could not be increased due to unavailability, or could not be decreased as it is already in use. This active memory limit configures the current memory limit for LSN and Subscriber Session Store."""
+        try :
+            return self._memlimitactive
+        except Exception as e:
+            raise e
+
+    @property
+    def maxmemlimit(self) :
+        """The maximum value of memory limit for extendedmemory on the system. Actual available memory may be less. This is maximum memory that can be utilized by LSN and Subscriber Session Store modules."""
+        try :
+            return self._maxmemlimit
+        except Exception as e:
+            raise e
+
+    @property
+    def minrequiredmemory(self) :
+        """The minimum memory requirement for extendedmemory. This is minimum memory required for LSN and Subscriber Session Store Modules."""
+        try :
+            return self._minrequiredmemory
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(extendedmemoryparam_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.extendedmemoryparam
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
+
+
+
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update extendedmemoryparam.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = extendedmemoryparam()
+                updateresource.memlimit = resource.memlimit
+                return updateresource.update_resource(client)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of extendedmemoryparam resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = extendedmemoryparam()
+                return unsetresource.unset_resource(client, args)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the extendedmemoryparam resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = extendedmemoryparam()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
 class extendedmemoryparam_response(base_response) :
-	def __init__(self, length=1) :
-		self.extendedmemoryparam = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.extendedmemoryparam = [extendedmemoryparam() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.extendedmemoryparam = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.extendedmemoryparam = [extendedmemoryparam() for _ in range(length)]
 

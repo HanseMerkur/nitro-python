@@ -16,26 +16,27 @@
 
 
 class aaauser_args :
-	r""" Provides additional arguments required for fetching the aaauser resource.
-	"""
-	def __init__(self) :
-		self._loggedin = False
+    """Provides additional arguments required for fetching the aaauser resource."""
+    def __init__(self) :
+        self._loggedin = False
 
-	@property
-	def loggedin(self) :
-		r"""Show whether the user is logged in or not.
-		"""
-		try :
-			return self._loggedin
-		except Exception as e:
-			raise e
+    @property
+    def loggedin(self) :
+        """Show whether the user is logged in or not."""
+        try :
+            return self._loggedin
+        except Exception as e:
+            raise e
 
-	@loggedin.setter
-	def loggedin(self, loggedin) :
-		r"""Show whether the user is logged in or not.
-		"""
-		try :
-			self._loggedin = loggedin
-		except Exception as e:
-			raise e
+    @loggedin.setter
+    def loggedin(self, loggedin) :
+        """Show whether the user is logged in or not.
+
+        :param loggedin: 
+
+        """
+        try :
+            self._loggedin = loggedin
+        except Exception as e:
+            raise e
 

@@ -22,294 +22,331 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class ip6tunnel(base_resource) :
-	""" Configuration for ip6 Tunnel resource. """
-	def __init__(self) :
-		self._name = ""
-		self._remote = ""
-		self._local = ""
-		self._ownergroup = ""
-		self._remoteip = ""
-		self._type = 0
-		self._encapip = ""
-		self.___count = 0
+    """Configuration for ip6 Tunnel resource."""
+    def __init__(self) :
+        self._name = ""
+        self._remote = ""
+        self._local = ""
+        self._ownergroup = ""
+        self._remoteip = ""
+        self._type = 0
+        self._encapip = ""
+        self.___count = 0
 
-	@property
-	def name(self) :
-		r"""Name for the IPv6 Tunnel. Cannot be changed after the service group is created. Must begin with a number or letter, and can consist of letters, numbers, and the @ _ - . (period) : (colon) # and space ( ) characters.<br/>Minimum length =  1<br/>Maximum length =  31.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name for the IPv6 Tunnel. Cannot be changed after the service group is created. Must begin with a number or letter, and can consist of letters, numbers, and the @ _ - . (period) : (colon) # and space ( ) characters.<br/>Minimum length =  1<br/>Maximum length =  31."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name for the IPv6 Tunnel. Cannot be changed after the service group is created. Must begin with a number or letter, and can consist of letters, numbers, and the @ _ - . (period) : (colon) # and space ( ) characters.<br/>Minimum length =  1<br/>Maximum length =  31
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name for the IPv6 Tunnel. Cannot be changed after the service group is created. Must begin with a number or letter, and can consist of letters, numbers, and the @ _ - . (period) : (colon) # and space ( ) characters.<br/>Minimum length =  1<br/>Maximum length =  31
 
-	@property
-	def remote(self) :
-		r"""An IPv6 address of the remote NetScaler appliance used to set up the tunnel.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._remote
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@remote.setter
-	def remote(self, remote) :
-		r"""An IPv6 address of the remote NetScaler appliance used to set up the tunnel.<br/>Minimum length =  1
-		"""
-		try :
-			self._remote = remote
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def local(self) :
-		r"""An IPv6 address of the local NetScaler appliance used to set up the tunnel.
-		"""
-		try :
-			return self._local
-		except Exception as e:
-			raise e
+    @property
+    def remote(self) :
+        """An IPv6 address of the remote NetScaler appliance used to set up the tunnel.<br/>Minimum length =  1."""
+        try :
+            return self._remote
+        except Exception as e:
+            raise e
 
-	@local.setter
-	def local(self, local) :
-		r"""An IPv6 address of the local NetScaler appliance used to set up the tunnel.
-		"""
-		try :
-			self._local = local
-		except Exception as e:
-			raise e
+    @remote.setter
+    def remote(self, remote) :
+        """An IPv6 address of the remote NetScaler appliance used to set up the tunnel.<br/>Minimum length =  1
 
-	@property
-	def ownergroup(self) :
-		r"""The owner node group in a Cluster for the tunnel.<br/>Default value: DEFAULT_NG<br/>Minimum length =  1.
-		"""
-		try :
-			return self._ownergroup
-		except Exception as e:
-			raise e
+        :param remote: 
 
-	@ownergroup.setter
-	def ownergroup(self, ownergroup) :
-		r"""The owner node group in a Cluster for the tunnel.<br/>Default value: DEFAULT_NG<br/>Minimum length =  1
-		"""
-		try :
-			self._ownergroup = ownergroup
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._remote = remote
+        except Exception as e:
+            raise e
 
-	@property
-	def remoteip(self) :
-		r"""The remote IP address or subnet of the tunnel.
-		"""
-		try :
-			return self._remoteip
-		except Exception as e:
-			raise e
+    @property
+    def local(self) :
+        """An IPv6 address of the local NetScaler appliance used to set up the tunnel."""
+        try :
+            return self._local
+        except Exception as e:
+            raise e
 
-	@property
-	def type(self) :
-		r"""The type of this tunnel.
-		"""
-		try :
-			return self._type
-		except Exception as e:
-			raise e
+    @local.setter
+    def local(self, local) :
+        """An IPv6 address of the local NetScaler appliance used to set up the tunnel.
 
-	@property
-	def encapip(self) :
-		r"""The effective local IP address of the tunnel. Used as the source of the encapsulated packets.
-		"""
-		try :
-			return self._encapip
-		except Exception as e:
-			raise e
+        :param local: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(ip6tunnel_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.ip6tunnel
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._local = local
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def ownergroup(self) :
+        """The owner node group in a Cluster for the tunnel.<br/>Default value: DEFAULT_NG<br/>Minimum length =  1."""
+        try :
+            return self._ownergroup
+        except Exception as e:
+            raise e
 
+    @ownergroup.setter
+    def ownergroup(self, ownergroup) :
+        """The owner node group in a Cluster for the tunnel.<br/>Default value: DEFAULT_NG<br/>Minimum length =  1
 
+        :param ownergroup: 
 
-	@classmethod
-	def add(cls, client, resource) :
-		r""" Use this API to add ip6tunnel.
-		"""
-		try :
-			if type(resource) is not list :
-				addresource = ip6tunnel()
-				addresource.name = resource.name
-				addresource.remote = resource.remote
-				addresource.local = resource.local
-				addresource.ownergroup = resource.ownergroup
-				return addresource.add_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					addresources = [ ip6tunnel() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						addresources[i].name = resource[i].name
-						addresources[i].remote = resource[i].remote
-						addresources[i].local = resource[i].local
-						addresources[i].ownergroup = resource[i].ownergroup
-				result = cls.add_bulk_request(client, addresources)
-			return result
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._ownergroup = ownergroup
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete ip6tunnel.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = ip6tunnel()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.name = resource
-				else :
-					deleteresource.name = resource.name
-				return deleteresource.delete_resource(client)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ ip6tunnel() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].name = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ ip6tunnel() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].name = resource[i].name
-				result = cls.delete_bulk_request(client, deleteresources)
-			return result
-		except Exception as e :
-			raise e
+    @property
+    def remoteip(self) :
+        """The remote IP address or subnet of the tunnel."""
+        try :
+            return self._remoteip
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the ip6tunnel resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = ip6tunnel()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = ip6tunnel()
-						obj.name = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [ip6tunnel() for _ in range(len(name))]
-							obj = [ip6tunnel() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = ip6tunnel()
-								obj[i].name = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    @property
+    def type(self) :
+        """The type of this tunnel."""
+        try :
+            return self._type
+        except Exception as e:
+            raise e
+
+    @property
+    def encapip(self) :
+        """The effective local IP address of the tunnel. Used as the source of the encapsulated packets."""
+        try :
+            return self._encapip
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(ip6tunnel_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.ip6tunnel
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_args(cls, client, args) :
-		r""" Use this API to fetch all the ip6tunnel resources that are configured on netscaler.
-	# This uses ip6tunnel_args which is a way to provide additional arguments while fetching the resources.
-		"""
-		try :
-			obj = ip6tunnel()
-			option_ = options()
-			option_.args = nitro_util.object_to_string_withoutquotes(args)
-			response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def add(cls, client, resource) :
+        """Use this API to add ip6tunnel.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                addresource = ip6tunnel()
+                addresource.name = resource.name
+                addresource.remote = resource.remote
+                addresource.local = resource.local
+                addresource.ownergroup = resource.ownergroup
+                return addresource.add_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    addresources = [ ip6tunnel() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        addresources[i].name = resource[i].name
+                        addresources[i].remote = resource[i].remote
+                        addresources[i].local = resource[i].local
+                        addresources[i].ownergroup = resource[i].ownergroup
+                result = cls.add_bulk_request(client, addresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete ip6tunnel.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = ip6tunnel()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.name = resource
+                else :
+                    deleteresource.name = resource.name
+                return deleteresource.delete_resource(client)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ ip6tunnel() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].name = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ ip6tunnel() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].name = resource[i].name
+                result = cls.delete_bulk_request(client, deleteresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the ip6tunnel resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = ip6tunnel()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = ip6tunnel()
+                        obj.name = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [ip6tunnel() for _ in range(len(name))]
+                            obj = [ip6tunnel() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = ip6tunnel()
+                                obj[i].name = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of ip6tunnel resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = ip6tunnel()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_args(cls, client, args) :
+        """Use this API to fetch all the ip6tunnel resources that are configured on netscaler.
+            # This uses ip6tunnel_args which is a way to provide additional arguments while fetching the resources.
+
+        :param client: 
+        :param args: 
+
+        """
+        try :
+            obj = ip6tunnel()
+            option_ = options()
+            option_.args = nitro_util.object_to_string_withoutquotes(args)
+            response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the ip6tunnel resources configured on NetScaler.
-		"""
-		try :
-			obj = ip6tunnel()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of ip6tunnel resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of ip6tunnel resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = ip6tunnel()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = ip6tunnel()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the ip6tunnel resources configured on NetScaler.
+
+        :param client: 
+
+        """
+        try :
+            obj = ip6tunnel()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of ip6tunnel resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = ip6tunnel()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
 
 
 class ip6tunnel_response(base_response) :
-	def __init__(self, length=1) :
-		self.ip6tunnel = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.ip6tunnel = [ip6tunnel() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.ip6tunnel = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.ip6tunnel = [ip6tunnel() for _ in range(length)]
 

@@ -22,93 +22,101 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class lbgroup_binding(base_resource):
-	""" Binding class showing the resources that can be bound to lbgroup_binding. 
-	"""
-	def __init__(self) :
-		self._name = ""
-		self.lbgroup_lbvserver_binding = []
+    """Binding class showing the resources that can be bound to lbgroup_binding."""
+    def __init__(self) :
+        self._name = ""
+        self.lbgroup_lbvserver_binding = []
 
-	@property
-	def name(self) :
-		r"""Name of the load balancing virtual server group.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the load balancing virtual server group.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the load balancing virtual server group.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the load balancing virtual server group.<br/>Minimum length =  1
 
-	@property
-	def lbgroup_lbvserver_bindings(self) :
-		r"""lbvserver that can be bound to lbgroup.
-		"""
-		try :
-			return self._lbgroup_lbvserver_binding
-		except Exception as e:
-			raise e
+        :param name: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(lbgroup_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.lbgroup_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def lbgroup_lbvserver_bindings(self) :
+        """lbvserver that can be bound to lbgroup."""
+        try :
+            return self._lbgroup_lbvserver_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(lbgroup_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.lbgroup_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, name) :
-		r""" Use this API to fetch lbgroup_binding resource.
-		"""
-		try :
-			if type(name) is not list :
-				obj = lbgroup_binding()
-				obj.name = name
-				response = obj.get_resource(service)
-			else :
-				if name and len(name) > 0 :
-					obj = [lbgroup_binding() for _ in range(len(name))]
-					for i in range(len(name)) :
-						obj[i].name = name[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, name) :
+        """Use this API to fetch lbgroup_binding resource.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            if type(name) is not list :
+                obj = lbgroup_binding()
+                obj.name = name
+                response = obj.get_resource(service)
+            else :
+                if name and len(name) > 0 :
+                    obj = [lbgroup_binding() for _ in range(len(name))]
+                    for i in range(len(name)) :
+                        obj[i].name = name[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class lbgroup_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.lbgroup_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.lbgroup_binding = [lbgroup_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.lbgroup_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.lbgroup_binding = [lbgroup_binding() for _ in range(length)]
 

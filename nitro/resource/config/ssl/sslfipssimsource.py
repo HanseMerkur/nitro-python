@@ -22,124 +22,142 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslfipssimsource(base_resource) :
-	""" Configuration for FIPsSIM source resource. """
-	def __init__(self) :
-		self._targetsecret = ""
-		self._sourcesecret = ""
-		self._certfile = ""
+    """Configuration for FIPsSIM source resource."""
+    def __init__(self) :
+        self._targetsecret = ""
+        self._sourcesecret = ""
+        self._certfile = ""
 
-	@property
-	def targetsecret(self) :
-		r"""Name of and, optionally, path to the target FIPS appliance's secret data. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._targetsecret
-		except Exception as e:
-			raise e
+    @property
+    def targetsecret(self) :
+        """Name of and, optionally, path to the target FIPS appliance's secret data. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1."""
+        try :
+            return self._targetsecret
+        except Exception as e:
+            raise e
 
-	@targetsecret.setter
-	def targetsecret(self, targetsecret) :
-		r"""Name of and, optionally, path to the target FIPS appliance's secret data. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1
-		"""
-		try :
-			self._targetsecret = targetsecret
-		except Exception as e:
-			raise e
+    @targetsecret.setter
+    def targetsecret(self, targetsecret) :
+        """Name of and, optionally, path to the target FIPS appliance's secret data. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1
 
-	@property
-	def sourcesecret(self) :
-		r"""Name for and, optionally, path to the source FIPS appliance's secret data. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._sourcesecret
-		except Exception as e:
-			raise e
+        :param targetsecret: 
 
-	@sourcesecret.setter
-	def sourcesecret(self, sourcesecret) :
-		r"""Name for and, optionally, path to the source FIPS appliance's secret data. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1
-		"""
-		try :
-			self._sourcesecret = sourcesecret
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._targetsecret = targetsecret
+        except Exception as e:
+            raise e
 
-	@property
-	def certfile(self) :
-		r"""Name for and, optionally, path to the source FIPS appliance's certificate file. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._certfile
-		except Exception as e:
-			raise e
+    @property
+    def sourcesecret(self) :
+        """Name for and, optionally, path to the source FIPS appliance's secret data. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1."""
+        try :
+            return self._sourcesecret
+        except Exception as e:
+            raise e
 
-	@certfile.setter
-	def certfile(self, certfile) :
-		r"""Name for and, optionally, path to the source FIPS appliance's certificate file. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1
-		"""
-		try :
-			self._certfile = certfile
-		except Exception as e:
-			raise e
+    @sourcesecret.setter
+    def sourcesecret(self, sourcesecret) :
+        """Name for and, optionally, path to the source FIPS appliance's secret data. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslfipssimsource_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslfipssimsource
-		except Exception as e :
-			raise e
+        :param sourcesecret: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._sourcesecret = sourcesecret
+        except Exception as e:
+            raise e
+
+    @property
+    def certfile(self) :
+        """Name for and, optionally, path to the source FIPS appliance's certificate file. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1."""
+        try :
+            return self._certfile
+        except Exception as e:
+            raise e
+
+    @certfile.setter
+    def certfile(self, certfile) :
+        """Name for and, optionally, path to the source FIPS appliance's certificate file. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1
+
+        :param certfile: 
+
+        """
+        try :
+            self._certfile = certfile
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslfipssimsource_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslfipssimsource
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def enable(cls, client, resource) :
-		r""" Use this API to enable sslfipssimsource.
-		"""
-		try :
-			if type(resource) is not list :
-				enableresource = sslfipssimsource()
-				enableresource.targetsecret = resource.targetsecret
-				enableresource.sourcesecret = resource.sourcesecret
-				return enableresource.perform_operation(client,"enable")
-		except Exception as e :
-			raise e
+    @classmethod
+    def enable(cls, client, resource) :
+        """Use this API to enable sslfipssimsource.
 
-	@classmethod
-	def init(cls, client, resource) :
-		r""" Use this API to init sslfipssimsource.
-		"""
-		try :
-			if type(resource) is not list :
-				initresource = sslfipssimsource()
-				initresource.certfile = resource.certfile
-				return initresource.perform_operation(client,"init")
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                enableresource = sslfipssimsource()
+                enableresource.targetsecret = resource.targetsecret
+                enableresource.sourcesecret = resource.sourcesecret
+                return enableresource.perform_operation(client,"enable")
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def init(cls, client, resource) :
+        """Use this API to init sslfipssimsource.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                initresource = sslfipssimsource()
+                initresource.certfile = resource.certfile
+                return initresource.perform_operation(client,"init")
+        except Exception as e :
+            raise e
 
 class sslfipssimsource_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslfipssimsource = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslfipssimsource = [sslfipssimsource() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslfipssimsource = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslfipssimsource = [sslfipssimsource() for _ in range(length)]
 

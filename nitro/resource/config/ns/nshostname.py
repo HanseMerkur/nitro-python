@@ -22,165 +22,193 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class nshostname(base_resource) :
-	""" Configuration for host name resource. """
-	def __init__(self) :
-		self._hostname = ""
-		self._ownernode = 0
-		self.___count = 0
+    """Configuration for host name resource."""
+    def __init__(self) :
+        self._hostname = ""
+        self._ownernode = 0
+        self.___count = 0
 
-	@property
-	def hostname(self) :
-		r"""Host name for the NetScaler appliance.<br/>Minimum length =  1<br/>Maximum length =  255.
-		"""
-		try :
-			return self._hostname
-		except Exception as e:
-			raise e
+    @property
+    def hostname(self) :
+        """Host name for the NetScaler appliance.<br/>Minimum length =  1<br/>Maximum length =  255."""
+        try :
+            return self._hostname
+        except Exception as e:
+            raise e
 
-	@hostname.setter
-	def hostname(self, hostname) :
-		r"""Host name for the NetScaler appliance.<br/>Minimum length =  1<br/>Maximum length =  255
-		"""
-		try :
-			self._hostname = hostname
-		except Exception as e:
-			raise e
+    @hostname.setter
+    def hostname(self, hostname) :
+        """Host name for the NetScaler appliance.<br/>Minimum length =  1<br/>Maximum length =  255
 
-	@property
-	def ownernode(self) :
-		r"""ID of the cluster node for which you are setting the hostname. Can be configured only through the cluster IP address.<br/>Default value: 255<br/>Maximum length =  31.
-		"""
-		try :
-			return self._ownernode
-		except Exception as e:
-			raise e
+        :param hostname: 
 
-	@ownernode.setter
-	def ownernode(self, ownernode) :
-		r"""ID of the cluster node for which you are setting the hostname. Can be configured only through the cluster IP address.<br/>Default value: 255<br/>Maximum length =  31
-		"""
-		try :
-			self._ownernode = ownernode
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._hostname = hostname
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(nshostname_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.nshostname
-		except Exception as e :
-			raise e
+    @property
+    def ownernode(self) :
+        """ID of the cluster node for which you are setting the hostname. Can be configured only through the cluster IP address.<br/>Default value: 255<br/>Maximum length =  31."""
+        try :
+            return self._ownernode
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.ownernode is not None :
-				return str(self.ownernode)
-			return None
-		except Exception as e :
-			raise e
+    @ownernode.setter
+    def ownernode(self, ownernode) :
+        """ID of the cluster node for which you are setting the hostname. Can be configured only through the cluster IP address.<br/>Default value: 255<br/>Maximum length =  31
 
+        :param ownernode: 
 
+        """
+        try :
+            self._ownernode = ownernode
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update nshostname.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = nshostname()
-				updateresource.hostname = resource.hostname
-				updateresource.ownernode = resource.ownernode
-				return updateresource.update_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					updateresources = [ nshostname() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].hostname = resource[i].hostname
-						updateresources[i].ownernode = resource[i].ownernode
-				result = cls.update_bulk_request(client, updateresources)
-			return result
-		except Exception as e :
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the nshostname resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = nshostname()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(nshostname_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.nshostname
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.ownernode is not None :
+                return str(self.ownernode)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of nshostname resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = nshostname()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update nshostname.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = nshostname()
+                updateresource.hostname = resource.hostname
+                updateresource.ownernode = resource.ownernode
+                return updateresource.update_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    updateresources = [ nshostname() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].hostname = resource[i].hostname
+                        updateresources[i].ownernode = resource[i].ownernode
+                result = cls.update_bulk_request(client, updateresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the nshostname resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = nshostname()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the nshostname resources configured on NetScaler.
-		"""
-		try :
-			obj = nshostname()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of nshostname resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of nshostname resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = nshostname()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = nshostname()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the nshostname resources configured on NetScaler.
+
+        :param client: 
+
+        """
+        try :
+            obj = nshostname()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of nshostname resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = nshostname()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
 
 
 class nshostname_response(base_response) :
-	def __init__(self, length=1) :
-		self.nshostname = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.nshostname = [nshostname() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.nshostname = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.nshostname = [nshostname() for _ in range(length)]
 

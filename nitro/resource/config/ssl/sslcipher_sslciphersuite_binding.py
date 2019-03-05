@@ -22,276 +22,325 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslcipher_sslciphersuite_binding(base_resource) :
-	""" Binding class showing the sslciphersuite that can be bound to sslcipher.
-	"""
-	def __init__(self) :
-		self._ciphername = ""
-		self._description = ""
-		self._cipherpriority = 0
-		self._ciphergroupname = ""
-		self._cipheroperation = ""
-		self._ciphgrpals = ""
-		self.___count = 0
+    """Binding class showing the sslciphersuite that can be bound to sslcipher."""
+    def __init__(self) :
+        self._ciphername = ""
+        self._description = ""
+        self._cipherpriority = 0
+        self._ciphergroupname = ""
+        self._cipheroperation = ""
+        self._ciphgrpals = ""
+        self.___count = 0
 
-	@property
-	def ciphername(self) :
-		r"""Cipher name.
-		"""
-		try :
-			return self._ciphername
-		except Exception as e:
-			raise e
+    @property
+    def ciphername(self) :
+        """Cipher name."""
+        try :
+            return self._ciphername
+        except Exception as e:
+            raise e
 
-	@ciphername.setter
-	def ciphername(self, ciphername) :
-		r"""Cipher name.
-		"""
-		try :
-			self._ciphername = ciphername
-		except Exception as e:
-			raise e
+    @ciphername.setter
+    def ciphername(self, ciphername) :
+        """Cipher name.
 
-	@property
-	def ciphgrpals(self) :
-		r"""A cipher-suite can consist of an individual cipher name, the system predefined cipher-alias name, or user defined cipher-group name.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._ciphgrpals
-		except Exception as e:
-			raise e
+        :param ciphername: 
 
-	@ciphgrpals.setter
-	def ciphgrpals(self, ciphgrpals) :
-		r"""A cipher-suite can consist of an individual cipher name, the system predefined cipher-alias name, or user defined cipher-group name.<br/>Minimum length =  1
-		"""
-		try :
-			self._ciphgrpals = ciphgrpals
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._ciphername = ciphername
+        except Exception as e:
+            raise e
 
-	@property
-	def cipherpriority(self) :
-		r"""This indicates priority assigned to the particular cipher.<br/>Minimum value =  1.
-		"""
-		try :
-			return self._cipherpriority
-		except Exception as e:
-			raise e
+    @property
+    def ciphgrpals(self) :
+        """A cipher-suite can consist of an individual cipher name, the system predefined cipher-alias name, or user defined cipher-group name.<br/>Minimum length =  1."""
+        try :
+            return self._ciphgrpals
+        except Exception as e:
+            raise e
 
-	@cipherpriority.setter
-	def cipherpriority(self, cipherpriority) :
-		r"""This indicates priority assigned to the particular cipher.<br/>Minimum value =  1
-		"""
-		try :
-			self._cipherpriority = cipherpriority
-		except Exception as e:
-			raise e
+    @ciphgrpals.setter
+    def ciphgrpals(self, ciphgrpals) :
+        """A cipher-suite can consist of an individual cipher name, the system predefined cipher-alias name, or user defined cipher-group name.<br/>Minimum length =  1
 
-	@property
-	def description(self) :
-		r"""Cipher suite description.
-		"""
-		try :
-			return self._description
-		except Exception as e:
-			raise e
+        :param ciphgrpals: 
 
-	@description.setter
-	def description(self, description) :
-		r"""Cipher suite description.
-		"""
-		try :
-			self._description = description
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._ciphgrpals = ciphgrpals
+        except Exception as e:
+            raise e
 
-	@property
-	def ciphergroupname(self) :
-		r"""Name of the user-defined cipher group.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._ciphergroupname
-		except Exception as e:
-			raise e
+    @property
+    def cipherpriority(self) :
+        """This indicates priority assigned to the particular cipher.<br/>Minimum value =  1."""
+        try :
+            return self._cipherpriority
+        except Exception as e:
+            raise e
 
-	@ciphergroupname.setter
-	def ciphergroupname(self, ciphergroupname) :
-		r"""Name of the user-defined cipher group.<br/>Minimum length =  1
-		"""
-		try :
-			self._ciphergroupname = ciphergroupname
-		except Exception as e:
-			raise e
+    @cipherpriority.setter
+    def cipherpriority(self, cipherpriority) :
+        """This indicates priority assigned to the particular cipher.<br/>Minimum value =  1
 
-	@property
-	def cipheroperation(self) :
-		r"""The operation that is performed when adding the cipher-suite.
-		Possible cipher operations are:
-		ADD - Appends the given cipher-suite to the existing one configured for the virtual server.
-		REM - Removes the given cipher-suite from the existing one configured for the virtual server.
-		ORD - Overrides the current configured cipher-suite for the virtual server with the given cipher-suite.<br/>Default value: 0<br/>Possible values = ADD, REM, ORD.
-		"""
-		try :
-			return self._cipheroperation
-		except Exception as e:
-			raise e
+        :param cipherpriority: 
 
-	@cipheroperation.setter
-	def cipheroperation(self, cipheroperation) :
-		r"""The operation that is performed when adding the cipher-suite.
-		Possible cipher operations are:
-		ADD - Appends the given cipher-suite to the existing one configured for the virtual server.
-		REM - Removes the given cipher-suite from the existing one configured for the virtual server.
-		ORD - Overrides the current configured cipher-suite for the virtual server with the given cipher-suite.<br/>Default value: 0<br/>Possible values = ADD, REM, ORD
-		"""
-		try :
-			self._cipheroperation = cipheroperation
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._cipherpriority = cipherpriority
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslcipher_sslciphersuite_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslcipher_sslciphersuite_binding
-		except Exception as e :
-			raise e
+    @property
+    def description(self) :
+        """Cipher suite description."""
+        try :
+            return self._description
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.ciphergroupname is not None :
-				return str(self.ciphergroupname)
-			return None
-		except Exception as e :
-			raise e
+    @description.setter
+    def description(self, description) :
+        """Cipher suite description.
+
+        :param description: 
+
+        """
+        try :
+            self._description = description
+        except Exception as e:
+            raise e
+
+    @property
+    def ciphergroupname(self) :
+        """Name of the user-defined cipher group.<br/>Minimum length =  1."""
+        try :
+            return self._ciphergroupname
+        except Exception as e:
+            raise e
+
+    @ciphergroupname.setter
+    def ciphergroupname(self, ciphergroupname) :
+        """Name of the user-defined cipher group.<br/>Minimum length =  1
+
+        :param ciphergroupname: 
+
+        """
+        try :
+            self._ciphergroupname = ciphergroupname
+        except Exception as e:
+            raise e
+
+    @property
+    def cipheroperation(self) :
+        """The operation that is performed when adding the cipher-suite.
+        Possible cipher operations are:
+        ADD - Appends the given cipher-suite to the existing one configured for the virtual server.
+        REM - Removes the given cipher-suite from the existing one configured for the virtual server.
+        ORD - Overrides the current configured cipher-suite for the virtual server with the given cipher-suite.<br/>Default value: 0<br/>Possible values = ADD, REM, ORD.
 
 
+        """
+        try :
+            return self._cipheroperation
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				updateresource = sslcipher_sslciphersuite_binding()
-				updateresource.ciphergroupname = resource.ciphergroupname
-				updateresource.cipheroperation = resource.cipheroperation
-				updateresource.ciphgrpals = resource.ciphgrpals
-				updateresource.ciphername = resource.ciphername
-				updateresource.cipherpriority = resource.cipherpriority
-				return updateresource.update_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					updateresources = [sslcipher_sslciphersuite_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].ciphergroupname = resource[i].ciphergroupname
-						updateresources[i].cipheroperation = resource[i].cipheroperation
-						updateresources[i].ciphgrpals = resource[i].ciphgrpals
-						updateresources[i].ciphername = resource[i].ciphername
-						updateresources[i].cipherpriority = resource[i].cipherpriority
-				return cls.update_bulk_request(client, updateresources)
-		except Exception as e :
-			raise e
+    @cipheroperation.setter
+    def cipheroperation(self, cipheroperation) :
+        """The operation that is performed when adding the cipher-suite.
+        Possible cipher operations are:
+        ADD - Appends the given cipher-suite to the existing one configured for the virtual server.
+        REM - Removes the given cipher-suite from the existing one configured for the virtual server.
+        ORD - Overrides the current configured cipher-suite for the virtual server with the given cipher-suite.<br/>Default value: 0<br/>Possible values = ADD, REM, ORD
 
-	@classmethod
-	def delete(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				deleteresource = sslcipher_sslciphersuite_binding()
-				deleteresource.ciphergroupname = resource.ciphergroupname
-				deleteresource.ciphername = resource.ciphername
-				return deleteresource.delete_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					deleteresources = [sslcipher_sslciphersuite_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						deleteresources[i].ciphergroupname = resource[i].ciphergroupname
-						deleteresources[i].ciphername = resource[i].ciphername
-				return cls.delete_bulk_request(client, deleteresources)
-		except Exception as e :
-			raise e
+        :param cipheroperation: 
 
-	@classmethod
-	def get(cls, service, ciphergroupname) :
-		r""" Use this API to fetch sslcipher_sslciphersuite_binding resources.
-		"""
-		try :
-			obj = sslcipher_sslciphersuite_binding()
-			obj.ciphergroupname = ciphergroupname
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._cipheroperation = cipheroperation
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get_filtered(cls, service, ciphergroupname, filter_) :
-		r""" Use this API to fetch filtered set of sslcipher_sslciphersuite_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslcipher_sslciphersuite_binding()
-			obj.ciphergroupname = ciphergroupname
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	@classmethod
-	def count(cls, service, ciphergroupname) :
-		r""" Use this API to count sslcipher_sslciphersuite_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = sslcipher_sslciphersuite_binding()
-			obj.ciphergroupname = ciphergroupname
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        :param service: 
+        :param response: 
 
-	@classmethod
-	def count_filtered(cls, service, ciphergroupname, filter_) :
-		r""" Use this API to count the filtered set of sslcipher_sslciphersuite_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslcipher_sslciphersuite_binding()
-			obj.ciphergroupname = ciphergroupname
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslcipher_sslciphersuite_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslcipher_sslciphersuite_binding
+        except Exception as e :
+            raise e
 
-	class Cipheroperation:
-		ADD = "ADD"
-		REM = "REM"
-		ORD = "ORD"
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.ciphergroupname is not None :
+                return str(self.ciphergroupname)
+            return None
+        except Exception as e :
+            raise e
+
+
+
+    @classmethod
+    def add(cls, client, resource) :
+        """
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if resource and type(resource) is not list :
+                updateresource = sslcipher_sslciphersuite_binding()
+                updateresource.ciphergroupname = resource.ciphergroupname
+                updateresource.cipheroperation = resource.cipheroperation
+                updateresource.ciphgrpals = resource.ciphgrpals
+                updateresource.ciphername = resource.ciphername
+                updateresource.cipherpriority = resource.cipherpriority
+                return updateresource.update_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    updateresources = [sslcipher_sslciphersuite_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].ciphergroupname = resource[i].ciphergroupname
+                        updateresources[i].cipheroperation = resource[i].cipheroperation
+                        updateresources[i].ciphgrpals = resource[i].ciphgrpals
+                        updateresources[i].ciphername = resource[i].ciphername
+                        updateresources[i].cipherpriority = resource[i].cipherpriority
+                return cls.update_bulk_request(client, updateresources)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if resource and type(resource) is not list :
+                deleteresource = sslcipher_sslciphersuite_binding()
+                deleteresource.ciphergroupname = resource.ciphergroupname
+                deleteresource.ciphername = resource.ciphername
+                return deleteresource.delete_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    deleteresources = [sslcipher_sslciphersuite_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        deleteresources[i].ciphergroupname = resource[i].ciphergroupname
+                        deleteresources[i].ciphername = resource[i].ciphername
+                return cls.delete_bulk_request(client, deleteresources)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, service, ciphergroupname) :
+        """Use this API to fetch sslcipher_sslciphersuite_binding resources.
+
+        :param service: 
+        :param ciphergroupname: 
+
+        """
+        try :
+            obj = sslcipher_sslciphersuite_binding()
+            obj.ciphergroupname = ciphergroupname
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def get_filtered(cls, service, ciphergroupname, filter_) :
+        """Use this API to fetch filtered set of sslcipher_sslciphersuite_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param ciphergroupname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslcipher_sslciphersuite_binding()
+            obj.ciphergroupname = ciphergroupname
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, ciphergroupname) :
+        """Use this API to count sslcipher_sslciphersuite_binding resources configued on NetScaler.
+
+        :param service: 
+        :param ciphergroupname: 
+
+        """
+        try :
+            obj = sslcipher_sslciphersuite_binding()
+            obj.ciphergroupname = ciphergroupname
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, ciphergroupname, filter_) :
+        """Use this API to count the filtered set of sslcipher_sslciphersuite_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param ciphergroupname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslcipher_sslciphersuite_binding()
+            obj.ciphergroupname = ciphergroupname
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Cipheroperation:
+        """ """
+        ADD = "ADD"
+        REM = "REM"
+        ORD = "ORD"
 
 class sslcipher_sslciphersuite_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslcipher_sslciphersuite_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslcipher_sslciphersuite_binding = [sslcipher_sslciphersuite_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslcipher_sslciphersuite_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslcipher_sslciphersuite_binding = [sslcipher_sslciphersuite_binding() for _ in range(length)]
 

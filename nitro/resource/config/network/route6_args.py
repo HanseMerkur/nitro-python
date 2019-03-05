@@ -16,56 +16,60 @@
 
 
 class route6_args :
-	r""" Provides additional arguments required for fetching the route6 resource.
-	"""
-	def __init__(self) :
-		self._routetype = ""
-		self._detail = False
+    """Provides additional arguments required for fetching the route6 resource."""
+    def __init__(self) :
+        self._routetype = ""
+        self._detail = False
 
-	@property
-	def routetype(self) :
-		r"""The type of IPv6 routes to be to be displayed.<br/>Possible values = CONNECTED, STATIC, DYNAMIC, OSPF, ISIS, BGP, RIP, ND-RA-ROUTE, FIB6.
-		"""
-		try :
-			return self._routetype
-		except Exception as e:
-			raise e
+    @property
+    def routetype(self) :
+        """The type of IPv6 routes to be to be displayed.<br/>Possible values = CONNECTED, STATIC, DYNAMIC, OSPF, ISIS, BGP, RIP, ND-RA-ROUTE, FIB6."""
+        try :
+            return self._routetype
+        except Exception as e:
+            raise e
 
-	@routetype.setter
-	def routetype(self, routetype) :
-		r"""The type of IPv6 routes to be to be displayed.<br/>Possible values = CONNECTED, STATIC, DYNAMIC, OSPF, ISIS, BGP, RIP, ND-RA-ROUTE, FIB6
-		"""
-		try :
-			self._routetype = routetype
-		except Exception as e:
-			raise e
+    @routetype.setter
+    def routetype(self, routetype) :
+        """The type of IPv6 routes to be to be displayed.<br/>Possible values = CONNECTED, STATIC, DYNAMIC, OSPF, ISIS, BGP, RIP, ND-RA-ROUTE, FIB6
 
-	@property
-	def detail(self) :
-		r"""To get a detailed view.
-		"""
-		try :
-			return self._detail
-		except Exception as e:
-			raise e
+        :param routetype: 
 
-	@detail.setter
-	def detail(self, detail) :
-		r"""To get a detailed view.
-		"""
-		try :
-			self._detail = detail
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._routetype = routetype
+        except Exception as e:
+            raise e
 
-	class Routetype:
-		CONNECTED = "CONNECTED"
-		STATIC = "STATIC"
-		DYNAMIC = "DYNAMIC"
-		OSPF = "OSPF"
-		ISIS = "ISIS"
-		BGP = "BGP"
-		RIP = "RIP"
-		ND_RA_ROUTE = "ND-RA-ROUTE"
-		FIB6 = "FIB6"
+    @property
+    def detail(self) :
+        """To get a detailed view."""
+        try :
+            return self._detail
+        except Exception as e:
+            raise e
+
+    @detail.setter
+    def detail(self, detail) :
+        """To get a detailed view.
+
+        :param detail: 
+
+        """
+        try :
+            self._detail = detail
+        except Exception as e:
+            raise e
+
+    class Routetype:
+        """ """
+        CONNECTED = "CONNECTED"
+        STATIC = "STATIC"
+        DYNAMIC = "DYNAMIC"
+        OSPF = "OSPF"
+        ISIS = "ISIS"
+        BGP = "BGP"
+        RIP = "RIP"
+        ND_RA_ROUTE = "ND-RA-ROUTE"
+        FIB6 = "FIB6"
 

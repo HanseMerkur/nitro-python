@@ -16,55 +16,59 @@
 
 
 class route_args :
-	r""" Provides additional arguments required for fetching the route resource.
-	"""
-	def __init__(self) :
-		self._routetype = ""
-		self._detail = False
+    """Provides additional arguments required for fetching the route resource."""
+    def __init__(self) :
+        self._routetype = ""
+        self._detail = False
 
-	@property
-	def routetype(self) :
-		r"""The type of routes to be shown.<br/>Possible values = CONNECTED, STATIC, DYNAMIC, OSPF, ISIS, RIP, BGP, VPATH.
-		"""
-		try :
-			return self._routetype
-		except Exception as e:
-			raise e
+    @property
+    def routetype(self) :
+        """The type of routes to be shown.<br/>Possible values = CONNECTED, STATIC, DYNAMIC, OSPF, ISIS, RIP, BGP, VPATH."""
+        try :
+            return self._routetype
+        except Exception as e:
+            raise e
 
-	@routetype.setter
-	def routetype(self, routetype) :
-		r"""The type of routes to be shown.<br/>Possible values = CONNECTED, STATIC, DYNAMIC, OSPF, ISIS, RIP, BGP, VPATH
-		"""
-		try :
-			self._routetype = routetype
-		except Exception as e:
-			raise e
+    @routetype.setter
+    def routetype(self, routetype) :
+        """The type of routes to be shown.<br/>Possible values = CONNECTED, STATIC, DYNAMIC, OSPF, ISIS, RIP, BGP, VPATH
 
-	@property
-	def detail(self) :
-		r"""Display a detailed view.
-		"""
-		try :
-			return self._detail
-		except Exception as e:
-			raise e
+        :param routetype: 
 
-	@detail.setter
-	def detail(self, detail) :
-		r"""Display a detailed view.
-		"""
-		try :
-			self._detail = detail
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._routetype = routetype
+        except Exception as e:
+            raise e
 
-	class Routetype:
-		CONNECTED = "CONNECTED"
-		STATIC = "STATIC"
-		DYNAMIC = "DYNAMIC"
-		OSPF = "OSPF"
-		ISIS = "ISIS"
-		RIP = "RIP"
-		BGP = "BGP"
-		VPATH = "VPATH"
+    @property
+    def detail(self) :
+        """Display a detailed view."""
+        try :
+            return self._detail
+        except Exception as e:
+            raise e
+
+    @detail.setter
+    def detail(self, detail) :
+        """Display a detailed view.
+
+        :param detail: 
+
+        """
+        try :
+            self._detail = detail
+        except Exception as e:
+            raise e
+
+    class Routetype:
+        """ """
+        CONNECTED = "CONNECTED"
+        STATIC = "STATIC"
+        DYNAMIC = "DYNAMIC"
+        OSPF = "OSPF"
+        ISIS = "ISIS"
+        RIP = "RIP"
+        BGP = "BGP"
+        VPATH = "VPATH"
 

@@ -22,282 +22,277 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class gslbservice_stats(base_resource) :
-	r""" Statistics for GSLB service resource.
-	"""
-	def __init__(self) :
-		self._servicename = ""
-		self._clearstats = ""
-		self._establishedconn = 0
-		self._primaryipaddress = ""
-		self._primaryport = 0
-		self._servicetype = ""
-		self._state = ""
-		self._totalrequestbytes = 0
-		self._requestbytesrate = 0
-		self._totalresponsebytes = 0
-		self._responsebytesrate = 0
-		self._curload = 0
-		self._totalrequests = 0
-		self._requestsrate = 0
-		self._totalresponses = 0
-		self._responsesrate = 0
-		self._curclntconnections = 0
-		self._cursrvrconnections = 0
-		self._vsvrservicehits = 0
-		self._vsvrservicehitsrate = 0
+    """Statistics for GSLB service resource."""
+    def __init__(self) :
+        self._servicename = ""
+        self._clearstats = ""
+        self._establishedconn = 0
+        self._primaryipaddress = ""
+        self._primaryport = 0
+        self._servicetype = ""
+        self._state = ""
+        self._totalrequestbytes = 0
+        self._requestbytesrate = 0
+        self._totalresponsebytes = 0
+        self._responsebytesrate = 0
+        self._curload = 0
+        self._totalrequests = 0
+        self._requestsrate = 0
+        self._totalresponses = 0
+        self._responsesrate = 0
+        self._curclntconnections = 0
+        self._cursrvrconnections = 0
+        self._vsvrservicehits = 0
+        self._vsvrservicehitsrate = 0
 
-	@property
-	def servicename(self) :
-		r"""Name of the GSLB service.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._servicename
-		except Exception as e:
-			raise e
+    @property
+    def servicename(self) :
+        """Name of the GSLB service.<br/>Minimum length =  1."""
+        try :
+            return self._servicename
+        except Exception as e:
+            raise e
 
-	@servicename.setter
-	def servicename(self, servicename) :
-		r"""Name of the GSLB service.
-		"""
-		try :
-			self._servicename = servicename
-		except Exception as e:
-			raise e
+    @servicename.setter
+    def servicename(self, servicename) :
+        """Name of the GSLB service.
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+        :param servicename: 
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._servicename = servicename
+        except Exception as e:
+            raise e
 
-	@property
-	def curclntconnections(self) :
-		r"""Number of current client connections.
-		"""
-		try :
-			return self._curclntconnections
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def servicetype(self) :
-		r"""The service type of this service.Possible values are ADNS, DNS, MYSQL, RTSP, SSL_DIAMETER, ADNS_TCP, DNS_TCP, NNTP, SIP_UDP, SSL_TCP, ANY, FTP, RADIUS, SNMP, TCP, DHCPRA, HTTP, RDP, SSL, TFTP, DIAMETER, MSSQL, RPCSVR, SSL_BRIDGE, UDP.
-		"""
-		try :
-			return self._servicetype
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def establishedconn(self) :
-		r"""Number of client connections in ESTABLISHED state.
-		"""
-		try :
-			return self._establishedconn
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def totalrequests(self) :
-		r"""Total number of requests received on this service or virtual server. (This applies to HTTP/SSL services and servers.).
-		"""
-		try :
-			return self._totalrequests
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def responsebytesrate(self) :
-		r"""Rate (/s) counter for totalresponsebytes.
-		"""
-		try :
-			return self._responsebytesrate
-		except Exception as e:
-			raise e
+    @property
+    def curclntconnections(self) :
+        """Number of current client connections."""
+        try :
+            return self._curclntconnections
+        except Exception as e:
+            raise e
 
-	@property
-	def totalresponses(self) :
-		r"""Number of responses received on this service or virtual server. (This applies to HTTP/SSL services and servers.).
-		"""
-		try :
-			return self._totalresponses
-		except Exception as e:
-			raise e
+    @property
+    def servicetype(self) :
+        """The service type of this service.Possible values are ADNS, DNS, MYSQL, RTSP, SSL_DIAMETER, ADNS_TCP, DNS_TCP, NNTP, SIP_UDP, SSL_TCP, ANY, FTP, RADIUS, SNMP, TCP, DHCPRA, HTTP, RDP, SSL, TFTP, DIAMETER, MSSQL, RPCSVR, SSL_BRIDGE, UDP."""
+        try :
+            return self._servicetype
+        except Exception as e:
+            raise e
 
-	@property
-	def requestbytesrate(self) :
-		r"""Rate (/s) counter for totalrequestbytes.
-		"""
-		try :
-			return self._requestbytesrate
-		except Exception as e:
-			raise e
+    @property
+    def establishedconn(self) :
+        """Number of client connections in ESTABLISHED state."""
+        try :
+            return self._establishedconn
+        except Exception as e:
+            raise e
 
-	@property
-	def cursrvrconnections(self) :
-		r"""Number of current connections to the actual servers behind the virtual server.
-		"""
-		try :
-			return self._cursrvrconnections
-		except Exception as e:
-			raise e
+    @property
+    def totalrequests(self) :
+        """Total number of requests received on this service or virtual server. (This applies to HTTP/SSL services and servers.)."""
+        try :
+            return self._totalrequests
+        except Exception as e:
+            raise e
 
-	@property
-	def primaryipaddress(self) :
-		r"""The IP address on which the service is running.
-		"""
-		try :
-			return self._primaryipaddress
-		except Exception as e:
-			raise e
+    @property
+    def responsebytesrate(self) :
+        """Rate (/s) counter for totalresponsebytes."""
+        try :
+            return self._responsebytesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def responsesrate(self) :
-		r"""Rate (/s) counter for totalresponses.
-		"""
-		try :
-			return self._responsesrate
-		except Exception as e:
-			raise e
+    @property
+    def totalresponses(self) :
+        """Number of responses received on this service or virtual server. (This applies to HTTP/SSL services and servers.)."""
+        try :
+            return self._totalresponses
+        except Exception as e:
+            raise e
 
-	@property
-	def curload(self) :
-		r"""Load on the service that is calculated from the bound load based monitor.
-		"""
-		try :
-			return self._curload
-		except Exception as e:
-			raise e
+    @property
+    def requestbytesrate(self) :
+        """Rate (/s) counter for totalrequestbytes."""
+        try :
+            return self._requestbytesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totalrequestbytes(self) :
-		r"""Total number of request bytes received on this service or virtual server.
-		"""
-		try :
-			return self._totalrequestbytes
-		except Exception as e:
-			raise e
+    @property
+    def cursrvrconnections(self) :
+        """Number of current connections to the actual servers behind the virtual server."""
+        try :
+            return self._cursrvrconnections
+        except Exception as e:
+            raise e
 
-	@property
-	def state(self) :
-		r"""Current state of the server. Possible values are UP, DOWN, UNKNOWN, OFS(Out of Service), TROFS(Transition Out of Service), TROFS_DOWN(Down When going Out of Service).
-		"""
-		try :
-			return self._state
-		except Exception as e:
-			raise e
+    @property
+    def primaryipaddress(self) :
+        """The IP address on which the service is running."""
+        try :
+            return self._primaryipaddress
+        except Exception as e:
+            raise e
 
-	@property
-	def vsvrservicehits(self) :
-		r"""Number of times that the service has been provided.
-		"""
-		try :
-			return self._vsvrservicehits
-		except Exception as e:
-			raise e
+    @property
+    def responsesrate(self) :
+        """Rate (/s) counter for totalresponses."""
+        try :
+            return self._responsesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totalresponsebytes(self) :
-		r"""Number of response bytes received by this service or virtual server.
-		"""
-		try :
-			return self._totalresponsebytes
-		except Exception as e:
-			raise e
+    @property
+    def curload(self) :
+        """Load on the service that is calculated from the bound load based monitor."""
+        try :
+            return self._curload
+        except Exception as e:
+            raise e
 
-	@property
-	def primaryport(self) :
-		r"""The port on which the service is running.
-		"""
-		try :
-			return self._primaryport
-		except Exception as e:
-			raise e
+    @property
+    def totalrequestbytes(self) :
+        """Total number of request bytes received on this service or virtual server."""
+        try :
+            return self._totalrequestbytes
+        except Exception as e:
+            raise e
 
-	@property
-	def requestsrate(self) :
-		r"""Rate (/s) counter for totalrequests.
-		"""
-		try :
-			return self._requestsrate
-		except Exception as e:
-			raise e
+    @property
+    def state(self) :
+        """Current state of the server. Possible values are UP, DOWN, UNKNOWN, OFS(Out of Service), TROFS(Transition Out of Service), TROFS_DOWN(Down When going Out of Service)."""
+        try :
+            return self._state
+        except Exception as e:
+            raise e
 
-	@property
-	def vsvrservicehitsrate(self) :
-		r"""Rate (/s) counter for vsvrservicehits.
-		"""
-		try :
-			return self._vsvrservicehitsrate
-		except Exception as e:
-			raise e
+    @property
+    def vsvrservicehits(self) :
+        """Number of times that the service has been provided."""
+        try :
+            return self._vsvrservicehits
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(gslbservice_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.gslbservice
-		except Exception as e :
-			raise e
+    @property
+    def totalresponsebytes(self) :
+        """Number of response bytes received by this service or virtual server."""
+        try :
+            return self._totalresponsebytes
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.servicename is not None :
-				return str(self.servicename)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def primaryport(self) :
+        """The port on which the service is running."""
+        try :
+            return self._primaryport
+        except Exception as e:
+            raise e
+
+    @property
+    def requestsrate(self) :
+        """Rate (/s) counter for totalrequests."""
+        try :
+            return self._requestsrate
+        except Exception as e:
+            raise e
+
+    @property
+    def vsvrservicehitsrate(self) :
+        """Rate (/s) counter for vsvrservicehits."""
+        try :
+            return self._vsvrservicehitsrate
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(gslbservice_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.gslbservice
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.servicename is not None :
+                return str(self.servicename)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all gslbservice_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = gslbservice_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			else :
-				obj.servicename = name
-				response = obj.stat_resource(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all gslbservice_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = gslbservice_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            else :
+                obj.servicename = name
+                response = obj.stat_resource(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class gslbservice_response(base_response) :
-	def __init__(self, length=1) :
-		self.gslbservice = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.gslbservice = [gslbservice_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.gslbservice = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.gslbservice = [gslbservice_stats() for _ in range(length)]
 

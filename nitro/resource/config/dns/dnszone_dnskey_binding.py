@@ -22,175 +22,197 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class dnszone_dnskey_binding(base_resource) :
-	""" Binding class showing the dnskey that can be bound to dnszone.
-	"""
-	def __init__(self) :
-		self._keyname = []
-		self._siginceptiontime = []
-		self._signed = 0
-		self._expires = 0
-		self._zonename = ""
-		self.___count = 0
+    """Binding class showing the dnskey that can be bound to dnszone."""
+    def __init__(self) :
+        self._keyname = []
+        self._siginceptiontime = []
+        self._signed = 0
+        self._expires = 0
+        self._zonename = ""
+        self.___count = 0
 
-	@property
-	def zonename(self) :
-		r"""Name of the zone. Mutually exclusive with the type parameter.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._zonename
-		except Exception as e:
-			raise e
+    @property
+    def zonename(self) :
+        """Name of the zone. Mutually exclusive with the type parameter.<br/>Minimum length =  1."""
+        try :
+            return self._zonename
+        except Exception as e:
+            raise e
 
-	@zonename.setter
-	def zonename(self, zonename) :
-		r"""Name of the zone. Mutually exclusive with the type parameter.<br/>Minimum length =  1
-		"""
-		try :
-			self._zonename = zonename
-		except Exception as e:
-			raise e
+    @zonename.setter
+    def zonename(self, zonename) :
+        """Name of the zone. Mutually exclusive with the type parameter.<br/>Minimum length =  1
 
-	@property
-	def keyname(self) :
-		r"""Name of the public/private DNS key pair with which to sign the zone. You can sign a zone with up to four keys.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._keyname
-		except Exception as e:
-			raise e
+        :param zonename: 
 
-	@keyname.setter
-	def keyname(self, keyname) :
-		r"""Name of the public/private DNS key pair with which to sign the zone. You can sign a zone with up to four keys.<br/>Minimum length =  1
-		"""
-		try :
-			self._keyname = keyname
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._zonename = zonename
+        except Exception as e:
+            raise e
 
-	@property
-	def siginceptiontime(self) :
-		r"""The time when sign was done with this key.<br/>Minimum value =  1.
-		"""
-		try :
-			return self._siginceptiontime
-		except Exception as e:
-			raise e
+    @property
+    def keyname(self) :
+        """Name of the public/private DNS key pair with which to sign the zone. You can sign a zone with up to four keys.<br/>Minimum length =  1."""
+        try :
+            return self._keyname
+        except Exception as e:
+            raise e
 
-	@property
-	def signed(self) :
-		r"""Integer which denote status of keys.
-		"""
-		try :
-			return self._signed
-		except Exception as e:
-			raise e
+    @keyname.setter
+    def keyname(self, keyname) :
+        """Name of the public/private DNS key pair with which to sign the zone. You can sign a zone with up to four keys.<br/>Minimum length =  1
 
-	@property
-	def expires(self) :
-		r"""Time period for which to consider the key valid, after the key is used to sign a zone.
-		"""
-		try :
-			return self._expires
-		except Exception as e:
-			raise e
+        :param keyname: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(dnszone_dnskey_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.dnszone_dnskey_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._keyname = keyname
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.zonename is not None :
-				return str(self.zonename)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def siginceptiontime(self) :
+        """The time when sign was done with this key.<br/>Minimum value =  1."""
+        try :
+            return self._siginceptiontime
+        except Exception as e:
+            raise e
+
+    @property
+    def signed(self) :
+        """Integer which denote status of keys."""
+        try :
+            return self._signed
+        except Exception as e:
+            raise e
+
+    @property
+    def expires(self) :
+        """Time period for which to consider the key valid, after the key is used to sign a zone."""
+        try :
+            return self._expires
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(dnszone_dnskey_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.dnszone_dnskey_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.zonename is not None :
+                return str(self.zonename)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(cls, service, zonename) :
-		r""" Use this API to fetch dnszone_dnskey_binding resources.
-		"""
-		try :
-			obj = dnszone_dnskey_binding()
-			obj.zonename = zonename
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(cls, service, zonename) :
+        """Use this API to fetch dnszone_dnskey_binding resources.
 
-	@classmethod
-	def get_filtered(cls, service, zonename, filter_) :
-		r""" Use this API to fetch filtered set of dnszone_dnskey_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = dnszone_dnskey_binding()
-			obj.zonename = zonename
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+        :param service: 
+        :param zonename: 
 
-	@classmethod
-	def count(cls, service, zonename) :
-		r""" Use this API to count dnszone_dnskey_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = dnszone_dnskey_binding()
-			obj.zonename = zonename
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            obj = dnszone_dnskey_binding()
+            obj.zonename = zonename
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def count_filtered(cls, service, zonename, filter_) :
-		r""" Use this API to count the filtered set of dnszone_dnskey_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = dnszone_dnskey_binding()
-			obj.zonename = zonename
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    @classmethod
+    def get_filtered(cls, service, zonename, filter_) :
+        """Use this API to fetch filtered set of dnszone_dnskey_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param zonename: 
+        :param filter_: 
+
+        """
+        try :
+            obj = dnszone_dnskey_binding()
+            obj.zonename = zonename
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, zonename) :
+        """Use this API to count dnszone_dnskey_binding resources configued on NetScaler.
+
+        :param service: 
+        :param zonename: 
+
+        """
+        try :
+            obj = dnszone_dnskey_binding()
+            obj.zonename = zonename
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, zonename, filter_) :
+        """Use this API to count the filtered set of dnszone_dnskey_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param zonename: 
+        :param filter_: 
+
+        """
+        try :
+            obj = dnszone_dnskey_binding()
+            obj.zonename = zonename
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
 
 class dnszone_dnskey_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.dnszone_dnskey_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.dnszone_dnskey_binding = [dnszone_dnskey_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.dnszone_dnskey_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.dnszone_dnskey_binding = [dnszone_dnskey_binding() for _ in range(length)]
 

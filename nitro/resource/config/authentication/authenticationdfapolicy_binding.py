@@ -22,93 +22,101 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class authenticationdfapolicy_binding(base_resource):
-	""" Binding class showing the resources that can be bound to authenticationdfapolicy_binding. 
-	"""
-	def __init__(self) :
-		self._name = ""
-		self.authenticationdfapolicy_vpnvserver_binding = []
+    """Binding class showing the resources that can be bound to authenticationdfapolicy_binding."""
+    def __init__(self) :
+        self._name = ""
+        self.authenticationdfapolicy_vpnvserver_binding = []
 
-	@property
-	def name(self) :
-		r"""Name of the WebAuth policy.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the WebAuth policy.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the WebAuth policy.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the WebAuth policy.<br/>Minimum length =  1
 
-	@property
-	def authenticationdfapolicy_vpnvserver_bindings(self) :
-		r"""vpnvserver that can be bound to authenticationdfapolicy.
-		"""
-		try :
-			return self._authenticationdfapolicy_vpnvserver_binding
-		except Exception as e:
-			raise e
+        :param name: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(authenticationdfapolicy_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.authenticationdfapolicy_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def authenticationdfapolicy_vpnvserver_bindings(self) :
+        """vpnvserver that can be bound to authenticationdfapolicy."""
+        try :
+            return self._authenticationdfapolicy_vpnvserver_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(authenticationdfapolicy_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.authenticationdfapolicy_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, name) :
-		r""" Use this API to fetch authenticationdfapolicy_binding resource.
-		"""
-		try :
-			if type(name) is not list :
-				obj = authenticationdfapolicy_binding()
-				obj.name = name
-				response = obj.get_resource(service)
-			else :
-				if name and len(name) > 0 :
-					obj = [authenticationdfapolicy_binding() for _ in range(len(name))]
-					for i in range(len(name)) :
-						obj[i].name = name[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, name) :
+        """Use this API to fetch authenticationdfapolicy_binding resource.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            if type(name) is not list :
+                obj = authenticationdfapolicy_binding()
+                obj.name = name
+                response = obj.get_resource(service)
+            else :
+                if name and len(name) > 0 :
+                    obj = [authenticationdfapolicy_binding() for _ in range(len(name))]
+                    for i in range(len(name)) :
+                        obj[i].name = name[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class authenticationdfapolicy_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.authenticationdfapolicy_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.authenticationdfapolicy_binding = [authenticationdfapolicy_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.authenticationdfapolicy_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.authenticationdfapolicy_binding = [authenticationdfapolicy_binding() for _ in range(length)]
 

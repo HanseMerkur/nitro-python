@@ -22,175 +22,197 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslcertchain_sslcertkey_binding(base_resource) :
-	""" Binding class showing the sslcertkey that can be bound to sslcertchain.
-	"""
-	def __init__(self) :
-		self._linkcertkeyname = ""
-		self._islinked = False
-		self._isca = False
-		self._addsubject = False
-		self._certkeyname = ""
-		self.___count = 0
+    """Binding class showing the sslcertkey that can be bound to sslcertchain."""
+    def __init__(self) :
+        self._linkcertkeyname = ""
+        self._islinked = False
+        self._isca = False
+        self._addsubject = False
+        self._certkeyname = ""
+        self.___count = 0
 
-	@property
-	def linkcertkeyname(self) :
-		r"""Name of the Linked Certificate.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._linkcertkeyname
-		except Exception as e:
-			raise e
+    @property
+    def linkcertkeyname(self) :
+        """Name of the Linked Certificate.<br/>Minimum length =  1."""
+        try :
+            return self._linkcertkeyname
+        except Exception as e:
+            raise e
 
-	@linkcertkeyname.setter
-	def linkcertkeyname(self, linkcertkeyname) :
-		r"""Name of the Linked Certificate.<br/>Minimum length =  1
-		"""
-		try :
-			self._linkcertkeyname = linkcertkeyname
-		except Exception as e:
-			raise e
+    @linkcertkeyname.setter
+    def linkcertkeyname(self, linkcertkeyname) :
+        """Name of the Linked Certificate.<br/>Minimum length =  1
 
-	@property
-	def certkeyname(self) :
-		r"""Name of the Certificate.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._certkeyname
-		except Exception as e:
-			raise e
+        :param linkcertkeyname: 
 
-	@certkeyname.setter
-	def certkeyname(self, certkeyname) :
-		r"""Name of the Certificate.<br/>Minimum length =  1
-		"""
-		try :
-			self._certkeyname = certkeyname
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._linkcertkeyname = linkcertkeyname
+        except Exception as e:
+            raise e
 
-	@property
-	def isca(self) :
-		r"""Used to find if certificate is a CA.
-		"""
-		try :
-			return self._isca
-		except Exception as e:
-			raise e
+    @property
+    def certkeyname(self) :
+        """Name of the Certificate.<br/>Minimum length =  1."""
+        try :
+            return self._certkeyname
+        except Exception as e:
+            raise e
 
-	@property
-	def islinked(self) :
-		r"""Used to find if certificate is linked.
-		"""
-		try :
-			return self._islinked
-		except Exception as e:
-			raise e
+    @certkeyname.setter
+    def certkeyname(self, certkeyname) :
+        """Name of the Certificate.<br/>Minimum length =  1
 
-	@property
-	def addsubject(self) :
-		r"""Used to find if certificate is linked.
-		"""
-		try :
-			return self._addsubject
-		except Exception as e:
-			raise e
+        :param certkeyname: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslcertchain_sslcertkey_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslcertchain_sslcertkey_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._certkeyname = certkeyname
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.certkeyname is not None :
-				return str(self.certkeyname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def isca(self) :
+        """Used to find if certificate is a CA."""
+        try :
+            return self._isca
+        except Exception as e:
+            raise e
+
+    @property
+    def islinked(self) :
+        """Used to find if certificate is linked."""
+        try :
+            return self._islinked
+        except Exception as e:
+            raise e
+
+    @property
+    def addsubject(self) :
+        """Used to find if certificate is linked."""
+        try :
+            return self._addsubject
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslcertchain_sslcertkey_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslcertchain_sslcertkey_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.certkeyname is not None :
+                return str(self.certkeyname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(cls, service, certkeyname) :
-		r""" Use this API to fetch sslcertchain_sslcertkey_binding resources.
-		"""
-		try :
-			obj = sslcertchain_sslcertkey_binding()
-			obj.certkeyname = certkeyname
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(cls, service, certkeyname) :
+        """Use this API to fetch sslcertchain_sslcertkey_binding resources.
 
-	@classmethod
-	def get_filtered(cls, service, certkeyname, filter_) :
-		r""" Use this API to fetch filtered set of sslcertchain_sslcertkey_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslcertchain_sslcertkey_binding()
-			obj.certkeyname = certkeyname
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+        :param service: 
+        :param certkeyname: 
 
-	@classmethod
-	def count(cls, service, certkeyname) :
-		r""" Use this API to count sslcertchain_sslcertkey_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = sslcertchain_sslcertkey_binding()
-			obj.certkeyname = certkeyname
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            obj = sslcertchain_sslcertkey_binding()
+            obj.certkeyname = certkeyname
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def count_filtered(cls, service, certkeyname, filter_) :
-		r""" Use this API to count the filtered set of sslcertchain_sslcertkey_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslcertchain_sslcertkey_binding()
-			obj.certkeyname = certkeyname
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    @classmethod
+    def get_filtered(cls, service, certkeyname, filter_) :
+        """Use this API to fetch filtered set of sslcertchain_sslcertkey_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param certkeyname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslcertchain_sslcertkey_binding()
+            obj.certkeyname = certkeyname
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, certkeyname) :
+        """Use this API to count sslcertchain_sslcertkey_binding resources configued on NetScaler.
+
+        :param service: 
+        :param certkeyname: 
+
+        """
+        try :
+            obj = sslcertchain_sslcertkey_binding()
+            obj.certkeyname = certkeyname
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, certkeyname, filter_) :
+        """Use this API to count the filtered set of sslcertchain_sslcertkey_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param certkeyname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslcertchain_sslcertkey_binding()
+            obj.certkeyname = certkeyname
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
 
 class sslcertchain_sslcertkey_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslcertchain_sslcertkey_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslcertchain_sslcertkey_binding = [sslcertchain_sslcertkey_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslcertchain_sslcertkey_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslcertchain_sslcertkey_binding = [sslcertchain_sslcertkey_binding() for _ in range(length)]
 

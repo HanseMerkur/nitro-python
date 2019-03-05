@@ -22,93 +22,101 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class crpolicy_binding(base_resource):
-	""" Binding class showing the resources that can be bound to crpolicy_binding. 
-	"""
-	def __init__(self) :
-		self._policyname = ""
-		self.crpolicy_crvserver_binding = []
+    """Binding class showing the resources that can be bound to crpolicy_binding."""
+    def __init__(self) :
+        self._policyname = ""
+        self.crpolicy_crvserver_binding = []
 
-	@property
-	def policyname(self) :
-		r"""Name of the cache redirection policy to display. If this parameter is omitted, details of all the policies are displayed.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._policyname
-		except Exception as e:
-			raise e
+    @property
+    def policyname(self) :
+        """Name of the cache redirection policy to display. If this parameter is omitted, details of all the policies are displayed.<br/>Minimum length =  1."""
+        try :
+            return self._policyname
+        except Exception as e:
+            raise e
 
-	@policyname.setter
-	def policyname(self, policyname) :
-		r"""Name of the cache redirection policy to display. If this parameter is omitted, details of all the policies are displayed.<br/>Minimum length =  1
-		"""
-		try :
-			self._policyname = policyname
-		except Exception as e:
-			raise e
+    @policyname.setter
+    def policyname(self, policyname) :
+        """Name of the cache redirection policy to display. If this parameter is omitted, details of all the policies are displayed.<br/>Minimum length =  1
 
-	@property
-	def crpolicy_crvserver_bindings(self) :
-		r"""crvserver that can be bound to crpolicy.
-		"""
-		try :
-			return self._crpolicy_crvserver_binding
-		except Exception as e:
-			raise e
+        :param policyname: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(crpolicy_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.crpolicy_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._policyname = policyname
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.policyname is not None :
-				return str(self.policyname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def crpolicy_crvserver_bindings(self) :
+        """crvserver that can be bound to crpolicy."""
+        try :
+            return self._crpolicy_crvserver_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(crpolicy_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.crpolicy_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.policyname is not None :
+                return str(self.policyname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, policyname) :
-		r""" Use this API to fetch crpolicy_binding resource.
-		"""
-		try :
-			if type(policyname) is not list :
-				obj = crpolicy_binding()
-				obj.policyname = policyname
-				response = obj.get_resource(service)
-			else :
-				if policyname and len(policyname) > 0 :
-					obj = [crpolicy_binding() for _ in range(len(policyname))]
-					for i in range(len(policyname)) :
-						obj[i].policyname = policyname[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, policyname) :
+        """Use this API to fetch crpolicy_binding resource.
+
+        :param service: 
+        :param policyname: 
+
+        """
+        try :
+            if type(policyname) is not list :
+                obj = crpolicy_binding()
+                obj.policyname = policyname
+                response = obj.get_resource(service)
+            else :
+                if policyname and len(policyname) > 0 :
+                    obj = [crpolicy_binding() for _ in range(len(policyname))]
+                    for i in range(len(policyname)) :
+                        obj[i].policyname = policyname[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class crpolicy_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.crpolicy_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.crpolicy_binding = [crpolicy_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.crpolicy_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.crpolicy_binding = [crpolicy_binding() for _ in range(length)]
 

@@ -22,550 +22,649 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class appfwprofile_xmlvalidationurl_binding(base_resource) :
-	""" Binding class showing the xmlvalidationurl that can be bound to appfwprofile.
-	"""
-	def __init__(self) :
-		self._xmlvalidationurl = ""
-		self._xmlvalidateresponse = ""
-		self._xmlwsdl = ""
-		self._xmladditionalsoapheaders = ""
-		self._xmlendpointcheck = ""
-		self._xmlrequestschema = ""
-		self._xmlresponseschema = ""
-		self._xmlvalidatesoapenvelope = ""
-		self._state = ""
-		self._comment = ""
-		self._name = ""
-		self.___count = 0
-
-	@property
-	def state(self) :
-		r"""Enabled.<br/>Possible values = ENABLED, DISABLED.
-		"""
-		try :
-			return self._state
-		except Exception as e:
-			raise e
-
-	@state.setter
-	def state(self, state) :
-		r"""Enabled.<br/>Possible values = ENABLED, DISABLED
-		"""
-		try :
-			self._state = state
-		except Exception as e:
-			raise e
-
-	@property
-	def xmlwsdl(self) :
-		r"""WSDL object for soap request validation.
-		"""
-		try :
-			return self._xmlwsdl
-		except Exception as e:
-			raise e
-
-	@xmlwsdl.setter
-	def xmlwsdl(self, xmlwsdl) :
-		r"""WSDL object for soap request validation.
-		"""
-		try :
-			self._xmlwsdl = xmlwsdl
-		except Exception as e:
-			raise e
-
-	@property
-	def xmlendpointcheck(self) :
-		r"""Modifies the behaviour of the Request URL validation w.r.t. the Service URL.
-		If set to ABSOLUTE, the entire request URL is validated with the entire URL mentioned in Service of the associated WSDL.
-		eg: Service URL: http://example.org/ExampleService, Request URL: http//example.com/ExampleService would FAIL the validation.
-		If set to RELAIVE, only the non-hostname part of the request URL is validated against the non-hostname part of the Service URL.
-		eg: Service URL: http://example.org/ExampleService, Request URL: http//example.com/ExampleService would PASS the validation.<br/>Possible values = ABSOLUTE, RELATIVE.
-		"""
-		try :
-			return self._xmlendpointcheck
-		except Exception as e:
-			raise e
-
-	@xmlendpointcheck.setter
-	def xmlendpointcheck(self, xmlendpointcheck) :
-		r"""Modifies the behaviour of the Request URL validation w.r.t. the Service URL.
-		If set to ABSOLUTE, the entire request URL is validated with the entire URL mentioned in Service of the associated WSDL.
-		eg: Service URL: http://example.org/ExampleService, Request URL: http//example.com/ExampleService would FAIL the validation.
-		If set to RELAIVE, only the non-hostname part of the request URL is validated against the non-hostname part of the Service URL.
-		eg: Service URL: http://example.org/ExampleService, Request URL: http//example.com/ExampleService would PASS the validation.<br/>Possible values = ABSOLUTE, RELATIVE
-		"""
-		try :
-			self._xmlendpointcheck = xmlendpointcheck
-		except Exception as e:
-			raise e
-
-	@property
-	def name(self) :
-		r"""Name of the profile to which to bind an exemption or rule.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
-
-	@name.setter
-	def name(self, name) :
-		r"""Name of the profile to which to bind an exemption or rule.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
-
-	@property
-	def xmlvalidateresponse(self) :
-		r"""Validate response message.<br/>Possible values = ON, OFF.
-		"""
-		try :
-			return self._xmlvalidateresponse
-		except Exception as e:
-			raise e
-
-	@xmlvalidateresponse.setter
-	def xmlvalidateresponse(self, xmlvalidateresponse) :
-		r"""Validate response message.<br/>Possible values = ON, OFF
-		"""
-		try :
-			self._xmlvalidateresponse = xmlvalidateresponse
-		except Exception as e:
-			raise e
-
-	@property
-	def xmlvalidationurl(self) :
-		r"""XML Validation URL regular expression.
-		"""
-		try :
-			return self._xmlvalidationurl
-		except Exception as e:
-			raise e
-
-	@xmlvalidationurl.setter
-	def xmlvalidationurl(self, xmlvalidationurl) :
-		r"""XML Validation URL regular expression.
-		"""
-		try :
-			self._xmlvalidationurl = xmlvalidationurl
-		except Exception as e:
-			raise e
-
-	@property
-	def xmlresponseschema(self) :
-		r"""XML Schema object for response validation.
-		"""
-		try :
-			return self._xmlresponseschema
-		except Exception as e:
-			raise e
-
-	@xmlresponseschema.setter
-	def xmlresponseschema(self, xmlresponseschema) :
-		r"""XML Schema object for response validation.
-		"""
-		try :
-			self._xmlresponseschema = xmlresponseschema
-		except Exception as e:
-			raise e
-
-	@property
-	def xmlvalidatesoapenvelope(self) :
-		r"""Validate SOAP Evelope only.<br/>Possible values = ON, OFF.
-		"""
-		try :
-			return self._xmlvalidatesoapenvelope
-		except Exception as e:
-			raise e
-
-	@xmlvalidatesoapenvelope.setter
-	def xmlvalidatesoapenvelope(self, xmlvalidatesoapenvelope) :
-		r"""Validate SOAP Evelope only.<br/>Possible values = ON, OFF
-		"""
-		try :
-			self._xmlvalidatesoapenvelope = xmlvalidatesoapenvelope
-		except Exception as e:
-			raise e
-
-	@property
-	def xmlrequestschema(self) :
-		r"""XML Schema object for request validation .
-		"""
-		try :
-			return self._xmlrequestschema
-		except Exception as e:
-			raise e
-
-	@xmlrequestschema.setter
-	def xmlrequestschema(self, xmlrequestschema) :
-		r"""XML Schema object for request validation .
-		"""
-		try :
-			self._xmlrequestschema = xmlrequestschema
-		except Exception as e:
-			raise e
-
-	@property
-	def xmladditionalsoapheaders(self) :
-		r"""Allow addtional soap headers.<br/>Possible values = ON, OFF.
-		"""
-		try :
-			return self._xmladditionalsoapheaders
-		except Exception as e:
-			raise e
-
-	@xmladditionalsoapheaders.setter
-	def xmladditionalsoapheaders(self, xmladditionalsoapheaders) :
-		r"""Allow addtional soap headers.<br/>Possible values = ON, OFF
-		"""
-		try :
-			self._xmladditionalsoapheaders = xmladditionalsoapheaders
-		except Exception as e:
-			raise e
-
-	@property
-	def comment(self) :
-		r"""Any comments about the purpose of profile, or other useful information about the profile.
-		"""
-		try :
-			return self._comment
-		except Exception as e:
-			raise e
-
-	@comment.setter
-	def comment(self, comment) :
-		r"""Any comments about the purpose of profile, or other useful information about the profile.
-		"""
-		try :
-			self._comment = comment
-		except Exception as e:
-			raise e
-
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(appfwprofile_xmlvalidationurl_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.appfwprofile_xmlvalidationurl_binding
-		except Exception as e :
-			raise e
-
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
-
-
-
-	@classmethod
-	def add(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				updateresource = appfwprofile_xmlvalidationurl_binding()
-				updateresource.name = resource.name
-				updateresource.comment = resource.comment
-				updateresource.state = resource.state
-				updateresource.xmlvalidationurl = resource.xmlvalidationurl
-				updateresource.xmlrequestschema = resource.xmlrequestschema
-				updateresource.xmlresponseschema = resource.xmlresponseschema
-				updateresource.xmlwsdl = resource.xmlwsdl
-				updateresource.xmladditionalsoapheaders = resource.xmladditionalsoapheaders
-				updateresource.xmlendpointcheck = resource.xmlendpointcheck
-				updateresource.xmlvalidatesoapenvelope = resource.xmlvalidatesoapenvelope
-				updateresource.xmlvalidateresponse = resource.xmlvalidateresponse
-				return updateresource.update_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					updateresources = [appfwprofile_xmlvalidationurl_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].name = resource[i].name
-						updateresources[i].comment = resource[i].comment
-						updateresources[i].state = resource[i].state
-						updateresources[i].xmlvalidationurl = resource[i].xmlvalidationurl
-						updateresources[i].xmlrequestschema = resource[i].xmlrequestschema
-						updateresources[i].xmlresponseschema = resource[i].xmlresponseschema
-						updateresources[i].xmlwsdl = resource[i].xmlwsdl
-						updateresources[i].xmladditionalsoapheaders = resource[i].xmladditionalsoapheaders
-						updateresources[i].xmlendpointcheck = resource[i].xmlendpointcheck
-						updateresources[i].xmlvalidatesoapenvelope = resource[i].xmlvalidatesoapenvelope
-						updateresources[i].xmlvalidateresponse = resource[i].xmlvalidateresponse
-				return cls.update_bulk_request(client, updateresources)
-		except Exception as e :
-			raise e
-
-	@classmethod
-	def delete(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				deleteresource = appfwprofile_xmlvalidationurl_binding()
-				deleteresource.name = resource.name
-				deleteresource.xmlvalidationurl = resource.xmlvalidationurl
-				return deleteresource.delete_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					deleteresources = [appfwprofile_xmlvalidationurl_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						deleteresources[i].name = resource[i].name
-						deleteresources[i].xmlvalidationurl = resource[i].xmlvalidationurl
-				return cls.delete_bulk_request(client, deleteresources)
-		except Exception as e :
-			raise e
-
-	@classmethod
-	def get(cls, service, name) :
-		r""" Use this API to fetch appfwprofile_xmlvalidationurl_binding resources.
-		"""
-		try :
-			obj = appfwprofile_xmlvalidationurl_binding()
-			obj.name = name
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
-
-	@classmethod
-	def get_filtered(cls, service, name, filter_) :
-		r""" Use this API to fetch filtered set of appfwprofile_xmlvalidationurl_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = appfwprofile_xmlvalidationurl_binding()
-			obj.name = name
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
-
-	@classmethod
-	def count(cls, service, name) :
-		r""" Use this API to count appfwprofile_xmlvalidationurl_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = appfwprofile_xmlvalidationurl_binding()
-			obj.name = name
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
-
-	@classmethod
-	def count_filtered(cls, service, name, filter_) :
-		r""" Use this API to count the filtered set of appfwprofile_xmlvalidationurl_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = appfwprofile_xmlvalidationurl_binding()
-			obj.name = name
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
-
-	class As_scan_location_xmlsql:
-		ELEMENT = "ELEMENT"
-		ATTRIBUTE = "ATTRIBUTE"
-
-	class Xmlmaxelementdepthcheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Xmlmaxattachmentsizecheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Xmlsoaparraycheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class State:
-		ENABLED = "ENABLED"
-		DISABLED = "DISABLED"
-
-	class Xmlmaxelementnamelengthcheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Isregex_ff:
-		REGEX = "REGEX"
-		NOTREGEX = "NOTREGEX"
-
-	class Xmlmaxelementscheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Xmlendpointcheck:
-		ABSOLUTE = "ABSOLUTE"
-		RELATIVE = "RELATIVE"
-
-	class Xmlmaxnamespacescheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Xmlmaxfilesizecheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Xmlmaxattributenamelengthcheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Isvalueregex_xss:
-		REGEX = "REGEX"
-		NOTREGEX = "NOTREGEX"
-
-	class Xmlblockdtd:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Xmlblockpi:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Isregex_sql:
-		REGEX = "REGEX"
-		NOTREGEX = "NOTREGEX"
-
-	class Xmlmaxelementchildrencheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Xmlvalidateresponse:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Isregex:
-		REGEX = "REGEX"
-		NOTREGEX = "NOTREGEX"
-
-	class Xmlmaxentityexpansionscheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Xmlmaxnamespaceurilengthcheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class As_scan_location_xss:
-		FORMFIELD = "FORMFIELD"
-		HEADER = "HEADER"
-		COOKIE = "COOKIE"
-
-	class Xmlmaxentityexpansiondepthcheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class As_scan_location_xmlxss:
-		ELEMENT = "ELEMENT"
-		ATTRIBUTE = "ATTRIBUTE"
-
-	class Xmlmaxattributevaluelengthcheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Isvalueregex_sql:
-		REGEX = "REGEX"
-		NOTREGEX = "NOTREGEX"
-
-	class As_scan_location_sql:
-		FORMFIELD = "FORMFIELD"
-		HEADER = "HEADER"
-		COOKIE = "COOKIE"
-
-	class Isregex_ffc:
-		REGEX = "REGEX"
-		NOTREGEX = "NOTREGEX"
-
-	class Xmlattachmentcontenttypecheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Isregex_xmlsql:
-		REGEX = "REGEX"
-		NOTREGEX = "NOTREGEX"
-
-	class Xmlvalidatesoapenvelope:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Xmlmaxchardatalengthcheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Xmlminfilesizecheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Isregex_xss:
-		REGEX = "REGEX"
-		NOTREGEX = "NOTREGEX"
-
-	class As_value_type_sql:
-		Keyword = "Keyword"
-		SpecialString = "SpecialString"
-		Wildchar = "Wildchar"
-
-	class Isregex_xmlxss:
-		REGEX = "REGEX"
-		NOTREGEX = "NOTREGEX"
-
-	class Xmladditionalsoapheaders:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Xmlmaxattributescheck:
-		ON = "ON"
-		OFF = "OFF"
-
-	class Action:
-		none = "none"
-		block = "block"
-		log = "log"
-		remove = "remove"
-		stats = "stats"
-		xout = "xout"
-
-	class As_value_type_xss:
-		Tag = "Tag"
-		Attribute = "Attribute"
-		Pattern = "Pattern"
-
-	class Xmlblockexternalentities:
-		ON = "ON"
-		OFF = "OFF"
+    """Binding class showing the xmlvalidationurl that can be bound to appfwprofile."""
+    def __init__(self) :
+        self._xmlvalidationurl = ""
+        self._xmlvalidateresponse = ""
+        self._xmlwsdl = ""
+        self._xmladditionalsoapheaders = ""
+        self._xmlendpointcheck = ""
+        self._xmlrequestschema = ""
+        self._xmlresponseschema = ""
+        self._xmlvalidatesoapenvelope = ""
+        self._state = ""
+        self._comment = ""
+        self._name = ""
+        self.___count = 0
+
+    @property
+    def state(self) :
+        """Enabled.<br/>Possible values = ENABLED, DISABLED."""
+        try :
+            return self._state
+        except Exception as e:
+            raise e
+
+    @state.setter
+    def state(self, state) :
+        """Enabled.<br/>Possible values = ENABLED, DISABLED
+
+        :param state: 
+
+        """
+        try :
+            self._state = state
+        except Exception as e:
+            raise e
+
+    @property
+    def xmlwsdl(self) :
+        """WSDL object for soap request validation."""
+        try :
+            return self._xmlwsdl
+        except Exception as e:
+            raise e
+
+    @xmlwsdl.setter
+    def xmlwsdl(self, xmlwsdl) :
+        """WSDL object for soap request validation.
+
+        :param xmlwsdl: 
+
+        """
+        try :
+            self._xmlwsdl = xmlwsdl
+        except Exception as e:
+            raise e
+
+    @property
+    def xmlendpointcheck(self) :
+        """Modifies the behaviour of the Request URL validation w.r.t. the Service URL.
+        If set to ABSOLUTE, the entire request URL is validated with the entire URL mentioned in Service of the associated WSDL.
+        eg: Service URL: http://example.org/ExampleService, Request URL: http//example.com/ExampleService would FAIL the validation.
+        If set to RELAIVE, only the non-hostname part of the request URL is validated against the non-hostname part of the Service URL.
+        eg: Service URL: http://example.org/ExampleService, Request URL: http//example.com/ExampleService would PASS the validation.<br/>Possible values = ABSOLUTE, RELATIVE.
+
+
+        """
+        try :
+            return self._xmlendpointcheck
+        except Exception as e:
+            raise e
+
+    @xmlendpointcheck.setter
+    def xmlendpointcheck(self, xmlendpointcheck) :
+        """Modifies the behaviour of the Request URL validation w.r.t. the Service URL.
+        If set to ABSOLUTE, the entire request URL is validated with the entire URL mentioned in Service of the associated WSDL.
+        eg: Service URL: http://example.org/ExampleService, Request URL: http//example.com/ExampleService would FAIL the validation.
+        If set to RELAIVE, only the non-hostname part of the request URL is validated against the non-hostname part of the Service URL.
+        eg: Service URL: http://example.org/ExampleService, Request URL: http//example.com/ExampleService would PASS the validation.<br/>Possible values = ABSOLUTE, RELATIVE
+
+        :param xmlendpointcheck: 
+
+        """
+        try :
+            self._xmlendpointcheck = xmlendpointcheck
+        except Exception as e:
+            raise e
+
+    @property
+    def name(self) :
+        """Name of the profile to which to bind an exemption or rule.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
+
+    @name.setter
+    def name(self, name) :
+        """Name of the profile to which to bind an exemption or rule.<br/>Minimum length =  1
+
+        :param name: 
+
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
+
+    @property
+    def xmlvalidateresponse(self) :
+        """Validate response message.<br/>Possible values = ON, OFF."""
+        try :
+            return self._xmlvalidateresponse
+        except Exception as e:
+            raise e
+
+    @xmlvalidateresponse.setter
+    def xmlvalidateresponse(self, xmlvalidateresponse) :
+        """Validate response message.<br/>Possible values = ON, OFF
+
+        :param xmlvalidateresponse: 
+
+        """
+        try :
+            self._xmlvalidateresponse = xmlvalidateresponse
+        except Exception as e:
+            raise e
+
+    @property
+    def xmlvalidationurl(self) :
+        """XML Validation URL regular expression."""
+        try :
+            return self._xmlvalidationurl
+        except Exception as e:
+            raise e
+
+    @xmlvalidationurl.setter
+    def xmlvalidationurl(self, xmlvalidationurl) :
+        """XML Validation URL regular expression.
+
+        :param xmlvalidationurl: 
+
+        """
+        try :
+            self._xmlvalidationurl = xmlvalidationurl
+        except Exception as e:
+            raise e
+
+    @property
+    def xmlresponseschema(self) :
+        """XML Schema object for response validation."""
+        try :
+            return self._xmlresponseschema
+        except Exception as e:
+            raise e
+
+    @xmlresponseschema.setter
+    def xmlresponseschema(self, xmlresponseschema) :
+        """XML Schema object for response validation.
+
+        :param xmlresponseschema: 
+
+        """
+        try :
+            self._xmlresponseschema = xmlresponseschema
+        except Exception as e:
+            raise e
+
+    @property
+    def xmlvalidatesoapenvelope(self) :
+        """Validate SOAP Evelope only.<br/>Possible values = ON, OFF."""
+        try :
+            return self._xmlvalidatesoapenvelope
+        except Exception as e:
+            raise e
+
+    @xmlvalidatesoapenvelope.setter
+    def xmlvalidatesoapenvelope(self, xmlvalidatesoapenvelope) :
+        """Validate SOAP Evelope only.<br/>Possible values = ON, OFF
+
+        :param xmlvalidatesoapenvelope: 
+
+        """
+        try :
+            self._xmlvalidatesoapenvelope = xmlvalidatesoapenvelope
+        except Exception as e:
+            raise e
+
+    @property
+    def xmlrequestschema(self) :
+        """XML Schema object for request validation ."""
+        try :
+            return self._xmlrequestschema
+        except Exception as e:
+            raise e
+
+    @xmlrequestschema.setter
+    def xmlrequestschema(self, xmlrequestschema) :
+        """XML Schema object for request validation .
+
+        :param xmlrequestschema: 
+
+        """
+        try :
+            self._xmlrequestschema = xmlrequestschema
+        except Exception as e:
+            raise e
+
+    @property
+    def xmladditionalsoapheaders(self) :
+        """Allow addtional soap headers.<br/>Possible values = ON, OFF."""
+        try :
+            return self._xmladditionalsoapheaders
+        except Exception as e:
+            raise e
+
+    @xmladditionalsoapheaders.setter
+    def xmladditionalsoapheaders(self, xmladditionalsoapheaders) :
+        """Allow addtional soap headers.<br/>Possible values = ON, OFF
+
+        :param xmladditionalsoapheaders: 
+
+        """
+        try :
+            self._xmladditionalsoapheaders = xmladditionalsoapheaders
+        except Exception as e:
+            raise e
+
+    @property
+    def comment(self) :
+        """Any comments about the purpose of profile, or other useful information about the profile."""
+        try :
+            return self._comment
+        except Exception as e:
+            raise e
+
+    @comment.setter
+    def comment(self, comment) :
+        """Any comments about the purpose of profile, or other useful information about the profile.
+
+        :param comment: 
+
+        """
+        try :
+            self._comment = comment
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(appfwprofile_xmlvalidationurl_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.appfwprofile_xmlvalidationurl_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
+
+
+
+    @classmethod
+    def add(cls, client, resource) :
+        """
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if resource and type(resource) is not list :
+                updateresource = appfwprofile_xmlvalidationurl_binding()
+                updateresource.name = resource.name
+                updateresource.comment = resource.comment
+                updateresource.state = resource.state
+                updateresource.xmlvalidationurl = resource.xmlvalidationurl
+                updateresource.xmlrequestschema = resource.xmlrequestschema
+                updateresource.xmlresponseschema = resource.xmlresponseschema
+                updateresource.xmlwsdl = resource.xmlwsdl
+                updateresource.xmladditionalsoapheaders = resource.xmladditionalsoapheaders
+                updateresource.xmlendpointcheck = resource.xmlendpointcheck
+                updateresource.xmlvalidatesoapenvelope = resource.xmlvalidatesoapenvelope
+                updateresource.xmlvalidateresponse = resource.xmlvalidateresponse
+                return updateresource.update_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    updateresources = [appfwprofile_xmlvalidationurl_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].name = resource[i].name
+                        updateresources[i].comment = resource[i].comment
+                        updateresources[i].state = resource[i].state
+                        updateresources[i].xmlvalidationurl = resource[i].xmlvalidationurl
+                        updateresources[i].xmlrequestschema = resource[i].xmlrequestschema
+                        updateresources[i].xmlresponseschema = resource[i].xmlresponseschema
+                        updateresources[i].xmlwsdl = resource[i].xmlwsdl
+                        updateresources[i].xmladditionalsoapheaders = resource[i].xmladditionalsoapheaders
+                        updateresources[i].xmlendpointcheck = resource[i].xmlendpointcheck
+                        updateresources[i].xmlvalidatesoapenvelope = resource[i].xmlvalidatesoapenvelope
+                        updateresources[i].xmlvalidateresponse = resource[i].xmlvalidateresponse
+                return cls.update_bulk_request(client, updateresources)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if resource and type(resource) is not list :
+                deleteresource = appfwprofile_xmlvalidationurl_binding()
+                deleteresource.name = resource.name
+                deleteresource.xmlvalidationurl = resource.xmlvalidationurl
+                return deleteresource.delete_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    deleteresources = [appfwprofile_xmlvalidationurl_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        deleteresources[i].name = resource[i].name
+                        deleteresources[i].xmlvalidationurl = resource[i].xmlvalidationurl
+                return cls.delete_bulk_request(client, deleteresources)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, service, name) :
+        """Use this API to fetch appfwprofile_xmlvalidationurl_binding resources.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            obj = appfwprofile_xmlvalidationurl_binding()
+            obj.name = name
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def get_filtered(cls, service, name, filter_) :
+        """Use this API to fetch filtered set of appfwprofile_xmlvalidationurl_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param name: 
+        :param filter_: 
+
+        """
+        try :
+            obj = appfwprofile_xmlvalidationurl_binding()
+            obj.name = name
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, name) :
+        """Use this API to count appfwprofile_xmlvalidationurl_binding resources configued on NetScaler.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            obj = appfwprofile_xmlvalidationurl_binding()
+            obj.name = name
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, name, filter_) :
+        """Use this API to count the filtered set of appfwprofile_xmlvalidationurl_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param name: 
+        :param filter_: 
+
+        """
+        try :
+            obj = appfwprofile_xmlvalidationurl_binding()
+            obj.name = name
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class As_scan_location_xmlsql:
+        """ """
+        ELEMENT = "ELEMENT"
+        ATTRIBUTE = "ATTRIBUTE"
+
+    class Xmlmaxelementdepthcheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Xmlmaxattachmentsizecheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Xmlsoaparraycheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class State:
+        """ """
+        ENABLED = "ENABLED"
+        DISABLED = "DISABLED"
+
+    class Xmlmaxelementnamelengthcheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Isregex_ff:
+        """ """
+        REGEX = "REGEX"
+        NOTREGEX = "NOTREGEX"
+
+    class Xmlmaxelementscheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Xmlendpointcheck:
+        """ """
+        ABSOLUTE = "ABSOLUTE"
+        RELATIVE = "RELATIVE"
+
+    class Xmlmaxnamespacescheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Xmlmaxfilesizecheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Xmlmaxattributenamelengthcheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Isvalueregex_xss:
+        """ """
+        REGEX = "REGEX"
+        NOTREGEX = "NOTREGEX"
+
+    class Xmlblockdtd:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Xmlblockpi:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Isregex_sql:
+        """ """
+        REGEX = "REGEX"
+        NOTREGEX = "NOTREGEX"
+
+    class Xmlmaxelementchildrencheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Xmlvalidateresponse:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Isregex:
+        """ """
+        REGEX = "REGEX"
+        NOTREGEX = "NOTREGEX"
+
+    class Xmlmaxentityexpansionscheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Xmlmaxnamespaceurilengthcheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class As_scan_location_xss:
+        """ """
+        FORMFIELD = "FORMFIELD"
+        HEADER = "HEADER"
+        COOKIE = "COOKIE"
+
+    class Xmlmaxentityexpansiondepthcheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class As_scan_location_xmlxss:
+        """ """
+        ELEMENT = "ELEMENT"
+        ATTRIBUTE = "ATTRIBUTE"
+
+    class Xmlmaxattributevaluelengthcheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Isvalueregex_sql:
+        """ """
+        REGEX = "REGEX"
+        NOTREGEX = "NOTREGEX"
+
+    class As_scan_location_sql:
+        """ """
+        FORMFIELD = "FORMFIELD"
+        HEADER = "HEADER"
+        COOKIE = "COOKIE"
+
+    class Isregex_ffc:
+        """ """
+        REGEX = "REGEX"
+        NOTREGEX = "NOTREGEX"
+
+    class Xmlattachmentcontenttypecheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Isregex_xmlsql:
+        """ """
+        REGEX = "REGEX"
+        NOTREGEX = "NOTREGEX"
+
+    class Xmlvalidatesoapenvelope:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Xmlmaxchardatalengthcheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Xmlminfilesizecheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Isregex_xss:
+        """ """
+        REGEX = "REGEX"
+        NOTREGEX = "NOTREGEX"
+
+    class As_value_type_sql:
+        """ """
+        Keyword = "Keyword"
+        SpecialString = "SpecialString"
+        Wildchar = "Wildchar"
+
+    class Isregex_xmlxss:
+        """ """
+        REGEX = "REGEX"
+        NOTREGEX = "NOTREGEX"
+
+    class Xmladditionalsoapheaders:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Xmlmaxattributescheck:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Action:
+        """ """
+        none = "none"
+        block = "block"
+        log = "log"
+        remove = "remove"
+        stats = "stats"
+        xout = "xout"
+
+    class As_value_type_xss:
+        """ """
+        Tag = "Tag"
+        Attribute = "Attribute"
+        Pattern = "Pattern"
+
+    class Xmlblockexternalentities:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
 
 class appfwprofile_xmlvalidationurl_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.appfwprofile_xmlvalidationurl_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.appfwprofile_xmlvalidationurl_binding = [appfwprofile_xmlvalidationurl_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.appfwprofile_xmlvalidationurl_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.appfwprofile_xmlvalidationurl_binding = [appfwprofile_xmlvalidationurl_binding() for _ in range(length)]
 

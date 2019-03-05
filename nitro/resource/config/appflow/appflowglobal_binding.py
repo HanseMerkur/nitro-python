@@ -22,65 +22,70 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class appflowglobal_binding(base_resource):
-	""" Binding class showing the resources that can be bound to appflowglobal_binding. 
-	"""
-	def __init__(self) :
-		self.appflowglobal_appflowpolicy_binding = []
+    """Binding class showing the resources that can be bound to appflowglobal_binding."""
+    def __init__(self) :
+        self.appflowglobal_appflowpolicy_binding = []
 
-	@property
-	def appflowglobal_appflowpolicy_bindings(self) :
-		r"""appflowpolicy that can be bound to appflowglobal.
-		"""
-		try :
-			return self._appflowglobal_appflowpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def appflowglobal_appflowpolicy_bindings(self) :
+        """appflowpolicy that can be bound to appflowglobal."""
+        try :
+            return self._appflowglobal_appflowpolicy_binding
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(appflowglobal_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.appflowglobal_binding
-		except Exception as e :
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(appflowglobal_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.appflowglobal_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service) :
-		r""" Use this API to fetch a appflowglobal_binding resource .
-		"""
-		try :
-			obj = appflowglobal_binding()
-			response = obj.get_resource(service)
-			return response
+    @classmethod
+    def get(self, service) :
+        """Use this API to fetch a appflowglobal_binding resource .
 
-		except Exception as e:
-			raise e
+        :param service: 
+
+        """
+        try :
+            obj = appflowglobal_binding()
+            response = obj.get_resource(service)
+            return response
+
+        except Exception as e:
+            raise e
 
 class appflowglobal_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.appflowglobal_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.appflowglobal_binding = [appflowglobal_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.appflowglobal_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.appflowglobal_binding = [appflowglobal_binding() for _ in range(length)]
 

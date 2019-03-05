@@ -22,315 +22,358 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class vserver(base_resource) :
-	""" Configuration for virtual server resource. """
-	def __init__(self) :
-		self._name = ""
-		self._backupvserver = ""
-		self._redirecturl = ""
-		self._cacheable = ""
-		self._clttimeout = 0
-		self._somethod = ""
-		self._sopersistence = ""
-		self._sopersistencetimeout = 0
-		self._sothreshold = 0
-		self._pushvserver = ""
+    """Configuration for virtual server resource."""
+    def __init__(self) :
+        self._name = ""
+        self._backupvserver = ""
+        self._redirecturl = ""
+        self._cacheable = ""
+        self._clttimeout = 0
+        self._somethod = ""
+        self._sopersistence = ""
+        self._sopersistencetimeout = 0
+        self._sothreshold = 0
+        self._pushvserver = ""
 
-	@property
-	def name(self) :
-		r"""The name of the virtual server to be removed.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """The name of the virtual server to be removed.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""The name of the virtual server to be removed.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """The name of the virtual server to be removed.<br/>Minimum length =  1
 
-	@property
-	def backupvserver(self) :
-		r"""The name of the backup virtual server for this virtual server.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._backupvserver
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@backupvserver.setter
-	def backupvserver(self, backupvserver) :
-		r"""The name of the backup virtual server for this virtual server.<br/>Minimum length =  1
-		"""
-		try :
-			self._backupvserver = backupvserver
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def redirecturl(self) :
-		r"""The URL where traffic is redirected if the virtual server in the system becomes unavailable.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._redirecturl
-		except Exception as e:
-			raise e
+    @property
+    def backupvserver(self) :
+        """The name of the backup virtual server for this virtual server.<br/>Minimum length =  1."""
+        try :
+            return self._backupvserver
+        except Exception as e:
+            raise e
 
-	@redirecturl.setter
-	def redirecturl(self, redirecturl) :
-		r"""The URL where traffic is redirected if the virtual server in the system becomes unavailable.<br/>Minimum length =  1
-		"""
-		try :
-			self._redirecturl = redirecturl
-		except Exception as e:
-			raise e
+    @backupvserver.setter
+    def backupvserver(self, backupvserver) :
+        """The name of the backup virtual server for this virtual server.<br/>Minimum length =  1
 
-	@property
-	def cacheable(self) :
-		r"""Use this option to specify whether a virtual server (used for load balancing or content switching) routes requests to the cache redirection virtual server before sending it to the configured servers.<br/>Possible values = YES, NO.
-		"""
-		try :
-			return self._cacheable
-		except Exception as e:
-			raise e
+        :param backupvserver: 
 
-	@cacheable.setter
-	def cacheable(self, cacheable) :
-		r"""Use this option to specify whether a virtual server (used for load balancing or content switching) routes requests to the cache redirection virtual server before sending it to the configured servers.<br/>Possible values = YES, NO
-		"""
-		try :
-			self._cacheable = cacheable
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._backupvserver = backupvserver
+        except Exception as e:
+            raise e
 
-	@property
-	def clttimeout(self) :
-		r"""The timeout value in seconds for idle client connection.<br/>Maximum length =  31536000.
-		"""
-		try :
-			return self._clttimeout
-		except Exception as e:
-			raise e
+    @property
+    def redirecturl(self) :
+        """The URL where traffic is redirected if the virtual server in the system becomes unavailable.<br/>Minimum length =  1."""
+        try :
+            return self._redirecturl
+        except Exception as e:
+            raise e
 
-	@clttimeout.setter
-	def clttimeout(self, clttimeout) :
-		r"""The timeout value in seconds for idle client connection.<br/>Maximum length =  31536000
-		"""
-		try :
-			self._clttimeout = clttimeout
-		except Exception as e:
-			raise e
+    @redirecturl.setter
+    def redirecturl(self, redirecturl) :
+        """The URL where traffic is redirected if the virtual server in the system becomes unavailable.<br/>Minimum length =  1
 
-	@property
-	def somethod(self) :
-		r"""The spillover factor. The system will use this value to determine if it should send traffic to the backupvserver when the main virtual server reaches the spillover threshold.<br/>Possible values = CONNECTION, DYNAMICCONNECTION, BANDWIDTH, HEALTH, NONE.
-		"""
-		try :
-			return self._somethod
-		except Exception as e:
-			raise e
+        :param redirecturl: 
 
-	@somethod.setter
-	def somethod(self, somethod) :
-		r"""The spillover factor. The system will use this value to determine if it should send traffic to the backupvserver when the main virtual server reaches the spillover threshold.<br/>Possible values = CONNECTION, DYNAMICCONNECTION, BANDWIDTH, HEALTH, NONE
-		"""
-		try :
-			self._somethod = somethod
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._redirecturl = redirecturl
+        except Exception as e:
+            raise e
 
-	@property
-	def sopersistence(self) :
-		r"""The state of the spillover persistence.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED.
-		"""
-		try :
-			return self._sopersistence
-		except Exception as e:
-			raise e
+    @property
+    def cacheable(self) :
+        """Use this option to specify whether a virtual server (used for load balancing or content switching) routes requests to the cache redirection virtual server before sending it to the configured servers.<br/>Possible values = YES, NO."""
+        try :
+            return self._cacheable
+        except Exception as e:
+            raise e
 
-	@sopersistence.setter
-	def sopersistence(self, sopersistence) :
-		r"""The state of the spillover persistence.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED
-		"""
-		try :
-			self._sopersistence = sopersistence
-		except Exception as e:
-			raise e
+    @cacheable.setter
+    def cacheable(self, cacheable) :
+        """Use this option to specify whether a virtual server (used for load balancing or content switching) routes requests to the cache redirection virtual server before sending it to the configured servers.<br/>Possible values = YES, NO
 
-	@property
-	def sopersistencetimeout(self) :
-		r"""The spillover persistence entry timeout.<br/>Default value: 2<br/>Minimum length =  2<br/>Maximum length =  1440.
-		"""
-		try :
-			return self._sopersistencetimeout
-		except Exception as e:
-			raise e
+        :param cacheable: 
 
-	@sopersistencetimeout.setter
-	def sopersistencetimeout(self, sopersistencetimeout) :
-		r"""The spillover persistence entry timeout.<br/>Default value: 2<br/>Minimum length =  2<br/>Maximum length =  1440
-		"""
-		try :
-			self._sopersistencetimeout = sopersistencetimeout
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._cacheable = cacheable
+        except Exception as e:
+            raise e
 
-	@property
-	def sothreshold(self) :
-		r"""The spillver threshold value.<br/>Minimum length =  1<br/>Maximum length =  4294967294.
-		"""
-		try :
-			return self._sothreshold
-		except Exception as e:
-			raise e
+    @property
+    def clttimeout(self) :
+        """The timeout value in seconds for idle client connection.<br/>Maximum length =  31536000."""
+        try :
+            return self._clttimeout
+        except Exception as e:
+            raise e
 
-	@sothreshold.setter
-	def sothreshold(self, sothreshold) :
-		r"""The spillver threshold value.<br/>Minimum length =  1<br/>Maximum length =  4294967294
-		"""
-		try :
-			self._sothreshold = sothreshold
-		except Exception as e:
-			raise e
+    @clttimeout.setter
+    def clttimeout(self, clttimeout) :
+        """The timeout value in seconds for idle client connection.<br/>Maximum length =  31536000
 
-	@property
-	def pushvserver(self) :
-		r"""The lb vserver of type PUSH/SSL_PUSH to which server pushes the updates received on the client facing non-push lb vserver.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._pushvserver
-		except Exception as e:
-			raise e
+        :param clttimeout: 
 
-	@pushvserver.setter
-	def pushvserver(self, pushvserver) :
-		r"""The lb vserver of type PUSH/SSL_PUSH to which server pushes the updates received on the client facing non-push lb vserver.<br/>Minimum length =  1
-		"""
-		try :
-			self._pushvserver = pushvserver
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clttimeout = clttimeout
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(vserver_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.vserver
-		except Exception as e :
-			raise e
+    @property
+    def somethod(self) :
+        """The spillover factor. The system will use this value to determine if it should send traffic to the backupvserver when the main virtual server reaches the spillover threshold.<br/>Possible values = CONNECTION, DYNAMICCONNECTION, BANDWIDTH, HEALTH, NONE."""
+        try :
+            return self._somethod
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @somethod.setter
+    def somethod(self, somethod) :
+        """The spillover factor. The system will use this value to determine if it should send traffic to the backupvserver when the main virtual server reaches the spillover threshold.<br/>Possible values = CONNECTION, DYNAMICCONNECTION, BANDWIDTH, HEALTH, NONE
+
+        :param somethod: 
+
+        """
+        try :
+            self._somethod = somethod
+        except Exception as e:
+            raise e
+
+    @property
+    def sopersistence(self) :
+        """The state of the spillover persistence.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED."""
+        try :
+            return self._sopersistence
+        except Exception as e:
+            raise e
+
+    @sopersistence.setter
+    def sopersistence(self, sopersistence) :
+        """The state of the spillover persistence.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED
+
+        :param sopersistence: 
+
+        """
+        try :
+            self._sopersistence = sopersistence
+        except Exception as e:
+            raise e
+
+    @property
+    def sopersistencetimeout(self) :
+        """The spillover persistence entry timeout.<br/>Default value: 2<br/>Minimum length =  2<br/>Maximum length =  1440."""
+        try :
+            return self._sopersistencetimeout
+        except Exception as e:
+            raise e
+
+    @sopersistencetimeout.setter
+    def sopersistencetimeout(self, sopersistencetimeout) :
+        """The spillover persistence entry timeout.<br/>Default value: 2<br/>Minimum length =  2<br/>Maximum length =  1440
+
+        :param sopersistencetimeout: 
+
+        """
+        try :
+            self._sopersistencetimeout = sopersistencetimeout
+        except Exception as e:
+            raise e
+
+    @property
+    def sothreshold(self) :
+        """The spillver threshold value.<br/>Minimum length =  1<br/>Maximum length =  4294967294."""
+        try :
+            return self._sothreshold
+        except Exception as e:
+            raise e
+
+    @sothreshold.setter
+    def sothreshold(self, sothreshold) :
+        """The spillver threshold value.<br/>Minimum length =  1<br/>Maximum length =  4294967294
+
+        :param sothreshold: 
+
+        """
+        try :
+            self._sothreshold = sothreshold
+        except Exception as e:
+            raise e
+
+    @property
+    def pushvserver(self) :
+        """The lb vserver of type PUSH/SSL_PUSH to which server pushes the updates received on the client facing non-push lb vserver.<br/>Minimum length =  1."""
+        try :
+            return self._pushvserver
+        except Exception as e:
+            raise e
+
+    @pushvserver.setter
+    def pushvserver(self, pushvserver) :
+        """The lb vserver of type PUSH/SSL_PUSH to which server pushes the updates received on the client facing non-push lb vserver.<br/>Minimum length =  1
+
+        :param pushvserver: 
+
+        """
+        try :
+            self._pushvserver = pushvserver
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(vserver_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.vserver
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete vserver.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = vserver()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.name = resource
-				else :
-					deleteresource.name = resource.name
-				return deleteresource.delete_resource(client)
-		except Exception as e :
-			raise e
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete vserver.
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update vserver.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = vserver()
-				updateresource.name = resource.name
-				updateresource.backupvserver = resource.backupvserver
-				updateresource.redirecturl = resource.redirecturl
-				updateresource.cacheable = resource.cacheable
-				updateresource.clttimeout = resource.clttimeout
-				updateresource.somethod = resource.somethod
-				updateresource.sopersistence = resource.sopersistence
-				updateresource.sopersistencetimeout = resource.sopersistencetimeout
-				updateresource.sothreshold = resource.sothreshold
-				updateresource.pushvserver = resource.pushvserver
-				return updateresource.update_resource(client)
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def enable(cls, client, resource) :
-		r""" Use this API to enable vserver.
-		"""
-		try :
-			if type(resource) is not list :
-				enableresource = vserver()
-				if type(resource) !=  type(enableresource):
-					enableresource.name = resource
-				else :
-					enableresource.name = resource.name
-				return enableresource.perform_operation(client,"enable")
-		except Exception as e :
-			raise e
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = vserver()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.name = resource
+                else :
+                    deleteresource.name = resource.name
+                return deleteresource.delete_resource(client)
+        except Exception as e :
+            raise e
 
-	@classmethod
-	def disable(cls, client, resource) :
-		r""" Use this API to disable vserver.
-		"""
-		try :
-			if type(resource) is not list :
-				disableresource = vserver()
-				if type(resource) !=  type(disableresource):
-					disableresource.name = resource
-				else :
-					disableresource.name = resource.name
-				return disableresource.perform_operation(client,"disable")
-		except Exception as e :
-			raise e
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update vserver.
 
-	class Cacheable:
-		YES = "YES"
-		NO = "NO"
+        :param client: 
+        :param resource: 
 
-	class Somethod:
-		CONNECTION = "CONNECTION"
-		DYNAMICCONNECTION = "DYNAMICCONNECTION"
-		BANDWIDTH = "BANDWIDTH"
-		HEALTH = "HEALTH"
-		NONE = "NONE"
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = vserver()
+                updateresource.name = resource.name
+                updateresource.backupvserver = resource.backupvserver
+                updateresource.redirecturl = resource.redirecturl
+                updateresource.cacheable = resource.cacheable
+                updateresource.clttimeout = resource.clttimeout
+                updateresource.somethod = resource.somethod
+                updateresource.sopersistence = resource.sopersistence
+                updateresource.sopersistencetimeout = resource.sopersistencetimeout
+                updateresource.sothreshold = resource.sothreshold
+                updateresource.pushvserver = resource.pushvserver
+                return updateresource.update_resource(client)
+        except Exception as e :
+            raise e
 
-	class Sopersistence:
-		ENABLED = "ENABLED"
-		DISABLED = "DISABLED"
+    @classmethod
+    def enable(cls, client, resource) :
+        """Use this API to enable vserver.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                enableresource = vserver()
+                if type(resource) !=  type(enableresource):
+                    enableresource.name = resource
+                else :
+                    enableresource.name = resource.name
+                return enableresource.perform_operation(client,"enable")
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def disable(cls, client, resource) :
+        """Use this API to disable vserver.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                disableresource = vserver()
+                if type(resource) !=  type(disableresource):
+                    disableresource.name = resource
+                else :
+                    disableresource.name = resource.name
+                return disableresource.perform_operation(client,"disable")
+        except Exception as e :
+            raise e
+
+    class Cacheable:
+        """ """
+        YES = "YES"
+        NO = "NO"
+
+    class Somethod:
+        """ """
+        CONNECTION = "CONNECTION"
+        DYNAMICCONNECTION = "DYNAMICCONNECTION"
+        BANDWIDTH = "BANDWIDTH"
+        HEALTH = "HEALTH"
+        NONE = "NONE"
+
+    class Sopersistence:
+        """ """
+        ENABLED = "ENABLED"
+        DISABLED = "DISABLED"
 
 class vserver_response(base_response) :
-	def __init__(self, length=1) :
-		self.vserver = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.vserver = [vserver() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.vserver = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.vserver = [vserver() for _ in range(length)]
 

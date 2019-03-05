@@ -22,126 +22,149 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class nslimitidentifier_nslimitsessions_binding(base_resource) :
-	""" Binding class showing the nslimitsessions that can be bound to nslimitidentifier.
-	"""
-	def __init__(self) :
-		self._limitidentifier = ""
-		self.___count = 0
+    """Binding class showing the nslimitsessions that can be bound to nslimitidentifier."""
+    def __init__(self) :
+        self._limitidentifier = ""
+        self.___count = 0
 
-	@property
-	def limitidentifier(self) :
-		r"""Name of the rate limit identifier about which to display information. If a name is not provided, information about all rate limit identifiers is shown.
-		"""
-		try :
-			return self._limitidentifier
-		except Exception as e:
-			raise e
+    @property
+    def limitidentifier(self) :
+        """Name of the rate limit identifier about which to display information. If a name is not provided, information about all rate limit identifiers is shown."""
+        try :
+            return self._limitidentifier
+        except Exception as e:
+            raise e
 
-	@limitidentifier.setter
-	def limitidentifier(self, limitidentifier) :
-		r"""Name of the rate limit identifier about which to display information. If a name is not provided, information about all rate limit identifiers is shown.
-		"""
-		try :
-			self._limitidentifier = limitidentifier
-		except Exception as e:
-			raise e
+    @limitidentifier.setter
+    def limitidentifier(self, limitidentifier) :
+        """Name of the rate limit identifier about which to display information. If a name is not provided, information about all rate limit identifiers is shown.
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(nslimitidentifier_nslimitsessions_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.nslimitidentifier_nslimitsessions_binding
-		except Exception as e :
-			raise e
+        :param limitidentifier: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.limitidentifier is not None :
-				return str(self.limitidentifier)
-			return None
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._limitidentifier = limitidentifier
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(nslimitidentifier_nslimitsessions_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.nslimitidentifier_nslimitsessions_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.limitidentifier is not None :
+                return str(self.limitidentifier)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(cls, service, limitidentifier) :
-		r""" Use this API to fetch nslimitidentifier_nslimitsessions_binding resources.
-		"""
-		try :
-			obj = nslimitidentifier_nslimitsessions_binding()
-			obj.limitidentifier = limitidentifier
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(cls, service, limitidentifier) :
+        """Use this API to fetch nslimitidentifier_nslimitsessions_binding resources.
 
-	@classmethod
-	def get_filtered(cls, service, limitidentifier, filter_) :
-		r""" Use this API to fetch filtered set of nslimitidentifier_nslimitsessions_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = nslimitidentifier_nslimitsessions_binding()
-			obj.limitidentifier = limitidentifier
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+        :param service: 
+        :param limitidentifier: 
 
-	@classmethod
-	def count(cls, service, limitidentifier) :
-		r""" Use this API to count nslimitidentifier_nslimitsessions_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = nslimitidentifier_nslimitsessions_binding()
-			obj.limitidentifier = limitidentifier
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            obj = nslimitidentifier_nslimitsessions_binding()
+            obj.limitidentifier = limitidentifier
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def count_filtered(cls, service, limitidentifier, filter_) :
-		r""" Use this API to count the filtered set of nslimitidentifier_nslimitsessions_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = nslimitidentifier_nslimitsessions_binding()
-			obj.limitidentifier = limitidentifier
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    @classmethod
+    def get_filtered(cls, service, limitidentifier, filter_) :
+        """Use this API to fetch filtered set of nslimitidentifier_nslimitsessions_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param limitidentifier: 
+        :param filter_: 
+
+        """
+        try :
+            obj = nslimitidentifier_nslimitsessions_binding()
+            obj.limitidentifier = limitidentifier
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, limitidentifier) :
+        """Use this API to count nslimitidentifier_nslimitsessions_binding resources configued on NetScaler.
+
+        :param service: 
+        :param limitidentifier: 
+
+        """
+        try :
+            obj = nslimitidentifier_nslimitsessions_binding()
+            obj.limitidentifier = limitidentifier
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, limitidentifier, filter_) :
+        """Use this API to count the filtered set of nslimitidentifier_nslimitsessions_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param limitidentifier: 
+        :param filter_: 
+
+        """
+        try :
+            obj = nslimitidentifier_nslimitsessions_binding()
+            obj.limitidentifier = limitidentifier
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
 
 class nslimitidentifier_nslimitsessions_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.nslimitidentifier_nslimitsessions_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.nslimitidentifier_nslimitsessions_binding = [nslimitidentifier_nslimitsessions_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.nslimitidentifier_nslimitsessions_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.nslimitidentifier_nslimitsessions_binding = [nslimitidentifier_nslimitsessions_binding() for _ in range(length)]
 

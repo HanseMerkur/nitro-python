@@ -22,145 +22,165 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslfipssimtarget(base_resource) :
-	""" Configuration for FIPS SIM Target resource. """
-	def __init__(self) :
-		self._keyvector = ""
-		self._sourcesecret = ""
-		self._certfile = ""
-		self._targetsecret = ""
+    """Configuration for FIPS SIM Target resource."""
+    def __init__(self) :
+        self._keyvector = ""
+        self._sourcesecret = ""
+        self._certfile = ""
+        self._targetsecret = ""
 
-	@property
-	def keyvector(self) :
-		r"""Name of and, optionally, path to the target FIPS appliance's key vector. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._keyvector
-		except Exception as e:
-			raise e
+    @property
+    def keyvector(self) :
+        """Name of and, optionally, path to the target FIPS appliance's key vector. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1."""
+        try :
+            return self._keyvector
+        except Exception as e:
+            raise e
 
-	@keyvector.setter
-	def keyvector(self, keyvector) :
-		r"""Name of and, optionally, path to the target FIPS appliance's key vector. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1
-		"""
-		try :
-			self._keyvector = keyvector
-		except Exception as e:
-			raise e
+    @keyvector.setter
+    def keyvector(self, keyvector) :
+        """Name of and, optionally, path to the target FIPS appliance's key vector. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1
 
-	@property
-	def sourcesecret(self) :
-		r"""Name of and, optionally, path to the source FIPS appliance's secret data. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._sourcesecret
-		except Exception as e:
-			raise e
+        :param keyvector: 
 
-	@sourcesecret.setter
-	def sourcesecret(self, sourcesecret) :
-		r"""Name of and, optionally, path to the source FIPS appliance's secret data. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1
-		"""
-		try :
-			self._sourcesecret = sourcesecret
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._keyvector = keyvector
+        except Exception as e:
+            raise e
 
-	@property
-	def certfile(self) :
-		r"""Name of and, optionally, path to the source FIPS appliance's certificate file. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._certfile
-		except Exception as e:
-			raise e
+    @property
+    def sourcesecret(self) :
+        """Name of and, optionally, path to the source FIPS appliance's secret data. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1."""
+        try :
+            return self._sourcesecret
+        except Exception as e:
+            raise e
 
-	@certfile.setter
-	def certfile(self, certfile) :
-		r"""Name of and, optionally, path to the source FIPS appliance's certificate file. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1
-		"""
-		try :
-			self._certfile = certfile
-		except Exception as e:
-			raise e
+    @sourcesecret.setter
+    def sourcesecret(self, sourcesecret) :
+        """Name of and, optionally, path to the source FIPS appliance's secret data. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1
 
-	@property
-	def targetsecret(self) :
-		r"""Name for and, optionally, path to the target FIPS appliance's secret data. The default input path for the secret data is /nsconfig/ssl/.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._targetsecret
-		except Exception as e:
-			raise e
+        :param sourcesecret: 
 
-	@targetsecret.setter
-	def targetsecret(self, targetsecret) :
-		r"""Name for and, optionally, path to the target FIPS appliance's secret data. The default input path for the secret data is /nsconfig/ssl/.<br/>Minimum length =  1
-		"""
-		try :
-			self._targetsecret = targetsecret
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._sourcesecret = sourcesecret
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslfipssimtarget_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslfipssimtarget
-		except Exception as e :
-			raise e
+    @property
+    def certfile(self) :
+        """Name of and, optionally, path to the source FIPS appliance's certificate file. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1."""
+        try :
+            return self._certfile
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @certfile.setter
+    def certfile(self, certfile) :
+        """Name of and, optionally, path to the source FIPS appliance's certificate file. /nsconfig/ssl/ is the default path.<br/>Minimum length =  1
+
+        :param certfile: 
+
+        """
+        try :
+            self._certfile = certfile
+        except Exception as e:
+            raise e
+
+    @property
+    def targetsecret(self) :
+        """Name for and, optionally, path to the target FIPS appliance's secret data. The default input path for the secret data is /nsconfig/ssl/.<br/>Minimum length =  1."""
+        try :
+            return self._targetsecret
+        except Exception as e:
+            raise e
+
+    @targetsecret.setter
+    def targetsecret(self, targetsecret) :
+        """Name for and, optionally, path to the target FIPS appliance's secret data. The default input path for the secret data is /nsconfig/ssl/.<br/>Minimum length =  1
+
+        :param targetsecret: 
+
+        """
+        try :
+            self._targetsecret = targetsecret
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslfipssimtarget_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslfipssimtarget
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def enable(cls, client, resource) :
-		r""" Use this API to enable sslfipssimtarget.
-		"""
-		try :
-			if type(resource) is not list :
-				enableresource = sslfipssimtarget()
-				enableresource.keyvector = resource.keyvector
-				enableresource.sourcesecret = resource.sourcesecret
-				return enableresource.perform_operation(client,"enable")
-		except Exception as e :
-			raise e
+    @classmethod
+    def enable(cls, client, resource) :
+        """Use this API to enable sslfipssimtarget.
 
-	@classmethod
-	def init(cls, client, resource) :
-		r""" Use this API to init sslfipssimtarget.
-		"""
-		try :
-			if type(resource) is not list :
-				initresource = sslfipssimtarget()
-				initresource.certfile = resource.certfile
-				initresource.keyvector = resource.keyvector
-				initresource.targetsecret = resource.targetsecret
-				return initresource.perform_operation(client,"init")
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                enableresource = sslfipssimtarget()
+                enableresource.keyvector = resource.keyvector
+                enableresource.sourcesecret = resource.sourcesecret
+                return enableresource.perform_operation(client,"enable")
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def init(cls, client, resource) :
+        """Use this API to init sslfipssimtarget.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                initresource = sslfipssimtarget()
+                initresource.certfile = resource.certfile
+                initresource.keyvector = resource.keyvector
+                initresource.targetsecret = resource.targetsecret
+                return initresource.perform_operation(client,"init")
+        except Exception as e :
+            raise e
 
 class sslfipssimtarget_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslfipssimtarget = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslfipssimtarget = [sslfipssimtarget() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslfipssimtarget = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslfipssimtarget = [sslfipssimtarget() for _ in range(length)]
 

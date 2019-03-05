@@ -22,203 +22,236 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class appfwarchive(base_resource) :
-	""" Configuration for archive resource. """
-	def __init__(self) :
-		self._name = ""
-		self._target = ""
-		self._src = ""
-		self._comment = ""
-		self._response = ""
+    """Configuration for archive resource."""
+    def __init__(self) :
+        self._name = ""
+        self._target = ""
+        self._src = ""
+        self._comment = ""
+        self._response = ""
 
-	@property
-	def name(self) :
-		r"""Name of tar archive.<br/>Minimum length =  1<br/>Maximum length =  31.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of tar archive.<br/>Minimum length =  1<br/>Maximum length =  31."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of tar archive.<br/>Minimum length =  1<br/>Maximum length =  31
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of tar archive.<br/>Minimum length =  1<br/>Maximum length =  31
 
-	@property
-	def target(self) :
-		r"""Path to the file to be exported.<br/>Minimum length =  1<br/>Maximum length =  2047.
-		"""
-		try :
-			return self._target
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@target.setter
-	def target(self, target) :
-		r"""Path to the file to be exported.<br/>Minimum length =  1<br/>Maximum length =  2047
-		"""
-		try :
-			self._target = target
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def src(self) :
-		r"""Indicates the source of the tar archive file as a URL
-		of the form
-		<protocol>://<host>[:<port>][/<path>]
-		<protocol> is http or https.
-		<host> is the DNS name or IP address of the http or https server.
-		<port> is the port number of the server. If omitted, the
-		default port for http or https will be used.
-		<path> is the path of the file on the server.
-		Import will fail if an https server requires client
-		certificate authentication.
-		.<br/>Minimum length =  1<br/>Maximum length =  2047.
-		"""
-		try :
-			return self._src
-		except Exception as e:
-			raise e
+    @property
+    def target(self) :
+        """Path to the file to be exported.<br/>Minimum length =  1<br/>Maximum length =  2047."""
+        try :
+            return self._target
+        except Exception as e:
+            raise e
 
-	@src.setter
-	def src(self, src) :
-		r"""Indicates the source of the tar archive file as a URL
-		of the form
-		<protocol>://<host>[:<port>][/<path>]
-		<protocol> is http or https.
-		<host> is the DNS name or IP address of the http or https server.
-		<port> is the port number of the server. If omitted, the
-		default port for http or https will be used.
-		<path> is the path of the file on the server.
-		Import will fail if an https server requires client
-		certificate authentication.
-		.<br/>Minimum length =  1<br/>Maximum length =  2047
-		"""
-		try :
-			self._src = src
-		except Exception as e:
-			raise e
+    @target.setter
+    def target(self, target) :
+        """Path to the file to be exported.<br/>Minimum length =  1<br/>Maximum length =  2047
 
-	@property
-	def comment(self) :
-		r"""Comments associated with this archive.<br/>Maximum length =  128.
-		"""
-		try :
-			return self._comment
-		except Exception as e:
-			raise e
+        :param target: 
 
-	@comment.setter
-	def comment(self, comment) :
-		r"""Comments associated with this archive.<br/>Maximum length =  128
-		"""
-		try :
-			self._comment = comment
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._target = target
+        except Exception as e:
+            raise e
 
-	@property
-	def response(self) :
-		try :
-			return self._response
-		except Exception as e:
-			raise e
-
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(appfwarchive_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.appfwarchive
-		except Exception as e :
-			raise e
-
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def src(self) :
+        """Indicates the source of the tar archive file as a URL
+        of the form
+        <protocol>://<host>[:<port>][/<path>]
+        <protocol> is http or https.
+        <host> is the DNS name or IP address of the http or https server.
+        <port> is the port number of the server. If omitted, the
+        default port for http or https will be used.
+        <path> is the path of the file on the server.
+        Import will fail if an https server requires client
+        certificate authentication.
+        .<br/>Minimum length =  1<br/>Maximum length =  2047.
 
 
+        """
+        try :
+            return self._src
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def export(cls, client, resource) :
-		r""" Use this API to export appfwarchive.
-		"""
-		try :
-			if type(resource) is not list :
-				exportresource = appfwarchive()
-				exportresource.name = resource.name
-				exportresource.target = resource.target
-				return exportresource.perform_operation(client,"export")
-		except Exception as e :
-			raise e
+    @src.setter
+    def src(self, src) :
+        """Indicates the source of the tar archive file as a URL
+        of the form
+        <protocol>://<host>[:<port>][/<path>]
+        <protocol> is http or https.
+        <host> is the DNS name or IP address of the http or https server.
+        <port> is the port number of the server. If omitted, the
+        default port for http or https will be used.
+        <path> is the path of the file on the server.
+        Import will fail if an https server requires client
+        certificate authentication.
+        .<br/>Minimum length =  1<br/>Maximum length =  2047
 
-	@classmethod
-	def Import(cls, client, resource) :
-		r""" Use this API to Import appfwarchive.
-		"""
-		try :
-			if type(resource) is not list :
-				Importresource = appfwarchive()
-				Importresource.src = resource.src
-				Importresource.name = resource.name
-				Importresource.comment = resource.comment
-				return Importresource.perform_operation(client,"Import")
-		except Exception as e :
-			raise e
+        :param src: 
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete appfwarchive.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = appfwarchive()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.name = resource
-				else :
-					deleteresource.name = resource.name
-				return deleteresource.delete_resource(client)
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._src = src
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the appfwarchive resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = appfwarchive()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    @property
+    def comment(self) :
+        """Comments associated with this archive.<br/>Maximum length =  128."""
+        try :
+            return self._comment
+        except Exception as e:
+            raise e
+
+    @comment.setter
+    def comment(self, comment) :
+        """Comments associated with this archive.<br/>Maximum length =  128
+
+        :param comment: 
+
+        """
+        try :
+            self._comment = comment
+        except Exception as e:
+            raise e
+
+    @property
+    def response(self) :
+        """ """
+        try :
+            return self._response
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(appfwarchive_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.appfwarchive
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
+
+
+
+    @classmethod
+    def export(cls, client, resource) :
+        """Use this API to export appfwarchive.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                exportresource = appfwarchive()
+                exportresource.name = resource.name
+                exportresource.target = resource.target
+                return exportresource.perform_operation(client,"export")
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def Import(cls, client, resource) :
+        """Use this API to Import appfwarchive.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                Importresource = appfwarchive()
+                Importresource.src = resource.src
+                Importresource.name = resource.name
+                Importresource.comment = resource.comment
+                return Importresource.perform_operation(client,"Import")
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete appfwarchive.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = appfwarchive()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.name = resource
+                else :
+                    deleteresource.name = resource.name
+                return deleteresource.delete_resource(client)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the appfwarchive resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = appfwarchive()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
 class appfwarchive_response(base_response) :
-	def __init__(self, length=1) :
-		self.appfwarchive = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.appfwarchive = [appfwarchive() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.appfwarchive = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.appfwarchive = [appfwarchive() for _ in range(length)]
 

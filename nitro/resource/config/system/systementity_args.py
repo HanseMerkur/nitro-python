@@ -16,64 +16,69 @@
 
 
 class systementity_args :
-	r""" Provides additional arguments required for fetching the systementity resource.
-	"""
-	def __init__(self) :
-		self._type = ""
-		self._datasource = ""
-		self._core = 0
+    """Provides additional arguments required for fetching the systementity resource."""
+    def __init__(self) :
+        self._type = ""
+        self._datasource = ""
+        self._core = 0
 
-	@property
-	def type(self) :
-		r"""Specify the entity type.
-		"""
-		try :
-			return self._type
-		except Exception as e:
-			raise e
+    @property
+    def type(self) :
+        """Specify the entity type."""
+        try :
+            return self._type
+        except Exception as e:
+            raise e
 
-	@type.setter
-	def type(self, type) :
-		r"""Specify the entity type.
-		"""
-		try :
-			self._type = type
-		except Exception as e:
-			raise e
+    @type.setter
+    def type(self, type) :
+        """Specify the entity type.
 
-	@property
-	def datasource(self) :
-		r"""Specifies the source which contains all the stored counter values.
-		"""
-		try :
-			return self._datasource
-		except Exception as e:
-			raise e
+        :param type: 
 
-	@datasource.setter
-	def datasource(self, datasource) :
-		r"""Specifies the source which contains all the stored counter values.
-		"""
-		try :
-			self._datasource = datasource
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._type = type
+        except Exception as e:
+            raise e
 
-	@property
-	def core(self) :
-		r"""Specify core ID of the PE in nCore.
-		"""
-		try :
-			return self._core
-		except Exception as e:
-			raise e
+    @property
+    def datasource(self) :
+        """Specifies the source which contains all the stored counter values."""
+        try :
+            return self._datasource
+        except Exception as e:
+            raise e
 
-	@core.setter
-	def core(self, core) :
-		r"""Specify core ID of the PE in nCore.
-		"""
-		try :
-			self._core = core
-		except Exception as e:
-			raise e
+    @datasource.setter
+    def datasource(self, datasource) :
+        """Specifies the source which contains all the stored counter values.
+
+        :param datasource: 
+
+        """
+        try :
+            self._datasource = datasource
+        except Exception as e:
+            raise e
+
+    @property
+    def core(self) :
+        """Specify core ID of the PE in nCore."""
+        try :
+            return self._core
+        except Exception as e:
+            raise e
+
+    @core.setter
+    def core(self, core) :
+        """Specify core ID of the PE in nCore.
+
+        :param core: 
+
+        """
+        try :
+            self._core = core
+        except Exception as e:
+            raise e
 

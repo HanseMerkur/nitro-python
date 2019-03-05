@@ -22,139 +22,161 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class application(base_resource) :
-	""" Configuration for application resource. """
-	def __init__(self) :
-		self._apptemplatefilename = ""
-		self._appname = ""
-		self._deploymentfilename = ""
+    """Configuration for application resource."""
+    def __init__(self) :
+        self._apptemplatefilename = ""
+        self._appname = ""
+        self._deploymentfilename = ""
 
-	@property
-	def apptemplatefilename(self) :
-		r"""Name of the AppExpert application template file.
-		"""
-		try :
-			return self._apptemplatefilename
-		except Exception as e:
-			raise e
+    @property
+    def apptemplatefilename(self) :
+        """Name of the AppExpert application template file."""
+        try :
+            return self._apptemplatefilename
+        except Exception as e:
+            raise e
 
-	@apptemplatefilename.setter
-	def apptemplatefilename(self, apptemplatefilename) :
-		r"""Name of the AppExpert application template file.
-		"""
-		try :
-			self._apptemplatefilename = apptemplatefilename
-		except Exception as e:
-			raise e
+    @apptemplatefilename.setter
+    def apptemplatefilename(self, apptemplatefilename) :
+        """Name of the AppExpert application template file.
 
-	@property
-	def appname(self) :
-		r"""Name to assign to the application on the NetScaler appliance. If you do not provide a name, the appliance assigns the application the name of the template file.
-		"""
-		try :
-			return self._appname
-		except Exception as e:
-			raise e
+        :param apptemplatefilename: 
 
-	@appname.setter
-	def appname(self, appname) :
-		r"""Name to assign to the application on the NetScaler appliance. If you do not provide a name, the appliance assigns the application the name of the template file.
-		"""
-		try :
-			self._appname = appname
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._apptemplatefilename = apptemplatefilename
+        except Exception as e:
+            raise e
 
-	@property
-	def deploymentfilename(self) :
-		r"""Name of the deployment file.
-		"""
-		try :
-			return self._deploymentfilename
-		except Exception as e:
-			raise e
+    @property
+    def appname(self) :
+        """Name to assign to the application on the NetScaler appliance. If you do not provide a name, the appliance assigns the application the name of the template file."""
+        try :
+            return self._appname
+        except Exception as e:
+            raise e
 
-	@deploymentfilename.setter
-	def deploymentfilename(self, deploymentfilename) :
-		r"""Name of the deployment file.
-		"""
-		try :
-			self._deploymentfilename = deploymentfilename
-		except Exception as e:
-			raise e
+    @appname.setter
+    def appname(self, appname) :
+        """Name to assign to the application on the NetScaler appliance. If you do not provide a name, the appliance assigns the application the name of the template file.
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(application_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.application
-		except Exception as e :
-			raise e
+        :param appname: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._appname = appname
+        except Exception as e:
+            raise e
+
+    @property
+    def deploymentfilename(self) :
+        """Name of the deployment file."""
+        try :
+            return self._deploymentfilename
+        except Exception as e:
+            raise e
+
+    @deploymentfilename.setter
+    def deploymentfilename(self, deploymentfilename) :
+        """Name of the deployment file.
+
+        :param deploymentfilename: 
+
+        """
+        try :
+            self._deploymentfilename = deploymentfilename
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(application_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.application
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def Import(cls, client, resource) :
-		r""" Use this API to Import application.
-		"""
-		try :
-			if type(resource) is not list :
-				Importresource = application()
-				Importresource.apptemplatefilename = resource.apptemplatefilename
-				Importresource.appname = resource.appname
-				Importresource.deploymentfilename = resource.deploymentfilename
-				return Importresource.perform_operation(client,"Import")
-		except Exception as e :
-			raise e
+    @classmethod
+    def Import(cls, client, resource) :
+        """Use this API to Import application.
 
-	@classmethod
-	def export(cls, client, resource) :
-		r""" Use this API to export application.
-		"""
-		try :
-			if type(resource) is not list :
-				exportresource = application()
-				exportresource.appname = resource.appname
-				exportresource.apptemplatefilename = resource.apptemplatefilename
-				exportresource.deploymentfilename = resource.deploymentfilename
-				return exportresource.perform_operation(client,"export")
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete application.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = application()
-				deleteresource.appname = resource.appname
-				return deleteresource.delete_resource(client)
-		except Exception as e :
-			raise e
+        """
+        try :
+            if type(resource) is not list :
+                Importresource = application()
+                Importresource.apptemplatefilename = resource.apptemplatefilename
+                Importresource.appname = resource.appname
+                Importresource.deploymentfilename = resource.deploymentfilename
+                return Importresource.perform_operation(client,"Import")
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def export(cls, client, resource) :
+        """Use this API to export application.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                exportresource = application()
+                exportresource.appname = resource.appname
+                exportresource.apptemplatefilename = resource.apptemplatefilename
+                exportresource.deploymentfilename = resource.deploymentfilename
+                return exportresource.perform_operation(client,"export")
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete application.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = application()
+                deleteresource.appname = resource.appname
+                return deleteresource.delete_resource(client)
+        except Exception as e :
+            raise e
 
 class application_response(base_response) :
-	def __init__(self, length=1) :
-		self.application = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.application = [application() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.application = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.application = [application() for _ in range(length)]
 

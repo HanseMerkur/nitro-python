@@ -16,26 +16,27 @@
 
 
 class sslservice_args :
-	r""" Provides additional arguments required for fetching the sslservice resource.
-	"""
-	def __init__(self) :
-		self._cipherdetails = False
+    """Provides additional arguments required for fetching the sslservice resource."""
+    def __init__(self) :
+        self._cipherdetails = False
 
-	@property
-	def cipherdetails(self) :
-		r"""Display details of the individual ciphers bound to the SSL service.
-		"""
-		try :
-			return self._cipherdetails
-		except Exception as e:
-			raise e
+    @property
+    def cipherdetails(self) :
+        """Display details of the individual ciphers bound to the SSL service."""
+        try :
+            return self._cipherdetails
+        except Exception as e:
+            raise e
 
-	@cipherdetails.setter
-	def cipherdetails(self, cipherdetails) :
-		r"""Display details of the individual ciphers bound to the SSL service.
-		"""
-		try :
-			self._cipherdetails = cipherdetails
-		except Exception as e:
-			raise e
+    @cipherdetails.setter
+    def cipherdetails(self, cipherdetails) :
+        """Display details of the individual ciphers bound to the SSL service.
+
+        :param cipherdetails: 
+
+        """
+        try :
+            self._cipherdetails = cipherdetails
+        except Exception as e:
+            raise e
 

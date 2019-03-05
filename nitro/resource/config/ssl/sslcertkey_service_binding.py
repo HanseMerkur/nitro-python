@@ -22,243 +22,282 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslcertkey_service_binding(base_resource) :
-	""" Binding class showing the service that can be bound to sslcertkey.
-	"""
-	def __init__(self) :
-		self._servicename = ""
-		self._data = 0
-		self._version = 0
-		self._certkey = ""
-		self._service = False
-		self._servicegroupname = ""
-		self._ca = False
-		self._crlcheck = ""
-		self.___count = 0
+    """Binding class showing the service that can be bound to sslcertkey."""
+    def __init__(self) :
+        self._servicename = ""
+        self._data = 0
+        self._version = 0
+        self._certkey = ""
+        self._service = False
+        self._servicegroupname = ""
+        self._ca = False
+        self._crlcheck = ""
+        self.___count = 0
 
-	@property
-	def servicegroupname(self) :
-		try :
-			return self._servicegroupname
-		except Exception as e:
-			raise e
+    @property
+    def servicegroupname(self) :
+        """ """
+        try :
+            return self._servicegroupname
+        except Exception as e:
+            raise e
 
-	@servicegroupname.setter
-	def servicegroupname(self, servicegroupname) :
-		try :
-			self._servicegroupname = servicegroupname
-		except Exception as e:
-			raise e
+    @servicegroupname.setter
+    def servicegroupname(self, servicegroupname) :
+        """
 
-	@property
-	def crlcheck(self) :
-		r"""The rule for use of CRL corresponding to this CA certificate during client authentication. If crlCheck is set to Mandatory, the system will deny all SSL clients if the CRL is missing, expired - NextUpdate date is in the past, or is incomplete with remote CRL refresh enabled. If crlCheck is set to optional, the system will allow SSL clients in the above error cases.However, in any case if the client certificate is revoked in the CRL, the SSL client will be denied access.<br/>Default value: CRLCHECK_OPTIONAL<br/>Possible values = Mandatory, Optional.
-		"""
-		try :
-			return self._crlcheck
-		except Exception as e:
-			raise e
+        :param servicegroupname: 
 
-	@crlcheck.setter
-	def crlcheck(self, crlcheck) :
-		r"""The rule for use of CRL corresponding to this CA certificate during client authentication. If crlCheck is set to Mandatory, the system will deny all SSL clients if the CRL is missing, expired - NextUpdate date is in the past, or is incomplete with remote CRL refresh enabled. If crlCheck is set to optional, the system will allow SSL clients in the above error cases.However, in any case if the client certificate is revoked in the CRL, the SSL client will be denied access.<br/>Default value: CRLCHECK_OPTIONAL<br/>Possible values = Mandatory, Optional
-		"""
-		try :
-			self._crlcheck = crlcheck
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._servicegroupname = servicegroupname
+        except Exception as e:
+            raise e
 
-	@property
-	def ca(self) :
-		r"""If this option is specified, it indicates that the certificate-key pair being bound to the SSL virtual server is a CA certificate. If this option is not specified, the certificate-key pair is bound as a normal server certificate.
-		Note: In case of a normal server certificate, the certificate-key pair should consist of both the certificate and the private-key.
-		"""
-		try :
-			return self._ca
-		except Exception as e:
-			raise e
+    @property
+    def crlcheck(self) :
+        """The rule for use of CRL corresponding to this CA certificate during client authentication. If crlCheck is set to Mandatory, the system will deny all SSL clients if the CRL is missing, expired - NextUpdate date is in the past, or is incomplete with remote CRL refresh enabled. If crlCheck is set to optional, the system will allow SSL clients in the above error cases.However, in any case if the client certificate is revoked in the CRL, the SSL client will be denied access.<br/>Default value: CRLCHECK_OPTIONAL<br/>Possible values = Mandatory, Optional."""
+        try :
+            return self._crlcheck
+        except Exception as e:
+            raise e
 
-	@ca.setter
-	def ca(self, ca) :
-		r"""If this option is specified, it indicates that the certificate-key pair being bound to the SSL virtual server is a CA certificate. If this option is not specified, the certificate-key pair is bound as a normal server certificate.
-		Note: In case of a normal server certificate, the certificate-key pair should consist of both the certificate and the private-key.
-		"""
-		try :
-			self._ca = ca
-		except Exception as e:
-			raise e
+    @crlcheck.setter
+    def crlcheck(self, crlcheck) :
+        """The rule for use of CRL corresponding to this CA certificate during client authentication. If crlCheck is set to Mandatory, the system will deny all SSL clients if the CRL is missing, expired - NextUpdate date is in the past, or is incomplete with remote CRL refresh enabled. If crlCheck is set to optional, the system will allow SSL clients in the above error cases.However, in any case if the client certificate is revoked in the CRL, the SSL client will be denied access.<br/>Default value: CRLCHECK_OPTIONAL<br/>Possible values = Mandatory, Optional
 
-	@property
-	def service(self) :
-		r"""Bind the certificate to the named SSL service or service group.
-		"""
-		try :
-			return self._service
-		except Exception as e:
-			raise e
+        :param crlcheck: 
 
-	@service.setter
-	def service(self, service) :
-		r"""Bind the certificate to the named SSL service or service group.
-		"""
-		try :
-			self._service = service
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._crlcheck = crlcheck
+        except Exception as e:
+            raise e
 
-	@property
-	def servicename(self) :
-		r"""Service name to which the certificate key pair is bound.
-		"""
-		try :
-			return self._servicename
-		except Exception as e:
-			raise e
-
-	@servicename.setter
-	def servicename(self, servicename) :
-		r"""Service name to which the certificate key pair is bound.
-		"""
-		try :
-			self._servicename = servicename
-		except Exception as e:
-			raise e
-
-	@property
-	def certkey(self) :
-		r"""Name of the certificate-key pair.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._certkey
-		except Exception as e:
-			raise e
-
-	@certkey.setter
-	def certkey(self, certkey) :
-		r"""Name of the certificate-key pair.<br/>Minimum length =  1
-		"""
-		try :
-			self._certkey = certkey
-		except Exception as e:
-			raise e
-
-	@property
-	def version(self) :
-		r"""Version.
-		"""
-		try :
-			return self._version
-		except Exception as e:
-			raise e
-
-	@property
-	def data(self) :
-		r"""Vserver Id.
-		"""
-		try :
-			return self._data
-		except Exception as e:
-			raise e
-
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslcertkey_service_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslcertkey_service_binding
-		except Exception as e :
-			raise e
-
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.certkey is not None :
-				return str(self.certkey)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def ca(self) :
+        """If this option is specified, it indicates that the certificate-key pair being bound to the SSL virtual server is a CA certificate. If this option is not specified, the certificate-key pair is bound as a normal server certificate.
+        Note: In case of a normal server certificate, the certificate-key pair should consist of both the certificate and the private-key.
 
 
+        """
+        try :
+            return self._ca
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get(cls, service, certkey) :
-		r""" Use this API to fetch sslcertkey_service_binding resources.
-		"""
-		try :
-			obj = sslcertkey_service_binding()
-			obj.certkey = certkey
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+    @ca.setter
+    def ca(self, ca) :
+        """If this option is specified, it indicates that the certificate-key pair being bound to the SSL virtual server is a CA certificate. If this option is not specified, the certificate-key pair is bound as a normal server certificate.
+        Note: In case of a normal server certificate, the certificate-key pair should consist of both the certificate and the private-key.
 
-	@classmethod
-	def get_filtered(cls, service, certkey, filter_) :
-		r""" Use this API to fetch filtered set of sslcertkey_service_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslcertkey_service_binding()
-			obj.certkey = certkey
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+        :param ca: 
 
-	@classmethod
-	def count(cls, service, certkey) :
-		r""" Use this API to count sslcertkey_service_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = sslcertkey_service_binding()
-			obj.certkey = certkey
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._ca = ca
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def count_filtered(cls, service, certkey, filter_) :
-		r""" Use this API to count the filtered set of sslcertkey_service_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslcertkey_service_binding()
-			obj.certkey = certkey
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    @property
+    def service(self) :
+        """Bind the certificate to the named SSL service or service group."""
+        try :
+            return self._service
+        except Exception as e:
+            raise e
 
-	class Crlcheck:
-		Mandatory = "Mandatory"
-		Optional = "Optional"
+    @service.setter
+    def service(self, service) :
+        """Bind the certificate to the named SSL service or service group.
+
+        :param service: 
+
+        """
+        try :
+            self._service = service
+        except Exception as e:
+            raise e
+
+    @property
+    def servicename(self) :
+        """Service name to which the certificate key pair is bound."""
+        try :
+            return self._servicename
+        except Exception as e:
+            raise e
+
+    @servicename.setter
+    def servicename(self, servicename) :
+        """Service name to which the certificate key pair is bound.
+
+        :param servicename: 
+
+        """
+        try :
+            self._servicename = servicename
+        except Exception as e:
+            raise e
+
+    @property
+    def certkey(self) :
+        """Name of the certificate-key pair.<br/>Minimum length =  1."""
+        try :
+            return self._certkey
+        except Exception as e:
+            raise e
+
+    @certkey.setter
+    def certkey(self, certkey) :
+        """Name of the certificate-key pair.<br/>Minimum length =  1
+
+        :param certkey: 
+
+        """
+        try :
+            self._certkey = certkey
+        except Exception as e:
+            raise e
+
+    @property
+    def version(self) :
+        """Version."""
+        try :
+            return self._version
+        except Exception as e:
+            raise e
+
+    @property
+    def data(self) :
+        """Vserver Id."""
+        try :
+            return self._data
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslcertkey_service_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslcertkey_service_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.certkey is not None :
+                return str(self.certkey)
+            return None
+        except Exception as e :
+            raise e
+
+
+
+    @classmethod
+    def get(cls, service, certkey) :
+        """Use this API to fetch sslcertkey_service_binding resources.
+
+        :param service: 
+        :param certkey: 
+
+        """
+        try :
+            obj = sslcertkey_service_binding()
+            obj.certkey = certkey
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def get_filtered(cls, service, certkey, filter_) :
+        """Use this API to fetch filtered set of sslcertkey_service_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param certkey: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslcertkey_service_binding()
+            obj.certkey = certkey
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, certkey) :
+        """Use this API to count sslcertkey_service_binding resources configued on NetScaler.
+
+        :param service: 
+        :param certkey: 
+
+        """
+        try :
+            obj = sslcertkey_service_binding()
+            obj.certkey = certkey
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, certkey, filter_) :
+        """Use this API to count the filtered set of sslcertkey_service_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param certkey: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslcertkey_service_binding()
+            obj.certkey = certkey
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Crlcheck:
+        """ """
+        Mandatory = "Mandatory"
+        Optional = "Optional"
 
 class sslcertkey_service_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslcertkey_service_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslcertkey_service_binding = [sslcertkey_service_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslcertkey_service_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslcertkey_service_binding = [sslcertkey_service_binding() for _ in range(length)]
 

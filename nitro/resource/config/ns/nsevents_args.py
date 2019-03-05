@@ -16,26 +16,27 @@
 
 
 class nsevents_args :
-	r""" Provides additional arguments required for fetching the nsevents resource.
-	"""
-	def __init__(self) :
-		self._eventno = 0
+    """Provides additional arguments required for fetching the nsevents resource."""
+    def __init__(self) :
+        self._eventno = 0
 
-	@property
-	def eventno(self) :
-		r"""Event number starting from which events must be shown.
-		"""
-		try :
-			return self._eventno
-		except Exception as e:
-			raise e
+    @property
+    def eventno(self) :
+        """Event number starting from which events must be shown."""
+        try :
+            return self._eventno
+        except Exception as e:
+            raise e
 
-	@eventno.setter
-	def eventno(self, eventno) :
-		r"""Event number starting from which events must be shown.
-		"""
-		try :
-			self._eventno = eventno
-		except Exception as e:
-			raise e
+    @eventno.setter
+    def eventno(self, eventno) :
+        """Event number starting from which events must be shown.
+
+        :param eventno: 
+
+        """
+        try :
+            self._eventno = eventno
+        except Exception as e:
+            raise e
 

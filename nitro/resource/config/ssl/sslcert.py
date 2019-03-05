@@ -22,345 +22,390 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslcert(base_resource) :
-	""" Configuration for cerificate resource. """
-	def __init__(self) :
-		self._certfile = ""
-		self._reqfile = ""
-		self._certtype = ""
-		self._keyfile = ""
-		self._keyform = ""
-		self._pempassphrase = ""
-		self._days = 0
-		self._certform = ""
-		self._cacert = ""
-		self._cacertform = ""
-		self._cakey = ""
-		self._cakeyform = ""
-		self._caserial = ""
+    """Configuration for cerificate resource."""
+    def __init__(self) :
+        self._certfile = ""
+        self._reqfile = ""
+        self._certtype = ""
+        self._keyfile = ""
+        self._keyform = ""
+        self._pempassphrase = ""
+        self._days = 0
+        self._certform = ""
+        self._cacert = ""
+        self._cacertform = ""
+        self._cakey = ""
+        self._cakeyform = ""
+        self._caserial = ""
 
-	@property
-	def certfile(self) :
-		r"""Name for and, optionally, path to the generated certificate file. /nsconfig/ssl/ is the default path.<br/>Maximum length =  63.
-		"""
-		try :
-			return self._certfile
-		except Exception as e:
-			raise e
+    @property
+    def certfile(self) :
+        """Name for and, optionally, path to the generated certificate file. /nsconfig/ssl/ is the default path.<br/>Maximum length =  63."""
+        try :
+            return self._certfile
+        except Exception as e:
+            raise e
 
-	@certfile.setter
-	def certfile(self, certfile) :
-		r"""Name for and, optionally, path to the generated certificate file. /nsconfig/ssl/ is the default path.<br/>Maximum length =  63
-		"""
-		try :
-			self._certfile = certfile
-		except Exception as e:
-			raise e
+    @certfile.setter
+    def certfile(self, certfile) :
+        """Name for and, optionally, path to the generated certificate file. /nsconfig/ssl/ is the default path.<br/>Maximum length =  63
 
-	@property
-	def reqfile(self) :
-		r"""Name for and, optionally, path to the certificate-signing request (CSR). /nsconfig/ssl/ is the default path.<br/>Maximum length =  63.
-		"""
-		try :
-			return self._reqfile
-		except Exception as e:
-			raise e
+        :param certfile: 
 
-	@reqfile.setter
-	def reqfile(self, reqfile) :
-		r"""Name for and, optionally, path to the certificate-signing request (CSR). /nsconfig/ssl/ is the default path.<br/>Maximum length =  63
-		"""
-		try :
-			self._reqfile = reqfile
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._certfile = certfile
+        except Exception as e:
+            raise e
 
-	@property
-	def certtype(self) :
-		r"""Type of certificate to generate. Specify one of the following:
-		* ROOT_CERT - Self-signed Root-CA certificate. You must specify the key file name. The generated Root-CA certificate can be used for signing end-user client or server certificates or to create Intermediate-CA certificates.
-		* INTM_CERT - Intermediate-CA certificate. 
-		* CLNT_CERT - End-user client certificate used for client authentication.
-		* SRVR_CERT - SSL server certificate used on SSL servers for end-to-end encryption.<br/>Possible values = ROOT_CERT, INTM_CERT, CLNT_CERT, SRVR_CERT.
-		"""
-		try :
-			return self._certtype
-		except Exception as e:
-			raise e
+    @property
+    def reqfile(self) :
+        """Name for and, optionally, path to the certificate-signing request (CSR). /nsconfig/ssl/ is the default path.<br/>Maximum length =  63."""
+        try :
+            return self._reqfile
+        except Exception as e:
+            raise e
 
-	@certtype.setter
-	def certtype(self, certtype) :
-		r"""Type of certificate to generate. Specify one of the following:
-		* ROOT_CERT - Self-signed Root-CA certificate. You must specify the key file name. The generated Root-CA certificate can be used for signing end-user client or server certificates or to create Intermediate-CA certificates.
-		* INTM_CERT - Intermediate-CA certificate. 
-		* CLNT_CERT - End-user client certificate used for client authentication.
-		* SRVR_CERT - SSL server certificate used on SSL servers for end-to-end encryption.<br/>Possible values = ROOT_CERT, INTM_CERT, CLNT_CERT, SRVR_CERT
-		"""
-		try :
-			self._certtype = certtype
-		except Exception as e:
-			raise e
+    @reqfile.setter
+    def reqfile(self, reqfile) :
+        """Name for and, optionally, path to the certificate-signing request (CSR). /nsconfig/ssl/ is the default path.<br/>Maximum length =  63
 
-	@property
-	def keyfile(self) :
-		r"""Name for and, optionally, path to the private key. You can either use an existing RSA or DSA key that you own or create a new private key on the NetScaler appliance. This file is required only when creating a self-signed Root-CA certificate. The key file is stored in the /nsconfig/ssl directory by default.                    
-		If the input key specified is an encrypted key, you are prompted to enter the PEM pass phrase that was used for encrypting the key.<br/>Maximum length =  63.
-		"""
-		try :
-			return self._keyfile
-		except Exception as e:
-			raise e
+        :param reqfile: 
 
-	@keyfile.setter
-	def keyfile(self, keyfile) :
-		r"""Name for and, optionally, path to the private key. You can either use an existing RSA or DSA key that you own or create a new private key on the NetScaler appliance. This file is required only when creating a self-signed Root-CA certificate. The key file is stored in the /nsconfig/ssl directory by default.                    
-		If the input key specified is an encrypted key, you are prompted to enter the PEM pass phrase that was used for encrypting the key.<br/>Maximum length =  63
-		"""
-		try :
-			self._keyfile = keyfile
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._reqfile = reqfile
+        except Exception as e:
+            raise e
 
-	@property
-	def keyform(self) :
-		r"""Format in which the key is stored on the appliance.<br/>Default value: PEM<br/>Possible values = DER, PEM.
-		"""
-		try :
-			return self._keyform
-		except Exception as e:
-			raise e
-
-	@keyform.setter
-	def keyform(self, keyform) :
-		r"""Format in which the key is stored on the appliance.<br/>Default value: PEM<br/>Possible values = DER, PEM
-		"""
-		try :
-			self._keyform = keyform
-		except Exception as e:
-			raise e
-
-	@property
-	def pempassphrase(self) :
-		r""".<br/>Minimum length =  1<br/>Maximum length =  31.
-		"""
-		try :
-			return self._pempassphrase
-		except Exception as e:
-			raise e
-
-	@pempassphrase.setter
-	def pempassphrase(self, pempassphrase) :
-		r""".<br/>Minimum length =  1<br/>Maximum length =  31
-		"""
-		try :
-			self._pempassphrase = pempassphrase
-		except Exception as e:
-			raise e
-
-	@property
-	def days(self) :
-		r"""Number of days for which the certificate will be valid, beginning with the time and day (system time) of creation.<br/>Default value: 365<br/>Minimum length =  1<br/>Maximum length =  3650.
-		"""
-		try :
-			return self._days
-		except Exception as e:
-			raise e
-
-	@days.setter
-	def days(self, days) :
-		r"""Number of days for which the certificate will be valid, beginning with the time and day (system time) of creation.<br/>Default value: 365<br/>Minimum length =  1<br/>Maximum length =  3650
-		"""
-		try :
-			self._days = days
-		except Exception as e:
-			raise e
-
-	@property
-	def certform(self) :
-		r"""Format in which the certificate is stored on the appliance.<br/>Default value: PEM<br/>Possible values = DER, PEM.
-		"""
-		try :
-			return self._certform
-		except Exception as e:
-			raise e
-
-	@certform.setter
-	def certform(self, certform) :
-		r"""Format in which the certificate is stored on the appliance.<br/>Default value: PEM<br/>Possible values = DER, PEM
-		"""
-		try :
-			self._certform = certform
-		except Exception as e:
-			raise e
-
-	@property
-	def cacert(self) :
-		r"""Name of the CA certificate file that issues and signs the Intermediate-CA certificate or the end-user client and server certificates.<br/>Maximum length =  63.
-		"""
-		try :
-			return self._cacert
-		except Exception as e:
-			raise e
-
-	@cacert.setter
-	def cacert(self, cacert) :
-		r"""Name of the CA certificate file that issues and signs the Intermediate-CA certificate or the end-user client and server certificates.<br/>Maximum length =  63
-		"""
-		try :
-			self._cacert = cacert
-		except Exception as e:
-			raise e
-
-	@property
-	def cacertform(self) :
-		r"""Format of the CA certificate.<br/>Default value: PEM<br/>Possible values = DER, PEM.
-		"""
-		try :
-			return self._cacertform
-		except Exception as e:
-			raise e
-
-	@cacertform.setter
-	def cacertform(self, cacertform) :
-		r"""Format of the CA certificate.<br/>Default value: PEM<br/>Possible values = DER, PEM
-		"""
-		try :
-			self._cacertform = cacertform
-		except Exception as e:
-			raise e
-
-	@property
-	def cakey(self) :
-		r"""Private key, associated with the CA certificate that is used to sign the Intermediate-CA certificate or the end-user client and server certificate. If the CA key file is password protected, the user is prompted to enter the pass phrase that was used to encrypt the key.<br/>Maximum length =  63.
-		"""
-		try :
-			return self._cakey
-		except Exception as e:
-			raise e
-
-	@cakey.setter
-	def cakey(self, cakey) :
-		r"""Private key, associated with the CA certificate that is used to sign the Intermediate-CA certificate or the end-user client and server certificate. If the CA key file is password protected, the user is prompted to enter the pass phrase that was used to encrypt the key.<br/>Maximum length =  63
-		"""
-		try :
-			self._cakey = cakey
-		except Exception as e:
-			raise e
-
-	@property
-	def cakeyform(self) :
-		r"""Format for the CA certificate.<br/>Default value: PEM<br/>Possible values = DER, PEM.
-		"""
-		try :
-			return self._cakeyform
-		except Exception as e:
-			raise e
-
-	@cakeyform.setter
-	def cakeyform(self, cakeyform) :
-		r"""Format for the CA certificate.<br/>Default value: PEM<br/>Possible values = DER, PEM
-		"""
-		try :
-			self._cakeyform = cakeyform
-		except Exception as e:
-			raise e
-
-	@property
-	def caserial(self) :
-		r"""Serial number file maintained for the CA certificate. This file contains the serial number of the next certificate to be issued or signed by the CA. If the specified file does not exist, a new file is created, with /nsconfig/ssl/ as the default path. If you do not specify a proper path for the existing serial file, a new serial file is created. This might change the certificate serial numbers assigned by the CA certificate to each of the certificates it signs.<br/>Maximum length =  63.
-		"""
-		try :
-			return self._caserial
-		except Exception as e:
-			raise e
-
-	@caserial.setter
-	def caserial(self, caserial) :
-		r"""Serial number file maintained for the CA certificate. This file contains the serial number of the next certificate to be issued or signed by the CA. If the specified file does not exist, a new file is created, with /nsconfig/ssl/ as the default path. If you do not specify a proper path for the existing serial file, a new serial file is created. This might change the certificate serial numbers assigned by the CA certificate to each of the certificates it signs.<br/>Maximum length =  63
-		"""
-		try :
-			self._caserial = caserial
-		except Exception as e:
-			raise e
-
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslcert_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslcert
-		except Exception as e :
-			raise e
-
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @property
+    def certtype(self) :
+        """Type of certificate to generate. Specify one of the following:
+        * ROOT_CERT - Self-signed Root-CA certificate. You must specify the key file name. The generated Root-CA certificate can be used for signing end-user client or server certificates or to create Intermediate-CA certificates.
+        * INTM_CERT - Intermediate-CA certificate.
+        * CLNT_CERT - End-user client certificate used for client authentication.
+        * SRVR_CERT - SSL server certificate used on SSL servers for end-to-end encryption.<br/>Possible values = ROOT_CERT, INTM_CERT, CLNT_CERT, SRVR_CERT.
 
 
+        """
+        try :
+            return self._certtype
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def create(cls, client, resource) :
-		r""" Use this API to create sslcert.
-		"""
-		try :
-			if type(resource) is not list :
-				createresource = sslcert()
-				createresource.certfile = resource.certfile
-				createresource.reqfile = resource.reqfile
-				createresource.certtype = resource.certtype
-				createresource.keyfile = resource.keyfile
-				createresource.keyform = resource.keyform
-				createresource.pempassphrase = resource.pempassphrase
-				createresource.days = resource.days
-				createresource.certform = resource.certform
-				createresource.cacert = resource.cacert
-				createresource.cacertform = resource.cacertform
-				createresource.cakey = resource.cakey
-				createresource.cakeyform = resource.cakeyform
-				createresource.caserial = resource.caserial
-				return createresource.perform_operation(client,"create")
-		except Exception as e :
-			raise e
+    @certtype.setter
+    def certtype(self, certtype) :
+        """Type of certificate to generate. Specify one of the following:
+        * ROOT_CERT - Self-signed Root-CA certificate. You must specify the key file name. The generated Root-CA certificate can be used for signing end-user client or server certificates or to create Intermediate-CA certificates.
+        * INTM_CERT - Intermediate-CA certificate.
+        * CLNT_CERT - End-user client certificate used for client authentication.
+        * SRVR_CERT - SSL server certificate used on SSL servers for end-to-end encryption.<br/>Possible values = ROOT_CERT, INTM_CERT, CLNT_CERT, SRVR_CERT
 
-	class Keyform:
-		DER = "DER"
-		PEM = "PEM"
+        :param certtype: 
 
-	class Cacertform:
-		DER = "DER"
-		PEM = "PEM"
+        """
+        try :
+            self._certtype = certtype
+        except Exception as e:
+            raise e
 
-	class Certtype:
-		ROOT_CERT = "ROOT_CERT"
-		INTM_CERT = "INTM_CERT"
-		CLNT_CERT = "CLNT_CERT"
-		SRVR_CERT = "SRVR_CERT"
+    @property
+    def keyfile(self) :
+        """Name for and, optionally, path to the private key. You can either use an existing RSA or DSA key that you own or create a new private key on the NetScaler appliance. This file is required only when creating a self-signed Root-CA certificate. The key file is stored in the /nsconfig/ssl directory by default.
+        If the input key specified is an encrypted key, you are prompted to enter the PEM pass phrase that was used for encrypting the key.<br/>Maximum length =  63.
 
-	class Certform:
-		DER = "DER"
-		PEM = "PEM"
 
-	class Cakeyform:
-		DER = "DER"
-		PEM = "PEM"
+        """
+        try :
+            return self._keyfile
+        except Exception as e:
+            raise e
+
+    @keyfile.setter
+    def keyfile(self, keyfile) :
+        """Name for and, optionally, path to the private key. You can either use an existing RSA or DSA key that you own or create a new private key on the NetScaler appliance. This file is required only when creating a self-signed Root-CA certificate. The key file is stored in the /nsconfig/ssl directory by default.
+        If the input key specified is an encrypted key, you are prompted to enter the PEM pass phrase that was used for encrypting the key.<br/>Maximum length =  63
+
+        :param keyfile: 
+
+        """
+        try :
+            self._keyfile = keyfile
+        except Exception as e:
+            raise e
+
+    @property
+    def keyform(self) :
+        """Format in which the key is stored on the appliance.<br/>Default value: PEM<br/>Possible values = DER, PEM."""
+        try :
+            return self._keyform
+        except Exception as e:
+            raise e
+
+    @keyform.setter
+    def keyform(self, keyform) :
+        """Format in which the key is stored on the appliance.<br/>Default value: PEM<br/>Possible values = DER, PEM
+
+        :param keyform: 
+
+        """
+        try :
+            self._keyform = keyform
+        except Exception as e:
+            raise e
+
+    @property
+    def pempassphrase(self) :
+        """.<br/>Minimum length =  1<br/>Maximum length =  31."""
+        try :
+            return self._pempassphrase
+        except Exception as e:
+            raise e
+
+    @pempassphrase.setter
+    def pempassphrase(self, pempassphrase) :
+        """.<br/>Minimum length =  1<br/>Maximum length =  31
+
+        :param pempassphrase: 
+
+        """
+        try :
+            self._pempassphrase = pempassphrase
+        except Exception as e:
+            raise e
+
+    @property
+    def days(self) :
+        """Number of days for which the certificate will be valid, beginning with the time and day (system time) of creation.<br/>Default value: 365<br/>Minimum length =  1<br/>Maximum length =  3650."""
+        try :
+            return self._days
+        except Exception as e:
+            raise e
+
+    @days.setter
+    def days(self, days) :
+        """Number of days for which the certificate will be valid, beginning with the time and day (system time) of creation.<br/>Default value: 365<br/>Minimum length =  1<br/>Maximum length =  3650
+
+        :param days: 
+
+        """
+        try :
+            self._days = days
+        except Exception as e:
+            raise e
+
+    @property
+    def certform(self) :
+        """Format in which the certificate is stored on the appliance.<br/>Default value: PEM<br/>Possible values = DER, PEM."""
+        try :
+            return self._certform
+        except Exception as e:
+            raise e
+
+    @certform.setter
+    def certform(self, certform) :
+        """Format in which the certificate is stored on the appliance.<br/>Default value: PEM<br/>Possible values = DER, PEM
+
+        :param certform: 
+
+        """
+        try :
+            self._certform = certform
+        except Exception as e:
+            raise e
+
+    @property
+    def cacert(self) :
+        """Name of the CA certificate file that issues and signs the Intermediate-CA certificate or the end-user client and server certificates.<br/>Maximum length =  63."""
+        try :
+            return self._cacert
+        except Exception as e:
+            raise e
+
+    @cacert.setter
+    def cacert(self, cacert) :
+        """Name of the CA certificate file that issues and signs the Intermediate-CA certificate or the end-user client and server certificates.<br/>Maximum length =  63
+
+        :param cacert: 
+
+        """
+        try :
+            self._cacert = cacert
+        except Exception as e:
+            raise e
+
+    @property
+    def cacertform(self) :
+        """Format of the CA certificate.<br/>Default value: PEM<br/>Possible values = DER, PEM."""
+        try :
+            return self._cacertform
+        except Exception as e:
+            raise e
+
+    @cacertform.setter
+    def cacertform(self, cacertform) :
+        """Format of the CA certificate.<br/>Default value: PEM<br/>Possible values = DER, PEM
+
+        :param cacertform: 
+
+        """
+        try :
+            self._cacertform = cacertform
+        except Exception as e:
+            raise e
+
+    @property
+    def cakey(self) :
+        """Private key, associated with the CA certificate that is used to sign the Intermediate-CA certificate or the end-user client and server certificate. If the CA key file is password protected, the user is prompted to enter the pass phrase that was used to encrypt the key.<br/>Maximum length =  63."""
+        try :
+            return self._cakey
+        except Exception as e:
+            raise e
+
+    @cakey.setter
+    def cakey(self, cakey) :
+        """Private key, associated with the CA certificate that is used to sign the Intermediate-CA certificate or the end-user client and server certificate. If the CA key file is password protected, the user is prompted to enter the pass phrase that was used to encrypt the key.<br/>Maximum length =  63
+
+        :param cakey: 
+
+        """
+        try :
+            self._cakey = cakey
+        except Exception as e:
+            raise e
+
+    @property
+    def cakeyform(self) :
+        """Format for the CA certificate.<br/>Default value: PEM<br/>Possible values = DER, PEM."""
+        try :
+            return self._cakeyform
+        except Exception as e:
+            raise e
+
+    @cakeyform.setter
+    def cakeyform(self, cakeyform) :
+        """Format for the CA certificate.<br/>Default value: PEM<br/>Possible values = DER, PEM
+
+        :param cakeyform: 
+
+        """
+        try :
+            self._cakeyform = cakeyform
+        except Exception as e:
+            raise e
+
+    @property
+    def caserial(self) :
+        """Serial number file maintained for the CA certificate. This file contains the serial number of the next certificate to be issued or signed by the CA. If the specified file does not exist, a new file is created, with /nsconfig/ssl/ as the default path. If you do not specify a proper path for the existing serial file, a new serial file is created. This might change the certificate serial numbers assigned by the CA certificate to each of the certificates it signs.<br/>Maximum length =  63."""
+        try :
+            return self._caserial
+        except Exception as e:
+            raise e
+
+    @caserial.setter
+    def caserial(self, caserial) :
+        """Serial number file maintained for the CA certificate. This file contains the serial number of the next certificate to be issued or signed by the CA. If the specified file does not exist, a new file is created, with /nsconfig/ssl/ as the default path. If you do not specify a proper path for the existing serial file, a new serial file is created. This might change the certificate serial numbers assigned by the CA certificate to each of the certificates it signs.<br/>Maximum length =  63
+
+        :param caserial: 
+
+        """
+        try :
+            self._caserial = caserial
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslcert_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslcert
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
+
+
+
+    @classmethod
+    def create(cls, client, resource) :
+        """Use this API to create sslcert.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                createresource = sslcert()
+                createresource.certfile = resource.certfile
+                createresource.reqfile = resource.reqfile
+                createresource.certtype = resource.certtype
+                createresource.keyfile = resource.keyfile
+                createresource.keyform = resource.keyform
+                createresource.pempassphrase = resource.pempassphrase
+                createresource.days = resource.days
+                createresource.certform = resource.certform
+                createresource.cacert = resource.cacert
+                createresource.cacertform = resource.cacertform
+                createresource.cakey = resource.cakey
+                createresource.cakeyform = resource.cakeyform
+                createresource.caserial = resource.caserial
+                return createresource.perform_operation(client,"create")
+        except Exception as e :
+            raise e
+
+    class Keyform:
+        """ """
+        DER = "DER"
+        PEM = "PEM"
+
+    class Cacertform:
+        """ """
+        DER = "DER"
+        PEM = "PEM"
+
+    class Certtype:
+        """ """
+        ROOT_CERT = "ROOT_CERT"
+        INTM_CERT = "INTM_CERT"
+        CLNT_CERT = "CLNT_CERT"
+        SRVR_CERT = "SRVR_CERT"
+
+    class Certform:
+        """ """
+        DER = "DER"
+        PEM = "PEM"
+
+    class Cakeyform:
+        """ """
+        DER = "DER"
+        PEM = "PEM"
 
 class sslcert_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslcert = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslcert = [sslcert() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslcert = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslcert = [sslcert() for _ in range(length)]
 

@@ -22,65 +22,70 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class filterglobal_binding(base_resource):
-	""" Binding class showing the resources that can be bound to filterglobal_binding. 
-	"""
-	def __init__(self) :
-		self.filterglobal_filterpolicy_binding = []
+    """Binding class showing the resources that can be bound to filterglobal_binding."""
+    def __init__(self) :
+        self.filterglobal_filterpolicy_binding = []
 
-	@property
-	def filterglobal_filterpolicy_bindings(self) :
-		r"""filterpolicy that can be bound to filterglobal.
-		"""
-		try :
-			return self._filterglobal_filterpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def filterglobal_filterpolicy_bindings(self) :
+        """filterpolicy that can be bound to filterglobal."""
+        try :
+            return self._filterglobal_filterpolicy_binding
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(filterglobal_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.filterglobal_binding
-		except Exception as e :
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(filterglobal_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.filterglobal_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service) :
-		r""" Use this API to fetch a filterglobal_binding resource .
-		"""
-		try :
-			obj = filterglobal_binding()
-			response = obj.get_resource(service)
-			return response
+    @classmethod
+    def get(self, service) :
+        """Use this API to fetch a filterglobal_binding resource .
 
-		except Exception as e:
-			raise e
+        :param service: 
+
+        """
+        try :
+            obj = filterglobal_binding()
+            response = obj.get_resource(service)
+            return response
+
+        except Exception as e:
+            raise e
 
 class filterglobal_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.filterglobal_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.filterglobal_binding = [filterglobal_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.filterglobal_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.filterglobal_binding = [filterglobal_binding() for _ in range(length)]
 

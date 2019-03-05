@@ -22,430 +22,490 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class tmformssoaction(base_resource) :
-	""" Configuration for Form sso action resource. """
-	def __init__(self) :
-		self._name = ""
-		self._actionurl = ""
-		self._userfield = ""
-		self._passwdfield = ""
-		self._ssosuccessrule = ""
-		self._namevaluepair = ""
-		self._responsesize = 0
-		self._nvtype = ""
-		self._submitmethod = ""
-		self.___count = 0
+    """Configuration for Form sso action resource."""
+    def __init__(self) :
+        self._name = ""
+        self._actionurl = ""
+        self._userfield = ""
+        self._passwdfield = ""
+        self._ssosuccessrule = ""
+        self._namevaluepair = ""
+        self._responsesize = 0
+        self._nvtype = ""
+        self._submitmethod = ""
+        self.___count = 0
 
-	@property
-	def name(self) :
-		r"""Name for the new form-based single sign-on profile. Must begin with an ASCII alphanumeric or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at (@), equals (=), and hyphen (-) characters. Cannot be changed after an SSO action is created.
-		The following requirement applies only to the NetScaler CLI:
-		If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my action" or 'my action').<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
-
-	@name.setter
-	def name(self, name) :
-		r"""Name for the new form-based single sign-on profile. Must begin with an ASCII alphanumeric or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at (@), equals (=), and hyphen (-) characters. Cannot be changed after an SSO action is created.
-		The following requirement applies only to the NetScaler CLI:
-		If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my action" or 'my action').<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
-
-	@property
-	def actionurl(self) :
-		r"""URL to which the completed form is submitted.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._actionurl
-		except Exception as e:
-			raise e
-
-	@actionurl.setter
-	def actionurl(self, actionurl) :
-		r"""URL to which the completed form is submitted.<br/>Minimum length =  1
-		"""
-		try :
-			self._actionurl = actionurl
-		except Exception as e:
-			raise e
-
-	@property
-	def userfield(self) :
-		r"""Name of the form field in which the user types in the user ID.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._userfield
-		except Exception as e:
-			raise e
-
-	@userfield.setter
-	def userfield(self, userfield) :
-		r"""Name of the form field in which the user types in the user ID.<br/>Minimum length =  1
-		"""
-		try :
-			self._userfield = userfield
-		except Exception as e:
-			raise e
-
-	@property
-	def passwdfield(self) :
-		r"""Name of the form field in which the user types in the password.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._passwdfield
-		except Exception as e:
-			raise e
-
-	@passwdfield.setter
-	def passwdfield(self, passwdfield) :
-		r"""Name of the form field in which the user types in the password.<br/>Minimum length =  1
-		"""
-		try :
-			self._passwdfield = passwdfield
-		except Exception as e:
-			raise e
-
-	@property
-	def ssosuccessrule(self) :
-		r"""Expression, that checks to see if single sign-on is successful.
-		"""
-		try :
-			return self._ssosuccessrule
-		except Exception as e:
-			raise e
-
-	@ssosuccessrule.setter
-	def ssosuccessrule(self, ssosuccessrule) :
-		r"""Expression, that checks to see if single sign-on is successful.
-		"""
-		try :
-			self._ssosuccessrule = ssosuccessrule
-		except Exception as e:
-			raise e
-
-	@property
-	def namevaluepair(self) :
-		r"""Name-value pair attributes to send to the server in addition to sending the username and password. Value names are separated by an ampersand (&) (for example, name1=value1&name2=value2).
-		"""
-		try :
-			return self._namevaluepair
-		except Exception as e:
-			raise e
-
-	@namevaluepair.setter
-	def namevaluepair(self, namevaluepair) :
-		r"""Name-value pair attributes to send to the server in addition to sending the username and password. Value names are separated by an ampersand (&) (for example, name1=value1&name2=value2).
-		"""
-		try :
-			self._namevaluepair = namevaluepair
-		except Exception as e:
-			raise e
-
-	@property
-	def responsesize(self) :
-		r"""Number of bytes, in the response, to parse for extracting the forms.<br/>Default value: 8096.
-		"""
-		try :
-			return self._responsesize
-		except Exception as e:
-			raise e
-
-	@responsesize.setter
-	def responsesize(self, responsesize) :
-		r"""Number of bytes, in the response, to parse for extracting the forms.<br/>Default value: 8096
-		"""
-		try :
-			self._responsesize = responsesize
-		except Exception as e:
-			raise e
-
-	@property
-	def nvtype(self) :
-		r"""Type of processing of the name-value pair. If you specify STATIC, the values configured by the administrator are used. For DYNAMIC, the response is parsed, and the form is extracted and then submitted.<br/>Default value: DYNAMIC<br/>Possible values = STATIC, DYNAMIC.
-		"""
-		try :
-			return self._nvtype
-		except Exception as e:
-			raise e
-
-	@nvtype.setter
-	def nvtype(self, nvtype) :
-		r"""Type of processing of the name-value pair. If you specify STATIC, the values configured by the administrator are used. For DYNAMIC, the response is parsed, and the form is extracted and then submitted.<br/>Default value: DYNAMIC<br/>Possible values = STATIC, DYNAMIC
-		"""
-		try :
-			self._nvtype = nvtype
-		except Exception as e:
-			raise e
-
-	@property
-	def submitmethod(self) :
-		r"""HTTP method used by the single sign-on form to send the logon credentials to the logon server. Applies only to STATIC name-value type.<br/>Default value: GET<br/>Possible values = GET, POST.
-		"""
-		try :
-			return self._submitmethod
-		except Exception as e:
-			raise e
-
-	@submitmethod.setter
-	def submitmethod(self, submitmethod) :
-		r"""HTTP method used by the single sign-on form to send the logon credentials to the logon server. Applies only to STATIC name-value type.<br/>Default value: GET<br/>Possible values = GET, POST
-		"""
-		try :
-			self._submitmethod = submitmethod
-		except Exception as e:
-			raise e
-
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(tmformssoaction_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.tmformssoaction
-		except Exception as e :
-			raise e
-
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def name(self) :
+        """Name for the new form-based single sign-on profile. Must begin with an ASCII alphanumeric or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at (@), equals (=), and hyphen (-) characters. Cannot be changed after an SSO action is created.
+        The following requirement applies only to the NetScaler CLI:
+        If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my action" or 'my action').<br/>Minimum length =  1.
 
 
+        """
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		r""" Use this API to add tmformssoaction.
-		"""
-		try :
-			if type(resource) is not list :
-				addresource = tmformssoaction()
-				addresource.name = resource.name
-				addresource.actionurl = resource.actionurl
-				addresource.userfield = resource.userfield
-				addresource.passwdfield = resource.passwdfield
-				addresource.ssosuccessrule = resource.ssosuccessrule
-				addresource.namevaluepair = resource.namevaluepair
-				addresource.responsesize = resource.responsesize
-				addresource.nvtype = resource.nvtype
-				addresource.submitmethod = resource.submitmethod
-				return addresource.add_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					addresources = [ tmformssoaction() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						addresources[i].name = resource[i].name
-						addresources[i].actionurl = resource[i].actionurl
-						addresources[i].userfield = resource[i].userfield
-						addresources[i].passwdfield = resource[i].passwdfield
-						addresources[i].ssosuccessrule = resource[i].ssosuccessrule
-						addresources[i].namevaluepair = resource[i].namevaluepair
-						addresources[i].responsesize = resource[i].responsesize
-						addresources[i].nvtype = resource[i].nvtype
-						addresources[i].submitmethod = resource[i].submitmethod
-				result = cls.add_bulk_request(client, addresources)
-			return result
-		except Exception as e :
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name for the new form-based single sign-on profile. Must begin with an ASCII alphanumeric or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at (@), equals (=), and hyphen (-) characters. Cannot be changed after an SSO action is created.
+        The following requirement applies only to the NetScaler CLI:
+        If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my action" or 'my action').<br/>Minimum length =  1
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete tmformssoaction.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = tmformssoaction()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.name = resource
-				else :
-					deleteresource.name = resource.name
-				return deleteresource.delete_resource(client)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ tmformssoaction() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].name = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ tmformssoaction() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].name = resource[i].name
-				result = cls.delete_bulk_request(client, deleteresources)
-			return result
-		except Exception as e :
-			raise e
+        :param name: 
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update tmformssoaction.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = tmformssoaction()
-				updateresource.name = resource.name
-				updateresource.actionurl = resource.actionurl
-				updateresource.userfield = resource.userfield
-				updateresource.passwdfield = resource.passwdfield
-				updateresource.ssosuccessrule = resource.ssosuccessrule
-				updateresource.responsesize = resource.responsesize
-				updateresource.namevaluepair = resource.namevaluepair
-				updateresource.nvtype = resource.nvtype
-				updateresource.submitmethod = resource.submitmethod
-				return updateresource.update_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					updateresources = [ tmformssoaction() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].name = resource[i].name
-						updateresources[i].actionurl = resource[i].actionurl
-						updateresources[i].userfield = resource[i].userfield
-						updateresources[i].passwdfield = resource[i].passwdfield
-						updateresources[i].ssosuccessrule = resource[i].ssosuccessrule
-						updateresources[i].responsesize = resource[i].responsesize
-						updateresources[i].namevaluepair = resource[i].namevaluepair
-						updateresources[i].nvtype = resource[i].nvtype
-						updateresources[i].submitmethod = resource[i].submitmethod
-				result = cls.update_bulk_request(client, updateresources)
-			return result
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of tmformssoaction resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = tmformssoaction()
-				if type(resource) !=  type(unsetresource):
-					unsetresource.name = resource
-				else :
-					unsetresource.name = resource.name
-				return unsetresource.unset_resource(client, args)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						unsetresources = [ tmformssoaction() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							unsetresources[i].name = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						unsetresources = [ tmformssoaction() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							unsetresources[i].name = resource[i].name
-				result = cls.unset_bulk_request(client, unsetresources, args)
-			return result
-		except Exception as e :
-			raise e
+    @property
+    def actionurl(self) :
+        """URL to which the completed form is submitted.<br/>Minimum length =  1."""
+        try :
+            return self._actionurl
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the tmformssoaction resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = tmformssoaction()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = tmformssoaction()
-						obj.name = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [tmformssoaction() for _ in range(len(name))]
-							obj = [tmformssoaction() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = tmformssoaction()
-								obj[i].name = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    @actionurl.setter
+    def actionurl(self, actionurl) :
+        """URL to which the completed form is submitted.<br/>Minimum length =  1
+
+        :param actionurl: 
+
+        """
+        try :
+            self._actionurl = actionurl
+        except Exception as e:
+            raise e
+
+    @property
+    def userfield(self) :
+        """Name of the form field in which the user types in the user ID.<br/>Minimum length =  1."""
+        try :
+            return self._userfield
+        except Exception as e:
+            raise e
+
+    @userfield.setter
+    def userfield(self, userfield) :
+        """Name of the form field in which the user types in the user ID.<br/>Minimum length =  1
+
+        :param userfield: 
+
+        """
+        try :
+            self._userfield = userfield
+        except Exception as e:
+            raise e
+
+    @property
+    def passwdfield(self) :
+        """Name of the form field in which the user types in the password.<br/>Minimum length =  1."""
+        try :
+            return self._passwdfield
+        except Exception as e:
+            raise e
+
+    @passwdfield.setter
+    def passwdfield(self, passwdfield) :
+        """Name of the form field in which the user types in the password.<br/>Minimum length =  1
+
+        :param passwdfield: 
+
+        """
+        try :
+            self._passwdfield = passwdfield
+        except Exception as e:
+            raise e
+
+    @property
+    def ssosuccessrule(self) :
+        """Expression, that checks to see if single sign-on is successful."""
+        try :
+            return self._ssosuccessrule
+        except Exception as e:
+            raise e
+
+    @ssosuccessrule.setter
+    def ssosuccessrule(self, ssosuccessrule) :
+        """Expression, that checks to see if single sign-on is successful.
+
+        :param ssosuccessrule: 
+
+        """
+        try :
+            self._ssosuccessrule = ssosuccessrule
+        except Exception as e:
+            raise e
+
+    @property
+    def namevaluepair(self) :
+        """Name-value pair attributes to send to the server in addition to sending the username and password. Value names are separated by an ampersand (&) (for example, name1=value1&name2=value2)."""
+        try :
+            return self._namevaluepair
+        except Exception as e:
+            raise e
+
+    @namevaluepair.setter
+    def namevaluepair(self, namevaluepair) :
+        """Name-value pair attributes to send to the server in addition to sending the username and password. Value names are separated by an ampersand (&) (for example, name1=value1&name2=value2).
+
+        :param namevaluepair: 
+
+        """
+        try :
+            self._namevaluepair = namevaluepair
+        except Exception as e:
+            raise e
+
+    @property
+    def responsesize(self) :
+        """Number of bytes, in the response, to parse for extracting the forms.<br/>Default value: 8096."""
+        try :
+            return self._responsesize
+        except Exception as e:
+            raise e
+
+    @responsesize.setter
+    def responsesize(self, responsesize) :
+        """Number of bytes, in the response, to parse for extracting the forms.<br/>Default value: 8096
+
+        :param responsesize: 
+
+        """
+        try :
+            self._responsesize = responsesize
+        except Exception as e:
+            raise e
+
+    @property
+    def nvtype(self) :
+        """Type of processing of the name-value pair. If you specify STATIC, the values configured by the administrator are used. For DYNAMIC, the response is parsed, and the form is extracted and then submitted.<br/>Default value: DYNAMIC<br/>Possible values = STATIC, DYNAMIC."""
+        try :
+            return self._nvtype
+        except Exception as e:
+            raise e
+
+    @nvtype.setter
+    def nvtype(self, nvtype) :
+        """Type of processing of the name-value pair. If you specify STATIC, the values configured by the administrator are used. For DYNAMIC, the response is parsed, and the form is extracted and then submitted.<br/>Default value: DYNAMIC<br/>Possible values = STATIC, DYNAMIC
+
+        :param nvtype: 
+
+        """
+        try :
+            self._nvtype = nvtype
+        except Exception as e:
+            raise e
+
+    @property
+    def submitmethod(self) :
+        """HTTP method used by the single sign-on form to send the logon credentials to the logon server. Applies only to STATIC name-value type.<br/>Default value: GET<br/>Possible values = GET, POST."""
+        try :
+            return self._submitmethod
+        except Exception as e:
+            raise e
+
+    @submitmethod.setter
+    def submitmethod(self, submitmethod) :
+        """HTTP method used by the single sign-on form to send the logon credentials to the logon server. Applies only to STATIC name-value type.<br/>Default value: GET<br/>Possible values = GET, POST
+
+        :param submitmethod: 
+
+        """
+        try :
+            self._submitmethod = submitmethod
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(tmformssoaction_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.tmformssoaction
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of tmformssoaction resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = tmformssoaction()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def add(cls, client, resource) :
+        """Use this API to add tmformssoaction.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                addresource = tmformssoaction()
+                addresource.name = resource.name
+                addresource.actionurl = resource.actionurl
+                addresource.userfield = resource.userfield
+                addresource.passwdfield = resource.passwdfield
+                addresource.ssosuccessrule = resource.ssosuccessrule
+                addresource.namevaluepair = resource.namevaluepair
+                addresource.responsesize = resource.responsesize
+                addresource.nvtype = resource.nvtype
+                addresource.submitmethod = resource.submitmethod
+                return addresource.add_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    addresources = [ tmformssoaction() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        addresources[i].name = resource[i].name
+                        addresources[i].actionurl = resource[i].actionurl
+                        addresources[i].userfield = resource[i].userfield
+                        addresources[i].passwdfield = resource[i].passwdfield
+                        addresources[i].ssosuccessrule = resource[i].ssosuccessrule
+                        addresources[i].namevaluepair = resource[i].namevaluepair
+                        addresources[i].responsesize = resource[i].responsesize
+                        addresources[i].nvtype = resource[i].nvtype
+                        addresources[i].submitmethod = resource[i].submitmethod
+                result = cls.add_bulk_request(client, addresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete tmformssoaction.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = tmformssoaction()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.name = resource
+                else :
+                    deleteresource.name = resource.name
+                return deleteresource.delete_resource(client)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ tmformssoaction() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].name = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ tmformssoaction() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].name = resource[i].name
+                result = cls.delete_bulk_request(client, deleteresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update tmformssoaction.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = tmformssoaction()
+                updateresource.name = resource.name
+                updateresource.actionurl = resource.actionurl
+                updateresource.userfield = resource.userfield
+                updateresource.passwdfield = resource.passwdfield
+                updateresource.ssosuccessrule = resource.ssosuccessrule
+                updateresource.responsesize = resource.responsesize
+                updateresource.namevaluepair = resource.namevaluepair
+                updateresource.nvtype = resource.nvtype
+                updateresource.submitmethod = resource.submitmethod
+                return updateresource.update_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    updateresources = [ tmformssoaction() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].name = resource[i].name
+                        updateresources[i].actionurl = resource[i].actionurl
+                        updateresources[i].userfield = resource[i].userfield
+                        updateresources[i].passwdfield = resource[i].passwdfield
+                        updateresources[i].ssosuccessrule = resource[i].ssosuccessrule
+                        updateresources[i].responsesize = resource[i].responsesize
+                        updateresources[i].namevaluepair = resource[i].namevaluepair
+                        updateresources[i].nvtype = resource[i].nvtype
+                        updateresources[i].submitmethod = resource[i].submitmethod
+                result = cls.update_bulk_request(client, updateresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of tmformssoaction resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = tmformssoaction()
+                if type(resource) !=  type(unsetresource):
+                    unsetresource.name = resource
+                else :
+                    unsetresource.name = resource.name
+                return unsetresource.unset_resource(client, args)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        unsetresources = [ tmformssoaction() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            unsetresources[i].name = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        unsetresources = [ tmformssoaction() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            unsetresources[i].name = resource[i].name
+                result = cls.unset_bulk_request(client, unsetresources, args)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the tmformssoaction resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = tmformssoaction()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = tmformssoaction()
+                        obj.name = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [tmformssoaction() for _ in range(len(name))]
+                            obj = [tmformssoaction() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = tmformssoaction()
+                                obj[i].name = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the tmformssoaction resources configured on NetScaler.
-		"""
-		try :
-			obj = tmformssoaction()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of tmformssoaction resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of tmformssoaction resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = tmformssoaction()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = tmformssoaction()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	class Nvtype:
-		STATIC = "STATIC"
-		DYNAMIC = "DYNAMIC"
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the tmformssoaction resources configured on NetScaler.
 
-	class Submitmethod:
-		GET = "GET"
-		POST = "POST"
+        :param client: 
+
+        """
+        try :
+            obj = tmformssoaction()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of tmformssoaction resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = tmformssoaction()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+
+    class Nvtype:
+        """ """
+        STATIC = "STATIC"
+        DYNAMIC = "DYNAMIC"
+
+    class Submitmethod:
+        """ """
+        GET = "GET"
+        POST = "POST"
 
 class tmformssoaction_response(base_response) :
-	def __init__(self, length=1) :
-		self.tmformssoaction = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.tmformssoaction = [tmformssoaction() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.tmformssoaction = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.tmformssoaction = [tmformssoaction() for _ in range(length)]
 

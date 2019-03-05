@@ -19,17 +19,14 @@ from nitro.resource.base.ipayload_formatter import ipayload_formatter
 
 
 class Json(ipayload_formatter): 
-    """ Json class implements the methods in ipayload_formatter interface.
-    """
+    """Json class implements the methods in ipayload_formatter interface."""
     
     def resource_to_string_convert(self, resrc):
-        """ Converts netscaler resource to Json string.
-        
-        Parameters:
-			resrc nitro resource.
-        
-        Returns:
-			returns a String
+        """Converts netscaler resource to Json string.
+
+        :param resrc: nitro resource
+        :param Returns: 
+
         """
         try:
             dict_valid_values = dict((k.replace('_',''), v) for k, v in resrc.__dict__.items() if v)
@@ -38,14 +35,14 @@ class Json(ipayload_formatter):
             raise e
     
     def string_to_resource(self, responseClass, response_dict, resrc_type):
-        """ Converts Json string to netscaler resource.
-        
-        Parameters:
-			responseClass - Type of the class to which the string has to be converted to.
-            response - input string.
-        
-        Returns:
-			returns nitro resource object.
+        """Converts Json string to netscaler resource.
+
+        :param responseClass: Type of the class to which the string has to be converted to
+        :param response: input string
+        :param Returns: 
+        :param response_dict: 
+        :param resrc_type: 
+
         """
         try:
             underscore_dict = {}
@@ -88,15 +85,13 @@ class Json(ipayload_formatter):
             raise e
 
     def resource_to_string(self, resrc):
-        """ Converts netscaler resource to Json string.
-        
-        Parameters:
-			resrc - nitro resource.
-            id - sessionId.
-            option - options class object.
-        
-        Returns:
-			returns a String
+        """Converts netscaler resource to Json string.
+
+        :param resrc: nitro resource
+        :param id: sessionId
+        :param option: options class object
+        :param Returns: 
+
         """
         try: 
             objtype = resrc.__class__.get_object_type()
@@ -107,15 +102,13 @@ class Json(ipayload_formatter):
             raise e
     
     def resource_to_string_bulk(self, resources):
-        """ Converts netscaler resources to Json string.
-        
-        Parameters:
-			resources - nitro resources.
-            id - sessionId.
-            option - options class object.
-        
-        Returns:
-			returns a String
+        """Converts netscaler resources to Json string.
+
+        :param resources: nitro resources
+        :param id: sessionId
+        :param option: options class object
+        :param Returns: 
+
         """
         try :
             objecttype = resources[0].__class__.get_object_type()
@@ -133,16 +126,17 @@ class Json(ipayload_formatter):
         
     
     def unset_string(self, resrc, args):
-        """ Converts nitro resource to Json string. This is exclusively for forming unset string.
+        """Converts nitro resource to Json string. This is exclusively for forming unset string.
         
         Parameters:
-			resrc - nitro resource.
+            resrc - nitro resource.
             id - sessionId.
             option - options class object.
-            args - Array of arguments of resource that are to be unset.
-        
-        Returns:
-			returns a String
+
+        :param Returns: 
+        :param resrc: 
+        :param args: 
+
         """
         try:
             result = "{ "
@@ -162,6 +156,12 @@ class Json(ipayload_formatter):
 
 
     def unset_string_bulk(self, resources, args):
+        """
+
+        :param resources: 
+        :param args: 
+
+        """
         try:
             objecttype = resources[0].__class__.get_object_type()
             result = "{ "        

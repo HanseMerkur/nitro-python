@@ -22,117 +22,138 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class systemkek(base_resource) :
-	def __init__(self) :
-		self._passphrase = ""
-		self._password = ""
+    """ """
+    def __init__(self) :
+        self._passphrase = ""
+        self._password = ""
 
-	@property
-	def passphrase(self) :
-		r"""Passphrase required to generate the key encryption key.<br/>Minimum length =  8<br/>Maximum length =  32.
-		"""
-		try :
-			return self._passphrase
-		except Exception as e:
-			raise e
+    @property
+    def passphrase(self) :
+        """Passphrase required to generate the key encryption key.<br/>Minimum length =  8<br/>Maximum length =  32."""
+        try :
+            return self._passphrase
+        except Exception as e:
+            raise e
 
-	@passphrase.setter
-	def passphrase(self, passphrase) :
-		r"""Passphrase required to generate the key encryption key.<br/>Minimum length =  8<br/>Maximum length =  32
-		"""
-		try :
-			self._passphrase = passphrase
-		except Exception as e:
-			raise e
+    @passphrase.setter
+    def passphrase(self, passphrase) :
+        """Passphrase required to generate the key encryption key.<br/>Minimum length =  8<br/>Maximum length =  32
 
-	@property
-	def password(self) :
-		r"""Password required to import the key encryption key.<br/>Minimum length =  8<br/>Maximum length =  32.
-		"""
-		try :
-			return self._password
-		except Exception as e:
-			raise e
+        :param passphrase: 
 
-	@password.setter
-	def password(self, password) :
-		r"""Password required to import the key encryption key.<br/>Minimum length =  8<br/>Maximum length =  32
-		"""
-		try :
-			self._password = password
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._passphrase = passphrase
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(systemkek_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.systemkek
-		except Exception as e :
-			raise e
+    @property
+    def password(self) :
+        """Password required to import the key encryption key.<br/>Minimum length =  8<br/>Maximum length =  32."""
+        try :
+            return self._password
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.passphrase is not None :
-				return str(self.passphrase)
-			return None
-		except Exception as e :
-			raise e
+    @password.setter
+    def password(self, password) :
+        """Password required to import the key encryption key.<br/>Minimum length =  8<br/>Maximum length =  32
+
+        :param password: 
+
+        """
+        try :
+            self._password = password
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(systemkek_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.systemkek
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.passphrase is not None :
+                return str(self.passphrase)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def create(cls, client, resource) :
-		r""" Use this API to create systemkek.
-		"""
-		try :
-			if type(resource) is not list :
-				createresource = systemkek()
-				createresource.passphrase = resource.passphrase
-				return createresource.perform_operation(client,"create")
-		except Exception as e :
-			raise e
+    @classmethod
+    def create(cls, client, resource) :
+        """Use this API to create systemkek.
 
-	@classmethod
-	def export(cls, client, resource) :
-		r""" Use this API to export systemkek.
-		"""
-		try :
-			if type(resource) is not list :
-				exportresource = systemkek()
-				exportresource.password = resource.password
-				return exportresource.perform_operation(client,"export")
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def Import(cls, client, resource) :
-		r""" Use this API to Import systemkek.
-		"""
-		try :
-			if type(resource) is not list :
-				Importresource = systemkek()
-				Importresource.password = resource.password
-				return Importresource.perform_operation(client,"Import")
-		except Exception as e :
-			raise e
+        """
+        try :
+            if type(resource) is not list :
+                createresource = systemkek()
+                createresource.passphrase = resource.passphrase
+                return createresource.perform_operation(client,"create")
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def export(cls, client, resource) :
+        """Use this API to export systemkek.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                exportresource = systemkek()
+                exportresource.password = resource.password
+                return exportresource.perform_operation(client,"export")
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def Import(cls, client, resource) :
+        """Use this API to Import systemkek.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                Importresource = systemkek()
+                Importresource.password = resource.password
+                return Importresource.perform_operation(client,"Import")
+        except Exception as e :
+            raise e
 
 class systemkek_response(base_response) :
-	def __init__(self, length=1) :
-		self.systemkek = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.systemkek = [systemkek() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.systemkek = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.systemkek = [systemkek() for _ in range(length)]
 

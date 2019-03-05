@@ -17,46 +17,38 @@ from urllib.parse import quote_plus, unquote
  
 
 class nitro_util:
-    """nitro_util class provides a way to create a string out of the object fields that are set. 
-    """
+    """nitro_util class provides a way to create a string out of the object fields that are set."""
 
     @classmethod
     def encode(cls, st):
-        """ encodes the given string using URLEncoder.
-        
-        Parameters:
-            st String that is to be encoded.
-        
-        Returns:
-            encoded string.
+        """encodes the given string using URLEncoder.
+
+        :param st: String that is to be encoded
+        :returns: encoded string.
+
         """
         return quote_plus(st)
 
     @classmethod
     def decode(cls, st):
-        """ decodes the given string using URLDecode.
+        """decodes the given string using URLDecode.
 
-        Parameters:
-            st String that is to be decoded.
+        :param st: String that is to be decoded
+        :returns: decoded string.
 
-        Returns:
-            decoded string.
         """
         return unquote(st)
 
             
     @classmethod
     def object_to_string(cls, obj):
-        """ create a string out of the object fields that are set
-        
-        Parameters:
-            obj Object
-        
-        Returns:
-            String in Json format.
+        """create a string out of the object fields that are set
+
+        :param obj: Object
+        :returns: String in Json format.
         
         Throws:
-            Exception Nitro exception is thrown.
+
         """
         try:
             str_ = ""
@@ -80,16 +72,13 @@ class nitro_util:
             
     @classmethod
     def object_to_string_withoutquotes(cls, obj):
-        """ create a string (without quotes)out of the object fields that are set
-        
-        Parameters:
-            obj Object
-        
-        Returns:
-            String in Json format.
+        """create a string (without quotes)out of the object fields that are set
+
+        :param obj: Object
+        :returns: String in Json format.
         
         Throws:
-            Exception Nitro exception is thrown.
+
         """
         try:
             str_ = ""

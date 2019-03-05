@@ -22,65 +22,70 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class transformglobal_binding(base_resource):
-	""" Binding class showing the resources that can be bound to transformglobal_binding. 
-	"""
-	def __init__(self) :
-		self.transformglobal_transformpolicy_binding = []
+    """Binding class showing the resources that can be bound to transformglobal_binding."""
+    def __init__(self) :
+        self.transformglobal_transformpolicy_binding = []
 
-	@property
-	def transformglobal_transformpolicy_bindings(self) :
-		r"""transformpolicy that can be bound to transformglobal.
-		"""
-		try :
-			return self._transformglobal_transformpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def transformglobal_transformpolicy_bindings(self) :
+        """transformpolicy that can be bound to transformglobal."""
+        try :
+            return self._transformglobal_transformpolicy_binding
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(transformglobal_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.transformglobal_binding
-		except Exception as e :
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(transformglobal_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.transformglobal_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service) :
-		r""" Use this API to fetch a transformglobal_binding resource .
-		"""
-		try :
-			obj = transformglobal_binding()
-			response = obj.get_resource(service)
-			return response
+    @classmethod
+    def get(self, service) :
+        """Use this API to fetch a transformglobal_binding resource .
 
-		except Exception as e:
-			raise e
+        :param service: 
+
+        """
+        try :
+            obj = transformglobal_binding()
+            response = obj.get_resource(service)
+            return response
+
+        except Exception as e:
+            raise e
 
 class transformglobal_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.transformglobal_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.transformglobal_binding = [transformglobal_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.transformglobal_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.transformglobal_binding = [transformglobal_binding() for _ in range(length)]
 

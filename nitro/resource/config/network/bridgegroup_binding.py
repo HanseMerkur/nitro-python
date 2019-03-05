@@ -22,113 +22,119 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class bridgegroup_binding(base_resource):
-	""" Binding class showing the resources that can be bound to bridgegroup_binding. 
-	"""
-	def __init__(self) :
-		self._id = 0
-		self.bridgegroup_nsip_binding = []
-		self.bridgegroup_vlan_binding = []
-		self.bridgegroup_nsip6_binding = []
+    """Binding class showing the resources that can be bound to bridgegroup_binding."""
+    def __init__(self) :
+        self._id = 0
+        self.bridgegroup_nsip_binding = []
+        self.bridgegroup_vlan_binding = []
+        self.bridgegroup_nsip6_binding = []
 
-	@property
-	def id(self) :
-		r"""The name of the bridge group.<br/>Minimum value =  1<br/>Maximum value =  1000.
-		"""
-		try :
-			return self._id
-		except Exception as e:
-			raise e
+    @property
+    def id(self) :
+        """The name of the bridge group.<br/>Minimum value =  1<br/>Maximum value =  1000."""
+        try :
+            return self._id
+        except Exception as e:
+            raise e
 
-	@id.setter
-	def id(self, id) :
-		r"""The name of the bridge group.<br/>Minimum value =  1<br/>Maximum value =  1000
-		"""
-		try :
-			self._id = id
-		except Exception as e:
-			raise e
+    @id.setter
+    def id(self, id) :
+        """The name of the bridge group.<br/>Minimum value =  1<br/>Maximum value =  1000
 
-	@property
-	def bridgegroup_vlan_bindings(self) :
-		r"""vlan that can be bound to bridgegroup.
-		"""
-		try :
-			return self._bridgegroup_vlan_binding
-		except Exception as e:
-			raise e
+        :param id: 
 
-	@property
-	def bridgegroup_nsip_bindings(self) :
-		r"""nsip that can be bound to bridgegroup.
-		"""
-		try :
-			return self._bridgegroup_nsip_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._id = id
+        except Exception as e:
+            raise e
 
-	@property
-	def bridgegroup_nsip6_bindings(self) :
-		r"""nsip6 that can be bound to bridgegroup.
-		"""
-		try :
-			return self._bridgegroup_nsip6_binding
-		except Exception as e:
-			raise e
+    @property
+    def bridgegroup_vlan_bindings(self) :
+        """vlan that can be bound to bridgegroup."""
+        try :
+            return self._bridgegroup_vlan_binding
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(bridgegroup_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.bridgegroup_binding
-		except Exception as e :
-			raise e
+    @property
+    def bridgegroup_nsip_bindings(self) :
+        """nsip that can be bound to bridgegroup."""
+        try :
+            return self._bridgegroup_nsip_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.id is not None :
-				return str(self.id)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def bridgegroup_nsip6_bindings(self) :
+        """nsip6 that can be bound to bridgegroup."""
+        try :
+            return self._bridgegroup_nsip6_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(bridgegroup_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.bridgegroup_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.id is not None :
+                return str(self.id)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, id) :
-		r""" Use this API to fetch bridgegroup_binding resource.
-		"""
-		try :
-			if type(id) is not list :
-				obj = bridgegroup_binding()
-				obj.id = id
-				response = obj.get_resource(service)
-			else :
-				if id and len(id) > 0 :
-					obj = [bridgegroup_binding() for _ in range(len(id))]
-					for i in range(len(id)) :
-						obj[i].id = id[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, id) :
+        """Use this API to fetch bridgegroup_binding resource.
+
+        :param service: 
+        :param id: 
+
+        """
+        try :
+            if type(id) is not list :
+                obj = bridgegroup_binding()
+                obj.id = id
+                response = obj.get_resource(service)
+            else :
+                if id and len(id) > 0 :
+                    obj = [bridgegroup_binding() for _ in range(len(id))]
+                    for i in range(len(id)) :
+                        obj[i].id = id[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class bridgegroup_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.bridgegroup_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.bridgegroup_binding = [bridgegroup_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.bridgegroup_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.bridgegroup_binding = [bridgegroup_binding() for _ in range(length)]
 

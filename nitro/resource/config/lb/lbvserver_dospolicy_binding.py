@@ -22,175 +22,207 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class lbvserver_dospolicy_binding(base_resource) :
-	""" Binding class showing the dospolicy that can be bound to lbvserver.
-	"""
-	def __init__(self) :
-		self._policyname = ""
-		self._priority = 0
-		self._name = ""
-		self.___count = 0
+    """Binding class showing the dospolicy that can be bound to lbvserver."""
+    def __init__(self) :
+        self._policyname = ""
+        self._priority = 0
+        self._name = ""
+        self.___count = 0
 
-	@property
-	def priority(self) :
-		r"""Priority.
-		"""
-		try :
-			return self._priority
-		except Exception as e:
-			raise e
+    @property
+    def priority(self) :
+        """Priority."""
+        try :
+            return self._priority
+        except Exception as e:
+            raise e
 
-	@priority.setter
-	def priority(self, priority) :
-		r"""Priority.
-		"""
-		try :
-			self._priority = priority
-		except Exception as e:
-			raise e
+    @priority.setter
+    def priority(self, priority) :
+        """Priority.
 
-	@property
-	def policyname(self) :
-		r"""Name of the policy bound to the LB vserver.
-		"""
-		try :
-			return self._policyname
-		except Exception as e:
-			raise e
+        :param priority: 
 
-	@policyname.setter
-	def policyname(self, policyname) :
-		r"""Name of the policy bound to the LB vserver.
-		"""
-		try :
-			self._policyname = policyname
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._priority = priority
+        except Exception as e:
+            raise e
 
-	@property
-	def name(self) :
-		r"""Name for the virtual server. Must begin with an ASCII alphanumeric or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at sign (@), equal sign (=), and hyphen (-) characters. Can be changed after the virtual server is created.
-		CLI Users: If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my vserver" or 'my vserver'). .<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def policyname(self) :
+        """Name of the policy bound to the LB vserver."""
+        try :
+            return self._policyname
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name for the virtual server. Must begin with an ASCII alphanumeric or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at sign (@), equal sign (=), and hyphen (-) characters. Can be changed after the virtual server is created.
-		CLI Users: If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my vserver" or 'my vserver'). .<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @policyname.setter
+    def policyname(self, policyname) :
+        """Name of the policy bound to the LB vserver.
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(lbvserver_dospolicy_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.lbvserver_dospolicy_binding
-		except Exception as e :
-			raise e
+        :param policyname: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._policyname = policyname
+        except Exception as e:
+            raise e
+
+    @property
+    def name(self) :
+        """Name for the virtual server. Must begin with an ASCII alphanumeric or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at sign (@), equal sign (=), and hyphen (-) characters. Can be changed after the virtual server is created.
+        CLI Users: If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my vserver" or 'my vserver'). .<br/>Minimum length =  1.
 
 
+        """
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get(cls, service, name) :
-		r""" Use this API to fetch lbvserver_dospolicy_binding resources.
-		"""
-		try :
-			obj = lbvserver_dospolicy_binding()
-			obj.name = name
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name for the virtual server. Must begin with an ASCII alphanumeric or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at sign (@), equal sign (=), and hyphen (-) characters. Can be changed after the virtual server is created.
+        CLI Users: If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my vserver" or 'my vserver'). .<br/>Minimum length =  1
 
-	@classmethod
-	def get_filtered(cls, service, name, filter_) :
-		r""" Use this API to fetch filtered set of lbvserver_dospolicy_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = lbvserver_dospolicy_binding()
-			obj.name = name
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@classmethod
-	def count(cls, service, name) :
-		r""" Use this API to count lbvserver_dospolicy_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = lbvserver_dospolicy_binding()
-			obj.name = name
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def count_filtered(cls, service, name, filter_) :
-		r""" Use this API to count the filtered set of lbvserver_dospolicy_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = lbvserver_dospolicy_binding()
-			obj.name = name
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	class Bindpoint:
-		REQUEST = "REQUEST"
-		RESPONSE = "RESPONSE"
+        :param service: 
+        :param response: 
 
-	class Labeltype:
-		reqvserver = "reqvserver"
-		resvserver = "resvserver"
-		policylabel = "policylabel"
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(lbvserver_dospolicy_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.lbvserver_dospolicy_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
+
+
+
+    @classmethod
+    def get(cls, service, name) :
+        """Use this API to fetch lbvserver_dospolicy_binding resources.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            obj = lbvserver_dospolicy_binding()
+            obj.name = name
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def get_filtered(cls, service, name, filter_) :
+        """Use this API to fetch filtered set of lbvserver_dospolicy_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param name: 
+        :param filter_: 
+
+        """
+        try :
+            obj = lbvserver_dospolicy_binding()
+            obj.name = name
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, name) :
+        """Use this API to count lbvserver_dospolicy_binding resources configued on NetScaler.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            obj = lbvserver_dospolicy_binding()
+            obj.name = name
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, name, filter_) :
+        """Use this API to count the filtered set of lbvserver_dospolicy_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param name: 
+        :param filter_: 
+
+        """
+        try :
+            obj = lbvserver_dospolicy_binding()
+            obj.name = name
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Bindpoint:
+        """ """
+        REQUEST = "REQUEST"
+        RESPONSE = "RESPONSE"
+
+    class Labeltype:
+        """ """
+        reqvserver = "reqvserver"
+        resvserver = "resvserver"
+        policylabel = "policylabel"
 
 class lbvserver_dospolicy_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.lbvserver_dospolicy_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.lbvserver_dospolicy_binding = [lbvserver_dospolicy_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.lbvserver_dospolicy_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.lbvserver_dospolicy_binding = [lbvserver_dospolicy_binding() for _ in range(length)]
 

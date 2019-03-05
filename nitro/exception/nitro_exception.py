@@ -17,9 +17,7 @@
 # Provides the classes necessary to create nitro_exception.
 
 class nitro_exception(Exception):
-    """ nitro_exception class is used to handle Nitro exceptions.
-    
-    """
+    """nitro_exception class is used to handle Nitro exceptions."""
     _severity = ""
     _message = ""
     _errorcode = 0
@@ -34,9 +32,10 @@ class nitro_exception(Exception):
     @property
     def errorcode(self):
         """Gets the error code.
-           
-           Returns:
-           gets the error code.
+
+
+        :returns: gets the error code.
+
         """
         return self._errorcode
 
@@ -44,18 +43,20 @@ class nitro_exception(Exception):
     @property
     def message(self):
         """Gets the error message.
-           
-           Returns:
-           gets the error message.
+
+
+        :returns: gets the error message.
+
         """
         return self._message
 
     @property
     def severity(self):
-        """ Gets the error severity.
-            
-            Returns:
-            gets the error severity.
+        """Gets the error severity.
+
+
+        :returns: gets the error severity.
+
         """
         return self._severity
 

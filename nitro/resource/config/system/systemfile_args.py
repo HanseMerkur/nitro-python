@@ -16,26 +16,27 @@
 
 
 class systemfile_args :
-	r""" Provides additional arguments required for fetching the systemfile resource.
-	"""
-	def __init__(self) :
-		self._filelocation = ""
+    """Provides additional arguments required for fetching the systemfile resource."""
+    def __init__(self) :
+        self._filelocation = ""
 
-	@property
-	def filelocation(self) :
-		r"""location of the file on NetScaler.<br/>Maximum length =  127.
-		"""
-		try :
-			return self._filelocation
-		except Exception as e:
-			raise e
+    @property
+    def filelocation(self) :
+        """location of the file on NetScaler.<br/>Maximum length =  127."""
+        try :
+            return self._filelocation
+        except Exception as e:
+            raise e
 
-	@filelocation.setter
-	def filelocation(self, filelocation) :
-		r"""location of the file on NetScaler.<br/>Maximum length =  127
-		"""
-		try :
-			self._filelocation = filelocation
-		except Exception as e:
-			raise e
+    @filelocation.setter
+    def filelocation(self, filelocation) :
+        """location of the file on NetScaler.<br/>Maximum length =  127
+
+        :param filelocation: 
+
+        """
+        try :
+            self._filelocation = filelocation
+        except Exception as e:
+            raise e
 

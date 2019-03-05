@@ -22,52 +22,60 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class clustersync(base_resource) :
-	""" Configuration for sync resource. """
+    """Configuration for sync resource."""
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(clustersync_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.clustersync
-		except Exception as e :
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(clustersync_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.clustersync
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def Force(cls, client, resource) :
-		r""" Use this API to Force clustersync.
-		"""
-		try :
-			if type(resource) is not list :
-				Forceresource = clustersync()
-				return Forceresource.perform_operation(client,"Force")
-		except Exception as e :
-			raise e
+    @classmethod
+    def Force(cls, client, resource) :
+        """Use this API to Force clustersync.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                Forceresource = clustersync()
+                return Forceresource.perform_operation(client,"Force")
+        except Exception as e :
+            raise e
 
 class clustersync_response(base_response) :
-	def __init__(self, length=1) :
-		self.clustersync = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.clustersync = [clustersync() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.clustersync = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.clustersync = [clustersync() for _ in range(length)]
 

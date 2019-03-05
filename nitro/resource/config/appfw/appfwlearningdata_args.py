@@ -16,60 +16,64 @@
 
 
 class appfwlearningdata_args :
-	r""" Provides additional arguments required for fetching the appfwlearningdata resource.
-	"""
-	def __init__(self) :
-		self._profilename = ""
-		self._securitycheck = ""
+    """Provides additional arguments required for fetching the appfwlearningdata resource."""
+    def __init__(self) :
+        self._profilename = ""
+        self._securitycheck = ""
 
-	@property
-	def profilename(self) :
-		r"""Name of the profile.
-		"""
-		try :
-			return self._profilename
-		except Exception as e:
-			raise e
+    @property
+    def profilename(self) :
+        """Name of the profile."""
+        try :
+            return self._profilename
+        except Exception as e:
+            raise e
 
-	@profilename.setter
-	def profilename(self, profilename) :
-		r"""Name of the profile.
-		"""
-		try :
-			self._profilename = profilename
-		except Exception as e:
-			raise e
+    @profilename.setter
+    def profilename(self, profilename) :
+        """Name of the profile.
 
-	@property
-	def securitycheck(self) :
-		r"""Name of the security check.<br/>Possible values = startURL, cookieConsistency, fieldConsistency, crossSiteScripting, SQLInjection, fieldFormat, CSRFtag, XMLDoSCheck, XMLWSICheck, XMLAttachmentCheck, TotalXMLRequests, creditCardNumber, ContentType.
-		"""
-		try :
-			return self._securitycheck
-		except Exception as e:
-			raise e
+        :param profilename: 
 
-	@securitycheck.setter
-	def securitycheck(self, securitycheck) :
-		r"""Name of the security check.<br/>Possible values = startURL, cookieConsistency, fieldConsistency, crossSiteScripting, SQLInjection, fieldFormat, CSRFtag, XMLDoSCheck, XMLWSICheck, XMLAttachmentCheck, TotalXMLRequests, creditCardNumber, ContentType
-		"""
-		try :
-			self._securitycheck = securitycheck
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._profilename = profilename
+        except Exception as e:
+            raise e
 
-	class Securitycheck:
-		startURL = "startURL"
-		cookieConsistency = "cookieConsistency"
-		fieldConsistency = "fieldConsistency"
-		crossSiteScripting = "crossSiteScripting"
-		SQLInjection = "SQLInjection"
-		fieldFormat = "fieldFormat"
-		CSRFtag = "CSRFtag"
-		XMLDoSCheck = "XMLDoSCheck"
-		XMLWSICheck = "XMLWSICheck"
-		XMLAttachmentCheck = "XMLAttachmentCheck"
-		TotalXMLRequests = "TotalXMLRequests"
-		creditCardNumber = "creditCardNumber"
-		ContentType = "ContentType"
+    @property
+    def securitycheck(self) :
+        """Name of the security check.<br/>Possible values = startURL, cookieConsistency, fieldConsistency, crossSiteScripting, SQLInjection, fieldFormat, CSRFtag, XMLDoSCheck, XMLWSICheck, XMLAttachmentCheck, TotalXMLRequests, creditCardNumber, ContentType."""
+        try :
+            return self._securitycheck
+        except Exception as e:
+            raise e
+
+    @securitycheck.setter
+    def securitycheck(self, securitycheck) :
+        """Name of the security check.<br/>Possible values = startURL, cookieConsistency, fieldConsistency, crossSiteScripting, SQLInjection, fieldFormat, CSRFtag, XMLDoSCheck, XMLWSICheck, XMLAttachmentCheck, TotalXMLRequests, creditCardNumber, ContentType
+
+        :param securitycheck: 
+
+        """
+        try :
+            self._securitycheck = securitycheck
+        except Exception as e:
+            raise e
+
+    class Securitycheck:
+        """ """
+        startURL = "startURL"
+        cookieConsistency = "cookieConsistency"
+        fieldConsistency = "fieldConsistency"
+        crossSiteScripting = "crossSiteScripting"
+        SQLInjection = "SQLInjection"
+        fieldFormat = "fieldFormat"
+        CSRFtag = "CSRFtag"
+        XMLDoSCheck = "XMLDoSCheck"
+        XMLWSICheck = "XMLWSICheck"
+        XMLAttachmentCheck = "XMLAttachmentCheck"
+        TotalXMLRequests = "TotalXMLRequests"
+        creditCardNumber = "creditCardNumber"
+        ContentType = "ContentType"
 

@@ -22,93 +22,101 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class lbmetrictable_binding(base_resource):
-	""" Binding class showing the resources that can be bound to lbmetrictable_binding. 
-	"""
-	def __init__(self) :
-		self._metrictable = ""
-		self.lbmetrictable_metric_binding = []
+    """Binding class showing the resources that can be bound to lbmetrictable_binding."""
+    def __init__(self) :
+        self._metrictable = ""
+        self.lbmetrictable_metric_binding = []
 
-	@property
-	def metrictable(self) :
-		r"""Name of the metric table.<br/>Minimum length =  1<br/>Maximum length =  31.
-		"""
-		try :
-			return self._metrictable
-		except Exception as e:
-			raise e
+    @property
+    def metrictable(self) :
+        """Name of the metric table.<br/>Minimum length =  1<br/>Maximum length =  31."""
+        try :
+            return self._metrictable
+        except Exception as e:
+            raise e
 
-	@metrictable.setter
-	def metrictable(self, metrictable) :
-		r"""Name of the metric table.<br/>Minimum length =  1<br/>Maximum length =  31
-		"""
-		try :
-			self._metrictable = metrictable
-		except Exception as e:
-			raise e
+    @metrictable.setter
+    def metrictable(self, metrictable) :
+        """Name of the metric table.<br/>Minimum length =  1<br/>Maximum length =  31
 
-	@property
-	def lbmetrictable_metric_bindings(self) :
-		r"""metric that can be bound to lbmetrictable.
-		"""
-		try :
-			return self._lbmetrictable_metric_binding
-		except Exception as e:
-			raise e
+        :param metrictable: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(lbmetrictable_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.lbmetrictable_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._metrictable = metrictable
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.metrictable is not None :
-				return str(self.metrictable)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def lbmetrictable_metric_bindings(self) :
+        """metric that can be bound to lbmetrictable."""
+        try :
+            return self._lbmetrictable_metric_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(lbmetrictable_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.lbmetrictable_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.metrictable is not None :
+                return str(self.metrictable)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, metrictable) :
-		r""" Use this API to fetch lbmetrictable_binding resource.
-		"""
-		try :
-			if type(metrictable) is not list :
-				obj = lbmetrictable_binding()
-				obj.metrictable = metrictable
-				response = obj.get_resource(service)
-			else :
-				if metrictable and len(metrictable) > 0 :
-					obj = [lbmetrictable_binding() for _ in range(len(metrictable))]
-					for i in range(len(metrictable)) :
-						obj[i].metrictable = metrictable[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, metrictable) :
+        """Use this API to fetch lbmetrictable_binding resource.
+
+        :param service: 
+        :param metrictable: 
+
+        """
+        try :
+            if type(metrictable) is not list :
+                obj = lbmetrictable_binding()
+                obj.metrictable = metrictable
+                response = obj.get_resource(service)
+            else :
+                if metrictable and len(metrictable) > 0 :
+                    obj = [lbmetrictable_binding() for _ in range(len(metrictable))]
+                    for i in range(len(metrictable)) :
+                        obj[i].metrictable = metrictable[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class lbmetrictable_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.lbmetrictable_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.lbmetrictable_binding = [lbmetrictable_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.lbmetrictable_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.lbmetrictable_binding = [lbmetrictable_binding() for _ in range(length)]
 

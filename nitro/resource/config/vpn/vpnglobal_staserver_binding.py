@@ -22,187 +22,220 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class vpnglobal_staserver_binding(base_resource) :
-	""" Binding class showing the staserver that can be bound to vpnglobal.
-	"""
-	def __init__(self) :
-		self._staserver = ""
-		self._staauthid = ""
-		self._staaddresstype = ""
-		self.___count = 0
+    """Binding class showing the staserver that can be bound to vpnglobal."""
+    def __init__(self) :
+        self._staserver = ""
+        self._staauthid = ""
+        self._staaddresstype = ""
+        self.___count = 0
 
-	@property
-	def staserver(self) :
-		r"""Configured Secure Ticketing Authority (STA) server.
-		"""
-		try :
-			return self._staserver
-		except Exception as e:
-			raise e
+    @property
+    def staserver(self) :
+        """Configured Secure Ticketing Authority (STA) server."""
+        try :
+            return self._staserver
+        except Exception as e:
+            raise e
 
-	@staserver.setter
-	def staserver(self, staserver) :
-		r"""Configured Secure Ticketing Authority (STA) server.
-		"""
-		try :
-			self._staserver = staserver
-		except Exception as e:
-			raise e
+    @staserver.setter
+    def staserver(self, staserver) :
+        """Configured Secure Ticketing Authority (STA) server.
 
-	@property
-	def staaddresstype(self) :
-		r"""Type of the STA server address(ipv4/v6).<br/>Possible values = IPV4, IPV6.
-		"""
-		try :
-			return self._staaddresstype
-		except Exception as e:
-			raise e
+        :param staserver: 
 
-	@staaddresstype.setter
-	def staaddresstype(self, staaddresstype) :
-		r"""Type of the STA server address(ipv4/v6).<br/>Possible values = IPV4, IPV6
-		"""
-		try :
-			self._staaddresstype = staaddresstype
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._staserver = staserver
+        except Exception as e:
+            raise e
 
-	@property
-	def staauthid(self) :
-		r"""Authority ID of the STA Server. Authority ID is used to match incoming STA Tickets in the SOCKS/CGP protocol with the right STA Server.
-		"""
-		try :
-			return self._staauthid
-		except Exception as e:
-			raise e
+    @property
+    def staaddresstype(self) :
+        """Type of the STA server address(ipv4/v6).<br/>Possible values = IPV4, IPV6."""
+        try :
+            return self._staaddresstype
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(vpnglobal_staserver_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.vpnglobal_staserver_binding
-		except Exception as e :
-			raise e
+    @staaddresstype.setter
+    def staaddresstype(self, staaddresstype) :
+        """Type of the STA server address(ipv4/v6).<br/>Possible values = IPV4, IPV6
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        :param staaddresstype: 
+
+        """
+        try :
+            self._staaddresstype = staaddresstype
+        except Exception as e:
+            raise e
+
+    @property
+    def staauthid(self) :
+        """Authority ID of the STA Server. Authority ID is used to match incoming STA Tickets in the SOCKS/CGP protocol with the right STA Server."""
+        try :
+            return self._staauthid
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(vpnglobal_staserver_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.vpnglobal_staserver_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def add(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				updateresource = vpnglobal_staserver_binding()
-				updateresource.staserver = resource.staserver
-				updateresource.staaddresstype = resource.staaddresstype
-				return updateresource.update_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					updateresources = [vpnglobal_staserver_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].staserver = resource[i].staserver
-						updateresources[i].staaddresstype = resource[i].staaddresstype
-				return cls.update_bulk_request(client, updateresources)
-		except Exception as e :
-			raise e
+    @classmethod
+    def add(cls, client, resource) :
+        """
 
-	@classmethod
-	def delete(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				deleteresource = vpnglobal_staserver_binding()
-				deleteresource.staserver = resource.staserver
-				return deleteresource.delete_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					deleteresources = [vpnglobal_staserver_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						deleteresources[i].staserver = resource[i].staserver
-				return cls.delete_bulk_request(client, deleteresources)
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def get(cls, service) :
-		r""" Use this API to fetch a vpnglobal_staserver_binding resources.
-		"""
-		try :
-			obj = vpnglobal_staserver_binding()
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+        """
+        try :
+            if resource and type(resource) is not list :
+                updateresource = vpnglobal_staserver_binding()
+                updateresource.staserver = resource.staserver
+                updateresource.staaddresstype = resource.staaddresstype
+                return updateresource.update_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    updateresources = [vpnglobal_staserver_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].staserver = resource[i].staserver
+                        updateresources[i].staaddresstype = resource[i].staaddresstype
+                return cls.update_bulk_request(client, updateresources)
+        except Exception as e :
+            raise e
 
-	@classmethod
-	def get_filtered(cls, service, filter_) :
-		r""" Use this API to fetch filtered set of vpnglobal_staserver_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = vpnglobal_staserver_binding()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def delete(cls, client, resource) :
+        """
 
-	@classmethod
-	def count(cls, service) :
-		r""" Use this API to count vpnglobal_staserver_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = vpnglobal_staserver_binding()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def count_filtered(cls, service, filter_) :
-		r""" Use this API to count the filtered set of vpnglobal_staserver_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = vpnglobal_staserver_binding()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            if resource and type(resource) is not list :
+                deleteresource = vpnglobal_staserver_binding()
+                deleteresource.staserver = resource.staserver
+                return deleteresource.delete_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    deleteresources = [vpnglobal_staserver_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        deleteresources[i].staserver = resource[i].staserver
+                return cls.delete_bulk_request(client, deleteresources)
+        except Exception as e :
+            raise e
 
-	class Staaddresstype:
-		IPV4 = "IPV4"
-		IPV6 = "IPV6"
+    @classmethod
+    def get(cls, service) :
+        """Use this API to fetch a vpnglobal_staserver_binding resources.
+
+        :param service: 
+
+        """
+        try :
+            obj = vpnglobal_staserver_binding()
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def get_filtered(cls, service, filter_) :
+        """Use this API to fetch filtered set of vpnglobal_staserver_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param filter_: 
+
+        """
+        try :
+            obj = vpnglobal_staserver_binding()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service) :
+        """Use this API to count vpnglobal_staserver_binding resources configued on NetScaler.
+
+        :param service: 
+
+        """
+        try :
+            obj = vpnglobal_staserver_binding()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, filter_) :
+        """Use this API to count the filtered set of vpnglobal_staserver_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param filter_: 
+
+        """
+        try :
+            obj = vpnglobal_staserver_binding()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Staaddresstype:
+        """ """
+        IPV4 = "IPV4"
+        IPV6 = "IPV6"
 
 class vpnglobal_staserver_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.vpnglobal_staserver_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.vpnglobal_staserver_binding = [vpnglobal_staserver_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.vpnglobal_staserver_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.vpnglobal_staserver_binding = [vpnglobal_staserver_binding() for _ in range(length)]
 

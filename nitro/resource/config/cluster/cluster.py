@@ -22,94 +22,107 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class cluster(base_resource) :
-	def __init__(self) :
-		self._clip = ""
-		self._password = ""
+    """ """
+    def __init__(self) :
+        self._clip = ""
+        self._password = ""
 
-	@property
-	def clip(self) :
-		r"""Cluster IP address to which to add the node.
-		"""
-		try :
-			return self._clip
-		except Exception as e:
-			raise e
+    @property
+    def clip(self) :
+        """Cluster IP address to which to add the node."""
+        try :
+            return self._clip
+        except Exception as e:
+            raise e
 
-	@clip.setter
-	def clip(self, clip) :
-		r"""Cluster IP address to which to add the node.
-		"""
-		try :
-			self._clip = clip
-		except Exception as e:
-			raise e
+    @clip.setter
+    def clip(self, clip) :
+        """Cluster IP address to which to add the node.
 
-	@property
-	def password(self) :
-		r"""Password for the nsroot account of the configuration coordinator (CCO).
-		"""
-		try :
-			return self._password
-		except Exception as e:
-			raise e
+        :param clip: 
 
-	@password.setter
-	def password(self, password) :
-		r"""Password for the nsroot account of the configuration coordinator (CCO).
-		"""
-		try :
-			self._password = password
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clip = clip
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(cluster_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.cluster
-		except Exception as e :
-			raise e
+    @property
+    def password(self) :
+        """Password for the nsroot account of the configuration coordinator (CCO)."""
+        try :
+            return self._password
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.clip is not None :
-				return str(self.clip)
-			return None
-		except Exception as e :
-			raise e
+    @password.setter
+    def password(self, password) :
+        """Password for the nsroot account of the configuration coordinator (CCO).
+
+        :param password: 
+
+        """
+        try :
+            self._password = password
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(cluster_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.cluster
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.clip is not None :
+                return str(self.clip)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def join(cls, client, resource) :
-		r""" Use this API to join cluster.
-		"""
-		try :
-			if type(resource) is not list :
-				joinresource = cluster()
-				joinresource.clip = resource.clip
-				joinresource.password = resource.password
-				return joinresource.perform_operation(client,"join")
-		except Exception as e :
-			raise e
+    @classmethod
+    def join(cls, client, resource) :
+        """Use this API to join cluster.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                joinresource = cluster()
+                joinresource.clip = resource.clip
+                joinresource.password = resource.password
+                return joinresource.perform_operation(client,"join")
+        except Exception as e :
+            raise e
 
 class cluster_response(base_response) :
-	def __init__(self, length=1) :
-		self.cluster = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.cluster = [cluster() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.cluster = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.cluster = [cluster() for _ in range(length)]
 

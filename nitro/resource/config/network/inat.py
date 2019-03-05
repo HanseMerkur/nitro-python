@@ -22,520 +22,587 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class inat(base_resource) :
-	""" Configuration for inbound nat resource. """
-	def __init__(self) :
-		self._name = ""
-		self._publicip = ""
-		self._privateip = ""
-		self._mode = ""
-		self._tcpproxy = ""
-		self._ftp = ""
-		self._tftp = ""
-		self._usip = ""
-		self._usnip = ""
-		self._proxyip = ""
-		self._useproxyport = ""
-		self._td = 0
-		self._flags = 0
-		self.___count = 0
+    """Configuration for inbound nat resource."""
+    def __init__(self) :
+        self._name = ""
+        self._publicip = ""
+        self._privateip = ""
+        self._mode = ""
+        self._tcpproxy = ""
+        self._ftp = ""
+        self._tftp = ""
+        self._usip = ""
+        self._usnip = ""
+        self._proxyip = ""
+        self._useproxyport = ""
+        self._td = 0
+        self._flags = 0
+        self.___count = 0
 
-	@property
-	def name(self) :
-		r"""Name for the Inbound NAT (INAT) entry. Leading character must be a number or letter. Other characters allowed, after the first character, are @ _ - . (period) : (colon) # and space ( ).<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name for the Inbound NAT (INAT) entry. Leading character must be a number or letter. Other characters allowed, after the first character, are @ _ - . (period) : (colon) # and space ( ).<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name for the Inbound NAT (INAT) entry. Leading character must be a number or letter. Other characters allowed, after the first character, are @ _ - . (period) : (colon) # and space ( ).<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name for the Inbound NAT (INAT) entry. Leading character must be a number or letter. Other characters allowed, after the first character, are @ _ - . (period) : (colon) # and space ( ).<br/>Minimum length =  1
 
-	@property
-	def publicip(self) :
-		r"""Public IP address of packets received on the NetScaler appliance. Can be aNetScaler-owned VIP or VIP6 address.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._publicip
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@publicip.setter
-	def publicip(self, publicip) :
-		r"""Public IP address of packets received on the NetScaler appliance. Can be aNetScaler-owned VIP or VIP6 address.<br/>Minimum length =  1
-		"""
-		try :
-			self._publicip = publicip
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def privateip(self) :
-		r"""IP address of the server to which the packet is sent by the NetScaler. Can be an IPv4 or IPv6 address.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._privateip
-		except Exception as e:
-			raise e
+    @property
+    def publicip(self) :
+        """Public IP address of packets received on the NetScaler appliance. Can be aNetScaler-owned VIP or VIP6 address.<br/>Minimum length =  1."""
+        try :
+            return self._publicip
+        except Exception as e:
+            raise e
 
-	@privateip.setter
-	def privateip(self, privateip) :
-		r"""IP address of the server to which the packet is sent by the NetScaler. Can be an IPv4 or IPv6 address.<br/>Minimum length =  1
-		"""
-		try :
-			self._privateip = privateip
-		except Exception as e:
-			raise e
+    @publicip.setter
+    def publicip(self, publicip) :
+        """Public IP address of packets received on the NetScaler appliance. Can be aNetScaler-owned VIP or VIP6 address.<br/>Minimum length =  1
 
-	@property
-	def mode(self) :
-		r"""Stateless translation.<br/>Possible values = STATELESS.
-		"""
-		try :
-			return self._mode
-		except Exception as e:
-			raise e
+        :param publicip: 
 
-	@mode.setter
-	def mode(self, mode) :
-		r"""Stateless translation.<br/>Possible values = STATELESS
-		"""
-		try :
-			self._mode = mode
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._publicip = publicip
+        except Exception as e:
+            raise e
 
-	@property
-	def tcpproxy(self) :
-		r"""Enable TCP proxy, which enables the NetScaler appliance to optimize the RNAT TCP traffic by using Layer 4 features.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED.
-		"""
-		try :
-			return self._tcpproxy
-		except Exception as e:
-			raise e
+    @property
+    def privateip(self) :
+        """IP address of the server to which the packet is sent by the NetScaler. Can be an IPv4 or IPv6 address.<br/>Minimum length =  1."""
+        try :
+            return self._privateip
+        except Exception as e:
+            raise e
 
-	@tcpproxy.setter
-	def tcpproxy(self, tcpproxy) :
-		r"""Enable TCP proxy, which enables the NetScaler appliance to optimize the RNAT TCP traffic by using Layer 4 features.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED
-		"""
-		try :
-			self._tcpproxy = tcpproxy
-		except Exception as e:
-			raise e
+    @privateip.setter
+    def privateip(self, privateip) :
+        """IP address of the server to which the packet is sent by the NetScaler. Can be an IPv4 or IPv6 address.<br/>Minimum length =  1
 
-	@property
-	def ftp(self) :
-		r"""Enable the FTP protocol on the server for transferring files between the client and the server.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED.
-		"""
-		try :
-			return self._ftp
-		except Exception as e:
-			raise e
+        :param privateip: 
 
-	@ftp.setter
-	def ftp(self, ftp) :
-		r"""Enable the FTP protocol on the server for transferring files between the client and the server.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED
-		"""
-		try :
-			self._ftp = ftp
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._privateip = privateip
+        except Exception as e:
+            raise e
 
-	@property
-	def tftp(self) :
-		r"""To enable/disable TFTP (Default DISABLED).<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED.
-		"""
-		try :
-			return self._tftp
-		except Exception as e:
-			raise e
+    @property
+    def mode(self) :
+        """Stateless translation.<br/>Possible values = STATELESS."""
+        try :
+            return self._mode
+        except Exception as e:
+            raise e
 
-	@tftp.setter
-	def tftp(self, tftp) :
-		r"""To enable/disable TFTP (Default DISABLED).<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED
-		"""
-		try :
-			self._tftp = tftp
-		except Exception as e:
-			raise e
+    @mode.setter
+    def mode(self, mode) :
+        """Stateless translation.<br/>Possible values = STATELESS
 
-	@property
-	def usip(self) :
-		r"""Enable the NetScaler appliance to retain the source IP address of packets before sending the packets to the server.<br/>Possible values = ON, OFF.
-		"""
-		try :
-			return self._usip
-		except Exception as e:
-			raise e
+        :param mode: 
 
-	@usip.setter
-	def usip(self, usip) :
-		r"""Enable the NetScaler appliance to retain the source IP address of packets before sending the packets to the server.<br/>Possible values = ON, OFF
-		"""
-		try :
-			self._usip = usip
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._mode = mode
+        except Exception as e:
+            raise e
 
-	@property
-	def usnip(self) :
-		r"""Enable the NetScaler appliance to use a SNIP address as the source IP address of packets before sending the packets to the server.<br/>Possible values = ON, OFF.
-		"""
-		try :
-			return self._usnip
-		except Exception as e:
-			raise e
+    @property
+    def tcpproxy(self) :
+        """Enable TCP proxy, which enables the NetScaler appliance to optimize the RNAT TCP traffic by using Layer 4 features.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED."""
+        try :
+            return self._tcpproxy
+        except Exception as e:
+            raise e
 
-	@usnip.setter
-	def usnip(self, usnip) :
-		r"""Enable the NetScaler appliance to use a SNIP address as the source IP address of packets before sending the packets to the server.<br/>Possible values = ON, OFF
-		"""
-		try :
-			self._usnip = usnip
-		except Exception as e:
-			raise e
+    @tcpproxy.setter
+    def tcpproxy(self, tcpproxy) :
+        """Enable TCP proxy, which enables the NetScaler appliance to optimize the RNAT TCP traffic by using Layer 4 features.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED
 
-	@property
-	def proxyip(self) :
-		r"""Unique IP address used as the source IP address in packets sent to the server. Must be a MIP or SNIP address.
-		"""
-		try :
-			return self._proxyip
-		except Exception as e:
-			raise e
+        :param tcpproxy: 
 
-	@proxyip.setter
-	def proxyip(self, proxyip) :
-		r"""Unique IP address used as the source IP address in packets sent to the server. Must be a MIP or SNIP address.
-		"""
-		try :
-			self._proxyip = proxyip
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._tcpproxy = tcpproxy
+        except Exception as e:
+            raise e
 
-	@property
-	def useproxyport(self) :
-		r"""Enable the NetScaler appliance to proxy the source port of packets before sending the packets to the server.<br/>Default value: ENABLED<br/>Possible values = ENABLED, DISABLED.
-		"""
-		try :
-			return self._useproxyport
-		except Exception as e:
-			raise e
+    @property
+    def ftp(self) :
+        """Enable the FTP protocol on the server for transferring files between the client and the server.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED."""
+        try :
+            return self._ftp
+        except Exception as e:
+            raise e
 
-	@useproxyport.setter
-	def useproxyport(self, useproxyport) :
-		r"""Enable the NetScaler appliance to proxy the source port of packets before sending the packets to the server.<br/>Default value: ENABLED<br/>Possible values = ENABLED, DISABLED
-		"""
-		try :
-			self._useproxyport = useproxyport
-		except Exception as e:
-			raise e
+    @ftp.setter
+    def ftp(self, ftp) :
+        """Enable the FTP protocol on the server for transferring files between the client and the server.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED
 
-	@property
-	def td(self) :
-		r"""Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Maximum length =  4094.
-		"""
-		try :
-			return self._td
-		except Exception as e:
-			raise e
+        :param ftp: 
 
-	@td.setter
-	def td(self, td) :
-		r"""Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Maximum length =  4094
-		"""
-		try :
-			self._td = td
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._ftp = ftp
+        except Exception as e:
+            raise e
 
-	@property
-	def flags(self) :
-		r"""Flags for different modes.
-		"""
-		try :
-			return self._flags
-		except Exception as e:
-			raise e
+    @property
+    def tftp(self) :
+        """To enable/disable TFTP (Default DISABLED).<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED."""
+        try :
+            return self._tftp
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(inat_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.inat
-		except Exception as e :
-			raise e
+    @tftp.setter
+    def tftp(self, tftp) :
+        """To enable/disable TFTP (Default DISABLED).<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+        :param tftp: 
 
+        """
+        try :
+            self._tftp = tftp
+        except Exception as e:
+            raise e
 
+    @property
+    def usip(self) :
+        """Enable the NetScaler appliance to retain the source IP address of packets before sending the packets to the server.<br/>Possible values = ON, OFF."""
+        try :
+            return self._usip
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		r""" Use this API to add inat.
-		"""
-		try :
-			if type(resource) is not list :
-				addresource = inat()
-				addresource.name = resource.name
-				addresource.publicip = resource.publicip
-				addresource.privateip = resource.privateip
-				addresource.mode = resource.mode
-				addresource.tcpproxy = resource.tcpproxy
-				addresource.ftp = resource.ftp
-				addresource.tftp = resource.tftp
-				addresource.usip = resource.usip
-				addresource.usnip = resource.usnip
-				addresource.proxyip = resource.proxyip
-				addresource.useproxyport = resource.useproxyport
-				addresource.td = resource.td
-				return addresource.add_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					addresources = [ inat() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						addresources[i].name = resource[i].name
-						addresources[i].publicip = resource[i].publicip
-						addresources[i].privateip = resource[i].privateip
-						addresources[i].mode = resource[i].mode
-						addresources[i].tcpproxy = resource[i].tcpproxy
-						addresources[i].ftp = resource[i].ftp
-						addresources[i].tftp = resource[i].tftp
-						addresources[i].usip = resource[i].usip
-						addresources[i].usnip = resource[i].usnip
-						addresources[i].proxyip = resource[i].proxyip
-						addresources[i].useproxyport = resource[i].useproxyport
-						addresources[i].td = resource[i].td
-				result = cls.add_bulk_request(client, addresources)
-			return result
-		except Exception as e :
-			raise e
+    @usip.setter
+    def usip(self, usip) :
+        """Enable the NetScaler appliance to retain the source IP address of packets before sending the packets to the server.<br/>Possible values = ON, OFF
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete inat.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = inat()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.name = resource
-				else :
-					deleteresource.name = resource.name
-				return deleteresource.delete_resource(client)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ inat() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].name = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ inat() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].name = resource[i].name
-				result = cls.delete_bulk_request(client, deleteresources)
-			return result
-		except Exception as e :
-			raise e
+        :param usip: 
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update inat.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = inat()
-				updateresource.name = resource.name
-				updateresource.privateip = resource.privateip
-				updateresource.tcpproxy = resource.tcpproxy
-				updateresource.ftp = resource.ftp
-				updateresource.tftp = resource.tftp
-				updateresource.usip = resource.usip
-				updateresource.usnip = resource.usnip
-				updateresource.proxyip = resource.proxyip
-				updateresource.useproxyport = resource.useproxyport
-				updateresource.mode = resource.mode
-				return updateresource.update_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					updateresources = [ inat() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].name = resource[i].name
-						updateresources[i].privateip = resource[i].privateip
-						updateresources[i].tcpproxy = resource[i].tcpproxy
-						updateresources[i].ftp = resource[i].ftp
-						updateresources[i].tftp = resource[i].tftp
-						updateresources[i].usip = resource[i].usip
-						updateresources[i].usnip = resource[i].usnip
-						updateresources[i].proxyip = resource[i].proxyip
-						updateresources[i].useproxyport = resource[i].useproxyport
-						updateresources[i].mode = resource[i].mode
-				result = cls.update_bulk_request(client, updateresources)
-			return result
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._usip = usip
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of inat resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = inat()
-				if type(resource) !=  type(unsetresource):
-					unsetresource.name = resource
-				else :
-					unsetresource.name = resource.name
-				return unsetresource.unset_resource(client, args)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						unsetresources = [ inat() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							unsetresources[i].name = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						unsetresources = [ inat() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							unsetresources[i].name = resource[i].name
-				result = cls.unset_bulk_request(client, unsetresources, args)
-			return result
-		except Exception as e :
-			raise e
+    @property
+    def usnip(self) :
+        """Enable the NetScaler appliance to use a SNIP address as the source IP address of packets before sending the packets to the server.<br/>Possible values = ON, OFF."""
+        try :
+            return self._usnip
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the inat resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = inat()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = inat()
-						obj.name = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [inat() for _ in range(len(name))]
-							obj = [inat() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = inat()
-								obj[i].name = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    @usnip.setter
+    def usnip(self, usnip) :
+        """Enable the NetScaler appliance to use a SNIP address as the source IP address of packets before sending the packets to the server.<br/>Possible values = ON, OFF
+
+        :param usnip: 
+
+        """
+        try :
+            self._usnip = usnip
+        except Exception as e:
+            raise e
+
+    @property
+    def proxyip(self) :
+        """Unique IP address used as the source IP address in packets sent to the server. Must be a MIP or SNIP address."""
+        try :
+            return self._proxyip
+        except Exception as e:
+            raise e
+
+    @proxyip.setter
+    def proxyip(self, proxyip) :
+        """Unique IP address used as the source IP address in packets sent to the server. Must be a MIP or SNIP address.
+
+        :param proxyip: 
+
+        """
+        try :
+            self._proxyip = proxyip
+        except Exception as e:
+            raise e
+
+    @property
+    def useproxyport(self) :
+        """Enable the NetScaler appliance to proxy the source port of packets before sending the packets to the server.<br/>Default value: ENABLED<br/>Possible values = ENABLED, DISABLED."""
+        try :
+            return self._useproxyport
+        except Exception as e:
+            raise e
+
+    @useproxyport.setter
+    def useproxyport(self, useproxyport) :
+        """Enable the NetScaler appliance to proxy the source port of packets before sending the packets to the server.<br/>Default value: ENABLED<br/>Possible values = ENABLED, DISABLED
+
+        :param useproxyport: 
+
+        """
+        try :
+            self._useproxyport = useproxyport
+        except Exception as e:
+            raise e
+
+    @property
+    def td(self) :
+        """Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Maximum length =  4094."""
+        try :
+            return self._td
+        except Exception as e:
+            raise e
+
+    @td.setter
+    def td(self, td) :
+        """Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Maximum length =  4094
+
+        :param td: 
+
+        """
+        try :
+            self._td = td
+        except Exception as e:
+            raise e
+
+    @property
+    def flags(self) :
+        """Flags for different modes."""
+        try :
+            return self._flags
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(inat_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.inat
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of inat resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = inat()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def add(cls, client, resource) :
+        """Use this API to add inat.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                addresource = inat()
+                addresource.name = resource.name
+                addresource.publicip = resource.publicip
+                addresource.privateip = resource.privateip
+                addresource.mode = resource.mode
+                addresource.tcpproxy = resource.tcpproxy
+                addresource.ftp = resource.ftp
+                addresource.tftp = resource.tftp
+                addresource.usip = resource.usip
+                addresource.usnip = resource.usnip
+                addresource.proxyip = resource.proxyip
+                addresource.useproxyport = resource.useproxyport
+                addresource.td = resource.td
+                return addresource.add_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    addresources = [ inat() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        addresources[i].name = resource[i].name
+                        addresources[i].publicip = resource[i].publicip
+                        addresources[i].privateip = resource[i].privateip
+                        addresources[i].mode = resource[i].mode
+                        addresources[i].tcpproxy = resource[i].tcpproxy
+                        addresources[i].ftp = resource[i].ftp
+                        addresources[i].tftp = resource[i].tftp
+                        addresources[i].usip = resource[i].usip
+                        addresources[i].usnip = resource[i].usnip
+                        addresources[i].proxyip = resource[i].proxyip
+                        addresources[i].useproxyport = resource[i].useproxyport
+                        addresources[i].td = resource[i].td
+                result = cls.add_bulk_request(client, addresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete inat.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = inat()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.name = resource
+                else :
+                    deleteresource.name = resource.name
+                return deleteresource.delete_resource(client)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ inat() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].name = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ inat() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].name = resource[i].name
+                result = cls.delete_bulk_request(client, deleteresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update inat.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = inat()
+                updateresource.name = resource.name
+                updateresource.privateip = resource.privateip
+                updateresource.tcpproxy = resource.tcpproxy
+                updateresource.ftp = resource.ftp
+                updateresource.tftp = resource.tftp
+                updateresource.usip = resource.usip
+                updateresource.usnip = resource.usnip
+                updateresource.proxyip = resource.proxyip
+                updateresource.useproxyport = resource.useproxyport
+                updateresource.mode = resource.mode
+                return updateresource.update_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    updateresources = [ inat() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].name = resource[i].name
+                        updateresources[i].privateip = resource[i].privateip
+                        updateresources[i].tcpproxy = resource[i].tcpproxy
+                        updateresources[i].ftp = resource[i].ftp
+                        updateresources[i].tftp = resource[i].tftp
+                        updateresources[i].usip = resource[i].usip
+                        updateresources[i].usnip = resource[i].usnip
+                        updateresources[i].proxyip = resource[i].proxyip
+                        updateresources[i].useproxyport = resource[i].useproxyport
+                        updateresources[i].mode = resource[i].mode
+                result = cls.update_bulk_request(client, updateresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of inat resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = inat()
+                if type(resource) !=  type(unsetresource):
+                    unsetresource.name = resource
+                else :
+                    unsetresource.name = resource.name
+                return unsetresource.unset_resource(client, args)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        unsetresources = [ inat() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            unsetresources[i].name = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        unsetresources = [ inat() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            unsetresources[i].name = resource[i].name
+                result = cls.unset_bulk_request(client, unsetresources, args)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the inat resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = inat()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = inat()
+                        obj.name = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [inat() for _ in range(len(name))]
+                            obj = [inat() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = inat()
+                                obj[i].name = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the inat resources configured on NetScaler.
-		"""
-		try :
-			obj = inat()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of inat resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of inat resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = inat()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = inat()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	class Mode:
-		STATELESS = "STATELESS"
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the inat resources configured on NetScaler.
 
-	class Usnip:
-		ON = "ON"
-		OFF = "OFF"
+        :param client: 
 
-	class Tftp:
-		ENABLED = "ENABLED"
-		DISABLED = "DISABLED"
+        """
+        try :
+            obj = inat()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
 
-	class Tcpproxy:
-		ENABLED = "ENABLED"
-		DISABLED = "DISABLED"
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of inat resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	class Useproxyport:
-		ENABLED = "ENABLED"
-		DISABLED = "DISABLED"
+        :param client: 
+        :param filter_: 
 
-	class Usip:
-		ON = "ON"
-		OFF = "OFF"
+        """
+        try :
+            obj = inat()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
 
-	class Ftp:
-		ENABLED = "ENABLED"
-		DISABLED = "DISABLED"
+
+    class Mode:
+        """ """
+        STATELESS = "STATELESS"
+
+    class Usnip:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Tftp:
+        """ """
+        ENABLED = "ENABLED"
+        DISABLED = "DISABLED"
+
+    class Tcpproxy:
+        """ """
+        ENABLED = "ENABLED"
+        DISABLED = "DISABLED"
+
+    class Useproxyport:
+        """ """
+        ENABLED = "ENABLED"
+        DISABLED = "DISABLED"
+
+    class Usip:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Ftp:
+        """ """
+        ENABLED = "ENABLED"
+        DISABLED = "DISABLED"
 
 class inat_response(base_response) :
-	def __init__(self, length=1) :
-		self.inat = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.inat = [inat() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.inat = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.inat = [inat() for _ in range(length)]
 

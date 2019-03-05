@@ -22,359 +22,415 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class csvserver_cmppolicy_binding(base_resource) :
-	""" Binding class showing the cmppolicy that can be bound to csvserver.
-	"""
-	def __init__(self) :
-		self._policyname = ""
-		self._priority = 0
-		self._sc = ""
-		self._gotopriorityexpression = ""
-		self._bindpoint = ""
-		self._invoke = False
-		self._labeltype = ""
-		self._labelname = ""
-		self._name = ""
-		self._targetlbvserver = ""
-		self.___count = 0
+    """Binding class showing the cmppolicy that can be bound to csvserver."""
+    def __init__(self) :
+        self._policyname = ""
+        self._priority = 0
+        self._sc = ""
+        self._gotopriorityexpression = ""
+        self._bindpoint = ""
+        self._invoke = False
+        self._labeltype = ""
+        self._labelname = ""
+        self._name = ""
+        self._targetlbvserver = ""
+        self.___count = 0
 
-	@property
-	def priority(self) :
-		r"""Priority for the policy.
-		"""
-		try :
-			return self._priority
-		except Exception as e:
-			raise e
+    @property
+    def priority(self) :
+        """Priority for the policy."""
+        try :
+            return self._priority
+        except Exception as e:
+            raise e
 
-	@priority.setter
-	def priority(self, priority) :
-		r"""Priority for the policy.
-		"""
-		try :
-			self._priority = priority
-		except Exception as e:
-			raise e
+    @priority.setter
+    def priority(self, priority) :
+        """Priority for the policy.
 
-	@property
-	def bindpoint(self) :
-		r"""The bindpoint to which the policy is bound.<br/>Possible values = REQUEST, RESPONSE.
-		"""
-		try :
-			return self._bindpoint
-		except Exception as e:
-			raise e
+        :param priority: 
 
-	@bindpoint.setter
-	def bindpoint(self, bindpoint) :
-		r"""The bindpoint to which the policy is bound.<br/>Possible values = REQUEST, RESPONSE
-		"""
-		try :
-			self._bindpoint = bindpoint
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._priority = priority
+        except Exception as e:
+            raise e
 
-	@property
-	def policyname(self) :
-		r"""Policies bound to this vserver.
-		"""
-		try :
-			return self._policyname
-		except Exception as e:
-			raise e
+    @property
+    def bindpoint(self) :
+        """The bindpoint to which the policy is bound.<br/>Possible values = REQUEST, RESPONSE."""
+        try :
+            return self._bindpoint
+        except Exception as e:
+            raise e
 
-	@policyname.setter
-	def policyname(self, policyname) :
-		r"""Policies bound to this vserver.
-		"""
-		try :
-			self._policyname = policyname
-		except Exception as e:
-			raise e
+    @bindpoint.setter
+    def bindpoint(self, bindpoint) :
+        """The bindpoint to which the policy is bound.<br/>Possible values = REQUEST, RESPONSE
 
-	@property
-	def labelname(self) :
-		r"""Name of the label invoked.
-		"""
-		try :
-			return self._labelname
-		except Exception as e:
-			raise e
+        :param bindpoint: 
 
-	@labelname.setter
-	def labelname(self, labelname) :
-		r"""Name of the label invoked.
-		"""
-		try :
-			self._labelname = labelname
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._bindpoint = bindpoint
+        except Exception as e:
+            raise e
 
-	@property
-	def name(self) :
-		r"""Name of the content switching virtual server to which the content switching policy applies.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def policyname(self) :
+        """Policies bound to this vserver."""
+        try :
+            return self._policyname
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the content switching virtual server to which the content switching policy applies.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @policyname.setter
+    def policyname(self, policyname) :
+        """Policies bound to this vserver.
 
-	@property
-	def targetlbvserver(self) :
-		r"""Name of the Load Balancing virtual server to which the content is switched, if policy rule is evaluated to be TRUE.
-		Example: bind cs vs cs1 -policyname pol1 -priority 101 -targetLBVserver lb1
-		Note: Use this parameter only in case of Content Switching policy bind operations to a CS vserver.
-		"""
-		try :
-			return self._targetlbvserver
-		except Exception as e:
-			raise e
+        :param policyname: 
 
-	@targetlbvserver.setter
-	def targetlbvserver(self, targetlbvserver) :
-		r"""Name of the Load Balancing virtual server to which the content is switched, if policy rule is evaluated to be TRUE.
-		Example: bind cs vs cs1 -policyname pol1 -priority 101 -targetLBVserver lb1
-		Note: Use this parameter only in case of Content Switching policy bind operations to a CS vserver
-		"""
-		try :
-			self._targetlbvserver = targetlbvserver
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._policyname = policyname
+        except Exception as e:
+            raise e
 
-	@property
-	def gotopriorityexpression(self) :
-		r"""Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE.
-		"""
-		try :
-			return self._gotopriorityexpression
-		except Exception as e:
-			raise e
+    @property
+    def labelname(self) :
+        """Name of the label invoked."""
+        try :
+            return self._labelname
+        except Exception as e:
+            raise e
 
-	@gotopriorityexpression.setter
-	def gotopriorityexpression(self, gotopriorityexpression) :
-		r"""Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE.
-		"""
-		try :
-			self._gotopriorityexpression = gotopriorityexpression
-		except Exception as e:
-			raise e
+    @labelname.setter
+    def labelname(self, labelname) :
+        """Name of the label invoked.
 
-	@property
-	def invoke(self) :
-		r"""Invoke flag.
-		"""
-		try :
-			return self._invoke
-		except Exception as e:
-			raise e
+        :param labelname: 
 
-	@invoke.setter
-	def invoke(self, invoke) :
-		r"""Invoke flag.
-		"""
-		try :
-			self._invoke = invoke
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._labelname = labelname
+        except Exception as e:
+            raise e
 
-	@property
-	def labeltype(self) :
-		r"""The invocation type.<br/>Possible values = reqvserver, resvserver, policylabel.
-		"""
-		try :
-			return self._labeltype
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the content switching virtual server to which the content switching policy applies.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@labeltype.setter
-	def labeltype(self, labeltype) :
-		r"""The invocation type.<br/>Possible values = reqvserver, resvserver, policylabel
-		"""
-		try :
-			self._labeltype = labeltype
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the content switching virtual server to which the content switching policy applies.<br/>Minimum length =  1
 
-	@property
-	def sc(self) :
-		r"""The state of SureConnect the specified virtual server.<br/>Possible values = ON, OFF.
-		"""
-		try :
-			return self._sc
-		except Exception as e:
-			raise e
+        :param name: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(csvserver_cmppolicy_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.csvserver_cmppolicy_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def targetlbvserver(self) :
+        """Name of the Load Balancing virtual server to which the content is switched, if policy rule is evaluated to be TRUE.
+        Example: bind cs vs cs1 -policyname pol1 -priority 101 -targetLBVserver lb1
+        Note: Use this parameter only in case of Content Switching policy bind operations to a CS vserver.
 
 
+        """
+        try :
+            return self._targetlbvserver
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				updateresource = csvserver_cmppolicy_binding()
-				updateresource.name = resource.name
-				updateresource.policyname = resource.policyname
-				updateresource.targetlbvserver = resource.targetlbvserver
-				updateresource.priority = resource.priority
-				updateresource.gotopriorityexpression = resource.gotopriorityexpression
-				updateresource.bindpoint = resource.bindpoint
-				updateresource.invoke = resource.invoke
-				updateresource.labeltype = resource.labeltype
-				updateresource.labelname = resource.labelname
-				return updateresource.update_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					updateresources = [csvserver_cmppolicy_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].name = resource[i].name
-						updateresources[i].policyname = resource[i].policyname
-						updateresources[i].targetlbvserver = resource[i].targetlbvserver
-						updateresources[i].priority = resource[i].priority
-						updateresources[i].gotopriorityexpression = resource[i].gotopriorityexpression
-						updateresources[i].bindpoint = resource[i].bindpoint
-						updateresources[i].invoke = resource[i].invoke
-						updateresources[i].labeltype = resource[i].labeltype
-						updateresources[i].labelname = resource[i].labelname
-				return cls.update_bulk_request(client, updateresources)
-		except Exception as e :
-			raise e
+    @targetlbvserver.setter
+    def targetlbvserver(self, targetlbvserver) :
+        """Name of the Load Balancing virtual server to which the content is switched, if policy rule is evaluated to be TRUE.
+        Example: bind cs vs cs1 -policyname pol1 -priority 101 -targetLBVserver lb1
+        Note: Use this parameter only in case of Content Switching policy bind operations to a CS vserver
 
-	@classmethod
-	def delete(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				deleteresource = csvserver_cmppolicy_binding()
-				deleteresource.name = resource.name
-				deleteresource.policyname = resource.policyname
-				deleteresource.bindpoint = resource.bindpoint
-				deleteresource.priority = resource.priority
-				return deleteresource.delete_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					deleteresources = [csvserver_cmppolicy_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						deleteresources[i].name = resource[i].name
-						deleteresources[i].policyname = resource[i].policyname
-						deleteresources[i].bindpoint = resource[i].bindpoint
-						deleteresources[i].priority = resource[i].priority
-				return cls.delete_bulk_request(client, deleteresources)
-		except Exception as e :
-			raise e
+        :param targetlbvserver: 
 
-	@classmethod
-	def get(cls, service, name) :
-		r""" Use this API to fetch csvserver_cmppolicy_binding resources.
-		"""
-		try :
-			obj = csvserver_cmppolicy_binding()
-			obj.name = name
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._targetlbvserver = targetlbvserver
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get_filtered(cls, service, name, filter_) :
-		r""" Use this API to fetch filtered set of csvserver_cmppolicy_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = csvserver_cmppolicy_binding()
-			obj.name = name
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @property
+    def gotopriorityexpression(self) :
+        """Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE."""
+        try :
+            return self._gotopriorityexpression
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def count(cls, service, name) :
-		r""" Use this API to count csvserver_cmppolicy_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = csvserver_cmppolicy_binding()
-			obj.name = name
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    @gotopriorityexpression.setter
+    def gotopriorityexpression(self, gotopriorityexpression) :
+        """Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE.
 
-	@classmethod
-	def count_filtered(cls, service, name, filter_) :
-		r""" Use this API to count the filtered set of csvserver_cmppolicy_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = csvserver_cmppolicy_binding()
-			obj.name = name
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        :param gotopriorityexpression: 
 
-	class Sc:
-		ON = "ON"
-		OFF = "OFF"
+        """
+        try :
+            self._gotopriorityexpression = gotopriorityexpression
+        except Exception as e:
+            raise e
 
-	class Bindpoint:
-		REQUEST = "REQUEST"
-		RESPONSE = "RESPONSE"
+    @property
+    def invoke(self) :
+        """Invoke flag."""
+        try :
+            return self._invoke
+        except Exception as e:
+            raise e
 
-	class Labeltype:
-		reqvserver = "reqvserver"
-		resvserver = "resvserver"
-		policylabel = "policylabel"
+    @invoke.setter
+    def invoke(self, invoke) :
+        """Invoke flag.
+
+        :param invoke: 
+
+        """
+        try :
+            self._invoke = invoke
+        except Exception as e:
+            raise e
+
+    @property
+    def labeltype(self) :
+        """The invocation type.<br/>Possible values = reqvserver, resvserver, policylabel."""
+        try :
+            return self._labeltype
+        except Exception as e:
+            raise e
+
+    @labeltype.setter
+    def labeltype(self, labeltype) :
+        """The invocation type.<br/>Possible values = reqvserver, resvserver, policylabel
+
+        :param labeltype: 
+
+        """
+        try :
+            self._labeltype = labeltype
+        except Exception as e:
+            raise e
+
+    @property
+    def sc(self) :
+        """The state of SureConnect the specified virtual server.<br/>Possible values = ON, OFF."""
+        try :
+            return self._sc
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(csvserver_cmppolicy_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.csvserver_cmppolicy_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
+
+
+
+    @classmethod
+    def add(cls, client, resource) :
+        """
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if resource and type(resource) is not list :
+                updateresource = csvserver_cmppolicy_binding()
+                updateresource.name = resource.name
+                updateresource.policyname = resource.policyname
+                updateresource.targetlbvserver = resource.targetlbvserver
+                updateresource.priority = resource.priority
+                updateresource.gotopriorityexpression = resource.gotopriorityexpression
+                updateresource.bindpoint = resource.bindpoint
+                updateresource.invoke = resource.invoke
+                updateresource.labeltype = resource.labeltype
+                updateresource.labelname = resource.labelname
+                return updateresource.update_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    updateresources = [csvserver_cmppolicy_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].name = resource[i].name
+                        updateresources[i].policyname = resource[i].policyname
+                        updateresources[i].targetlbvserver = resource[i].targetlbvserver
+                        updateresources[i].priority = resource[i].priority
+                        updateresources[i].gotopriorityexpression = resource[i].gotopriorityexpression
+                        updateresources[i].bindpoint = resource[i].bindpoint
+                        updateresources[i].invoke = resource[i].invoke
+                        updateresources[i].labeltype = resource[i].labeltype
+                        updateresources[i].labelname = resource[i].labelname
+                return cls.update_bulk_request(client, updateresources)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if resource and type(resource) is not list :
+                deleteresource = csvserver_cmppolicy_binding()
+                deleteresource.name = resource.name
+                deleteresource.policyname = resource.policyname
+                deleteresource.bindpoint = resource.bindpoint
+                deleteresource.priority = resource.priority
+                return deleteresource.delete_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    deleteresources = [csvserver_cmppolicy_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        deleteresources[i].name = resource[i].name
+                        deleteresources[i].policyname = resource[i].policyname
+                        deleteresources[i].bindpoint = resource[i].bindpoint
+                        deleteresources[i].priority = resource[i].priority
+                return cls.delete_bulk_request(client, deleteresources)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, service, name) :
+        """Use this API to fetch csvserver_cmppolicy_binding resources.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            obj = csvserver_cmppolicy_binding()
+            obj.name = name
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def get_filtered(cls, service, name, filter_) :
+        """Use this API to fetch filtered set of csvserver_cmppolicy_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param name: 
+        :param filter_: 
+
+        """
+        try :
+            obj = csvserver_cmppolicy_binding()
+            obj.name = name
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, name) :
+        """Use this API to count csvserver_cmppolicy_binding resources configued on NetScaler.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            obj = csvserver_cmppolicy_binding()
+            obj.name = name
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, name, filter_) :
+        """Use this API to count the filtered set of csvserver_cmppolicy_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param name: 
+        :param filter_: 
+
+        """
+        try :
+            obj = csvserver_cmppolicy_binding()
+            obj.name = name
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Sc:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Bindpoint:
+        """ """
+        REQUEST = "REQUEST"
+        RESPONSE = "RESPONSE"
+
+    class Labeltype:
+        """ """
+        reqvserver = "reqvserver"
+        resvserver = "resvserver"
+        policylabel = "policylabel"
 
 class csvserver_cmppolicy_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.csvserver_cmppolicy_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.csvserver_cmppolicy_binding = [csvserver_cmppolicy_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.csvserver_cmppolicy_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.csvserver_cmppolicy_binding = [csvserver_cmppolicy_binding() for _ in range(length)]
 

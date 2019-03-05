@@ -22,98 +22,118 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class appalgparam(base_resource) :
-	""" Configuration for AppAlg Param resource. """
-	def __init__(self) :
-		self._pptpgreidletimeout = 0
+    """Configuration for AppAlg Param resource."""
+    def __init__(self) :
+        self._pptpgreidletimeout = 0
 
-	@property
-	def pptpgreidletimeout(self) :
-		r"""Interval in sec, after which data sessions of PPTP GRE is cleared.<br/>Default value: 9000<br/>Minimum length =  1<br/>Maximum length =  9000.
-		"""
-		try :
-			return self._pptpgreidletimeout
-		except Exception as e:
-			raise e
+    @property
+    def pptpgreidletimeout(self) :
+        """Interval in sec, after which data sessions of PPTP GRE is cleared.<br/>Default value: 9000<br/>Minimum length =  1<br/>Maximum length =  9000."""
+        try :
+            return self._pptpgreidletimeout
+        except Exception as e:
+            raise e
 
-	@pptpgreidletimeout.setter
-	def pptpgreidletimeout(self, pptpgreidletimeout) :
-		r"""Interval in sec, after which data sessions of PPTP GRE is cleared.<br/>Default value: 9000<br/>Minimum length =  1<br/>Maximum length =  9000
-		"""
-		try :
-			self._pptpgreidletimeout = pptpgreidletimeout
-		except Exception as e:
-			raise e
+    @pptpgreidletimeout.setter
+    def pptpgreidletimeout(self, pptpgreidletimeout) :
+        """Interval in sec, after which data sessions of PPTP GRE is cleared.<br/>Default value: 9000<br/>Minimum length =  1<br/>Maximum length =  9000
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(appalgparam_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.appalgparam
-		except Exception as e :
-			raise e
+        :param pptpgreidletimeout: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._pptpgreidletimeout = pptpgreidletimeout
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(appalgparam_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.appalgparam
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update appalgparam.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = appalgparam()
-				updateresource.pptpgreidletimeout = resource.pptpgreidletimeout
-				return updateresource.update_resource(client)
-		except Exception as e :
-			raise e
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update appalgparam.
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of appalgparam resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = appalgparam()
-				return unsetresource.unset_resource(client, args)
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the appalgparam resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = appalgparam()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = appalgparam()
+                updateresource.pptpgreidletimeout = resource.pptpgreidletimeout
+                return updateresource.update_resource(client)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of appalgparam resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = appalgparam()
+                return unsetresource.unset_resource(client, args)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the appalgparam resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = appalgparam()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
 class appalgparam_response(base_response) :
-	def __init__(self, length=1) :
-		self.appalgparam = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.appalgparam = [appalgparam() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.appalgparam = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.appalgparam = [appalgparam() for _ in range(length)]
 

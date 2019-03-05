@@ -16,30 +16,32 @@
 
 
 class lsnstatic_args :
-	r""" Provides additional arguments required for fetching the lsnstatic resource.
-	"""
-	def __init__(self) :
-		self._nattype = ""
+    """Provides additional arguments required for fetching the lsnstatic resource."""
+    def __init__(self) :
+        self._nattype = ""
 
-	@property
-	def nattype(self) :
-		r"""Type of sessions to be displayed.<br/>Possible values = NAT44, DS-Lite.
-		"""
-		try :
-			return self._nattype
-		except Exception as e:
-			raise e
+    @property
+    def nattype(self) :
+        """Type of sessions to be displayed.<br/>Possible values = NAT44, DS-Lite."""
+        try :
+            return self._nattype
+        except Exception as e:
+            raise e
 
-	@nattype.setter
-	def nattype(self, nattype) :
-		r"""Type of sessions to be displayed.<br/>Possible values = NAT44, DS-Lite
-		"""
-		try :
-			self._nattype = nattype
-		except Exception as e:
-			raise e
+    @nattype.setter
+    def nattype(self, nattype) :
+        """Type of sessions to be displayed.<br/>Possible values = NAT44, DS-Lite
 
-	class Nattype:
-		NAT44 = "NAT44"
-		DS_Lite = "DS-Lite"
+        :param nattype: 
+
+        """
+        try :
+            self._nattype = nattype
+        except Exception as e:
+            raise e
+
+    class Nattype:
+        """ """
+        NAT44 = "NAT44"
+        DS_Lite = "DS-Lite"
 

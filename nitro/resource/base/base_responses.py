@@ -17,9 +17,8 @@ from nitro.resource.base.base_response import base_response
 
 
 class base_responses:
+    """base_response is a abstract base class for all the netscaler config/stat response classes."""
     def __init__(self, length=0): 
-        """ base_response is a abstract base class for all the netscaler config/stat response classes.
-        """
         self.errorcode = 0 
         self.message = ""
         self.sessionid = "" 

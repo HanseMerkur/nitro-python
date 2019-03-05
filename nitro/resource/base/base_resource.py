@@ -26,34 +26,43 @@ import abc
 import inspect
 
 class base_resource:
+    """ """
     __metaclass__ = abc.ABCMeta
     
     @abc.abstractmethod
     def _get_nitro_response(self, service, string):
+        """
+
+        :param service: 
+        :param string: 
+
+        """
         pass
     
     @abc.abstractmethod    
     def _get_object_name(self):
+        """ """
         pass
 
     @classmethod
     def get_object_type(cls):
-        """ Gets the resource type.
-        
-        Returns:
-			Resource Type. eg:lbvserver, csvserver.
+        """Gets the resource type.
+
+
+        :returns: lbvserver, csvserver.
+
+        :rtype: Resource Type. eg
+
         """
         return cls.__name__
 
     def resource_to_string(self, service):
-        """ Converts netscaler resource to Json string.
-        
-        Parameters:
-			service - nitro_service object.
-            id - sessionId.
-        
-        Returns:
-			string in Json format.
+        """Converts netscaler resource to Json string.
+
+        :param service: nitro_service object
+        :param id: sessionId
+        :returns: string in Json format.
+
         """
         try:
             result = service.payload_formatter.resource_to_string(self)
@@ -62,31 +71,29 @@ class base_resource:
             raise e
 
     def resource_to_string(self, service):
-        """ Converts netscaler resource to Json string.
-        
-        Parameters:
-			service - nitro_service object
-        
-        Returns:
-			string in Json format.
+        """Converts netscaler resource to Json string.
+
+        :param service: nitro_service object
+        :returns: string in Json format.
+
         """
         result = service.payload_formatter.resource_to_string(self)
         return result
 
         
     def unset_string(self, service, args):
-        """ forms a String for unset operation on a resource.
+        """forms a String for unset operation on a resource.
         
         Parameters:
-			service - nitro_service object.
+            service - nitro_service object.
             id - session id.
-            args - Array of args that are to be unset.
-        
-        Returns:
-			string in Json format.
+
+        :param service: 
+        :param args: 
+        :returns: string in Json format.
         
         Throws:
-			Exception if invalid input is given.
+
         """
         try:
             result = "{\"" + self.__class__.get_object_type() + "\":" 
@@ -97,17 +104,14 @@ class base_resource:
 
     
     def post_requestEx(self, service, opt):
-        """ Use this method to perform a POST operation on netscaler resource.
-        
-        Parameters:
-			service - nitro_service object.
-            opt - Options class object.
-        
-        Returns:
-			requested resource.
+        """Use this method to perform a POST operation on netscaler resource.
+
+        :param service: nitro_service object
+        :param opt: Options class object
+        :returns: requested resource.
         
         Throws:
-			Exception if invalid input is given.
+
         """
         try:
             request = self.resource_to_string(service)
@@ -117,17 +121,14 @@ class base_resource:
     
 
     def post_request(self, service, opt):
-        """ Use this method to perform a Add operation on netscaler resource.
-        
-        Parameters:
-			service - nitro_service object.
-        	opt - Options class object.
-        
-        Returns:
-			status of the operation performed.
+        """Use this method to perform a Add operation on netscaler resource.
+
+        :param service: nitro_service object
+        :param opt: Options class object
+        :returns: status of the operation performed.
         
         Throws:
-			Exception if invalid input is given.
+
         """
         try:
             request = self.resource_to_string(service)
@@ -137,18 +138,19 @@ class base_resource:
 
 
     def unset_request(self, service, opt, args):
-        """ Use this method to perform an Unset operation on netscaler resource.
+        """Use this method to perform an Unset operation on netscaler resource.
         
         Parameters:
-			service - nitro_service object.
-        	opt - options class object.
-        	args - string.
-        
-        Returns:
-			status of the operation performed.
+            service - nitro_service object.
+            opt - options class object.
+
+        :param service: 
+        :param opt: 
+        :param args: 
+        :returns: status of the operation performed.
         
         Throws:
-			Exception
+
         """
         try:
             request = self.unset_string(service, args)
@@ -157,17 +159,14 @@ class base_resource:
             raise e
    
     def add_resource(self, service, opt=""):
-        """ Use this method to perform a add operation on netscaler resource.
-        
-        Parameters:
-			service - nitro_service object. 
-        	opt - options class object.
-        
-        Returns:
-			status of the operation performed.
+        """Use this method to perform a add operation on netscaler resource.
+
+        :param service: nitro_service object
+        :param opt: options class object (Default value = "")
+        :returns: status of the operation performed.
         
         Throws:
-			Exception
+
         """
         try:
             if not service.isLogin():
@@ -179,17 +178,14 @@ class base_resource:
     
 
     def update_resource(self, service):
-        """ Use this method to perform a modify operation on netscaler resource.
-        
-        Parameters:
-			service - nitro_service object. 
-        	opt - options class object.
-        
-        Returns:
-			status of the operation performed.
+        """Use this method to perform a modify operation on netscaler resource.
+
+        :param service: nitro_service object
+        :param opt: options class object
+        :returns: status of the operation performed.
         
         Throws:
-			Exception
+
         """
         try:
             if not service.isLogin():
@@ -201,16 +197,13 @@ class base_resource:
 
 
     def delete_resource(self, service):
-        """ Use this method to perform a delete operation on netscaler resource.
-        
-        Parameters:
-			service - nitro_service object
-        
-        Returns:
-			status of the operation performed.
+        """Use this method to perform a delete operation on netscaler resource.
+
+        :param service: nitro_service object
+        :returns: status of the operation performed.
         
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try:
             if not service.isLogin() :
@@ -223,17 +216,14 @@ class base_resource:
 
             
     def getfiltered(self, service, opt):
-        """ Use this method to perform a filtered get operation on netscaler resource.
-        
-        Parameters:
-			service - nitro_service object.
-        	opt - options class object.
-        
-        Returns:
-			Array of nitro resources of given resource type.
+        """Use this method to perform a filtered get operation on netscaler resource.
+
+        :param service: nitro_service object
+        :param opt: options class object
+        :returns: Array of nitro resources of given resource type.
         
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try:
             if (not service.isLogin()):
@@ -244,17 +234,14 @@ class base_resource:
             raise e
  
     def get_resources(self, service, opt=""):
-        """ Use this method to perform a get operation on netscaler resource.
-        
-        Parameters:
-			service - nitro_service object.
-        	opt - options class object.
-        
-        Returns:
-			Array of nitro resources of specified type.
+        """Use this method to perform a get operation on netscaler resource.
+
+        :param service: nitro_service object
+        :param opt: options class object (Default value = "")
+        :returns: Array of nitro resources of specified type.
         
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try:
             if (not service.isLogin()):
@@ -266,17 +253,14 @@ class base_resource:
 
             
     def get_resource(self, service, opt=""):
-        """ Use this method to perform a get operation on netscaler resource.
-        
-        Parameters:
-			service - nitro_service object.
-        	opt - options class object.
-        
-        Returns:
-			Array of nitro resources of specified type.
+        """Use this method to perform a get operation on netscaler resource.
+
+        :param service: nitro_service object
+        :param opt: options class object (Default value = "")
+        :returns: Array of nitro resources of specified type.
         
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try:
             if (not service.isLogin()):
@@ -292,17 +276,14 @@ class base_resource:
 
 
     def stat_resources(self, service, opt="") :
-        """ Use this method to perform a stat operation on netscaler resources.
-        
-        Parameters:
-			service - nitro_service object. 
-        	opt - options class object.
-        
-        Returns:
-			Array of nitro stat resources of specified type.
+        """Use this method to perform a stat operation on netscaler resources.
+
+        :param service: nitro_service object
+        :param opt: options class object (Default value = "")
+        :returns: Array of nitro stat resources of specified type.
         
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try:
             if not service.isLogin() :
@@ -314,17 +295,14 @@ class base_resource:
 
             
     def stat_resource(self, service, opt=""):
-        """ Use this method to perform a stat operation on a netscaler resource.
-        
-        Parameters:
-			service - nitro_service object. 
-        	opt - options class object.
-        
-        Returns:
-			Requested Nitro stat resource.
+        """Use this method to perform a stat operation on a netscaler resource.
+
+        :param service: nitro_service object
+        :param opt: options class object (Default value = "")
+        :returns: Requested Nitro stat resource.
         
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try:
             if (not service.isLogin()):
@@ -338,19 +316,16 @@ class base_resource:
     
 
     def perform_operation(self, service, action="", opt=""):
-        """ Use this method to perform a clear/sync/link/unlink/save ...etc 
+        """Use this method to perform a clear/sync/link/unlink/save ...etc
         operation on netscaler resource.
+
+        :param service: nitro_service object
+        :param action: action needs to be taken on resource (Default value = "")
+        :param opt: options object with action that is to be performed set (Default value = "")
+        :returns: status of the operation performed.
         
-        Parameters:
-			service - nitro_service object. 
-        	action - action needs to be taken on resource. 
-        	opt - options object with action that is to be performed set.     
-        
-        Returns:
-			status of the operation performed.
-                
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try:
             if (not service.isLogin() and self.__class__.get_object_type()!="login"):
@@ -367,18 +342,15 @@ class base_resource:
 
 
     def perform_operationEx(self, service, action):
-        """ Use this method to perform a POST operation that returns a resource ...etc 
+        """Use this method to perform a POST operation that returns a resource ...etc
         operation on netscaler resource.
-        
-        Parameters:
-			service - nitro_service object. 
-        	action - action needs to be taken on resource. 
-        
-        Returns:
-			requested resource
+
+        :param service: nitro_service object
+        :param action: action needs to be taken on resource
+        :returns: requested resource
         
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try:
             if (not service.isLogin() and self.__class__.get_object_type() != "login"):
@@ -393,19 +365,17 @@ class base_resource:
 
     @classmethod       
     def perform_operation_bulk_request(cls, service, resources, action ):
-        """ Use this method to perform a clear/sync/link/unlink/save ...etc 
+        """Use this method to perform a clear/sync/link/unlink/save ...etc
         operation on netscaler resources.
-        
-        Parameters:
-			service - nitro_service object. 
-        	resources - Array of Nitro resources on which the specified action to be performed.
-        	opt - options object with action that is to be performed set.
-        
-        Returns:
-			status of the operation performed.
+
+        :param service: nitro_service object
+        :param resources: Array of Nitro resources on which the specified action to be performed
+        :param opt: options object with action that is to be performed set
+        :param action: 
+        :returns: status of the operation performed.
         
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try:
             if (not service.isLogin()):
@@ -421,17 +391,14 @@ class base_resource:
 
             
     def rename_resource(self, service, newname):
-        """ Use this method to perform a rename operation on netscaler resource.
-        
-        Parameters:
-			service - nitro_service object.
-        	newname - new name to be set to the specified resource.
-        
-        Returns:
-			status of the operation performed.
+        """Use this method to perform a rename operation on netscaler resource.
+
+        :param service: nitro_service object
+        :param newname: new name to be set to the specified resource
+        :returns: status of the operation performed.
         
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try:
             if not service.isLogin():
@@ -450,17 +417,17 @@ class base_resource:
 
 
     def unset_resource(self, service, args):
-        """ Use this method to perform an Unset operation on netscaler resource.
+        """Use this method to perform an Unset operation on netscaler resource.
         
         Parameters:
-			service - nitro_service object.
-        	args - Array of args that are to be unset.
-        
-        Returns:
-			status of the operation performed.
+            service - nitro_service object.
+
+        :param service: 
+        :param args: 
+        :returns: status of the operation performed.
         
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try:
             if not service.isLogin():
@@ -475,17 +442,14 @@ class base_resource:
 
     @classmethod
     def update_bulk_request(cls, service, resources):
-        """ Use this method to perform an update operation on netscaler resources.
-        
-        Parameters:
-			service - nitro_service object.
-        	resources - Array of nitro resources to be updated.
-        
-        Returns:
-			status of the operation performed.
+        """Use this method to perform an update operation on netscaler resources.
+
+        :param service: nitro_service object
+        :param resources: Array of nitro resources to be updated
+        :returns: status of the operation performed.
         
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try:
             if (not service.isLogin()):
@@ -499,6 +463,13 @@ class base_resource:
     
     @classmethod
     def unset_bulk_request(cls, service, resources, args):
+        """
+
+        :param service: 
+        :param resources: 
+        :param args: 
+
+        """
         try:
             if (not service.isLogin()):
                 service.login()
@@ -513,18 +484,15 @@ class base_resource:
     
     @classmethod       
     def add_bulk_request(cls, service, resources, opt=""):
-        """ Use this method to perform a add operation on netscaler resources.
-        
-        Parameters:
-			service - nitro_service object.
-        	resources - Nitro resources to be added on netscaler.
-        	opt - options class object.
-        
-        Returns:
-			status of the performed operation.
+        """Use this method to perform a add operation on netscaler resources.
+
+        :param service: nitro_service object
+        :param resources: Nitro resources to be added on netscaler
+        :param opt: options class object (Default value = "")
+        :returns: status of the performed operation.
         
         Throws:
-			Exception  Nitro exception is thrown.
+
         """
         try:
             if not service.isLogin():
@@ -538,18 +506,15 @@ class base_resource:
     
     @classmethod   
     def delete_bulk_request(cls, service, resources, opt=""):
-        """ Use this method to perform a delete operation on netscaler resources.
-        
-        Parameters:
-			service - nitro_service object.
-        	resources - Nitro resources to be deleted on netscaler.
-        	opt - options class object.
-        
-        Returns:
-			status of the performed operation.
+        """Use this method to perform a delete operation on netscaler resources.
+
+        :param service: nitro_service object
+        :param resources: Nitro resources to be deleted on netscaler
+        :param opt: options class object (Default value = "")
+        :returns: status of the performed operation.
         
         Throws:
-			Exception  Nitro exception is thrown.
+
         """
         try:
             if (not service.isLogin()):
@@ -568,18 +533,17 @@ class base_resource:
 
     @staticmethod
     def _put(resourcetype, service, request, bulk=""):
-        """ This method, forms the http PUT request, applies on the netscaler.
+        """This method, forms the http PUT request, applies on the netscaler.
         Reads the response from the netscaler and converts it to base response.
-        
-        Parameters:
-			service - nitro_service object.
-        	request - Json request.
-        
-        Returns:
-			status of the operation performed.
+
+        :param service: nitro_service object
+        :param request: Json request
+        :param resourcetype: 
+        :param bulk:  (Default value = "")
+        :returns: status of the operation performed.
         
         Throws:
-			Exception of the type nitro_exception is thrown.
+
         """
         try :
             ipaddress = service.ipaddress
@@ -621,6 +585,12 @@ class base_resource:
             raise e
        
     def put_data(self, service, request):
+        """
+
+        :param service: 
+        :param request: 
+
+        """
         try:
             response = self._put(self, service, request)
             result = service.payload_formatter.string_to_resource(base_response, response, self.__class__.__name__)
@@ -638,6 +608,12 @@ class base_resource:
 
     @classmethod
     def put_bulk_data(cls, service, request):
+        """
+
+        :param service: 
+        :param request: 
+
+        """
         try:
             response = cls._put(cls, service, request, True)
             result =service.payload_formatter.string_to_resource(base_responses, response, cls.__name__)
@@ -656,18 +632,18 @@ class base_resource:
     
     @staticmethod
     def _post(resourcetype, service, request, opt, bulk=""):
-        """ This method, forms the http POST request, applies on the netscaler.
+        """This method, forms the http POST request, applies on the netscaler.
         Reads the response from the netscaler and converts it to base response.
-        
-        Parameters:
-			service - nitro_service object.
-        	request - Json request.
-        
-        Returns:
-			status of the operation performed.
+
+        :param service: nitro_service object
+        :param request: Json request
+        :param resourcetype: 
+        :param opt: 
+        :param bulk:  (Default value = "")
+        :returns: status of the operation performed.
         
         Throws:
-			Exception
+
         """
         try:
             ipaddress = service.ipaddress
@@ -719,6 +695,12 @@ class base_resource:
             raise e
     
     def post_dataEx(self, service, request):
+        """
+
+        :param service: 
+        :param request: 
+
+        """
         try:
             response = self._post(self, service, request)
             result = self._get_nitro_response(service, response)
@@ -728,6 +710,13 @@ class base_resource:
     
     
     def post_data(self, service, request, opt):
+        """
+
+        :param service: 
+        :param request: 
+        :param opt: 
+
+        """
         try :
             response = self._post(self, service, request, opt)
             result = service.payload_formatter.string_to_resource(base_response, response, self.__class__.__name__)
@@ -745,6 +734,13 @@ class base_resource:
 
     @classmethod
     def post_bulk_data(cls, service, request, opt=""):
+        """
+
+        :param service: 
+        :param request: 
+        :param opt:  (Default value = "")
+
+        """
         try:
             response = cls._post(cls, service, request, opt, True)
             result = service.payload_formatter.string_to_resource(base_responses, response, cls.__name__)
@@ -762,16 +758,14 @@ class base_resource:
 
 
     def get_request(self, service, opt): 
-        """ This method, forms the http GET request, applies on the netscaler.
-        Reads the response from the netscaler and converts it to corresponding 
+        """This method, forms the http GET request, applies on the netscaler.
+        Reads the response from the netscaler and converts it to corresponding
         resource type.
-        
-        Parameters:
-			service - nitro_service object.
-        	opt - Options class object
-        
-        Returns:
-			Array of requested resources.
+
+        :param service: nitro_service object
+        :param opt: Options class object
+        :returns: Array of requested resources.
+
         """
         try:
             ipaddress = service.ipaddress
@@ -814,15 +808,13 @@ class base_resource:
             
 
     def stat_request(self, service,opt):
-        """ This method, forms the http GET request, applies on the netscaler.
+        """This method, forms the http GET request, applies on the netscaler.
         Reads the response from the netscaler and converts it to corresponding stat resource type.
-        
-        Parameters:
-			service
-        	opt - Options class object
-        
-        Returns:
-			Array of requested resources.
+
+        :param service: 
+        :param opt: Options class object
+        :returns: Array of requested resources.
+
         """
         try:
             ipaddress = service.ipaddress
@@ -866,18 +858,15 @@ class base_resource:
 
 
     def delete_request(self, service, req_args):
-        """ This method, forms the http DELETE request, applies on the netscaler.
+        """This method, forms the http DELETE request, applies on the netscaler.
         Reads the response from the netscaler and converts it to base response.
-    
-        Parameters:
-			service - nitro_service object.
-        	req_args
-        
-        Returns:
-			Array of requested resources.
+
+        :param service: nitro_service object
+        :param req_args: 
+        :returns: Array of requested resources.
         
         Throws:
-			Exception
+
         """
         try:
             ipaddress = service.ipaddress

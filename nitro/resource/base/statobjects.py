@@ -18,15 +18,23 @@ from nitro.resource.base.base_resource import base_resource
 
 
 class statobjects(base_resource): 
+    """ """
     _objects = []
     
     def get_objects(self):
+        """ """
         try:
             return self.objects
         except:
             raise
     
     def _get_nitro_response(self, service, response):
+        """
+
+        :param service: 
+        :param response: 
+
+        """
         try:
             resources = [statobjects() for _ in range(1)]
             result = service.get_payload_formatter().string_to_resource(statobjects_response, response)
@@ -45,10 +53,16 @@ class statobjects(base_resource):
 
 
     def _get_object_name(self):
+        """ """
         return None
     
     # Use this API to fetch all the statistic objects resources that are available on netscaler.
     def get(self, service):
+        """
+
+        :param service: 
+
+        """
         try:
             obj = statobjects()
             response = obj.get_resources(service)
@@ -57,4 +71,9 @@ class statobjects(base_resource):
             raise e
         
 def statobjects_response(base_response):
+    """
+
+    :param base_response: 
+
+    """
     statobjects = statobjects()

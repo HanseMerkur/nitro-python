@@ -22,113 +22,119 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class gslbdomain_binding(base_resource):
-	""" Binding class showing the resources that can be bound to gslbdomain_binding. 
-	"""
-	def __init__(self) :
-		self._name = ""
-		self.gslbdomain_gslbvserver_binding = []
-		self.gslbdomain_gslbservice_binding = []
-		self.gslbdomain_lbmonitor_binding = []
+    """Binding class showing the resources that can be bound to gslbdomain_binding."""
+    def __init__(self) :
+        self._name = ""
+        self.gslbdomain_gslbvserver_binding = []
+        self.gslbdomain_gslbservice_binding = []
+        self.gslbdomain_lbmonitor_binding = []
 
-	@property
-	def name(self) :
-		r"""Name of the Domain.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the Domain.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the Domain.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the Domain.<br/>Minimum length =  1
 
-	@property
-	def gslbdomain_lbmonitor_bindings(self) :
-		r"""lbmonitor that can be bound to gslbdomain.
-		"""
-		try :
-			return self._gslbdomain_lbmonitor_binding
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@property
-	def gslbdomain_gslbvserver_bindings(self) :
-		r"""gslbvserver that can be bound to gslbdomain.
-		"""
-		try :
-			return self._gslbdomain_gslbvserver_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def gslbdomain_gslbservice_bindings(self) :
-		r"""gslbservice that can be bound to gslbdomain.
-		"""
-		try :
-			return self._gslbdomain_gslbservice_binding
-		except Exception as e:
-			raise e
+    @property
+    def gslbdomain_lbmonitor_bindings(self) :
+        """lbmonitor that can be bound to gslbdomain."""
+        try :
+            return self._gslbdomain_lbmonitor_binding
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(gslbdomain_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.gslbdomain_binding
-		except Exception as e :
-			raise e
+    @property
+    def gslbdomain_gslbvserver_bindings(self) :
+        """gslbvserver that can be bound to gslbdomain."""
+        try :
+            return self._gslbdomain_gslbvserver_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def gslbdomain_gslbservice_bindings(self) :
+        """gslbservice that can be bound to gslbdomain."""
+        try :
+            return self._gslbdomain_gslbservice_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(gslbdomain_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.gslbdomain_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, name) :
-		r""" Use this API to fetch gslbdomain_binding resource.
-		"""
-		try :
-			if type(name) is not list :
-				obj = gslbdomain_binding()
-				obj.name = name
-				response = obj.get_resource(service)
-			else :
-				if name and len(name) > 0 :
-					obj = [gslbdomain_binding() for _ in range(len(name))]
-					for i in range(len(name)) :
-						obj[i].name = name[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, name) :
+        """Use this API to fetch gslbdomain_binding resource.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            if type(name) is not list :
+                obj = gslbdomain_binding()
+                obj.name = name
+                response = obj.get_resource(service)
+            else :
+                if name and len(name) > 0 :
+                    obj = [gslbdomain_binding() for _ in range(len(name))]
+                    for i in range(len(name)) :
+                        obj[i].name = name[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class gslbdomain_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.gslbdomain_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.gslbdomain_binding = [gslbdomain_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.gslbdomain_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.gslbdomain_binding = [gslbdomain_binding() for _ in range(length)]
 

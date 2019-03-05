@@ -17,24 +17,28 @@ from nitro.resource.base.base_resource import base_resource
 
 
 class loginchallengeresponse(base_resource):
-    """ Nitro loginchallengeresponse resource class.
-    """
+    """Nitro loginchallengeresponse resource class."""
     _response=""
     
     
     def loginchallengeresponse(self, response): 
         """loginchallengeresponse class constructor specifying challenge response.
-        
-        Parameters:
-        response - response for the security question.
+
+        :param response: response for the security question
+
         """
         self._response = response
     
     def _get_object_name(self): 
+        """ """
         return None
     
     
     def _get_nitro_response(self, service, response): 
-        """ gets the Nitro responce.
+        """gets the Nitro responce.
+
+        :param service: 
+        :param response: 
+
         """
         return None

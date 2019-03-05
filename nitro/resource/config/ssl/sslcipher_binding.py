@@ -22,113 +22,119 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslcipher_binding(base_resource):
-	""" Binding class showing the resources that can be bound to sslcipher_binding. 
-	"""
-	def __init__(self) :
-		self._ciphergroupname = ""
-		self.sslcipher_individualcipher_binding = []
-		self.sslcipher_sslprofile_binding = []
-		self.sslcipher_sslciphersuite_binding = []
+    """Binding class showing the resources that can be bound to sslcipher_binding."""
+    def __init__(self) :
+        self._ciphergroupname = ""
+        self.sslcipher_individualcipher_binding = []
+        self.sslcipher_sslprofile_binding = []
+        self.sslcipher_sslciphersuite_binding = []
 
-	@property
-	def ciphergroupname(self) :
-		r"""Name of the cipher group for which to show detailed information.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._ciphergroupname
-		except Exception as e:
-			raise e
+    @property
+    def ciphergroupname(self) :
+        """Name of the cipher group for which to show detailed information.<br/>Minimum length =  1."""
+        try :
+            return self._ciphergroupname
+        except Exception as e:
+            raise e
 
-	@ciphergroupname.setter
-	def ciphergroupname(self, ciphergroupname) :
-		r"""Name of the cipher group for which to show detailed information.<br/>Minimum length =  1
-		"""
-		try :
-			self._ciphergroupname = ciphergroupname
-		except Exception as e:
-			raise e
+    @ciphergroupname.setter
+    def ciphergroupname(self, ciphergroupname) :
+        """Name of the cipher group for which to show detailed information.<br/>Minimum length =  1
 
-	@property
-	def sslcipher_sslciphersuite_bindings(self) :
-		r"""sslciphersuite that can be bound to sslcipher.
-		"""
-		try :
-			return self._sslcipher_sslciphersuite_binding
-		except Exception as e:
-			raise e
+        :param ciphergroupname: 
 
-	@property
-	def sslcipher_individualcipher_bindings(self) :
-		r"""individualcipher that can be bound to sslcipher.
-		"""
-		try :
-			return self._sslcipher_individualcipher_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._ciphergroupname = ciphergroupname
+        except Exception as e:
+            raise e
 
-	@property
-	def sslcipher_sslprofile_bindings(self) :
-		r"""sslprofile that can be bound to sslcipher.
-		"""
-		try :
-			return self._sslcipher_sslprofile_binding
-		except Exception as e:
-			raise e
+    @property
+    def sslcipher_sslciphersuite_bindings(self) :
+        """sslciphersuite that can be bound to sslcipher."""
+        try :
+            return self._sslcipher_sslciphersuite_binding
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslcipher_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslcipher_binding
-		except Exception as e :
-			raise e
+    @property
+    def sslcipher_individualcipher_bindings(self) :
+        """individualcipher that can be bound to sslcipher."""
+        try :
+            return self._sslcipher_individualcipher_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.ciphergroupname is not None :
-				return str(self.ciphergroupname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def sslcipher_sslprofile_bindings(self) :
+        """sslprofile that can be bound to sslcipher."""
+        try :
+            return self._sslcipher_sslprofile_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslcipher_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslcipher_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.ciphergroupname is not None :
+                return str(self.ciphergroupname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, ciphergroupname) :
-		r""" Use this API to fetch sslcipher_binding resource.
-		"""
-		try :
-			if type(ciphergroupname) is not list :
-				obj = sslcipher_binding()
-				obj.ciphergroupname = ciphergroupname
-				response = obj.get_resource(service)
-			else :
-				if ciphergroupname and len(ciphergroupname) > 0 :
-					obj = [sslcipher_binding() for _ in range(len(ciphergroupname))]
-					for i in range(len(ciphergroupname)) :
-						obj[i].ciphergroupname = ciphergroupname[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, ciphergroupname) :
+        """Use this API to fetch sslcipher_binding resource.
+
+        :param service: 
+        :param ciphergroupname: 
+
+        """
+        try :
+            if type(ciphergroupname) is not list :
+                obj = sslcipher_binding()
+                obj.ciphergroupname = ciphergroupname
+                response = obj.get_resource(service)
+            else :
+                if ciphergroupname and len(ciphergroupname) > 0 :
+                    obj = [sslcipher_binding() for _ in range(len(ciphergroupname))]
+                    for i in range(len(ciphergroupname)) :
+                        obj[i].ciphergroupname = ciphergroupname[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class sslcipher_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslcipher_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslcipher_binding = [sslcipher_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslcipher_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslcipher_binding = [sslcipher_binding() for _ in range(length)]
 

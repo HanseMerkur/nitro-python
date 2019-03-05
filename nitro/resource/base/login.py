@@ -18,8 +18,7 @@ from nitro.resource.base.base_resource import base_resource
 
 
 class login(base_resource): 
-    """ Nitro login resource class.
-    """
+    """Nitro login resource class."""
     username=""
     password=""
     timeout=""
@@ -44,9 +43,14 @@ class login(base_resource):
             self.eula = eula
         
     def _get_object_name(self): 
+        """ """
         return None
     
     def  _get_nitro_response(self, service, response): 
-        """ gets the Nitro responce.
+        """gets the Nitro responce.
+
+        :param service: 
+        :param response: 
+
         """
         return None

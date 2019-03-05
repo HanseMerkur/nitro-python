@@ -22,126 +22,150 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class rnatparam(base_resource) :
-	""" Configuration for RNAT parameter resource. """
-	def __init__(self) :
-		self._tcpproxy = ""
-		self._srcippersistency = ""
+    """Configuration for RNAT parameter resource."""
+    def __init__(self) :
+        self._tcpproxy = ""
+        self._srcippersistency = ""
 
-	@property
-	def tcpproxy(self) :
-		r"""Enable TCP proxy, which enables the NetScaler appliance to optimize the RNAT TCP traffic by using Layer 4 features.<br/>Default value: ENABLED<br/>Possible values = ENABLED, DISABLED.
-		"""
-		try :
-			return self._tcpproxy
-		except Exception as e:
-			raise e
+    @property
+    def tcpproxy(self) :
+        """Enable TCP proxy, which enables the NetScaler appliance to optimize the RNAT TCP traffic by using Layer 4 features.<br/>Default value: ENABLED<br/>Possible values = ENABLED, DISABLED."""
+        try :
+            return self._tcpproxy
+        except Exception as e:
+            raise e
 
-	@tcpproxy.setter
-	def tcpproxy(self, tcpproxy) :
-		r"""Enable TCP proxy, which enables the NetScaler appliance to optimize the RNAT TCP traffic by using Layer 4 features.<br/>Default value: ENABLED<br/>Possible values = ENABLED, DISABLED
-		"""
-		try :
-			self._tcpproxy = tcpproxy
-		except Exception as e:
-			raise e
+    @tcpproxy.setter
+    def tcpproxy(self, tcpproxy) :
+        """Enable TCP proxy, which enables the NetScaler appliance to optimize the RNAT TCP traffic by using Layer 4 features.<br/>Default value: ENABLED<br/>Possible values = ENABLED, DISABLED
 
-	@property
-	def srcippersistency(self) :
-		r"""Enable source ip persistency, which enables the NetScaler appliance to use the RNAT ips using source ip.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED.
-		"""
-		try :
-			return self._srcippersistency
-		except Exception as e:
-			raise e
+        :param tcpproxy: 
 
-	@srcippersistency.setter
-	def srcippersistency(self, srcippersistency) :
-		r"""Enable source ip persistency, which enables the NetScaler appliance to use the RNAT ips using source ip.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED
-		"""
-		try :
-			self._srcippersistency = srcippersistency
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._tcpproxy = tcpproxy
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(rnatparam_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.rnatparam
-		except Exception as e :
-			raise e
+    @property
+    def srcippersistency(self) :
+        """Enable source ip persistency, which enables the NetScaler appliance to use the RNAT ips using source ip.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED."""
+        try :
+            return self._srcippersistency
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @srcippersistency.setter
+    def srcippersistency(self, srcippersistency) :
+        """Enable source ip persistency, which enables the NetScaler appliance to use the RNAT ips using source ip.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED
 
+        :param srcippersistency: 
 
+        """
+        try :
+            self._srcippersistency = srcippersistency
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update rnatparam.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = rnatparam()
-				updateresource.tcpproxy = resource.tcpproxy
-				updateresource.srcippersistency = resource.srcippersistency
-				return updateresource.update_resource(client)
-		except Exception as e :
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of rnatparam resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = rnatparam()
-				return unsetresource.unset_resource(client, args)
-		except Exception as e :
-			raise e
+        :param service: 
+        :param response: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the rnatparam resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = rnatparam()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(rnatparam_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.rnatparam
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
-	class Srcippersistency:
-		ENABLED = "ENABLED"
-		DISABLED = "DISABLED"
 
-	class Tcpproxy:
-		ENABLED = "ENABLED"
-		DISABLED = "DISABLED"
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update rnatparam.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = rnatparam()
+                updateresource.tcpproxy = resource.tcpproxy
+                updateresource.srcippersistency = resource.srcippersistency
+                return updateresource.update_resource(client)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of rnatparam resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = rnatparam()
+                return unsetresource.unset_resource(client, args)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the rnatparam resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = rnatparam()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    class Srcippersistency:
+        """ """
+        ENABLED = "ENABLED"
+        DISABLED = "DISABLED"
+
+    class Tcpproxy:
+        """ """
+        ENABLED = "ENABLED"
+        DISABLED = "DISABLED"
 
 class rnatparam_response(base_response) :
-	def __init__(self, length=1) :
-		self.rnatparam = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.rnatparam = [rnatparam() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.rnatparam = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.rnatparam = [rnatparam() for _ in range(length)]
 

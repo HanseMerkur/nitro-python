@@ -22,103 +22,110 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class gslbservice_binding(base_resource):
-	""" Binding class showing the resources that can be bound to gslbservice_binding. 
-	"""
-	def __init__(self) :
-		self._servicename = ""
-		self.gslbservice_lbmonitor_binding = []
-		self.gslbservice_dnsview_binding = []
+    """Binding class showing the resources that can be bound to gslbservice_binding."""
+    def __init__(self) :
+        self._servicename = ""
+        self.gslbservice_lbmonitor_binding = []
+        self.gslbservice_dnsview_binding = []
 
-	@property
-	def servicename(self) :
-		r"""Name of the GSLB service.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._servicename
-		except Exception as e:
-			raise e
+    @property
+    def servicename(self) :
+        """Name of the GSLB service.<br/>Minimum length =  1."""
+        try :
+            return self._servicename
+        except Exception as e:
+            raise e
 
-	@servicename.setter
-	def servicename(self, servicename) :
-		r"""Name of the GSLB service.<br/>Minimum length =  1
-		"""
-		try :
-			self._servicename = servicename
-		except Exception as e:
-			raise e
+    @servicename.setter
+    def servicename(self, servicename) :
+        """Name of the GSLB service.<br/>Minimum length =  1
 
-	@property
-	def gslbservice_lbmonitor_bindings(self) :
-		r"""lbmonitor that can be bound to gslbservice.
-		"""
-		try :
-			return self._gslbservice_lbmonitor_binding
-		except Exception as e:
-			raise e
+        :param servicename: 
 
-	@property
-	def gslbservice_dnsview_bindings(self) :
-		r"""dnsview that can be bound to gslbservice.
-		"""
-		try :
-			return self._gslbservice_dnsview_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._servicename = servicename
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(gslbservice_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.gslbservice_binding
-		except Exception as e :
-			raise e
+    @property
+    def gslbservice_lbmonitor_bindings(self) :
+        """lbmonitor that can be bound to gslbservice."""
+        try :
+            return self._gslbservice_lbmonitor_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.servicename is not None :
-				return str(self.servicename)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def gslbservice_dnsview_bindings(self) :
+        """dnsview that can be bound to gslbservice."""
+        try :
+            return self._gslbservice_dnsview_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(gslbservice_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.gslbservice_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.servicename is not None :
+                return str(self.servicename)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, servicename) :
-		r""" Use this API to fetch gslbservice_binding resource.
-		"""
-		try :
-			if type(servicename) is not list :
-				obj = gslbservice_binding()
-				obj.servicename = servicename
-				response = obj.get_resource(service)
-			else :
-				if servicename and len(servicename) > 0 :
-					obj = [gslbservice_binding() for _ in range(len(servicename))]
-					for i in range(len(servicename)) :
-						obj[i].servicename = servicename[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, servicename) :
+        """Use this API to fetch gslbservice_binding resource.
+
+        :param service: 
+        :param servicename: 
+
+        """
+        try :
+            if type(servicename) is not list :
+                obj = gslbservice_binding()
+                obj.servicename = servicename
+                response = obj.get_resource(service)
+            else :
+                if servicename and len(servicename) > 0 :
+                    obj = [gslbservice_binding() for _ in range(len(servicename))]
+                    for i in range(len(servicename)) :
+                        obj[i].servicename = servicename[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class gslbservice_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.gslbservice_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.gslbservice_binding = [gslbservice_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.gslbservice_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.gslbservice_binding = [gslbservice_binding() for _ in range(length)]
 

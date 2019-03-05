@@ -16,26 +16,27 @@
 
 
 class server_args :
-	r""" Provides additional arguments required for fetching the server resource.
-	"""
-	def __init__(self) :
-		self._Internal = False
+    """Provides additional arguments required for fetching the server resource."""
+    def __init__(self) :
+        self._Internal = False
 
-	@property
-	def Internal(self) :
-		r"""Display names of the servers that have been created for internal use.
-		"""
-		try :
-			return self._Internal
-		except Exception as e:
-			raise e
+    @property
+    def Internal(self) :
+        """Display names of the servers that have been created for internal use."""
+        try :
+            return self._Internal
+        except Exception as e:
+            raise e
 
-	@Internal.setter
-	def Internal(self, Internal) :
-		r"""Display names of the servers that have been created for internal use.
-		"""
-		try :
-			self._Internal = Internal
-		except Exception as e:
-			raise e
+    @Internal.setter
+    def Internal(self, Internal) :
+        """Display names of the servers that have been created for internal use.
+
+        :param Internal: 
+
+        """
+        try :
+            self._Internal = Internal
+        except Exception as e:
+            raise e
 

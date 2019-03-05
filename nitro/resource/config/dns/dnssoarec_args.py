@@ -16,37 +16,42 @@
 
 
 class dnssoarec_args :
-	r""" Provides additional arguments required for fetching the dnssoarec resource.
-	"""
-	def __init__(self) :
-		self._type = ""
+    """Provides additional arguments required for fetching the dnssoarec resource."""
+    def __init__(self) :
+        self._type = ""
 
-	@property
-	def type(self) :
-		r"""Type of records to display. Available settings function as follows:
-		* ADNS - Display all authoritative address records.
-		* PROXY - Display all proxy address records.
-		* ALL - Display all address records.<br/>Possible values = ALL, ADNS, PROXY.
-		"""
-		try :
-			return self._type
-		except Exception as e:
-			raise e
+    @property
+    def type(self) :
+        """Type of records to display. Available settings function as follows:
+        * ADNS - Display all authoritative address records.
+        * PROXY - Display all proxy address records.
+        * ALL - Display all address records.<br/>Possible values = ALL, ADNS, PROXY.
 
-	@type.setter
-	def type(self, type) :
-		r"""Type of records to display. Available settings function as follows:
-		* ADNS - Display all authoritative address records.
-		* PROXY - Display all proxy address records.
-		* ALL - Display all address records.<br/>Possible values = ALL, ADNS, PROXY
-		"""
-		try :
-			self._type = type
-		except Exception as e:
-			raise e
 
-	class Type:
-		ALL = "ALL"
-		ADNS = "ADNS"
-		PROXY = "PROXY"
+        """
+        try :
+            return self._type
+        except Exception as e:
+            raise e
+
+    @type.setter
+    def type(self, type) :
+        """Type of records to display. Available settings function as follows:
+        * ADNS - Display all authoritative address records.
+        * PROXY - Display all proxy address records.
+        * ALL - Display all address records.<br/>Possible values = ALL, ADNS, PROXY
+
+        :param type: 
+
+        """
+        try :
+            self._type = type
+        except Exception as e:
+            raise e
+
+    class Type:
+        """ """
+        ALL = "ALL"
+        ADNS = "ADNS"
+        PROXY = "PROXY"
 

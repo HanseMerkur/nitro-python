@@ -22,284 +22,335 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class snmptrap_snmpuser_binding(base_resource) :
-	""" Binding class showing the snmpuser that can be bound to snmptrap.
-	"""
-	def __init__(self) :
-		self._username = ""
-		self._securitylevel = ""
-		self._trapclass = ""
-		self._trapdestination = ""
-		self._td = 0
-		self._version = ""
-		self.___count = 0
+    """Binding class showing the snmpuser that can be bound to snmptrap."""
+    def __init__(self) :
+        self._username = ""
+        self._securitylevel = ""
+        self._trapclass = ""
+        self._trapdestination = ""
+        self._td = 0
+        self._version = ""
+        self.___count = 0
 
-	@property
-	def trapclass(self) :
-		r"""Type of trap messages that the NetScaler appliance sends to the trap listener: Generic or the enterprise-specific messages defined in the MIB file.<br/>Possible values = generic, specific.
-		"""
-		try :
-			return self._trapclass
-		except Exception as e:
-			raise e
+    @property
+    def trapclass(self) :
+        """Type of trap messages that the NetScaler appliance sends to the trap listener: Generic or the enterprise-specific messages defined in the MIB file.<br/>Possible values = generic, specific."""
+        try :
+            return self._trapclass
+        except Exception as e:
+            raise e
 
-	@trapclass.setter
-	def trapclass(self, trapclass) :
-		r"""Type of trap messages that the NetScaler appliance sends to the trap listener: Generic or the enterprise-specific messages defined in the MIB file.<br/>Possible values = generic, specific
-		"""
-		try :
-			self._trapclass = trapclass
-		except Exception as e:
-			raise e
+    @trapclass.setter
+    def trapclass(self, trapclass) :
+        """Type of trap messages that the NetScaler appliance sends to the trap listener: Generic or the enterprise-specific messages defined in the MIB file.<br/>Possible values = generic, specific
 
-	@property
-	def securitylevel(self) :
-		r"""Security level of the SNMPv3 trap.<br/>Default value: authNoPriv,<br/>Possible values = noAuthNoPriv, authNoPriv, authPriv.
-		"""
-		try :
-			return self._securitylevel
-		except Exception as e:
-			raise e
+        :param trapclass: 
 
-	@securitylevel.setter
-	def securitylevel(self, securitylevel) :
-		r"""Security level of the SNMPv3 trap.<br/>Default value: authNoPriv,<br/>Possible values = noAuthNoPriv, authNoPriv, authPriv
-		"""
-		try :
-			self._securitylevel = securitylevel
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._trapclass = trapclass
+        except Exception as e:
+            raise e
 
-	@property
-	def username(self) :
-		r"""Name of the SNMP user that will send the SNMPv3 traps.
-		"""
-		try :
-			return self._username
-		except Exception as e:
-			raise e
+    @property
+    def securitylevel(self) :
+        """Security level of the SNMPv3 trap.<br/>Default value: authNoPriv,<br/>Possible values = noAuthNoPriv, authNoPriv, authPriv."""
+        try :
+            return self._securitylevel
+        except Exception as e:
+            raise e
 
-	@username.setter
-	def username(self, username) :
-		r"""Name of the SNMP user that will send the SNMPv3 traps.
-		"""
-		try :
-			self._username = username
-		except Exception as e:
-			raise e
+    @securitylevel.setter
+    def securitylevel(self, securitylevel) :
+        """Security level of the SNMPv3 trap.<br/>Default value: authNoPriv,<br/>Possible values = noAuthNoPriv, authNoPriv, authPriv
 
-	@property
-	def td(self) :
-		r"""Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Minimum value =  0<br/>Maximum value =  4094.
-		"""
-		try :
-			return self._td
-		except Exception as e:
-			raise e
+        :param securitylevel: 
 
-	@td.setter
-	def td(self, td) :
-		r"""Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Minimum value =  0<br/>Maximum value =  4094
-		"""
-		try :
-			self._td = td
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._securitylevel = securitylevel
+        except Exception as e:
+            raise e
 
-	@property
-	def trapdestination(self) :
-		r"""IPv4 or the IPv6 address of the trap listener to which the NetScaler appliance is to send SNMP trap messages.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._trapdestination
-		except Exception as e:
-			raise e
+    @property
+    def username(self) :
+        """Name of the SNMP user that will send the SNMPv3 traps."""
+        try :
+            return self._username
+        except Exception as e:
+            raise e
 
-	@trapdestination.setter
-	def trapdestination(self, trapdestination) :
-		r"""IPv4 or the IPv6 address of the trap listener to which the NetScaler appliance is to send SNMP trap messages.<br/>Minimum length =  1
-		"""
-		try :
-			self._trapdestination = trapdestination
-		except Exception as e:
-			raise e
+    @username.setter
+    def username(self, username) :
+        """Name of the SNMP user that will send the SNMPv3 traps.
 
-	@property
-	def version(self) :
-		r"""SNMP version, which determines the format of trap messages sent to the trap listener. 
-		This setting must match the setting on the trap listener. Otherwise, the listener drops the trap messages.<br/>Default value: V3<br/>Possible values = V1, V2, V3.
-		"""
-		try :
-			return self._version
-		except Exception as e:
-			raise e
+        :param username: 
 
-	@version.setter
-	def version(self, version) :
-		r"""SNMP version, which determines the format of trap messages sent to the trap listener. 
-		This setting must match the setting on the trap listener. Otherwise, the listener drops the trap messages.<br/>Default value: V3<br/>Possible values = V1, V2, V3
-		"""
-		try :
-			self._version = version
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._username = username
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(snmptrap_snmpuser_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.snmptrap_snmpuser_binding
-		except Exception as e :
-			raise e
+    @property
+    def td(self) :
+        """Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Minimum value =  0<br/>Maximum value =  4094."""
+        try :
+            return self._td
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.trapclass is not None :
-				return str(self.trapclass)
-			return None
-		except Exception as e :
-			raise e
+    @td.setter
+    def td(self, td) :
+        """Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Minimum value =  0<br/>Maximum value =  4094
+
+        :param td: 
+
+        """
+        try :
+            self._td = td
+        except Exception as e:
+            raise e
+
+    @property
+    def trapdestination(self) :
+        """IPv4 or the IPv6 address of the trap listener to which the NetScaler appliance is to send SNMP trap messages.<br/>Minimum length =  1."""
+        try :
+            return self._trapdestination
+        except Exception as e:
+            raise e
+
+    @trapdestination.setter
+    def trapdestination(self, trapdestination) :
+        """IPv4 or the IPv6 address of the trap listener to which the NetScaler appliance is to send SNMP trap messages.<br/>Minimum length =  1
+
+        :param trapdestination: 
+
+        """
+        try :
+            self._trapdestination = trapdestination
+        except Exception as e:
+            raise e
+
+    @property
+    def version(self) :
+        """SNMP version, which determines the format of trap messages sent to the trap listener.
+        This setting must match the setting on the trap listener. Otherwise, the listener drops the trap messages.<br/>Default value: V3<br/>Possible values = V1, V2, V3.
 
 
+        """
+        try :
+            return self._version
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				updateresource = snmptrap_snmpuser_binding()
-				updateresource.trapclass = resource.trapclass
-				updateresource.trapdestination = resource.trapdestination
-				updateresource.td = resource.td
-				updateresource.version = resource.version
-				updateresource.username = resource.username
-				updateresource.securitylevel = resource.securitylevel
-				return updateresource.update_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					updateresources = [snmptrap_snmpuser_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].trapclass = resource[i].trapclass
-						updateresources[i].trapdestination = resource[i].trapdestination
-						updateresources[i].td = resource[i].td
-						updateresources[i].version = resource[i].version
-						updateresources[i].username = resource[i].username
-						updateresources[i].securitylevel = resource[i].securitylevel
-				return cls.update_bulk_request(client, updateresources)
-		except Exception as e :
-			raise e
+    @version.setter
+    def version(self, version) :
+        """SNMP version, which determines the format of trap messages sent to the trap listener.
+        This setting must match the setting on the trap listener. Otherwise, the listener drops the trap messages.<br/>Default value: V3<br/>Possible values = V1, V2, V3
 
-	@classmethod
-	def delete(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				deleteresource = snmptrap_snmpuser_binding()
-				deleteresource.trapclass = resource.trapclass
-				deleteresource.trapdestination = resource.trapdestination
-				deleteresource.td = resource.td
-				deleteresource.version = resource.version
-				deleteresource.username = resource.username
-				return deleteresource.delete_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					deleteresources = [snmptrap_snmpuser_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						deleteresources[i].trapclass = resource[i].trapclass
-						deleteresources[i].trapdestination = resource[i].trapdestination
-						deleteresources[i].td = resource[i].td
-						deleteresources[i].version = resource[i].version
-						deleteresources[i].username = resource[i].username
-				return cls.delete_bulk_request(client, deleteresources)
-		except Exception as e :
-			raise e
+        :param version: 
 
-	@classmethod
-	def get(cls, service, obj) :
-		r""" Use this API to fetch a snmptrap_snmpuser_binding resources.
-		"""
-		try :
-			option_ = options()
-			option_.args = nitro_util.object_to_string_withoutquotes(obj)
-			response =  obj.get_resources(service,option_)
-			return response
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._version = version
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get_filtered(cls, service, obj, filter_) :
-		r""" Use this API to fetch filtered set of snmptrap_snmpuser_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			option_ = options()
-			option_.filter = filter_
-			option_.args = nitro_util.object_to_string_withoutquotes(obj)
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	@classmethod
-	def count(cls, service, obj) :
-		r""" Use this API to count snmptrap_snmpuser_binding resources configued on NetScaler.
-		"""
-		try :
-			option_ = options()
-			option_.count = True
-			option_.args = nitro_util.object_to_string_withoutquotes(obj)
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        :param service: 
+        :param response: 
 
-	@classmethod
-	def count_filtered(cls, service, obj, filter_) :
-		r""" Use this API to count the filtered set of snmptrap_snmpuser_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			option_.args = nitro_util.object_to_string_withoutquotes(obj)
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(snmptrap_snmpuser_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.snmptrap_snmpuser_binding
+        except Exception as e :
+            raise e
 
-	class Trapclass:
-		generic = "generic"
-		specific = "specific"
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.trapclass is not None :
+                return str(self.trapclass)
+            return None
+        except Exception as e :
+            raise e
 
-	class Securitylevel:
-		noAuthNoPriv = "noAuthNoPriv"
-		authNoPriv = "authNoPriv"
-		authPriv = "authPriv"
 
-	class Version:
-		V1 = "V1"
-		V2 = "V2"
-		V3 = "V3"
+
+    @classmethod
+    def add(cls, client, resource) :
+        """
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if resource and type(resource) is not list :
+                updateresource = snmptrap_snmpuser_binding()
+                updateresource.trapclass = resource.trapclass
+                updateresource.trapdestination = resource.trapdestination
+                updateresource.td = resource.td
+                updateresource.version = resource.version
+                updateresource.username = resource.username
+                updateresource.securitylevel = resource.securitylevel
+                return updateresource.update_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    updateresources = [snmptrap_snmpuser_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].trapclass = resource[i].trapclass
+                        updateresources[i].trapdestination = resource[i].trapdestination
+                        updateresources[i].td = resource[i].td
+                        updateresources[i].version = resource[i].version
+                        updateresources[i].username = resource[i].username
+                        updateresources[i].securitylevel = resource[i].securitylevel
+                return cls.update_bulk_request(client, updateresources)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if resource and type(resource) is not list :
+                deleteresource = snmptrap_snmpuser_binding()
+                deleteresource.trapclass = resource.trapclass
+                deleteresource.trapdestination = resource.trapdestination
+                deleteresource.td = resource.td
+                deleteresource.version = resource.version
+                deleteresource.username = resource.username
+                return deleteresource.delete_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    deleteresources = [snmptrap_snmpuser_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        deleteresources[i].trapclass = resource[i].trapclass
+                        deleteresources[i].trapdestination = resource[i].trapdestination
+                        deleteresources[i].td = resource[i].td
+                        deleteresources[i].version = resource[i].version
+                        deleteresources[i].username = resource[i].username
+                return cls.delete_bulk_request(client, deleteresources)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, service, obj) :
+        """Use this API to fetch a snmptrap_snmpuser_binding resources.
+
+        :param service: 
+        :param obj: 
+
+        """
+        try :
+            option_ = options()
+            option_.args = nitro_util.object_to_string_withoutquotes(obj)
+            response =  obj.get_resources(service,option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def get_filtered(cls, service, obj, filter_) :
+        """Use this API to fetch filtered set of snmptrap_snmpuser_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param obj: 
+        :param filter_: 
+
+        """
+        try :
+            option_ = options()
+            option_.filter = filter_
+            option_.args = nitro_util.object_to_string_withoutquotes(obj)
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, obj) :
+        """Use this API to count snmptrap_snmpuser_binding resources configued on NetScaler.
+
+        :param service: 
+        :param obj: 
+
+        """
+        try :
+            option_ = options()
+            option_.count = True
+            option_.args = nitro_util.object_to_string_withoutquotes(obj)
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, obj, filter_) :
+        """Use this API to count the filtered set of snmptrap_snmpuser_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param obj: 
+        :param filter_: 
+
+        """
+        try :
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            option_.args = nitro_util.object_to_string_withoutquotes(obj)
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Trapclass:
+        """ """
+        generic = "generic"
+        specific = "specific"
+
+    class Securitylevel:
+        """ """
+        noAuthNoPriv = "noAuthNoPriv"
+        authNoPriv = "authNoPriv"
+        authPriv = "authPriv"
+
+    class Version:
+        """ """
+        V1 = "V1"
+        V2 = "V2"
+        V3 = "V3"
 
 class snmptrap_snmpuser_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.snmptrap_snmpuser_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.snmptrap_snmpuser_binding = [snmptrap_snmpuser_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.snmptrap_snmpuser_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.snmptrap_snmpuser_binding = [snmptrap_snmpuser_binding() for _ in range(length)]
 

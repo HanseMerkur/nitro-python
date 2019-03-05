@@ -22,193 +22,191 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class clusternodegroup_binding(base_resource):
-	""" Binding class showing the resources that can be bound to clusternodegroup_binding. 
-	"""
-	def __init__(self) :
-		self._name = ""
-		self.clusternodegroup_csvserver_binding = []
-		self.clusternodegroup_gslbsite_binding = []
-		self.clusternodegroup_nslimitidentifier_binding = []
-		self.clusternodegroup_clusternode_binding = []
-		self.clusternodegroup_lbvserver_binding = []
-		self.clusternodegroup_vpnvserver_binding = []
-		self.clusternodegroup_service_binding = []
-		self.clusternodegroup_streamidentifier_binding = []
-		self.clusternodegroup_gslbvserver_binding = []
-		self.clusternodegroup_authenticationvserver_binding = []
-		self.clusternodegroup_crvserver_binding = []
+    """Binding class showing the resources that can be bound to clusternodegroup_binding."""
+    def __init__(self) :
+        self._name = ""
+        self.clusternodegroup_csvserver_binding = []
+        self.clusternodegroup_gslbsite_binding = []
+        self.clusternodegroup_nslimitidentifier_binding = []
+        self.clusternodegroup_clusternode_binding = []
+        self.clusternodegroup_lbvserver_binding = []
+        self.clusternodegroup_vpnvserver_binding = []
+        self.clusternodegroup_service_binding = []
+        self.clusternodegroup_streamidentifier_binding = []
+        self.clusternodegroup_gslbvserver_binding = []
+        self.clusternodegroup_authenticationvserver_binding = []
+        self.clusternodegroup_crvserver_binding = []
 
-	@property
-	def name(self) :
-		r"""Name of the nodegroup to be displayed. If a name is not provided, information about all nodegroups is displayed.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the nodegroup to be displayed. If a name is not provided, information about all nodegroups is displayed.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the nodegroup to be displayed. If a name is not provided, information about all nodegroups is displayed.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the nodegroup to be displayed. If a name is not provided, information about all nodegroups is displayed.<br/>Minimum length =  1
 
-	@property
-	def clusternodegroup_csvserver_bindings(self) :
-		r"""csvserver that can be bound to clusternodegroup.
-		"""
-		try :
-			return self._clusternodegroup_csvserver_binding
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@property
-	def clusternodegroup_vpnvserver_bindings(self) :
-		r"""vpnvserver that can be bound to clusternodegroup.
-		"""
-		try :
-			return self._clusternodegroup_vpnvserver_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def clusternodegroup_crvserver_bindings(self) :
-		r"""crvserver that can be bound to clusternodegroup.
-		"""
-		try :
-			return self._clusternodegroup_crvserver_binding
-		except Exception as e:
-			raise e
+    @property
+    def clusternodegroup_csvserver_bindings(self) :
+        """csvserver that can be bound to clusternodegroup."""
+        try :
+            return self._clusternodegroup_csvserver_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def clusternodegroup_nslimitidentifier_bindings(self) :
-		r"""nslimitidentifier that can be bound to clusternodegroup.
-		"""
-		try :
-			return self._clusternodegroup_nslimitidentifier_binding
-		except Exception as e:
-			raise e
+    @property
+    def clusternodegroup_vpnvserver_bindings(self) :
+        """vpnvserver that can be bound to clusternodegroup."""
+        try :
+            return self._clusternodegroup_vpnvserver_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def clusternodegroup_gslbsite_bindings(self) :
-		r"""gslbsite that can be bound to clusternodegroup.
-		"""
-		try :
-			return self._clusternodegroup_gslbsite_binding
-		except Exception as e:
-			raise e
+    @property
+    def clusternodegroup_crvserver_bindings(self) :
+        """crvserver that can be bound to clusternodegroup."""
+        try :
+            return self._clusternodegroup_crvserver_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def clusternodegroup_clusternode_bindings(self) :
-		r"""clusternode that can be bound to clusternodegroup.
-		"""
-		try :
-			return self._clusternodegroup_clusternode_binding
-		except Exception as e:
-			raise e
+    @property
+    def clusternodegroup_nslimitidentifier_bindings(self) :
+        """nslimitidentifier that can be bound to clusternodegroup."""
+        try :
+            return self._clusternodegroup_nslimitidentifier_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def clusternodegroup_authenticationvserver_bindings(self) :
-		r"""authenticationvserver that can be bound to clusternodegroup.
-		"""
-		try :
-			return self._clusternodegroup_authenticationvserver_binding
-		except Exception as e:
-			raise e
+    @property
+    def clusternodegroup_gslbsite_bindings(self) :
+        """gslbsite that can be bound to clusternodegroup."""
+        try :
+            return self._clusternodegroup_gslbsite_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def clusternodegroup_lbvserver_bindings(self) :
-		r"""lbvserver that can be bound to clusternodegroup.
-		"""
-		try :
-			return self._clusternodegroup_lbvserver_binding
-		except Exception as e:
-			raise e
+    @property
+    def clusternodegroup_clusternode_bindings(self) :
+        """clusternode that can be bound to clusternodegroup."""
+        try :
+            return self._clusternodegroup_clusternode_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def clusternodegroup_gslbvserver_bindings(self) :
-		r"""gslbvserver that can be bound to clusternodegroup.
-		"""
-		try :
-			return self._clusternodegroup_gslbvserver_binding
-		except Exception as e:
-			raise e
+    @property
+    def clusternodegroup_authenticationvserver_bindings(self) :
+        """authenticationvserver that can be bound to clusternodegroup."""
+        try :
+            return self._clusternodegroup_authenticationvserver_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def clusternodegroup_streamidentifier_bindings(self) :
-		r"""streamidentifier that can be bound to clusternodegroup.
-		"""
-		try :
-			return self._clusternodegroup_streamidentifier_binding
-		except Exception as e:
-			raise e
+    @property
+    def clusternodegroup_lbvserver_bindings(self) :
+        """lbvserver that can be bound to clusternodegroup."""
+        try :
+            return self._clusternodegroup_lbvserver_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def clusternodegroup_service_bindings(self) :
-		r"""service that can be bound to clusternodegroup.
-		"""
-		try :
-			return self._clusternodegroup_service_binding
-		except Exception as e:
-			raise e
+    @property
+    def clusternodegroup_gslbvserver_bindings(self) :
+        """gslbvserver that can be bound to clusternodegroup."""
+        try :
+            return self._clusternodegroup_gslbvserver_binding
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(clusternodegroup_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.clusternodegroup_binding
-		except Exception as e :
-			raise e
+    @property
+    def clusternodegroup_streamidentifier_bindings(self) :
+        """streamidentifier that can be bound to clusternodegroup."""
+        try :
+            return self._clusternodegroup_streamidentifier_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def clusternodegroup_service_bindings(self) :
+        """service that can be bound to clusternodegroup."""
+        try :
+            return self._clusternodegroup_service_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(clusternodegroup_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.clusternodegroup_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, name) :
-		r""" Use this API to fetch clusternodegroup_binding resource.
-		"""
-		try :
-			if type(name) is not list :
-				obj = clusternodegroup_binding()
-				obj.name = name
-				response = obj.get_resource(service)
-			else :
-				if name and len(name) > 0 :
-					obj = [clusternodegroup_binding() for _ in range(len(name))]
-					for i in range(len(name)) :
-						obj[i].name = name[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, name) :
+        """Use this API to fetch clusternodegroup_binding resource.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            if type(name) is not list :
+                obj = clusternodegroup_binding()
+                obj.name = name
+                response = obj.get_resource(service)
+            else :
+                if name and len(name) > 0 :
+                    obj = [clusternodegroup_binding() for _ in range(len(name))]
+                    for i in range(len(name)) :
+                        obj[i].name = name[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class clusternodegroup_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.clusternodegroup_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.clusternodegroup_binding = [clusternodegroup_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.clusternodegroup_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.clusternodegroup_binding = [clusternodegroup_binding() for _ in range(length)]
 

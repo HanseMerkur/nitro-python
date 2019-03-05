@@ -16,83 +16,90 @@
 
 
 class aaasession_args :
-	r""" Provides additional arguments required for fetching the aaasession resource.
-	"""
-	def __init__(self) :
-		self._username = ""
-		self._groupname = ""
-		self._iip = ""
-		self._netmask = ""
+    """Provides additional arguments required for fetching the aaasession resource."""
+    def __init__(self) :
+        self._username = ""
+        self._groupname = ""
+        self._iip = ""
+        self._netmask = ""
 
-	@property
-	def username(self) :
-		r"""Name of the AAA user.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._username
-		except Exception as e:
-			raise e
+    @property
+    def username(self) :
+        """Name of the AAA user.<br/>Minimum length =  1."""
+        try :
+            return self._username
+        except Exception as e:
+            raise e
 
-	@username.setter
-	def username(self, username) :
-		r"""Name of the AAA user.<br/>Minimum length =  1
-		"""
-		try :
-			self._username = username
-		except Exception as e:
-			raise e
+    @username.setter
+    def username(self, username) :
+        """Name of the AAA user.<br/>Minimum length =  1
 
-	@property
-	def groupname(self) :
-		r"""Name of the AAA group.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._groupname
-		except Exception as e:
-			raise e
+        :param username: 
 
-	@groupname.setter
-	def groupname(self, groupname) :
-		r"""Name of the AAA group.<br/>Minimum length =  1
-		"""
-		try :
-			self._groupname = groupname
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._username = username
+        except Exception as e:
+            raise e
 
-	@property
-	def iip(self) :
-		r"""IP address or the first address in the intranet IP range.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._iip
-		except Exception as e:
-			raise e
+    @property
+    def groupname(self) :
+        """Name of the AAA group.<br/>Minimum length =  1."""
+        try :
+            return self._groupname
+        except Exception as e:
+            raise e
 
-	@iip.setter
-	def iip(self, iip) :
-		r"""IP address or the first address in the intranet IP range.<br/>Minimum length =  1
-		"""
-		try :
-			self._iip = iip
-		except Exception as e:
-			raise e
+    @groupname.setter
+    def groupname(self, groupname) :
+        """Name of the AAA group.<br/>Minimum length =  1
 
-	@property
-	def netmask(self) :
-		r"""Subnet mask for the intranet IP range.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._netmask
-		except Exception as e:
-			raise e
+        :param groupname: 
 
-	@netmask.setter
-	def netmask(self, netmask) :
-		r"""Subnet mask for the intranet IP range.<br/>Minimum length =  1
-		"""
-		try :
-			self._netmask = netmask
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._groupname = groupname
+        except Exception as e:
+            raise e
+
+    @property
+    def iip(self) :
+        """IP address or the first address in the intranet IP range.<br/>Minimum length =  1."""
+        try :
+            return self._iip
+        except Exception as e:
+            raise e
+
+    @iip.setter
+    def iip(self, iip) :
+        """IP address or the first address in the intranet IP range.<br/>Minimum length =  1
+
+        :param iip: 
+
+        """
+        try :
+            self._iip = iip
+        except Exception as e:
+            raise e
+
+    @property
+    def netmask(self) :
+        """Subnet mask for the intranet IP range.<br/>Minimum length =  1."""
+        try :
+            return self._netmask
+        except Exception as e:
+            raise e
+
+    @netmask.setter
+    def netmask(self, netmask) :
+        """Subnet mask for the intranet IP range.<br/>Minimum length =  1
+
+        :param netmask: 
+
+        """
+        try :
+            self._netmask = netmask
+        except Exception as e:
+            raise e
 

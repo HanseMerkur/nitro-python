@@ -16,26 +16,27 @@
 
 
 class sslcipher_args :
-	r""" Provides additional arguments required for fetching the sslcipher resource.
-	"""
-	def __init__(self) :
-		self._sslprofile = ""
+    """Provides additional arguments required for fetching the sslcipher resource."""
+    def __init__(self) :
+        self._sslprofile = ""
 
-	@property
-	def sslprofile(self) :
-		r"""Name of the profile to which cipher is attached.
-		"""
-		try :
-			return self._sslprofile
-		except Exception as e:
-			raise e
+    @property
+    def sslprofile(self) :
+        """Name of the profile to which cipher is attached."""
+        try :
+            return self._sslprofile
+        except Exception as e:
+            raise e
 
-	@sslprofile.setter
-	def sslprofile(self, sslprofile) :
-		r"""Name of the profile to which cipher is attached.
-		"""
-		try :
-			self._sslprofile = sslprofile
-		except Exception as e:
-			raise e
+    @sslprofile.setter
+    def sslprofile(self, sslprofile) :
+        """Name of the profile to which cipher is attached.
+
+        :param sslprofile: 
+
+        """
+        try :
+            self._sslprofile = sslprofile
+        except Exception as e:
+            raise e
 

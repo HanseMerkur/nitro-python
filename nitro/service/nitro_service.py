@@ -29,8 +29,7 @@ from nitro.resource.config.ns.nsmode import nsmode
 
 
 class nitro_service(object):
-    """ nitro_service is client interface through which Nitro operations are performed on resources.
-    """
+    """nitro_service is client interface through which Nitro operations are performed on resources."""
     _password = ""
     _username = ""
     _ipaddress = ""
@@ -59,10 +58,11 @@ class nitro_service(object):
 
             
     def set_credential(self, username, password):
-        """ sets the credentials for the netscaler. 
-        
-        @param username Username of the netscaler
-        @param password Password for the netscaler.
+        """sets the credentials for the netscaler.
+
+        :param username: Username of the netscaler
+        :param password: Password for the netscaler.
+
         """
         try: 
             self._username = username
@@ -70,22 +70,26 @@ class nitro_service(object):
         except Exception as e:
             raise e
 
-    @property	 
+    @property     
     def sessionid(self):
-        """ Gets the sessionId.
-        
-        @return sessionId.
+        """Gets the sessionId.
+
+
+        :returns: sessionId.
+
         """
         try: 
             return self._sessionid
         except Exception as e:
             raise e
 
-    @property	 
+    @property     
     def version(self):
-        """ Gets the nitro version.
-        
-        @return Nitro version.
+        """Gets the nitro version.
+
+
+        :returns: Nitro version.
+
         """
         try: 
             return self._version
@@ -93,11 +97,13 @@ class nitro_service(object):
             raise e
 
 
-    @property	 
+    @property     
     def ipaddress(self):
-        """ Gets the Ipaddress of the netscaler.
-        
-        @return Ipadress.
+        """Gets the Ipaddress of the netscaler.
+
+
+        :returns: Ipadress.
+
         """
         try: 
             return self._ipaddress
@@ -107,9 +113,11 @@ class nitro_service(object):
     
     @property
     def warning(self):   
-        """ Gets the warning status.
-        
-        @return warning status.
+        """Gets the warning status.
+
+
+        :returns: warning status.
+
         """
         try: 
             return self._warning
@@ -119,9 +127,11 @@ class nitro_service(object):
 
     @property
     def timeout(self):
-        """ Gets the timeout.
-        
-        @return timeout.
+        """Gets the timeout.
+
+
+        :returns: timeout.
+
         """
         try: 
             return self._timeout
@@ -131,9 +141,10 @@ class nitro_service(object):
 
     @timeout.setter
     def timeout(self, timeout):
-        """ sets the session inactivity timeout for the netscaler. 
-        
-        @param timeout session timeout of the netscaler. Default is 30mins.
+        """sets the session inactivity timeout for the netscaler.
+
+        :param timeout: session timeout of the netscaler. Default is 30mins.
+
         """
         try: 
             self._timeout = timeout    
@@ -143,9 +154,10 @@ class nitro_service(object):
             
     @warning.setter
     def warning(self, warning):
-        """ sets the flag for warning. 
-        
-        @param warning set self to true for getting warnings in nitro response.
+        """sets the flag for warning.
+
+        :param warning: set self to true for getting warnings in nitro response.
+
         """
         try: 
             self._warning = warning
@@ -154,9 +166,11 @@ class nitro_service(object):
         
 
     def isLogin(self):
-        """ Checks login status.
-        
-        @return true if logged-in else false.     
+        """Checks login status.
+
+
+        :returns: true if logged-in else false.
+
         """
         try: 
             if not self._sessionid :
@@ -168,9 +182,11 @@ class nitro_service(object):
     
     @property     
     def onerror(self):
-        """ Gets the onerror status of the netscaler.
-        
-        @return onerror status.
+        """Gets the onerror status of the netscaler.
+
+
+        :returns: onerror status.
+
         """
         try: 
             if self._onerror is None:        
@@ -182,13 +198,16 @@ class nitro_service(object):
         
     @onerror.setter     
     def onerror(self, val):
-        """ Sets the onerror status of the netscaler.
+        """Sets the onerror status of the netscaler.
         
         @set onerror self option is applicable for bulk requests.
         possible values: EXIT, CONTINUE, ROLLBACK.
         if set with EXIT: exists on the first encountered error.
         if set with CONTINUE: executes all the requests irrespective of individual response status.
         if set with ROLLBACK: rolls back the successful requests upon encountering an error.
+
+        :param val: 
+
         """
         try: 
             self._onerror = val
@@ -197,15 +216,15 @@ class nitro_service(object):
 
     
     def login(self, username="", password="", timeout=""):
-        """ Use self API to login into Netscaler.
+        """Use self API to login into Netscaler.
+
+        :param username: Username (Default value = "")
+        :param password: Password for the Netscaler. (Default value = "")
+        :param timeout: timeout for netscaler session.Default is 1800secs
+        :returns: status of the operation performed.
         
-        @param username Username
-        @param password Password for the Netscaler.
-        @param timeout timeout for netscaler session.Default is 1800secs
-        
-        @return status of the operation performed.
-        
-        @throws Exception nitro exception is thrown.    
+        @throws Exception nitro exception is thrown.
+
         """
         try:
             if username and password :
@@ -222,11 +241,13 @@ class nitro_service(object):
     
         
     def loginchallengeresponse(self, response):
-        """ Use self API to loginchallengeresponse into Netscaler with challenge response.
-        
-        @return status of the operation performed.
+        """Use self API to loginchallengeresponse into Netscaler with challenge response.
+
+        :param response: 
+        :returns: status of the operation performed.
         
         @throws nitro_exception nitro exception is thrown.
+
         """
         try:    
             logincr = loginchallengeresponse(response)
@@ -239,11 +260,11 @@ class nitro_service(object):
 
     
     def reboot(self, warm):
-        """ Use self API to reboot Netscaler.
-        
-        @param warm set self to true for warm reboot.
-        
-        @return status of the operation performed.
+        """Use self API to reboot Netscaler.
+
+        :param warm: set self to true for warm reboot.
+        :returns: status of the operation performed.
+
         """
         try: 
             resource = reboot()
@@ -255,12 +276,12 @@ class nitro_service(object):
 
     
     def forcehasync(self, force, save):
-        """ Use self API to force the sync in secondary Netscaler.
-        
-        @param force set self to true for forcesync
-        @param save set self to YES,if want to save the configuration after sync.
-        
-        @return status of the operation performed.
+        """Use self API to force the sync in secondary Netscaler.
+
+        :param force: set self to true for forcesync
+        :param save: set self to YES,if want to save the configuration after sync.
+        :returns: status of the operation performed.
+
         """
         try: 
             resource = hasync()
@@ -275,11 +296,11 @@ class nitro_service(object):
     
     
     def forcehafailover(self, force):
-        """ Use self API to invoke force failover in primary Netscaler.
-        
-        @param force set self to true if force failover is needed.
-    
-        @return status of the operation performed.
+        """Use self API to invoke force failover in primary Netscaler.
+
+        :param force: set self to true if force failover is needed.
+        :returns: status of the operation performed.
+
         """
         try: 
             resource = hafailover()
@@ -293,12 +314,12 @@ class nitro_service(object):
 
     
     def clear_config(self, force="", level=""):
-        """ Use self API to clear configuration.
-        
-        @param force clear confirmation without prompting.
-        @param level clear config according to the level. eg: basic, extended, full
-        
-        @return status of the operation performed.
+        """Use self API to clear configuration.
+
+        :param force: clear confirmation without prompting. (Default value = "")
+        :param level: clear config according to the level. eg: basic, extended, full (Default value = "")
+        :returns: status of the operation performed.
+
         """
         try: 
             if level and force :
@@ -320,9 +341,11 @@ class nitro_service(object):
 
     
     def save_config(self):
-        """ Use self API to save configuration on Netscaler.
-        
-        @return status of the operation performed.
+        """Use self API to save configuration on Netscaler.
+
+
+        :returns: status of the operation performed.
+
         """
         try: 
             resource = nsconfig()
@@ -335,6 +358,7 @@ class nitro_service(object):
     
     
     def get_features(self):    
+        """ """
         try:
             features = []
             prefix = "get_"
@@ -352,6 +376,7 @@ class nitro_service(object):
 
 
     def get_enabled_features(self):    
+        """ """
         try:            
             feature = nsfeature.get(self)
             enabled_features = feature[0].feature
@@ -363,6 +388,7 @@ class nitro_service(object):
 
 
     def get_modes(self):    
+        """ """
         try:
             modes = []
             prefix = "get_"
@@ -379,6 +405,7 @@ class nitro_service(object):
             raise e
 
     def get_enabled_modes(self):    
+        """ """
         try:            
             mode = nsmode.get(self)
             enabled_modes = mode[0].mode
@@ -390,13 +417,13 @@ class nitro_service(object):
 
 
     def enable_features(self, features):    
-        """ Use self API to enable the feature on Netscaler.
+        """Use self API to enable the feature on Netscaler.
+
+        :param features: features to be enabled.
+        :returns: status of the operation performed.
         
-        @param features features to be enabled.
-        
-        @return status of the operation performed.
-        
-        @throws Exception Nitro exception. 
+        @throws Exception Nitro exception.
+
         """
         try:
             resource = nsfeature()
@@ -409,13 +436,13 @@ class nitro_service(object):
             raise e
 
     def enable_modes(self, modes):    
-        """ Use self API to enable the mode on Netscaler.
+        """Use self API to enable the mode on Netscaler.
+
+        :param modes: modes to be enabled.
+        :returns: status of the operation performed.
         
-        @param modes modes to be enabled.
-        
-        @return status of the operation performed.
-        
-        @throws Exception Nitro exception. 
+        @throws Exception Nitro exception.
+
         """
         try:
             resource = nsmode()
@@ -428,13 +455,13 @@ class nitro_service(object):
             raise e
 
     def disable_features(self, features):    
-        """ Use self API to disable the feature on Netscaler.
+        """Use self API to disable the feature on Netscaler.
+
+        :param features: features to be disabled.
+        :returns: status of the operation performed.
         
-        @param features features to be disabled.
-        
-        @return status of the operation performed.
-        
-        @throws Exception Nitro exception. 
+        @throws Exception Nitro exception.
+
         """
         try:
             resource = nsfeature()
@@ -447,13 +474,13 @@ class nitro_service(object):
             raise e
 
     def disable_modes(self, modes):    
-        """ Use self API to disable the mode on Netscaler.
+        """Use self API to disable the mode on Netscaler.
+
+        :param modes: modes to be disabled.
+        :returns: status of the operation performed.
         
-        @param modes modes to be disabled.
-        
-        @return status of the operation performed.
-        
-        @throws Exception Nitro exception. 
+        @throws Exception Nitro exception.
+
         """
         try:
             resource = nsmode()
@@ -468,8 +495,7 @@ class nitro_service(object):
        
     
     def clear_session(self):
-        """ Use self API to clear the current session.    
-        """
+        """Use self API to clear the current session."""
         try: 
             self._sessionid = None
         except Exception as e:
@@ -477,11 +503,13 @@ class nitro_service(object):
     
         
     def relogin(self):
-        """ Use self to API to re login into Netsclaer.
+        """Use self to API to re login into Netsclaer.
+
+
+        :returns: status of the operation performed.
         
-        @return status of the operation performed.
-        
-        @throws Exception nitro exception is thrown.    
+        @throws Exception nitro exception is thrown.
+
         """
         try:
             self._sessionid = None
@@ -491,9 +519,11 @@ class nitro_service(object):
 
     
     def logout(self):
-        """ Use self API to logout from current session.
-        
-        @return status of the operation performed.
+        """Use self API to logout from current session.
+
+
+        :returns: status of the operation performed.
+
         """
         try:    
             result = None
@@ -509,9 +539,11 @@ class nitro_service(object):
     
     @property    
     def protocol(self):
-        """ Gets the protocol.
-        
-        @return Returns the protocol.
+        """Gets the protocol.
+
+
+        :returns: Returns the protocol.
+
         """
         try: 
             return self._protocol
@@ -521,9 +553,10 @@ class nitro_service(object):
     
     @protocol.setter     
     def protocol(self, protocol):
-        """ Sets the protocol.
-        
-        @param protocol The protocol to be set.
+        """Sets the protocol.
+
+        :param protocol: The protocol to be set.
+
         """
         try: 
             if protocol or protocol.lower!="http" or protocol.lower!="https": 
@@ -535,32 +568,38 @@ class nitro_service(object):
     
     @property     
     def payload_formatter(self):
-        """ Returns payload format.
-        
-        @return Returns json.
+        """Returns payload format.
+
+
+        :returns: Returns json.
+
         """
         try: 
             return self._format
         except Exception as e:
             raise e
 
-    @property	 
+    @property     
     def certvalidation(self):
-        """ Returns certificate validation flag status.
-		
-        @return Returns the json.
-		"""
+        """Returns certificate validation flag status.
+
+
+        :returns: Returns the json.
+
+        """
         try: 
             return self._certvalidation
         except Exception as e:
             raise e
 
-    @certvalidation.setter	 
+    @certvalidation.setter     
     def certvalidation(self, flag):
-        """ Returns certificate validation flag status.
-		
-        @return Returns the json.
-		"""
+        """Returns certificate validation flag status.
+
+        :param flag: 
+        :returns: Returns the json.
+
+        """
         try: 
             self._certvalidation = flag
         except Exception as e:

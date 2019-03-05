@@ -22,93 +22,101 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class policypatset_binding(base_resource):
-	""" Binding class showing the resources that can be bound to policypatset_binding. 
-	"""
-	def __init__(self) :
-		self._name = ""
-		self.policypatset_pattern_binding = []
+    """Binding class showing the resources that can be bound to policypatset_binding."""
+    def __init__(self) :
+        self._name = ""
+        self.policypatset_pattern_binding = []
 
-	@property
-	def name(self) :
-		r"""Name of the pattern set for which to display the detailed information. If a name is not provided, a list of all pattern sets configured on the appliance is shown.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the pattern set for which to display the detailed information. If a name is not provided, a list of all pattern sets configured on the appliance is shown.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the pattern set for which to display the detailed information. If a name is not provided, a list of all pattern sets configured on the appliance is shown.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the pattern set for which to display the detailed information. If a name is not provided, a list of all pattern sets configured on the appliance is shown.<br/>Minimum length =  1
 
-	@property
-	def policypatset_pattern_bindings(self) :
-		r"""pattern that can be bound to policypatset.
-		"""
-		try :
-			return self._policypatset_pattern_binding
-		except Exception as e:
-			raise e
+        :param name: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(policypatset_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.policypatset_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def policypatset_pattern_bindings(self) :
+        """pattern that can be bound to policypatset."""
+        try :
+            return self._policypatset_pattern_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(policypatset_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.policypatset_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, name) :
-		r""" Use this API to fetch policypatset_binding resource.
-		"""
-		try :
-			if type(name) is not list :
-				obj = policypatset_binding()
-				obj.name = name
-				response = obj.get_resource(service)
-			else :
-				if name and len(name) > 0 :
-					obj = [policypatset_binding() for _ in range(len(name))]
-					for i in range(len(name)) :
-						obj[i].name = name[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, name) :
+        """Use this API to fetch policypatset_binding resource.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            if type(name) is not list :
+                obj = policypatset_binding()
+                obj.name = name
+                response = obj.get_resource(service)
+            else :
+                if name and len(name) > 0 :
+                    obj = [policypatset_binding() for _ in range(len(name))]
+                    for i in range(len(name)) :
+                        obj[i].name = name[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class policypatset_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.policypatset_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.policypatset_binding = [policypatset_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.policypatset_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.policypatset_binding = [policypatset_binding() for _ in range(length)]
 

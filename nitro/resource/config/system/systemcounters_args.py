@@ -16,45 +16,48 @@
 
 
 class systemcounters_args :
-	r""" Provides additional arguments required for fetching the systemcounters resource.
-	"""
-	def __init__(self) :
-		self._countergroup = ""
-		self._datasource = ""
+    """Provides additional arguments required for fetching the systemcounters resource."""
+    def __init__(self) :
+        self._countergroup = ""
+        self._datasource = ""
 
-	@property
-	def countergroup(self) :
-		r"""Specify the (counter) group name which contains all the counters specific tot his particular group.
-		"""
-		try :
-			return self._countergroup
-		except Exception as e:
-			raise e
+    @property
+    def countergroup(self) :
+        """Specify the (counter) group name which contains all the counters specific tot his particular group."""
+        try :
+            return self._countergroup
+        except Exception as e:
+            raise e
 
-	@countergroup.setter
-	def countergroup(self, countergroup) :
-		r"""Specify the (counter) group name which contains all the counters specific tot his particular group.
-		"""
-		try :
-			self._countergroup = countergroup
-		except Exception as e:
-			raise e
+    @countergroup.setter
+    def countergroup(self, countergroup) :
+        """Specify the (counter) group name which contains all the counters specific tot his particular group.
 
-	@property
-	def datasource(self) :
-		r"""Specifies the source which contains all the stored counter values.
-		"""
-		try :
-			return self._datasource
-		except Exception as e:
-			raise e
+        :param countergroup: 
 
-	@datasource.setter
-	def datasource(self, datasource) :
-		r"""Specifies the source which contains all the stored counter values.
-		"""
-		try :
-			self._datasource = datasource
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._countergroup = countergroup
+        except Exception as e:
+            raise e
+
+    @property
+    def datasource(self) :
+        """Specifies the source which contains all the stored counter values."""
+        try :
+            return self._datasource
+        except Exception as e:
+            raise e
+
+    @datasource.setter
+    def datasource(self, datasource) :
+        """Specifies the source which contains all the stored counter values.
+
+        :param datasource: 
+
+        """
+        try :
+            self._datasource = datasource
+        except Exception as e:
+            raise e
 

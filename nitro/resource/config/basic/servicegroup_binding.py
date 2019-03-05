@@ -22,113 +22,119 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class servicegroup_binding(base_resource):
-	""" Binding class showing the resources that can be bound to servicegroup_binding. 
-	"""
-	def __init__(self) :
-		self._servicegroupname = ""
-		self.servicegroup_servicegroupentitymonbindings_binding = []
-		self.servicegroup_lbmonitor_binding = []
-		self.servicegroup_servicegroupmember_binding = []
+    """Binding class showing the resources that can be bound to servicegroup_binding."""
+    def __init__(self) :
+        self._servicegroupname = ""
+        self.servicegroup_servicegroupentitymonbindings_binding = []
+        self.servicegroup_lbmonitor_binding = []
+        self.servicegroup_servicegroupmember_binding = []
 
-	@property
-	def servicegroupname(self) :
-		r"""Name of the service group.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._servicegroupname
-		except Exception as e:
-			raise e
+    @property
+    def servicegroupname(self) :
+        """Name of the service group.<br/>Minimum length =  1."""
+        try :
+            return self._servicegroupname
+        except Exception as e:
+            raise e
 
-	@servicegroupname.setter
-	def servicegroupname(self, servicegroupname) :
-		r"""Name of the service group.<br/>Minimum length =  1
-		"""
-		try :
-			self._servicegroupname = servicegroupname
-		except Exception as e:
-			raise e
+    @servicegroupname.setter
+    def servicegroupname(self, servicegroupname) :
+        """Name of the service group.<br/>Minimum length =  1
 
-	@property
-	def servicegroup_lbmonitor_bindings(self) :
-		r"""lbmonitor that can be bound to servicegroup.
-		"""
-		try :
-			return self._servicegroup_lbmonitor_binding
-		except Exception as e:
-			raise e
+        :param servicegroupname: 
 
-	@property
-	def servicegroup_servicegroupmember_bindings(self) :
-		r"""servicegroupmember that can be bound to servicegroup.
-		"""
-		try :
-			return self._servicegroup_servicegroupmember_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._servicegroupname = servicegroupname
+        except Exception as e:
+            raise e
 
-	@property
-	def servicegroup_servicegroupentitymonbindings_bindings(self) :
-		r"""servicegroupentitymonbindings that can be bound to servicegroup.
-		"""
-		try :
-			return self._servicegroup_servicegroupentitymonbindings_binding
-		except Exception as e:
-			raise e
+    @property
+    def servicegroup_lbmonitor_bindings(self) :
+        """lbmonitor that can be bound to servicegroup."""
+        try :
+            return self._servicegroup_lbmonitor_binding
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(servicegroup_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.servicegroup_binding
-		except Exception as e :
-			raise e
+    @property
+    def servicegroup_servicegroupmember_bindings(self) :
+        """servicegroupmember that can be bound to servicegroup."""
+        try :
+            return self._servicegroup_servicegroupmember_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.servicegroupname is not None :
-				return str(self.servicegroupname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def servicegroup_servicegroupentitymonbindings_bindings(self) :
+        """servicegroupentitymonbindings that can be bound to servicegroup."""
+        try :
+            return self._servicegroup_servicegroupentitymonbindings_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(servicegroup_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.servicegroup_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.servicegroupname is not None :
+                return str(self.servicegroupname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, servicegroupname) :
-		r""" Use this API to fetch servicegroup_binding resource.
-		"""
-		try :
-			if type(servicegroupname) is not list :
-				obj = servicegroup_binding()
-				obj.servicegroupname = servicegroupname
-				response = obj.get_resource(service)
-			else :
-				if servicegroupname and len(servicegroupname) > 0 :
-					obj = [servicegroup_binding() for _ in range(len(servicegroupname))]
-					for i in range(len(servicegroupname)) :
-						obj[i].servicegroupname = servicegroupname[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, servicegroupname) :
+        """Use this API to fetch servicegroup_binding resource.
+
+        :param service: 
+        :param servicegroupname: 
+
+        """
+        try :
+            if type(servicegroupname) is not list :
+                obj = servicegroup_binding()
+                obj.servicegroupname = servicegroupname
+                response = obj.get_resource(service)
+            else :
+                if servicegroupname and len(servicegroupname) > 0 :
+                    obj = [servicegroup_binding() for _ in range(len(servicegroupname))]
+                    for i in range(len(servicegroupname)) :
+                        obj[i].servicegroupname = servicegroupname[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class servicegroup_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.servicegroup_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.servicegroup_binding = [servicegroup_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.servicegroup_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.servicegroup_binding = [servicegroup_binding() for _ in range(length)]
 

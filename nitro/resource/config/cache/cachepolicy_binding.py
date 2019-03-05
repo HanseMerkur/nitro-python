@@ -22,123 +22,128 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class cachepolicy_binding(base_resource):
-	""" Binding class showing the resources that can be bound to cachepolicy_binding. 
-	"""
-	def __init__(self) :
-		self._policyname = ""
-		self.cachepolicy_cacheglobal_binding = []
-		self.cachepolicy_cachepolicylabel_binding = []
-		self.cachepolicy_csvserver_binding = []
-		self.cachepolicy_lbvserver_binding = []
+    """Binding class showing the resources that can be bound to cachepolicy_binding."""
+    def __init__(self) :
+        self._policyname = ""
+        self.cachepolicy_cacheglobal_binding = []
+        self.cachepolicy_cachepolicylabel_binding = []
+        self.cachepolicy_csvserver_binding = []
+        self.cachepolicy_lbvserver_binding = []
 
-	@property
-	def policyname(self) :
-		r"""Name of the cache policy about which to display details.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._policyname
-		except Exception as e:
-			raise e
+    @property
+    def policyname(self) :
+        """Name of the cache policy about which to display details.<br/>Minimum length =  1."""
+        try :
+            return self._policyname
+        except Exception as e:
+            raise e
 
-	@policyname.setter
-	def policyname(self, policyname) :
-		r"""Name of the cache policy about which to display details.<br/>Minimum length =  1
-		"""
-		try :
-			self._policyname = policyname
-		except Exception as e:
-			raise e
+    @policyname.setter
+    def policyname(self, policyname) :
+        """Name of the cache policy about which to display details.<br/>Minimum length =  1
 
-	@property
-	def cachepolicy_cachepolicylabel_bindings(self) :
-		r"""cachepolicylabel that can be bound to cachepolicy.
-		"""
-		try :
-			return self._cachepolicy_cachepolicylabel_binding
-		except Exception as e:
-			raise e
+        :param policyname: 
 
-	@property
-	def cachepolicy_lbvserver_bindings(self) :
-		r"""lbvserver that can be bound to cachepolicy.
-		"""
-		try :
-			return self._cachepolicy_lbvserver_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._policyname = policyname
+        except Exception as e:
+            raise e
 
-	@property
-	def cachepolicy_cacheglobal_bindings(self) :
-		r"""cacheglobal that can be bound to cachepolicy.
-		"""
-		try :
-			return self._cachepolicy_cacheglobal_binding
-		except Exception as e:
-			raise e
+    @property
+    def cachepolicy_cachepolicylabel_bindings(self) :
+        """cachepolicylabel that can be bound to cachepolicy."""
+        try :
+            return self._cachepolicy_cachepolicylabel_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def cachepolicy_csvserver_bindings(self) :
-		r"""csvserver that can be bound to cachepolicy.
-		"""
-		try :
-			return self._cachepolicy_csvserver_binding
-		except Exception as e:
-			raise e
+    @property
+    def cachepolicy_lbvserver_bindings(self) :
+        """lbvserver that can be bound to cachepolicy."""
+        try :
+            return self._cachepolicy_lbvserver_binding
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(cachepolicy_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.cachepolicy_binding
-		except Exception as e :
-			raise e
+    @property
+    def cachepolicy_cacheglobal_bindings(self) :
+        """cacheglobal that can be bound to cachepolicy."""
+        try :
+            return self._cachepolicy_cacheglobal_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.policyname is not None :
-				return str(self.policyname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def cachepolicy_csvserver_bindings(self) :
+        """csvserver that can be bound to cachepolicy."""
+        try :
+            return self._cachepolicy_csvserver_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(cachepolicy_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.cachepolicy_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.policyname is not None :
+                return str(self.policyname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, policyname) :
-		r""" Use this API to fetch cachepolicy_binding resource.
-		"""
-		try :
-			if type(policyname) is not list :
-				obj = cachepolicy_binding()
-				obj.policyname = policyname
-				response = obj.get_resource(service)
-			else :
-				if policyname and len(policyname) > 0 :
-					obj = [cachepolicy_binding() for _ in range(len(policyname))]
-					for i in range(len(policyname)) :
-						obj[i].policyname = policyname[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, policyname) :
+        """Use this API to fetch cachepolicy_binding resource.
+
+        :param service: 
+        :param policyname: 
+
+        """
+        try :
+            if type(policyname) is not list :
+                obj = cachepolicy_binding()
+                obj.policyname = policyname
+                response = obj.get_resource(service)
+            else :
+                if policyname and len(policyname) > 0 :
+                    obj = [cachepolicy_binding() for _ in range(len(policyname))]
+                    for i in range(len(policyname)) :
+                        obj[i].policyname = policyname[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class cachepolicy_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.cachepolicy_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.cachepolicy_binding = [cachepolicy_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.cachepolicy_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.cachepolicy_binding = [cachepolicy_binding() for _ in range(length)]
 

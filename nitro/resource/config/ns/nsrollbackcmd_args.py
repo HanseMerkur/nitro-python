@@ -16,49 +16,53 @@
 
 
 class nsrollbackcmd_args :
-	r""" Provides additional arguments required for fetching the nsrollbackcmd resource.
-	"""
-	def __init__(self) :
-		self._filename = ""
-		self._outtype = ""
+    """Provides additional arguments required for fetching the nsrollbackcmd resource."""
+    def __init__(self) :
+        self._filename = ""
+        self._outtype = ""
 
-	@property
-	def filename(self) :
-		r"""File that contains the commands for which the rollback commands must be generated. Specify the full path of the file name.
-		"""
-		try :
-			return self._filename
-		except Exception as e:
-			raise e
+    @property
+    def filename(self) :
+        """File that contains the commands for which the rollback commands must be generated. Specify the full path of the file name."""
+        try :
+            return self._filename
+        except Exception as e:
+            raise e
 
-	@filename.setter
-	def filename(self, filename) :
-		r"""File that contains the commands for which the rollback commands must be generated. Specify the full path of the file name.
-		"""
-		try :
-			self._filename = filename
-		except Exception as e:
-			raise e
+    @filename.setter
+    def filename(self, filename) :
+        """File that contains the commands for which the rollback commands must be generated. Specify the full path of the file name.
 
-	@property
-	def outtype(self) :
-		r"""Format in which the rollback commands must be generated.<br/>Possible values = cli, xml.
-		"""
-		try :
-			return self._outtype
-		except Exception as e:
-			raise e
+        :param filename: 
 
-	@outtype.setter
-	def outtype(self, outtype) :
-		r"""Format in which the rollback commands must be generated.<br/>Possible values = cli, xml
-		"""
-		try :
-			self._outtype = outtype
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._filename = filename
+        except Exception as e:
+            raise e
 
-	class Outtype:
-		cli = "cli"
-		xml = "xml"
+    @property
+    def outtype(self) :
+        """Format in which the rollback commands must be generated.<br/>Possible values = cli, xml."""
+        try :
+            return self._outtype
+        except Exception as e:
+            raise e
+
+    @outtype.setter
+    def outtype(self, outtype) :
+        """Format in which the rollback commands must be generated.<br/>Possible values = cli, xml
+
+        :param outtype: 
+
+        """
+        try :
+            self._outtype = outtype
+        except Exception as e:
+            raise e
+
+    class Outtype:
+        """ """
+        cli = "cli"
+        xml = "xml"
 

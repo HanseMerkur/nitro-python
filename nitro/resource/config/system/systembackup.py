@@ -22,341 +22,381 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class systembackup(base_resource) :
-	""" Configuration for Backup Data for ns backup and restore resource. """
-	def __init__(self) :
-		self._filename = ""
-		self._level = ""
-		self._comment = ""
-		self._skipbackup = False
-		self._size = 0
-		self._creationtime = ""
-		self._version = ""
-		self._createdby = ""
-		self._ipaddress = ""
-		self.___count = 0
+    """Configuration for Backup Data for ns backup and restore resource."""
+    def __init__(self) :
+        self._filename = ""
+        self._level = ""
+        self._comment = ""
+        self._skipbackup = False
+        self._size = 0
+        self._creationtime = ""
+        self._version = ""
+        self._createdby = ""
+        self._ipaddress = ""
+        self.___count = 0
 
-	@property
-	def filename(self) :
-		r"""Name of the backup file(*.tgz) to be restored.
-		"""
-		try :
-			return self._filename
-		except Exception as e:
-			raise e
+    @property
+    def filename(self) :
+        """Name of the backup file(*.tgz) to be restored."""
+        try :
+            return self._filename
+        except Exception as e:
+            raise e
 
-	@filename.setter
-	def filename(self, filename) :
-		r"""Name of the backup file(*.tgz) to be restored.
-		"""
-		try :
-			self._filename = filename
-		except Exception as e:
-			raise e
+    @filename.setter
+    def filename(self, filename) :
+        """Name of the backup file(*.tgz) to be restored.
 
-	@property
-	def level(self) :
-		r"""Level of data to be backed up.<br/>Default value: basic<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._level
-		except Exception as e:
-			raise e
+        :param filename: 
 
-	@level.setter
-	def level(self, level) :
-		r"""Level of data to be backed up.<br/>Default value: basic<br/>Possible values = basic, full
-		"""
-		try :
-			self._level = level
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._filename = filename
+        except Exception as e:
+            raise e
 
-	@property
-	def comment(self) :
-		r"""Comment specified at the time of creation of the backup file(*.tgz).
-		"""
-		try :
-			return self._comment
-		except Exception as e:
-			raise e
+    @property
+    def level(self) :
+        """Level of data to be backed up.<br/>Default value: basic<br/>Possible values = basic, full."""
+        try :
+            return self._level
+        except Exception as e:
+            raise e
 
-	@comment.setter
-	def comment(self, comment) :
-		r"""Comment specified at the time of creation of the backup file(*.tgz).
-		"""
-		try :
-			self._comment = comment
-		except Exception as e:
-			raise e
+    @level.setter
+    def level(self, level) :
+        """Level of data to be backed up.<br/>Default value: basic<br/>Possible values = basic, full
 
-	@property
-	def skipbackup(self) :
-		r"""Use this option to skip taking backup during restore operation.
-		"""
-		try :
-			return self._skipbackup
-		except Exception as e:
-			raise e
+        :param level: 
 
-	@skipbackup.setter
-	def skipbackup(self, skipbackup) :
-		r"""Use this option to skip taking backup during restore operation.
-		"""
-		try :
-			self._skipbackup = skipbackup
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._level = level
+        except Exception as e:
+            raise e
 
-	@property
-	def size(self) :
-		r"""Size of the backup file(*.tgz) in KB.
-		"""
-		try :
-			return self._size
-		except Exception as e:
-			raise e
+    @property
+    def comment(self) :
+        """Comment specified at the time of creation of the backup file(*.tgz)."""
+        try :
+            return self._comment
+        except Exception as e:
+            raise e
 
-	@property
-	def creationtime(self) :
-		r"""Creation time of the backup file(*.tgz).
-		"""
-		try :
-			return self._creationtime
-		except Exception as e:
-			raise e
+    @comment.setter
+    def comment(self, comment) :
+        """Comment specified at the time of creation of the backup file(*.tgz).
 
-	@property
-	def version(self) :
-		r"""Build version of the backup file(*.tgz).
-		"""
-		try :
-			return self._version
-		except Exception as e:
-			raise e
+        :param comment: 
 
-	@property
-	def createdby(self) :
-		r"""Name of user who created the backup file(*.tgz).
-		"""
-		try :
-			return self._createdby
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._comment = comment
+        except Exception as e:
+            raise e
 
-	@property
-	def ipaddress(self) :
-		r"""Ip of Netscaler box where the backup file(*.tgz) was created.
-		"""
-		try :
-			return self._ipaddress
-		except Exception as e:
-			raise e
+    @property
+    def skipbackup(self) :
+        """Use this option to skip taking backup during restore operation."""
+        try :
+            return self._skipbackup
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(systembackup_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.systembackup
-		except Exception as e :
-			raise e
+    @skipbackup.setter
+    def skipbackup(self, skipbackup) :
+        """Use this option to skip taking backup during restore operation.
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.filename is not None :
-				return str(self.filename)
-			return None
-		except Exception as e :
-			raise e
+        :param skipbackup: 
 
+        """
+        try :
+            self._skipbackup = skipbackup
+        except Exception as e:
+            raise e
 
+    @property
+    def size(self) :
+        """Size of the backup file(*.tgz) in KB."""
+        try :
+            return self._size
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def create(cls, client, resource) :
-		r""" Use this API to create systembackup.
-		"""
-		try :
-			if type(resource) is not list :
-				createresource = systembackup()
-				createresource.filename = resource.filename
-				createresource.level = resource.level
-				createresource.comment = resource.comment
-				return createresource.perform_operation(client,"create")
-			else :
-				if (resource and len(resource) > 0) :
-					createresources = [ systembackup() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						createresources[i].filename = resource[i].filename
-						createresources[i].level = resource[i].level
-						createresources[i].comment = resource[i].comment
-				result = cls.perform_operation_bulk_request(client, createresources,"create")
-			return result
-		except Exception as e :
-			raise e
+    @property
+    def creationtime(self) :
+        """Creation time of the backup file(*.tgz)."""
+        try :
+            return self._creationtime
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def restore(cls, client, resource) :
-		r""" Use this API to restore systembackup.
-		"""
-		try :
-			if type(resource) is not list :
-				restoreresource = systembackup()
-				restoreresource.filename = resource.filename
-				restoreresource.skipbackup = resource.skipbackup
-				return restoreresource.perform_operation(client,"restore")
-			else :
-				if (resource and len(resource) > 0) :
-					restoreresources = [ systembackup() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						restoreresources[i].filename = resource[i].filename
-						restoreresources[i].skipbackup = resource[i].skipbackup
-				result = cls.perform_operation_bulk_request(client, restoreresources,"restore")
-			return result
-		except Exception as e :
-			raise e
+    @property
+    def version(self) :
+        """Build version of the backup file(*.tgz)."""
+        try :
+            return self._version
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		r""" Use this API to add systembackup.
-		"""
-		try :
-			if type(resource) is not list :
-				addresource = systembackup()
-				addresource.filename = resource.filename
-				return addresource.add_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					addresources = [ systembackup() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						addresources[i].filename = resource[i].filename
-				result = cls.add_bulk_request(client, addresources)
-			return result
-		except Exception as e :
-			raise e
+    @property
+    def createdby(self) :
+        """Name of user who created the backup file(*.tgz)."""
+        try :
+            return self._createdby
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete systembackup.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = systembackup()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.filename = resource
-				else :
-					deleteresource.filename = resource.filename
-				return deleteresource.delete_resource(client)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ systembackup() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].filename = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ systembackup() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].filename = resource[i].filename
-				result = cls.delete_bulk_request(client, deleteresources)
-			return result
-		except Exception as e :
-			raise e
+    @property
+    def ipaddress(self) :
+        """Ip of Netscaler box where the backup file(*.tgz) was created."""
+        try :
+            return self._ipaddress
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the systembackup resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = systembackup()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = systembackup()
-						obj.filename = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [systembackup() for _ in range(len(name))]
-							obj = [systembackup() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = systembackup()
-								obj[i].filename = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(systembackup_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.systembackup
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.filename is not None :
+                return str(self.filename)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of systembackup resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = systembackup()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def create(cls, client, resource) :
+        """Use this API to create systembackup.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                createresource = systembackup()
+                createresource.filename = resource.filename
+                createresource.level = resource.level
+                createresource.comment = resource.comment
+                return createresource.perform_operation(client,"create")
+            else :
+                if (resource and len(resource) > 0) :
+                    createresources = [ systembackup() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        createresources[i].filename = resource[i].filename
+                        createresources[i].level = resource[i].level
+                        createresources[i].comment = resource[i].comment
+                result = cls.perform_operation_bulk_request(client, createresources,"create")
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def restore(cls, client, resource) :
+        """Use this API to restore systembackup.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                restoreresource = systembackup()
+                restoreresource.filename = resource.filename
+                restoreresource.skipbackup = resource.skipbackup
+                return restoreresource.perform_operation(client,"restore")
+            else :
+                if (resource and len(resource) > 0) :
+                    restoreresources = [ systembackup() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        restoreresources[i].filename = resource[i].filename
+                        restoreresources[i].skipbackup = resource[i].skipbackup
+                result = cls.perform_operation_bulk_request(client, restoreresources,"restore")
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def add(cls, client, resource) :
+        """Use this API to add systembackup.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                addresource = systembackup()
+                addresource.filename = resource.filename
+                return addresource.add_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    addresources = [ systembackup() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        addresources[i].filename = resource[i].filename
+                result = cls.add_bulk_request(client, addresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete systembackup.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = systembackup()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.filename = resource
+                else :
+                    deleteresource.filename = resource.filename
+                return deleteresource.delete_resource(client)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ systembackup() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].filename = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ systembackup() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].filename = resource[i].filename
+                result = cls.delete_bulk_request(client, deleteresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the systembackup resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = systembackup()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = systembackup()
+                        obj.filename = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [systembackup() for _ in range(len(name))]
+                            obj = [systembackup() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = systembackup()
+                                obj[i].filename = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the systembackup resources configured on NetScaler.
-		"""
-		try :
-			obj = systembackup()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of systembackup resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of systembackup resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = systembackup()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = systembackup()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	class Level:
-		basic = "basic"
-		full = "full"
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the systembackup resources configured on NetScaler.
+
+        :param client: 
+
+        """
+        try :
+            obj = systembackup()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of systembackup resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = systembackup()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+
+    class Level:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class systembackup_response(base_response) :
-	def __init__(self, length=1) :
-		self.systembackup = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.systembackup = [systembackup() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.systembackup = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.systembackup = [systembackup() for _ in range(length)]
 

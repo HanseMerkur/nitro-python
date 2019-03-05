@@ -22,136 +22,159 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class vpathparam(base_resource) :
-	""" Configuration for VpathParam resource. """
-	def __init__(self) :
-		self._srcip = ""
-		self._offload = ""
-		self._encapsulation = ""
+    """Configuration for VpathParam resource."""
+    def __init__(self) :
+        self._srcip = ""
+        self._offload = ""
+        self._encapsulation = ""
 
-	@property
-	def srcip(self) :
-		r"""source-IP address used for all vPath L3 encapsulations. Must be a MIP or SNIP address.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._srcip
-		except Exception as e:
-			raise e
+    @property
+    def srcip(self) :
+        """source-IP address used for all vPath L3 encapsulations. Must be a MIP or SNIP address.<br/>Minimum length =  1."""
+        try :
+            return self._srcip
+        except Exception as e:
+            raise e
 
-	@srcip.setter
-	def srcip(self, srcip) :
-		r"""source-IP address used for all vPath L3 encapsulations. Must be a MIP or SNIP address.<br/>Minimum length =  1
-		"""
-		try :
-			self._srcip = srcip
-		except Exception as e:
-			raise e
+    @srcip.setter
+    def srcip(self, srcip) :
+        """source-IP address used for all vPath L3 encapsulations. Must be a MIP or SNIP address.<br/>Minimum length =  1
 
-	@property
-	def offload(self) :
-		r"""enable/disable vPath offload feature.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED.
-		"""
-		try :
-			return self._offload
-		except Exception as e:
-			raise e
+        :param srcip: 
 
-	@offload.setter
-	def offload(self, offload) :
-		r"""enable/disable vPath offload feature.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED
-		"""
-		try :
-			self._offload = offload
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._srcip = srcip
+        except Exception as e:
+            raise e
 
-	@property
-	def encapsulation(self) :
-		r"""Global vPath encapsulation .<br/>Possible values = ENABLED, DISABLED.
-		"""
-		try :
-			return self._encapsulation
-		except Exception as e:
-			raise e
+    @property
+    def offload(self) :
+        """enable/disable vPath offload feature.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED."""
+        try :
+            return self._offload
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(vpathparam_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.vpathparam
-		except Exception as e :
-			raise e
+    @offload.setter
+    def offload(self, offload) :
+        """enable/disable vPath offload feature.<br/>Default value: DISABLED<br/>Possible values = ENABLED, DISABLED
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        :param offload: 
 
+        """
+        try :
+            self._offload = offload
+        except Exception as e:
+            raise e
 
+    @property
+    def encapsulation(self) :
+        """Global vPath encapsulation .<br/>Possible values = ENABLED, DISABLED."""
+        try :
+            return self._encapsulation
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update vpathparam.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = vpathparam()
-				updateresource.srcip = resource.srcip
-				updateresource.offload = resource.offload
-				return updateresource.update_resource(client)
-		except Exception as e :
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of vpathparam resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = vpathparam()
-				return unsetresource.unset_resource(client, args)
-		except Exception as e :
-			raise e
+        :param service: 
+        :param response: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the vpathparam resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = vpathparam()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(vpathparam_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.vpathparam
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
-	class Offload:
-		ENABLED = "ENABLED"
-		DISABLED = "DISABLED"
 
-	class Encapsulation:
-		ENABLED = "ENABLED"
-		DISABLED = "DISABLED"
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update vpathparam.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = vpathparam()
+                updateresource.srcip = resource.srcip
+                updateresource.offload = resource.offload
+                return updateresource.update_resource(client)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of vpathparam resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = vpathparam()
+                return unsetresource.unset_resource(client, args)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the vpathparam resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = vpathparam()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    class Offload:
+        """ """
+        ENABLED = "ENABLED"
+        DISABLED = "DISABLED"
+
+    class Encapsulation:
+        """ """
+        ENABLED = "ENABLED"
+        DISABLED = "DISABLED"
 
 class vpathparam_response(base_response) :
-	def __init__(self, length=1) :
-		self.vpathparam = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.vpathparam = [vpathparam() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.vpathparam = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.vpathparam = [vpathparam() for _ in range(length)]
 

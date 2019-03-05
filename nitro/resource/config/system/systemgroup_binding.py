@@ -22,103 +22,110 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class systemgroup_binding(base_resource):
-	""" Binding class showing the resources that can be bound to systemgroup_binding. 
-	"""
-	def __init__(self) :
-		self._groupname = ""
-		self.systemgroup_systemuser_binding = []
-		self.systemgroup_systemcmdpolicy_binding = []
+    """Binding class showing the resources that can be bound to systemgroup_binding."""
+    def __init__(self) :
+        self._groupname = ""
+        self.systemgroup_systemuser_binding = []
+        self.systemgroup_systemcmdpolicy_binding = []
 
-	@property
-	def groupname(self) :
-		r"""Name of the system group about which to display information.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._groupname
-		except Exception as e:
-			raise e
+    @property
+    def groupname(self) :
+        """Name of the system group about which to display information.<br/>Minimum length =  1."""
+        try :
+            return self._groupname
+        except Exception as e:
+            raise e
 
-	@groupname.setter
-	def groupname(self, groupname) :
-		r"""Name of the system group about which to display information.<br/>Minimum length =  1
-		"""
-		try :
-			self._groupname = groupname
-		except Exception as e:
-			raise e
+    @groupname.setter
+    def groupname(self, groupname) :
+        """Name of the system group about which to display information.<br/>Minimum length =  1
 
-	@property
-	def systemgroup_systemcmdpolicy_bindings(self) :
-		r"""systemcmdpolicy that can be bound to systemgroup.
-		"""
-		try :
-			return self._systemgroup_systemcmdpolicy_binding
-		except Exception as e:
-			raise e
+        :param groupname: 
 
-	@property
-	def systemgroup_systemuser_bindings(self) :
-		r"""systemuser that can be bound to systemgroup.
-		"""
-		try :
-			return self._systemgroup_systemuser_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._groupname = groupname
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(systemgroup_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.systemgroup_binding
-		except Exception as e :
-			raise e
+    @property
+    def systemgroup_systemcmdpolicy_bindings(self) :
+        """systemcmdpolicy that can be bound to systemgroup."""
+        try :
+            return self._systemgroup_systemcmdpolicy_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.groupname is not None :
-				return str(self.groupname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def systemgroup_systemuser_bindings(self) :
+        """systemuser that can be bound to systemgroup."""
+        try :
+            return self._systemgroup_systemuser_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(systemgroup_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.systemgroup_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.groupname is not None :
+                return str(self.groupname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, groupname) :
-		r""" Use this API to fetch systemgroup_binding resource.
-		"""
-		try :
-			if type(groupname) is not list :
-				obj = systemgroup_binding()
-				obj.groupname = groupname
-				response = obj.get_resource(service)
-			else :
-				if groupname and len(groupname) > 0 :
-					obj = [systemgroup_binding() for _ in range(len(groupname))]
-					for i in range(len(groupname)) :
-						obj[i].groupname = groupname[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, groupname) :
+        """Use this API to fetch systemgroup_binding resource.
+
+        :param service: 
+        :param groupname: 
+
+        """
+        try :
+            if type(groupname) is not list :
+                obj = systemgroup_binding()
+                obj.groupname = groupname
+                response = obj.get_resource(service)
+            else :
+                if groupname and len(groupname) > 0 :
+                    obj = [systemgroup_binding() for _ in range(len(groupname))]
+                    for i in range(len(groupname)) :
+                        obj[i].groupname = groupname[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class systemgroup_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.systemgroup_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.systemgroup_binding = [systemgroup_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.systemgroup_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.systemgroup_binding = [systemgroup_binding() for _ in range(length)]
 

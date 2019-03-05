@@ -22,93 +22,101 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class lbmonitor_binding(base_resource):
-	""" Binding class showing the resources that can be bound to lbmonitor_binding. 
-	"""
-	def __init__(self) :
-		self._monitorname = ""
-		self.lbmonitor_metric_binding = []
+    """Binding class showing the resources that can be bound to lbmonitor_binding."""
+    def __init__(self) :
+        self._monitorname = ""
+        self.lbmonitor_metric_binding = []
 
-	@property
-	def monitorname(self) :
-		r"""Name of the monitor.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._monitorname
-		except Exception as e:
-			raise e
+    @property
+    def monitorname(self) :
+        """Name of the monitor.<br/>Minimum length =  1."""
+        try :
+            return self._monitorname
+        except Exception as e:
+            raise e
 
-	@monitorname.setter
-	def monitorname(self, monitorname) :
-		r"""Name of the monitor.<br/>Minimum length =  1
-		"""
-		try :
-			self._monitorname = monitorname
-		except Exception as e:
-			raise e
+    @monitorname.setter
+    def monitorname(self, monitorname) :
+        """Name of the monitor.<br/>Minimum length =  1
 
-	@property
-	def lbmonitor_metric_bindings(self) :
-		r"""metric that can be bound to lbmonitor.
-		"""
-		try :
-			return self._lbmonitor_metric_binding
-		except Exception as e:
-			raise e
+        :param monitorname: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(lbmonitor_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.lbmonitor_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._monitorname = monitorname
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.monitorname is not None :
-				return str(self.monitorname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def lbmonitor_metric_bindings(self) :
+        """metric that can be bound to lbmonitor."""
+        try :
+            return self._lbmonitor_metric_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(lbmonitor_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.lbmonitor_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.monitorname is not None :
+                return str(self.monitorname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, monitorname) :
-		r""" Use this API to fetch lbmonitor_binding resource.
-		"""
-		try :
-			if type(monitorname) is not list :
-				obj = lbmonitor_binding()
-				obj.monitorname = monitorname
-				response = obj.get_resource(service)
-			else :
-				if monitorname and len(monitorname) > 0 :
-					obj = [lbmonitor_binding() for _ in range(len(monitorname))]
-					for i in range(len(monitorname)) :
-						obj[i].monitorname = monitorname[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, monitorname) :
+        """Use this API to fetch lbmonitor_binding resource.
+
+        :param service: 
+        :param monitorname: 
+
+        """
+        try :
+            if type(monitorname) is not list :
+                obj = lbmonitor_binding()
+                obj.monitorname = monitorname
+                response = obj.get_resource(service)
+            else :
+                if monitorname and len(monitorname) > 0 :
+                    obj = [lbmonitor_binding() for _ in range(len(monitorname))]
+                    for i in range(len(monitorname)) :
+                        obj[i].monitorname = monitorname[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class lbmonitor_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.lbmonitor_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.lbmonitor_binding = [lbmonitor_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.lbmonitor_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.lbmonitor_binding = [lbmonitor_binding() for _ in range(length)]
 

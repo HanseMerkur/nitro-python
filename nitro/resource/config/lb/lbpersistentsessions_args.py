@@ -16,26 +16,27 @@
 
 
 class lbpersistentsessions_args :
-	r""" Provides additional arguments required for fetching the lbpersistentsessions resource.
-	"""
-	def __init__(self) :
-		self._vserver = ""
+    """Provides additional arguments required for fetching the lbpersistentsessions resource."""
+    def __init__(self) :
+        self._vserver = ""
 
-	@property
-	def vserver(self) :
-		r"""The name of the virtual server.
-		"""
-		try :
-			return self._vserver
-		except Exception as e:
-			raise e
+    @property
+    def vserver(self) :
+        """The name of the virtual server."""
+        try :
+            return self._vserver
+        except Exception as e:
+            raise e
 
-	@vserver.setter
-	def vserver(self, vserver) :
-		r"""The name of the virtual server.
-		"""
-		try :
-			self._vserver = vserver
-		except Exception as e:
-			raise e
+    @vserver.setter
+    def vserver(self, vserver) :
+        """The name of the virtual server.
+
+        :param vserver: 
+
+        """
+        try :
+            self._vserver = vserver
+        except Exception as e:
+            raise e
 

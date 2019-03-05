@@ -16,26 +16,27 @@
 
 
 class ip6tunnel_args :
-	r""" Provides additional arguments required for fetching the ip6tunnel resource.
-	"""
-	def __init__(self) :
-		self._remote = ""
+    """Provides additional arguments required for fetching the ip6tunnel resource."""
+    def __init__(self) :
+        self._remote = ""
 
-	@property
-	def remote(self) :
-		r"""The IPv6 address at which the remote NetScaler appliance connects to the tunnel.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._remote
-		except Exception as e:
-			raise e
+    @property
+    def remote(self) :
+        """The IPv6 address at which the remote NetScaler appliance connects to the tunnel.<br/>Minimum length =  1."""
+        try :
+            return self._remote
+        except Exception as e:
+            raise e
 
-	@remote.setter
-	def remote(self, remote) :
-		r"""The IPv6 address at which the remote NetScaler appliance connects to the tunnel.<br/>Minimum length =  1
-		"""
-		try :
-			self._remote = remote
-		except Exception as e:
-			raise e
+    @remote.setter
+    def remote(self, remote) :
+        """The IPv6 address at which the remote NetScaler appliance connects to the tunnel.<br/>Minimum length =  1
+
+        :param remote: 
+
+        """
+        try :
+            self._remote = remote
+        except Exception as e:
+            raise e
 

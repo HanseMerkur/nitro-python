@@ -22,237 +22,282 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class vpnvserver_intranetip_binding(base_resource) :
-	""" Binding class showing the intranetip that can be bound to vpnvserver.
-	"""
-	def __init__(self) :
-		self._intranetip = ""
-		self._netmask = ""
-		self._map = ""
-		self._acttype = 0
-		self._name = ""
-		self.___count = 0
+    """Binding class showing the intranetip that can be bound to vpnvserver."""
+    def __init__(self) :
+        self._intranetip = ""
+        self._netmask = ""
+        self._map = ""
+        self._acttype = 0
+        self._name = ""
+        self.___count = 0
 
-	@property
-	def name(self) :
-		r"""Name of the virtual server.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the virtual server.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the virtual server.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the virtual server.<br/>Minimum length =  1
 
-	@property
-	def intranetip(self) :
-		r"""The network ID for the range of intranet IP addresses or individual intranet IP addresses to be bound to the virtual server.
-		"""
-		try :
-			return self._intranetip
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@intranetip.setter
-	def intranetip(self, intranetip) :
-		r"""The network ID for the range of intranet IP addresses or individual intranet IP addresses to be bound to the virtual server.
-		"""
-		try :
-			self._intranetip = intranetip
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def netmask(self) :
-		r"""The netmask of the intranet IP address or range.
-		"""
-		try :
-			return self._netmask
-		except Exception as e:
-			raise e
+    @property
+    def intranetip(self) :
+        """The network ID for the range of intranet IP addresses or individual intranet IP addresses to be bound to the virtual server."""
+        try :
+            return self._intranetip
+        except Exception as e:
+            raise e
 
-	@netmask.setter
-	def netmask(self, netmask) :
-		r"""The netmask of the intranet IP address or range.
-		"""
-		try :
-			self._netmask = netmask
-		except Exception as e:
-			raise e
+    @intranetip.setter
+    def intranetip(self, intranetip) :
+        """The network ID for the range of intranet IP addresses or individual intranet IP addresses to be bound to the virtual server.
 
-	@property
-	def map(self) :
-		r"""Whether or not mapped IP addresses are ON or OFF. Mapped IP addresses are source IP addresses
-		for the virtual servers running on the NetScaler. Mapped IP addresses are used by the system to connect to the backend servers.<br/>Possible values = ON, OFF.
-		"""
-		try :
-			return self._map
-		except Exception as e:
-			raise e
+        :param intranetip: 
 
-	@property
-	def acttype(self) :
-		try :
-			return self._acttype
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._intranetip = intranetip
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(vpnvserver_intranetip_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.vpnvserver_intranetip_binding
-		except Exception as e :
-			raise e
+    @property
+    def netmask(self) :
+        """The netmask of the intranet IP address or range."""
+        try :
+            return self._netmask
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @netmask.setter
+    def netmask(self, netmask) :
+        """The netmask of the intranet IP address or range.
+
+        :param netmask: 
+
+        """
+        try :
+            self._netmask = netmask
+        except Exception as e:
+            raise e
+
+    @property
+    def map(self) :
+        """Whether or not mapped IP addresses are ON or OFF. Mapped IP addresses are source IP addresses
+        for the virtual servers running on the NetScaler. Mapped IP addresses are used by the system to connect to the backend servers.<br/>Possible values = ON, OFF.
 
 
+        """
+        try :
+            return self._map
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				updateresource = vpnvserver_intranetip_binding()
-				updateresource.name = resource.name
-				updateresource.intranetip = resource.intranetip
-				updateresource.netmask = resource.netmask
-				return updateresource.update_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					updateresources = [vpnvserver_intranetip_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].name = resource[i].name
-						updateresources[i].intranetip = resource[i].intranetip
-						updateresources[i].netmask = resource[i].netmask
-				return cls.update_bulk_request(client, updateresources)
-		except Exception as e :
-			raise e
+    @property
+    def acttype(self) :
+        """ """
+        try :
+            return self._acttype
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def delete(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				deleteresource = vpnvserver_intranetip_binding()
-				deleteresource.name = resource.name
-				deleteresource.intranetip = resource.intranetip
-				deleteresource.netmask = resource.netmask
-				return deleteresource.delete_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					deleteresources = [vpnvserver_intranetip_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						deleteresources[i].name = resource[i].name
-						deleteresources[i].intranetip = resource[i].intranetip
-						deleteresources[i].netmask = resource[i].netmask
-				return cls.delete_bulk_request(client, deleteresources)
-		except Exception as e :
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	@classmethod
-	def get(cls, service, name) :
-		r""" Use this API to fetch vpnvserver_intranetip_binding resources.
-		"""
-		try :
-			obj = vpnvserver_intranetip_binding()
-			obj.name = name
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+        :param service: 
+        :param response: 
 
-	@classmethod
-	def get_filtered(cls, service, name, filter_) :
-		r""" Use this API to fetch filtered set of vpnvserver_intranetip_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = vpnvserver_intranetip_binding()
-			obj.name = name
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(vpnvserver_intranetip_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.vpnvserver_intranetip_binding
+        except Exception as e :
+            raise e
 
-	@classmethod
-	def count(cls, service, name) :
-		r""" Use this API to count vpnvserver_intranetip_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = vpnvserver_intranetip_binding()
-			obj.name = name
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
-	@classmethod
-	def count_filtered(cls, service, name, filter_) :
-		r""" Use this API to count the filtered set of vpnvserver_intranetip_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = vpnvserver_intranetip_binding()
-			obj.name = name
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
 
-	class Map:
-		ON = "ON"
-		OFF = "OFF"
 
-	class Staaddresstype:
-		IPV4 = "IPV4"
-		IPV6 = "IPV6"
+    @classmethod
+    def add(cls, client, resource) :
+        """
 
-	class Bindpoint:
-		REQUEST = "REQUEST"
-		RESPONSE = "RESPONSE"
-		ICA_REQUEST = "ICA_REQUEST"
-		OTHERTCP_REQUEST = "OTHERTCP_REQUEST"
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if resource and type(resource) is not list :
+                updateresource = vpnvserver_intranetip_binding()
+                updateresource.name = resource.name
+                updateresource.intranetip = resource.intranetip
+                updateresource.netmask = resource.netmask
+                return updateresource.update_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    updateresources = [vpnvserver_intranetip_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].name = resource[i].name
+                        updateresources[i].intranetip = resource[i].intranetip
+                        updateresources[i].netmask = resource[i].netmask
+                return cls.update_bulk_request(client, updateresources)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if resource and type(resource) is not list :
+                deleteresource = vpnvserver_intranetip_binding()
+                deleteresource.name = resource.name
+                deleteresource.intranetip = resource.intranetip
+                deleteresource.netmask = resource.netmask
+                return deleteresource.delete_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    deleteresources = [vpnvserver_intranetip_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        deleteresources[i].name = resource[i].name
+                        deleteresources[i].intranetip = resource[i].intranetip
+                        deleteresources[i].netmask = resource[i].netmask
+                return cls.delete_bulk_request(client, deleteresources)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, service, name) :
+        """Use this API to fetch vpnvserver_intranetip_binding resources.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            obj = vpnvserver_intranetip_binding()
+            obj.name = name
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def get_filtered(cls, service, name, filter_) :
+        """Use this API to fetch filtered set of vpnvserver_intranetip_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param name: 
+        :param filter_: 
+
+        """
+        try :
+            obj = vpnvserver_intranetip_binding()
+            obj.name = name
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, name) :
+        """Use this API to count vpnvserver_intranetip_binding resources configued on NetScaler.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            obj = vpnvserver_intranetip_binding()
+            obj.name = name
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, name, filter_) :
+        """Use this API to count the filtered set of vpnvserver_intranetip_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param name: 
+        :param filter_: 
+
+        """
+        try :
+            obj = vpnvserver_intranetip_binding()
+            obj.name = name
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Map:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Staaddresstype:
+        """ """
+        IPV4 = "IPV4"
+        IPV6 = "IPV6"
+
+    class Bindpoint:
+        """ """
+        REQUEST = "REQUEST"
+        RESPONSE = "RESPONSE"
+        ICA_REQUEST = "ICA_REQUEST"
+        OTHERTCP_REQUEST = "OTHERTCP_REQUEST"
 
 class vpnvserver_intranetip_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.vpnvserver_intranetip_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.vpnvserver_intranetip_binding = [vpnvserver_intranetip_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.vpnvserver_intranetip_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.vpnvserver_intranetip_binding = [vpnvserver_intranetip_binding() for _ in range(length)]
 

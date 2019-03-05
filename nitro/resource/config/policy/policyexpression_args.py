@@ -16,30 +16,32 @@
 
 
 class policyexpression_args :
-	r""" Provides additional arguments required for fetching the policyexpression resource.
-	"""
-	def __init__(self) :
-		self._type = ""
+    """Provides additional arguments required for fetching the policyexpression resource."""
+    def __init__(self) :
+        self._type = ""
 
-	@property
-	def type(self) :
-		r"""Type of expression. Can be a classic or default syntax (advanced) expression.<br/>Possible values = CLASSIC, ADVANCED.
-		"""
-		try :
-			return self._type
-		except Exception as e:
-			raise e
+    @property
+    def type(self) :
+        """Type of expression. Can be a classic or default syntax (advanced) expression.<br/>Possible values = CLASSIC, ADVANCED."""
+        try :
+            return self._type
+        except Exception as e:
+            raise e
 
-	@type.setter
-	def type(self, type) :
-		r"""Type of expression. Can be a classic or default syntax (advanced) expression.<br/>Possible values = CLASSIC, ADVANCED
-		"""
-		try :
-			self._type = type
-		except Exception as e:
-			raise e
+    @type.setter
+    def type(self, type) :
+        """Type of expression. Can be a classic or default syntax (advanced) expression.<br/>Possible values = CLASSIC, ADVANCED
 
-	class Type:
-		CLASSIC = "CLASSIC"
-		ADVANCED = "ADVANCED"
+        :param type: 
+
+        """
+        try :
+            self._type = type
+        except Exception as e:
+            raise e
+
+    class Type:
+        """ """
+        CLASSIC = "CLASSIC"
+        ADVANCED = "ADVANCED"
 

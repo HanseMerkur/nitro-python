@@ -22,182 +22,187 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class vxlan_stats(base_resource) :
-	r""" Statistics for "VXLAN" resource.
-	"""
-	def __init__(self) :
-		self._id = 0
-		self._clearstats = ""
-		self._vxlantotrxpkts = 0
-		self._vxlanrxpktsrate = 0
-		self._vxlantotrxbytes = 0
-		self._vxlanrxbytesrate = 0
-		self._vxlantottxpkts = 0
-		self._vxlantxpktsrate = 0
-		self._vxlantottxbytes = 0
-		self._vxlantxbytesrate = 0
+    """Statistics for "VXLAN" resource."""
+    def __init__(self) :
+        self._id = 0
+        self._clearstats = ""
+        self._vxlantotrxpkts = 0
+        self._vxlanrxpktsrate = 0
+        self._vxlantotrxbytes = 0
+        self._vxlanrxbytesrate = 0
+        self._vxlantottxpkts = 0
+        self._vxlantxpktsrate = 0
+        self._vxlantottxbytes = 0
+        self._vxlantxbytesrate = 0
 
-	@property
-	def id(self) :
-		r"""An integer specifying the VXLAN identification number (VNID).<br/>Minimum value =  1<br/>Maximum value =  16777215.
-		"""
-		try :
-			return self._id
-		except Exception as e:
-			raise e
+    @property
+    def id(self) :
+        """An integer specifying the VXLAN identification number (VNID).<br/>Minimum value =  1<br/>Maximum value =  16777215."""
+        try :
+            return self._id
+        except Exception as e:
+            raise e
 
-	@id.setter
-	def id(self, id) :
-		r"""An integer specifying the VXLAN identification number (VNID).
-		"""
-		try :
-			self._id = id
-		except Exception as e:
-			raise e
+    @id.setter
+    def id(self, id) :
+        """An integer specifying the VXLAN identification number (VNID).
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+        :param id: 
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._id = id
+        except Exception as e:
+            raise e
 
-	@property
-	def vxlanrxbytesrate(self) :
-		r"""Rate (/s) counter for vxlantotrxbytes.
-		"""
-		try :
-			return self._vxlanrxbytesrate
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def vxlantottxpkts(self) :
-		r"""Packets transmitted on the VXLAN.
-		"""
-		try :
-			return self._vxlantottxpkts
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def vxlanrxpktsrate(self) :
-		r"""Rate (/s) counter for vxlantotrxpkts.
-		"""
-		try :
-			return self._vxlanrxpktsrate
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def vxlantotrxbytes(self) :
-		r"""Bytes of data received on the VXLAN.
-		"""
-		try :
-			return self._vxlantotrxbytes
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def vxlantxbytesrate(self) :
-		r"""Rate (/s) counter for vxlantottxbytes.
-		"""
-		try :
-			return self._vxlantxbytesrate
-		except Exception as e:
-			raise e
+    @property
+    def vxlanrxbytesrate(self) :
+        """Rate (/s) counter for vxlantotrxbytes."""
+        try :
+            return self._vxlanrxbytesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def vxlantxpktsrate(self) :
-		r"""Rate (/s) counter for vxlantottxpkts.
-		"""
-		try :
-			return self._vxlantxpktsrate
-		except Exception as e:
-			raise e
+    @property
+    def vxlantottxpkts(self) :
+        """Packets transmitted on the VXLAN."""
+        try :
+            return self._vxlantottxpkts
+        except Exception as e:
+            raise e
 
-	@property
-	def vxlantottxbytes(self) :
-		r"""Bytes of data transmitted on the VXLAN.
-		"""
-		try :
-			return self._vxlantottxbytes
-		except Exception as e:
-			raise e
+    @property
+    def vxlanrxpktsrate(self) :
+        """Rate (/s) counter for vxlantotrxpkts."""
+        try :
+            return self._vxlanrxpktsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def vxlantotrxpkts(self) :
-		r"""Packets received on the VXLAN.
-		"""
-		try :
-			return self._vxlantotrxpkts
-		except Exception as e:
-			raise e
+    @property
+    def vxlantotrxbytes(self) :
+        """Bytes of data received on the VXLAN."""
+        try :
+            return self._vxlantotrxbytes
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(vxlan_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.vxlan
-		except Exception as e :
-			raise e
+    @property
+    def vxlantxbytesrate(self) :
+        """Rate (/s) counter for vxlantottxbytes."""
+        try :
+            return self._vxlantxbytesrate
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.id is not None :
-				return str(self.id)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def vxlantxpktsrate(self) :
+        """Rate (/s) counter for vxlantottxpkts."""
+        try :
+            return self._vxlantxpktsrate
+        except Exception as e:
+            raise e
+
+    @property
+    def vxlantottxbytes(self) :
+        """Bytes of data transmitted on the VXLAN."""
+        try :
+            return self._vxlantottxbytes
+        except Exception as e:
+            raise e
+
+    @property
+    def vxlantotrxpkts(self) :
+        """Packets received on the VXLAN."""
+        try :
+            return self._vxlantotrxpkts
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(vxlan_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.vxlan
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.id is not None :
+                return str(self.id)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all vxlan_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = vxlan_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			else :
-				obj.id = name
-				response = obj.stat_resource(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all vxlan_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = vxlan_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            else :
+                obj.id = name
+                response = obj.stat_resource(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class vxlan_response(base_response) :
-	def __init__(self, length=1) :
-		self.vxlan = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.vxlan = [vxlan_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.vxlan = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.vxlan = [vxlan_stats() for _ in range(length)]
 

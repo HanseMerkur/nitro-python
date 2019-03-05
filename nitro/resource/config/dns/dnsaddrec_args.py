@@ -16,37 +16,42 @@
 
 
 class dnsaddrec_args :
-	r""" Provides additional arguments required for fetching the dnsaddrec resource.
-	"""
-	def __init__(self) :
-		self._type = ""
+    """Provides additional arguments required for fetching the dnsaddrec resource."""
+    def __init__(self) :
+        self._type = ""
 
-	@property
-	def type(self) :
-		r"""The address record type. The type can take 3 values:
-		ADNS -  If this is specified, all of the authoritative address records will be displayed.
-		PROXY - If this is specified, all of the proxy address records will be displayed.
-		ALL  -  If this is specified, all of the address records will be displayed.<br/>Possible values = ALL, ADNS, PROXY.
-		"""
-		try :
-			return self._type
-		except Exception as e:
-			raise e
+    @property
+    def type(self) :
+        """The address record type. The type can take 3 values:
+        ADNS -  If this is specified, all of the authoritative address records will be displayed.
+        PROXY - If this is specified, all of the proxy address records will be displayed.
+        ALL  -  If this is specified, all of the address records will be displayed.<br/>Possible values = ALL, ADNS, PROXY.
 
-	@type.setter
-	def type(self, type) :
-		r"""The address record type. The type can take 3 values:
-		ADNS -  If this is specified, all of the authoritative address records will be displayed.
-		PROXY - If this is specified, all of the proxy address records will be displayed.
-		ALL  -  If this is specified, all of the address records will be displayed.<br/>Possible values = ALL, ADNS, PROXY
-		"""
-		try :
-			self._type = type
-		except Exception as e:
-			raise e
 
-	class Type:
-		ALL = "ALL"
-		ADNS = "ADNS"
-		PROXY = "PROXY"
+        """
+        try :
+            return self._type
+        except Exception as e:
+            raise e
+
+    @type.setter
+    def type(self, type) :
+        """The address record type. The type can take 3 values:
+        ADNS -  If this is specified, all of the authoritative address records will be displayed.
+        PROXY - If this is specified, all of the proxy address records will be displayed.
+        ALL  -  If this is specified, all of the address records will be displayed.<br/>Possible values = ALL, ADNS, PROXY
+
+        :param type: 
+
+        """
+        try :
+            self._type = type
+        except Exception as e:
+            raise e
+
+    class Type:
+        """ """
+        ALL = "ALL"
+        ADNS = "ADNS"
+        PROXY = "PROXY"
 

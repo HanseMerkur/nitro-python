@@ -22,138 +22,162 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class systemcollectionparam(base_resource) :
-	""" Configuration for collection parameter resource. """
-	def __init__(self) :
-		self._communityname = ""
-		self._loglevel = ""
-		self._datapath = ""
+    """Configuration for collection parameter resource."""
+    def __init__(self) :
+        self._communityname = ""
+        self._loglevel = ""
+        self._datapath = ""
 
-	@property
-	def communityname(self) :
-		r"""SNMPv1 community name for authentication.
-		"""
-		try :
-			return self._communityname
-		except Exception as e:
-			raise e
+    @property
+    def communityname(self) :
+        """SNMPv1 community name for authentication."""
+        try :
+            return self._communityname
+        except Exception as e:
+            raise e
 
-	@communityname.setter
-	def communityname(self, communityname) :
-		r"""SNMPv1 community name for authentication.
-		"""
-		try :
-			self._communityname = communityname
-		except Exception as e:
-			raise e
+    @communityname.setter
+    def communityname(self, communityname) :
+        """SNMPv1 community name for authentication.
 
-	@property
-	def loglevel(self) :
-		r"""specify the log level. Possible values CRITICAL,WARNING,INFO,DEBUG1,DEBUG2.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._loglevel
-		except Exception as e:
-			raise e
+        :param communityname: 
 
-	@loglevel.setter
-	def loglevel(self, loglevel) :
-		r"""specify the log level. Possible values CRITICAL,WARNING,INFO,DEBUG1,DEBUG2.<br/>Minimum length =  1
-		"""
-		try :
-			self._loglevel = loglevel
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._communityname = communityname
+        except Exception as e:
+            raise e
 
-	@property
-	def datapath(self) :
-		r"""specify the data path to the database.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._datapath
-		except Exception as e:
-			raise e
+    @property
+    def loglevel(self) :
+        """specify the log level. Possible values CRITICAL,WARNING,INFO,DEBUG1,DEBUG2.<br/>Minimum length =  1."""
+        try :
+            return self._loglevel
+        except Exception as e:
+            raise e
 
-	@datapath.setter
-	def datapath(self, datapath) :
-		r"""specify the data path to the database.<br/>Minimum length =  1
-		"""
-		try :
-			self._datapath = datapath
-		except Exception as e:
-			raise e
+    @loglevel.setter
+    def loglevel(self, loglevel) :
+        """specify the log level. Possible values CRITICAL,WARNING,INFO,DEBUG1,DEBUG2.<br/>Minimum length =  1
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(systemcollectionparam_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.systemcollectionparam
-		except Exception as e :
-			raise e
+        :param loglevel: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._loglevel = loglevel
+        except Exception as e:
+            raise e
+
+    @property
+    def datapath(self) :
+        """specify the data path to the database.<br/>Minimum length =  1."""
+        try :
+            return self._datapath
+        except Exception as e:
+            raise e
+
+    @datapath.setter
+    def datapath(self, datapath) :
+        """specify the data path to the database.<br/>Minimum length =  1
+
+        :param datapath: 
+
+        """
+        try :
+            self._datapath = datapath
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(systemcollectionparam_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.systemcollectionparam
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update systemcollectionparam.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = systemcollectionparam()
-				updateresource.communityname = resource.communityname
-				updateresource.loglevel = resource.loglevel
-				updateresource.datapath = resource.datapath
-				return updateresource.update_resource(client)
-		except Exception as e :
-			raise e
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update systemcollectionparam.
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of systemcollectionparam resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = systemcollectionparam()
-				return unsetresource.unset_resource(client, args)
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the systemcollectionparam resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = systemcollectionparam()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = systemcollectionparam()
+                updateresource.communityname = resource.communityname
+                updateresource.loglevel = resource.loglevel
+                updateresource.datapath = resource.datapath
+                return updateresource.update_resource(client)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of systemcollectionparam resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = systemcollectionparam()
+                return unsetresource.unset_resource(client, args)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the systemcollectionparam resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = systemcollectionparam()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
 class systemcollectionparam_response(base_response) :
-	def __init__(self, length=1) :
-		self.systemcollectionparam = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.systemcollectionparam = [systemcollectionparam() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.systemcollectionparam = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.systemcollectionparam = [systemcollectionparam() for _ in range(length)]
 

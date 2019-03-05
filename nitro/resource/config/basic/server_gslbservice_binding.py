@@ -22,245 +22,267 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class server_gslbservice_binding(base_resource) :
-	""" Binding class showing the gslbservice that can be bound to server.
-	"""
-	def __init__(self) :
-		self._servicename = ""
-		self._svctype = ""
-		self._serviceipaddress = ""
-		self._port = 0
-		self._svrstate = ""
-		self._serviceipstr = ""
-		self._name = ""
-		self.___count = 0
+    """Binding class showing the gslbservice that can be bound to server."""
+    def __init__(self) :
+        self._servicename = ""
+        self._svctype = ""
+        self._serviceipaddress = ""
+        self._port = 0
+        self._svrstate = ""
+        self._serviceipstr = ""
+        self._name = ""
+        self.___count = 0
 
-	@property
-	def name(self) :
-		r"""Name of the server for which to display parameters.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the server for which to display parameters.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the server for which to display parameters.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the server for which to display parameters.<br/>Minimum length =  1
 
-	@property
-	def servicename(self) :
-		r"""The services attatched to the server.
-		"""
-		try :
-			return self._servicename
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@servicename.setter
-	def servicename(self, servicename) :
-		r"""The services attatched to the server.
-		"""
-		try :
-			self._servicename = servicename
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def serviceipstr(self) :
-		r"""This field has been intorduced to show the dbs services ip.
-		"""
-		try :
-			return self._serviceipstr
-		except Exception as e:
-			raise e
+    @property
+    def servicename(self) :
+        """The services attatched to the server."""
+        try :
+            return self._servicename
+        except Exception as e:
+            raise e
 
-	@property
-	def svctype(self) :
-		r"""The type of bound service.<br/>Possible values = HTTP, FTP, TCP, UDP, SSL, SSL_BRIDGE, SSL_TCP, DTLS, NNTP, RPCSVR, DNS, ADNS, SNMP, RTSP, DHCPRA, ANY, SIP_UDP, SIP_TCP, SIP_SSL, DNS_TCP, ADNS_TCP, MYSQL, MSSQL, ORACLE, RADIUS, RADIUSListener, RDP, DIAMETER, SSL_DIAMETER, TFTP, SMPP, PPTP, GRE, SYSLOGTCP, SYSLOGUDP, FIX.
-		"""
-		try :
-			return self._svctype
-		except Exception as e:
-			raise e
+    @servicename.setter
+    def servicename(self, servicename) :
+        """The services attatched to the server.
 
-	@property
-	def svrstate(self) :
-		r"""The state of the bound service.<br/>Possible values = UP, DOWN, UNKNOWN, BUSY, OUT OF SERVICE, GOING OUT OF SERVICE, DOWN WHEN GOING OUT OF SERVICE, NS_EMPTY_STR, Unknown, DISABLED.
-		"""
-		try :
-			return self._svrstate
-		except Exception as e:
-			raise e
+        :param servicename: 
 
-	@property
-	def port(self) :
-		r"""The port number to be used for the bound service.<br/>Range 1 - 65535.
-		"""
-		try :
-			return self._port
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._servicename = servicename
+        except Exception as e:
+            raise e
 
-	@property
-	def serviceipaddress(self) :
-		r"""The IP address of the bound service.
-		"""
-		try :
-			return self._serviceipaddress
-		except Exception as e:
-			raise e
+    @property
+    def serviceipstr(self) :
+        """This field has been intorduced to show the dbs services ip."""
+        try :
+            return self._serviceipstr
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(server_gslbservice_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.server_gslbservice_binding
-		except Exception as e :
-			raise e
+    @property
+    def svctype(self) :
+        """The type of bound service.<br/>Possible values = HTTP, FTP, TCP, UDP, SSL, SSL_BRIDGE, SSL_TCP, DTLS, NNTP, RPCSVR, DNS, ADNS, SNMP, RTSP, DHCPRA, ANY, SIP_UDP, SIP_TCP, SIP_SSL, DNS_TCP, ADNS_TCP, MYSQL, MSSQL, ORACLE, RADIUS, RADIUSListener, RDP, DIAMETER, SSL_DIAMETER, TFTP, SMPP, PPTP, GRE, SYSLOGTCP, SYSLOGUDP, FIX."""
+        try :
+            return self._svctype
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def svrstate(self) :
+        """The state of the bound service.<br/>Possible values = UP, DOWN, UNKNOWN, BUSY, OUT OF SERVICE, GOING OUT OF SERVICE, DOWN WHEN GOING OUT OF SERVICE, NS_EMPTY_STR, Unknown, DISABLED."""
+        try :
+            return self._svrstate
+        except Exception as e:
+            raise e
+
+    @property
+    def port(self) :
+        """The port number to be used for the bound service.<br/>Range 1 - 65535."""
+        try :
+            return self._port
+        except Exception as e:
+            raise e
+
+    @property
+    def serviceipaddress(self) :
+        """The IP address of the bound service."""
+        try :
+            return self._serviceipaddress
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(server_gslbservice_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.server_gslbservice_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(cls, service, name) :
-		r""" Use this API to fetch server_gslbservice_binding resources.
-		"""
-		try :
-			obj = server_gslbservice_binding()
-			obj.name = name
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(cls, service, name) :
+        """Use this API to fetch server_gslbservice_binding resources.
 
-	@classmethod
-	def get_filtered(cls, service, name, filter_) :
-		r""" Use this API to fetch filtered set of server_gslbservice_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = server_gslbservice_binding()
-			obj.name = name
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+        :param service: 
+        :param name: 
 
-	@classmethod
-	def count(cls, service, name) :
-		r""" Use this API to count server_gslbservice_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = server_gslbservice_binding()
-			obj.name = name
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            obj = server_gslbservice_binding()
+            obj.name = name
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def count_filtered(cls, service, name, filter_) :
-		r""" Use this API to count the filtered set of server_gslbservice_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = server_gslbservice_binding()
-			obj.name = name
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    @classmethod
+    def get_filtered(cls, service, name, filter_) :
+        """Use this API to fetch filtered set of server_gslbservice_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	class Svctype:
-		HTTP = "HTTP"
-		FTP = "FTP"
-		TCP = "TCP"
-		UDP = "UDP"
-		SSL = "SSL"
-		SSL_BRIDGE = "SSL_BRIDGE"
-		SSL_TCP = "SSL_TCP"
-		DTLS = "DTLS"
-		NNTP = "NNTP"
-		RPCSVR = "RPCSVR"
-		DNS = "DNS"
-		ADNS = "ADNS"
-		SNMP = "SNMP"
-		RTSP = "RTSP"
-		DHCPRA = "DHCPRA"
-		ANY = "ANY"
-		SIP_UDP = "SIP_UDP"
-		SIP_TCP = "SIP_TCP"
-		SIP_SSL = "SIP_SSL"
-		DNS_TCP = "DNS_TCP"
-		ADNS_TCP = "ADNS_TCP"
-		MYSQL = "MYSQL"
-		MSSQL = "MSSQL"
-		ORACLE = "ORACLE"
-		RADIUS = "RADIUS"
-		RADIUSListener = "RADIUSListener"
-		RDP = "RDP"
-		DIAMETER = "DIAMETER"
-		SSL_DIAMETER = "SSL_DIAMETER"
-		TFTP = "TFTP"
-		SMPP = "SMPP"
-		PPTP = "PPTP"
-		GRE = "GRE"
-		SYSLOGTCP = "SYSLOGTCP"
-		SYSLOGUDP = "SYSLOGUDP"
-		FIX = "FIX"
+        :param service: 
+        :param name: 
+        :param filter_: 
 
-	class Svrstate:
-		UP = "UP"
-		DOWN = "DOWN"
-		UNKNOWN = "UNKNOWN"
-		BUSY = "BUSY"
-		OUT_OF_SERVICE = "OUT OF SERVICE"
-		GOING_OUT_OF_SERVICE = "GOING OUT OF SERVICE"
-		DOWN_WHEN_GOING_OUT_OF_SERVICE = "DOWN WHEN GOING OUT OF SERVICE"
-		NS_EMPTY_STR = "NS_EMPTY_STR"
-		Unknown = "Unknown"
-		DISABLED = "DISABLED"
+        """
+        try :
+            obj = server_gslbservice_binding()
+            obj.name = name
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, name) :
+        """Use this API to count server_gslbservice_binding resources configued on NetScaler.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            obj = server_gslbservice_binding()
+            obj.name = name
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, name, filter_) :
+        """Use this API to count the filtered set of server_gslbservice_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param name: 
+        :param filter_: 
+
+        """
+        try :
+            obj = server_gslbservice_binding()
+            obj.name = name
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Svctype:
+        """ """
+        HTTP = "HTTP"
+        FTP = "FTP"
+        TCP = "TCP"
+        UDP = "UDP"
+        SSL = "SSL"
+        SSL_BRIDGE = "SSL_BRIDGE"
+        SSL_TCP = "SSL_TCP"
+        DTLS = "DTLS"
+        NNTP = "NNTP"
+        RPCSVR = "RPCSVR"
+        DNS = "DNS"
+        ADNS = "ADNS"
+        SNMP = "SNMP"
+        RTSP = "RTSP"
+        DHCPRA = "DHCPRA"
+        ANY = "ANY"
+        SIP_UDP = "SIP_UDP"
+        SIP_TCP = "SIP_TCP"
+        SIP_SSL = "SIP_SSL"
+        DNS_TCP = "DNS_TCP"
+        ADNS_TCP = "ADNS_TCP"
+        MYSQL = "MYSQL"
+        MSSQL = "MSSQL"
+        ORACLE = "ORACLE"
+        RADIUS = "RADIUS"
+        RADIUSListener = "RADIUSListener"
+        RDP = "RDP"
+        DIAMETER = "DIAMETER"
+        SSL_DIAMETER = "SSL_DIAMETER"
+        TFTP = "TFTP"
+        SMPP = "SMPP"
+        PPTP = "PPTP"
+        GRE = "GRE"
+        SYSLOGTCP = "SYSLOGTCP"
+        SYSLOGUDP = "SYSLOGUDP"
+        FIX = "FIX"
+
+    class Svrstate:
+        """ """
+        UP = "UP"
+        DOWN = "DOWN"
+        UNKNOWN = "UNKNOWN"
+        BUSY = "BUSY"
+        OUT_OF_SERVICE = "OUT OF SERVICE"
+        GOING_OUT_OF_SERVICE = "GOING OUT OF SERVICE"
+        DOWN_WHEN_GOING_OUT_OF_SERVICE = "DOWN WHEN GOING OUT OF SERVICE"
+        NS_EMPTY_STR = "NS_EMPTY_STR"
+        Unknown = "Unknown"
+        DISABLED = "DISABLED"
 
 class server_gslbservice_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.server_gslbservice_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.server_gslbservice_binding = [server_gslbservice_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.server_gslbservice_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.server_gslbservice_binding = [server_gslbservice_binding() for _ in range(length)]
 

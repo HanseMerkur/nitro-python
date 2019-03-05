@@ -22,297 +22,344 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class vpnglobal_vpnclientlessaccesspolicy_binding(base_resource) :
-	""" Binding class showing the vpnclientlessaccesspolicy that can be bound to vpnglobal.
-	"""
-	def __init__(self) :
-		self._policyname = ""
-		self._priority = 0
-		self._type = ""
-		self._builtin = []
-		self._globalbindtype = ""
-		self._secondary = False
-		self._groupextraction = False
-		self.___count = 0
+    """Binding class showing the vpnclientlessaccesspolicy that can be bound to vpnglobal."""
+    def __init__(self) :
+        self._policyname = ""
+        self._priority = 0
+        self._type = ""
+        self._builtin = []
+        self._globalbindtype = ""
+        self._secondary = False
+        self._groupextraction = False
+        self.___count = 0
 
-	@property
-	def priority(self) :
-		r"""The priority of the policy.
-		"""
-		try :
-			return self._priority
-		except Exception as e:
-			raise e
+    @property
+    def priority(self) :
+        """The priority of the policy."""
+        try :
+            return self._priority
+        except Exception as e:
+            raise e
 
-	@priority.setter
-	def priority(self, priority) :
-		r"""The priority of the policy.
-		"""
-		try :
-			self._priority = priority
-		except Exception as e:
-			raise e
+    @priority.setter
+    def priority(self, priority) :
+        """The priority of the policy.
 
-	@property
-	def globalbindtype(self) :
-		r""".<br/>Possible values = SYSTEM_GLOBAL, VPN_GLOBAL, RNAT_GLOBAL.
-		"""
-		try :
-			return self._globalbindtype
-		except Exception as e:
-			raise e
+        :param priority: 
 
-	@globalbindtype.setter
-	def globalbindtype(self, globalbindtype) :
-		r""".<br/>Possible values = SYSTEM_GLOBAL, VPN_GLOBAL, RNAT_GLOBAL
-		"""
-		try :
-			self._globalbindtype = globalbindtype
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._priority = priority
+        except Exception as e:
+            raise e
 
-	@property
-	def builtin(self) :
-		r"""Indicates that a variable is a built-in (SYSTEM INTERNAL) type.<br/>Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL.
-		"""
-		try :
-			return self._builtin
-		except Exception as e:
-			raise e
+    @property
+    def globalbindtype(self) :
+        """.<br/>Possible values = SYSTEM_GLOBAL, VPN_GLOBAL, RNAT_GLOBAL."""
+        try :
+            return self._globalbindtype
+        except Exception as e:
+            raise e
 
-	@builtin.setter
-	def builtin(self, builtin) :
-		r"""Indicates that a variable is a built-in (SYSTEM INTERNAL) type.<br/>Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL
-		"""
-		try :
-			self._builtin = builtin
-		except Exception as e:
-			raise e
+    @globalbindtype.setter
+    def globalbindtype(self, globalbindtype) :
+        """.<br/>Possible values = SYSTEM_GLOBAL, VPN_GLOBAL, RNAT_GLOBAL
 
-	@property
-	def policyname(self) :
-		r"""The name of the policy.
-		"""
-		try :
-			return self._policyname
-		except Exception as e:
-			raise e
+        :param globalbindtype: 
 
-	@policyname.setter
-	def policyname(self, policyname) :
-		r"""The name of the policy.
-		"""
-		try :
-			self._policyname = policyname
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._globalbindtype = globalbindtype
+        except Exception as e:
+            raise e
 
-	@property
-	def secondary(self) :
-		r"""Bind the authentication policy as the secondary policy to use in a two-factor configuration. A user must then authenticate not only to a primary authentication server but also to a secondary authentication server. User groups are aggregated across both authentication servers. The user name must be exactly the same on both authentication servers, but the authentication servers can require different passwords.
-		"""
-		try :
-			return self._secondary
-		except Exception as e:
-			raise e
+    @property
+    def builtin(self) :
+        """Indicates that a variable is a built-in (SYSTEM INTERNAL) type.<br/>Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL."""
+        try :
+            return self._builtin
+        except Exception as e:
+            raise e
 
-	@secondary.setter
-	def secondary(self, secondary) :
-		r"""Bind the authentication policy as the secondary policy to use in a two-factor configuration. A user must then authenticate not only to a primary authentication server but also to a secondary authentication server. User groups are aggregated across both authentication servers. The user name must be exactly the same on both authentication servers, but the authentication servers can require different passwords.
-		"""
-		try :
-			self._secondary = secondary
-		except Exception as e:
-			raise e
+    @builtin.setter
+    def builtin(self, builtin) :
+        """Indicates that a variable is a built-in (SYSTEM INTERNAL) type.<br/>Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL
 
-	@property
-	def type(self) :
-		r"""Bindpoint to which the policy is bound.<br/>Possible values = REQ_OVERRIDE, REQ_DEFAULT, RES_OVERRIDE, RES_DEFAULT.
-		"""
-		try :
-			return self._type
-		except Exception as e:
-			raise e
+        :param builtin: 
 
-	@type.setter
-	def type(self, type) :
-		r"""Bindpoint to which the policy is bound.<br/>Possible values = REQ_OVERRIDE, REQ_DEFAULT, RES_OVERRIDE, RES_DEFAULT
-		"""
-		try :
-			self._type = type
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._builtin = builtin
+        except Exception as e:
+            raise e
 
-	@property
-	def groupextraction(self) :
-		r"""Bind the Authentication policy to a tertiary chain which will be used only for group extraction.  The user will not authenticate against this server, and this will only be called it primary and/or secondary authentication has succeeded.
-		"""
-		try :
-			return self._groupextraction
-		except Exception as e:
-			raise e
+    @property
+    def policyname(self) :
+        """The name of the policy."""
+        try :
+            return self._policyname
+        except Exception as e:
+            raise e
 
-	@groupextraction.setter
-	def groupextraction(self, groupextraction) :
-		r"""Bind the Authentication policy to a tertiary chain which will be used only for group extraction.  The user will not authenticate against this server, and this will only be called it primary and/or secondary authentication has succeeded.
-		"""
-		try :
-			self._groupextraction = groupextraction
-		except Exception as e:
-			raise e
+    @policyname.setter
+    def policyname(self, policyname) :
+        """The name of the policy.
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(vpnglobal_vpnclientlessaccesspolicy_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.vpnglobal_vpnclientlessaccesspolicy_binding
-		except Exception as e :
-			raise e
+        :param policyname: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._policyname = policyname
+        except Exception as e:
+            raise e
+
+    @property
+    def secondary(self) :
+        """Bind the authentication policy as the secondary policy to use in a two-factor configuration. A user must then authenticate not only to a primary authentication server but also to a secondary authentication server. User groups are aggregated across both authentication servers. The user name must be exactly the same on both authentication servers, but the authentication servers can require different passwords."""
+        try :
+            return self._secondary
+        except Exception as e:
+            raise e
+
+    @secondary.setter
+    def secondary(self, secondary) :
+        """Bind the authentication policy as the secondary policy to use in a two-factor configuration. A user must then authenticate not only to a primary authentication server but also to a secondary authentication server. User groups are aggregated across both authentication servers. The user name must be exactly the same on both authentication servers, but the authentication servers can require different passwords.
+
+        :param secondary: 
+
+        """
+        try :
+            self._secondary = secondary
+        except Exception as e:
+            raise e
+
+    @property
+    def type(self) :
+        """Bindpoint to which the policy is bound.<br/>Possible values = REQ_OVERRIDE, REQ_DEFAULT, RES_OVERRIDE, RES_DEFAULT."""
+        try :
+            return self._type
+        except Exception as e:
+            raise e
+
+    @type.setter
+    def type(self, type) :
+        """Bindpoint to which the policy is bound.<br/>Possible values = REQ_OVERRIDE, REQ_DEFAULT, RES_OVERRIDE, RES_DEFAULT
+
+        :param type: 
+
+        """
+        try :
+            self._type = type
+        except Exception as e:
+            raise e
+
+    @property
+    def groupextraction(self) :
+        """Bind the Authentication policy to a tertiary chain which will be used only for group extraction.  The user will not authenticate against this server, and this will only be called it primary and/or secondary authentication has succeeded."""
+        try :
+            return self._groupextraction
+        except Exception as e:
+            raise e
+
+    @groupextraction.setter
+    def groupextraction(self, groupextraction) :
+        """Bind the Authentication policy to a tertiary chain which will be used only for group extraction.  The user will not authenticate against this server, and this will only be called it primary and/or secondary authentication has succeeded.
+
+        :param groupextraction: 
+
+        """
+        try :
+            self._groupextraction = groupextraction
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(vpnglobal_vpnclientlessaccesspolicy_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.vpnglobal_vpnclientlessaccesspolicy_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def add(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				updateresource = vpnglobal_vpnclientlessaccesspolicy_binding()
-				updateresource.policyname = resource.policyname
-				updateresource.priority = resource.priority
-				updateresource.secondary = resource.secondary
-				updateresource.groupextraction = resource.groupextraction
-				return updateresource.update_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					updateresources = [vpnglobal_vpnclientlessaccesspolicy_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].policyname = resource[i].policyname
-						updateresources[i].priority = resource[i].priority
-						updateresources[i].secondary = resource[i].secondary
-						updateresources[i].groupextraction = resource[i].groupextraction
-				return cls.update_bulk_request(client, updateresources)
-		except Exception as e :
-			raise e
+    @classmethod
+    def add(cls, client, resource) :
+        """
 
-	@classmethod
-	def delete(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				deleteresource = vpnglobal_vpnclientlessaccesspolicy_binding()
-				deleteresource.policyname = resource.policyname
-				deleteresource.secondary = resource.secondary
-				deleteresource.groupextraction = resource.groupextraction
-				return deleteresource.delete_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					deleteresources = [vpnglobal_vpnclientlessaccesspolicy_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						deleteresources[i].policyname = resource[i].policyname
-						deleteresources[i].secondary = resource[i].secondary
-						deleteresources[i].groupextraction = resource[i].groupextraction
-				return cls.delete_bulk_request(client, deleteresources)
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def get(cls, service) :
-		r""" Use this API to fetch a vpnglobal_vpnclientlessaccesspolicy_binding resources.
-		"""
-		try :
-			obj = vpnglobal_vpnclientlessaccesspolicy_binding()
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+        """
+        try :
+            if resource and type(resource) is not list :
+                updateresource = vpnglobal_vpnclientlessaccesspolicy_binding()
+                updateresource.policyname = resource.policyname
+                updateresource.priority = resource.priority
+                updateresource.secondary = resource.secondary
+                updateresource.groupextraction = resource.groupextraction
+                return updateresource.update_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    updateresources = [vpnglobal_vpnclientlessaccesspolicy_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].policyname = resource[i].policyname
+                        updateresources[i].priority = resource[i].priority
+                        updateresources[i].secondary = resource[i].secondary
+                        updateresources[i].groupextraction = resource[i].groupextraction
+                return cls.update_bulk_request(client, updateresources)
+        except Exception as e :
+            raise e
 
-	@classmethod
-	def get_filtered(cls, service, filter_) :
-		r""" Use this API to fetch filtered set of vpnglobal_vpnclientlessaccesspolicy_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = vpnglobal_vpnclientlessaccesspolicy_binding()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def delete(cls, client, resource) :
+        """
 
-	@classmethod
-	def count(cls, service) :
-		r""" Use this API to count vpnglobal_vpnclientlessaccesspolicy_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = vpnglobal_vpnclientlessaccesspolicy_binding()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def count_filtered(cls, service, filter_) :
-		r""" Use this API to count the filtered set of vpnglobal_vpnclientlessaccesspolicy_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = vpnglobal_vpnclientlessaccesspolicy_binding()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            if resource and type(resource) is not list :
+                deleteresource = vpnglobal_vpnclientlessaccesspolicy_binding()
+                deleteresource.policyname = resource.policyname
+                deleteresource.secondary = resource.secondary
+                deleteresource.groupextraction = resource.groupextraction
+                return deleteresource.delete_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    deleteresources = [vpnglobal_vpnclientlessaccesspolicy_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        deleteresources[i].policyname = resource[i].policyname
+                        deleteresources[i].secondary = resource[i].secondary
+                        deleteresources[i].groupextraction = resource[i].groupextraction
+                return cls.delete_bulk_request(client, deleteresources)
+        except Exception as e :
+            raise e
 
-	class Globalbindtype:
-		SYSTEM_GLOBAL = "SYSTEM_GLOBAL"
-		VPN_GLOBAL = "VPN_GLOBAL"
-		RNAT_GLOBAL = "RNAT_GLOBAL"
+    @classmethod
+    def get(cls, service) :
+        """Use this API to fetch a vpnglobal_vpnclientlessaccesspolicy_binding resources.
 
-	class Builtin:
-		MODIFIABLE = "MODIFIABLE"
-		DELETABLE = "DELETABLE"
-		IMMUTABLE = "IMMUTABLE"
-		PARTITION_ALL = "PARTITION_ALL"
+        :param service: 
 
-	class Type:
-		REQ_OVERRIDE = "REQ_OVERRIDE"
-		REQ_DEFAULT = "REQ_DEFAULT"
-		RES_OVERRIDE = "RES_OVERRIDE"
-		RES_DEFAULT = "RES_DEFAULT"
+        """
+        try :
+            obj = vpnglobal_vpnclientlessaccesspolicy_binding()
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	class Staaddresstype:
-		IPV4 = "IPV4"
-		IPV6 = "IPV6"
+    @classmethod
+    def get_filtered(cls, service, filter_) :
+        """Use this API to fetch filtered set of vpnglobal_vpnclientlessaccesspolicy_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param filter_: 
+
+        """
+        try :
+            obj = vpnglobal_vpnclientlessaccesspolicy_binding()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service) :
+        """Use this API to count vpnglobal_vpnclientlessaccesspolicy_binding resources configued on NetScaler.
+
+        :param service: 
+
+        """
+        try :
+            obj = vpnglobal_vpnclientlessaccesspolicy_binding()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, filter_) :
+        """Use this API to count the filtered set of vpnglobal_vpnclientlessaccesspolicy_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param filter_: 
+
+        """
+        try :
+            obj = vpnglobal_vpnclientlessaccesspolicy_binding()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Globalbindtype:
+        """ """
+        SYSTEM_GLOBAL = "SYSTEM_GLOBAL"
+        VPN_GLOBAL = "VPN_GLOBAL"
+        RNAT_GLOBAL = "RNAT_GLOBAL"
+
+    class Builtin:
+        """ """
+        MODIFIABLE = "MODIFIABLE"
+        DELETABLE = "DELETABLE"
+        IMMUTABLE = "IMMUTABLE"
+        PARTITION_ALL = "PARTITION_ALL"
+
+    class Type:
+        """ """
+        REQ_OVERRIDE = "REQ_OVERRIDE"
+        REQ_DEFAULT = "REQ_DEFAULT"
+        RES_OVERRIDE = "RES_OVERRIDE"
+        RES_DEFAULT = "RES_DEFAULT"
+
+    class Staaddresstype:
+        """ """
+        IPV4 = "IPV4"
+        IPV6 = "IPV6"
 
 class vpnglobal_vpnclientlessaccesspolicy_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.vpnglobal_vpnclientlessaccesspolicy_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.vpnglobal_vpnclientlessaccesspolicy_binding = [vpnglobal_vpnclientlessaccesspolicy_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.vpnglobal_vpnclientlessaccesspolicy_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.vpnglobal_vpnclientlessaccesspolicy_binding = [vpnglobal_vpnclientlessaccesspolicy_binding() for _ in range(length)]
 

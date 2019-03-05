@@ -22,188 +22,188 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class nssimpleacl_stats(base_resource) :
-	r""" Statistics for simple ACL resource.
-	"""
-	def __init__(self) :
-		self._clearstats = ""
-		self._sacltothits = 0
-		self._saclhitsrate = 0
-		self._sacltotmisses = 0
-		self._saclmissesrate = 0
-		self._saclscount = 0
-		self._sacltotpktsallowed = 0
-		self._saclpktsallowedrate = 0
-		self._sacltotpktsbridged = 0
-		self._saclpktsbridgedrate = 0
-		self._sacltotpktsdenied = 0
-		self._saclpktsdeniedrate = 0
+    """Statistics for simple ACL resource."""
+    def __init__(self) :
+        self._clearstats = ""
+        self._sacltothits = 0
+        self._saclhitsrate = 0
+        self._sacltotmisses = 0
+        self._saclmissesrate = 0
+        self._saclscount = 0
+        self._sacltotpktsallowed = 0
+        self._saclpktsallowedrate = 0
+        self._sacltotpktsbridged = 0
+        self._saclpktsbridgedrate = 0
+        self._sacltotpktsdenied = 0
+        self._saclpktsdeniedrate = 0
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def sacltothits(self) :
-		r"""Packets matching a SimpleACL.
-		"""
-		try :
-			return self._sacltothits
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def saclscount(self) :
-		r"""Number of SimpleACLs configured.
-		"""
-		try :
-			return self._saclscount
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def saclhitsrate(self) :
-		r"""Rate (/s) counter for sacltothits.
-		"""
-		try :
-			return self._saclhitsrate
-		except Exception as e:
-			raise e
+    @property
+    def sacltothits(self) :
+        """Packets matching a SimpleACL."""
+        try :
+            return self._sacltothits
+        except Exception as e:
+            raise e
 
-	@property
-	def saclpktsbridgedrate(self) :
-		r"""Rate (/s) counter for sacltotpktsbridged.
-		"""
-		try :
-			return self._saclpktsbridgedrate
-		except Exception as e:
-			raise e
+    @property
+    def saclscount(self) :
+        """Number of SimpleACLs configured."""
+        try :
+            return self._saclscount
+        except Exception as e:
+            raise e
 
-	@property
-	def sacltotpktsdenied(self) :
-		r"""Packets dropped because they match SimpleACL (Access Control List) with processing mode set to DENY.
-		"""
-		try :
-			return self._sacltotpktsdenied
-		except Exception as e:
-			raise e
+    @property
+    def saclhitsrate(self) :
+        """Rate (/s) counter for sacltothits."""
+        try :
+            return self._saclhitsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def sacltotmisses(self) :
-		r"""Packets not matching any SimpleACL.
-		"""
-		try :
-			return self._sacltotmisses
-		except Exception as e:
-			raise e
+    @property
+    def saclpktsbridgedrate(self) :
+        """Rate (/s) counter for sacltotpktsbridged."""
+        try :
+            return self._saclpktsbridgedrate
+        except Exception as e:
+            raise e
 
-	@property
-	def saclmissesrate(self) :
-		r"""Rate (/s) counter for sacltotmisses.
-		"""
-		try :
-			return self._saclmissesrate
-		except Exception as e:
-			raise e
+    @property
+    def sacltotpktsdenied(self) :
+        """Packets dropped because they match SimpleACL (Access Control List) with processing mode set to DENY."""
+        try :
+            return self._sacltotpktsdenied
+        except Exception as e:
+            raise e
 
-	@property
-	def saclpktsallowedrate(self) :
-		r"""Rate (/s) counter for sacltotpktsallowed.
-		"""
-		try :
-			return self._saclpktsallowedrate
-		except Exception as e:
-			raise e
+    @property
+    def sacltotmisses(self) :
+        """Packets not matching any SimpleACL."""
+        try :
+            return self._sacltotmisses
+        except Exception as e:
+            raise e
 
-	@property
-	def sacltotpktsbridged(self) :
-		r"""Total packets that matched a SimpleACL with action BRIDGE and got bridged by NetScaler.
-		"""
-		try :
-			return self._sacltotpktsbridged
-		except Exception as e:
-			raise e
+    @property
+    def saclmissesrate(self) :
+        """Rate (/s) counter for sacltotmisses."""
+        try :
+            return self._saclmissesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def saclpktsdeniedrate(self) :
-		r"""Rate (/s) counter for sacltotpktsdenied.
-		"""
-		try :
-			return self._saclpktsdeniedrate
-		except Exception as e:
-			raise e
+    @property
+    def saclpktsallowedrate(self) :
+        """Rate (/s) counter for sacltotpktsallowed."""
+        try :
+            return self._saclpktsallowedrate
+        except Exception as e:
+            raise e
 
-	@property
-	def sacltotpktsallowed(self) :
-		r"""Total packets that matched a SimpleACL with action ALLOW and got consumed by NetScaler.
-		"""
-		try :
-			return self._sacltotpktsallowed
-		except Exception as e:
-			raise e
+    @property
+    def sacltotpktsbridged(self) :
+        """Total packets that matched a SimpleACL with action BRIDGE and got bridged by NetScaler."""
+        try :
+            return self._sacltotpktsbridged
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(nssimpleacl_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.nssimpleacl
-		except Exception as e :
-			raise e
+    @property
+    def saclpktsdeniedrate(self) :
+        """Rate (/s) counter for sacltotpktsdenied."""
+        try :
+            return self._saclpktsdeniedrate
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @property
+    def sacltotpktsallowed(self) :
+        """Total packets that matched a SimpleACL with action ALLOW and got consumed by NetScaler."""
+        try :
+            return self._sacltotpktsallowed
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(nssimpleacl_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.nssimpleacl
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all nssimpleacl_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = nssimpleacl_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all nssimpleacl_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = nssimpleacl_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class nssimpleacl_response(base_response) :
-	def __init__(self, length=1) :
-		self.nssimpleacl = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.nssimpleacl = [nssimpleacl_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.nssimpleacl = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.nssimpleacl = [nssimpleacl_stats() for _ in range(length)]
 

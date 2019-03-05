@@ -22,188 +22,211 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class lsnsipalgcall(base_resource) :
-	""" Configuration for LSN SIPALG call resource. """
-	def __init__(self) :
-		self._callid = ""
-		self._callflags = 0
-		self._callrefcount = 0
-		self._calltimer = 0
-		self.___count = 0
+    """Configuration for LSN SIPALG call resource."""
+    def __init__(self) :
+        self._callid = ""
+        self._callflags = 0
+        self._callrefcount = 0
+        self._calltimer = 0
+        self.___count = 0
 
-	@property
-	def callid(self) :
-		r"""Call ID for the SIP call.
-		"""
-		try :
-			return self._callid
-		except Exception as e:
-			raise e
+    @property
+    def callid(self) :
+        """Call ID for the SIP call."""
+        try :
+            return self._callid
+        except Exception as e:
+            raise e
 
-	@callid.setter
-	def callid(self, callid) :
-		r"""Call ID for the SIP call.
-		"""
-		try :
-			self._callid = callid
-		except Exception as e:
-			raise e
+    @callid.setter
+    def callid(self, callid) :
+        """Call ID for the SIP call.
 
-	@property
-	def callflags(self) :
-		r"""Flags for the call entry.
-		"""
-		try :
-			return self._callflags
-		except Exception as e:
-			raise e
+        :param callid: 
 
-	@property
-	def callrefcount(self) :
-		r"""Reference count for the call entry.
-		"""
-		try :
-			return self._callrefcount
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._callid = callid
+        except Exception as e:
+            raise e
 
-	@property
-	def calltimer(self) :
-		r"""Timer for the call entry.
-		"""
-		try :
-			return self._calltimer
-		except Exception as e:
-			raise e
+    @property
+    def callflags(self) :
+        """Flags for the call entry."""
+        try :
+            return self._callflags
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(lsnsipalgcall_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.lsnsipalgcall
-		except Exception as e :
-			raise e
+    @property
+    def callrefcount(self) :
+        """Reference count for the call entry."""
+        try :
+            return self._callrefcount
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.callid is not None :
-				return str(self.callid)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def calltimer(self) :
+        """Timer for the call entry."""
+        try :
+            return self._calltimer
+        except Exception as e:
+            raise e
 
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
+        :param service: 
+        :param response: 
 
-	@classmethod
-	def flush(cls, client, resource) :
-		r""" Use this API to flush lsnsipalgcall.
-		"""
-		try :
-			if type(resource) is not list :
-				flushresource = lsnsipalgcall()
-				flushresource.callid = resource.callid
-				return flushresource.perform_operation(client,"flush")
-			else :
-				if (resource and len(resource) > 0) :
-					flushresources = [ lsnsipalgcall() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						flushresources[i].callid = resource[i].callid
-				result = cls.perform_operation_bulk_request(client, flushresources,"flush")
-			return result
-		except Exception as e :
-			raise e
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(lsnsipalgcall_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.lsnsipalgcall
+        except Exception as e :
+            raise e
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the lsnsipalgcall resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = lsnsipalgcall()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = lsnsipalgcall()
-						obj.callid = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [lsnsipalgcall() for _ in range(len(name))]
-							obj = [lsnsipalgcall() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = lsnsipalgcall()
-								obj[i].callid = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.callid is not None :
+                return str(self.callid)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of lsnsipalgcall resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = lsnsipalgcall()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def flush(cls, client, resource) :
+        """Use this API to flush lsnsipalgcall.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                flushresource = lsnsipalgcall()
+                flushresource.callid = resource.callid
+                return flushresource.perform_operation(client,"flush")
+            else :
+                if (resource and len(resource) > 0) :
+                    flushresources = [ lsnsipalgcall() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        flushresources[i].callid = resource[i].callid
+                result = cls.perform_operation_bulk_request(client, flushresources,"flush")
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the lsnsipalgcall resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = lsnsipalgcall()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = lsnsipalgcall()
+                        obj.callid = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [lsnsipalgcall() for _ in range(len(name))]
+                            obj = [lsnsipalgcall() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = lsnsipalgcall()
+                                obj[i].callid = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the lsnsipalgcall resources configured on NetScaler.
-		"""
-		try :
-			obj = lsnsipalgcall()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of lsnsipalgcall resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of lsnsipalgcall resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = lsnsipalgcall()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = lsnsipalgcall()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the lsnsipalgcall resources configured on NetScaler.
+
+        :param client: 
+
+        """
+        try :
+            obj = lsnsipalgcall()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of lsnsipalgcall resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = lsnsipalgcall()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
 
 
 class lsnsipalgcall_response(base_response) :
-	def __init__(self, length=1) :
-		self.lsnsipalgcall = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.lsnsipalgcall = [lsnsipalgcall() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.lsnsipalgcall = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.lsnsipalgcall = [lsnsipalgcall() for _ in range(length)]
 

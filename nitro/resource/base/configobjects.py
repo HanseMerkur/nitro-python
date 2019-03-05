@@ -18,15 +18,23 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.resource.base.base_resource import base_resource
 
 class configobjects(base_resource): 
+    """ """
     _objects=[]
     
     def get_objects(self):
+        """ """
         try:
             return self.objects
         except Exception as e:
             raise e
     
     def _get_nitro_response(self, service, response):
+        """
+
+        :param service: 
+        :param response: 
+
+        """
         try:
             resources = [configobjects() for _ in range(1)]
             result = service.get_payload_formatter().string_to_resource(configobjects_response, response)
@@ -46,12 +54,16 @@ class configobjects(base_resource):
         
 
     def _get_object_name(self):
+        """ """
         return None
     
     
     @staticmethod
     def get(self, service):
-        """ Use this API to fetch all the config objects resources that are available on netscaler.
+        """Use this API to fetch all the config objects resources that are available on netscaler.
+
+        :param service: 
+
         """
         try:
             obj = configobjects()
@@ -61,4 +73,5 @@ class configobjects(base_resource):
             raise e
         
 class configobjects_response(base_response):
+    """ """
     configobjects = configobjects()

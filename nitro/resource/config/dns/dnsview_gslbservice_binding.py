@@ -22,155 +22,179 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class dnsview_gslbservice_binding(base_resource) :
-	""" Binding class showing the gslbservice that can be bound to dnsview.
-	"""
-	def __init__(self) :
-		self._gslbservicename = ""
-		self._ipaddress = ""
-		self._viewname = ""
-		self.___count = 0
+    """Binding class showing the gslbservice that can be bound to dnsview."""
+    def __init__(self) :
+        self._gslbservicename = ""
+        self._ipaddress = ""
+        self._viewname = ""
+        self.___count = 0
 
-	@property
-	def viewname(self) :
-		r"""Name of the view to display.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._viewname
-		except Exception as e:
-			raise e
+    @property
+    def viewname(self) :
+        """Name of the view to display.<br/>Minimum length =  1."""
+        try :
+            return self._viewname
+        except Exception as e:
+            raise e
 
-	@viewname.setter
-	def viewname(self, viewname) :
-		r"""Name of the view to display.<br/>Minimum length =  1
-		"""
-		try :
-			self._viewname = viewname
-		except Exception as e:
-			raise e
+    @viewname.setter
+    def viewname(self, viewname) :
+        """Name of the view to display.<br/>Minimum length =  1
 
-	@property
-	def gslbservicename(self) :
-		r"""Service name of the service using this view.
-		"""
-		try :
-			return self._gslbservicename
-		except Exception as e:
-			raise e
+        :param viewname: 
 
-	@gslbservicename.setter
-	def gslbservicename(self, gslbservicename) :
-		r"""Service name of the service using this view.
-		"""
-		try :
-			self._gslbservicename = gslbservicename
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._viewname = viewname
+        except Exception as e:
+            raise e
 
-	@property
-	def ipaddress(self) :
-		r"""IP of the service corresponding to the given view.
-		"""
-		try :
-			return self._ipaddress
-		except Exception as e:
-			raise e
+    @property
+    def gslbservicename(self) :
+        """Service name of the service using this view."""
+        try :
+            return self._gslbservicename
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(dnsview_gslbservice_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.dnsview_gslbservice_binding
-		except Exception as e :
-			raise e
+    @gslbservicename.setter
+    def gslbservicename(self, gslbservicename) :
+        """Service name of the service using this view.
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.viewname is not None :
-				return str(self.viewname)
-			return None
-		except Exception as e :
-			raise e
+        :param gslbservicename: 
+
+        """
+        try :
+            self._gslbservicename = gslbservicename
+        except Exception as e:
+            raise e
+
+    @property
+    def ipaddress(self) :
+        """IP of the service corresponding to the given view."""
+        try :
+            return self._ipaddress
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(dnsview_gslbservice_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.dnsview_gslbservice_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.viewname is not None :
+                return str(self.viewname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(cls, service, viewname) :
-		r""" Use this API to fetch dnsview_gslbservice_binding resources.
-		"""
-		try :
-			obj = dnsview_gslbservice_binding()
-			obj.viewname = viewname
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(cls, service, viewname) :
+        """Use this API to fetch dnsview_gslbservice_binding resources.
 
-	@classmethod
-	def get_filtered(cls, service, viewname, filter_) :
-		r""" Use this API to fetch filtered set of dnsview_gslbservice_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = dnsview_gslbservice_binding()
-			obj.viewname = viewname
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+        :param service: 
+        :param viewname: 
 
-	@classmethod
-	def count(cls, service, viewname) :
-		r""" Use this API to count dnsview_gslbservice_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = dnsview_gslbservice_binding()
-			obj.viewname = viewname
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            obj = dnsview_gslbservice_binding()
+            obj.viewname = viewname
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def count_filtered(cls, service, viewname, filter_) :
-		r""" Use this API to count the filtered set of dnsview_gslbservice_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = dnsview_gslbservice_binding()
-			obj.viewname = viewname
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    @classmethod
+    def get_filtered(cls, service, viewname, filter_) :
+        """Use this API to fetch filtered set of dnsview_gslbservice_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param viewname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = dnsview_gslbservice_binding()
+            obj.viewname = viewname
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, viewname) :
+        """Use this API to count dnsview_gslbservice_binding resources configued on NetScaler.
+
+        :param service: 
+        :param viewname: 
+
+        """
+        try :
+            obj = dnsview_gslbservice_binding()
+            obj.viewname = viewname
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, viewname, filter_) :
+        """Use this API to count the filtered set of dnsview_gslbservice_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param viewname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = dnsview_gslbservice_binding()
+            obj.viewname = viewname
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
 
 class dnsview_gslbservice_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.dnsview_gslbservice_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.dnsview_gslbservice_binding = [dnsview_gslbservice_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.dnsview_gslbservice_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.dnsview_gslbservice_binding = [dnsview_gslbservice_binding() for _ in range(length)]
 

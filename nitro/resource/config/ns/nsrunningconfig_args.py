@@ -16,26 +16,27 @@
 
 
 class nsrunningconfig_args :
-	r""" Provides additional arguments required for fetching the nsrunningconfig resource.
-	"""
-	def __init__(self) :
-		self._withdefaults = False
+    """Provides additional arguments required for fetching the nsrunningconfig resource."""
+    def __init__(self) :
+        self._withdefaults = False
 
-	@property
-	def withdefaults(self) :
-		r"""Include default values of parameters that have not been explicitly configured. If this argument is disabled, such parameters are not included.
-		"""
-		try :
-			return self._withdefaults
-		except Exception as e:
-			raise e
+    @property
+    def withdefaults(self) :
+        """Include default values of parameters that have not been explicitly configured. If this argument is disabled, such parameters are not included."""
+        try :
+            return self._withdefaults
+        except Exception as e:
+            raise e
 
-	@withdefaults.setter
-	def withdefaults(self, withdefaults) :
-		r"""Include default values of parameters that have not been explicitly configured. If this argument is disabled, such parameters are not included.
-		"""
-		try :
-			self._withdefaults = withdefaults
-		except Exception as e:
-			raise e
+    @withdefaults.setter
+    def withdefaults(self, withdefaults) :
+        """Include default values of parameters that have not been explicitly configured. If this argument is disabled, such parameters are not included.
+
+        :param withdefaults: 
+
+        """
+        try :
+            self._withdefaults = withdefaults
+        except Exception as e:
+            raise e
 

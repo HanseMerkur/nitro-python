@@ -22,103 +22,110 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class dnspolicy_binding(base_resource):
-	""" Binding class showing the resources that can be bound to dnspolicy_binding. 
-	"""
-	def __init__(self) :
-		self._name = ""
-		self.dnspolicy_dnspolicylabel_binding = []
-		self.dnspolicy_dnsglobal_binding = []
+    """Binding class showing the resources that can be bound to dnspolicy_binding."""
+    def __init__(self) :
+        self._name = ""
+        self.dnspolicy_dnspolicylabel_binding = []
+        self.dnspolicy_dnsglobal_binding = []
 
-	@property
-	def name(self) :
-		r"""Name of the DNS policy.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the DNS policy."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the DNS policy.
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the DNS policy.
 
-	@property
-	def dnspolicy_dnsglobal_bindings(self) :
-		r"""dnsglobal that can be bound to dnspolicy.
-		"""
-		try :
-			return self._dnspolicy_dnsglobal_binding
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@property
-	def dnspolicy_dnspolicylabel_bindings(self) :
-		r"""dnspolicylabel that can be bound to dnspolicy.
-		"""
-		try :
-			return self._dnspolicy_dnspolicylabel_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(dnspolicy_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.dnspolicy_binding
-		except Exception as e :
-			raise e
+    @property
+    def dnspolicy_dnsglobal_bindings(self) :
+        """dnsglobal that can be bound to dnspolicy."""
+        try :
+            return self._dnspolicy_dnsglobal_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def dnspolicy_dnspolicylabel_bindings(self) :
+        """dnspolicylabel that can be bound to dnspolicy."""
+        try :
+            return self._dnspolicy_dnspolicylabel_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(dnspolicy_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.dnspolicy_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, name) :
-		r""" Use this API to fetch dnspolicy_binding resource.
-		"""
-		try :
-			if type(name) is not list :
-				obj = dnspolicy_binding()
-				obj.name = name
-				response = obj.get_resource(service)
-			else :
-				if name and len(name) > 0 :
-					obj = [dnspolicy_binding() for _ in range(len(name))]
-					for i in range(len(name)) :
-						obj[i].name = name[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, name) :
+        """Use this API to fetch dnspolicy_binding resource.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            if type(name) is not list :
+                obj = dnspolicy_binding()
+                obj.name = name
+                response = obj.get_resource(service)
+            else :
+                if name and len(name) > 0 :
+                    obj = [dnspolicy_binding() for _ in range(len(name))]
+                    for i in range(len(name)) :
+                        obj[i].name = name[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class dnspolicy_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.dnspolicy_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.dnspolicy_binding = [dnspolicy_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.dnspolicy_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.dnspolicy_binding = [dnspolicy_binding() for _ in range(length)]
 

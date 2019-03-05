@@ -22,196 +22,225 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class dnsview(base_resource) :
-	""" Configuration for DNS view resource. """
-	def __init__(self) :
-		self._viewname = ""
-		self._flags = 0
-		self.___count = 0
+    """Configuration for DNS view resource."""
+    def __init__(self) :
+        self._viewname = ""
+        self._flags = 0
+        self.___count = 0
 
-	@property
-	def viewname(self) :
-		r"""Name for the DNS view.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._viewname
-		except Exception as e:
-			raise e
+    @property
+    def viewname(self) :
+        """Name for the DNS view.<br/>Minimum length =  1."""
+        try :
+            return self._viewname
+        except Exception as e:
+            raise e
 
-	@viewname.setter
-	def viewname(self, viewname) :
-		r"""Name for the DNS view.<br/>Minimum length =  1
-		"""
-		try :
-			self._viewname = viewname
-		except Exception as e:
-			raise e
+    @viewname.setter
+    def viewname(self, viewname) :
+        """Name for the DNS view.<br/>Minimum length =  1
 
-	@property
-	def flags(self) :
-		r"""Flags controlling display.
-		"""
-		try :
-			return self._flags
-		except Exception as e:
-			raise e
+        :param viewname: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(dnsview_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.dnsview
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._viewname = viewname
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.viewname is not None :
-				return str(self.viewname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def flags(self) :
+        """Flags controlling display."""
+        try :
+            return self._flags
+        except Exception as e:
+            raise e
 
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
+        :param service: 
+        :param response: 
 
-	@classmethod
-	def add(cls, client, resource) :
-		r""" Use this API to add dnsview.
-		"""
-		try :
-			if type(resource) is not list :
-				addresource = dnsview()
-				addresource.viewname = resource.viewname
-				return addresource.add_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					addresources = [ dnsview() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						addresources[i].viewname = resource[i].viewname
-				result = cls.add_bulk_request(client, addresources)
-			return result
-		except Exception as e :
-			raise e
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(dnsview_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.dnsview
+        except Exception as e :
+            raise e
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete dnsview.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = dnsview()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.viewname = resource
-				else :
-					deleteresource.viewname = resource.viewname
-				return deleteresource.delete_resource(client)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ dnsview() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].viewname = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ dnsview() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].viewname = resource[i].viewname
-				result = cls.delete_bulk_request(client, deleteresources)
-			return result
-		except Exception as e :
-			raise e
-
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the dnsview resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = dnsview()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = dnsview()
-						obj.viewname = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [dnsview() for _ in range(len(name))]
-							obj = [dnsview() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = dnsview()
-								obj[i].viewname = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.viewname is not None :
+                return str(self.viewname)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of dnsview resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = dnsview()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def add(cls, client, resource) :
+        """Use this API to add dnsview.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                addresource = dnsview()
+                addresource.viewname = resource.viewname
+                return addresource.add_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    addresources = [ dnsview() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        addresources[i].viewname = resource[i].viewname
+                result = cls.add_bulk_request(client, addresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete dnsview.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = dnsview()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.viewname = resource
+                else :
+                    deleteresource.viewname = resource.viewname
+                return deleteresource.delete_resource(client)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ dnsview() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].viewname = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ dnsview() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].viewname = resource[i].viewname
+                result = cls.delete_bulk_request(client, deleteresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the dnsview resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = dnsview()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = dnsview()
+                        obj.viewname = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [dnsview() for _ in range(len(name))]
+                            obj = [dnsview() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = dnsview()
+                                obj[i].viewname = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the dnsview resources configured on NetScaler.
-		"""
-		try :
-			obj = dnsview()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of dnsview resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of dnsview resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = dnsview()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = dnsview()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the dnsview resources configured on NetScaler.
+
+        :param client: 
+
+        """
+        try :
+            obj = dnsview()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of dnsview resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = dnsview()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
 
 
 class dnsview_response(base_response) :
-	def __init__(self, length=1) :
-		self.dnsview = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.dnsview = [dnsview() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.dnsview = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.dnsview = [dnsview() for _ in range(length)]
 

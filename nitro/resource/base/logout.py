@@ -18,10 +18,16 @@ from nitro.resource.base.base_resource import base_resource
 
 
 class logout(base_resource): 
-    """ Nitro logout resource class.
-    """
+    """Nitro logout resource class."""
     def _get_object_name(self): 
+        """ """
         return None
     
     def _get_nitro_response(self, service, response): 
+        """
+
+        :param service: 
+        :param response: 
+
+        """
         return None

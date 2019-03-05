@@ -22,155 +22,179 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class vrid_nsip6_binding(base_resource) :
-	""" Binding class showing the nsip6 that can be bound to vrid.
-	"""
-	def __init__(self) :
-		self._ipaddress = ""
-		self._flags = 0
-		self._id = 0
-		self.___count = 0
+    """Binding class showing the nsip6 that can be bound to vrid."""
+    def __init__(self) :
+        self._ipaddress = ""
+        self._flags = 0
+        self._id = 0
+        self.___count = 0
 
-	@property
-	def id(self) :
-		r"""Integer that uniquely identifies the VMAC address. The generic VMAC address is in the form of 00:00:5e:00:01:<VRID>. For example, if you add a VRID with a value of 60 and bind it to an interface, the resulting VMAC address is 00:00:5e:00:01:3c, where 3c is the hexadecimal representation of 60.<br/>Minimum value =  1<br/>Maximum value =  255.
-		"""
-		try :
-			return self._id
-		except Exception as e:
-			raise e
+    @property
+    def id(self) :
+        """Integer that uniquely identifies the VMAC address. The generic VMAC address is in the form of 00:00:5e:00:01:<VRID>. For example, if you add a VRID with a value of 60 and bind it to an interface, the resulting VMAC address is 00:00:5e:00:01:3c, where 3c is the hexadecimal representation of 60.<br/>Minimum value =  1<br/>Maximum value =  255."""
+        try :
+            return self._id
+        except Exception as e:
+            raise e
 
-	@id.setter
-	def id(self, id) :
-		r"""Integer that uniquely identifies the VMAC address. The generic VMAC address is in the form of 00:00:5e:00:01:<VRID>. For example, if you add a VRID with a value of 60 and bind it to an interface, the resulting VMAC address is 00:00:5e:00:01:3c, where 3c is the hexadecimal representation of 60.<br/>Minimum value =  1<br/>Maximum value =  255
-		"""
-		try :
-			self._id = id
-		except Exception as e:
-			raise e
+    @id.setter
+    def id(self, id) :
+        """Integer that uniquely identifies the VMAC address. The generic VMAC address is in the form of 00:00:5e:00:01:<VRID>. For example, if you add a VRID with a value of 60 and bind it to an interface, the resulting VMAC address is 00:00:5e:00:01:3c, where 3c is the hexadecimal representation of 60.<br/>Minimum value =  1<br/>Maximum value =  255
 
-	@property
-	def ipaddress(self) :
-		r"""The IP address bound to the VRID.
-		"""
-		try :
-			return self._ipaddress
-		except Exception as e:
-			raise e
+        :param id: 
 
-	@ipaddress.setter
-	def ipaddress(self, ipaddress) :
-		r"""The IP address bound to the VRID.
-		"""
-		try :
-			self._ipaddress = ipaddress
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._id = id
+        except Exception as e:
+            raise e
 
-	@property
-	def flags(self) :
-		r"""Flags.
-		"""
-		try :
-			return self._flags
-		except Exception as e:
-			raise e
+    @property
+    def ipaddress(self) :
+        """The IP address bound to the VRID."""
+        try :
+            return self._ipaddress
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(vrid_nsip6_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.vrid_nsip6_binding
-		except Exception as e :
-			raise e
+    @ipaddress.setter
+    def ipaddress(self, ipaddress) :
+        """The IP address bound to the VRID.
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.id is not None :
-				return str(self.id)
-			return None
-		except Exception as e :
-			raise e
+        :param ipaddress: 
+
+        """
+        try :
+            self._ipaddress = ipaddress
+        except Exception as e:
+            raise e
+
+    @property
+    def flags(self) :
+        """Flags."""
+        try :
+            return self._flags
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(vrid_nsip6_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.vrid_nsip6_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.id is not None :
+                return str(self.id)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(cls, service, id) :
-		r""" Use this API to fetch vrid_nsip6_binding resources.
-		"""
-		try :
-			obj = vrid_nsip6_binding()
-			obj.id = id
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(cls, service, id) :
+        """Use this API to fetch vrid_nsip6_binding resources.
 
-	@classmethod
-	def get_filtered(cls, service, id, filter_) :
-		r""" Use this API to fetch filtered set of vrid_nsip6_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = vrid_nsip6_binding()
-			obj.id = id
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+        :param service: 
+        :param id: 
 
-	@classmethod
-	def count(cls, service, id) :
-		r""" Use this API to count vrid_nsip6_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = vrid_nsip6_binding()
-			obj.id = id
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            obj = vrid_nsip6_binding()
+            obj.id = id
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def count_filtered(cls, service, id, filter_) :
-		r""" Use this API to count the filtered set of vrid_nsip6_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = vrid_nsip6_binding()
-			obj.id = id
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    @classmethod
+    def get_filtered(cls, service, id, filter_) :
+        """Use this API to fetch filtered set of vrid_nsip6_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param id: 
+        :param filter_: 
+
+        """
+        try :
+            obj = vrid_nsip6_binding()
+            obj.id = id
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, id) :
+        """Use this API to count vrid_nsip6_binding resources configued on NetScaler.
+
+        :param service: 
+        :param id: 
+
+        """
+        try :
+            obj = vrid_nsip6_binding()
+            obj.id = id
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, id, filter_) :
+        """Use this API to count the filtered set of vrid_nsip6_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param id: 
+        :param filter_: 
+
+        """
+        try :
+            obj = vrid_nsip6_binding()
+            obj.id = id
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
 
 class vrid_nsip6_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.vrid_nsip6_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.vrid_nsip6_binding = [vrid_nsip6_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.vrid_nsip6_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.vrid_nsip6_binding = [vrid_nsip6_binding() for _ in range(length)]
 

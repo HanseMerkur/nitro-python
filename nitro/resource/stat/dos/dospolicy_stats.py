@@ -22,252 +22,250 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class dospolicy_stats(base_resource) :
-	r""" Statistics for DoS policy resource.
-	"""
-	def __init__(self) :
-		self._name = ""
-		self._clearstats = ""
-		self._doscurrentcltdetectrate = 0
-		self._dosphysicalserviceip = ""
-		self._dosphysicalserviceport = 0
-		self._doscurrentqueuesize = 0
-		self._doscurrentqueuesizerate = 0
-		self._dostotjssent = 0
-		self._dosjssentrate = 0
-		self._dostotjsrefused = 0
-		self._dosjsrefusedrate = 0
-		self._dostotvalidclients = 0
-		self._dosvalidclientsrate = 0
-		self._dostotjsbytessent = 0
-		self._dosjsbytessentrate = 0
-		self._dostotnongetpostrequests = 0
-		self._dosnongetpostrequestsrate = 0
+    """Statistics for DoS policy resource."""
+    def __init__(self) :
+        self._name = ""
+        self._clearstats = ""
+        self._doscurrentcltdetectrate = 0
+        self._dosphysicalserviceip = ""
+        self._dosphysicalserviceport = 0
+        self._doscurrentqueuesize = 0
+        self._doscurrentqueuesizerate = 0
+        self._dostotjssent = 0
+        self._dosjssentrate = 0
+        self._dostotjsrefused = 0
+        self._dosjsrefusedrate = 0
+        self._dostotvalidclients = 0
+        self._dosvalidclientsrate = 0
+        self._dostotjsbytessent = 0
+        self._dosjsbytessentrate = 0
+        self._dostotnongetpostrequests = 0
+        self._dosnongetpostrequestsrate = 0
 
-	@property
-	def name(self) :
-		r"""The name of the DoS protection policy whose statistics must be displayed. If a name is not provided, statistics of all the DoS protection policies are displayed.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """The name of the DoS protection policy whose statistics must be displayed. If a name is not provided, statistics of all the DoS protection policies are displayed.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""The name of the DoS protection policy whose statistics must be displayed. If a name is not provided, statistics of all the DoS protection policies are displayed.
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """The name of the DoS protection policy whose statistics must be displayed. If a name is not provided, statistics of all the DoS protection policies are displayed.
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def dosjsrefusedrate(self) :
-		r"""Rate (/s) counter for dostotjsrefused.
-		"""
-		try :
-			return self._dosjsrefusedrate
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def dosphysicalserviceip(self) :
-		r"""IP address of the service to which this policy is bound.
-		"""
-		try :
-			return self._dosphysicalserviceip
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def dosnongetpostrequestsrate(self) :
-		r"""Rate (/s) counter for dostotnongetpostrequests.
-		"""
-		try :
-			return self._dosnongetpostrequestsrate
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def dosjssentrate(self) :
-		r"""Rate (/s) counter for dostotjssent.
-		"""
-		try :
-			return self._dosjssentrate
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def dosphysicalserviceport(self) :
-		r"""Port address of the service to which this policy is bound.
-		"""
-		try :
-			return self._dosphysicalserviceport
-		except Exception as e:
-			raise e
+    @property
+    def dosjsrefusedrate(self) :
+        """Rate (/s) counter for dostotjsrefused."""
+        try :
+            return self._dosjsrefusedrate
+        except Exception as e:
+            raise e
 
-	@property
-	def dosjsbytessentrate(self) :
-		r"""Rate (/s) counter for dostotjsbytessent.
-		"""
-		try :
-			return self._dosjsbytessentrate
-		except Exception as e:
-			raise e
+    @property
+    def dosphysicalserviceip(self) :
+        """IP address of the service to which this policy is bound."""
+        try :
+            return self._dosphysicalserviceip
+        except Exception as e:
+            raise e
 
-	@property
-	def doscurrentcltdetectrate(self) :
-		r"""Current ratio of JavaScript send rate to the server response rate (Client detect rate).
-		"""
-		try :
-			return self._doscurrentcltdetectrate
-		except Exception as e:
-			raise e
+    @property
+    def dosnongetpostrequestsrate(self) :
+        """Rate (/s) counter for dostotnongetpostrequests."""
+        try :
+            return self._dosnongetpostrequestsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def dostotnongetpostrequests(self) :
-		r"""Number of non-GET and non-POST requests for which DOS JavaScript was sent.
-		"""
-		try :
-			return self._dostotnongetpostrequests
-		except Exception as e:
-			raise e
+    @property
+    def dosjssentrate(self) :
+        """Rate (/s) counter for dostotjssent."""
+        try :
+            return self._dosjssentrate
+        except Exception as e:
+            raise e
 
-	@property
-	def dostotvalidclients(self) :
-		r"""Total number of valid DoS cookies received for this policy.
-		"""
-		try :
-			return self._dostotvalidclients
-		except Exception as e:
-			raise e
+    @property
+    def dosphysicalserviceport(self) :
+        """Port address of the service to which this policy is bound."""
+        try :
+            return self._dosphysicalserviceport
+        except Exception as e:
+            raise e
 
-	@property
-	def dosvalidclientsrate(self) :
-		r"""Rate (/s) counter for dostotvalidclients.
-		"""
-		try :
-			return self._dosvalidclientsrate
-		except Exception as e:
-			raise e
+    @property
+    def dosjsbytessentrate(self) :
+        """Rate (/s) counter for dostotjsbytessent."""
+        try :
+            return self._dosjsbytessentrate
+        except Exception as e:
+            raise e
 
-	@property
-	def doscurrentqueuesizerate(self) :
-		r"""Rate (/s) counter for doscurrentqueuesize.
-		"""
-		try :
-			return self._doscurrentqueuesizerate
-		except Exception as e:
-			raise e
+    @property
+    def doscurrentcltdetectrate(self) :
+        """Current ratio of JavaScript send rate to the server response rate (Client detect rate)."""
+        try :
+            return self._doscurrentcltdetectrate
+        except Exception as e:
+            raise e
 
-	@property
-	def dostotjsbytessent(self) :
-		r"""Total number of DoS JavaScript bytes sent for this policy.
-		"""
-		try :
-			return self._dostotjsbytessent
-		except Exception as e:
-			raise e
+    @property
+    def dostotnongetpostrequests(self) :
+        """Number of non-GET and non-POST requests for which DOS JavaScript was sent."""
+        try :
+            return self._dostotnongetpostrequests
+        except Exception as e:
+            raise e
 
-	@property
-	def dostotjssent(self) :
-		r"""Total number of DoS JavaScript transactions performed for this policy.
-		"""
-		try :
-			return self._dostotjssent
-		except Exception as e:
-			raise e
+    @property
+    def dostotvalidclients(self) :
+        """Total number of valid DoS cookies received for this policy."""
+        try :
+            return self._dostotvalidclients
+        except Exception as e:
+            raise e
 
-	@property
-	def dostotjsrefused(self) :
-		r"""Number of times the DoS JavaScript was not sent because the set JavaScript rate was not met for this policy.
-		"""
-		try :
-			return self._dostotjsrefused
-		except Exception as e:
-			raise e
+    @property
+    def dosvalidclientsrate(self) :
+        """Rate (/s) counter for dostotvalidclients."""
+        try :
+            return self._dosvalidclientsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def doscurrentqueuesize(self) :
-		r"""Current queue size of the server to which this policy is bound.
-		"""
-		try :
-			return self._doscurrentqueuesize
-		except Exception as e:
-			raise e
+    @property
+    def doscurrentqueuesizerate(self) :
+        """Rate (/s) counter for doscurrentqueuesize."""
+        try :
+            return self._doscurrentqueuesizerate
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(dospolicy_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.dospolicy
-		except Exception as e :
-			raise e
+    @property
+    def dostotjsbytessent(self) :
+        """Total number of DoS JavaScript bytes sent for this policy."""
+        try :
+            return self._dostotjsbytessent
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def dostotjssent(self) :
+        """Total number of DoS JavaScript transactions performed for this policy."""
+        try :
+            return self._dostotjssent
+        except Exception as e:
+            raise e
+
+    @property
+    def dostotjsrefused(self) :
+        """Number of times the DoS JavaScript was not sent because the set JavaScript rate was not met for this policy."""
+        try :
+            return self._dostotjsrefused
+        except Exception as e:
+            raise e
+
+    @property
+    def doscurrentqueuesize(self) :
+        """Current queue size of the server to which this policy is bound."""
+        try :
+            return self._doscurrentqueuesize
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(dospolicy_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.dospolicy
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all dospolicy_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = dospolicy_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			else :
-				obj.name = name
-				response = obj.stat_resource(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all dospolicy_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = dospolicy_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            else :
+                obj.name = name
+                response = obj.stat_resource(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class dospolicy_response(base_response) :
-	def __init__(self, length=1) :
-		self.dospolicy = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.dospolicy = [dospolicy_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.dospolicy = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.dospolicy = [dospolicy_stats() for _ in range(length)]
 

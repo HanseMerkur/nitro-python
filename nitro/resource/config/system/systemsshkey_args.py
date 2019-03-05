@@ -16,30 +16,32 @@
 
 
 class systemsshkey_args :
-	r""" Provides additional arguments required for fetching the systemsshkey resource.
-	"""
-	def __init__(self) :
-		self._sshkeytype = ""
+    """Provides additional arguments required for fetching the systemsshkey resource."""
+    def __init__(self) :
+        self._sshkeytype = ""
 
-	@property
-	def sshkeytype(self) :
-		r"""The type of the ssh key whether public or private key.<br/>Possible values = PRIVATE, PUBLIC.
-		"""
-		try :
-			return self._sshkeytype
-		except Exception as e:
-			raise e
+    @property
+    def sshkeytype(self) :
+        """The type of the ssh key whether public or private key.<br/>Possible values = PRIVATE, PUBLIC."""
+        try :
+            return self._sshkeytype
+        except Exception as e:
+            raise e
 
-	@sshkeytype.setter
-	def sshkeytype(self, sshkeytype) :
-		r"""The type of the ssh key whether public or private key.<br/>Possible values = PRIVATE, PUBLIC
-		"""
-		try :
-			self._sshkeytype = sshkeytype
-		except Exception as e:
-			raise e
+    @sshkeytype.setter
+    def sshkeytype(self, sshkeytype) :
+        """The type of the ssh key whether public or private key.<br/>Possible values = PRIVATE, PUBLIC
 
-	class Sshkeytype:
-		PRIVATE = "PRIVATE"
-		PUBLIC = "PUBLIC"
+        :param sshkeytype: 
+
+        """
+        try :
+            self._sshkeytype = sshkeytype
+        except Exception as e:
+            raise e
+
+    class Sshkeytype:
+        """ """
+        PRIVATE = "PRIVATE"
+        PUBLIC = "PUBLIC"
 

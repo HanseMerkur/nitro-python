@@ -16,26 +16,27 @@
 
 
 class routerdynamicrouting_args :
-	r""" Provides additional arguments required for fetching the routerdynamicrouting resource.
-	"""
-	def __init__(self) :
-		self._commandstring = ""
+    """Provides additional arguments required for fetching the routerdynamicrouting resource."""
+    def __init__(self) :
+        self._commandstring = ""
 
-	@property
-	def commandstring(self) :
-		r"""command to be executed.
-		"""
-		try :
-			return self._commandstring
-		except Exception as e:
-			raise e
+    @property
+    def commandstring(self) :
+        """command to be executed."""
+        try :
+            return self._commandstring
+        except Exception as e:
+            raise e
 
-	@commandstring.setter
-	def commandstring(self, commandstring) :
-		r"""command to be executed.
-		"""
-		try :
-			self._commandstring = commandstring
-		except Exception as e:
-			raise e
+    @commandstring.setter
+    def commandstring(self, commandstring) :
+        """command to be executed.
+
+        :param commandstring: 
+
+        """
+        try :
+            self._commandstring = commandstring
+        except Exception as e:
+            raise e
 

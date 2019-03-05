@@ -22,223 +22,218 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class crvserver_binding(base_resource):
-	""" Binding class showing the resources that can be bound to crvserver_binding. 
-	"""
-	def __init__(self) :
-		self._name = ""
-		self.crvserver_cmppolicy_binding = []
-		self.crvserver_lbvserver_binding = []
-		self.crvserver_rewritepolicy_binding = []
-		self.crvserver_cspolicy_binding = []
-		self.crvserver_appfwpolicy_binding = []
-		self.crvserver_crpolicy_binding = []
-		self.crvserver_spilloverpolicy_binding = []
-		self.crvserver_filterpolicy_binding = []
-		self.crvserver_icapolicy_binding = []
-		self.crvserver_appflowpolicy_binding = []
-		self.crvserver_responderpolicy_binding = []
-		self.crvserver_policymap_binding = []
-		self.crvserver_feopolicy_binding = []
-		self.crvserver_cachepolicy_binding = []
+    """Binding class showing the resources that can be bound to crvserver_binding."""
+    def __init__(self) :
+        self._name = ""
+        self.crvserver_cmppolicy_binding = []
+        self.crvserver_lbvserver_binding = []
+        self.crvserver_rewritepolicy_binding = []
+        self.crvserver_cspolicy_binding = []
+        self.crvserver_appfwpolicy_binding = []
+        self.crvserver_crpolicy_binding = []
+        self.crvserver_spilloverpolicy_binding = []
+        self.crvserver_filterpolicy_binding = []
+        self.crvserver_icapolicy_binding = []
+        self.crvserver_appflowpolicy_binding = []
+        self.crvserver_responderpolicy_binding = []
+        self.crvserver_policymap_binding = []
+        self.crvserver_feopolicy_binding = []
+        self.crvserver_cachepolicy_binding = []
 
-	@property
-	def name(self) :
-		r"""Name of a cache redirection virtual server about which to display detailed information.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of a cache redirection virtual server about which to display detailed information.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of a cache redirection virtual server about which to display detailed information.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of a cache redirection virtual server about which to display detailed information.<br/>Minimum length =  1
 
-	@property
-	def crvserver_spilloverpolicy_bindings(self) :
-		r"""spilloverpolicy that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_spilloverpolicy_binding
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@property
-	def crvserver_policymap_bindings(self) :
-		r"""policymap that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_policymap_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def crvserver_cachepolicy_bindings(self) :
-		r"""cachepolicy that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_cachepolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def crvserver_spilloverpolicy_bindings(self) :
+        """spilloverpolicy that can be bound to crvserver."""
+        try :
+            return self._crvserver_spilloverpolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def crvserver_lbvserver_bindings(self) :
-		r"""lbvserver that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_lbvserver_binding
-		except Exception as e:
-			raise e
+    @property
+    def crvserver_policymap_bindings(self) :
+        """policymap that can be bound to crvserver."""
+        try :
+            return self._crvserver_policymap_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def crvserver_appfwpolicy_bindings(self) :
-		r"""appfwpolicy that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_appfwpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def crvserver_cachepolicy_bindings(self) :
+        """cachepolicy that can be bound to crvserver."""
+        try :
+            return self._crvserver_cachepolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def crvserver_filterpolicy_bindings(self) :
-		r"""filterpolicy that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_filterpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def crvserver_lbvserver_bindings(self) :
+        """lbvserver that can be bound to crvserver."""
+        try :
+            return self._crvserver_lbvserver_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def crvserver_cmppolicy_bindings(self) :
-		r"""cmppolicy that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_cmppolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def crvserver_appfwpolicy_bindings(self) :
+        """appfwpolicy that can be bound to crvserver."""
+        try :
+            return self._crvserver_appfwpolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def crvserver_appflowpolicy_bindings(self) :
-		r"""appflowpolicy that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_appflowpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def crvserver_filterpolicy_bindings(self) :
+        """filterpolicy that can be bound to crvserver."""
+        try :
+            return self._crvserver_filterpolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def crvserver_icapolicy_bindings(self) :
-		r"""icapolicy that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_icapolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def crvserver_cmppolicy_bindings(self) :
+        """cmppolicy that can be bound to crvserver."""
+        try :
+            return self._crvserver_cmppolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def crvserver_responderpolicy_bindings(self) :
-		r"""responderpolicy that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_responderpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def crvserver_appflowpolicy_bindings(self) :
+        """appflowpolicy that can be bound to crvserver."""
+        try :
+            return self._crvserver_appflowpolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def crvserver_feopolicy_bindings(self) :
-		r"""feopolicy that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_feopolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def crvserver_icapolicy_bindings(self) :
+        """icapolicy that can be bound to crvserver."""
+        try :
+            return self._crvserver_icapolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def crvserver_cspolicy_bindings(self) :
-		r"""cspolicy that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_cspolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def crvserver_responderpolicy_bindings(self) :
+        """responderpolicy that can be bound to crvserver."""
+        try :
+            return self._crvserver_responderpolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def crvserver_crpolicy_bindings(self) :
-		r"""crpolicy that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_crpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def crvserver_feopolicy_bindings(self) :
+        """feopolicy that can be bound to crvserver."""
+        try :
+            return self._crvserver_feopolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def crvserver_rewritepolicy_bindings(self) :
-		r"""rewritepolicy that can be bound to crvserver.
-		"""
-		try :
-			return self._crvserver_rewritepolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def crvserver_cspolicy_bindings(self) :
+        """cspolicy that can be bound to crvserver."""
+        try :
+            return self._crvserver_cspolicy_binding
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(crvserver_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.crvserver_binding
-		except Exception as e :
-			raise e
+    @property
+    def crvserver_crpolicy_bindings(self) :
+        """crpolicy that can be bound to crvserver."""
+        try :
+            return self._crvserver_crpolicy_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def crvserver_rewritepolicy_bindings(self) :
+        """rewritepolicy that can be bound to crvserver."""
+        try :
+            return self._crvserver_rewritepolicy_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(crvserver_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.crvserver_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, name) :
-		r""" Use this API to fetch crvserver_binding resource.
-		"""
-		try :
-			if type(name) is not list :
-				obj = crvserver_binding()
-				obj.name = name
-				response = obj.get_resource(service)
-			else :
-				if name and len(name) > 0 :
-					obj = [crvserver_binding() for _ in range(len(name))]
-					for i in range(len(name)) :
-						obj[i].name = name[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, name) :
+        """Use this API to fetch crvserver_binding resource.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            if type(name) is not list :
+                obj = crvserver_binding()
+                obj.name = name
+                response = obj.get_resource(service)
+            else :
+                if name and len(name) > 0 :
+                    obj = [crvserver_binding() for _ in range(len(name))]
+                    for i in range(len(name)) :
+                        obj[i].name = name[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class crvserver_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.crvserver_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.crvserver_binding = [crvserver_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.crvserver_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.crvserver_binding = [crvserver_binding() for _ in range(length)]
 

@@ -22,155 +22,179 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslcrl_serialnumber_binding(base_resource) :
-	""" Binding class showing the serialnumber that can be bound to sslcrl.
-	"""
-	def __init__(self) :
-		self._number = ""
-		self._date = ""
-		self._crlname = ""
-		self.___count = 0
+    """Binding class showing the serialnumber that can be bound to sslcrl."""
+    def __init__(self) :
+        self._number = ""
+        self._date = ""
+        self._crlname = ""
+        self.___count = 0
 
-	@property
-	def number(self) :
-		r"""Certificate Serial number.
-		"""
-		try :
-			return self._number
-		except Exception as e:
-			raise e
+    @property
+    def number(self) :
+        """Certificate Serial number."""
+        try :
+            return self._number
+        except Exception as e:
+            raise e
 
-	@number.setter
-	def number(self, number) :
-		r"""Certificate Serial number.
-		"""
-		try :
-			self._number = number
-		except Exception as e:
-			raise e
+    @number.setter
+    def number(self, number) :
+        """Certificate Serial number.
 
-	@property
-	def crlname(self) :
-		r"""Name of the CRL for which to show detailed information.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._crlname
-		except Exception as e:
-			raise e
+        :param number: 
 
-	@crlname.setter
-	def crlname(self, crlname) :
-		r"""Name of the CRL for which to show detailed information.<br/>Minimum length =  1
-		"""
-		try :
-			self._crlname = crlname
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._number = number
+        except Exception as e:
+            raise e
 
-	@property
-	def date(self) :
-		r"""Certificate Revocation date.
-		"""
-		try :
-			return self._date
-		except Exception as e:
-			raise e
+    @property
+    def crlname(self) :
+        """Name of the CRL for which to show detailed information.<br/>Minimum length =  1."""
+        try :
+            return self._crlname
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslcrl_serialnumber_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslcrl_serialnumber_binding
-		except Exception as e :
-			raise e
+    @crlname.setter
+    def crlname(self, crlname) :
+        """Name of the CRL for which to show detailed information.<br/>Minimum length =  1
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.crlname is not None :
-				return str(self.crlname)
-			return None
-		except Exception as e :
-			raise e
+        :param crlname: 
+
+        """
+        try :
+            self._crlname = crlname
+        except Exception as e:
+            raise e
+
+    @property
+    def date(self) :
+        """Certificate Revocation date."""
+        try :
+            return self._date
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslcrl_serialnumber_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslcrl_serialnumber_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.crlname is not None :
+                return str(self.crlname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(cls, service, crlname) :
-		r""" Use this API to fetch sslcrl_serialnumber_binding resources.
-		"""
-		try :
-			obj = sslcrl_serialnumber_binding()
-			obj.crlname = crlname
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(cls, service, crlname) :
+        """Use this API to fetch sslcrl_serialnumber_binding resources.
 
-	@classmethod
-	def get_filtered(cls, service, crlname, filter_) :
-		r""" Use this API to fetch filtered set of sslcrl_serialnumber_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslcrl_serialnumber_binding()
-			obj.crlname = crlname
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+        :param service: 
+        :param crlname: 
 
-	@classmethod
-	def count(cls, service, crlname) :
-		r""" Use this API to count sslcrl_serialnumber_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = sslcrl_serialnumber_binding()
-			obj.crlname = crlname
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            obj = sslcrl_serialnumber_binding()
+            obj.crlname = crlname
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def count_filtered(cls, service, crlname, filter_) :
-		r""" Use this API to count the filtered set of sslcrl_serialnumber_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslcrl_serialnumber_binding()
-			obj.crlname = crlname
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    @classmethod
+    def get_filtered(cls, service, crlname, filter_) :
+        """Use this API to fetch filtered set of sslcrl_serialnumber_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param crlname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslcrl_serialnumber_binding()
+            obj.crlname = crlname
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, crlname) :
+        """Use this API to count sslcrl_serialnumber_binding resources configued on NetScaler.
+
+        :param service: 
+        :param crlname: 
+
+        """
+        try :
+            obj = sslcrl_serialnumber_binding()
+            obj.crlname = crlname
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, crlname, filter_) :
+        """Use this API to count the filtered set of sslcrl_serialnumber_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param crlname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslcrl_serialnumber_binding()
+            obj.crlname = crlname
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
 
 class sslcrl_serialnumber_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslcrl_serialnumber_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslcrl_serialnumber_binding = [sslcrl_serialnumber_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslcrl_serialnumber_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslcrl_serialnumber_binding = [sslcrl_serialnumber_binding() for _ in range(length)]
 

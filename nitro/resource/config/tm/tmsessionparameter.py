@@ -22,306 +22,350 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class tmsessionparameter(base_resource) :
-	""" Configuration for session parameter resource. """
-	def __init__(self) :
-		self._sesstimeout = 0
-		self._defaultauthorizationaction = ""
-		self._sso = ""
-		self._ssocredential = ""
-		self._ssodomain = ""
-		self._kcdaccount = ""
-		self._httponlycookie = ""
-		self._persistentcookie = ""
-		self._persistentcookievalidity = 0
-		self._homepage = ""
-		self._name = ""
+    """Configuration for session parameter resource."""
+    def __init__(self) :
+        self._sesstimeout = 0
+        self._defaultauthorizationaction = ""
+        self._sso = ""
+        self._ssocredential = ""
+        self._ssodomain = ""
+        self._kcdaccount = ""
+        self._httponlycookie = ""
+        self._persistentcookie = ""
+        self._persistentcookievalidity = 0
+        self._homepage = ""
+        self._name = ""
 
-	@property
-	def sesstimeout(self) :
-		r"""Session timeout, in minutes. If there is no traffic during the timeout period, the user is disconnected and must reauthenticate to access the intranet resources.<br/>Default value: 30<br/>Minimum length =  1.
-		"""
-		try :
-			return self._sesstimeout
-		except Exception as e:
-			raise e
+    @property
+    def sesstimeout(self) :
+        """Session timeout, in minutes. If there is no traffic during the timeout period, the user is disconnected and must reauthenticate to access the intranet resources.<br/>Default value: 30<br/>Minimum length =  1."""
+        try :
+            return self._sesstimeout
+        except Exception as e:
+            raise e
 
-	@sesstimeout.setter
-	def sesstimeout(self, sesstimeout) :
-		r"""Session timeout, in minutes. If there is no traffic during the timeout period, the user is disconnected and must reauthenticate to access the intranet resources.<br/>Default value: 30<br/>Minimum length =  1
-		"""
-		try :
-			self._sesstimeout = sesstimeout
-		except Exception as e:
-			raise e
+    @sesstimeout.setter
+    def sesstimeout(self, sesstimeout) :
+        """Session timeout, in minutes. If there is no traffic during the timeout period, the user is disconnected and must reauthenticate to access the intranet resources.<br/>Default value: 30<br/>Minimum length =  1
 
-	@property
-	def defaultauthorizationaction(self) :
-		r"""Allow or deny access to content for which there is no specific authorization policy.<br/>Default value: ALLOW<br/>Possible values = ALLOW, DENY.
-		"""
-		try :
-			return self._defaultauthorizationaction
-		except Exception as e:
-			raise e
+        :param sesstimeout: 
 
-	@defaultauthorizationaction.setter
-	def defaultauthorizationaction(self, defaultauthorizationaction) :
-		r"""Allow or deny access to content for which there is no specific authorization policy.<br/>Default value: ALLOW<br/>Possible values = ALLOW, DENY
-		"""
-		try :
-			self._defaultauthorizationaction = defaultauthorizationaction
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._sesstimeout = sesstimeout
+        except Exception as e:
+            raise e
 
-	@property
-	def sso(self) :
-		r"""Log users on to all web applications automatically after they authenticate, or pass users to the web application logon page to authenticate for each application.<br/>Default value: OFF<br/>Possible values = ON, OFF.
-		"""
-		try :
-			return self._sso
-		except Exception as e:
-			raise e
+    @property
+    def defaultauthorizationaction(self) :
+        """Allow or deny access to content for which there is no specific authorization policy.<br/>Default value: ALLOW<br/>Possible values = ALLOW, DENY."""
+        try :
+            return self._defaultauthorizationaction
+        except Exception as e:
+            raise e
 
-	@sso.setter
-	def sso(self, sso) :
-		r"""Log users on to all web applications automatically after they authenticate, or pass users to the web application logon page to authenticate for each application.<br/>Default value: OFF<br/>Possible values = ON, OFF
-		"""
-		try :
-			self._sso = sso
-		except Exception as e:
-			raise e
+    @defaultauthorizationaction.setter
+    def defaultauthorizationaction(self, defaultauthorizationaction) :
+        """Allow or deny access to content for which there is no specific authorization policy.<br/>Default value: ALLOW<br/>Possible values = ALLOW, DENY
 
-	@property
-	def ssocredential(self) :
-		r"""Use primary or secondary authentication credentials for single sign-on.<br/>Default value: PRIMARY<br/>Possible values = PRIMARY, SECONDARY.
-		"""
-		try :
-			return self._ssocredential
-		except Exception as e:
-			raise e
+        :param defaultauthorizationaction: 
 
-	@ssocredential.setter
-	def ssocredential(self, ssocredential) :
-		r"""Use primary or secondary authentication credentials for single sign-on.<br/>Default value: PRIMARY<br/>Possible values = PRIMARY, SECONDARY
-		"""
-		try :
-			self._ssocredential = ssocredential
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._defaultauthorizationaction = defaultauthorizationaction
+        except Exception as e:
+            raise e
 
-	@property
-	def ssodomain(self) :
-		r"""Domain to use for single sign-on.<br/>Minimum length =  1<br/>Maximum length =  32.
-		"""
-		try :
-			return self._ssodomain
-		except Exception as e:
-			raise e
+    @property
+    def sso(self) :
+        """Log users on to all web applications automatically after they authenticate, or pass users to the web application logon page to authenticate for each application.<br/>Default value: OFF<br/>Possible values = ON, OFF."""
+        try :
+            return self._sso
+        except Exception as e:
+            raise e
 
-	@ssodomain.setter
-	def ssodomain(self, ssodomain) :
-		r"""Domain to use for single sign-on.<br/>Minimum length =  1<br/>Maximum length =  32
-		"""
-		try :
-			self._ssodomain = ssodomain
-		except Exception as e:
-			raise e
+    @sso.setter
+    def sso(self, sso) :
+        """Log users on to all web applications automatically after they authenticate, or pass users to the web application logon page to authenticate for each application.<br/>Default value: OFF<br/>Possible values = ON, OFF
 
-	@property
-	def kcdaccount(self) :
-		r"""Kerberos constrained delegation account name.<br/>Minimum length =  1<br/>Maximum length =  32.
-		"""
-		try :
-			return self._kcdaccount
-		except Exception as e:
-			raise e
+        :param sso: 
 
-	@kcdaccount.setter
-	def kcdaccount(self, kcdaccount) :
-		r"""Kerberos constrained delegation account name.<br/>Minimum length =  1<br/>Maximum length =  32
-		"""
-		try :
-			self._kcdaccount = kcdaccount
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._sso = sso
+        except Exception as e:
+            raise e
 
-	@property
-	def httponlycookie(self) :
-		r"""Allow only an HTTP session cookie, in which case the cookie cannot be accessed by scripts.<br/>Default value: YES<br/>Possible values = YES, NO.
-		"""
-		try :
-			return self._httponlycookie
-		except Exception as e:
-			raise e
+    @property
+    def ssocredential(self) :
+        """Use primary or secondary authentication credentials for single sign-on.<br/>Default value: PRIMARY<br/>Possible values = PRIMARY, SECONDARY."""
+        try :
+            return self._ssocredential
+        except Exception as e:
+            raise e
 
-	@httponlycookie.setter
-	def httponlycookie(self, httponlycookie) :
-		r"""Allow only an HTTP session cookie, in which case the cookie cannot be accessed by scripts.<br/>Default value: YES<br/>Possible values = YES, NO
-		"""
-		try :
-			self._httponlycookie = httponlycookie
-		except Exception as e:
-			raise e
+    @ssocredential.setter
+    def ssocredential(self, ssocredential) :
+        """Use primary or secondary authentication credentials for single sign-on.<br/>Default value: PRIMARY<br/>Possible values = PRIMARY, SECONDARY
 
-	@property
-	def persistentcookie(self) :
-		r"""Use persistent SSO cookies for the traffic session. A persistent cookie remains on the user device and is sent with each HTTP request. The cookie becomes stale if the session ends.<br/>Default value: OFF<br/>Possible values = ON, OFF.
-		"""
-		try :
-			return self._persistentcookie
-		except Exception as e:
-			raise e
+        :param ssocredential: 
 
-	@persistentcookie.setter
-	def persistentcookie(self, persistentcookie) :
-		r"""Use persistent SSO cookies for the traffic session. A persistent cookie remains on the user device and is sent with each HTTP request. The cookie becomes stale if the session ends.<br/>Default value: OFF<br/>Possible values = ON, OFF
-		"""
-		try :
-			self._persistentcookie = persistentcookie
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._ssocredential = ssocredential
+        except Exception as e:
+            raise e
 
-	@property
-	def persistentcookievalidity(self) :
-		r"""Integer specifying the number of minutes for which the persistent cookie remains valid. Can be set only if the persistence cookie setting is enabled.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._persistentcookievalidity
-		except Exception as e:
-			raise e
+    @property
+    def ssodomain(self) :
+        """Domain to use for single sign-on.<br/>Minimum length =  1<br/>Maximum length =  32."""
+        try :
+            return self._ssodomain
+        except Exception as e:
+            raise e
 
-	@persistentcookievalidity.setter
-	def persistentcookievalidity(self, persistentcookievalidity) :
-		r"""Integer specifying the number of minutes for which the persistent cookie remains valid. Can be set only if the persistence cookie setting is enabled.<br/>Minimum length =  1
-		"""
-		try :
-			self._persistentcookievalidity = persistentcookievalidity
-		except Exception as e:
-			raise e
+    @ssodomain.setter
+    def ssodomain(self, ssodomain) :
+        """Domain to use for single sign-on.<br/>Minimum length =  1<br/>Maximum length =  32
 
-	@property
-	def homepage(self) :
-		r"""Web address of the home page that a user is displayed when authentication vserver is bookmarked and used to login.<br/>Default value: "None".
-		"""
-		try :
-			return self._homepage
-		except Exception as e:
-			raise e
+        :param ssodomain: 
 
-	@homepage.setter
-	def homepage(self, homepage) :
-		r"""Web address of the home page that a user is displayed when authentication vserver is bookmarked and used to login.<br/>Default value: "None"
-		"""
-		try :
-			self._homepage = homepage
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._ssodomain = ssodomain
+        except Exception as e:
+            raise e
 
-	@property
-	def name(self) :
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def kcdaccount(self) :
+        """Kerberos constrained delegation account name.<br/>Minimum length =  1<br/>Maximum length =  32."""
+        try :
+            return self._kcdaccount
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(tmsessionparameter_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.tmsessionparameter
-		except Exception as e :
-			raise e
+    @kcdaccount.setter
+    def kcdaccount(self, kcdaccount) :
+        """Kerberos constrained delegation account name.<br/>Minimum length =  1<br/>Maximum length =  32
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        :param kcdaccount: 
 
+        """
+        try :
+            self._kcdaccount = kcdaccount
+        except Exception as e:
+            raise e
 
+    @property
+    def httponlycookie(self) :
+        """Allow only an HTTP session cookie, in which case the cookie cannot be accessed by scripts.<br/>Default value: YES<br/>Possible values = YES, NO."""
+        try :
+            return self._httponlycookie
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update tmsessionparameter.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = tmsessionparameter()
-				updateresource.sesstimeout = resource.sesstimeout
-				updateresource.defaultauthorizationaction = resource.defaultauthorizationaction
-				updateresource.sso = resource.sso
-				updateresource.ssocredential = resource.ssocredential
-				updateresource.ssodomain = resource.ssodomain
-				updateresource.kcdaccount = resource.kcdaccount
-				updateresource.httponlycookie = resource.httponlycookie
-				updateresource.persistentcookie = resource.persistentcookie
-				updateresource.persistentcookievalidity = resource.persistentcookievalidity
-				updateresource.homepage = resource.homepage
-				return updateresource.update_resource(client)
-		except Exception as e :
-			raise e
+    @httponlycookie.setter
+    def httponlycookie(self, httponlycookie) :
+        """Allow only an HTTP session cookie, in which case the cookie cannot be accessed by scripts.<br/>Default value: YES<br/>Possible values = YES, NO
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of tmsessionparameter resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = tmsessionparameter()
-				return unsetresource.unset_resource(client, args)
-		except Exception as e :
-			raise e
+        :param httponlycookie: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the tmsessionparameter resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = tmsessionparameter()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._httponlycookie = httponlycookie
+        except Exception as e:
+            raise e
+
+    @property
+    def persistentcookie(self) :
+        """Use persistent SSO cookies for the traffic session. A persistent cookie remains on the user device and is sent with each HTTP request. The cookie becomes stale if the session ends.<br/>Default value: OFF<br/>Possible values = ON, OFF."""
+        try :
+            return self._persistentcookie
+        except Exception as e:
+            raise e
+
+    @persistentcookie.setter
+    def persistentcookie(self, persistentcookie) :
+        """Use persistent SSO cookies for the traffic session. A persistent cookie remains on the user device and is sent with each HTTP request. The cookie becomes stale if the session ends.<br/>Default value: OFF<br/>Possible values = ON, OFF
+
+        :param persistentcookie: 
+
+        """
+        try :
+            self._persistentcookie = persistentcookie
+        except Exception as e:
+            raise e
+
+    @property
+    def persistentcookievalidity(self) :
+        """Integer specifying the number of minutes for which the persistent cookie remains valid. Can be set only if the persistence cookie setting is enabled.<br/>Minimum length =  1."""
+        try :
+            return self._persistentcookievalidity
+        except Exception as e:
+            raise e
+
+    @persistentcookievalidity.setter
+    def persistentcookievalidity(self, persistentcookievalidity) :
+        """Integer specifying the number of minutes for which the persistent cookie remains valid. Can be set only if the persistence cookie setting is enabled.<br/>Minimum length =  1
+
+        :param persistentcookievalidity: 
+
+        """
+        try :
+            self._persistentcookievalidity = persistentcookievalidity
+        except Exception as e:
+            raise e
+
+    @property
+    def homepage(self) :
+        """Web address of the home page that a user is displayed when authentication vserver is bookmarked and used to login.<br/>Default value: "None"."""
+        try :
+            return self._homepage
+        except Exception as e:
+            raise e
+
+    @homepage.setter
+    def homepage(self, homepage) :
+        """Web address of the home page that a user is displayed when authentication vserver is bookmarked and used to login.<br/>Default value: "None"
+
+        :param homepage: 
+
+        """
+        try :
+            self._homepage = homepage
+        except Exception as e:
+            raise e
+
+    @property
+    def name(self) :
+        """ """
+        try :
+            return self._name
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(tmsessionparameter_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.tmsessionparameter
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
-	class Persistentcookie:
-		ON = "ON"
-		OFF = "OFF"
 
-	class Httponlycookie:
-		YES = "YES"
-		NO = "NO"
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update tmsessionparameter.
 
-	class Defaultauthorizationaction:
-		ALLOW = "ALLOW"
-		DENY = "DENY"
+        :param client: 
+        :param resource: 
 
-	class Ssocredential:
-		PRIMARY = "PRIMARY"
-		SECONDARY = "SECONDARY"
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = tmsessionparameter()
+                updateresource.sesstimeout = resource.sesstimeout
+                updateresource.defaultauthorizationaction = resource.defaultauthorizationaction
+                updateresource.sso = resource.sso
+                updateresource.ssocredential = resource.ssocredential
+                updateresource.ssodomain = resource.ssodomain
+                updateresource.kcdaccount = resource.kcdaccount
+                updateresource.httponlycookie = resource.httponlycookie
+                updateresource.persistentcookie = resource.persistentcookie
+                updateresource.persistentcookievalidity = resource.persistentcookievalidity
+                updateresource.homepage = resource.homepage
+                return updateresource.update_resource(client)
+        except Exception as e :
+            raise e
 
-	class Sso:
-		ON = "ON"
-		OFF = "OFF"
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of tmsessionparameter resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = tmsessionparameter()
+                return unsetresource.unset_resource(client, args)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the tmsessionparameter resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = tmsessionparameter()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    class Persistentcookie:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
+
+    class Httponlycookie:
+        """ """
+        YES = "YES"
+        NO = "NO"
+
+    class Defaultauthorizationaction:
+        """ """
+        ALLOW = "ALLOW"
+        DENY = "DENY"
+
+    class Ssocredential:
+        """ """
+        PRIMARY = "PRIMARY"
+        SECONDARY = "SECONDARY"
+
+    class Sso:
+        """ """
+        ON = "ON"
+        OFF = "OFF"
 
 class tmsessionparameter_response(base_response) :
-	def __init__(self, length=1) :
-		self.tmsessionparameter = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.tmsessionparameter = [tmsessionparameter() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.tmsessionparameter = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.tmsessionparameter = [tmsessionparameter() for _ in range(length)]
 

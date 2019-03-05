@@ -22,117 +22,132 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class ssldhparam(base_resource) :
-	""" Configuration for dh Parameter resource. """
-	def __init__(self) :
-		self._dhfile = ""
-		self._bits = 0
-		self._gen = ""
+    """Configuration for dh Parameter resource."""
+    def __init__(self) :
+        self._dhfile = ""
+        self._bits = 0
+        self._gen = ""
 
-	@property
-	def dhfile(self) :
-		r"""Name of and, optionally, path to the DH key file. /nsconfig/ssl/ is the default path.<br/>Maximum length =  63.
-		"""
-		try :
-			return self._dhfile
-		except Exception as e:
-			raise e
+    @property
+    def dhfile(self) :
+        """Name of and, optionally, path to the DH key file. /nsconfig/ssl/ is the default path.<br/>Maximum length =  63."""
+        try :
+            return self._dhfile
+        except Exception as e:
+            raise e
 
-	@dhfile.setter
-	def dhfile(self, dhfile) :
-		r"""Name of and, optionally, path to the DH key file. /nsconfig/ssl/ is the default path.<br/>Maximum length =  63
-		"""
-		try :
-			self._dhfile = dhfile
-		except Exception as e:
-			raise e
+    @dhfile.setter
+    def dhfile(self, dhfile) :
+        """Name of and, optionally, path to the DH key file. /nsconfig/ssl/ is the default path.<br/>Maximum length =  63
 
-	@property
-	def bits(self) :
-		r"""Size, in bits, of the DH key being generated.<br/>Minimum length =  512<br/>Maximum length =  2048.
-		"""
-		try :
-			return self._bits
-		except Exception as e:
-			raise e
+        :param dhfile: 
 
-	@bits.setter
-	def bits(self, bits) :
-		r"""Size, in bits, of the DH key being generated.<br/>Minimum length =  512<br/>Maximum length =  2048
-		"""
-		try :
-			self._bits = bits
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._dhfile = dhfile
+        except Exception as e:
+            raise e
 
-	@property
-	def gen(self) :
-		r"""Random number required for generating the DH key. Required as part of the DH key generation algorithm.<br/>Default value: 2<br/>Possible values = 2, 5.
-		"""
-		try :
-			return self._gen
-		except Exception as e:
-			raise e
+    @property
+    def bits(self) :
+        """Size, in bits, of the DH key being generated.<br/>Minimum length =  512<br/>Maximum length =  2048."""
+        try :
+            return self._bits
+        except Exception as e:
+            raise e
 
-	@gen.setter
-	def gen(self, gen) :
-		r"""Random number required for generating the DH key. Required as part of the DH key generation algorithm.<br/>Default value: 2<br/>Possible values = 2, 5
-		"""
-		try :
-			self._gen = gen
-		except Exception as e:
-			raise e
+    @bits.setter
+    def bits(self, bits) :
+        """Size, in bits, of the DH key being generated.<br/>Minimum length =  512<br/>Maximum length =  2048
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(ssldhparam_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.ssldhparam
-		except Exception as e :
-			raise e
+        :param bits: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._bits = bits
+        except Exception as e:
+            raise e
+
+    @property
+    def gen(self) :
+        """Random number required for generating the DH key. Required as part of the DH key generation algorithm.<br/>Default value: 2<br/>Possible values = 2, 5."""
+        try :
+            return self._gen
+        except Exception as e:
+            raise e
+
+    @gen.setter
+    def gen(self, gen) :
+        """Random number required for generating the DH key. Required as part of the DH key generation algorithm.<br/>Default value: 2<br/>Possible values = 2, 5
+
+        :param gen: 
+
+        """
+        try :
+            self._gen = gen
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(ssldhparam_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.ssldhparam
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def create(cls, client, resource) :
-		r""" Use this API to create ssldhparam.
-		"""
-		try :
-			if type(resource) is not list :
-				createresource = ssldhparam()
-				createresource.dhfile = resource.dhfile
-				createresource.bits = resource.bits
-				createresource.gen = resource.gen
-				return createresource.perform_operation(client,"create")
-		except Exception as e :
-			raise e
+    @classmethod
+    def create(cls, client, resource) :
+        """Use this API to create ssldhparam.
 
-	class Gen:
-		_2 = "2"
-		_5 = "5"
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                createresource = ssldhparam()
+                createresource.dhfile = resource.dhfile
+                createresource.bits = resource.bits
+                createresource.gen = resource.gen
+                return createresource.perform_operation(client,"create")
+        except Exception as e :
+            raise e
+
+    class Gen:
+        """ """
+        _2 = "2"
+        _5 = "5"
 
 class ssldhparam_response(base_response) :
-	def __init__(self, length=1) :
-		self.ssldhparam = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.ssldhparam = [ssldhparam() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.ssldhparam = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.ssldhparam = [ssldhparam() for _ in range(length)]
 

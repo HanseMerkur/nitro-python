@@ -16,45 +16,48 @@
 
 
 class aaagroup_args :
-	r""" Provides additional arguments required for fetching the aaagroup resource.
-	"""
-	def __init__(self) :
-		self._loggedin = False
-		self._weight = 0
+    """Provides additional arguments required for fetching the aaagroup resource."""
+    def __init__(self) :
+        self._loggedin = False
+        self._weight = 0
 
-	@property
-	def loggedin(self) :
-		r"""Display only the group members who are currently logged in.
-		"""
-		try :
-			return self._loggedin
-		except Exception as e:
-			raise e
+    @property
+    def loggedin(self) :
+        """Display only the group members who are currently logged in."""
+        try :
+            return self._loggedin
+        except Exception as e:
+            raise e
 
-	@loggedin.setter
-	def loggedin(self, loggedin) :
-		r"""Display only the group members who are currently logged in.
-		"""
-		try :
-			self._loggedin = loggedin
-		except Exception as e:
-			raise e
+    @loggedin.setter
+    def loggedin(self, loggedin) :
+        """Display only the group members who are currently logged in.
 
-	@property
-	def weight(self) :
-		r"""Weight of this group with respect to other configured aaa groups (lower the number higher the weight).<br/>Default value: 0<br/>Minimum value =  0<br/>Maximum value =  65535.
-		"""
-		try :
-			return self._weight
-		except Exception as e:
-			raise e
+        :param loggedin: 
 
-	@weight.setter
-	def weight(self, weight) :
-		r"""Weight of this group with respect to other configured aaa groups (lower the number higher the weight).<br/>Default value: 0<br/>Minimum value =  0<br/>Maximum value =  65535
-		"""
-		try :
-			self._weight = weight
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._loggedin = loggedin
+        except Exception as e:
+            raise e
+
+    @property
+    def weight(self) :
+        """Weight of this group with respect to other configured aaa groups (lower the number higher the weight).<br/>Default value: 0<br/>Minimum value =  0<br/>Maximum value =  65535."""
+        try :
+            return self._weight
+        except Exception as e:
+            raise e
+
+    @weight.setter
+    def weight(self, weight) :
+        """Weight of this group with respect to other configured aaa groups (lower the number higher the weight).<br/>Default value: 0<br/>Minimum value =  0<br/>Maximum value =  65535
+
+        :param weight: 
+
+        """
+        try :
+            self._weight = weight
+        except Exception as e:
+            raise e
 

@@ -22,422 +22,403 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class inat_stats(base_resource) :
-	r""" Statistics for inbound nat resource.
-	"""
-	def __init__(self) :
-		self._name = ""
-		self._clearstats = ""
-		self._nat46tottcp46 = 0
-		self._nat46tcp46rate = 0
-		self._nat46totudp46 = 0
-		self._nat46udp46rate = 0
-		self._nat46toticmp46 = 0
-		self._nat46icmp46rate = 0
-		self._nat46totdrop46 = 0
-		self._nat46drop46rate = 0
-		self._nat46tottcp64 = 0
-		self._nat46tcp64rate = 0
-		self._nat46totudp64 = 0
-		self._nat46udp64rate = 0
-		self._nat46toticmp64 = 0
-		self._nat46icmp64rate = 0
-		self._nat46totdrop64 = 0
-		self._nat46drop64rate = 0
-		self._inatnat46tcp46 = 0
-		self._inatnat46tcp46rate = 0
-		self._inatnat46udp46 = 0
-		self._inatnat46udp46rate = 0
-		self._inatnat46icmp46 = 0
-		self._inatnat46icmp46rate = 0
-		self._inatnat46drop46 = 0
-		self._inatnat46drop46rate = 0
-		self._inatnat46tcp64 = 0
-		self._inatnat46tcp64rate = 0
-		self._inatnat46udp64 = 0
-		self._inatnat46udp64rate = 0
-		self._inatnat46icmp64 = 0
-		self._inatnat46icmp64rate = 0
-		self._inatnat46drop64 = 0
-		self._inatnat46drop64rate = 0
+    """Statistics for inbound nat resource."""
+    def __init__(self) :
+        self._name = ""
+        self._clearstats = ""
+        self._nat46tottcp46 = 0
+        self._nat46tcp46rate = 0
+        self._nat46totudp46 = 0
+        self._nat46udp46rate = 0
+        self._nat46toticmp46 = 0
+        self._nat46icmp46rate = 0
+        self._nat46totdrop46 = 0
+        self._nat46drop46rate = 0
+        self._nat46tottcp64 = 0
+        self._nat46tcp64rate = 0
+        self._nat46totudp64 = 0
+        self._nat46udp64rate = 0
+        self._nat46toticmp64 = 0
+        self._nat46icmp64rate = 0
+        self._nat46totdrop64 = 0
+        self._nat46drop64rate = 0
+        self._inatnat46tcp46 = 0
+        self._inatnat46tcp46rate = 0
+        self._inatnat46udp46 = 0
+        self._inatnat46udp46rate = 0
+        self._inatnat46icmp46 = 0
+        self._inatnat46icmp46rate = 0
+        self._inatnat46drop46 = 0
+        self._inatnat46drop46rate = 0
+        self._inatnat46tcp64 = 0
+        self._inatnat46tcp64rate = 0
+        self._inatnat46udp64 = 0
+        self._inatnat46udp64rate = 0
+        self._inatnat46icmp64 = 0
+        self._inatnat46icmp64rate = 0
+        self._inatnat46drop64 = 0
+        self._inatnat46drop64rate = 0
 
-	@property
-	def name(self) :
-		r"""The INAT.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """The INAT.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""The INAT.
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """The INAT.
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46udp64rate(self) :
-		r"""Rate (/s) counter for nat46totudp64.
-		"""
-		try :
-			return self._nat46udp64rate
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46totdrop64(self) :
-		r"""Total IPV6 packets dropped.
-		"""
-		try :
-			return self._nat46totdrop64
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def nat46totudp46(self) :
-		r"""Total UDP packets translated (V4->v6).
-		"""
-		try :
-			return self._nat46totudp46
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def nat46icmp64rate(self) :
-		r"""Rate (/s) counter for nat46toticmp64.
-		"""
-		try :
-			return self._nat46icmp64rate
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46tcp46(self) :
-		r"""TCP packets translated (V4->v6).
-		"""
-		try :
-			return self._inatnat46tcp46
-		except Exception as e:
-			raise e
+    @property
+    def nat46udp64rate(self) :
+        """Rate (/s) counter for nat46totudp64."""
+        try :
+            return self._nat46udp64rate
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46totdrop46(self) :
-		r"""Total IPV4 packets dropped.
-		"""
-		try :
-			return self._nat46totdrop46
-		except Exception as e:
-			raise e
+    @property
+    def nat46totdrop64(self) :
+        """Total IPV6 packets dropped."""
+        try :
+            return self._nat46totdrop64
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46tcp64(self) :
-		r"""TCP packets translated (V6->v4).
-		"""
-		try :
-			return self._inatnat46tcp64
-		except Exception as e:
-			raise e
+    @property
+    def nat46totudp46(self) :
+        """Total UDP packets translated (V4->v6)."""
+        try :
+            return self._nat46totudp46
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46drop46(self) :
-		r"""IPV4 packets dropped.
-		"""
-		try :
-			return self._inatnat46drop46
-		except Exception as e:
-			raise e
+    @property
+    def nat46icmp64rate(self) :
+        """Rate (/s) counter for nat46toticmp64."""
+        try :
+            return self._nat46icmp64rate
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46drop64(self) :
-		r"""IPV6 packets dropped.
-		"""
-		try :
-			return self._inatnat46drop64
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46tcp46(self) :
+        """TCP packets translated (V4->v6)."""
+        try :
+            return self._inatnat46tcp46
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46udp46(self) :
-		r"""UDP packets translated (V4->v6).
-		"""
-		try :
-			return self._inatnat46udp46
-		except Exception as e:
-			raise e
+    @property
+    def nat46totdrop46(self) :
+        """Total IPV4 packets dropped."""
+        try :
+            return self._nat46totdrop46
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46tottcp64(self) :
-		r"""Total TCP packets translated (V6->v4).
-		"""
-		try :
-			return self._nat46tottcp64
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46tcp64(self) :
+        """TCP packets translated (V6->v4)."""
+        try :
+            return self._inatnat46tcp64
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46drop46rate(self) :
-		r"""Rate (/s) counter for nat46totdrop46.
-		"""
-		try :
-			return self._nat46drop46rate
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46drop46(self) :
+        """IPV4 packets dropped."""
+        try :
+            return self._inatnat46drop46
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46drop46rate(self) :
-		r"""Rate (/s) counter for inatnat46drop46.
-		"""
-		try :
-			return self._inatnat46drop46rate
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46drop64(self) :
+        """IPV6 packets dropped."""
+        try :
+            return self._inatnat46drop64
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46tcp64rate(self) :
-		r"""Rate (/s) counter for inatnat46tcp64.
-		"""
-		try :
-			return self._inatnat46tcp64rate
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46udp46(self) :
+        """UDP packets translated (V4->v6)."""
+        try :
+            return self._inatnat46udp46
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46icmp64(self) :
-		r"""ICMP packets translated (V6->v4).
-		"""
-		try :
-			return self._inatnat46icmp64
-		except Exception as e:
-			raise e
+    @property
+    def nat46tottcp64(self) :
+        """Total TCP packets translated (V6->v4)."""
+        try :
+            return self._nat46tottcp64
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46drop64rate(self) :
-		r"""Rate (/s) counter for nat46totdrop64.
-		"""
-		try :
-			return self._nat46drop64rate
-		except Exception as e:
-			raise e
+    @property
+    def nat46drop46rate(self) :
+        """Rate (/s) counter for nat46totdrop46."""
+        try :
+            return self._nat46drop46rate
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46tcp46rate(self) :
-		r"""Rate (/s) counter for inatnat46tcp46.
-		"""
-		try :
-			return self._inatnat46tcp46rate
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46drop46rate(self) :
+        """Rate (/s) counter for inatnat46drop46."""
+        try :
+            return self._inatnat46drop46rate
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46tottcp46(self) :
-		r"""Total TCP packets translated (V4->v6).
-		"""
-		try :
-			return self._nat46tottcp46
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46tcp64rate(self) :
+        """Rate (/s) counter for inatnat46tcp64."""
+        try :
+            return self._inatnat46tcp64rate
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46toticmp46(self) :
-		r"""Total ICMP packets translated (V4->v6).
-		"""
-		try :
-			return self._nat46toticmp46
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46icmp64(self) :
+        """ICMP packets translated (V6->v4)."""
+        try :
+            return self._inatnat46icmp64
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46icmp46rate(self) :
-		r"""Rate (/s) counter for inatnat46icmp46.
-		"""
-		try :
-			return self._inatnat46icmp46rate
-		except Exception as e:
-			raise e
+    @property
+    def nat46drop64rate(self) :
+        """Rate (/s) counter for nat46totdrop64."""
+        try :
+            return self._nat46drop64rate
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46udp64(self) :
-		r"""UDP packets translated (V6->v4).
-		"""
-		try :
-			return self._inatnat46udp64
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46tcp46rate(self) :
+        """Rate (/s) counter for inatnat46tcp46."""
+        try :
+            return self._inatnat46tcp46rate
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46tcp46rate(self) :
-		r"""Rate (/s) counter for nat46tottcp46.
-		"""
-		try :
-			return self._nat46tcp46rate
-		except Exception as e:
-			raise e
+    @property
+    def nat46tottcp46(self) :
+        """Total TCP packets translated (V4->v6)."""
+        try :
+            return self._nat46tottcp46
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46drop64rate(self) :
-		r"""Rate (/s) counter for inatnat46drop64.
-		"""
-		try :
-			return self._inatnat46drop64rate
-		except Exception as e:
-			raise e
+    @property
+    def nat46toticmp46(self) :
+        """Total ICMP packets translated (V4->v6)."""
+        try :
+            return self._nat46toticmp46
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46udp64rate(self) :
-		r"""Rate (/s) counter for inatnat46udp64.
-		"""
-		try :
-			return self._inatnat46udp64rate
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46icmp46rate(self) :
+        """Rate (/s) counter for inatnat46icmp46."""
+        try :
+            return self._inatnat46icmp46rate
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46icmp46rate(self) :
-		r"""Rate (/s) counter for nat46toticmp46.
-		"""
-		try :
-			return self._nat46icmp46rate
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46udp64(self) :
+        """UDP packets translated (V6->v4)."""
+        try :
+            return self._inatnat46udp64
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46icmp46(self) :
-		r"""ICMP packets translated (V4->v6).
-		"""
-		try :
-			return self._inatnat46icmp46
-		except Exception as e:
-			raise e
+    @property
+    def nat46tcp46rate(self) :
+        """Rate (/s) counter for nat46tottcp46."""
+        try :
+            return self._nat46tcp46rate
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46icmp64rate(self) :
-		r"""Rate (/s) counter for inatnat46icmp64.
-		"""
-		try :
-			return self._inatnat46icmp64rate
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46drop64rate(self) :
+        """Rate (/s) counter for inatnat46drop64."""
+        try :
+            return self._inatnat46drop64rate
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46tcp64rate(self) :
-		r"""Rate (/s) counter for nat46tottcp64.
-		"""
-		try :
-			return self._nat46tcp64rate
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46udp64rate(self) :
+        """Rate (/s) counter for inatnat46udp64."""
+        try :
+            return self._inatnat46udp64rate
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46totudp64(self) :
-		r"""Total UDP packets translated (V6->v4).
-		"""
-		try :
-			return self._nat46totudp64
-		except Exception as e:
-			raise e
+    @property
+    def nat46icmp46rate(self) :
+        """Rate (/s) counter for nat46toticmp46."""
+        try :
+            return self._nat46icmp46rate
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46udp46rate(self) :
-		r"""Rate (/s) counter for nat46totudp46.
-		"""
-		try :
-			return self._nat46udp46rate
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46icmp46(self) :
+        """ICMP packets translated (V4->v6)."""
+        try :
+            return self._inatnat46icmp46
+        except Exception as e:
+            raise e
 
-	@property
-	def nat46toticmp64(self) :
-		r"""Total ICMP packets translated (V6->v4).
-		"""
-		try :
-			return self._nat46toticmp64
-		except Exception as e:
-			raise e
+    @property
+    def inatnat46icmp64rate(self) :
+        """Rate (/s) counter for inatnat46icmp64."""
+        try :
+            return self._inatnat46icmp64rate
+        except Exception as e:
+            raise e
 
-	@property
-	def inatnat46udp46rate(self) :
-		r"""Rate (/s) counter for inatnat46udp46.
-		"""
-		try :
-			return self._inatnat46udp46rate
-		except Exception as e:
-			raise e
+    @property
+    def nat46tcp64rate(self) :
+        """Rate (/s) counter for nat46tottcp64."""
+        try :
+            return self._nat46tcp64rate
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(inat_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.inat
-		except Exception as e :
-			raise e
+    @property
+    def nat46totudp64(self) :
+        """Total UDP packets translated (V6->v4)."""
+        try :
+            return self._nat46totudp64
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def nat46udp46rate(self) :
+        """Rate (/s) counter for nat46totudp46."""
+        try :
+            return self._nat46udp46rate
+        except Exception as e:
+            raise e
+
+    @property
+    def nat46toticmp64(self) :
+        """Total ICMP packets translated (V6->v4)."""
+        try :
+            return self._nat46toticmp64
+        except Exception as e:
+            raise e
+
+    @property
+    def inatnat46udp46rate(self) :
+        """Rate (/s) counter for inatnat46udp46."""
+        try :
+            return self._inatnat46udp46rate
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(inat_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.inat
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all inat_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = inat_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			else :
-				obj.name = name
-				response = obj.stat_resource(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all inat_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = inat_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            else :
+                obj.name = name
+                response = obj.stat_resource(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class inat_response(base_response) :
-	def __init__(self, length=1) :
-		self.inat = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.inat = [inat_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.inat = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.inat = [inat_stats() for _ in range(length)]
 

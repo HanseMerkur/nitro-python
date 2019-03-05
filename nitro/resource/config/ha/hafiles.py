@@ -22,99 +22,113 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class hafiles(base_resource) :
-	""" Configuration for files resource. """
-	def __init__(self) :
-		self._mode = []
+    """Configuration for files resource."""
+    def __init__(self) :
+        self._mode = []
 
-	@property
-	def mode(self) :
-		r"""Specify one of the following modes of synchronization.
-		* all - Synchronize files related to system configuration, Access Gateway bookmarks, SSL certificates, SSL CRL lists, HTML injection scripts, and Application Firewall XML objects. 
-		* bookmarks - Synchronize all Access Gateway bookmarks.
-		* ssl - Synchronize all certificates, keys, and CRLs for the SSL feature. 
-		* htmlinjection. Synchronize all scripts configured for the HTML injection feature. 
-		* imports. Synchronize all XML objects (for example, WSDLs, schemas, error pages) configured for the application firewall. 
-		* misc - Synchronize all license files and the rc.conf file. 
-		* all_plus_misc - Synchronize files related to system configuration, Access Gateway bookmarks, SSL certificates, SSL CRL lists, HTML injection scripts, application firewall XML objects, licenses, and the rc.conf file.<br/>Possible values = all, bookmarks, ssl, htmlinjection, imports, misc, dns, krb, all_plus_misc, all_minus_misc.
-		"""
-		try :
-			return self._mode
-		except Exception as e:
-			raise e
-
-	@mode.setter
-	def mode(self, mode) :
-		r"""Specify one of the following modes of synchronization.
-		* all - Synchronize files related to system configuration, Access Gateway bookmarks, SSL certificates, SSL CRL lists, HTML injection scripts, and Application Firewall XML objects. 
-		* bookmarks - Synchronize all Access Gateway bookmarks.
-		* ssl - Synchronize all certificates, keys, and CRLs for the SSL feature. 
-		* htmlinjection. Synchronize all scripts configured for the HTML injection feature. 
-		* imports. Synchronize all XML objects (for example, WSDLs, schemas, error pages) configured for the application firewall. 
-		* misc - Synchronize all license files and the rc.conf file. 
-		* all_plus_misc - Synchronize files related to system configuration, Access Gateway bookmarks, SSL certificates, SSL CRL lists, HTML injection scripts, application firewall XML objects, licenses, and the rc.conf file.<br/>Possible values = all, bookmarks, ssl, htmlinjection, imports, misc, dns, krb, all_plus_misc, all_minus_misc
-		"""
-		try :
-			self._mode = mode
-		except Exception as e:
-			raise e
-
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(hafiles_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.hafiles
-		except Exception as e :
-			raise e
-
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @property
+    def mode(self) :
+        """Specify one of the following modes of synchronization.
+        * all - Synchronize files related to system configuration, Access Gateway bookmarks, SSL certificates, SSL CRL lists, HTML injection scripts, and Application Firewall XML objects.
+        * bookmarks - Synchronize all Access Gateway bookmarks.
+        * ssl - Synchronize all certificates, keys, and CRLs for the SSL feature.
+        * htmlinjection. Synchronize all scripts configured for the HTML injection feature.
+        * imports. Synchronize all XML objects (for example, WSDLs, schemas, error pages) configured for the application firewall.
+        * misc - Synchronize all license files and the rc.conf file.
+        * all_plus_misc - Synchronize files related to system configuration, Access Gateway bookmarks, SSL certificates, SSL CRL lists, HTML injection scripts, application firewall XML objects, licenses, and the rc.conf file.<br/>Possible values = all, bookmarks, ssl, htmlinjection, imports, misc, dns, krb, all_plus_misc, all_minus_misc.
 
 
+        """
+        try :
+            return self._mode
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def sync(cls, client, resource) :
-		r""" Use this API to sync hafiles.
-		"""
-		try :
-			if type(resource) is not list :
-				syncresource = hafiles()
-				syncresource.mode = resource.mode
-				return syncresource.perform_operation(client,"sync")
-		except Exception as e :
-			raise e
+    @mode.setter
+    def mode(self, mode) :
+        """Specify one of the following modes of synchronization.
+        * all - Synchronize files related to system configuration, Access Gateway bookmarks, SSL certificates, SSL CRL lists, HTML injection scripts, and Application Firewall XML objects.
+        * bookmarks - Synchronize all Access Gateway bookmarks.
+        * ssl - Synchronize all certificates, keys, and CRLs for the SSL feature.
+        * htmlinjection. Synchronize all scripts configured for the HTML injection feature.
+        * imports. Synchronize all XML objects (for example, WSDLs, schemas, error pages) configured for the application firewall.
+        * misc - Synchronize all license files and the rc.conf file.
+        * all_plus_misc - Synchronize files related to system configuration, Access Gateway bookmarks, SSL certificates, SSL CRL lists, HTML injection scripts, application firewall XML objects, licenses, and the rc.conf file.<br/>Possible values = all, bookmarks, ssl, htmlinjection, imports, misc, dns, krb, all_plus_misc, all_minus_misc
 
-	class Mode:
-		all = "all"
-		bookmarks = "bookmarks"
-		ssl = "ssl"
-		htmlinjection = "htmlinjection"
-		imports = "imports"
-		misc = "misc"
-		dns = "dns"
-		krb = "krb"
-		all_plus_misc = "all_plus_misc"
-		all_minus_misc = "all_minus_misc"
+        :param mode: 
+
+        """
+        try :
+            self._mode = mode
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(hafiles_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.hafiles
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
+
+
+
+    @classmethod
+    def sync(cls, client, resource) :
+        """Use this API to sync hafiles.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                syncresource = hafiles()
+                syncresource.mode = resource.mode
+                return syncresource.perform_operation(client,"sync")
+        except Exception as e :
+            raise e
+
+    class Mode:
+        """ """
+        all = "all"
+        bookmarks = "bookmarks"
+        ssl = "ssl"
+        htmlinjection = "htmlinjection"
+        imports = "imports"
+        misc = "misc"
+        dns = "dns"
+        krb = "krb"
+        all_plus_misc = "all_plus_misc"
+        all_minus_misc = "all_minus_misc"
 
 class hafiles_response(base_response) :
-	def __init__(self, length=1) :
-		self.hafiles = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.hafiles = [hafiles() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.hafiles = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.hafiles = [hafiles() for _ in range(length)]
 

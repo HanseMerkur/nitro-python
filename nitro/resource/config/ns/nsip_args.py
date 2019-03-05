@@ -16,33 +16,35 @@
 
 
 class nsip_args :
-	r""" Provides additional arguments required for fetching the nsip resource.
-	"""
-	def __init__(self) :
-		self._type = ""
+    """Provides additional arguments required for fetching the nsip resource."""
+    def __init__(self) :
+        self._type = ""
 
-	@property
-	def type(self) :
-		r"""Display the settings of all IPv4 addresses of a particular type.<br/>Default value: 0<br/>Possible values = SNIP, VIP, NSIP, GSLBsiteIP, CLIP.
-		"""
-		try :
-			return self._type
-		except Exception as e:
-			raise e
+    @property
+    def type(self) :
+        """Display the settings of all IPv4 addresses of a particular type.<br/>Default value: 0<br/>Possible values = SNIP, VIP, NSIP, GSLBsiteIP, CLIP."""
+        try :
+            return self._type
+        except Exception as e:
+            raise e
 
-	@type.setter
-	def type(self, type) :
-		r"""Display the settings of all IPv4 addresses of a particular type.<br/>Default value: 0<br/>Possible values = SNIP, VIP, NSIP, GSLBsiteIP, CLIP
-		"""
-		try :
-			self._type = type
-		except Exception as e:
-			raise e
+    @type.setter
+    def type(self, type) :
+        """Display the settings of all IPv4 addresses of a particular type.<br/>Default value: 0<br/>Possible values = SNIP, VIP, NSIP, GSLBsiteIP, CLIP
 
-	class Type:
-		SNIP = "SNIP"
-		VIP = "VIP"
-		NSIP = "NSIP"
-		GSLBsiteIP = "GSLBsiteIP"
-		CLIP = "CLIP"
+        :param type: 
+
+        """
+        try :
+            self._type = type
+        except Exception as e:
+            raise e
+
+    class Type:
+        """ """
+        SNIP = "SNIP"
+        VIP = "VIP"
+        NSIP = "NSIP"
+        GSLBsiteIP = "GSLBsiteIP"
+        CLIP = "CLIP"
 

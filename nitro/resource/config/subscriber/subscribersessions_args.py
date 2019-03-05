@@ -16,26 +16,27 @@
 
 
 class subscribersessions_args :
-	r""" Provides additional arguments required for fetching the subscribersessions resource.
-	"""
-	def __init__(self) :
-		self._ip = ""
+    """Provides additional arguments required for fetching the subscribersessions resource."""
+    def __init__(self) :
+        self._ip = ""
 
-	@property
-	def ip(self) :
-		r"""Subscriber IP Address.
-		"""
-		try :
-			return self._ip
-		except Exception as e:
-			raise e
+    @property
+    def ip(self) :
+        """Subscriber IP Address."""
+        try :
+            return self._ip
+        except Exception as e:
+            raise e
 
-	@ip.setter
-	def ip(self, ip) :
-		r"""Subscriber IP Address.
-		"""
-		try :
-			self._ip = ip
-		except Exception as e:
-			raise e
+    @ip.setter
+    def ip(self, ip) :
+        """Subscriber IP Address.
+
+        :param ip: 
+
+        """
+        try :
+            self._ip = ip
+        except Exception as e:
+            raise e
 

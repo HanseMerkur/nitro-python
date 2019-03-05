@@ -22,253 +22,298 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class nslimitselector(base_resource) :
-	""" Configuration for limit selector resource. """
-	def __init__(self) :
-		self._selectorname = ""
-		self._rule = []
-		self.___count = 0
+    """Configuration for limit selector resource."""
+    def __init__(self) :
+        self._selectorname = ""
+        self._rule = []
+        self.___count = 0
 
-	@property
-	def selectorname(self) :
-		try :
-			return self._selectorname
-		except Exception as e:
-			raise e
+    @property
+    def selectorname(self) :
+        """ """
+        try :
+            return self._selectorname
+        except Exception as e:
+            raise e
 
-	@selectorname.setter
-	def selectorname(self, selectorname) :
-		try :
-			self._selectorname = selectorname
-		except Exception as e:
-			raise e
+    @selectorname.setter
+    def selectorname(self, selectorname) :
+        """
 
-	@property
-	def rule(self) :
-		r""".<br/>Minimum length =  1.
-		"""
-		try :
-			return self._rule
-		except Exception as e:
-			raise e
+        :param selectorname: 
 
-	@rule.setter
-	def rule(self, rule) :
-		r""".<br/>Minimum length =  1
-		"""
-		try :
-			self._rule = rule
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._selectorname = selectorname
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(nslimitselector_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.nslimitselector
-		except Exception as e :
-			raise e
+    @property
+    def rule(self) :
+        """.<br/>Minimum length =  1."""
+        try :
+            return self._rule
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.selectorname is not None :
-				return str(self.selectorname)
-			return None
-		except Exception as e :
-			raise e
+    @rule.setter
+    def rule(self, rule) :
+        """.<br/>Minimum length =  1
 
+        :param rule: 
 
+        """
+        try :
+            self._rule = rule
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		r""" Use this API to add nslimitselector.
-		"""
-		try :
-			if type(resource) is not list :
-				addresource = nslimitselector()
-				addresource.selectorname = resource.selectorname
-				addresource.rule = resource.rule
-				return addresource.add_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					addresources = [ nslimitselector() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						addresources[i].selectorname = resource[i].selectorname
-						addresources[i].rule = resource[i].rule
-				result = cls.add_bulk_request(client, addresources)
-			return result
-		except Exception as e :
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete nslimitselector.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = nslimitselector()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.selectorname = resource
-				else :
-					deleteresource.selectorname = resource.selectorname
-				return deleteresource.delete_resource(client)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ nslimitselector() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].selectorname = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ nslimitselector() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].selectorname = resource[i].selectorname
-				result = cls.delete_bulk_request(client, deleteresources)
-			return result
-		except Exception as e :
-			raise e
+        :param service: 
+        :param response: 
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update nslimitselector.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = nslimitselector()
-				updateresource.selectorname = resource.selectorname
-				updateresource.rule = resource.rule
-				return updateresource.update_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					updateresources = [ nslimitselector() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].selectorname = resource[i].selectorname
-						updateresources[i].rule = resource[i].rule
-				result = cls.update_bulk_request(client, updateresources)
-			return result
-		except Exception as e :
-			raise e
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(nslimitselector_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.nslimitselector
+        except Exception as e :
+            raise e
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of nslimitselector resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = nslimitselector()
-				if type(resource) !=  type(unsetresource):
-					unsetresource.selectorname = resource
-				else :
-					unsetresource.selectorname = resource.selectorname
-				return unsetresource.unset_resource(client, args)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						unsetresources = [ nslimitselector() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							unsetresources[i].selectorname = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						unsetresources = [ nslimitselector() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							unsetresources[i].selectorname = resource[i].selectorname
-				result = cls.unset_bulk_request(client, unsetresources, args)
-			return result
-		except Exception as e :
-			raise e
-
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the nslimitselector resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = nslimitselector()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = nslimitselector()
-						obj.selectorname = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [nslimitselector() for _ in range(len(name))]
-							obj = [nslimitselector() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = nslimitselector()
-								obj[i].selectorname = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.selectorname is not None :
+                return str(self.selectorname)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of nslimitselector resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = nslimitselector()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def add(cls, client, resource) :
+        """Use this API to add nslimitselector.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                addresource = nslimitselector()
+                addresource.selectorname = resource.selectorname
+                addresource.rule = resource.rule
+                return addresource.add_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    addresources = [ nslimitselector() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        addresources[i].selectorname = resource[i].selectorname
+                        addresources[i].rule = resource[i].rule
+                result = cls.add_bulk_request(client, addresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete nslimitselector.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = nslimitselector()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.selectorname = resource
+                else :
+                    deleteresource.selectorname = resource.selectorname
+                return deleteresource.delete_resource(client)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ nslimitselector() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].selectorname = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ nslimitselector() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].selectorname = resource[i].selectorname
+                result = cls.delete_bulk_request(client, deleteresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update nslimitselector.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = nslimitselector()
+                updateresource.selectorname = resource.selectorname
+                updateresource.rule = resource.rule
+                return updateresource.update_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    updateresources = [ nslimitselector() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].selectorname = resource[i].selectorname
+                        updateresources[i].rule = resource[i].rule
+                result = cls.update_bulk_request(client, updateresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of nslimitselector resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = nslimitselector()
+                if type(resource) !=  type(unsetresource):
+                    unsetresource.selectorname = resource
+                else :
+                    unsetresource.selectorname = resource.selectorname
+                return unsetresource.unset_resource(client, args)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        unsetresources = [ nslimitselector() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            unsetresources[i].selectorname = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        unsetresources = [ nslimitselector() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            unsetresources[i].selectorname = resource[i].selectorname
+                result = cls.unset_bulk_request(client, unsetresources, args)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the nslimitselector resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = nslimitselector()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = nslimitselector()
+                        obj.selectorname = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [nslimitselector() for _ in range(len(name))]
+                            obj = [nslimitselector() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = nslimitselector()
+                                obj[i].selectorname = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the nslimitselector resources configured on NetScaler.
-		"""
-		try :
-			obj = nslimitselector()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of nslimitselector resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of nslimitselector resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = nslimitselector()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = nslimitselector()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the nslimitselector resources configured on NetScaler.
+
+        :param client: 
+
+        """
+        try :
+            obj = nslimitselector()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of nslimitselector resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = nslimitselector()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
 
 
 class nslimitselector_response(base_response) :
-	def __init__(self, length=1) :
-		self.nslimitselector = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.nslimitselector = [nslimitselector() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.nslimitselector = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.nslimitselector = [nslimitselector() for _ in range(length)]
 

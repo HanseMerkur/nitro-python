@@ -22,235 +22,284 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslservice_sslcipher_binding(base_resource) :
-	""" Binding class showing the sslcipher that can be bound to sslservice.
-	"""
-	def __init__(self) :
-		self._cipheraliasname = ""
-		self._description = ""
-		self._servicename = ""
-		self._ciphername = ""
-		self.___count = 0
+    """Binding class showing the sslcipher that can be bound to sslservice."""
+    def __init__(self) :
+        self._cipheraliasname = ""
+        self._description = ""
+        self._servicename = ""
+        self._ciphername = ""
+        self.___count = 0
 
-	@property
-	def ciphername(self) :
-		try :
-			return self._ciphername
-		except Exception as e:
-			raise e
+    @property
+    def ciphername(self) :
+        """ """
+        try :
+            return self._ciphername
+        except Exception as e:
+            raise e
 
-	@ciphername.setter
-	def ciphername(self, ciphername) :
-		try :
-			self._ciphername = ciphername
-		except Exception as e:
-			raise e
+    @ciphername.setter
+    def ciphername(self, ciphername) :
+        """
 
-	@property
-	def cipheraliasname(self) :
-		r"""The cipher group/alias/individual cipher configuration.
-		"""
-		try :
-			return self._cipheraliasname
-		except Exception as e:
-			raise e
+        :param ciphername: 
 
-	@cipheraliasname.setter
-	def cipheraliasname(self, cipheraliasname) :
-		r"""The cipher group/alias/individual cipher configuration.
-		"""
-		try :
-			self._cipheraliasname = cipheraliasname
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._ciphername = ciphername
+        except Exception as e:
+            raise e
 
-	@property
-	def servicename(self) :
-		r"""Name of the SSL service for which to set advanced configuration.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._servicename
-		except Exception as e:
-			raise e
+    @property
+    def cipheraliasname(self) :
+        """The cipher group/alias/individual cipher configuration."""
+        try :
+            return self._cipheraliasname
+        except Exception as e:
+            raise e
 
-	@servicename.setter
-	def servicename(self, servicename) :
-		r"""Name of the SSL service for which to set advanced configuration.<br/>Minimum length =  1
-		"""
-		try :
-			self._servicename = servicename
-		except Exception as e:
-			raise e
+    @cipheraliasname.setter
+    def cipheraliasname(self, cipheraliasname) :
+        """The cipher group/alias/individual cipher configuration.
 
-	@property
-	def description(self) :
-		r"""The cipher suite description.
-		"""
-		try :
-			return self._description
-		except Exception as e:
-			raise e
+        :param cipheraliasname: 
 
-	@description.setter
-	def description(self, description) :
-		r"""The cipher suite description.
-		"""
-		try :
-			self._description = description
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._cipheraliasname = cipheraliasname
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslservice_sslcipher_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslservice_sslcipher_binding
-		except Exception as e :
-			raise e
+    @property
+    def servicename(self) :
+        """Name of the SSL service for which to set advanced configuration.<br/>Minimum length =  1."""
+        try :
+            return self._servicename
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.servicename is not None :
-				return str(self.servicename)
-			return None
-		except Exception as e :
-			raise e
+    @servicename.setter
+    def servicename(self, servicename) :
+        """Name of the SSL service for which to set advanced configuration.<br/>Minimum length =  1
+
+        :param servicename: 
+
+        """
+        try :
+            self._servicename = servicename
+        except Exception as e:
+            raise e
+
+    @property
+    def description(self) :
+        """The cipher suite description."""
+        try :
+            return self._description
+        except Exception as e:
+            raise e
+
+    @description.setter
+    def description(self, description) :
+        """The cipher suite description.
+
+        :param description: 
+
+        """
+        try :
+            self._description = description
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslservice_sslcipher_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslservice_sslcipher_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.servicename is not None :
+                return str(self.servicename)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def add(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				updateresource = sslservice_sslcipher_binding()
-				updateresource.servicename = resource.servicename
-				updateresource.ciphername = resource.ciphername
-				return updateresource.update_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					updateresources = [sslservice_sslcipher_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].servicename = resource[i].servicename
-						updateresources[i].ciphername = resource[i].ciphername
-				return cls.update_bulk_request(client, updateresources)
-		except Exception as e :
-			raise e
+    @classmethod
+    def add(cls, client, resource) :
+        """
 
-	@classmethod
-	def delete(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				deleteresource = sslservice_sslcipher_binding()
-				deleteresource.servicename = resource.servicename
-				deleteresource.ciphername = resource.ciphername
-				return deleteresource.delete_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					deleteresources = [sslservice_sslcipher_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						deleteresources[i].servicename = resource[i].servicename
-						deleteresources[i].ciphername = resource[i].ciphername
-				return cls.delete_bulk_request(client, deleteresources)
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def get(cls, service, servicename) :
-		r""" Use this API to fetch sslservice_sslcipher_binding resources.
-		"""
-		try :
-			obj = sslservice_sslcipher_binding()
-			obj.servicename = servicename
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+        """
+        try :
+            if resource and type(resource) is not list :
+                updateresource = sslservice_sslcipher_binding()
+                updateresource.servicename = resource.servicename
+                updateresource.ciphername = resource.ciphername
+                return updateresource.update_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    updateresources = [sslservice_sslcipher_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].servicename = resource[i].servicename
+                        updateresources[i].ciphername = resource[i].ciphername
+                return cls.update_bulk_request(client, updateresources)
+        except Exception as e :
+            raise e
 
-	@classmethod
-	def get_filtered(cls, service, servicename, filter_) :
-		r""" Use this API to fetch filtered set of sslservice_sslcipher_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslservice_sslcipher_binding()
-			obj.servicename = servicename
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def delete(cls, client, resource) :
+        """
 
-	@classmethod
-	def count(cls, service, servicename) :
-		r""" Use this API to count sslservice_sslcipher_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = sslservice_sslcipher_binding()
-			obj.servicename = servicename
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def count_filtered(cls, service, servicename, filter_) :
-		r""" Use this API to count the filtered set of sslservice_sslcipher_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslservice_sslcipher_binding()
-			obj.servicename = servicename
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            if resource and type(resource) is not list :
+                deleteresource = sslservice_sslcipher_binding()
+                deleteresource.servicename = resource.servicename
+                deleteresource.ciphername = resource.ciphername
+                return deleteresource.delete_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    deleteresources = [sslservice_sslcipher_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        deleteresources[i].servicename = resource[i].servicename
+                        deleteresources[i].ciphername = resource[i].ciphername
+                return cls.delete_bulk_request(client, deleteresources)
+        except Exception as e :
+            raise e
 
-	class Ecccurvename:
-		ALL = "ALL"
-		P_224 = "P_224"
-		P_256 = "P_256"
-		P_384 = "P_384"
-		P_521 = "P_521"
+    @classmethod
+    def get(cls, service, servicename) :
+        """Use this API to fetch sslservice_sslcipher_binding resources.
 
-	class Labeltype:
-		vserver = "vserver"
-		service = "service"
-		policylabel = "policylabel"
+        :param service: 
+        :param servicename: 
 
-	class Crlcheck:
-		Mandatory = "Mandatory"
-		Optional = "Optional"
+        """
+        try :
+            obj = sslservice_sslcipher_binding()
+            obj.servicename = servicename
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	class Ocspcheck:
-		Mandatory = "Mandatory"
-		Optional = "Optional"
+    @classmethod
+    def get_filtered(cls, service, servicename, filter_) :
+        """Use this API to fetch filtered set of sslservice_sslcipher_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param servicename: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslservice_sslcipher_binding()
+            obj.servicename = servicename
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, servicename) :
+        """Use this API to count sslservice_sslcipher_binding resources configued on NetScaler.
+
+        :param service: 
+        :param servicename: 
+
+        """
+        try :
+            obj = sslservice_sslcipher_binding()
+            obj.servicename = servicename
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, servicename, filter_) :
+        """Use this API to count the filtered set of sslservice_sslcipher_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param servicename: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslservice_sslcipher_binding()
+            obj.servicename = servicename
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Ecccurvename:
+        """ """
+        ALL = "ALL"
+        P_224 = "P_224"
+        P_256 = "P_256"
+        P_384 = "P_384"
+        P_521 = "P_521"
+
+    class Labeltype:
+        """ """
+        vserver = "vserver"
+        service = "service"
+        policylabel = "policylabel"
+
+    class Crlcheck:
+        """ """
+        Mandatory = "Mandatory"
+        Optional = "Optional"
+
+    class Ocspcheck:
+        """ """
+        Mandatory = "Mandatory"
+        Optional = "Optional"
 
 class sslservice_sslcipher_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslservice_sslcipher_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslservice_sslcipher_binding = [sslservice_sslcipher_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslservice_sslcipher_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslservice_sslcipher_binding = [sslservice_sslcipher_binding() for _ in range(length)]
 

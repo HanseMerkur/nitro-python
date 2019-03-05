@@ -16,45 +16,48 @@
 
 
 class iptunnel_args :
-	r""" Provides additional arguments required for fetching the iptunnel resource.
-	"""
-	def __init__(self) :
-		self._remote = ""
-		self._remotesubnetmask = ""
+    """Provides additional arguments required for fetching the iptunnel resource."""
+    def __init__(self) :
+        self._remote = ""
+        self._remotesubnetmask = ""
 
-	@property
-	def remote(self) :
-		r"""Public IPv4 address, of the remote device, used to set up the tunnel. For this parameter, you can alternatively specify a network address.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._remote
-		except Exception as e:
-			raise e
+    @property
+    def remote(self) :
+        """Public IPv4 address, of the remote device, used to set up the tunnel. For this parameter, you can alternatively specify a network address.<br/>Minimum length =  1."""
+        try :
+            return self._remote
+        except Exception as e:
+            raise e
 
-	@remote.setter
-	def remote(self, remote) :
-		r"""Public IPv4 address, of the remote device, used to set up the tunnel. For this parameter, you can alternatively specify a network address.<br/>Minimum length =  1
-		"""
-		try :
-			self._remote = remote
-		except Exception as e:
-			raise e
+    @remote.setter
+    def remote(self, remote) :
+        """Public IPv4 address, of the remote device, used to set up the tunnel. For this parameter, you can alternatively specify a network address.<br/>Minimum length =  1
 
-	@property
-	def remotesubnetmask(self) :
-		r"""Subnet mask of the remote IP address of the tunnel.
-		"""
-		try :
-			return self._remotesubnetmask
-		except Exception as e:
-			raise e
+        :param remote: 
 
-	@remotesubnetmask.setter
-	def remotesubnetmask(self, remotesubnetmask) :
-		r"""Subnet mask of the remote IP address of the tunnel.
-		"""
-		try :
-			self._remotesubnetmask = remotesubnetmask
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._remote = remote
+        except Exception as e:
+            raise e
+
+    @property
+    def remotesubnetmask(self) :
+        """Subnet mask of the remote IP address of the tunnel."""
+        try :
+            return self._remotesubnetmask
+        except Exception as e:
+            raise e
+
+    @remotesubnetmask.setter
+    def remotesubnetmask(self, remotesubnetmask) :
+        """Subnet mask of the remote IP address of the tunnel.
+
+        :param remotesubnetmask: 
+
+        """
+        try :
+            self._remotesubnetmask = remotesubnetmask
+        except Exception as e:
+            raise e
 

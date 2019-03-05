@@ -22,149 +22,170 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslciphersuite(base_resource) :
-	""" Configuration for ciphersuite resource. """
-	def __init__(self) :
-		self._ciphername = ""
-		self._description = ""
-		self.___count = 0
+    """Configuration for ciphersuite resource."""
+    def __init__(self) :
+        self._ciphername = ""
+        self._description = ""
+        self.___count = 0
 
-	@property
-	def ciphername(self) :
-		r"""Name of the cipher suite for which to show detailed information.
-		"""
-		try :
-			return self._ciphername
-		except Exception as e:
-			raise e
+    @property
+    def ciphername(self) :
+        """Name of the cipher suite for which to show detailed information."""
+        try :
+            return self._ciphername
+        except Exception as e:
+            raise e
 
-	@ciphername.setter
-	def ciphername(self, ciphername) :
-		r"""Name of the cipher suite for which to show detailed information.
-		"""
-		try :
-			self._ciphername = ciphername
-		except Exception as e:
-			raise e
+    @ciphername.setter
+    def ciphername(self, ciphername) :
+        """Name of the cipher suite for which to show detailed information.
 
-	@property
-	def description(self) :
-		r"""Cipher suite description.
-		"""
-		try :
-			return self._description
-		except Exception as e:
-			raise e
+        :param ciphername: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslciphersuite_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslciphersuite
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._ciphername = ciphername
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.ciphername is not None :
-				return str(self.ciphername)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def description(self) :
+        """Cipher suite description."""
+        try :
+            return self._description
+        except Exception as e:
+            raise e
 
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
+        :param service: 
+        :param response: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the sslciphersuite resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = sslciphersuite()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = sslciphersuite()
-						obj.ciphername = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [sslciphersuite() for _ in range(len(name))]
-							obj = [sslciphersuite() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = sslciphersuite()
-								obj[i].ciphername = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslciphersuite_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslciphersuite
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.ciphername is not None :
+                return str(self.ciphername)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of sslciphersuite resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslciphersuite()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the sslciphersuite resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = sslciphersuite()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = sslciphersuite()
+                        obj.ciphername = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [sslciphersuite() for _ in range(len(name))]
+                            obj = [sslciphersuite() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = sslciphersuite()
+                                obj[i].ciphername = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the sslciphersuite resources configured on NetScaler.
-		"""
-		try :
-			obj = sslciphersuite()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of sslciphersuite resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of sslciphersuite resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslciphersuite()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslciphersuite()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the sslciphersuite resources configured on NetScaler.
+
+        :param client: 
+
+        """
+        try :
+            obj = sslciphersuite()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of sslciphersuite resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslciphersuite()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
 
 
 class sslciphersuite_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslciphersuite = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslciphersuite = [sslciphersuite() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslciphersuite = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslciphersuite = [sslciphersuite() for _ in range(length)]
 

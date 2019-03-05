@@ -22,576 +22,539 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class appqoe_stats(base_resource) :
-	def __init__(self) :
-		self._clearstats = ""
-		self._totinmemrsp = 0
-		self._inmemrsprate = 0
-		self._totfaultycookies = 0
-		self._faultycookiesrate = 0
-		self._totvalidcookies = 0
-		self._validcookiesrate = 0
-		self._tothighprireq = 0
-		self._highprireqrate = 0
-		self._totmediumprireq = 0
-		self._mediumprireqrate = 0
-		self._totlowprireq = 0
-		self._lowprireqrate = 0
-		self._totlowestprireq = 0
-		self._lowestprireqrate = 0
-		self._totaltsvrsubfailed = 0
-		self._tsvrsubfailedrate = 0
-		self._totdostrig = 0
-		self._dostrigrate = 0
-		self._totdosqvalidcookies = 0
-		self._dosqvalidcookiesrate = 0
-		self._totdoshvalidcookies = 0
-		self._doshvalidcookiesrate = 0
-		self._totsidvalidcookies = 0
-		self._sidvalidcookiesrate = 0
-		self._totonhvalidcookies = 0
-		self._onhvalidcookiesrate = 0
-		self._totpriqvalidcookies = 0
-		self._priqvalidcookiesrate = 0
-		self._totdosqfaultycookies = 0
-		self._dosqfaultycookiesrate = 0
-		self._totdoshfaultycookies = 0
-		self._doshfaultycookiesrate = 0
-		self._totsidfaultycookies = 0
-		self._sidfaultycookiesrate = 0
-		self._totonhfaultycookies = 0
-		self._onhfaultycookiesrate = 0
-		self._totpriqfaultycookies = 0
-		self._priqfaultycookiesrate = 0
-		self._totpriembedlinks = 0
-		self._priembedlinksrate = 0
-		self._totsessreq = 0
-		self._sessreqrate = 0
-		self._totaltcntreq = 0
-		self._tcntreqrate = 0
-		self._totgetinmemrsp = 0
-		self._getinmemrsprate = 0
-		self._totpostinmemrsp = 0
-		self._postinmemrsprate = 0
-		self._totpostinmemrspbytes = 0
-		self._postinmemrspbytesrate = 0
+    """ """
+    def __init__(self) :
+        self._clearstats = ""
+        self._totinmemrsp = 0
+        self._inmemrsprate = 0
+        self._totfaultycookies = 0
+        self._faultycookiesrate = 0
+        self._totvalidcookies = 0
+        self._validcookiesrate = 0
+        self._tothighprireq = 0
+        self._highprireqrate = 0
+        self._totmediumprireq = 0
+        self._mediumprireqrate = 0
+        self._totlowprireq = 0
+        self._lowprireqrate = 0
+        self._totlowestprireq = 0
+        self._lowestprireqrate = 0
+        self._totaltsvrsubfailed = 0
+        self._tsvrsubfailedrate = 0
+        self._totdostrig = 0
+        self._dostrigrate = 0
+        self._totdosqvalidcookies = 0
+        self._dosqvalidcookiesrate = 0
+        self._totdoshvalidcookies = 0
+        self._doshvalidcookiesrate = 0
+        self._totsidvalidcookies = 0
+        self._sidvalidcookiesrate = 0
+        self._totonhvalidcookies = 0
+        self._onhvalidcookiesrate = 0
+        self._totpriqvalidcookies = 0
+        self._priqvalidcookiesrate = 0
+        self._totdosqfaultycookies = 0
+        self._dosqfaultycookiesrate = 0
+        self._totdoshfaultycookies = 0
+        self._doshfaultycookiesrate = 0
+        self._totsidfaultycookies = 0
+        self._sidfaultycookiesrate = 0
+        self._totonhfaultycookies = 0
+        self._onhfaultycookiesrate = 0
+        self._totpriqfaultycookies = 0
+        self._priqfaultycookiesrate = 0
+        self._totpriembedlinks = 0
+        self._priembedlinksrate = 0
+        self._totsessreq = 0
+        self._sessreqrate = 0
+        self._totaltcntreq = 0
+        self._tcntreqrate = 0
+        self._totgetinmemrsp = 0
+        self._getinmemrsprate = 0
+        self._totpostinmemrsp = 0
+        self._postinmemrsprate = 0
+        self._totpostinmemrspbytes = 0
+        self._postinmemrspbytesrate = 0
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def totpriqvalidcookies(self) :
-		r"""Total PRIQ valid cookies received.
-		"""
-		try :
-			return self._totpriqvalidcookies
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def totonhvalidcookies(self) :
-		r"""Total ONH valid cookies received.
-		"""
-		try :
-			return self._totonhvalidcookies
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def dosqvalidcookiesrate(self) :
-		r"""Rate (/s) counter for totdosqvalidcookies.
-		"""
-		try :
-			return self._dosqvalidcookiesrate
-		except Exception as e:
-			raise e
+    @property
+    def totpriqvalidcookies(self) :
+        """Total PRIQ valid cookies received."""
+        try :
+            return self._totpriqvalidcookies
+        except Exception as e:
+            raise e
 
-	@property
-	def sidvalidcookiesrate(self) :
-		r"""Rate (/s) counter for totsidvalidcookies.
-		"""
-		try :
-			return self._sidvalidcookiesrate
-		except Exception as e:
-			raise e
+    @property
+    def totonhvalidcookies(self) :
+        """Total ONH valid cookies received."""
+        try :
+            return self._totonhvalidcookies
+        except Exception as e:
+            raise e
 
-	@property
-	def onhvalidcookiesrate(self) :
-		r"""Rate (/s) counter for totonhvalidcookies.
-		"""
-		try :
-			return self._onhvalidcookiesrate
-		except Exception as e:
-			raise e
+    @property
+    def dosqvalidcookiesrate(self) :
+        """Rate (/s) counter for totdosqvalidcookies."""
+        try :
+            return self._dosqvalidcookiesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totdosqvalidcookies(self) :
-		r"""Total DOSQ valid cookies received.
-		"""
-		try :
-			return self._totdosqvalidcookies
-		except Exception as e:
-			raise e
+    @property
+    def sidvalidcookiesrate(self) :
+        """Rate (/s) counter for totsidvalidcookies."""
+        try :
+            return self._sidvalidcookiesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def dostrigrate(self) :
-		r"""Rate (/s) counter for totdostrig.
-		"""
-		try :
-			return self._dostrigrate
-		except Exception as e:
-			raise e
+    @property
+    def onhvalidcookiesrate(self) :
+        """Rate (/s) counter for totonhvalidcookies."""
+        try :
+            return self._onhvalidcookiesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totgetinmemrsp(self) :
-		r"""Total in-memory GET responses sent from NS.
-		"""
-		try :
-			return self._totgetinmemrsp
-		except Exception as e:
-			raise e
+    @property
+    def totdosqvalidcookies(self) :
+        """Total DOSQ valid cookies received."""
+        try :
+            return self._totdosqvalidcookies
+        except Exception as e:
+            raise e
 
-	@property
-	def totlowprireq(self) :
-		r"""Total Requests served from low priority queue.
-		"""
-		try :
-			return self._totlowprireq
-		except Exception as e:
-			raise e
+    @property
+    def dostrigrate(self) :
+        """Rate (/s) counter for totdostrig."""
+        try :
+            return self._dostrigrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totdoshfaultycookies(self) :
-		r"""Total DOSH faulty cookies received.
-		"""
-		try :
-			return self._totdoshfaultycookies
-		except Exception as e:
-			raise e
+    @property
+    def totgetinmemrsp(self) :
+        """Total in-memory GET responses sent from NS."""
+        try :
+            return self._totgetinmemrsp
+        except Exception as e:
+            raise e
 
-	@property
-	def doshfaultycookiesrate(self) :
-		r"""Rate (/s) counter for totdoshfaultycookies.
-		"""
-		try :
-			return self._doshfaultycookiesrate
-		except Exception as e:
-			raise e
+    @property
+    def totlowprireq(self) :
+        """Total Requests served from low priority queue."""
+        try :
+            return self._totlowprireq
+        except Exception as e:
+            raise e
 
-	@property
-	def sessreqrate(self) :
-		r"""Rate (/s) counter for totsessreq.
-		"""
-		try :
-			return self._sessreqrate
-		except Exception as e:
-			raise e
+    @property
+    def totdoshfaultycookies(self) :
+        """Total DOSH faulty cookies received."""
+        try :
+            return self._totdoshfaultycookies
+        except Exception as e:
+            raise e
 
-	@property
-	def totpostinmemrspbytes(self) :
-		r"""Total in-memory response bytes sent from NS.
-		"""
-		try :
-			return self._totpostinmemrspbytes
-		except Exception as e:
-			raise e
+    @property
+    def doshfaultycookiesrate(self) :
+        """Rate (/s) counter for totdoshfaultycookies."""
+        try :
+            return self._doshfaultycookiesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totpriqfaultycookies(self) :
-		r"""Total PRIQ faulty cookies received.
-		"""
-		try :
-			return self._totpriqfaultycookies
-		except Exception as e:
-			raise e
+    @property
+    def sessreqrate(self) :
+        """Rate (/s) counter for totsessreq."""
+        try :
+            return self._sessreqrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totpostinmemrsp(self) :
-		r"""Total in-memory POST responses sent from NS.
-		"""
-		try :
-			return self._totpostinmemrsp
-		except Exception as e:
-			raise e
+    @property
+    def totpostinmemrspbytes(self) :
+        """Total in-memory response bytes sent from NS."""
+        try :
+            return self._totpostinmemrspbytes
+        except Exception as e:
+            raise e
 
-	@property
-	def priembedlinksrate(self) :
-		r"""Rate (/s) counter for totpriembedlinks.
-		"""
-		try :
-			return self._priembedlinksrate
-		except Exception as e:
-			raise e
+    @property
+    def totpriqfaultycookies(self) :
+        """Total PRIQ faulty cookies received."""
+        try :
+            return self._totpriqfaultycookies
+        except Exception as e:
+            raise e
 
-	@property
-	def mediumprireqrate(self) :
-		r"""Rate (/s) counter for totmediumprireq.
-		"""
-		try :
-			return self._mediumprireqrate
-		except Exception as e:
-			raise e
+    @property
+    def totpostinmemrsp(self) :
+        """Total in-memory POST responses sent from NS."""
+        try :
+            return self._totpostinmemrsp
+        except Exception as e:
+            raise e
 
-	@property
-	def totdostrig(self) :
-		r"""Total number of times HDOS condition triggered.
-		"""
-		try :
-			return self._totdostrig
-		except Exception as e:
-			raise e
+    @property
+    def priembedlinksrate(self) :
+        """Rate (/s) counter for totpriembedlinks."""
+        try :
+            return self._priembedlinksrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totvalidcookies(self) :
-		r"""Total valid cookies received.
-		"""
-		try :
-			return self._totvalidcookies
-		except Exception as e:
-			raise e
+    @property
+    def mediumprireqrate(self) :
+        """Rate (/s) counter for totmediumprireq."""
+        try :
+            return self._mediumprireqrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totinmemrsp(self) :
-		r"""Total in-memory responses sent from NS.
-		"""
-		try :
-			return self._totinmemrsp
-		except Exception as e:
-			raise e
+    @property
+    def totdostrig(self) :
+        """Total number of times HDOS condition triggered."""
+        try :
+            return self._totdostrig
+        except Exception as e:
+            raise e
 
-	@property
-	def totsidfaultycookies(self) :
-		r"""Total SID faulty cookies received.
-		"""
-		try :
-			return self._totsidfaultycookies
-		except Exception as e:
-			raise e
+    @property
+    def totvalidcookies(self) :
+        """Total valid cookies received."""
+        try :
+            return self._totvalidcookies
+        except Exception as e:
+            raise e
 
-	@property
-	def totsidvalidcookies(self) :
-		r"""Total SID valid cookies received.
-		"""
-		try :
-			return self._totsidvalidcookies
-		except Exception as e:
-			raise e
+    @property
+    def totinmemrsp(self) :
+        """Total in-memory responses sent from NS."""
+        try :
+            return self._totinmemrsp
+        except Exception as e:
+            raise e
 
-	@property
-	def totdosqfaultycookies(self) :
-		r"""Total DOSQ faulty cookies received.
-		"""
-		try :
-			return self._totdosqfaultycookies
-		except Exception as e:
-			raise e
+    @property
+    def totsidfaultycookies(self) :
+        """Total SID faulty cookies received."""
+        try :
+            return self._totsidfaultycookies
+        except Exception as e:
+            raise e
 
-	@property
-	def tsvrsubfailedrate(self) :
-		r"""Rate (/s) counter for totaltsvrsubfailed.
-		"""
-		try :
-			return self._tsvrsubfailedrate
-		except Exception as e:
-			raise e
+    @property
+    def totsidvalidcookies(self) :
+        """Total SID valid cookies received."""
+        try :
+            return self._totsidvalidcookies
+        except Exception as e:
+            raise e
 
-	@property
-	def postinmemrsprate(self) :
-		r"""Rate (/s) counter for totpostinmemrsp.
-		"""
-		try :
-			return self._postinmemrsprate
-		except Exception as e:
-			raise e
+    @property
+    def totdosqfaultycookies(self) :
+        """Total DOSQ faulty cookies received."""
+        try :
+            return self._totdosqfaultycookies
+        except Exception as e:
+            raise e
 
-	@property
-	def totpriembedlinks(self) :
-		r"""Total requests for valid embedded links.
-		"""
-		try :
-			return self._totpriembedlinks
-		except Exception as e:
-			raise e
+    @property
+    def tsvrsubfailedrate(self) :
+        """Rate (/s) counter for totaltsvrsubfailed."""
+        try :
+            return self._tsvrsubfailedrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totmediumprireq(self) :
-		r"""Total Requests served from medium priority queue.
-		"""
-		try :
-			return self._totmediumprireq
-		except Exception as e:
-			raise e
+    @property
+    def postinmemrsprate(self) :
+        """Rate (/s) counter for totpostinmemrsp."""
+        try :
+            return self._postinmemrsprate
+        except Exception as e:
+            raise e
 
-	@property
-	def priqvalidcookiesrate(self) :
-		r"""Rate (/s) counter for totpriqvalidcookies.
-		"""
-		try :
-			return self._priqvalidcookiesrate
-		except Exception as e:
-			raise e
+    @property
+    def totpriembedlinks(self) :
+        """Total requests for valid embedded links."""
+        try :
+            return self._totpriembedlinks
+        except Exception as e:
+            raise e
 
-	@property
-	def totfaultycookies(self) :
-		r"""Total faulty cookies received.
-		"""
-		try :
-			return self._totfaultycookies
-		except Exception as e:
-			raise e
+    @property
+    def totmediumprireq(self) :
+        """Total Requests served from medium priority queue."""
+        try :
+            return self._totmediumprireq
+        except Exception as e:
+            raise e
 
-	@property
-	def doshvalidcookiesrate(self) :
-		r"""Rate (/s) counter for totdoshvalidcookies.
-		"""
-		try :
-			return self._doshvalidcookiesrate
-		except Exception as e:
-			raise e
+    @property
+    def priqvalidcookiesrate(self) :
+        """Rate (/s) counter for totpriqvalidcookies."""
+        try :
+            return self._priqvalidcookiesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def sidfaultycookiesrate(self) :
-		r"""Rate (/s) counter for totsidfaultycookies.
-		"""
-		try :
-			return self._sidfaultycookiesrate
-		except Exception as e:
-			raise e
+    @property
+    def totfaultycookies(self) :
+        """Total faulty cookies received."""
+        try :
+            return self._totfaultycookies
+        except Exception as e:
+            raise e
 
-	@property
-	def highprireqrate(self) :
-		r"""Rate (/s) counter for tothighprireq.
-		"""
-		try :
-			return self._highprireqrate
-		except Exception as e:
-			raise e
+    @property
+    def doshvalidcookiesrate(self) :
+        """Rate (/s) counter for totdoshvalidcookies."""
+        try :
+            return self._doshvalidcookiesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def dosqfaultycookiesrate(self) :
-		r"""Rate (/s) counter for totdosqfaultycookies.
-		"""
-		try :
-			return self._dosqfaultycookiesrate
-		except Exception as e:
-			raise e
+    @property
+    def sidfaultycookiesrate(self) :
+        """Rate (/s) counter for totsidfaultycookies."""
+        try :
+            return self._sidfaultycookiesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def inmemrsprate(self) :
-		r"""Rate (/s) counter for totinmemrsp.
-		"""
-		try :
-			return self._inmemrsprate
-		except Exception as e:
-			raise e
+    @property
+    def highprireqrate(self) :
+        """Rate (/s) counter for tothighprireq."""
+        try :
+            return self._highprireqrate
+        except Exception as e:
+            raise e
 
-	@property
-	def getinmemrsprate(self) :
-		r"""Rate (/s) counter for totgetinmemrsp.
-		"""
-		try :
-			return self._getinmemrsprate
-		except Exception as e:
-			raise e
+    @property
+    def dosqfaultycookiesrate(self) :
+        """Rate (/s) counter for totdosqfaultycookies."""
+        try :
+            return self._dosqfaultycookiesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def onhfaultycookiesrate(self) :
-		r"""Rate (/s) counter for totonhfaultycookies.
-		"""
-		try :
-			return self._onhfaultycookiesrate
-		except Exception as e:
-			raise e
+    @property
+    def inmemrsprate(self) :
+        """Rate (/s) counter for totinmemrsp."""
+        try :
+            return self._inmemrsprate
+        except Exception as e:
+            raise e
 
-	@property
-	def validcookiesrate(self) :
-		r"""Rate (/s) counter for totvalidcookies.
-		"""
-		try :
-			return self._validcookiesrate
-		except Exception as e:
-			raise e
+    @property
+    def getinmemrsprate(self) :
+        """Rate (/s) counter for totgetinmemrsp."""
+        try :
+            return self._getinmemrsprate
+        except Exception as e:
+            raise e
 
-	@property
-	def totaltcntreq(self) :
-		r"""Total requests for alternate contents.
-		"""
-		try :
-			return self._totaltcntreq
-		except Exception as e:
-			raise e
+    @property
+    def onhfaultycookiesrate(self) :
+        """Rate (/s) counter for totonhfaultycookies."""
+        try :
+            return self._onhfaultycookiesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totsessreq(self) :
-		r"""Total valid SIDQ requests within session.
-		"""
-		try :
-			return self._totsessreq
-		except Exception as e:
-			raise e
+    @property
+    def validcookiesrate(self) :
+        """Rate (/s) counter for totvalidcookies."""
+        try :
+            return self._validcookiesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def priqfaultycookiesrate(self) :
-		r"""Rate (/s) counter for totpriqfaultycookies.
-		"""
-		try :
-			return self._priqfaultycookiesrate
-		except Exception as e:
-			raise e
+    @property
+    def totaltcntreq(self) :
+        """Total requests for alternate contents."""
+        try :
+            return self._totaltcntreq
+        except Exception as e:
+            raise e
 
-	@property
-	def tcntreqrate(self) :
-		r"""Rate (/s) counter for totaltcntreq.
-		"""
-		try :
-			return self._tcntreqrate
-		except Exception as e:
-			raise e
+    @property
+    def totsessreq(self) :
+        """Total valid SIDQ requests within session."""
+        try :
+            return self._totsessreq
+        except Exception as e:
+            raise e
 
-	@property
-	def totdoshvalidcookies(self) :
-		r"""Total DOSH valid cookies received.
-		"""
-		try :
-			return self._totdoshvalidcookies
-		except Exception as e:
-			raise e
+    @property
+    def priqfaultycookiesrate(self) :
+        """Rate (/s) counter for totpriqfaultycookies."""
+        try :
+            return self._priqfaultycookiesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lowprireqrate(self) :
-		r"""Rate (/s) counter for totlowprireq.
-		"""
-		try :
-			return self._lowprireqrate
-		except Exception as e:
-			raise e
+    @property
+    def tcntreqrate(self) :
+        """Rate (/s) counter for totaltcntreq."""
+        try :
+            return self._tcntreqrate
+        except Exception as e:
+            raise e
 
-	@property
-	def tothighprireq(self) :
-		r"""Total Requests served from higher priority queue.
-		"""
-		try :
-			return self._tothighprireq
-		except Exception as e:
-			raise e
+    @property
+    def totdoshvalidcookies(self) :
+        """Total DOSH valid cookies received."""
+        try :
+            return self._totdoshvalidcookies
+        except Exception as e:
+            raise e
 
-	@property
-	def totaltsvrsubfailed(self) :
-		r"""Total number of times alternate server substitution failed.
-		"""
-		try :
-			return self._totaltsvrsubfailed
-		except Exception as e:
-			raise e
+    @property
+    def lowprireqrate(self) :
+        """Rate (/s) counter for totlowprireq."""
+        try :
+            return self._lowprireqrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totlowestprireq(self) :
-		r"""Total Requests served from surge priority queue.
-		"""
-		try :
-			return self._totlowestprireq
-		except Exception as e:
-			raise e
+    @property
+    def tothighprireq(self) :
+        """Total Requests served from higher priority queue."""
+        try :
+            return self._tothighprireq
+        except Exception as e:
+            raise e
 
-	@property
-	def lowestprireqrate(self) :
-		r"""Rate (/s) counter for totlowestprireq.
-		"""
-		try :
-			return self._lowestprireqrate
-		except Exception as e:
-			raise e
+    @property
+    def totaltsvrsubfailed(self) :
+        """Total number of times alternate server substitution failed."""
+        try :
+            return self._totaltsvrsubfailed
+        except Exception as e:
+            raise e
 
-	@property
-	def totonhfaultycookies(self) :
-		r"""Total ONH faulty cookies received.
-		"""
-		try :
-			return self._totonhfaultycookies
-		except Exception as e:
-			raise e
+    @property
+    def totlowestprireq(self) :
+        """Total Requests served from surge priority queue."""
+        try :
+            return self._totlowestprireq
+        except Exception as e:
+            raise e
 
-	@property
-	def faultycookiesrate(self) :
-		r"""Rate (/s) counter for totfaultycookies.
-		"""
-		try :
-			return self._faultycookiesrate
-		except Exception as e:
-			raise e
+    @property
+    def lowestprireqrate(self) :
+        """Rate (/s) counter for totlowestprireq."""
+        try :
+            return self._lowestprireqrate
+        except Exception as e:
+            raise e
 
-	@property
-	def postinmemrspbytesrate(self) :
-		r"""Rate (/s) counter for totpostinmemrspbytes.
-		"""
-		try :
-			return self._postinmemrspbytesrate
-		except Exception as e:
-			raise e
+    @property
+    def totonhfaultycookies(self) :
+        """Total ONH faulty cookies received."""
+        try :
+            return self._totonhfaultycookies
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(appqoe_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.appqoe
-		except Exception as e :
-			raise e
+    @property
+    def faultycookiesrate(self) :
+        """Rate (/s) counter for totfaultycookies."""
+        try :
+            return self._faultycookiesrate
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @property
+    def postinmemrspbytesrate(self) :
+        """Rate (/s) counter for totpostinmemrspbytes."""
+        try :
+            return self._postinmemrspbytesrate
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(appqoe_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.appqoe
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all appqoe_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = appqoe_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all appqoe_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = appqoe_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class appqoe_response(base_response) :
-	def __init__(self, length=1) :
-		self.appqoe = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.appqoe = [appqoe_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.appqoe = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.appqoe = [appqoe_stats() for _ in range(length)]
 

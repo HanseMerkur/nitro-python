@@ -22,118 +22,140 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class nstcpbufparam(base_resource) :
-	""" Configuration for tcp buffer parameter resource. """
-	def __init__(self) :
-		self._size = 0
-		self._memlimit = 0
+    """Configuration for tcp buffer parameter resource."""
+    def __init__(self) :
+        self._size = 0
+        self._memlimit = 0
 
-	@property
-	def size(self) :
-		r"""TCP buffering size per connection, in kilobytes.<br/>Default value: 64<br/>Minimum length =  4<br/>Maximum length =  20480.
-		"""
-		try :
-			return self._size
-		except Exception as e:
-			raise e
+    @property
+    def size(self) :
+        """TCP buffering size per connection, in kilobytes.<br/>Default value: 64<br/>Minimum length =  4<br/>Maximum length =  20480."""
+        try :
+            return self._size
+        except Exception as e:
+            raise e
 
-	@size.setter
-	def size(self, size) :
-		r"""TCP buffering size per connection, in kilobytes.<br/>Default value: 64<br/>Minimum length =  4<br/>Maximum length =  20480
-		"""
-		try :
-			self._size = size
-		except Exception as e:
-			raise e
+    @size.setter
+    def size(self, size) :
+        """TCP buffering size per connection, in kilobytes.<br/>Default value: 64<br/>Minimum length =  4<br/>Maximum length =  20480
 
-	@property
-	def memlimit(self) :
-		r"""Maximum memory, in megabytes, that can be used for buffering.<br/>Default value: 64.
-		"""
-		try :
-			return self._memlimit
-		except Exception as e:
-			raise e
+        :param size: 
 
-	@memlimit.setter
-	def memlimit(self, memlimit) :
-		r"""Maximum memory, in megabytes, that can be used for buffering.<br/>Default value: 64
-		"""
-		try :
-			self._memlimit = memlimit
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._size = size
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(nstcpbufparam_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.nstcpbufparam
-		except Exception as e :
-			raise e
+    @property
+    def memlimit(self) :
+        """Maximum memory, in megabytes, that can be used for buffering.<br/>Default value: 64."""
+        try :
+            return self._memlimit
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @memlimit.setter
+    def memlimit(self, memlimit) :
+        """Maximum memory, in megabytes, that can be used for buffering.<br/>Default value: 64
+
+        :param memlimit: 
+
+        """
+        try :
+            self._memlimit = memlimit
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(nstcpbufparam_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.nstcpbufparam
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update nstcpbufparam.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = nstcpbufparam()
-				updateresource.size = resource.size
-				updateresource.memlimit = resource.memlimit
-				return updateresource.update_resource(client)
-		except Exception as e :
-			raise e
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update nstcpbufparam.
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of nstcpbufparam resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = nstcpbufparam()
-				return unsetresource.unset_resource(client, args)
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the nstcpbufparam resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = nstcpbufparam()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = nstcpbufparam()
+                updateresource.size = resource.size
+                updateresource.memlimit = resource.memlimit
+                return updateresource.update_resource(client)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of nstcpbufparam resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = nstcpbufparam()
+                return unsetresource.unset_resource(client, args)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the nstcpbufparam resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = nstcpbufparam()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
 class nstcpbufparam_response(base_response) :
-	def __init__(self, length=1) :
-		self.nstcpbufparam = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.nstcpbufparam = [nstcpbufparam() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.nstcpbufparam = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.nstcpbufparam = [nstcpbufparam() for _ in range(length)]
 

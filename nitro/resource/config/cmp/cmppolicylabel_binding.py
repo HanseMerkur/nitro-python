@@ -22,103 +22,110 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class cmppolicylabel_binding(base_resource):
-	""" Binding class showing the resources that can be bound to cmppolicylabel_binding. 
-	"""
-	def __init__(self) :
-		self._labelname = ""
-		self.cmppolicylabel_cmppolicy_binding = []
-		self.cmppolicylabel_policybinding_binding = []
+    """Binding class showing the resources that can be bound to cmppolicylabel_binding."""
+    def __init__(self) :
+        self._labelname = ""
+        self.cmppolicylabel_cmppolicy_binding = []
+        self.cmppolicylabel_policybinding_binding = []
 
-	@property
-	def labelname(self) :
-		r"""Name of the HTTP compression policy label for which to display details.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._labelname
-		except Exception as e:
-			raise e
+    @property
+    def labelname(self) :
+        """Name of the HTTP compression policy label for which to display details.<br/>Minimum length =  1."""
+        try :
+            return self._labelname
+        except Exception as e:
+            raise e
 
-	@labelname.setter
-	def labelname(self, labelname) :
-		r"""Name of the HTTP compression policy label for which to display details.<br/>Minimum length =  1
-		"""
-		try :
-			self._labelname = labelname
-		except Exception as e:
-			raise e
+    @labelname.setter
+    def labelname(self, labelname) :
+        """Name of the HTTP compression policy label for which to display details.<br/>Minimum length =  1
 
-	@property
-	def cmppolicylabel_policybinding_bindings(self) :
-		r"""policybinding that can be bound to cmppolicylabel.
-		"""
-		try :
-			return self._cmppolicylabel_policybinding_binding
-		except Exception as e:
-			raise e
+        :param labelname: 
 
-	@property
-	def cmppolicylabel_cmppolicy_bindings(self) :
-		r"""cmppolicy that can be bound to cmppolicylabel.
-		"""
-		try :
-			return self._cmppolicylabel_cmppolicy_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._labelname = labelname
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(cmppolicylabel_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.cmppolicylabel_binding
-		except Exception as e :
-			raise e
+    @property
+    def cmppolicylabel_policybinding_bindings(self) :
+        """policybinding that can be bound to cmppolicylabel."""
+        try :
+            return self._cmppolicylabel_policybinding_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.labelname is not None :
-				return str(self.labelname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def cmppolicylabel_cmppolicy_bindings(self) :
+        """cmppolicy that can be bound to cmppolicylabel."""
+        try :
+            return self._cmppolicylabel_cmppolicy_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(cmppolicylabel_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.cmppolicylabel_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.labelname is not None :
+                return str(self.labelname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, labelname) :
-		r""" Use this API to fetch cmppolicylabel_binding resource.
-		"""
-		try :
-			if type(labelname) is not list :
-				obj = cmppolicylabel_binding()
-				obj.labelname = labelname
-				response = obj.get_resource(service)
-			else :
-				if labelname and len(labelname) > 0 :
-					obj = [cmppolicylabel_binding() for _ in range(len(labelname))]
-					for i in range(len(labelname)) :
-						obj[i].labelname = labelname[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, labelname) :
+        """Use this API to fetch cmppolicylabel_binding resource.
+
+        :param service: 
+        :param labelname: 
+
+        """
+        try :
+            if type(labelname) is not list :
+                obj = cmppolicylabel_binding()
+                obj.labelname = labelname
+                response = obj.get_resource(service)
+            else :
+                if labelname and len(labelname) > 0 :
+                    obj = [cmppolicylabel_binding() for _ in range(len(labelname))]
+                    for i in range(len(labelname)) :
+                        obj[i].labelname = labelname[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class cmppolicylabel_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.cmppolicylabel_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.cmppolicylabel_binding = [cmppolicylabel_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.cmppolicylabel_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.cmppolicylabel_binding = [cmppolicylabel_binding() for _ in range(length)]
 

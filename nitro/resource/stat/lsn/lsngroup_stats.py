@@ -22,422 +22,403 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class lsngroup_stats(base_resource) :
-	r""" Statistics for LSN group resource.
-	"""
-	def __init__(self) :
-		self._groupname = ""
-		self._clearstats = ""
-		self._lsngrpcursessions = 0
-		self._lsngrpcursessionsrate = 0
-		self._lsngrptottranslbytes = 0
-		self._lsngrptranslbytesrate = 0
-		self._lsngrptottranslpkts = 0
-		self._lsngrptranslpktsrate = 0
-		self._lsngrptottcptranslpkts = 0
-		self._lsngrptcptranslpktsrate = 0
-		self._lsngrptottcptranslbytes = 0
-		self._lsngrptcptranslbytesrate = 0
-		self._lsngrptottcpdrppkts = 0
-		self._lsngrptcpdrppktsrate = 0
-		self._lsngrpcurtcpsessions = 0
-		self._lsngrpcurtcpsessionsrate = 0
-		self._lsngrptotudptranslpkts = 0
-		self._lsngrpudptranslpktsrate = 0
-		self._lsngrptotudptranslbytes = 0
-		self._lsngrpudptranslbytesrate = 0
-		self._lsngrptotudpdrppkts = 0
-		self._lsngrpudpdrppktsrate = 0
-		self._lsngrpcurudpsessions = 0
-		self._lsngrpcurudpsessionsrate = 0
-		self._lsngrptoticmptranslpkts = 0
-		self._lsngrpicmptranslpktsrate = 0
-		self._lsngrptoticmptranslbytes = 0
-		self._lsngrpicmptranslbytesrate = 0
-		self._lsngrptoticmpdrppkts = 0
-		self._lsngrpicmpdrppktsrate = 0
-		self._lsngrpcuricmpsessions = 0
-		self._lsngrpcuricmpsessionsrate = 0
-		self._lsngrpcursubscribers = 0
-		self._lsngrpcursubscribersrate = 0
+    """Statistics for LSN group resource."""
+    def __init__(self) :
+        self._groupname = ""
+        self._clearstats = ""
+        self._lsngrpcursessions = 0
+        self._lsngrpcursessionsrate = 0
+        self._lsngrptottranslbytes = 0
+        self._lsngrptranslbytesrate = 0
+        self._lsngrptottranslpkts = 0
+        self._lsngrptranslpktsrate = 0
+        self._lsngrptottcptranslpkts = 0
+        self._lsngrptcptranslpktsrate = 0
+        self._lsngrptottcptranslbytes = 0
+        self._lsngrptcptranslbytesrate = 0
+        self._lsngrptottcpdrppkts = 0
+        self._lsngrptcpdrppktsrate = 0
+        self._lsngrpcurtcpsessions = 0
+        self._lsngrpcurtcpsessionsrate = 0
+        self._lsngrptotudptranslpkts = 0
+        self._lsngrpudptranslpktsrate = 0
+        self._lsngrptotudptranslbytes = 0
+        self._lsngrpudptranslbytesrate = 0
+        self._lsngrptotudpdrppkts = 0
+        self._lsngrpudpdrppktsrate = 0
+        self._lsngrpcurudpsessions = 0
+        self._lsngrpcurudpsessionsrate = 0
+        self._lsngrptoticmptranslpkts = 0
+        self._lsngrpicmptranslpktsrate = 0
+        self._lsngrptoticmptranslbytes = 0
+        self._lsngrpicmptranslbytesrate = 0
+        self._lsngrptoticmpdrppkts = 0
+        self._lsngrpicmpdrppktsrate = 0
+        self._lsngrpcuricmpsessions = 0
+        self._lsngrpcuricmpsessionsrate = 0
+        self._lsngrpcursubscribers = 0
+        self._lsngrpcursubscribersrate = 0
 
-	@property
-	def groupname(self) :
-		r"""Name of the LSN Group.<br/>Minimum length =  1<br/>Maximum length =  127.
-		"""
-		try :
-			return self._groupname
-		except Exception as e:
-			raise e
+    @property
+    def groupname(self) :
+        """Name of the LSN Group.<br/>Minimum length =  1<br/>Maximum length =  127."""
+        try :
+            return self._groupname
+        except Exception as e:
+            raise e
 
-	@groupname.setter
-	def groupname(self, groupname) :
-		r"""Name of the LSN Group.
-		"""
-		try :
-			self._groupname = groupname
-		except Exception as e:
-			raise e
+    @groupname.setter
+    def groupname(self, groupname) :
+        """Name of the LSN Group.
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+        :param groupname: 
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._groupname = groupname
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptcptranslbytesrate(self) :
-		r"""Rate (/s) counter for lsngrptottcptranslbytes.
-		"""
-		try :
-			return self._lsngrptcptranslbytesrate
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptottranslpkts(self) :
-		r"""Number of Translated Pkts for LSN group.
-		"""
-		try :
-			return self._lsngrptottranslpkts
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def lsngrptoticmptranslpkts(self) :
-		r"""Number of ICMP Translated Pkts for LSN group.
-		"""
-		try :
-			return self._lsngrptoticmptranslpkts
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def lsngrpcurtcpsessions(self) :
-		r"""Number of TCP Current Sessions for LSN group.
-		"""
-		try :
-			return self._lsngrpcurtcpsessions
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpicmptranslbytesrate(self) :
-		r"""Rate (/s) counter for lsngrptoticmptranslbytes.
-		"""
-		try :
-			return self._lsngrpicmptranslbytesrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptcptranslbytesrate(self) :
+        """Rate (/s) counter for lsngrptottcptranslbytes."""
+        try :
+            return self._lsngrptcptranslbytesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptotudptranslpkts(self) :
-		r"""Number of UDP Translated Pkts for LSN group.
-		"""
-		try :
-			return self._lsngrptotudptranslpkts
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptottranslpkts(self) :
+        """Number of Translated Pkts for LSN group."""
+        try :
+            return self._lsngrptottranslpkts
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptottcpdrppkts(self) :
-		r"""Number of TCP Dropped Pkts for LSN group.
-		"""
-		try :
-			return self._lsngrptottcpdrppkts
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptoticmptranslpkts(self) :
+        """Number of ICMP Translated Pkts for LSN group."""
+        try :
+            return self._lsngrptoticmptranslpkts
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptranslbytesrate(self) :
-		r"""Rate (/s) counter for lsngrptottranslbytes.
-		"""
-		try :
-			return self._lsngrptranslbytesrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpcurtcpsessions(self) :
+        """Number of TCP Current Sessions for LSN group."""
+        try :
+            return self._lsngrpcurtcpsessions
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptotudptranslbytes(self) :
-		r"""Number of UDP Translated Bytes for LSN group.
-		"""
-		try :
-			return self._lsngrptotudptranslbytes
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpicmptranslbytesrate(self) :
+        """Rate (/s) counter for lsngrptoticmptranslbytes."""
+        try :
+            return self._lsngrpicmptranslbytesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptoticmptranslbytes(self) :
-		r"""Number of ICMP Translated Bytes for LSN group.
-		"""
-		try :
-			return self._lsngrptoticmptranslbytes
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptotudptranslpkts(self) :
+        """Number of UDP Translated Pkts for LSN group."""
+        try :
+            return self._lsngrptotudptranslpkts
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpcursubscribersrate(self) :
-		r"""Rate (/s) counter for lsngrpcursubscribers.
-		"""
-		try :
-			return self._lsngrpcursubscribersrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptottcpdrppkts(self) :
+        """Number of TCP Dropped Pkts for LSN group."""
+        try :
+            return self._lsngrptottcpdrppkts
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptottranslbytes(self) :
-		r"""Number of Translated Bytes for LSN group.
-		"""
-		try :
-			return self._lsngrptottranslbytes
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptranslbytesrate(self) :
+        """Rate (/s) counter for lsngrptottranslbytes."""
+        try :
+            return self._lsngrptranslbytesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptoticmpdrppkts(self) :
-		r"""Number of ICMP Dropped Pkts for LSN group.
-		"""
-		try :
-			return self._lsngrptoticmpdrppkts
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptotudptranslbytes(self) :
+        """Number of UDP Translated Bytes for LSN group."""
+        try :
+            return self._lsngrptotudptranslbytes
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptcptranslpktsrate(self) :
-		r"""Rate (/s) counter for lsngrptottcptranslpkts.
-		"""
-		try :
-			return self._lsngrptcptranslpktsrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptoticmptranslbytes(self) :
+        """Number of ICMP Translated Bytes for LSN group."""
+        try :
+            return self._lsngrptoticmptranslbytes
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpudptranslpktsrate(self) :
-		r"""Rate (/s) counter for lsngrptotudptranslpkts.
-		"""
-		try :
-			return self._lsngrpudptranslpktsrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpcursubscribersrate(self) :
+        """Rate (/s) counter for lsngrpcursubscribers."""
+        try :
+            return self._lsngrpcursubscribersrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpcursubscribers(self) :
-		r"""Number of ICMP Current Sessions for LSN group.
-		"""
-		try :
-			return self._lsngrpcursubscribers
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptottranslbytes(self) :
+        """Number of Translated Bytes for LSN group."""
+        try :
+            return self._lsngrptottranslbytes
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpudptranslbytesrate(self) :
-		r"""Rate (/s) counter for lsngrptotudptranslbytes.
-		"""
-		try :
-			return self._lsngrpudptranslbytesrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptoticmpdrppkts(self) :
+        """Number of ICMP Dropped Pkts for LSN group."""
+        try :
+            return self._lsngrptoticmpdrppkts
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpcuricmpsessionsrate(self) :
-		r"""Rate (/s) counter for lsngrpcuricmpsessions.
-		"""
-		try :
-			return self._lsngrpcuricmpsessionsrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptcptranslpktsrate(self) :
+        """Rate (/s) counter for lsngrptottcptranslpkts."""
+        try :
+            return self._lsngrptcptranslpktsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpcurudpsessions(self) :
-		r"""Number of UDP Current Sessions for LSN group.
-		"""
-		try :
-			return self._lsngrpcurudpsessions
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpudptranslpktsrate(self) :
+        """Rate (/s) counter for lsngrptotudptranslpkts."""
+        try :
+            return self._lsngrpudptranslpktsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptottcptranslpkts(self) :
-		r"""Number of TCP Translated Pkts for LSN group.
-		"""
-		try :
-			return self._lsngrptottcptranslpkts
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpcursubscribers(self) :
+        """Number of ICMP Current Sessions for LSN group."""
+        try :
+            return self._lsngrpcursubscribers
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptotudpdrppkts(self) :
-		r"""Number of UDP Dropped Pkts for LSN group.
-		"""
-		try :
-			return self._lsngrptotudpdrppkts
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpudptranslbytesrate(self) :
+        """Rate (/s) counter for lsngrptotudptranslbytes."""
+        try :
+            return self._lsngrpudptranslbytesrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpicmptranslpktsrate(self) :
-		r"""Rate (/s) counter for lsngrptoticmptranslpkts.
-		"""
-		try :
-			return self._lsngrpicmptranslpktsrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpcuricmpsessionsrate(self) :
+        """Rate (/s) counter for lsngrpcuricmpsessions."""
+        try :
+            return self._lsngrpcuricmpsessionsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpcuricmpsessions(self) :
-		r"""Number of ICMP Current Sessions for LSN group.
-		"""
-		try :
-			return self._lsngrpcuricmpsessions
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpcurudpsessions(self) :
+        """Number of UDP Current Sessions for LSN group."""
+        try :
+            return self._lsngrpcurudpsessions
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpcurtcpsessionsrate(self) :
-		r"""Rate (/s) counter for lsngrpcurtcpsessions.
-		"""
-		try :
-			return self._lsngrpcurtcpsessionsrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptottcptranslpkts(self) :
+        """Number of TCP Translated Pkts for LSN group."""
+        try :
+            return self._lsngrptottcptranslpkts
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpcurudpsessionsrate(self) :
-		r"""Rate (/s) counter for lsngrpcurudpsessions.
-		"""
-		try :
-			return self._lsngrpcurudpsessionsrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptotudpdrppkts(self) :
+        """Number of UDP Dropped Pkts for LSN group."""
+        try :
+            return self._lsngrptotudpdrppkts
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptranslpktsrate(self) :
-		r"""Rate (/s) counter for lsngrptottranslpkts.
-		"""
-		try :
-			return self._lsngrptranslpktsrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpicmptranslpktsrate(self) :
+        """Rate (/s) counter for lsngrptoticmptranslpkts."""
+        try :
+            return self._lsngrpicmptranslpktsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptottcptranslbytes(self) :
-		r"""Number of TCP Translated Bytes for LSN group.
-		"""
-		try :
-			return self._lsngrptottcptranslbytes
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpcuricmpsessions(self) :
+        """Number of ICMP Current Sessions for LSN group."""
+        try :
+            return self._lsngrpcuricmpsessions
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpicmpdrppktsrate(self) :
-		r"""Rate (/s) counter for lsngrptoticmpdrppkts.
-		"""
-		try :
-			return self._lsngrpicmpdrppktsrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpcurtcpsessionsrate(self) :
+        """Rate (/s) counter for lsngrpcurtcpsessions."""
+        try :
+            return self._lsngrpcurtcpsessionsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpcursessionsrate(self) :
-		r"""Rate (/s) counter for lsngrpcursessions.
-		"""
-		try :
-			return self._lsngrpcursessionsrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpcurudpsessionsrate(self) :
+        """Rate (/s) counter for lsngrpcurudpsessions."""
+        try :
+            return self._lsngrpcurudpsessionsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpudpdrppktsrate(self) :
-		r"""Rate (/s) counter for lsngrptotudpdrppkts.
-		"""
-		try :
-			return self._lsngrpudpdrppktsrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptranslpktsrate(self) :
+        """Rate (/s) counter for lsngrptottranslpkts."""
+        try :
+            return self._lsngrptranslpktsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrptcpdrppktsrate(self) :
-		r"""Rate (/s) counter for lsngrptottcpdrppkts.
-		"""
-		try :
-			return self._lsngrptcpdrppktsrate
-		except Exception as e:
-			raise e
+    @property
+    def lsngrptottcptranslbytes(self) :
+        """Number of TCP Translated Bytes for LSN group."""
+        try :
+            return self._lsngrptottcptranslbytes
+        except Exception as e:
+            raise e
 
-	@property
-	def lsngrpcursessions(self) :
-		r"""Number of Current Sessions for LSN group.
-		"""
-		try :
-			return self._lsngrpcursessions
-		except Exception as e:
-			raise e
+    @property
+    def lsngrpicmpdrppktsrate(self) :
+        """Rate (/s) counter for lsngrptoticmpdrppkts."""
+        try :
+            return self._lsngrpicmpdrppktsrate
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(lsngroup_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.lsngroup
-		except Exception as e :
-			raise e
+    @property
+    def lsngrpcursessionsrate(self) :
+        """Rate (/s) counter for lsngrpcursessions."""
+        try :
+            return self._lsngrpcursessionsrate
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.groupname is not None :
-				return str(self.groupname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def lsngrpudpdrppktsrate(self) :
+        """Rate (/s) counter for lsngrptotudpdrppkts."""
+        try :
+            return self._lsngrpudpdrppktsrate
+        except Exception as e:
+            raise e
+
+    @property
+    def lsngrptcpdrppktsrate(self) :
+        """Rate (/s) counter for lsngrptottcpdrppkts."""
+        try :
+            return self._lsngrptcpdrppktsrate
+        except Exception as e:
+            raise e
+
+    @property
+    def lsngrpcursessions(self) :
+        """Number of Current Sessions for LSN group."""
+        try :
+            return self._lsngrpcursessions
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(lsngroup_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.lsngroup
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.groupname is not None :
+                return str(self.groupname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all lsngroup_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = lsngroup_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			else :
-				obj.groupname = name
-				response = obj.stat_resource(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all lsngroup_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = lsngroup_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            else :
+                obj.groupname = name
+                response = obj.stat_resource(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class lsngroup_response(base_response) :
-	def __init__(self, length=1) :
-		self.lsngroup = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.lsngroup = [lsngroup_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.lsngroup = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.lsngroup = [lsngroup_stats() for _ in range(length)]
 

@@ -22,222 +22,242 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class craction(base_resource) :
-	""" Configuration for cache redirection action resource. """
-	def __init__(self) :
-		self._name = ""
-		self._crtype = ""
-		self._builtin = []
-		self._isdefault = False
-		self._hits = 0
-		self._referencecount = ""
-		self._undefhits = 0
-		self._comment = ""
-		self.___count = 0
+    """Configuration for cache redirection action resource."""
+    def __init__(self) :
+        self._name = ""
+        self._crtype = ""
+        self._builtin = []
+        self._isdefault = False
+        self._hits = 0
+        self._referencecount = ""
+        self._undefhits = 0
+        self._comment = ""
+        self.___count = 0
 
-	@property
-	def name(self) :
-		r"""Name of the action for which to display detailed information.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the action for which to display detailed information.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the action for which to display detailed information.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the action for which to display detailed information.<br/>Minimum length =  1
 
-	@property
-	def crtype(self) :
-		r"""Type to decide where to redirect the requests if the cache redirection policy is hit.
-		The valid options are as follows:
-		*CACHE - Directs all the requests to the cache if cache redirection policy is hit.
-		*ORIGIN - Directs all requests to the origin server if the cache redirection policy is hit.<br/>Possible values = origin, cache.
-		"""
-		try :
-			return self._crtype
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@property
-	def builtin(self) :
-		r"""Flag to determine whether CRACTION is default or not.<br/>Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL.
-		"""
-		try :
-			return self._builtin
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def isdefault(self) :
-		r"""A value of true is returned if it is a default cr action.
-		"""
-		try :
-			return self._isdefault
-		except Exception as e:
-			raise e
-
-	@property
-	def hits(self) :
-		r"""The number of times the action has been taken.
-		"""
-		try :
-			return self._hits
-		except Exception as e:
-			raise e
-
-	@property
-	def referencecount(self) :
-		r"""The number of references to the action.
-		"""
-		try :
-			return self._referencecount
-		except Exception as e:
-			raise e
-
-	@property
-	def undefhits(self) :
-		r"""The number of times the action resulted in UNDEF.
-		"""
-		try :
-			return self._undefhits
-		except Exception as e:
-			raise e
-
-	@property
-	def comment(self) :
-		r"""Comment. Any type of information about this responder action.
-		"""
-		try :
-			return self._comment
-		except Exception as e:
-			raise e
-
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(craction_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.craction
-		except Exception as e :
-			raise e
-
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def crtype(self) :
+        """Type to decide where to redirect the requests if the cache redirection policy is hit.
+        The valid options are as follows:
+        *CACHE - Directs all the requests to the cache if cache redirection policy is hit.
+        *ORIGIN - Directs all requests to the origin server if the cache redirection policy is hit.<br/>Possible values = origin, cache.
 
 
+        """
+        try :
+            return self._crtype
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the craction resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = craction()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = craction()
-						obj.name = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [craction() for _ in range(len(name))]
-							obj = [craction() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = craction()
-								obj[i].name = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    @property
+    def builtin(self) :
+        """Flag to determine whether CRACTION is default or not.<br/>Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL."""
+        try :
+            return self._builtin
+        except Exception as e:
+            raise e
+
+    @property
+    def isdefault(self) :
+        """A value of true is returned if it is a default cr action."""
+        try :
+            return self._isdefault
+        except Exception as e:
+            raise e
+
+    @property
+    def hits(self) :
+        """The number of times the action has been taken."""
+        try :
+            return self._hits
+        except Exception as e:
+            raise e
+
+    @property
+    def referencecount(self) :
+        """The number of references to the action."""
+        try :
+            return self._referencecount
+        except Exception as e:
+            raise e
+
+    @property
+    def undefhits(self) :
+        """The number of times the action resulted in UNDEF."""
+        try :
+            return self._undefhits
+        except Exception as e:
+            raise e
+
+    @property
+    def comment(self) :
+        """Comment. Any type of information about this responder action."""
+        try :
+            return self._comment
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(craction_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.craction
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of craction resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = craction()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the craction resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = craction()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = craction()
+                        obj.name = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [craction() for _ in range(len(name))]
+                            obj = [craction() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = craction()
+                                obj[i].name = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the craction resources configured on NetScaler.
-		"""
-		try :
-			obj = craction()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of craction resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of craction resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = craction()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = craction()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	class Builtin:
-		MODIFIABLE = "MODIFIABLE"
-		DELETABLE = "DELETABLE"
-		IMMUTABLE = "IMMUTABLE"
-		PARTITION_ALL = "PARTITION_ALL"
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the craction resources configured on NetScaler.
 
-	class Crtype:
-		origin = "origin"
-		cache = "cache"
+        :param client: 
+
+        """
+        try :
+            obj = craction()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of craction resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = craction()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+
+    class Builtin:
+        """ """
+        MODIFIABLE = "MODIFIABLE"
+        DELETABLE = "DELETABLE"
+        IMMUTABLE = "IMMUTABLE"
+        PARTITION_ALL = "PARTITION_ALL"
+
+    class Crtype:
+        """ """
+        origin = "origin"
+        cache = "cache"
 
 class craction_response(base_response) :
-	def __init__(self, length=1) :
-		self.craction = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.craction = [craction() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.craction = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.craction = [craction() for _ in range(length)]
 

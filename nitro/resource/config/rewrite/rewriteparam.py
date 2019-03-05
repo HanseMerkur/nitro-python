@@ -22,106 +22,129 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class rewriteparam(base_resource) :
-	""" Configuration for rewrite parameter resource. """
-	def __init__(self) :
-		self._undefaction = ""
+    """Configuration for rewrite parameter resource."""
+    def __init__(self) :
+        self._undefaction = ""
 
-	@property
-	def undefaction(self) :
-		r"""Action to perform if the result of policy evaluation is undefined (UNDEF). An UNDEF event indicates an internal error condition.
-		Available settings function as follows:
-		* NOOP - Send the request to the protected server instead of responding to it.
-		* RESET - Reset the request and notify the user's browser, so that the user can resend the request.
-		* DROP - Drop the request without sending a response to the user.<br/>Default value: "NOREWRITE".
-		"""
-		try :
-			return self._undefaction
-		except Exception as e:
-			raise e
-
-	@undefaction.setter
-	def undefaction(self, undefaction) :
-		r"""Action to perform if the result of policy evaluation is undefined (UNDEF). An UNDEF event indicates an internal error condition.
-		Available settings function as follows:
-		* NOOP - Send the request to the protected server instead of responding to it.
-		* RESET - Reset the request and notify the user's browser, so that the user can resend the request.
-		* DROP - Drop the request without sending a response to the user.<br/>Default value: "NOREWRITE"
-		"""
-		try :
-			self._undefaction = undefaction
-		except Exception as e:
-			raise e
-
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(rewriteparam_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.rewriteparam
-		except Exception as e :
-			raise e
-
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @property
+    def undefaction(self) :
+        """Action to perform if the result of policy evaluation is undefined (UNDEF). An UNDEF event indicates an internal error condition.
+        Available settings function as follows:
+        * NOOP - Send the request to the protected server instead of responding to it.
+        * RESET - Reset the request and notify the user's browser, so that the user can resend the request.
+        * DROP - Drop the request without sending a response to the user.<br/>Default value: "NOREWRITE".
 
 
+        """
+        try :
+            return self._undefaction
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update rewriteparam.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = rewriteparam()
-				updateresource.undefaction = resource.undefaction
-				return updateresource.update_resource(client)
-		except Exception as e :
-			raise e
+    @undefaction.setter
+    def undefaction(self, undefaction) :
+        """Action to perform if the result of policy evaluation is undefined (UNDEF). An UNDEF event indicates an internal error condition.
+        Available settings function as follows:
+        * NOOP - Send the request to the protected server instead of responding to it.
+        * RESET - Reset the request and notify the user's browser, so that the user can resend the request.
+        * DROP - Drop the request without sending a response to the user.<br/>Default value: "NOREWRITE"
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of rewriteparam resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = rewriteparam()
-				return unsetresource.unset_resource(client, args)
-		except Exception as e :
-			raise e
+        :param undefaction: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the rewriteparam resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = rewriteparam()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._undefaction = undefaction
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(rewriteparam_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.rewriteparam
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
+
+
+
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update rewriteparam.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = rewriteparam()
+                updateresource.undefaction = resource.undefaction
+                return updateresource.update_resource(client)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of rewriteparam resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = rewriteparam()
+                return unsetresource.unset_resource(client, args)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the rewriteparam resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = rewriteparam()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
 class rewriteparam_response(base_response) :
-	def __init__(self, length=1) :
-		self.rewriteparam = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.rewriteparam = [rewriteparam() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.rewriteparam = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.rewriteparam = [rewriteparam() for _ in range(length)]
 

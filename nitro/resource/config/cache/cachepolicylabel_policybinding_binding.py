@@ -22,245 +22,281 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class cachepolicylabel_policybinding_binding(base_resource) :
-	""" Binding class showing the policybinding that can be bound to cachepolicylabel.
-	"""
-	def __init__(self) :
-		self._policyname = ""
-		self._priority = 0
-		self._gotopriorityexpression = ""
-		self._invoke = False
-		self._labeltype = ""
-		self._invoke_labelname = ""
-		self._labelname = ""
-		self.___count = 0
+    """Binding class showing the policybinding that can be bound to cachepolicylabel."""
+    def __init__(self) :
+        self._policyname = ""
+        self._priority = 0
+        self._gotopriorityexpression = ""
+        self._invoke = False
+        self._labeltype = ""
+        self._invoke_labelname = ""
+        self._labelname = ""
+        self.___count = 0
 
-	@property
-	def priority(self) :
-		r"""Specifies the priority of the policy.
-		"""
-		try :
-			return self._priority
-		except Exception as e:
-			raise e
+    @property
+    def priority(self) :
+        """Specifies the priority of the policy."""
+        try :
+            return self._priority
+        except Exception as e:
+            raise e
 
-	@priority.setter
-	def priority(self, priority) :
-		r"""Specifies the priority of the policy.
-		"""
-		try :
-			self._priority = priority
-		except Exception as e:
-			raise e
+    @priority.setter
+    def priority(self, priority) :
+        """Specifies the priority of the policy.
 
-	@property
-	def gotopriorityexpression(self) :
-		r"""Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE.
-		"""
-		try :
-			return self._gotopriorityexpression
-		except Exception as e:
-			raise e
+        :param priority: 
 
-	@gotopriorityexpression.setter
-	def gotopriorityexpression(self, gotopriorityexpression) :
-		r"""Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE.
-		"""
-		try :
-			self._gotopriorityexpression = gotopriorityexpression
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._priority = priority
+        except Exception as e:
+            raise e
 
-	@property
-	def policyname(self) :
-		r"""Name of the cache policy to bind to the policy label.
-		"""
-		try :
-			return self._policyname
-		except Exception as e:
-			raise e
+    @property
+    def gotopriorityexpression(self) :
+        """Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE."""
+        try :
+            return self._gotopriorityexpression
+        except Exception as e:
+            raise e
 
-	@policyname.setter
-	def policyname(self, policyname) :
-		r"""Name of the cache policy to bind to the policy label.
-		"""
-		try :
-			self._policyname = policyname
-		except Exception as e:
-			raise e
+    @gotopriorityexpression.setter
+    def gotopriorityexpression(self, gotopriorityexpression) :
+        """Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE.
 
-	@property
-	def labeltype(self) :
-		r"""Type of policy label to invoke: an unnamed label associated with a virtual server, or user-defined policy label.<br/>Possible values = reqvserver, resvserver, policylabel.
-		"""
-		try :
-			return self._labeltype
-		except Exception as e:
-			raise e
+        :param gotopriorityexpression: 
 
-	@labeltype.setter
-	def labeltype(self, labeltype) :
-		r"""Type of policy label to invoke: an unnamed label associated with a virtual server, or user-defined policy label.<br/>Possible values = reqvserver, resvserver, policylabel
-		"""
-		try :
-			self._labeltype = labeltype
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._gotopriorityexpression = gotopriorityexpression
+        except Exception as e:
+            raise e
 
-	@property
-	def labelname(self) :
-		r"""Name of the cache policy label to which to bind the policy.
-		"""
-		try :
-			return self._labelname
-		except Exception as e:
-			raise e
+    @property
+    def policyname(self) :
+        """Name of the cache policy to bind to the policy label."""
+        try :
+            return self._policyname
+        except Exception as e:
+            raise e
 
-	@labelname.setter
-	def labelname(self, labelname) :
-		r"""Name of the cache policy label to which to bind the policy.
-		"""
-		try :
-			self._labelname = labelname
-		except Exception as e:
-			raise e
+    @policyname.setter
+    def policyname(self, policyname) :
+        """Name of the cache policy to bind to the policy label.
 
-	@property
-	def invoke_labelname(self) :
-		r"""Name of the policy label to invoke if the current policy rule evaluates to TRUE.
-		"""
-		try :
-			return self._invoke_labelname
-		except Exception as e:
-			raise e
+        :param policyname: 
 
-	@invoke_labelname.setter
-	def invoke_labelname(self, invoke_labelname) :
-		r"""Name of the policy label to invoke if the current policy rule evaluates to TRUE.
-		"""
-		try :
-			self._invoke_labelname = invoke_labelname
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._policyname = policyname
+        except Exception as e:
+            raise e
 
-	@property
-	def invoke(self) :
-		r"""Invoke policies bound to a virtual server or a user-defined policy label. After the invoked policies are evaluated, the flow returns to the policy with the next-lower priority.
-		"""
-		try :
-			return self._invoke
-		except Exception as e:
-			raise e
+    @property
+    def labeltype(self) :
+        """Type of policy label to invoke: an unnamed label associated with a virtual server, or user-defined policy label.<br/>Possible values = reqvserver, resvserver, policylabel."""
+        try :
+            return self._labeltype
+        except Exception as e:
+            raise e
 
-	@invoke.setter
-	def invoke(self, invoke) :
-		r"""Invoke policies bound to a virtual server or a user-defined policy label. After the invoked policies are evaluated, the flow returns to the policy with the next-lower priority.
-		"""
-		try :
-			self._invoke = invoke
-		except Exception as e:
-			raise e
+    @labeltype.setter
+    def labeltype(self, labeltype) :
+        """Type of policy label to invoke: an unnamed label associated with a virtual server, or user-defined policy label.<br/>Possible values = reqvserver, resvserver, policylabel
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(cachepolicylabel_policybinding_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.cachepolicylabel_policybinding_binding
-		except Exception as e :
-			raise e
+        :param labeltype: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.labelname is not None :
-				return str(self.labelname)
-			return None
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._labeltype = labeltype
+        except Exception as e:
+            raise e
+
+    @property
+    def labelname(self) :
+        """Name of the cache policy label to which to bind the policy."""
+        try :
+            return self._labelname
+        except Exception as e:
+            raise e
+
+    @labelname.setter
+    def labelname(self, labelname) :
+        """Name of the cache policy label to which to bind the policy.
+
+        :param labelname: 
+
+        """
+        try :
+            self._labelname = labelname
+        except Exception as e:
+            raise e
+
+    @property
+    def invoke_labelname(self) :
+        """Name of the policy label to invoke if the current policy rule evaluates to TRUE."""
+        try :
+            return self._invoke_labelname
+        except Exception as e:
+            raise e
+
+    @invoke_labelname.setter
+    def invoke_labelname(self, invoke_labelname) :
+        """Name of the policy label to invoke if the current policy rule evaluates to TRUE.
+
+        :param invoke_labelname: 
+
+        """
+        try :
+            self._invoke_labelname = invoke_labelname
+        except Exception as e:
+            raise e
+
+    @property
+    def invoke(self) :
+        """Invoke policies bound to a virtual server or a user-defined policy label. After the invoked policies are evaluated, the flow returns to the policy with the next-lower priority."""
+        try :
+            return self._invoke
+        except Exception as e:
+            raise e
+
+    @invoke.setter
+    def invoke(self, invoke) :
+        """Invoke policies bound to a virtual server or a user-defined policy label. After the invoked policies are evaluated, the flow returns to the policy with the next-lower priority.
+
+        :param invoke: 
+
+        """
+        try :
+            self._invoke = invoke
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(cachepolicylabel_policybinding_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.cachepolicylabel_policybinding_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.labelname is not None :
+                return str(self.labelname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(cls, service, labelname) :
-		r""" Use this API to fetch cachepolicylabel_policybinding_binding resources.
-		"""
-		try :
-			obj = cachepolicylabel_policybinding_binding()
-			obj.labelname = labelname
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(cls, service, labelname) :
+        """Use this API to fetch cachepolicylabel_policybinding_binding resources.
 
-	@classmethod
-	def get_filtered(cls, service, labelname, filter_) :
-		r""" Use this API to fetch filtered set of cachepolicylabel_policybinding_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = cachepolicylabel_policybinding_binding()
-			obj.labelname = labelname
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+        :param service: 
+        :param labelname: 
 
-	@classmethod
-	def count(cls, service, labelname) :
-		r""" Use this API to count cachepolicylabel_policybinding_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = cachepolicylabel_policybinding_binding()
-			obj.labelname = labelname
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            obj = cachepolicylabel_policybinding_binding()
+            obj.labelname = labelname
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def count_filtered(cls, service, labelname, filter_) :
-		r""" Use this API to count the filtered set of cachepolicylabel_policybinding_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = cachepolicylabel_policybinding_binding()
-			obj.labelname = labelname
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    @classmethod
+    def get_filtered(cls, service, labelname, filter_) :
+        """Use this API to fetch filtered set of cachepolicylabel_policybinding_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	class Labeltype:
-		reqvserver = "reqvserver"
-		resvserver = "resvserver"
-		policylabel = "policylabel"
+        :param service: 
+        :param labelname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = cachepolicylabel_policybinding_binding()
+            obj.labelname = labelname
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, labelname) :
+        """Use this API to count cachepolicylabel_policybinding_binding resources configued on NetScaler.
+
+        :param service: 
+        :param labelname: 
+
+        """
+        try :
+            obj = cachepolicylabel_policybinding_binding()
+            obj.labelname = labelname
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, labelname, filter_) :
+        """Use this API to count the filtered set of cachepolicylabel_policybinding_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param labelname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = cachepolicylabel_policybinding_binding()
+            obj.labelname = labelname
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Labeltype:
+        """ """
+        reqvserver = "reqvserver"
+        resvserver = "resvserver"
+        policylabel = "policylabel"
 
 class cachepolicylabel_policybinding_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.cachepolicylabel_policybinding_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.cachepolicylabel_policybinding_binding = [cachepolicylabel_policybinding_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.cachepolicylabel_policybinding_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.cachepolicylabel_policybinding_binding = [cachepolicylabel_policybinding_binding() for _ in range(length)]
 

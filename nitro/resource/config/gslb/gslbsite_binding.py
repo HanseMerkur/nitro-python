@@ -22,93 +22,101 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class gslbsite_binding(base_resource):
-	""" Binding class showing the resources that can be bound to gslbsite_binding. 
-	"""
-	def __init__(self) :
-		self._sitename = ""
-		self.gslbsite_gslbservice_binding = []
+    """Binding class showing the resources that can be bound to gslbsite_binding."""
+    def __init__(self) :
+        self._sitename = ""
+        self.gslbsite_gslbservice_binding = []
 
-	@property
-	def sitename(self) :
-		r"""Name of the GSLB site. If you specify a site name, details of all the site's constituent services are also displayed.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._sitename
-		except Exception as e:
-			raise e
+    @property
+    def sitename(self) :
+        """Name of the GSLB site. If you specify a site name, details of all the site's constituent services are also displayed.<br/>Minimum length =  1."""
+        try :
+            return self._sitename
+        except Exception as e:
+            raise e
 
-	@sitename.setter
-	def sitename(self, sitename) :
-		r"""Name of the GSLB site. If you specify a site name, details of all the site's constituent services are also displayed.<br/>Minimum length =  1
-		"""
-		try :
-			self._sitename = sitename
-		except Exception as e:
-			raise e
+    @sitename.setter
+    def sitename(self, sitename) :
+        """Name of the GSLB site. If you specify a site name, details of all the site's constituent services are also displayed.<br/>Minimum length =  1
 
-	@property
-	def gslbsite_gslbservice_bindings(self) :
-		r"""gslbservice that can be bound to gslbsite.
-		"""
-		try :
-			return self._gslbsite_gslbservice_binding
-		except Exception as e:
-			raise e
+        :param sitename: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(gslbsite_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.gslbsite_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._sitename = sitename
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.sitename is not None :
-				return str(self.sitename)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def gslbsite_gslbservice_bindings(self) :
+        """gslbservice that can be bound to gslbsite."""
+        try :
+            return self._gslbsite_gslbservice_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(gslbsite_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.gslbsite_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.sitename is not None :
+                return str(self.sitename)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, sitename) :
-		r""" Use this API to fetch gslbsite_binding resource.
-		"""
-		try :
-			if type(sitename) is not list :
-				obj = gslbsite_binding()
-				obj.sitename = sitename
-				response = obj.get_resource(service)
-			else :
-				if sitename and len(sitename) > 0 :
-					obj = [gslbsite_binding() for _ in range(len(sitename))]
-					for i in range(len(sitename)) :
-						obj[i].sitename = sitename[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, sitename) :
+        """Use this API to fetch gslbsite_binding resource.
+
+        :param service: 
+        :param sitename: 
+
+        """
+        try :
+            if type(sitename) is not list :
+                obj = gslbsite_binding()
+                obj.sitename = sitename
+                response = obj.get_resource(service)
+            else :
+                if sitename and len(sitename) > 0 :
+                    obj = [gslbsite_binding() for _ in range(len(sitename))]
+                    for i in range(len(sitename)) :
+                        obj[i].sitename = sitename[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class gslbsite_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.gslbsite_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.gslbsite_binding = [gslbsite_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.gslbsite_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.gslbsite_binding = [gslbsite_binding() for _ in range(length)]
 

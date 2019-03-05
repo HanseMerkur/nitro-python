@@ -22,123 +22,128 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class authenticationtacacspolicy_binding(base_resource):
-	""" Binding class showing the resources that can be bound to authenticationtacacspolicy_binding. 
-	"""
-	def __init__(self) :
-		self._name = ""
-		self.authenticationtacacspolicy_vpnglobal_binding = []
-		self.authenticationtacacspolicy_vpnvserver_binding = []
-		self.authenticationtacacspolicy_systemglobal_binding = []
-		self.authenticationtacacspolicy_authenticationvserver_binding = []
+    """Binding class showing the resources that can be bound to authenticationtacacspolicy_binding."""
+    def __init__(self) :
+        self._name = ""
+        self.authenticationtacacspolicy_vpnglobal_binding = []
+        self.authenticationtacacspolicy_vpnvserver_binding = []
+        self.authenticationtacacspolicy_systemglobal_binding = []
+        self.authenticationtacacspolicy_authenticationvserver_binding = []
 
-	@property
-	def name(self) :
-		r"""Name of the TACACS+ policy.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the TACACS+ policy.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the TACACS+ policy.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the TACACS+ policy.<br/>Minimum length =  1
 
-	@property
-	def authenticationtacacspolicy_vpnvserver_bindings(self) :
-		r"""vpnvserver that can be bound to authenticationtacacspolicy.
-		"""
-		try :
-			return self._authenticationtacacspolicy_vpnvserver_binding
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@property
-	def authenticationtacacspolicy_systemglobal_bindings(self) :
-		r"""systemglobal that can be bound to authenticationtacacspolicy.
-		"""
-		try :
-			return self._authenticationtacacspolicy_systemglobal_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationtacacspolicy_authenticationvserver_bindings(self) :
-		r"""authenticationvserver that can be bound to authenticationtacacspolicy.
-		"""
-		try :
-			return self._authenticationtacacspolicy_authenticationvserver_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationtacacspolicy_vpnvserver_bindings(self) :
+        """vpnvserver that can be bound to authenticationtacacspolicy."""
+        try :
+            return self._authenticationtacacspolicy_vpnvserver_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationtacacspolicy_vpnglobal_bindings(self) :
-		r"""vpnglobal that can be bound to authenticationtacacspolicy.
-		"""
-		try :
-			return self._authenticationtacacspolicy_vpnglobal_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationtacacspolicy_systemglobal_bindings(self) :
+        """systemglobal that can be bound to authenticationtacacspolicy."""
+        try :
+            return self._authenticationtacacspolicy_systemglobal_binding
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(authenticationtacacspolicy_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.authenticationtacacspolicy_binding
-		except Exception as e :
-			raise e
+    @property
+    def authenticationtacacspolicy_authenticationvserver_bindings(self) :
+        """authenticationvserver that can be bound to authenticationtacacspolicy."""
+        try :
+            return self._authenticationtacacspolicy_authenticationvserver_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def authenticationtacacspolicy_vpnglobal_bindings(self) :
+        """vpnglobal that can be bound to authenticationtacacspolicy."""
+        try :
+            return self._authenticationtacacspolicy_vpnglobal_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(authenticationtacacspolicy_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.authenticationtacacspolicy_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, name) :
-		r""" Use this API to fetch authenticationtacacspolicy_binding resource.
-		"""
-		try :
-			if type(name) is not list :
-				obj = authenticationtacacspolicy_binding()
-				obj.name = name
-				response = obj.get_resource(service)
-			else :
-				if name and len(name) > 0 :
-					obj = [authenticationtacacspolicy_binding() for _ in range(len(name))]
-					for i in range(len(name)) :
-						obj[i].name = name[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, name) :
+        """Use this API to fetch authenticationtacacspolicy_binding resource.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            if type(name) is not list :
+                obj = authenticationtacacspolicy_binding()
+                obj.name = name
+                response = obj.get_resource(service)
+            else :
+                if name and len(name) > 0 :
+                    obj = [authenticationtacacspolicy_binding() for _ in range(len(name))]
+                    for i in range(len(name)) :
+                        obj[i].name = name[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class authenticationtacacspolicy_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.authenticationtacacspolicy_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.authenticationtacacspolicy_binding = [authenticationtacacspolicy_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.authenticationtacacspolicy_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.authenticationtacacspolicy_binding = [authenticationtacacspolicy_binding() for _ in range(length)]
 

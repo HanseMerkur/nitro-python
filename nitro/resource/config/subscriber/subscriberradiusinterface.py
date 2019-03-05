@@ -22,108 +22,123 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class subscriberradiusinterface(base_resource) :
-	""" Configuration for RADIUS interface Parameters resource. """
-	def __init__(self) :
-		self._listeningservice = ""
-		self._svrstate = ""
+    """Configuration for RADIUS interface Parameters resource."""
+    def __init__(self) :
+        self._listeningservice = ""
+        self._svrstate = ""
 
-	@property
-	def listeningservice(self) :
-		r"""Name of RADIUS LISTENING service that will process RADIUS accounting requests.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._listeningservice
-		except Exception as e:
-			raise e
+    @property
+    def listeningservice(self) :
+        """Name of RADIUS LISTENING service that will process RADIUS accounting requests.<br/>Minimum length =  1."""
+        try :
+            return self._listeningservice
+        except Exception as e:
+            raise e
 
-	@listeningservice.setter
-	def listeningservice(self, listeningservice) :
-		r"""Name of RADIUS LISTENING service that will process RADIUS accounting requests.<br/>Minimum length =  1
-		"""
-		try :
-			self._listeningservice = listeningservice
-		except Exception as e:
-			raise e
+    @listeningservice.setter
+    def listeningservice(self, listeningservice) :
+        """Name of RADIUS LISTENING service that will process RADIUS accounting requests.<br/>Minimum length =  1
 
-	@property
-	def svrstate(self) :
-		r"""The state of the radius service.<br/>Possible values = UP, DOWN, UNKNOWN, BUSY, OUT OF SERVICE, GOING OUT OF SERVICE, DOWN WHEN GOING OUT OF SERVICE, NS_EMPTY_STR, Unknown, DISABLED.
-		"""
-		try :
-			return self._svrstate
-		except Exception as e:
-			raise e
+        :param listeningservice: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(subscriberradiusinterface_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.subscriberradiusinterface
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._listeningservice = listeningservice
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @property
+    def svrstate(self) :
+        """The state of the radius service.<br/>Possible values = UP, DOWN, UNKNOWN, BUSY, OUT OF SERVICE, GOING OUT OF SERVICE, DOWN WHEN GOING OUT OF SERVICE, NS_EMPTY_STR, Unknown, DISABLED."""
+        try :
+            return self._svrstate
+        except Exception as e:
+            raise e
 
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
+        :param service: 
+        :param response: 
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update subscriberradiusinterface.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = subscriberradiusinterface()
-				updateresource.listeningservice = resource.listeningservice
-				return updateresource.update_resource(client)
-		except Exception as e :
-			raise e
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(subscriberradiusinterface_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.subscriberradiusinterface
+        except Exception as e :
+            raise e
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the subscriberradiusinterface resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = subscriberradiusinterface()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
-	class Svrstate:
-		UP = "UP"
-		DOWN = "DOWN"
-		UNKNOWN = "UNKNOWN"
-		BUSY = "BUSY"
-		OUT_OF_SERVICE = "OUT OF SERVICE"
-		GOING_OUT_OF_SERVICE = "GOING OUT OF SERVICE"
-		DOWN_WHEN_GOING_OUT_OF_SERVICE = "DOWN WHEN GOING OUT OF SERVICE"
-		NS_EMPTY_STR = "NS_EMPTY_STR"
-		Unknown = "Unknown"
-		DISABLED = "DISABLED"
+
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update subscriberradiusinterface.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = subscriberradiusinterface()
+                updateresource.listeningservice = resource.listeningservice
+                return updateresource.update_resource(client)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the subscriberradiusinterface resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = subscriberradiusinterface()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    class Svrstate:
+        """ """
+        UP = "UP"
+        DOWN = "DOWN"
+        UNKNOWN = "UNKNOWN"
+        BUSY = "BUSY"
+        OUT_OF_SERVICE = "OUT OF SERVICE"
+        GOING_OUT_OF_SERVICE = "GOING OUT OF SERVICE"
+        DOWN_WHEN_GOING_OUT_OF_SERVICE = "DOWN WHEN GOING OUT OF SERVICE"
+        NS_EMPTY_STR = "NS_EMPTY_STR"
+        Unknown = "Unknown"
+        DISABLED = "DISABLED"
 
 class subscriberradiusinterface_response(base_response) :
-	def __init__(self, length=1) :
-		self.subscriberradiusinterface = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.subscriberradiusinterface = [subscriberradiusinterface() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.subscriberradiusinterface = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.subscriberradiusinterface = [subscriberradiusinterface() for _ in range(length)]
 

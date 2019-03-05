@@ -16,26 +16,27 @@
 
 
 class nspbr_args :
-	r""" Provides additional arguments required for fetching the nspbr resource.
-	"""
-	def __init__(self) :
-		self._detail = False
+    """Provides additional arguments required for fetching the nspbr resource."""
+    def __init__(self) :
+        self._detail = False
 
-	@property
-	def detail(self) :
-		r"""To get a detailed view.
-		"""
-		try :
-			return self._detail
-		except Exception as e:
-			raise e
+    @property
+    def detail(self) :
+        """To get a detailed view."""
+        try :
+            return self._detail
+        except Exception as e:
+            raise e
 
-	@detail.setter
-	def detail(self, detail) :
-		r"""To get a detailed view.
-		"""
-		try :
-			self._detail = detail
-		except Exception as e:
-			raise e
+    @detail.setter
+    def detail(self, detail) :
+        """To get a detailed view.
+
+        :param detail: 
+
+        """
+        try :
+            self._detail = detail
+        except Exception as e:
+            raise e
 

@@ -16,30 +16,32 @@
 
 
 class nsextension_args :
-	r""" Provides additional arguments required for fetching the nsextension resource.
-	"""
-	def __init__(self) :
-		self._detail = ""
+    """Provides additional arguments required for fetching the nsextension resource."""
+    def __init__(self) :
+        self._detail = ""
 
-	@property
-	def detail(self) :
-		r"""Show detail for extension function.<br/>Possible values = brief, all.
-		"""
-		try :
-			return self._detail
-		except Exception as e:
-			raise e
+    @property
+    def detail(self) :
+        """Show detail for extension function.<br/>Possible values = brief, all."""
+        try :
+            return self._detail
+        except Exception as e:
+            raise e
 
-	@detail.setter
-	def detail(self, detail) :
-		r"""Show detail for extension function.<br/>Possible values = brief, all
-		"""
-		try :
-			self._detail = detail
-		except Exception as e:
-			raise e
+    @detail.setter
+    def detail(self, detail) :
+        """Show detail for extension function.<br/>Possible values = brief, all
 
-	class Detail:
-		brief = "brief"
-		all = "all"
+        :param detail: 
+
+        """
+        try :
+            self._detail = detail
+        except Exception as e:
+            raise e
+
+    class Detail:
+        """ """
+        brief = "brief"
+        all = "all"
 

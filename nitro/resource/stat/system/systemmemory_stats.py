@@ -22,178 +22,179 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class systemmemory_stats(base_resource) :
-	r""" Statistics for Global system memory stats resource.
-	"""
-	def __init__(self) :
-		self._clearstats = ""
-		self._shmemallocpcnt = 0
-		self._shmemallocinmb = 0
-		self._shmemtotinmb = 0
-		self._memtotfree = 0
-		self._memusagepcnt = 0
-		self._memtotuseinmb = 0
-		self._memtotallocpcnt = 0
-		self._memtotallocmb = 0
-		self._memtotinmb = 0
-		self._memtotavail = 0
+    """Statistics for Global system memory stats resource."""
+    def __init__(self) :
+        self._clearstats = ""
+        self._shmemallocpcnt = 0
+        self._shmemallocinmb = 0
+        self._shmemtotinmb = 0
+        self._memtotfree = 0
+        self._memusagepcnt = 0
+        self._memtotuseinmb = 0
+        self._memtotallocpcnt = 0
+        self._memtotallocmb = 0
+        self._memtotinmb = 0
+        self._memtotavail = 0
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def memtotallocpcnt(self) :
-		r"""Currently allocated memory in percent.
-		"""
-		try :
-			return self._memtotallocpcnt
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def memtotfree(self) :
-		r"""Total Free PE Memory in the System.
-		"""
-		try :
-			return self._memtotfree
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def shmemallocpcnt(self) :
-		r"""Shared memory insue percent.
-		"""
-		try :
-			return self._shmemallocpcnt
-		except Exception as e:
-			raise e
+    @property
+    def memtotallocpcnt(self) :
+        """Currently allocated memory in percent."""
+        try :
+            return self._memtotallocpcnt
+        except Exception as e:
+            raise e
 
-	@property
-	def shmemallocinmb(self) :
-		r"""Shared memory insue, in megabytes.
-		"""
-		try :
-			return self._shmemallocinmb
-		except Exception as e:
-			raise e
+    @property
+    def memtotfree(self) :
+        """Total Free PE Memory in the System."""
+        try :
+            return self._memtotfree
+        except Exception as e:
+            raise e
 
-	@property
-	def memtotuseinmb(self) :
-		r"""Total NetScaler Memory in use, in megabytes.
-		"""
-		try :
-			return self._memtotuseinmb
-		except Exception as e:
-			raise e
+    @property
+    def shmemallocpcnt(self) :
+        """Shared memory insue percent."""
+        try :
+            return self._shmemallocpcnt
+        except Exception as e:
+            raise e
 
-	@property
-	def memusagepcnt(self) :
-		r"""Percentage of memory utilization on NetScaler.
-		"""
-		try :
-			return self._memusagepcnt
-		except Exception as e:
-			raise e
+    @property
+    def shmemallocinmb(self) :
+        """Shared memory insue, in megabytes."""
+        try :
+            return self._shmemallocinmb
+        except Exception as e:
+            raise e
 
-	@property
-	def memtotinmb(self) :
-		r"""Total memory available (grabbed) for use by packet engine (PE), in megabytes.
-		"""
-		try :
-			return self._memtotinmb
-		except Exception as e:
-			raise e
+    @property
+    def memtotuseinmb(self) :
+        """Total NetScaler Memory in use, in megabytes."""
+        try :
+            return self._memtotuseinmb
+        except Exception as e:
+            raise e
 
-	@property
-	def memtotallocmb(self) :
-		r"""Currently allocated memory, in megabytes.
-		"""
-		try :
-			return self._memtotallocmb
-		except Exception as e:
-			raise e
+    @property
+    def memusagepcnt(self) :
+        """Percentage of memory utilization on NetScaler."""
+        try :
+            return self._memusagepcnt
+        except Exception as e:
+            raise e
 
-	@property
-	def memtotavail(self) :
-		r"""Total system memory available for PE to grab from the system.
-		"""
-		try :
-			return self._memtotavail
-		except Exception as e:
-			raise e
+    @property
+    def memtotinmb(self) :
+        """Total memory available (grabbed) for use by packet engine (PE), in megabytes."""
+        try :
+            return self._memtotinmb
+        except Exception as e:
+            raise e
 
-	@property
-	def shmemtotinmb(self) :
-		r"""Total shared memory allowed to allocate, in megabytes.
-		"""
-		try :
-			return self._shmemtotinmb
-		except Exception as e:
-			raise e
+    @property
+    def memtotallocmb(self) :
+        """Currently allocated memory, in megabytes."""
+        try :
+            return self._memtotallocmb
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(systemmemory_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.systemmemory
-		except Exception as e :
-			raise e
+    @property
+    def memtotavail(self) :
+        """Total system memory available for PE to grab from the system."""
+        try :
+            return self._memtotavail
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @property
+    def shmemtotinmb(self) :
+        """Total shared memory allowed to allocate, in megabytes."""
+        try :
+            return self._shmemtotinmb
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(systemmemory_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.systemmemory
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all systemmemory_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = systemmemory_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all systemmemory_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = systemmemory_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class systemmemory_response(base_response) :
-	def __init__(self, length=1) :
-		self.systemmemory = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.systemmemory = [systemmemory_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.systemmemory = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.systemmemory = [systemmemory_stats() for _ in range(length)]
 

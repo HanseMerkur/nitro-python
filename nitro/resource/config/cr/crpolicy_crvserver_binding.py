@@ -22,220 +22,239 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class crpolicy_crvserver_binding(base_resource) :
-	""" Binding class showing the crvserver that can be bound to crpolicy.
-	"""
-	def __init__(self) :
-		self._domain = ""
-		self._priority = 0
-		self._hits = 0
-		self._pihits = 0
-		self._pipolicyhits = 0
-		self._labeltype = ""
-		self._labelname = ""
-		self._gotopriorityexpression = ""
-		self._policyname = ""
-		self.___count = 0
+    """Binding class showing the crvserver that can be bound to crpolicy."""
+    def __init__(self) :
+        self._domain = ""
+        self._priority = 0
+        self._hits = 0
+        self._pihits = 0
+        self._pipolicyhits = 0
+        self._labeltype = ""
+        self._labelname = ""
+        self._gotopriorityexpression = ""
+        self._policyname = ""
+        self.___count = 0
 
-	@property
-	def policyname(self) :
-		r"""Name of the cache redirection policy to display. If this parameter is omitted, details of all the policies are displayed.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._policyname
-		except Exception as e:
-			raise e
+    @property
+    def policyname(self) :
+        """Name of the cache redirection policy to display. If this parameter is omitted, details of all the policies are displayed.<br/>Minimum length =  1."""
+        try :
+            return self._policyname
+        except Exception as e:
+            raise e
 
-	@policyname.setter
-	def policyname(self, policyname) :
-		r"""Name of the cache redirection policy to display. If this parameter is omitted, details of all the policies are displayed.<br/>Minimum length =  1
-		"""
-		try :
-			self._policyname = policyname
-		except Exception as e:
-			raise e
+    @policyname.setter
+    def policyname(self, policyname) :
+        """Name of the cache redirection policy to display. If this parameter is omitted, details of all the policies are displayed.<br/>Minimum length =  1
 
-	@property
-	def domain(self) :
-		r"""Domain name.
-		"""
-		try :
-			return self._domain
-		except Exception as e:
-			raise e
+        :param policyname: 
 
-	@domain.setter
-	def domain(self, domain) :
-		r"""Domain name.
-		"""
-		try :
-			self._domain = domain
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._policyname = policyname
+        except Exception as e:
+            raise e
 
-	@property
-	def priority(self) :
-		r"""priority of bound policy.
-		"""
-		try :
-			return self._priority
-		except Exception as e:
-			raise e
+    @property
+    def domain(self) :
+        """Domain name."""
+        try :
+            return self._domain
+        except Exception as e:
+            raise e
 
-	@property
-	def hits(self) :
-		r"""Total number of hits.
-		"""
-		try :
-			return self._hits
-		except Exception as e:
-			raise e
+    @domain.setter
+    def domain(self, domain) :
+        """Domain name.
 
-	@property
-	def gotopriorityexpression(self) :
-		r"""Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE.
-		"""
-		try :
-			return self._gotopriorityexpression
-		except Exception as e:
-			raise e
+        :param domain: 
 
-	@property
-	def pipolicyhits(self) :
-		r"""bind hits for PI CR Policy.
-		"""
-		try :
-			return self._pipolicyhits
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._domain = domain
+        except Exception as e:
+            raise e
 
-	@property
-	def labeltype(self) :
-		r"""The invocation type.<br/>Possible values = reqvserver, resvserver, policylabel.
-		"""
-		try :
-			return self._labeltype
-		except Exception as e:
-			raise e
+    @property
+    def priority(self) :
+        """priority of bound policy."""
+        try :
+            return self._priority
+        except Exception as e:
+            raise e
 
-	@property
-	def labelname(self) :
-		r"""Name of the label invoked.
-		"""
-		try :
-			return self._labelname
-		except Exception as e:
-			raise e
+    @property
+    def hits(self) :
+        """Total number of hits."""
+        try :
+            return self._hits
+        except Exception as e:
+            raise e
 
-	@property
-	def pihits(self) :
-		r"""Total number of hits.
-		"""
-		try :
-			return self._pihits
-		except Exception as e:
-			raise e
+    @property
+    def gotopriorityexpression(self) :
+        """Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE."""
+        try :
+            return self._gotopriorityexpression
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(crpolicy_crvserver_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.crpolicy_crvserver_binding
-		except Exception as e :
-			raise e
+    @property
+    def pipolicyhits(self) :
+        """bind hits for PI CR Policy."""
+        try :
+            return self._pipolicyhits
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.policyname is not None :
-				return str(self.policyname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def labeltype(self) :
+        """The invocation type.<br/>Possible values = reqvserver, resvserver, policylabel."""
+        try :
+            return self._labeltype
+        except Exception as e:
+            raise e
 
+    @property
+    def labelname(self) :
+        """Name of the label invoked."""
+        try :
+            return self._labelname
+        except Exception as e:
+            raise e
+
+    @property
+    def pihits(self) :
+        """Total number of hits."""
+        try :
+            return self._pihits
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(crpolicy_crvserver_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.crpolicy_crvserver_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.policyname is not None :
+                return str(self.policyname)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get(cls, service, policyname) :
-		r""" Use this API to fetch crpolicy_crvserver_binding resources.
-		"""
-		try :
-			obj = crpolicy_crvserver_binding()
-			obj.policyname = policyname
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
 
-	@classmethod
-	def get_filtered(cls, service, policyname, filter_) :
-		r""" Use this API to fetch filtered set of crpolicy_crvserver_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = crpolicy_crvserver_binding()
-			obj.policyname = policyname
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(cls, service, policyname) :
+        """Use this API to fetch crpolicy_crvserver_binding resources.
 
-	@classmethod
-	def count(cls, service, policyname) :
-		r""" Use this API to count crpolicy_crvserver_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = crpolicy_crvserver_binding()
-			obj.policyname = policyname
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        :param service: 
+        :param policyname: 
 
-	@classmethod
-	def count_filtered(cls, service, policyname, filter_) :
-		r""" Use this API to count the filtered set of crpolicy_crvserver_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = crpolicy_crvserver_binding()
-			obj.policyname = policyname
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            obj = crpolicy_crvserver_binding()
+            obj.policyname = policyname
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	class Labeltype:
-		reqvserver = "reqvserver"
-		resvserver = "resvserver"
-		policylabel = "policylabel"
+    @classmethod
+    def get_filtered(cls, service, policyname, filter_) :
+        """Use this API to fetch filtered set of crpolicy_crvserver_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param policyname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = crpolicy_crvserver_binding()
+            obj.policyname = policyname
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, policyname) :
+        """Use this API to count crpolicy_crvserver_binding resources configued on NetScaler.
+
+        :param service: 
+        :param policyname: 
+
+        """
+        try :
+            obj = crpolicy_crvserver_binding()
+            obj.policyname = policyname
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, policyname, filter_) :
+        """Use this API to count the filtered set of crpolicy_crvserver_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param policyname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = crpolicy_crvserver_binding()
+            obj.policyname = policyname
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Labeltype:
+        """ """
+        reqvserver = "reqvserver"
+        resvserver = "resvserver"
+        policylabel = "policylabel"
 
 class crpolicy_crvserver_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.crpolicy_crvserver_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.crpolicy_crvserver_binding = [crpolicy_crvserver_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.crpolicy_crvserver_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.crpolicy_crvserver_binding = [crpolicy_crvserver_binding() for _ in range(length)]
 

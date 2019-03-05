@@ -22,138 +22,159 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class fis_interface_binding(base_resource) :
-	""" Binding class showing the interface that can be bound to fis.
-	"""
-	def __init__(self) :
-		self._ifnum = ""
-		self._ownernode = 0
-		self._name = ""
+    """Binding class showing the interface that can be bound to fis."""
+    def __init__(self) :
+        self._ifnum = ""
+        self._ownernode = 0
+        self._name = ""
 
-	@property
-	def ownernode(self) :
-		r"""ID of the cluster node for which you are creating the FIS. Can be configured only through the cluster IP address.<br/>Minimum value =  0<br/>Maximum value =  31.
-		"""
-		try :
-			return self._ownernode
-		except Exception as e:
-			raise e
+    @property
+    def ownernode(self) :
+        """ID of the cluster node for which you are creating the FIS. Can be configured only through the cluster IP address.<br/>Minimum value =  0<br/>Maximum value =  31."""
+        try :
+            return self._ownernode
+        except Exception as e:
+            raise e
 
-	@ownernode.setter
-	def ownernode(self, ownernode) :
-		r"""ID of the cluster node for which you are creating the FIS. Can be configured only through the cluster IP address.<br/>Minimum value =  0<br/>Maximum value =  31
-		"""
-		try :
-			self._ownernode = ownernode
-		except Exception as e:
-			raise e
+    @ownernode.setter
+    def ownernode(self, ownernode) :
+        """ID of the cluster node for which you are creating the FIS. Can be configured only through the cluster IP address.<br/>Minimum value =  0<br/>Maximum value =  31
 
-	@property
-	def name(self) :
-		r"""The name of the FIS to which you want to bind interfaces.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+        :param ownernode: 
 
-	@name.setter
-	def name(self, name) :
-		r"""The name of the FIS to which you want to bind interfaces.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._ownernode = ownernode
+        except Exception as e:
+            raise e
 
-	@property
-	def ifnum(self) :
-		r"""Interface to be bound to the FIS, specified in slot/port notation (for example, 1/3).
-		"""
-		try :
-			return self._ifnum
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """The name of the FIS to which you want to bind interfaces.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@ifnum.setter
-	def ifnum(self, ifnum) :
-		r"""Interface to be bound to the FIS, specified in slot/port notation (for example, 1/3).
-		"""
-		try :
-			self._ifnum = ifnum
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """The name of the FIS to which you want to bind interfaces.<br/>Minimum length =  1
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(fis_interface_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.fis_interface_binding
-		except Exception as e :
-			raise e
+        :param name: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
+
+    @property
+    def ifnum(self) :
+        """Interface to be bound to the FIS, specified in slot/port notation (for example, 1/3)."""
+        try :
+            return self._ifnum
+        except Exception as e:
+            raise e
+
+    @ifnum.setter
+    def ifnum(self, ifnum) :
+        """Interface to be bound to the FIS, specified in slot/port notation (for example, 1/3).
+
+        :param ifnum: 
+
+        """
+        try :
+            self._ifnum = ifnum
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(fis_interface_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.fis_interface_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def add(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				updateresource = fis_interface_binding()
-				updateresource.name = resource.name
-				updateresource.ifnum = resource.ifnum
-				return updateresource.update_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					updateresources = [fis_interface_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].name = resource[i].name
-						updateresources[i].ifnum = resource[i].ifnum
-				return cls.update_bulk_request(client, updateresources)
-		except Exception as e :
-			raise e
+    @classmethod
+    def add(cls, client, resource) :
+        """
 
-	@classmethod
-	def delete(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				deleteresource = fis_interface_binding()
-				deleteresource.name = resource.name
-				deleteresource.ifnum = resource.ifnum
-				return deleteresource.delete_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					deleteresources = [fis_interface_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						deleteresources[i].name = resource[i].name
-						deleteresources[i].ifnum = resource[i].ifnum
-				return cls.delete_bulk_request(client, deleteresources)
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if resource and type(resource) is not list :
+                updateresource = fis_interface_binding()
+                updateresource.name = resource.name
+                updateresource.ifnum = resource.ifnum
+                return updateresource.update_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    updateresources = [fis_interface_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].name = resource[i].name
+                        updateresources[i].ifnum = resource[i].ifnum
+                return cls.update_bulk_request(client, updateresources)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if resource and type(resource) is not list :
+                deleteresource = fis_interface_binding()
+                deleteresource.name = resource.name
+                deleteresource.ifnum = resource.ifnum
+                return deleteresource.delete_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    deleteresources = [fis_interface_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        deleteresources[i].name = resource[i].name
+                        deleteresources[i].ifnum = resource[i].ifnum
+                return cls.delete_bulk_request(client, deleteresources)
+        except Exception as e :
+            raise e
 
 class fis_interface_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.fis_interface_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.fis_interface_binding = [fis_interface_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.fis_interface_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.fis_interface_binding = [fis_interface_binding() for _ in range(length)]
 

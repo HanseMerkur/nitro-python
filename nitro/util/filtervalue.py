@@ -17,8 +17,7 @@
 
 
 class filtervalue:
-    """ Filtervalue class provides a way to specify the filter parameter name and value for performing filtered get operation. 
-    """
+    """Filtervalue class provides a way to specify the filter parameter name and value for performing filtered get operation."""
     _name=""
     _value=""
     
@@ -27,21 +26,33 @@ class filtervalue:
         self._value = value
         
     def filtervalue(self, name, value):
+        """
+
+        :param name: 
+        :param value: 
+
+        """
         self._name = name
         self._value = value
     
     
     @property
     def name(self):
-        """ Returns:
-                gets the name of the filter parameter.
+        """
+
+
+        :returns: gets the name of the filter parameter.
+
         """
         return self._name
     
 
     @property
     def value(self):
-        """ Returns:
-                gets the value of the filter parameter.
+        """
+
+
+        :returns: gets the value of the filter parameter.
+
         """
         return self._value

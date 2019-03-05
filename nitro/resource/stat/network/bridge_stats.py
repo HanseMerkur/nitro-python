@@ -22,178 +22,179 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class bridge_stats(base_resource) :
-	r""" Statistics for bridge resource.
-	"""
-	def __init__(self) :
-		self._clearstats = ""
-		self._tcptotbdgmacmoved = 0
-		self._tcpbdgmacmovedrate = 0
-		self._tcptotbdgcollisions = 0
-		self._tcpbdgcollisionsrate = 0
-		self._tcperrbdgmuted = 0
-		self._tcperrbdgmutedrate = 0
-		self._totbdgpkts = 0
-		self._bdgpktsrate = 0
-		self._totbdgmbits = 0
-		self._bdgmbitsrate = 0
+    """Statistics for bridge resource."""
+    def __init__(self) :
+        self._clearstats = ""
+        self._tcptotbdgmacmoved = 0
+        self._tcpbdgmacmovedrate = 0
+        self._tcptotbdgcollisions = 0
+        self._tcpbdgcollisionsrate = 0
+        self._tcperrbdgmuted = 0
+        self._tcperrbdgmutedrate = 0
+        self._totbdgpkts = 0
+        self._bdgpktsrate = 0
+        self._totbdgmbits = 0
+        self._bdgmbitsrate = 0
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def bdgpktsrate(self) :
-		r"""Rate (/s) counter for totbdgpkts.
-		"""
-		try :
-			return self._bdgpktsrate
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def totbdgmbits(self) :
-		r"""The total number of bridged Mbits.
-		"""
-		try :
-			return self._totbdgmbits
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def bdgmbitsrate(self) :
-		r"""Rate (/s) counter for totbdgmbits.
-		"""
-		try :
-			return self._bdgmbitsrate
-		except Exception as e:
-			raise e
+    @property
+    def bdgpktsrate(self) :
+        """Rate (/s) counter for totbdgpkts."""
+        try :
+            return self._bdgpktsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def totbdgpkts(self) :
-		r"""The total number of bridged packets.
-		"""
-		try :
-			return self._totbdgpkts
-		except Exception as e:
-			raise e
+    @property
+    def totbdgmbits(self) :
+        """The total number of bridged Mbits."""
+        try :
+            return self._totbdgmbits
+        except Exception as e:
+            raise e
 
-	@property
-	def tcperrbdgmuted(self) :
-		r"""The number of bridging related interface mutes.
-		"""
-		try :
-			return self._tcperrbdgmuted
-		except Exception as e:
-			raise e
+    @property
+    def bdgmbitsrate(self) :
+        """Rate (/s) counter for totbdgmbits."""
+        try :
+            return self._bdgmbitsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def tcpbdgcollisionsrate(self) :
-		r"""Rate (/s) counter for tcptotbdgcollisions.
-		"""
-		try :
-			return self._tcpbdgcollisionsrate
-		except Exception as e:
-			raise e
+    @property
+    def totbdgpkts(self) :
+        """The total number of bridged packets."""
+        try :
+            return self._totbdgpkts
+        except Exception as e:
+            raise e
 
-	@property
-	def tcptotbdgcollisions(self) :
-		r"""The number of bridging table collisions.
-		"""
-		try :
-			return self._tcptotbdgcollisions
-		except Exception as e:
-			raise e
+    @property
+    def tcperrbdgmuted(self) :
+        """The number of bridging related interface mutes."""
+        try :
+            return self._tcperrbdgmuted
+        except Exception as e:
+            raise e
 
-	@property
-	def tcperrbdgmutedrate(self) :
-		r"""Rate (/s) counter for tcperrbdgmuted.
-		"""
-		try :
-			return self._tcperrbdgmutedrate
-		except Exception as e:
-			raise e
+    @property
+    def tcpbdgcollisionsrate(self) :
+        """Rate (/s) counter for tcptotbdgcollisions."""
+        try :
+            return self._tcpbdgcollisionsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def tcpbdgmacmovedrate(self) :
-		r"""Rate (/s) counter for tcptotbdgmacmoved.
-		"""
-		try :
-			return self._tcpbdgmacmovedrate
-		except Exception as e:
-			raise e
+    @property
+    def tcptotbdgcollisions(self) :
+        """The number of bridging table collisions."""
+        try :
+            return self._tcptotbdgcollisions
+        except Exception as e:
+            raise e
 
-	@property
-	def tcptotbdgmacmoved(self) :
-		r"""The number of times bridging registered MAC moved.
-		"""
-		try :
-			return self._tcptotbdgmacmoved
-		except Exception as e:
-			raise e
+    @property
+    def tcperrbdgmutedrate(self) :
+        """Rate (/s) counter for tcperrbdgmuted."""
+        try :
+            return self._tcperrbdgmutedrate
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(bridge_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.bridge
-		except Exception as e :
-			raise e
+    @property
+    def tcpbdgmacmovedrate(self) :
+        """Rate (/s) counter for tcptotbdgmacmoved."""
+        try :
+            return self._tcpbdgmacmovedrate
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @property
+    def tcptotbdgmacmoved(self) :
+        """The number of times bridging registered MAC moved."""
+        try :
+            return self._tcptotbdgmacmoved
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(bridge_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.bridge
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all bridge_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = bridge_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all bridge_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = bridge_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class bridge_response(base_response) :
-	def __init__(self, length=1) :
-		self.bridge = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.bridge = [bridge_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.bridge = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.bridge = [bridge_stats() for _ in range(length)]
 

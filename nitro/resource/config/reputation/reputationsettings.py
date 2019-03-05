@@ -22,118 +22,140 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class reputationsettings(base_resource) :
-	""" Configuration for Reputation service settings resource. """
-	def __init__(self) :
-		self._proxyserver = ""
-		self._proxyport = 0
+    """Configuration for Reputation service settings resource."""
+    def __init__(self) :
+        self._proxyserver = ""
+        self._proxyport = 0
 
-	@property
-	def proxyserver(self) :
-		r"""Proxy server IP to get Reputation data.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._proxyserver
-		except Exception as e:
-			raise e
+    @property
+    def proxyserver(self) :
+        """Proxy server IP to get Reputation data.<br/>Minimum length =  1."""
+        try :
+            return self._proxyserver
+        except Exception as e:
+            raise e
 
-	@proxyserver.setter
-	def proxyserver(self, proxyserver) :
-		r"""Proxy server IP to get Reputation data.<br/>Minimum length =  1
-		"""
-		try :
-			self._proxyserver = proxyserver
-		except Exception as e:
-			raise e
+    @proxyserver.setter
+    def proxyserver(self, proxyserver) :
+        """Proxy server IP to get Reputation data.<br/>Minimum length =  1
 
-	@property
-	def proxyport(self) :
-		r"""Proxy server port.
-		"""
-		try :
-			return self._proxyport
-		except Exception as e:
-			raise e
+        :param proxyserver: 
 
-	@proxyport.setter
-	def proxyport(self, proxyport) :
-		r"""Proxy server port.
-		"""
-		try :
-			self._proxyport = proxyport
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._proxyserver = proxyserver
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(reputationsettings_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.reputationsettings
-		except Exception as e :
-			raise e
+    @property
+    def proxyport(self) :
+        """Proxy server port."""
+        try :
+            return self._proxyport
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @proxyport.setter
+    def proxyport(self, proxyport) :
+        """Proxy server port.
+
+        :param proxyport: 
+
+        """
+        try :
+            self._proxyport = proxyport
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(reputationsettings_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.reputationsettings
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update reputationsettings.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = reputationsettings()
-				updateresource.proxyserver = resource.proxyserver
-				updateresource.proxyport = resource.proxyport
-				return updateresource.update_resource(client)
-		except Exception as e :
-			raise e
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update reputationsettings.
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of reputationsettings resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = reputationsettings()
-				return unsetresource.unset_resource(client, args)
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the reputationsettings resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = reputationsettings()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = reputationsettings()
+                updateresource.proxyserver = resource.proxyserver
+                updateresource.proxyport = resource.proxyport
+                return updateresource.update_resource(client)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of reputationsettings resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = reputationsettings()
+                return unsetresource.unset_resource(client, args)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the reputationsettings resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = reputationsettings()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
 class reputationsettings_response(base_response) :
-	def __init__(self, length=1) :
-		self.reputationsettings = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.reputationsettings = [reputationsettings() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.reputationsettings = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.reputationsettings = [reputationsettings() for _ in range(length)]
 

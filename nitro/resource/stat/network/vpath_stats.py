@@ -22,258 +22,251 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class vpath_stats(base_resource) :
-	r""" Statistics for Vpath resource.
-	"""
-	def __init__(self) :
-		self._clearstats = ""
-		self._vpathtotl2datarx = 0
-		self._vpathl2datarxrate = 0
-		self._vpathtotl3datarx = 0
-		self._vpathl3datarxrate = 0
-		self._vpathtotl2cntrlpkts = 0
-		self._vpathl2cntrlpktsrate = 0
-		self._vpathtotl3cntrlpkts = 0
-		self._vpathl3cntrlpktsrate = 0
-		self._vpathtotfragpkts = 0
-		self._vpathfragpktsrate = 0
-		self._vpathtotl2encappkts = 0
-		self._vpathl2encappktsrate = 0
-		self._vpathtotl3encappkts = 0
-		self._vpathl3encappktsrate = 0
-		self._vpathtotfragencappkts = 0
-		self._vpathfragencappktsrate = 0
-		self._vpathtotoffload = 0
-		self._vpathoffloadrate = 0
+    """Statistics for Vpath resource."""
+    def __init__(self) :
+        self._clearstats = ""
+        self._vpathtotl2datarx = 0
+        self._vpathl2datarxrate = 0
+        self._vpathtotl3datarx = 0
+        self._vpathl3datarxrate = 0
+        self._vpathtotl2cntrlpkts = 0
+        self._vpathl2cntrlpktsrate = 0
+        self._vpathtotl3cntrlpkts = 0
+        self._vpathl3cntrlpktsrate = 0
+        self._vpathtotfragpkts = 0
+        self._vpathfragpktsrate = 0
+        self._vpathtotl2encappkts = 0
+        self._vpathl2encappktsrate = 0
+        self._vpathtotl3encappkts = 0
+        self._vpathl3encappktsrate = 0
+        self._vpathtotfragencappkts = 0
+        self._vpathfragencappktsrate = 0
+        self._vpathtotoffload = 0
+        self._vpathoffloadrate = 0
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def vpathfragencappktsrate(self) :
-		r"""Rate (/s) counter for vpathtotfragencappkts.
-		"""
-		try :
-			return self._vpathfragencappktsrate
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def vpathtotl2cntrlpkts(self) :
-		r"""Total number of vPath control packets received in L2 adjacency.
-		"""
-		try :
-			return self._vpathtotl2cntrlpkts
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathtotoffload(self) :
-		r"""Number of offloaded vPath packets transmitted.
-		"""
-		try :
-			return self._vpathtotoffload
-		except Exception as e:
-			raise e
+    @property
+    def vpathfragencappktsrate(self) :
+        """Rate (/s) counter for vpathtotfragencappkts."""
+        try :
+            return self._vpathfragencappktsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathtotl3encappkts(self) :
-		r"""Total number of L3 vPath encapsulated packets injected to VEM.
-		"""
-		try :
-			return self._vpathtotl3encappkts
-		except Exception as e:
-			raise e
+    @property
+    def vpathtotl2cntrlpkts(self) :
+        """Total number of vPath control packets received in L2 adjacency."""
+        try :
+            return self._vpathtotl2cntrlpkts
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathtotl2datarx(self) :
-		r"""Total number of non-fragmented vPath data packets decapsulated in L2 adjacency.
-		"""
-		try :
-			return self._vpathtotl2datarx
-		except Exception as e:
-			raise e
+    @property
+    def vpathtotoffload(self) :
+        """Number of offloaded vPath packets transmitted."""
+        try :
+            return self._vpathtotoffload
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathtotl2encappkts(self) :
-		r"""Total number of L2 vPath encapsulated packets injected to VEM.
-		"""
-		try :
-			return self._vpathtotl2encappkts
-		except Exception as e:
-			raise e
+    @property
+    def vpathtotl3encappkts(self) :
+        """Total number of L3 vPath encapsulated packets injected to VEM."""
+        try :
+            return self._vpathtotl3encappkts
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathoffloadrate(self) :
-		r"""Rate (/s) counter for vpathtotoffload.
-		"""
-		try :
-			return self._vpathoffloadrate
-		except Exception as e:
-			raise e
+    @property
+    def vpathtotl2datarx(self) :
+        """Total number of non-fragmented vPath data packets decapsulated in L2 adjacency."""
+        try :
+            return self._vpathtotl2datarx
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathl3cntrlpktsrate(self) :
-		r"""Rate (/s) counter for vpathtotl3cntrlpkts.
-		"""
-		try :
-			return self._vpathl3cntrlpktsrate
-		except Exception as e:
-			raise e
+    @property
+    def vpathtotl2encappkts(self) :
+        """Total number of L2 vPath encapsulated packets injected to VEM."""
+        try :
+            return self._vpathtotl2encappkts
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathfragpktsrate(self) :
-		r"""Rate (/s) counter for vpathtotfragpkts.
-		"""
-		try :
-			return self._vpathfragpktsrate
-		except Exception as e:
-			raise e
+    @property
+    def vpathoffloadrate(self) :
+        """Rate (/s) counter for vpathtotoffload."""
+        try :
+            return self._vpathoffloadrate
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathtotl3datarx(self) :
-		r"""Total number of non-fragmented vPath data packets decapsulated in L3 adjacency.
-		"""
-		try :
-			return self._vpathtotl3datarx
-		except Exception as e:
-			raise e
+    @property
+    def vpathl3cntrlpktsrate(self) :
+        """Rate (/s) counter for vpathtotl3cntrlpkts."""
+        try :
+            return self._vpathl3cntrlpktsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathtotl3cntrlpkts(self) :
-		r"""Total number of vPath control packets received in L3 adjacency.
-		"""
-		try :
-			return self._vpathtotl3cntrlpkts
-		except Exception as e:
-			raise e
+    @property
+    def vpathfragpktsrate(self) :
+        """Rate (/s) counter for vpathtotfragpkts."""
+        try :
+            return self._vpathfragpktsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathtotfragencappkts(self) :
-		r"""Number of fragmented vPath packets transmitted.
-		"""
-		try :
-			return self._vpathtotfragencappkts
-		except Exception as e:
-			raise e
+    @property
+    def vpathtotl3datarx(self) :
+        """Total number of non-fragmented vPath data packets decapsulated in L3 adjacency."""
+        try :
+            return self._vpathtotl3datarx
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathl3encappktsrate(self) :
-		r"""Rate (/s) counter for vpathtotl3encappkts.
-		"""
-		try :
-			return self._vpathl3encappktsrate
-		except Exception as e:
-			raise e
+    @property
+    def vpathtotl3cntrlpkts(self) :
+        """Total number of vPath control packets received in L3 adjacency."""
+        try :
+            return self._vpathtotl3cntrlpkts
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathl2encappktsrate(self) :
-		r"""Rate (/s) counter for vpathtotl2encappkts.
-		"""
-		try :
-			return self._vpathl2encappktsrate
-		except Exception as e:
-			raise e
+    @property
+    def vpathtotfragencappkts(self) :
+        """Number of fragmented vPath packets transmitted."""
+        try :
+            return self._vpathtotfragencappkts
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathl2cntrlpktsrate(self) :
-		r"""Rate (/s) counter for vpathtotl2cntrlpkts.
-		"""
-		try :
-			return self._vpathl2cntrlpktsrate
-		except Exception as e:
-			raise e
+    @property
+    def vpathl3encappktsrate(self) :
+        """Rate (/s) counter for vpathtotl3encappkts."""
+        try :
+            return self._vpathl3encappktsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathl3datarxrate(self) :
-		r"""Rate (/s) counter for vpathtotl3datarx.
-		"""
-		try :
-			return self._vpathl3datarxrate
-		except Exception as e:
-			raise e
+    @property
+    def vpathl2encappktsrate(self) :
+        """Rate (/s) counter for vpathtotl2encappkts."""
+        try :
+            return self._vpathl2encappktsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathl2datarxrate(self) :
-		r"""Rate (/s) counter for vpathtotl2datarx.
-		"""
-		try :
-			return self._vpathl2datarxrate
-		except Exception as e:
-			raise e
+    @property
+    def vpathl2cntrlpktsrate(self) :
+        """Rate (/s) counter for vpathtotl2cntrlpkts."""
+        try :
+            return self._vpathl2cntrlpktsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def vpathtotfragpkts(self) :
-		r"""Total number of vPath fragments received.
-		"""
-		try :
-			return self._vpathtotfragpkts
-		except Exception as e:
-			raise e
+    @property
+    def vpathl3datarxrate(self) :
+        """Rate (/s) counter for vpathtotl3datarx."""
+        try :
+            return self._vpathl3datarxrate
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(vpath_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.vpath
-		except Exception as e :
-			raise e
+    @property
+    def vpathl2datarxrate(self) :
+        """Rate (/s) counter for vpathtotl2datarx."""
+        try :
+            return self._vpathl2datarxrate
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @property
+    def vpathtotfragpkts(self) :
+        """Total number of vPath fragments received."""
+        try :
+            return self._vpathtotfragpkts
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(vpath_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.vpath
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all vpath_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = vpath_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all vpath_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = vpath_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class vpath_response(base_response) :
-	def __init__(self, length=1) :
-		self.vpath = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.vpath = [vpath_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.vpath = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.vpath = [vpath_stats() for _ in range(length)]
 

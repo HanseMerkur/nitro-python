@@ -22,73 +22,83 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class gslbldnsentry(base_resource) :
-	""" Configuration for LDNS entry resource. """
-	def __init__(self) :
-		self._ipaddress = ""
+    """Configuration for LDNS entry resource."""
+    def __init__(self) :
+        self._ipaddress = ""
 
-	@property
-	def ipaddress(self) :
-		r"""IP address of the LDNS server.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._ipaddress
-		except Exception as e:
-			raise e
+    @property
+    def ipaddress(self) :
+        """IP address of the LDNS server.<br/>Minimum length =  1."""
+        try :
+            return self._ipaddress
+        except Exception as e:
+            raise e
 
-	@ipaddress.setter
-	def ipaddress(self, ipaddress) :
-		r"""IP address of the LDNS server.<br/>Minimum length =  1
-		"""
-		try :
-			self._ipaddress = ipaddress
-		except Exception as e:
-			raise e
+    @ipaddress.setter
+    def ipaddress(self, ipaddress) :
+        """IP address of the LDNS server.<br/>Minimum length =  1
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(gslbldnsentry_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.gslbldnsentry
-		except Exception as e :
-			raise e
+        :param ipaddress: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._ipaddress = ipaddress
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(gslbldnsentry_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.gslbldnsentry
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete gslbldnsentry.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = gslbldnsentry()
-				deleteresource.ipaddress = resource.ipaddress
-				return deleteresource.delete_resource(client)
-		except Exception as e :
-			raise e
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete gslbldnsentry.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = gslbldnsentry()
+                deleteresource.ipaddress = resource.ipaddress
+                return deleteresource.delete_resource(client)
+        except Exception as e :
+            raise e
 
 class gslbldnsentry_response(base_response) :
-	def __init__(self, length=1) :
-		self.gslbldnsentry = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.gslbldnsentry = [gslbldnsentry() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.gslbldnsentry = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.gslbldnsentry = [gslbldnsentry() for _ in range(length)]
 

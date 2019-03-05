@@ -22,322 +22,372 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslservice_sslcertkey_binding(base_resource) :
-	""" Binding class showing the sslcertkey that can be bound to sslservice.
-	"""
-	def __init__(self) :
-		self._certkeyname = ""
-		self._cleartextport = 0
-		self._crlcheck = ""
-		self._ocspcheck = ""
-		self._ca = False
-		self._snicert = False
-		self._skipcaname = False
-		self._servicename = ""
-		self.___count = 0
+    """Binding class showing the sslcertkey that can be bound to sslservice."""
+    def __init__(self) :
+        self._certkeyname = ""
+        self._cleartextport = 0
+        self._crlcheck = ""
+        self._ocspcheck = ""
+        self._ca = False
+        self._snicert = False
+        self._skipcaname = False
+        self._servicename = ""
+        self.___count = 0
 
-	@property
-	def servicename(self) :
-		r"""Name of the SSL service for which to set advanced configuration.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._servicename
-		except Exception as e:
-			raise e
+    @property
+    def servicename(self) :
+        """Name of the SSL service for which to set advanced configuration.<br/>Minimum length =  1."""
+        try :
+            return self._servicename
+        except Exception as e:
+            raise e
 
-	@servicename.setter
-	def servicename(self, servicename) :
-		r"""Name of the SSL service for which to set advanced configuration.<br/>Minimum length =  1
-		"""
-		try :
-			self._servicename = servicename
-		except Exception as e:
-			raise e
+    @servicename.setter
+    def servicename(self, servicename) :
+        """Name of the SSL service for which to set advanced configuration.<br/>Minimum length =  1
 
-	@property
-	def certkeyname(self) :
-		r"""The certificate key pair binding.
-		"""
-		try :
-			return self._certkeyname
-		except Exception as e:
-			raise e
+        :param servicename: 
 
-	@certkeyname.setter
-	def certkeyname(self, certkeyname) :
-		r"""The certificate key pair binding.
-		"""
-		try :
-			self._certkeyname = certkeyname
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._servicename = servicename
+        except Exception as e:
+            raise e
 
-	@property
-	def snicert(self) :
-		r"""The name of the CertKey. Use this option to bind Certkey(s) which will be used in SNI processing.
-		"""
-		try :
-			return self._snicert
-		except Exception as e:
-			raise e
+    @property
+    def certkeyname(self) :
+        """The certificate key pair binding."""
+        try :
+            return self._certkeyname
+        except Exception as e:
+            raise e
 
-	@snicert.setter
-	def snicert(self, snicert) :
-		r"""The name of the CertKey. Use this option to bind Certkey(s) which will be used in SNI processing.
-		"""
-		try :
-			self._snicert = snicert
-		except Exception as e:
-			raise e
+    @certkeyname.setter
+    def certkeyname(self, certkeyname) :
+        """The certificate key pair binding.
 
-	@property
-	def skipcaname(self) :
-		r"""The flag is used to indicate whether this particular CA certificate's CA_Name needs to be sent to the SSL client while requesting      for client certificate in a SSL handshake.
-		"""
-		try :
-			return self._skipcaname
-		except Exception as e:
-			raise e
+        :param certkeyname: 
 
-	@skipcaname.setter
-	def skipcaname(self, skipcaname) :
-		r"""The flag is used to indicate whether this particular CA certificate's CA_Name needs to be sent to the SSL client while requesting      for client certificate in a SSL handshake.
-		"""
-		try :
-			self._skipcaname = skipcaname
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._certkeyname = certkeyname
+        except Exception as e:
+            raise e
 
-	@property
-	def ca(self) :
-		r"""CA certificate.
-		"""
-		try :
-			return self._ca
-		except Exception as e:
-			raise e
+    @property
+    def snicert(self) :
+        """The name of the CertKey. Use this option to bind Certkey(s) which will be used in SNI processing."""
+        try :
+            return self._snicert
+        except Exception as e:
+            raise e
 
-	@ca.setter
-	def ca(self, ca) :
-		r"""CA certificate.
-		"""
-		try :
-			self._ca = ca
-		except Exception as e:
-			raise e
+    @snicert.setter
+    def snicert(self, snicert) :
+        """The name of the CertKey. Use this option to bind Certkey(s) which will be used in SNI processing.
 
-	@property
-	def crlcheck(self) :
-		r"""The state of the CRL check parameter. (Mandatory/Optional).<br/>Possible values = Mandatory, Optional.
-		"""
-		try :
-			return self._crlcheck
-		except Exception as e:
-			raise e
+        :param snicert: 
 
-	@crlcheck.setter
-	def crlcheck(self, crlcheck) :
-		r"""The state of the CRL check parameter. (Mandatory/Optional).<br/>Possible values = Mandatory, Optional
-		"""
-		try :
-			self._crlcheck = crlcheck
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._snicert = snicert
+        except Exception as e:
+            raise e
 
-	@property
-	def ocspcheck(self) :
-		r"""Rule to use for the OCSP responder associated with the CA certificate during client authentication. If MANDATORY is specified, deny all SSL clients if the OCSP check fails because of connectivity issues with the remote OCSP server, or any other reason that prevents the OCSP check. With the OPTIONAL setting, allow SSL clients even if the OCSP check fails except when the client certificate is revoked.<br/>Possible values = Mandatory, Optional.
-		"""
-		try :
-			return self._ocspcheck
-		except Exception as e:
-			raise e
+    @property
+    def skipcaname(self) :
+        """The flag is used to indicate whether this particular CA certificate's CA_Name needs to be sent to the SSL client while requesting      for client certificate in a SSL handshake."""
+        try :
+            return self._skipcaname
+        except Exception as e:
+            raise e
 
-	@ocspcheck.setter
-	def ocspcheck(self, ocspcheck) :
-		r"""Rule to use for the OCSP responder associated with the CA certificate during client authentication. If MANDATORY is specified, deny all SSL clients if the OCSP check fails because of connectivity issues with the remote OCSP server, or any other reason that prevents the OCSP check. With the OPTIONAL setting, allow SSL clients even if the OCSP check fails except when the client certificate is revoked.<br/>Possible values = Mandatory, Optional
-		"""
-		try :
-			self._ocspcheck = ocspcheck
-		except Exception as e:
-			raise e
+    @skipcaname.setter
+    def skipcaname(self, skipcaname) :
+        """The flag is used to indicate whether this particular CA certificate's CA_Name needs to be sent to the SSL client while requesting      for client certificate in a SSL handshake.
 
-	@property
-	def cleartextport(self) :
-		r"""The clearTextPort settings.<br/>Range 1 - 65535.
-		"""
-		try :
-			return self._cleartextport
-		except Exception as e:
-			raise e
+        :param skipcaname: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslservice_sslcertkey_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslservice_sslcertkey_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._skipcaname = skipcaname
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.servicename is not None :
-				return str(self.servicename)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def ca(self) :
+        """CA certificate."""
+        try :
+            return self._ca
+        except Exception as e:
+            raise e
+
+    @ca.setter
+    def ca(self, ca) :
+        """CA certificate.
+
+        :param ca: 
+
+        """
+        try :
+            self._ca = ca
+        except Exception as e:
+            raise e
+
+    @property
+    def crlcheck(self) :
+        """The state of the CRL check parameter. (Mandatory/Optional).<br/>Possible values = Mandatory, Optional."""
+        try :
+            return self._crlcheck
+        except Exception as e:
+            raise e
+
+    @crlcheck.setter
+    def crlcheck(self, crlcheck) :
+        """The state of the CRL check parameter. (Mandatory/Optional).<br/>Possible values = Mandatory, Optional
+
+        :param crlcheck: 
+
+        """
+        try :
+            self._crlcheck = crlcheck
+        except Exception as e:
+            raise e
+
+    @property
+    def ocspcheck(self) :
+        """Rule to use for the OCSP responder associated with the CA certificate during client authentication. If MANDATORY is specified, deny all SSL clients if the OCSP check fails because of connectivity issues with the remote OCSP server, or any other reason that prevents the OCSP check. With the OPTIONAL setting, allow SSL clients even if the OCSP check fails except when the client certificate is revoked.<br/>Possible values = Mandatory, Optional."""
+        try :
+            return self._ocspcheck
+        except Exception as e:
+            raise e
+
+    @ocspcheck.setter
+    def ocspcheck(self, ocspcheck) :
+        """Rule to use for the OCSP responder associated with the CA certificate during client authentication. If MANDATORY is specified, deny all SSL clients if the OCSP check fails because of connectivity issues with the remote OCSP server, or any other reason that prevents the OCSP check. With the OPTIONAL setting, allow SSL clients even if the OCSP check fails except when the client certificate is revoked.<br/>Possible values = Mandatory, Optional
+
+        :param ocspcheck: 
+
+        """
+        try :
+            self._ocspcheck = ocspcheck
+        except Exception as e:
+            raise e
+
+    @property
+    def cleartextport(self) :
+        """The clearTextPort settings.<br/>Range 1 - 65535."""
+        try :
+            return self._cleartextport
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslservice_sslcertkey_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslservice_sslcertkey_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.servicename is not None :
+                return str(self.servicename)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def add(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				updateresource = sslservice_sslcertkey_binding()
-				updateresource.servicename = resource.servicename
-				updateresource.certkeyname = resource.certkeyname
-				updateresource.ca = resource.ca
-				updateresource.crlcheck = resource.crlcheck
-				updateresource.skipcaname = resource.skipcaname
-				updateresource.snicert = resource.snicert
-				updateresource.ocspcheck = resource.ocspcheck
-				return updateresource.update_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					updateresources = [sslservice_sslcertkey_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].servicename = resource[i].servicename
-						updateresources[i].certkeyname = resource[i].certkeyname
-						updateresources[i].ca = resource[i].ca
-						updateresources[i].crlcheck = resource[i].crlcheck
-						updateresources[i].skipcaname = resource[i].skipcaname
-						updateresources[i].snicert = resource[i].snicert
-						updateresources[i].ocspcheck = resource[i].ocspcheck
-				return cls.update_bulk_request(client, updateresources)
-		except Exception as e :
-			raise e
+    @classmethod
+    def add(cls, client, resource) :
+        """
 
-	@classmethod
-	def delete(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				deleteresource = sslservice_sslcertkey_binding()
-				deleteresource.servicename = resource.servicename
-				deleteresource.certkeyname = resource.certkeyname
-				deleteresource.ca = resource.ca
-				deleteresource.crlcheck = resource.crlcheck
-				deleteresource.snicert = resource.snicert
-				return deleteresource.delete_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					deleteresources = [sslservice_sslcertkey_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						deleteresources[i].servicename = resource[i].servicename
-						deleteresources[i].certkeyname = resource[i].certkeyname
-						deleteresources[i].ca = resource[i].ca
-						deleteresources[i].crlcheck = resource[i].crlcheck
-						deleteresources[i].snicert = resource[i].snicert
-				return cls.delete_bulk_request(client, deleteresources)
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def get(cls, service, servicename) :
-		r""" Use this API to fetch sslservice_sslcertkey_binding resources.
-		"""
-		try :
-			obj = sslservice_sslcertkey_binding()
-			obj.servicename = servicename
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+        """
+        try :
+            if resource and type(resource) is not list :
+                updateresource = sslservice_sslcertkey_binding()
+                updateresource.servicename = resource.servicename
+                updateresource.certkeyname = resource.certkeyname
+                updateresource.ca = resource.ca
+                updateresource.crlcheck = resource.crlcheck
+                updateresource.skipcaname = resource.skipcaname
+                updateresource.snicert = resource.snicert
+                updateresource.ocspcheck = resource.ocspcheck
+                return updateresource.update_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    updateresources = [sslservice_sslcertkey_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].servicename = resource[i].servicename
+                        updateresources[i].certkeyname = resource[i].certkeyname
+                        updateresources[i].ca = resource[i].ca
+                        updateresources[i].crlcheck = resource[i].crlcheck
+                        updateresources[i].skipcaname = resource[i].skipcaname
+                        updateresources[i].snicert = resource[i].snicert
+                        updateresources[i].ocspcheck = resource[i].ocspcheck
+                return cls.update_bulk_request(client, updateresources)
+        except Exception as e :
+            raise e
 
-	@classmethod
-	def get_filtered(cls, service, servicename, filter_) :
-		r""" Use this API to fetch filtered set of sslservice_sslcertkey_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslservice_sslcertkey_binding()
-			obj.servicename = servicename
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def delete(cls, client, resource) :
+        """
 
-	@classmethod
-	def count(cls, service, servicename) :
-		r""" Use this API to count sslservice_sslcertkey_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = sslservice_sslcertkey_binding()
-			obj.servicename = servicename
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def count_filtered(cls, service, servicename, filter_) :
-		r""" Use this API to count the filtered set of sslservice_sslcertkey_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslservice_sslcertkey_binding()
-			obj.servicename = servicename
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            if resource and type(resource) is not list :
+                deleteresource = sslservice_sslcertkey_binding()
+                deleteresource.servicename = resource.servicename
+                deleteresource.certkeyname = resource.certkeyname
+                deleteresource.ca = resource.ca
+                deleteresource.crlcheck = resource.crlcheck
+                deleteresource.snicert = resource.snicert
+                return deleteresource.delete_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    deleteresources = [sslservice_sslcertkey_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        deleteresources[i].servicename = resource[i].servicename
+                        deleteresources[i].certkeyname = resource[i].certkeyname
+                        deleteresources[i].ca = resource[i].ca
+                        deleteresources[i].crlcheck = resource[i].crlcheck
+                        deleteresources[i].snicert = resource[i].snicert
+                return cls.delete_bulk_request(client, deleteresources)
+        except Exception as e :
+            raise e
 
-	class Ecccurvename:
-		ALL = "ALL"
-		P_224 = "P_224"
-		P_256 = "P_256"
-		P_384 = "P_384"
-		P_521 = "P_521"
+    @classmethod
+    def get(cls, service, servicename) :
+        """Use this API to fetch sslservice_sslcertkey_binding resources.
 
-	class Labeltype:
-		vserver = "vserver"
-		service = "service"
-		policylabel = "policylabel"
+        :param service: 
+        :param servicename: 
 
-	class Crlcheck:
-		Mandatory = "Mandatory"
-		Optional = "Optional"
+        """
+        try :
+            obj = sslservice_sslcertkey_binding()
+            obj.servicename = servicename
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	class Ocspcheck:
-		Mandatory = "Mandatory"
-		Optional = "Optional"
+    @classmethod
+    def get_filtered(cls, service, servicename, filter_) :
+        """Use this API to fetch filtered set of sslservice_sslcertkey_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param servicename: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslservice_sslcertkey_binding()
+            obj.servicename = servicename
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, servicename) :
+        """Use this API to count sslservice_sslcertkey_binding resources configued on NetScaler.
+
+        :param service: 
+        :param servicename: 
+
+        """
+        try :
+            obj = sslservice_sslcertkey_binding()
+            obj.servicename = servicename
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, servicename, filter_) :
+        """Use this API to count the filtered set of sslservice_sslcertkey_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param servicename: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslservice_sslcertkey_binding()
+            obj.servicename = servicename
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Ecccurvename:
+        """ """
+        ALL = "ALL"
+        P_224 = "P_224"
+        P_256 = "P_256"
+        P_384 = "P_384"
+        P_521 = "P_521"
+
+    class Labeltype:
+        """ """
+        vserver = "vserver"
+        service = "service"
+        policylabel = "policylabel"
+
+    class Crlcheck:
+        """ """
+        Mandatory = "Mandatory"
+        Optional = "Optional"
+
+    class Ocspcheck:
+        """ """
+        Mandatory = "Mandatory"
+        Optional = "Optional"
 
 class sslservice_sslcertkey_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslservice_sslcertkey_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslservice_sslcertkey_binding = [sslservice_sslcertkey_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslservice_sslcertkey_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslservice_sslcertkey_binding = [sslservice_sslcertkey_binding() for _ in range(length)]
 

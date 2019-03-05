@@ -16,45 +16,48 @@
 
 
 class service_args :
-	r""" Provides additional arguments required for fetching the service resource.
-	"""
-	def __init__(self) :
-		self._all = False
-		self._Internal = False
+    """Provides additional arguments required for fetching the service resource."""
+    def __init__(self) :
+        self._all = False
+        self._Internal = False
 
-	@property
-	def all(self) :
-		r"""Display both user-configured and dynamically learned services.
-		"""
-		try :
-			return self._all
-		except Exception as e:
-			raise e
+    @property
+    def all(self) :
+        """Display both user-configured and dynamically learned services."""
+        try :
+            return self._all
+        except Exception as e:
+            raise e
 
-	@all.setter
-	def all(self, all) :
-		r"""Display both user-configured and dynamically learned services.
-		"""
-		try :
-			self._all = all
-		except Exception as e:
-			raise e
+    @all.setter
+    def all(self, all) :
+        """Display both user-configured and dynamically learned services.
 
-	@property
-	def Internal(self) :
-		r"""Display only dynamically learned services.
-		"""
-		try :
-			return self._Internal
-		except Exception as e:
-			raise e
+        :param all: 
 
-	@Internal.setter
-	def Internal(self, Internal) :
-		r"""Display only dynamically learned services.
-		"""
-		try :
-			self._Internal = Internal
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._all = all
+        except Exception as e:
+            raise e
+
+    @property
+    def Internal(self) :
+        """Display only dynamically learned services."""
+        try :
+            return self._Internal
+        except Exception as e:
+            raise e
+
+    @Internal.setter
+    def Internal(self, Internal) :
+        """Display only dynamically learned services.
+
+        :param Internal: 
+
+        """
+        try :
+            self._Internal = Internal
+        except Exception as e:
+            raise e
 

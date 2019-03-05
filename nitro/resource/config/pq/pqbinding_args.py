@@ -16,26 +16,27 @@
 
 
 class pqbinding_args :
-	r""" Provides additional arguments required for fetching the pqbinding resource.
-	"""
-	def __init__(self) :
-		self._vservername = ""
+    """Provides additional arguments required for fetching the pqbinding resource."""
+    def __init__(self) :
+        self._vservername = ""
 
-	@property
-	def vservername(self) :
-		r"""Name of the load balancing virtual server for which to display the priority queuing policy.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._vservername
-		except Exception as e:
-			raise e
+    @property
+    def vservername(self) :
+        """Name of the load balancing virtual server for which to display the priority queuing policy.<br/>Minimum length =  1."""
+        try :
+            return self._vservername
+        except Exception as e:
+            raise e
 
-	@vservername.setter
-	def vservername(self, vservername) :
-		r"""Name of the load balancing virtual server for which to display the priority queuing policy.<br/>Minimum length =  1
-		"""
-		try :
-			self._vservername = vservername
-		except Exception as e:
-			raise e
+    @vservername.setter
+    def vservername(self, vservername) :
+        """Name of the load balancing virtual server for which to display the priority queuing policy.<br/>Minimum length =  1
+
+        :param vservername: 
+
+        """
+        try :
+            self._vservername = vservername
+        except Exception as e:
+            raise e
 

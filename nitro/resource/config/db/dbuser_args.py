@@ -16,26 +16,27 @@
 
 
 class dbuser_args :
-	r""" Provides additional arguments required for fetching the dbuser resource.
-	"""
-	def __init__(self) :
-		self._loggedin = False
+    """Provides additional arguments required for fetching the dbuser resource."""
+    def __init__(self) :
+        self._loggedin = False
 
-	@property
-	def loggedin(self) :
-		r"""Display the names of all database users currently logged on to the NetScaler appliance.
-		"""
-		try :
-			return self._loggedin
-		except Exception as e:
-			raise e
+    @property
+    def loggedin(self) :
+        """Display the names of all database users currently logged on to the NetScaler appliance."""
+        try :
+            return self._loggedin
+        except Exception as e:
+            raise e
 
-	@loggedin.setter
-	def loggedin(self, loggedin) :
-		r"""Display the names of all database users currently logged on to the NetScaler appliance.
-		"""
-		try :
-			self._loggedin = loggedin
-		except Exception as e:
-			raise e
+    @loggedin.setter
+    def loggedin(self, loggedin) :
+        """Display the names of all database users currently logged on to the NetScaler appliance.
+
+        :param loggedin: 
+
+        """
+        try :
+            self._loggedin = loggedin
+        except Exception as e:
+            raise e
 

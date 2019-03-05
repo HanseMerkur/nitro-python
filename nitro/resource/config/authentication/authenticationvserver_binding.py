@@ -22,233 +22,227 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class authenticationvserver_binding(base_resource):
-	""" Binding class showing the resources that can be bound to authenticationvserver_binding. 
-	"""
-	def __init__(self) :
-		self._name = ""
-		self.authenticationvserver_auditnslogpolicy_binding = []
-		self.authenticationvserver_authenticationpolicy_binding = []
-		self.authenticationvserver_authenticationradiuspolicy_binding = []
-		self.authenticationvserver_authenticationldappolicy_binding = []
-		self.authenticationvserver_authenticationsamlidppolicy_binding = []
-		self.authenticationvserver_authenticationwebauthpolicy_binding = []
-		self.authenticationvserver_authenticationlocalpolicy_binding = []
-		self.authenticationvserver_authenticationnegotiatepolicy_binding = []
-		self.authenticationvserver_authenticationtacacspolicy_binding = []
-		self.authenticationvserver_authenticationsamlpolicy_binding = []
-		self.authenticationvserver_cspolicy_binding = []
-		self.authenticationvserver_auditsyslogpolicy_binding = []
-		self.authenticationvserver_authenticationloginschemapolicy_binding = []
-		self.authenticationvserver_authenticationcertpolicy_binding = []
-		self.authenticationvserver_tmsessionpolicy_binding = []
+    """Binding class showing the resources that can be bound to authenticationvserver_binding."""
+    def __init__(self) :
+        self._name = ""
+        self.authenticationvserver_auditnslogpolicy_binding = []
+        self.authenticationvserver_authenticationpolicy_binding = []
+        self.authenticationvserver_authenticationradiuspolicy_binding = []
+        self.authenticationvserver_authenticationldappolicy_binding = []
+        self.authenticationvserver_authenticationsamlidppolicy_binding = []
+        self.authenticationvserver_authenticationwebauthpolicy_binding = []
+        self.authenticationvserver_authenticationlocalpolicy_binding = []
+        self.authenticationvserver_authenticationnegotiatepolicy_binding = []
+        self.authenticationvserver_authenticationtacacspolicy_binding = []
+        self.authenticationvserver_authenticationsamlpolicy_binding = []
+        self.authenticationvserver_cspolicy_binding = []
+        self.authenticationvserver_auditsyslogpolicy_binding = []
+        self.authenticationvserver_authenticationloginschemapolicy_binding = []
+        self.authenticationvserver_authenticationcertpolicy_binding = []
+        self.authenticationvserver_tmsessionpolicy_binding = []
 
-	@property
-	def name(self) :
-		r"""Name of the authentication virtual server.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the authentication virtual server.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the authentication virtual server.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the authentication virtual server.<br/>Minimum length =  1
 
-	@property
-	def authenticationvserver_authenticationlocalpolicy_bindings(self) :
-		r"""authenticationlocalpolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_authenticationlocalpolicy_binding
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@property
-	def authenticationvserver_tmsessionpolicy_bindings(self) :
-		r"""tmsessionpolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_tmsessionpolicy_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_cspolicy_bindings(self) :
-		r"""cspolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_cspolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_authenticationlocalpolicy_bindings(self) :
+        """authenticationlocalpolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_authenticationlocalpolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_auditsyslogpolicy_bindings(self) :
-		r"""auditsyslogpolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_auditsyslogpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_tmsessionpolicy_bindings(self) :
+        """tmsessionpolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_tmsessionpolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_authenticationsamlidppolicy_bindings(self) :
-		r"""authenticationsamlidppolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_authenticationsamlidppolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_cspolicy_bindings(self) :
+        """cspolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_cspolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_auditnslogpolicy_bindings(self) :
-		r"""auditnslogpolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_auditnslogpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_auditsyslogpolicy_bindings(self) :
+        """auditsyslogpolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_auditsyslogpolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_authenticationldappolicy_bindings(self) :
-		r"""authenticationldappolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_authenticationldappolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_authenticationsamlidppolicy_bindings(self) :
+        """authenticationsamlidppolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_authenticationsamlidppolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_authenticationcertpolicy_bindings(self) :
-		r"""authenticationcertpolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_authenticationcertpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_auditnslogpolicy_bindings(self) :
+        """auditnslogpolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_auditnslogpolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_authenticationsamlpolicy_bindings(self) :
-		r"""authenticationsamlpolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_authenticationsamlpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_authenticationldappolicy_bindings(self) :
+        """authenticationldappolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_authenticationldappolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_authenticationpolicy_bindings(self) :
-		r"""authenticationpolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_authenticationpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_authenticationcertpolicy_bindings(self) :
+        """authenticationcertpolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_authenticationcertpolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_authenticationradiuspolicy_bindings(self) :
-		r"""authenticationradiuspolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_authenticationradiuspolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_authenticationsamlpolicy_bindings(self) :
+        """authenticationsamlpolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_authenticationsamlpolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_authenticationloginschemapolicy_bindings(self) :
-		r"""authenticationloginschemapolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_authenticationloginschemapolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_authenticationpolicy_bindings(self) :
+        """authenticationpolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_authenticationpolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_authenticationtacacspolicy_bindings(self) :
-		r"""authenticationtacacspolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_authenticationtacacspolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_authenticationradiuspolicy_bindings(self) :
+        """authenticationradiuspolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_authenticationradiuspolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_authenticationwebauthpolicy_bindings(self) :
-		r"""authenticationwebauthpolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_authenticationwebauthpolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_authenticationloginschemapolicy_bindings(self) :
+        """authenticationloginschemapolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_authenticationloginschemapolicy_binding
+        except Exception as e:
+            raise e
 
-	@property
-	def authenticationvserver_authenticationnegotiatepolicy_bindings(self) :
-		r"""authenticationnegotiatepolicy that can be bound to authenticationvserver.
-		"""
-		try :
-			return self._authenticationvserver_authenticationnegotiatepolicy_binding
-		except Exception as e:
-			raise e
+    @property
+    def authenticationvserver_authenticationtacacspolicy_bindings(self) :
+        """authenticationtacacspolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_authenticationtacacspolicy_binding
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(authenticationvserver_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.authenticationvserver_binding
-		except Exception as e :
-			raise e
+    @property
+    def authenticationvserver_authenticationwebauthpolicy_bindings(self) :
+        """authenticationwebauthpolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_authenticationwebauthpolicy_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def authenticationvserver_authenticationnegotiatepolicy_bindings(self) :
+        """authenticationnegotiatepolicy that can be bound to authenticationvserver."""
+        try :
+            return self._authenticationvserver_authenticationnegotiatepolicy_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(authenticationvserver_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.authenticationvserver_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, name) :
-		r""" Use this API to fetch authenticationvserver_binding resource.
-		"""
-		try :
-			if type(name) is not list :
-				obj = authenticationvserver_binding()
-				obj.name = name
-				response = obj.get_resource(service)
-			else :
-				if name and len(name) > 0 :
-					obj = [authenticationvserver_binding() for _ in range(len(name))]
-					for i in range(len(name)) :
-						obj[i].name = name[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, name) :
+        """Use this API to fetch authenticationvserver_binding resource.
+
+        :param service: 
+        :param name: 
+
+        """
+        try :
+            if type(name) is not list :
+                obj = authenticationvserver_binding()
+                obj.name = name
+                response = obj.get_resource(service)
+            else :
+                if name and len(name) > 0 :
+                    obj = [authenticationvserver_binding() for _ in range(len(name))]
+                    for i in range(len(name)) :
+                        obj[i].name = name[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class authenticationvserver_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.authenticationvserver_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.authenticationvserver_binding = [authenticationvserver_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.authenticationvserver_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.authenticationvserver_binding = [authenticationvserver_binding() for _ in range(length)]
 

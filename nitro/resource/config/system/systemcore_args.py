@@ -16,26 +16,27 @@
 
 
 class systemcore_args :
-	r""" Provides additional arguments required for fetching the systemcore resource.
-	"""
-	def __init__(self) :
-		self._datasource = ""
+    """Provides additional arguments required for fetching the systemcore resource."""
+    def __init__(self) :
+        self._datasource = ""
 
-	@property
-	def datasource(self) :
-		r"""Specifies the source which contains all the stored counter values.
-		"""
-		try :
-			return self._datasource
-		except Exception as e:
-			raise e
+    @property
+    def datasource(self) :
+        """Specifies the source which contains all the stored counter values."""
+        try :
+            return self._datasource
+        except Exception as e:
+            raise e
 
-	@datasource.setter
-	def datasource(self, datasource) :
-		r"""Specifies the source which contains all the stored counter values.
-		"""
-		try :
-			self._datasource = datasource
-		except Exception as e:
-			raise e
+    @datasource.setter
+    def datasource(self, datasource) :
+        """Specifies the source which contains all the stored counter values.
+
+        :param datasource: 
+
+        """
+        try :
+            self._datasource = datasource
+        except Exception as e:
+            raise e
 

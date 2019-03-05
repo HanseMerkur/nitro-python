@@ -22,200 +22,221 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class cachepolicy_lbvserver_binding(base_resource) :
-	""" Binding class showing the lbvserver that can be bound to cachepolicy.
-	"""
-	def __init__(self) :
-		self._boundto = ""
-		self._priority = 0
-		self._activepolicy = 0
-		self._gotopriorityexpression = ""
-		self._labeltype = ""
-		self._labelname = ""
-		self._policyname = ""
-		self.___count = 0
+    """Binding class showing the lbvserver that can be bound to cachepolicy."""
+    def __init__(self) :
+        self._boundto = ""
+        self._priority = 0
+        self._activepolicy = 0
+        self._gotopriorityexpression = ""
+        self._labeltype = ""
+        self._labelname = ""
+        self._policyname = ""
+        self.___count = 0
 
-	@property
-	def policyname(self) :
-		r"""Name of the cache policy about which to display details.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._policyname
-		except Exception as e:
-			raise e
+    @property
+    def policyname(self) :
+        """Name of the cache policy about which to display details.<br/>Minimum length =  1."""
+        try :
+            return self._policyname
+        except Exception as e:
+            raise e
 
-	@policyname.setter
-	def policyname(self, policyname) :
-		r"""Name of the cache policy about which to display details.<br/>Minimum length =  1
-		"""
-		try :
-			self._policyname = policyname
-		except Exception as e:
-			raise e
+    @policyname.setter
+    def policyname(self, policyname) :
+        """Name of the cache policy about which to display details.<br/>Minimum length =  1
 
-	@property
-	def boundto(self) :
-		r"""Location where policy is bound.
-		"""
-		try :
-			return self._boundto
-		except Exception as e:
-			raise e
+        :param policyname: 
 
-	@boundto.setter
-	def boundto(self, boundto) :
-		r"""Location where policy is bound.
-		"""
-		try :
-			self._boundto = boundto
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._policyname = policyname
+        except Exception as e:
+            raise e
 
-	@property
-	def priority(self) :
-		r"""Priority.
-		"""
-		try :
-			return self._priority
-		except Exception as e:
-			raise e
+    @property
+    def boundto(self) :
+        """Location where policy is bound."""
+        try :
+            return self._boundto
+        except Exception as e:
+            raise e
 
-	@property
-	def gotopriorityexpression(self) :
-		r"""Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE.
-		"""
-		try :
-			return self._gotopriorityexpression
-		except Exception as e:
-			raise e
+    @boundto.setter
+    def boundto(self, boundto) :
+        """Location where policy is bound.
 
-	@property
-	def labeltype(self) :
-		r"""Type of policy label invocation.<br/>Possible values = reqvserver, resvserver, policylabel.
-		"""
-		try :
-			return self._labeltype
-		except Exception as e:
-			raise e
+        :param boundto: 
 
-	@property
-	def activepolicy(self) :
-		r"""Indicates whether policy is bound or not.
-		"""
-		try :
-			return self._activepolicy
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._boundto = boundto
+        except Exception as e:
+            raise e
 
-	@property
-	def labelname(self) :
-		r"""Name of the label to invoke if the current policy rule evaluates to TRUE.
-		"""
-		try :
-			return self._labelname
-		except Exception as e:
-			raise e
+    @property
+    def priority(self) :
+        """Priority."""
+        try :
+            return self._priority
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(cachepolicy_lbvserver_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.cachepolicy_lbvserver_binding
-		except Exception as e :
-			raise e
+    @property
+    def gotopriorityexpression(self) :
+        """Expression specifying the priority of the next policy which will get evaluated if the current policy rule evaluates to TRUE."""
+        try :
+            return self._gotopriorityexpression
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.policyname is not None :
-				return str(self.policyname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def labeltype(self) :
+        """Type of policy label invocation.<br/>Possible values = reqvserver, resvserver, policylabel."""
+        try :
+            return self._labeltype
+        except Exception as e:
+            raise e
+
+    @property
+    def activepolicy(self) :
+        """Indicates whether policy is bound or not."""
+        try :
+            return self._activepolicy
+        except Exception as e:
+            raise e
+
+    @property
+    def labelname(self) :
+        """Name of the label to invoke if the current policy rule evaluates to TRUE."""
+        try :
+            return self._labelname
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(cachepolicy_lbvserver_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.cachepolicy_lbvserver_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.policyname is not None :
+                return str(self.policyname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(cls, service, policyname) :
-		r""" Use this API to fetch cachepolicy_lbvserver_binding resources.
-		"""
-		try :
-			obj = cachepolicy_lbvserver_binding()
-			obj.policyname = policyname
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(cls, service, policyname) :
+        """Use this API to fetch cachepolicy_lbvserver_binding resources.
 
-	@classmethod
-	def get_filtered(cls, service, policyname, filter_) :
-		r""" Use this API to fetch filtered set of cachepolicy_lbvserver_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = cachepolicy_lbvserver_binding()
-			obj.policyname = policyname
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+        :param service: 
+        :param policyname: 
 
-	@classmethod
-	def count(cls, service, policyname) :
-		r""" Use this API to count cachepolicy_lbvserver_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = cachepolicy_lbvserver_binding()
-			obj.policyname = policyname
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            obj = cachepolicy_lbvserver_binding()
+            obj.policyname = policyname
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def count_filtered(cls, service, policyname, filter_) :
-		r""" Use this API to count the filtered set of cachepolicy_lbvserver_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = cachepolicy_lbvserver_binding()
-			obj.policyname = policyname
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+    @classmethod
+    def get_filtered(cls, service, policyname, filter_) :
+        """Use this API to fetch filtered set of cachepolicy_lbvserver_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	class Labeltype:
-		reqvserver = "reqvserver"
-		resvserver = "resvserver"
-		policylabel = "policylabel"
+        :param service: 
+        :param policyname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = cachepolicy_lbvserver_binding()
+            obj.policyname = policyname
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, policyname) :
+        """Use this API to count cachepolicy_lbvserver_binding resources configued on NetScaler.
+
+        :param service: 
+        :param policyname: 
+
+        """
+        try :
+            obj = cachepolicy_lbvserver_binding()
+            obj.policyname = policyname
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, policyname, filter_) :
+        """Use this API to count the filtered set of cachepolicy_lbvserver_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param policyname: 
+        :param filter_: 
+
+        """
+        try :
+            obj = cachepolicy_lbvserver_binding()
+            obj.policyname = policyname
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    class Labeltype:
+        """ """
+        reqvserver = "reqvserver"
+        resvserver = "resvserver"
+        policylabel = "policylabel"
 
 class cachepolicy_lbvserver_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.cachepolicy_lbvserver_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.cachepolicy_lbvserver_binding = [cachepolicy_lbvserver_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.cachepolicy_lbvserver_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.cachepolicy_lbvserver_binding = [cachepolicy_lbvserver_binding() for _ in range(length)]
 

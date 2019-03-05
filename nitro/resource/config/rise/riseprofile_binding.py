@@ -22,93 +22,101 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class riseprofile_binding(base_resource):
-	""" Binding class showing the resources that can be bound to riseprofile_binding. 
-	"""
-	def __init__(self) :
-		self._profilename = ""
-		self.riseprofile_interface_binding = []
+    """Binding class showing the resources that can be bound to riseprofile_binding."""
+    def __init__(self) :
+        self._profilename = ""
+        self.riseprofile_interface_binding = []
 
-	@property
-	def profilename(self) :
-		r"""Name of the RISE profile.<br/>Minimum length =  1<br/>Maximum length =  83.
-		"""
-		try :
-			return self._profilename
-		except Exception as e:
-			raise e
+    @property
+    def profilename(self) :
+        """Name of the RISE profile.<br/>Minimum length =  1<br/>Maximum length =  83."""
+        try :
+            return self._profilename
+        except Exception as e:
+            raise e
 
-	@profilename.setter
-	def profilename(self, profilename) :
-		r"""Name of the RISE profile.<br/>Minimum length =  1<br/>Maximum length =  83
-		"""
-		try :
-			self._profilename = profilename
-		except Exception as e:
-			raise e
+    @profilename.setter
+    def profilename(self, profilename) :
+        """Name of the RISE profile.<br/>Minimum length =  1<br/>Maximum length =  83
 
-	@property
-	def riseprofile_interface_bindings(self) :
-		r"""interface that can be bound to riseprofile.
-		"""
-		try :
-			return self._riseprofile_interface_binding
-		except Exception as e:
-			raise e
+        :param profilename: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(riseprofile_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.riseprofile_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._profilename = profilename
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.profilename is not None :
-				return str(self.profilename)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def riseprofile_interface_bindings(self) :
+        """interface that can be bound to riseprofile."""
+        try :
+            return self._riseprofile_interface_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(riseprofile_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.riseprofile_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.profilename is not None :
+                return str(self.profilename)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, profilename) :
-		r""" Use this API to fetch riseprofile_binding resource.
-		"""
-		try :
-			if type(profilename) is not list :
-				obj = riseprofile_binding()
-				obj.profilename = profilename
-				response = obj.get_resource(service)
-			else :
-				if profilename and len(profilename) > 0 :
-					obj = [riseprofile_binding() for _ in range(len(profilename))]
-					for i in range(len(profilename)) :
-						obj[i].profilename = profilename[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, profilename) :
+        """Use this API to fetch riseprofile_binding resource.
+
+        :param service: 
+        :param profilename: 
+
+        """
+        try :
+            if type(profilename) is not list :
+                obj = riseprofile_binding()
+                obj.profilename = profilename
+                response = obj.get_resource(service)
+            else :
+                if profilename and len(profilename) > 0 :
+                    obj = [riseprofile_binding() for _ in range(len(profilename))]
+                    for i in range(len(profilename)) :
+                        obj[i].profilename = profilename[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class riseprofile_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.riseprofile_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.riseprofile_binding = [riseprofile_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.riseprofile_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.riseprofile_binding = [riseprofile_binding() for _ in range(length)]
 

@@ -22,93 +22,101 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class nd6ravariables_binding(base_resource):
-	""" Binding class showing the resources that can be bound to nd6ravariables_binding. 
-	"""
-	def __init__(self) :
-		self._vlan = 0
-		self.nd6ravariables_onlinkipv6prefix_binding = []
+    """Binding class showing the resources that can be bound to nd6ravariables_binding."""
+    def __init__(self) :
+        self._vlan = 0
+        self.nd6ravariables_onlinkipv6prefix_binding = []
 
-	@property
-	def vlan(self) :
-		r"""The VLAN number.<br/>Minimum value =  0<br/>Maximum value =  4094.
-		"""
-		try :
-			return self._vlan
-		except Exception as e:
-			raise e
+    @property
+    def vlan(self) :
+        """The VLAN number.<br/>Minimum value =  0<br/>Maximum value =  4094."""
+        try :
+            return self._vlan
+        except Exception as e:
+            raise e
 
-	@vlan.setter
-	def vlan(self, vlan) :
-		r"""The VLAN number.<br/>Minimum value =  0<br/>Maximum value =  4094
-		"""
-		try :
-			self._vlan = vlan
-		except Exception as e:
-			raise e
+    @vlan.setter
+    def vlan(self, vlan) :
+        """The VLAN number.<br/>Minimum value =  0<br/>Maximum value =  4094
 
-	@property
-	def nd6ravariables_onlinkipv6prefix_bindings(self) :
-		r"""onlinkipv6prefix that can be bound to nd6ravariables.
-		"""
-		try :
-			return self._nd6ravariables_onlinkipv6prefix_binding
-		except Exception as e:
-			raise e
+        :param vlan: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(nd6ravariables_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.nd6ravariables_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._vlan = vlan
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.vlan is not None :
-				return str(self.vlan)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def nd6ravariables_onlinkipv6prefix_bindings(self) :
+        """onlinkipv6prefix that can be bound to nd6ravariables."""
+        try :
+            return self._nd6ravariables_onlinkipv6prefix_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(nd6ravariables_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.nd6ravariables_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.vlan is not None :
+                return str(self.vlan)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, vlan) :
-		r""" Use this API to fetch nd6ravariables_binding resource.
-		"""
-		try :
-			if type(vlan) is not list :
-				obj = nd6ravariables_binding()
-				obj.vlan = vlan
-				response = obj.get_resource(service)
-			else :
-				if vlan and len(vlan) > 0 :
-					obj = [nd6ravariables_binding() for _ in range(len(vlan))]
-					for i in range(len(vlan)) :
-						obj[i].vlan = vlan[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, vlan) :
+        """Use this API to fetch nd6ravariables_binding resource.
+
+        :param service: 
+        :param vlan: 
+
+        """
+        try :
+            if type(vlan) is not list :
+                obj = nd6ravariables_binding()
+                obj.vlan = vlan
+                response = obj.get_resource(service)
+            else :
+                if vlan and len(vlan) > 0 :
+                    obj = [nd6ravariables_binding() for _ in range(len(vlan))]
+                    for i in range(len(vlan)) :
+                        obj[i].vlan = vlan[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class nd6ravariables_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.nd6ravariables_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.nd6ravariables_binding = [nd6ravariables_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.nd6ravariables_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.nd6ravariables_binding = [nd6ravariables_binding() for _ in range(length)]
 

@@ -22,103 +22,110 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class dnsview_binding(base_resource):
-	""" Binding class showing the resources that can be bound to dnsview_binding. 
-	"""
-	def __init__(self) :
-		self._viewname = ""
-		self.dnsview_gslbservice_binding = []
-		self.dnsview_dnspolicy_binding = []
+    """Binding class showing the resources that can be bound to dnsview_binding."""
+    def __init__(self) :
+        self._viewname = ""
+        self.dnsview_gslbservice_binding = []
+        self.dnsview_dnspolicy_binding = []
 
-	@property
-	def viewname(self) :
-		r"""Name of the view to display.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._viewname
-		except Exception as e:
-			raise e
+    @property
+    def viewname(self) :
+        """Name of the view to display.<br/>Minimum length =  1."""
+        try :
+            return self._viewname
+        except Exception as e:
+            raise e
 
-	@viewname.setter
-	def viewname(self, viewname) :
-		r"""Name of the view to display.<br/>Minimum length =  1
-		"""
-		try :
-			self._viewname = viewname
-		except Exception as e:
-			raise e
+    @viewname.setter
+    def viewname(self, viewname) :
+        """Name of the view to display.<br/>Minimum length =  1
 
-	@property
-	def dnsview_dnspolicy_bindings(self) :
-		r"""dnspolicy that can be bound to dnsview.
-		"""
-		try :
-			return self._dnsview_dnspolicy_binding
-		except Exception as e:
-			raise e
+        :param viewname: 
 
-	@property
-	def dnsview_gslbservice_bindings(self) :
-		r"""gslbservice that can be bound to dnsview.
-		"""
-		try :
-			return self._dnsview_gslbservice_binding
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._viewname = viewname
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(dnsview_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.dnsview_binding
-		except Exception as e :
-			raise e
+    @property
+    def dnsview_dnspolicy_bindings(self) :
+        """dnspolicy that can be bound to dnsview."""
+        try :
+            return self._dnsview_dnspolicy_binding
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.viewname is not None :
-				return str(self.viewname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def dnsview_gslbservice_bindings(self) :
+        """gslbservice that can be bound to dnsview."""
+        try :
+            return self._dnsview_gslbservice_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(dnsview_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.dnsview_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.viewname is not None :
+                return str(self.viewname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, viewname) :
-		r""" Use this API to fetch dnsview_binding resource.
-		"""
-		try :
-			if type(viewname) is not list :
-				obj = dnsview_binding()
-				obj.viewname = viewname
-				response = obj.get_resource(service)
-			else :
-				if viewname and len(viewname) > 0 :
-					obj = [dnsview_binding() for _ in range(len(viewname))]
-					for i in range(len(viewname)) :
-						obj[i].viewname = viewname[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, viewname) :
+        """Use this API to fetch dnsview_binding resource.
+
+        :param service: 
+        :param viewname: 
+
+        """
+        try :
+            if type(viewname) is not list :
+                obj = dnsview_binding()
+                obj.viewname = viewname
+                response = obj.get_resource(service)
+            else :
+                if viewname and len(viewname) > 0 :
+                    obj = [dnsview_binding() for _ in range(len(viewname))]
+                    for i in range(len(viewname)) :
+                        obj[i].viewname = viewname[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class dnsview_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.dnsview_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.dnsview_binding = [dnsview_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.dnsview_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.dnsview_binding = [dnsview_binding() for _ in range(length)]
 

@@ -16,49 +16,53 @@
 
 
 class nsaptlicense_args :
-	r""" Provides additional arguments required for fetching the nsaptlicense resource.
-	"""
-	def __init__(self) :
-		self._serialno = ""
-		self._useproxy = ""
+    """Provides additional arguments required for fetching the nsaptlicense resource."""
+    def __init__(self) :
+        self._serialno = ""
+        self._useproxy = ""
 
-	@property
-	def serialno(self) :
-		r"""Hardware Serial Number/License Activation Code(LAC).
-		"""
-		try :
-			return self._serialno
-		except Exception as e:
-			raise e
+    @property
+    def serialno(self) :
+        """Hardware Serial Number/License Activation Code(LAC)."""
+        try :
+            return self._serialno
+        except Exception as e:
+            raise e
 
-	@serialno.setter
-	def serialno(self, serialno) :
-		r"""Hardware Serial Number/License Activation Code(LAC).
-		"""
-		try :
-			self._serialno = serialno
-		except Exception as e:
-			raise e
+    @serialno.setter
+    def serialno(self, serialno) :
+        """Hardware Serial Number/License Activation Code(LAC).
 
-	@property
-	def useproxy(self) :
-		r"""Specifies whether to use the licenseproxyserver to reach the internet. Make sure to configure licenseproxyserver to use this option.<br/>Default value: NO<br/>Possible values = YES, NO.
-		"""
-		try :
-			return self._useproxy
-		except Exception as e:
-			raise e
+        :param serialno: 
 
-	@useproxy.setter
-	def useproxy(self, useproxy) :
-		r"""Specifies whether to use the licenseproxyserver to reach the internet. Make sure to configure licenseproxyserver to use this option.<br/>Default value: NO<br/>Possible values = YES, NO
-		"""
-		try :
-			self._useproxy = useproxy
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._serialno = serialno
+        except Exception as e:
+            raise e
 
-	class Useproxy:
-		YES = "YES"
-		NO = "NO"
+    @property
+    def useproxy(self) :
+        """Specifies whether to use the licenseproxyserver to reach the internet. Make sure to configure licenseproxyserver to use this option.<br/>Default value: NO<br/>Possible values = YES, NO."""
+        try :
+            return self._useproxy
+        except Exception as e:
+            raise e
+
+    @useproxy.setter
+    def useproxy(self, useproxy) :
+        """Specifies whether to use the licenseproxyserver to reach the internet. Make sure to configure licenseproxyserver to use this option.<br/>Default value: NO<br/>Possible values = YES, NO
+
+        :param useproxy: 
+
+        """
+        try :
+            self._useproxy = useproxy
+        except Exception as e:
+            raise e
+
+    class Useproxy:
+        """ """
+        YES = "YES"
+        NO = "NO"
 

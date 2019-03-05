@@ -22,116 +22,134 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class systemcounters(base_resource) :
-	""" Configuration for counters resource. """
-	def __init__(self) :
-		self._countergroup = ""
-		self._datasource = ""
-		self._response = ""
+    """Configuration for counters resource."""
+    def __init__(self) :
+        self._countergroup = ""
+        self._datasource = ""
+        self._response = ""
 
-	@property
-	def countergroup(self) :
-		r"""Specify the (counter) group name which contains all the counters specific tot his particular group.
-		"""
-		try :
-			return self._countergroup
-		except Exception as e:
-			raise e
+    @property
+    def countergroup(self) :
+        """Specify the (counter) group name which contains all the counters specific tot his particular group."""
+        try :
+            return self._countergroup
+        except Exception as e:
+            raise e
 
-	@countergroup.setter
-	def countergroup(self, countergroup) :
-		r"""Specify the (counter) group name which contains all the counters specific tot his particular group.
-		"""
-		try :
-			self._countergroup = countergroup
-		except Exception as e:
-			raise e
+    @countergroup.setter
+    def countergroup(self, countergroup) :
+        """Specify the (counter) group name which contains all the counters specific tot his particular group.
 
-	@property
-	def datasource(self) :
-		r"""Specifies the source which contains all the stored counter values.
-		"""
-		try :
-			return self._datasource
-		except Exception as e:
-			raise e
+        :param countergroup: 
 
-	@datasource.setter
-	def datasource(self, datasource) :
-		r"""Specifies the source which contains all the stored counter values.
-		"""
-		try :
-			self._datasource = datasource
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._countergroup = countergroup
+        except Exception as e:
+            raise e
 
-	@property
-	def response(self) :
-		try :
-			return self._response
-		except Exception as e:
-			raise e
+    @property
+    def datasource(self) :
+        """Specifies the source which contains all the stored counter values."""
+        try :
+            return self._datasource
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(systemcounters_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.systemcounters
-		except Exception as e :
-			raise e
+    @datasource.setter
+    def datasource(self, datasource) :
+        """Specifies the source which contains all the stored counter values.
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+        :param datasource: 
 
+        """
+        try :
+            self._datasource = datasource
+        except Exception as e:
+            raise e
 
+    @property
+    def response(self) :
+        """ """
+        try :
+            return self._response
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the systemcounters resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = systemcounters()
-				response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(systemcounters_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.systemcounters
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_args(cls, client, args) :
-		r""" Use this API to fetch all the systemcounters resources that are configured on netscaler.
-	# This uses systemcounters_args which is a way to provide additional arguments while fetching the resources.
-		"""
-		try :
-			obj = systemcounters()
-			option_ = options()
-			option_.args = nitro_util.object_to_string_withoutquotes(args)
-			response = obj.get_resources(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the systemcounters resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = systemcounters()
+                response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    @classmethod
+    def get_args(cls, client, args) :
+        """Use this API to fetch all the systemcounters resources that are configured on netscaler.
+            # This uses systemcounters_args which is a way to provide additional arguments while fetching the resources.
+
+        :param client: 
+        :param args: 
+
+        """
+        try :
+            obj = systemcounters()
+            option_ = options()
+            option_.args = nitro_util.object_to_string_withoutquotes(args)
+            response = obj.get_resources(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
 class systemcounters_response(base_response) :
-	def __init__(self, length=1) :
-		self.systemcounters = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.systemcounters = [systemcounters() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.systemcounters = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.systemcounters = [systemcounters() for _ in range(length)]
 

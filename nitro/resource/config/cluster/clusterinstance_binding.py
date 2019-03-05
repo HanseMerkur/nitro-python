@@ -22,93 +22,101 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class clusterinstance_binding(base_resource):
-	""" Binding class showing the resources that can be bound to clusterinstance_binding. 
-	"""
-	def __init__(self) :
-		self._clid = 0
-		self.clusterinstance_clusternode_binding = []
+    """Binding class showing the resources that can be bound to clusterinstance_binding."""
+    def __init__(self) :
+        self._clid = 0
+        self.clusterinstance_clusternode_binding = []
 
-	@property
-	def clid(self) :
-		r"""Unique number that identifies the cluster.<br/>Minimum value =  1<br/>Maximum value =  16.
-		"""
-		try :
-			return self._clid
-		except Exception as e:
-			raise e
+    @property
+    def clid(self) :
+        """Unique number that identifies the cluster.<br/>Minimum value =  1<br/>Maximum value =  16."""
+        try :
+            return self._clid
+        except Exception as e:
+            raise e
 
-	@clid.setter
-	def clid(self, clid) :
-		r"""Unique number that identifies the cluster.<br/>Minimum value =  1<br/>Maximum value =  16
-		"""
-		try :
-			self._clid = clid
-		except Exception as e:
-			raise e
+    @clid.setter
+    def clid(self, clid) :
+        """Unique number that identifies the cluster.<br/>Minimum value =  1<br/>Maximum value =  16
 
-	@property
-	def clusterinstance_clusternode_bindings(self) :
-		r"""clusternode that can be bound to clusterinstance.
-		"""
-		try :
-			return self._clusterinstance_clusternode_binding
-		except Exception as e:
-			raise e
+        :param clid: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(clusterinstance_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.clusterinstance_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._clid = clid
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.clid is not None :
-				return str(self.clid)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def clusterinstance_clusternode_bindings(self) :
+        """clusternode that can be bound to clusterinstance."""
+        try :
+            return self._clusterinstance_clusternode_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(clusterinstance_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.clusterinstance_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.clid is not None :
+                return str(self.clid)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, clid) :
-		r""" Use this API to fetch clusterinstance_binding resource.
-		"""
-		try :
-			if type(clid) is not list :
-				obj = clusterinstance_binding()
-				obj.clid = clid
-				response = obj.get_resource(service)
-			else :
-				if clid and len(clid) > 0 :
-					obj = [clusterinstance_binding() for _ in range(len(clid))]
-					for i in range(len(clid)) :
-						obj[i].clid = clid[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, clid) :
+        """Use this API to fetch clusterinstance_binding resource.
+
+        :param service: 
+        :param clid: 
+
+        """
+        try :
+            if type(clid) is not list :
+                obj = clusterinstance_binding()
+                obj.clid = clid
+                response = obj.get_resource(service)
+            else :
+                if clid and len(clid) > 0 :
+                    obj = [clusterinstance_binding() for _ in range(len(clid))]
+                    for i in range(len(clid)) :
+                        obj[i].clid = clid[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class clusterinstance_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.clusterinstance_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.clusterinstance_binding = [clusterinstance_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.clusterinstance_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.clusterinstance_binding = [clusterinstance_binding() for _ in range(length)]
 

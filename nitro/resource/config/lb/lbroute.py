@@ -22,274 +22,310 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class lbroute(base_resource) :
-	""" Configuration for LB route resource. """
-	def __init__(self) :
-		self._network = ""
-		self._netmask = ""
-		self._gatewayname = ""
-		self._td = 0
-		self._flags = ""
-		self.___count = 0
+    """Configuration for LB route resource."""
+    def __init__(self) :
+        self._network = ""
+        self._netmask = ""
+        self._gatewayname = ""
+        self._td = 0
+        self._flags = ""
+        self.___count = 0
 
-	@property
-	def network(self) :
-		r"""The IP address of the network to which the route belongs.
-		"""
-		try :
-			return self._network
-		except Exception as e:
-			raise e
+    @property
+    def network(self) :
+        """The IP address of the network to which the route belongs."""
+        try :
+            return self._network
+        except Exception as e:
+            raise e
 
-	@network.setter
-	def network(self, network) :
-		r"""The IP address of the network to which the route belongs.
-		"""
-		try :
-			self._network = network
-		except Exception as e:
-			raise e
+    @network.setter
+    def network(self, network) :
+        """The IP address of the network to which the route belongs.
 
-	@property
-	def netmask(self) :
-		r"""The netmask to which the route belongs.
-		"""
-		try :
-			return self._netmask
-		except Exception as e:
-			raise e
+        :param network: 
 
-	@netmask.setter
-	def netmask(self, netmask) :
-		r"""The netmask to which the route belongs.
-		"""
-		try :
-			self._netmask = netmask
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._network = network
+        except Exception as e:
+            raise e
 
-	@property
-	def gatewayname(self) :
-		r"""The name of the route.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._gatewayname
-		except Exception as e:
-			raise e
+    @property
+    def netmask(self) :
+        """The netmask to which the route belongs."""
+        try :
+            return self._netmask
+        except Exception as e:
+            raise e
 
-	@gatewayname.setter
-	def gatewayname(self, gatewayname) :
-		r"""The name of the route.<br/>Minimum length =  1
-		"""
-		try :
-			self._gatewayname = gatewayname
-		except Exception as e:
-			raise e
+    @netmask.setter
+    def netmask(self, netmask) :
+        """The netmask to which the route belongs.
 
-	@property
-	def td(self) :
-		r"""Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Default value: 0<br/>Maximum length =  4094.
-		"""
-		try :
-			return self._td
-		except Exception as e:
-			raise e
+        :param netmask: 
 
-	@td.setter
-	def td(self, td) :
-		r"""Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Default value: 0<br/>Maximum length =  4094
-		"""
-		try :
-			self._td = td
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._netmask = netmask
+        except Exception as e:
+            raise e
 
-	@property
-	def flags(self) :
-		r"""State of the configured gateway.<br/>Possible values = UP, DOWN, UNKNOWN, BUSY, OUT OF SERVICE, GOING OUT OF SERVICE, DOWN WHEN GOING OUT OF SERVICE, NS_EMPTY_STR, Unknown, DISABLED.
-		"""
-		try :
-			return self._flags
-		except Exception as e:
-			raise e
+    @property
+    def gatewayname(self) :
+        """The name of the route.<br/>Minimum length =  1."""
+        try :
+            return self._gatewayname
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(lbroute_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.lbroute
-		except Exception as e :
-			raise e
+    @gatewayname.setter
+    def gatewayname(self, gatewayname) :
+        """The name of the route.<br/>Minimum length =  1
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.network is not None :
-				return str(self.network)
-			return None
-		except Exception as e :
-			raise e
+        :param gatewayname: 
 
+        """
+        try :
+            self._gatewayname = gatewayname
+        except Exception as e:
+            raise e
 
+    @property
+    def td(self) :
+        """Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Default value: 0<br/>Maximum length =  4094."""
+        try :
+            return self._td
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		r""" Use this API to add lbroute.
-		"""
-		try :
-			if type(resource) is not list :
-				addresource = lbroute()
-				addresource.network = resource.network
-				addresource.netmask = resource.netmask
-				addresource.gatewayname = resource.gatewayname
-				addresource.td = resource.td
-				return addresource.add_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					addresources = [ lbroute() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						addresources[i].network = resource[i].network
-						addresources[i].netmask = resource[i].netmask
-						addresources[i].gatewayname = resource[i].gatewayname
-						addresources[i].td = resource[i].td
-				result = cls.add_bulk_request(client, addresources)
-			return result
-		except Exception as e :
-			raise e
+    @td.setter
+    def td(self, td) :
+        """Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Default value: 0<br/>Maximum length =  4094
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete lbroute.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = lbroute()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.network = resource
-				else :
-					deleteresource.network = resource.network
-					deleteresource.netmask = resource.netmask
-					deleteresource.td = resource.td
-				return deleteresource.delete_resource(client)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ lbroute() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].network = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ lbroute() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].network = resource[i].network
-							deleteresources[i].netmask = resource[i].netmask
-							deleteresources[i].td = resource[i].td
-				result = cls.delete_bulk_request(client, deleteresources)
-			return result
-		except Exception as e :
-			raise e
+        :param td: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the lbroute resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = lbroute()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) == cls :
-					if type(name) is not list :
-						option_ = options()
-						option_.args = nitro_util.object_to_string_withoutquotes(name)
-						response = name.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [lbroute() for _ in range(len(name))]
-							for i in range(len(name)) :
-								option_ = options()
-								option_.args = nitro_util.object_to_string_withoutquotes(name[i])
-								response[i] = name[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._td = td
+        except Exception as e:
+            raise e
+
+    @property
+    def flags(self) :
+        """State of the configured gateway.<br/>Possible values = UP, DOWN, UNKNOWN, BUSY, OUT OF SERVICE, GOING OUT OF SERVICE, DOWN WHEN GOING OUT OF SERVICE, NS_EMPTY_STR, Unknown, DISABLED."""
+        try :
+            return self._flags
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(lbroute_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.lbroute
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.network is not None :
+                return str(self.network)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of lbroute resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = lbroute()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def add(cls, client, resource) :
+        """Use this API to add lbroute.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                addresource = lbroute()
+                addresource.network = resource.network
+                addresource.netmask = resource.netmask
+                addresource.gatewayname = resource.gatewayname
+                addresource.td = resource.td
+                return addresource.add_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    addresources = [ lbroute() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        addresources[i].network = resource[i].network
+                        addresources[i].netmask = resource[i].netmask
+                        addresources[i].gatewayname = resource[i].gatewayname
+                        addresources[i].td = resource[i].td
+                result = cls.add_bulk_request(client, addresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete lbroute.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = lbroute()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.network = resource
+                else :
+                    deleteresource.network = resource.network
+                    deleteresource.netmask = resource.netmask
+                    deleteresource.td = resource.td
+                return deleteresource.delete_resource(client)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ lbroute() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].network = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ lbroute() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].network = resource[i].network
+                            deleteresources[i].netmask = resource[i].netmask
+                            deleteresources[i].td = resource[i].td
+                result = cls.delete_bulk_request(client, deleteresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the lbroute resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = lbroute()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) == cls :
+                    if type(name) is not list :
+                        option_ = options()
+                        option_.args = nitro_util.object_to_string_withoutquotes(name)
+                        response = name.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [lbroute() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                option_ = options()
+                                option_.args = nitro_util.object_to_string_withoutquotes(name[i])
+                                response[i] = name[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the lbroute resources configured on NetScaler.
-		"""
-		try :
-			obj = lbroute()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of lbroute resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of lbroute resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = lbroute()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = lbroute()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	class Flags:
-		UP = "UP"
-		DOWN = "DOWN"
-		UNKNOWN = "UNKNOWN"
-		BUSY = "BUSY"
-		OUT_OF_SERVICE = "OUT OF SERVICE"
-		GOING_OUT_OF_SERVICE = "GOING OUT OF SERVICE"
-		DOWN_WHEN_GOING_OUT_OF_SERVICE = "DOWN WHEN GOING OUT OF SERVICE"
-		NS_EMPTY_STR = "NS_EMPTY_STR"
-		Unknown = "Unknown"
-		DISABLED = "DISABLED"
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the lbroute resources configured on NetScaler.
+
+        :param client: 
+
+        """
+        try :
+            obj = lbroute()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of lbroute resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = lbroute()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+
+    class Flags:
+        """ """
+        UP = "UP"
+        DOWN = "DOWN"
+        UNKNOWN = "UNKNOWN"
+        BUSY = "BUSY"
+        OUT_OF_SERVICE = "OUT OF SERVICE"
+        GOING_OUT_OF_SERVICE = "GOING OUT OF SERVICE"
+        DOWN_WHEN_GOING_OUT_OF_SERVICE = "DOWN WHEN GOING OUT OF SERVICE"
+        NS_EMPTY_STR = "NS_EMPTY_STR"
+        Unknown = "Unknown"
+        DISABLED = "DISABLED"
 
 class lbroute_response(base_response) :
-	def __init__(self, length=1) :
-		self.lbroute = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.lbroute = [lbroute() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.lbroute = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.lbroute = [lbroute() for _ in range(length)]
 

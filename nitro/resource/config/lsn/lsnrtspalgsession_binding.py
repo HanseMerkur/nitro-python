@@ -22,93 +22,101 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class lsnrtspalgsession_binding(base_resource):
-	""" Binding class showing the resources that can be bound to lsnrtspalgsession_binding. 
-	"""
-	def __init__(self) :
-		self._sessionid = ""
-		self.lsnrtspalgsession_datachannel_binding = []
+    """Binding class showing the resources that can be bound to lsnrtspalgsession_binding."""
+    def __init__(self) :
+        self._sessionid = ""
+        self.lsnrtspalgsession_datachannel_binding = []
 
-	@property
-	def sessionid(self) :
-		r"""Session ID for the RTSP call.
-		"""
-		try :
-			return self._sessionid
-		except Exception as e:
-			raise e
+    @property
+    def sessionid(self) :
+        """Session ID for the RTSP call."""
+        try :
+            return self._sessionid
+        except Exception as e:
+            raise e
 
-	@sessionid.setter
-	def sessionid(self, sessionid) :
-		r"""Session ID for the RTSP call.
-		"""
-		try :
-			self._sessionid = sessionid
-		except Exception as e:
-			raise e
+    @sessionid.setter
+    def sessionid(self, sessionid) :
+        """Session ID for the RTSP call.
 
-	@property
-	def lsnrtspalgsession_datachannel_bindings(self) :
-		r"""datachannel that can be bound to lsnrtspalgsession.
-		"""
-		try :
-			return self._lsnrtspalgsession_datachannel_binding
-		except Exception as e:
-			raise e
+        :param sessionid: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(lsnrtspalgsession_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.lsnrtspalgsession_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._sessionid = sessionid
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.sessionid is not None :
-				return str(self.sessionid)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def lsnrtspalgsession_datachannel_bindings(self) :
+        """datachannel that can be bound to lsnrtspalgsession."""
+        try :
+            return self._lsnrtspalgsession_datachannel_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(lsnrtspalgsession_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.lsnrtspalgsession_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.sessionid is not None :
+                return str(self.sessionid)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, sessionid) :
-		r""" Use this API to fetch lsnrtspalgsession_binding resource.
-		"""
-		try :
-			if type(sessionid) is not list :
-				obj = lsnrtspalgsession_binding()
-				obj.sessionid = sessionid
-				response = obj.get_resource(service)
-			else :
-				if sessionid and len(sessionid) > 0 :
-					obj = [lsnrtspalgsession_binding() for _ in range(len(sessionid))]
-					for i in range(len(sessionid)) :
-						obj[i].sessionid = sessionid[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, sessionid) :
+        """Use this API to fetch lsnrtspalgsession_binding resource.
+
+        :param service: 
+        :param sessionid: 
+
+        """
+        try :
+            if type(sessionid) is not list :
+                obj = lsnrtspalgsession_binding()
+                obj.sessionid = sessionid
+                response = obj.get_resource(service)
+            else :
+                if sessionid and len(sessionid) > 0 :
+                    obj = [lsnrtspalgsession_binding() for _ in range(len(sessionid))]
+                    for i in range(len(sessionid)) :
+                        obj[i].sessionid = sessionid[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class lsnrtspalgsession_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.lsnrtspalgsession_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.lsnrtspalgsession_binding = [lsnrtspalgsession_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.lsnrtspalgsession_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.lsnrtspalgsession_binding = [lsnrtspalgsession_binding() for _ in range(length)]
 

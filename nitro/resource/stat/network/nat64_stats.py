@@ -22,158 +22,161 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class nat64_stats(base_resource) :
-	r""" Statistics for nat64 config resource.
-	"""
-	def __init__(self) :
-		self._clearstats = ""
-		self._nat64tottcpsessions = 0
-		self._nat64tcpsessionsrate = 0
-		self._nat64totudpsessions = 0
-		self._nat64udpsessionsrate = 0
-		self._nat64toticmpsessions = 0
-		self._nat64icmpsessionsrate = 0
-		self._nat64totsessions = 0
-		self._nat64sessionsrate = 0
+    """Statistics for nat64 config resource."""
+    def __init__(self) :
+        self._clearstats = ""
+        self._nat64tottcpsessions = 0
+        self._nat64tcpsessionsrate = 0
+        self._nat64totudpsessions = 0
+        self._nat64udpsessionsrate = 0
+        self._nat64toticmpsessions = 0
+        self._nat64icmpsessionsrate = 0
+        self._nat64totsessions = 0
+        self._nat64sessionsrate = 0
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def nat64icmpsessionsrate(self) :
-		r"""Rate (/s) counter for nat64toticmpsessions.
-		"""
-		try :
-			return self._nat64icmpsessionsrate
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def nat64toticmpsessions(self) :
-		r"""Total number of ICMP sessions created by NAT64.
-		"""
-		try :
-			return self._nat64toticmpsessions
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def nat64sessionsrate(self) :
-		r"""Rate (/s) counter for nat64totsessions.
-		"""
-		try :
-			return self._nat64sessionsrate
-		except Exception as e:
-			raise e
+    @property
+    def nat64icmpsessionsrate(self) :
+        """Rate (/s) counter for nat64toticmpsessions."""
+        try :
+            return self._nat64icmpsessionsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def nat64totudpsessions(self) :
-		r"""Total number of UDP sessions created by NAT64.
-		"""
-		try :
-			return self._nat64totudpsessions
-		except Exception as e:
-			raise e
+    @property
+    def nat64toticmpsessions(self) :
+        """Total number of ICMP sessions created by NAT64."""
+        try :
+            return self._nat64toticmpsessions
+        except Exception as e:
+            raise e
 
-	@property
-	def nat64udpsessionsrate(self) :
-		r"""Rate (/s) counter for nat64totudpsessions.
-		"""
-		try :
-			return self._nat64udpsessionsrate
-		except Exception as e:
-			raise e
+    @property
+    def nat64sessionsrate(self) :
+        """Rate (/s) counter for nat64totsessions."""
+        try :
+            return self._nat64sessionsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def nat64tottcpsessions(self) :
-		r"""Total number of TCP sessions created by NAT64.
-		"""
-		try :
-			return self._nat64tottcpsessions
-		except Exception as e:
-			raise e
+    @property
+    def nat64totudpsessions(self) :
+        """Total number of UDP sessions created by NAT64."""
+        try :
+            return self._nat64totudpsessions
+        except Exception as e:
+            raise e
 
-	@property
-	def nat64totsessions(self) :
-		r"""Total number of sessions created by NAT64.
-		"""
-		try :
-			return self._nat64totsessions
-		except Exception as e:
-			raise e
+    @property
+    def nat64udpsessionsrate(self) :
+        """Rate (/s) counter for nat64totudpsessions."""
+        try :
+            return self._nat64udpsessionsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def nat64tcpsessionsrate(self) :
-		r"""Rate (/s) counter for nat64tottcpsessions.
-		"""
-		try :
-			return self._nat64tcpsessionsrate
-		except Exception as e:
-			raise e
+    @property
+    def nat64tottcpsessions(self) :
+        """Total number of TCP sessions created by NAT64."""
+        try :
+            return self._nat64tottcpsessions
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(nat64_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.nat64
-		except Exception as e :
-			raise e
+    @property
+    def nat64totsessions(self) :
+        """Total number of sessions created by NAT64."""
+        try :
+            return self._nat64totsessions
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @property
+    def nat64tcpsessionsrate(self) :
+        """Rate (/s) counter for nat64tottcpsessions."""
+        try :
+            return self._nat64tcpsessionsrate
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(nat64_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.nat64
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all nat64_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = nat64_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all nat64_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = nat64_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class nat64_response(base_response) :
-	def __init__(self, length=1) :
-		self.nat64 = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.nat64 = [nat64_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.nat64 = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.nat64 = [nat64_stats() for _ in range(length)]
 

@@ -16,26 +16,27 @@
 
 
 class servicegroup_args :
-	r""" Provides additional arguments required for fetching the servicegroup resource.
-	"""
-	def __init__(self) :
-		self._includemembers = False
+    """Provides additional arguments required for fetching the servicegroup resource."""
+    def __init__(self) :
+        self._includemembers = False
 
-	@property
-	def includemembers(self) :
-		r"""Display the members of the listed service groups in addition to their settings. Can be specified when no service group name is provided in the command. In that case, the details displayed for each service group are identical to the details displayed when a service group name is provided, except that bound monitors are not displayed.
-		"""
-		try :
-			return self._includemembers
-		except Exception as e:
-			raise e
+    @property
+    def includemembers(self) :
+        """Display the members of the listed service groups in addition to their settings. Can be specified when no service group name is provided in the command. In that case, the details displayed for each service group are identical to the details displayed when a service group name is provided, except that bound monitors are not displayed."""
+        try :
+            return self._includemembers
+        except Exception as e:
+            raise e
 
-	@includemembers.setter
-	def includemembers(self, includemembers) :
-		r"""Display the members of the listed service groups in addition to their settings. Can be specified when no service group name is provided in the command. In that case, the details displayed for each service group are identical to the details displayed when a service group name is provided, except that bound monitors are not displayed.
-		"""
-		try :
-			self._includemembers = includemembers
-		except Exception as e:
-			raise e
+    @includemembers.setter
+    def includemembers(self, includemembers) :
+        """Display the members of the listed service groups in addition to their settings. Can be specified when no service group name is provided in the command. In that case, the details displayed for each service group are identical to the details displayed when a service group name is provided, except that bound monitors are not displayed.
+
+        :param includemembers: 
+
+        """
+        try :
+            self._includemembers = includemembers
+        except Exception as e:
+            raise e
 

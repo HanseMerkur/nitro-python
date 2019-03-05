@@ -22,140 +22,151 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class authenticationloginschemapolicy_stats(base_resource) :
-	def __init__(self) :
-		self._name = ""
-		self._clearstats = ""
-		self._pipolicyhits = 0
-		self._pipolicyhitsrate = 0
-		self._pipolicyundefhits = 0
-		self._pipolicyundefhitsrate = 0
+    """ """
+    def __init__(self) :
+        self._name = ""
+        self._clearstats = ""
+        self._pipolicyhits = 0
+        self._pipolicyhitsrate = 0
+        self._pipolicyundefhits = 0
+        self._pipolicyundefhitsrate = 0
 
-	@property
-	def name(self) :
-		r"""The name of the LoginSchema policy for which statistics will be displayed.  If not given statistics are shown for all policies.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """The name of the LoginSchema policy for which statistics will be displayed.  If not given statistics are shown for all policies.<br/>Minimum length =  1."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""The name of the LoginSchema policy for which statistics will be displayed.  If not given statistics are shown for all policies.
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """The name of the LoginSchema policy for which statistics will be displayed.  If not given statistics are shown for all policies.
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def pipolicyundefhitsrate(self) :
-		r"""Rate (/s) counter for pipolicyundefhits.
-		"""
-		try :
-			return self._pipolicyundefhitsrate
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def pipolicyundefhits(self) :
-		r"""Number of undef hits on the policy.
-		"""
-		try :
-			return self._pipolicyundefhits
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def pipolicyhitsrate(self) :
-		r"""Rate (/s) counter for pipolicyhits.
-		"""
-		try :
-			return self._pipolicyhitsrate
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def pipolicyhits(self) :
-		r"""Number of hits on the policy.
-		"""
-		try :
-			return self._pipolicyhits
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(authenticationloginschemapolicy_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.authenticationloginschemapolicy
-		except Exception as e :
-			raise e
+    @property
+    def pipolicyundefhitsrate(self) :
+        """Rate (/s) counter for pipolicyundefhits."""
+        try :
+            return self._pipolicyundefhitsrate
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def pipolicyundefhits(self) :
+        """Number of undef hits on the policy."""
+        try :
+            return self._pipolicyundefhits
+        except Exception as e:
+            raise e
+
+    @property
+    def pipolicyhitsrate(self) :
+        """Rate (/s) counter for pipolicyhits."""
+        try :
+            return self._pipolicyhitsrate
+        except Exception as e:
+            raise e
+
+    @property
+    def pipolicyhits(self) :
+        """Number of hits on the policy."""
+        try :
+            return self._pipolicyhits
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(authenticationloginschemapolicy_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.authenticationloginschemapolicy
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all authenticationloginschemapolicy_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = authenticationloginschemapolicy_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			else :
-				obj.name = name
-				response = obj.stat_resource(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all authenticationloginschemapolicy_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = authenticationloginschemapolicy_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            else :
+                obj.name = name
+                response = obj.stat_resource(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class authenticationloginschemapolicy_response(base_response) :
-	def __init__(self, length=1) :
-		self.authenticationloginschemapolicy = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.authenticationloginschemapolicy = [authenticationloginschemapolicy_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.authenticationloginschemapolicy = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.authenticationloginschemapolicy = [authenticationloginschemapolicy_stats() for _ in range(length)]
 

@@ -16,45 +16,48 @@
 
 
 class nslimitsessions_args :
-	r""" Provides additional arguments required for fetching the nslimitsessions resource.
-	"""
-	def __init__(self) :
-		self._limitidentifier = ""
-		self._detail = False
+    """Provides additional arguments required for fetching the nslimitsessions resource."""
+    def __init__(self) :
+        self._limitidentifier = ""
+        self._detail = False
 
-	@property
-	def limitidentifier(self) :
-		r"""Name of the rate limit identifier for which to display the sessions.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._limitidentifier
-		except Exception as e:
-			raise e
+    @property
+    def limitidentifier(self) :
+        """Name of the rate limit identifier for which to display the sessions.<br/>Minimum length =  1."""
+        try :
+            return self._limitidentifier
+        except Exception as e:
+            raise e
 
-	@limitidentifier.setter
-	def limitidentifier(self, limitidentifier) :
-		r"""Name of the rate limit identifier for which to display the sessions.<br/>Minimum length =  1
-		"""
-		try :
-			self._limitidentifier = limitidentifier
-		except Exception as e:
-			raise e
+    @limitidentifier.setter
+    def limitidentifier(self, limitidentifier) :
+        """Name of the rate limit identifier for which to display the sessions.<br/>Minimum length =  1
 
-	@property
-	def detail(self) :
-		r"""Show the individual hash values.
-		"""
-		try :
-			return self._detail
-		except Exception as e:
-			raise e
+        :param limitidentifier: 
 
-	@detail.setter
-	def detail(self, detail) :
-		r"""Show the individual hash values.
-		"""
-		try :
-			self._detail = detail
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._limitidentifier = limitidentifier
+        except Exception as e:
+            raise e
+
+    @property
+    def detail(self) :
+        """Show the individual hash values."""
+        try :
+            return self._detail
+        except Exception as e:
+            raise e
+
+    @detail.setter
+    def detail(self, detail) :
+        """Show the individual hash values.
+
+        :param detail: 
+
+        """
+        try :
+            self._detail = detail
+        except Exception as e:
+            raise e
 

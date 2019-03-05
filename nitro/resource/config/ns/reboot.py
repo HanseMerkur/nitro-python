@@ -22,74 +22,88 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class reboot(base_resource) :
-	def __init__(self) :
-		self._warm = False
+    """ """
+    def __init__(self) :
+        self._warm = False
 
-	@property
-	def warm(self) :
-		r"""Restarts the NetScaler software without rebooting the underlying operating system. The session terminates and you must log on to the appliance after it has restarted.
-		Note: This argument is required only for nCore appliances. Classic appliances ignore this argument.
-		"""
-		try :
-			return self._warm
-		except Exception as e:
-			raise e
-
-	@warm.setter
-	def warm(self, warm) :
-		r"""Restarts the NetScaler software without rebooting the underlying operating system. The session terminates and you must log on to the appliance after it has restarted.
-		Note: This argument is required only for nCore appliances. Classic appliances ignore this argument.
-		"""
-		try :
-			self._warm = warm
-		except Exception as e:
-			raise e
-
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(reboot_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.reboot
-		except Exception as e :
-			raise e
-
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			return 0
-		except Exception as e :
-			raise e
+    @property
+    def warm(self) :
+        """Restarts the NetScaler software without rebooting the underlying operating system. The session terminates and you must log on to the appliance after it has restarted.
+        Note: This argument is required only for nCore appliances. Classic appliances ignore this argument.
 
 
+        """
+        try :
+            return self._warm
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def Reboot(cls, client, resource) :
-		r""" Use this API to Reboot reboot.
-		"""
-		try :
-			if type(resource) is not list :
-				Rebootresource = reboot()
-				Rebootresource.warm = resource.warm
-				return Rebootresource.perform_operation(client)
-		except Exception as e :
-			raise e
+    @warm.setter
+    def warm(self, warm) :
+        """Restarts the NetScaler software without rebooting the underlying operating system. The session terminates and you must log on to the appliance after it has restarted.
+        Note: This argument is required only for nCore appliances. Classic appliances ignore this argument.
+
+        :param warm: 
+
+        """
+        try :
+            self._warm = warm
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(reboot_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.reboot
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            return 0
+        except Exception as e :
+            raise e
+
+
+
+    @classmethod
+    def Reboot(cls, client, resource) :
+        """Use this API to Reboot reboot.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                Rebootresource = reboot()
+                Rebootresource.warm = resource.warm
+                return Rebootresource.perform_operation(client)
+        except Exception as e :
+            raise e
 
 class reboot_response(base_response) :
-	def __init__(self, length=1) :
-		self.reboot = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.reboot = [reboot() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.reboot = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.reboot = [reboot() for _ in range(length)]
 

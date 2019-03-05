@@ -22,282 +22,277 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class pqpolicy_stats(base_resource) :
-	r""" Statistics for PQ policy resource.
-	"""
-	def __init__(self) :
-		self._policyname = ""
-		self._clearstats = ""
-		self._pqtotavgqueuewaittime = 0
-		self._pqavgqueuewaittimerate = 0
-		self._pqavgclienttransactiontimems = 0
-		self._pqavgclienttransactiontimemsrate = 0
-		self._pqvserverip = ""
-		self._pqvserverport = 0
-		self._pqqdepth = 0
-		self._pqqdepthrate = 0
-		self._pqcurrentclientconnections = 0
-		self._pqcurrentclientconnectionsrate = 0
-		self._pqtotclientconnections = 0
-		self._pqclientconnectionsrate = 0
-		self._pqdropped = 0
-		self._pqdroppedrate = 0
-		self._totclienttransactions = 0
-		self._clienttransactionsrate = 0
-		self._pqtotqueuedepth = 0
-		self._pqqueuedepthrate = 0
+    """Statistics for PQ policy resource."""
+    def __init__(self) :
+        self._policyname = ""
+        self._clearstats = ""
+        self._pqtotavgqueuewaittime = 0
+        self._pqavgqueuewaittimerate = 0
+        self._pqavgclienttransactiontimems = 0
+        self._pqavgclienttransactiontimemsrate = 0
+        self._pqvserverip = ""
+        self._pqvserverport = 0
+        self._pqqdepth = 0
+        self._pqqdepthrate = 0
+        self._pqcurrentclientconnections = 0
+        self._pqcurrentclientconnectionsrate = 0
+        self._pqtotclientconnections = 0
+        self._pqclientconnectionsrate = 0
+        self._pqdropped = 0
+        self._pqdroppedrate = 0
+        self._totclienttransactions = 0
+        self._clienttransactionsrate = 0
+        self._pqtotqueuedepth = 0
+        self._pqqueuedepthrate = 0
 
-	@property
-	def policyname(self) :
-		r"""Name of the priority queuing policy whose statistics must be displayed. If a name is not provided, statistics of all priority queuing policies are shown.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._policyname
-		except Exception as e:
-			raise e
+    @property
+    def policyname(self) :
+        """Name of the priority queuing policy whose statistics must be displayed. If a name is not provided, statistics of all priority queuing policies are shown.<br/>Minimum length =  1."""
+        try :
+            return self._policyname
+        except Exception as e:
+            raise e
 
-	@policyname.setter
-	def policyname(self, policyname) :
-		r"""Name of the priority queuing policy whose statistics must be displayed. If a name is not provided, statistics of all priority queuing policies are shown.
-		"""
-		try :
-			self._policyname = policyname
-		except Exception as e:
-			raise e
+    @policyname.setter
+    def policyname(self, policyname) :
+        """Name of the priority queuing policy whose statistics must be displayed. If a name is not provided, statistics of all priority queuing policies are shown.
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+        :param policyname: 
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._policyname = policyname
+        except Exception as e:
+            raise e
 
-	@property
-	def pqvserverip(self) :
-		r"""IP address of the virtual server to which this priority queuing policy is bound.
-		"""
-		try :
-			return self._pqvserverip
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def pqqueuedepthrate(self) :
-		r"""Rate (/s) counter for pqtotqueuedepth.
-		"""
-		try :
-			return self._pqqueuedepthrate
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	@property
-	def pqdroppedrate(self) :
-		r"""Rate (/s) counter for pqdropped.
-		"""
-		try :
-			return self._pqdroppedrate
-		except Exception as e:
-			raise e
+        :param clearstats: 
 
-	@property
-	def pqtotqueuedepth(self) :
-		r"""Total number of waiting clients for this priority queuing policy.
-		"""
-		try :
-			return self._pqtotqueuedepth
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def pqvserverport(self) :
-		r"""Port number of the virtual server to which this priority queuing policy is bound.
-		"""
-		try :
-			return self._pqvserverport
-		except Exception as e:
-			raise e
+    @property
+    def pqvserverip(self) :
+        """IP address of the virtual server to which this priority queuing policy is bound."""
+        try :
+            return self._pqvserverip
+        except Exception as e:
+            raise e
 
-	@property
-	def totclienttransactions(self) :
-		r"""Total number of client transactions for this priority queuing policy.
-		"""
-		try :
-			return self._totclienttransactions
-		except Exception as e:
-			raise e
+    @property
+    def pqqueuedepthrate(self) :
+        """Rate (/s) counter for pqtotqueuedepth."""
+        try :
+            return self._pqqueuedepthrate
+        except Exception as e:
+            raise e
 
-	@property
-	def clienttransactionsrate(self) :
-		r"""Rate (/s) counter for totclienttransactions.
-		"""
-		try :
-			return self._clienttransactionsrate
-		except Exception as e:
-			raise e
+    @property
+    def pqdroppedrate(self) :
+        """Rate (/s) counter for pqdropped."""
+        try :
+            return self._pqdroppedrate
+        except Exception as e:
+            raise e
 
-	@property
-	def pqcurrentclientconnectionsrate(self) :
-		r"""Rate (/s) counter for pqcurrentclientconnections.
-		"""
-		try :
-			return self._pqcurrentclientconnectionsrate
-		except Exception as e:
-			raise e
+    @property
+    def pqtotqueuedepth(self) :
+        """Total number of waiting clients for this priority queuing policy."""
+        try :
+            return self._pqtotqueuedepth
+        except Exception as e:
+            raise e
 
-	@property
-	def pqqdepthrate(self) :
-		r"""Rate (/s) counter for pqqdepth.
-		"""
-		try :
-			return self._pqqdepthrate
-		except Exception as e:
-			raise e
+    @property
+    def pqvserverport(self) :
+        """Port number of the virtual server to which this priority queuing policy is bound."""
+        try :
+            return self._pqvserverport
+        except Exception as e:
+            raise e
 
-	@property
-	def pqqdepth(self) :
-		r"""Number of clients waiting currently for this priority queuing policy.
-		"""
-		try :
-			return self._pqqdepth
-		except Exception as e:
-			raise e
+    @property
+    def totclienttransactions(self) :
+        """Total number of client transactions for this priority queuing policy."""
+        try :
+            return self._totclienttransactions
+        except Exception as e:
+            raise e
 
-	@property
-	def pqclientconnectionsrate(self) :
-		r"""Rate (/s) counter for pqtotclientconnections.
-		"""
-		try :
-			return self._pqclientconnectionsrate
-		except Exception as e:
-			raise e
+    @property
+    def clienttransactionsrate(self) :
+        """Rate (/s) counter for totclienttransactions."""
+        try :
+            return self._clienttransactionsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def pqavgclienttransactiontimems(self) :
-		r"""Average time taken by a priority queuing client to complete its transaction for this  priority queuing policy.
-		"""
-		try :
-			return self._pqavgclienttransactiontimems
-		except Exception as e:
-			raise e
+    @property
+    def pqcurrentclientconnectionsrate(self) :
+        """Rate (/s) counter for pqcurrentclientconnections."""
+        try :
+            return self._pqcurrentclientconnectionsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def pqavgclienttransactiontimemsrate(self) :
-		r"""Rate (/s) counter for pqavgclienttransactiontimems.
-		"""
-		try :
-			return self._pqavgclienttransactiontimemsrate
-		except Exception as e:
-			raise e
+    @property
+    def pqqdepthrate(self) :
+        """Rate (/s) counter for pqqdepth."""
+        try :
+            return self._pqqdepthrate
+        except Exception as e:
+            raise e
 
-	@property
-	def pqtotavgqueuewaittime(self) :
-		r"""Average wait time for clients for this priority queuing policy.
-		"""
-		try :
-			return self._pqtotavgqueuewaittime
-		except Exception as e:
-			raise e
+    @property
+    def pqqdepth(self) :
+        """Number of clients waiting currently for this priority queuing policy."""
+        try :
+            return self._pqqdepth
+        except Exception as e:
+            raise e
 
-	@property
-	def pqdropped(self) :
-		r"""Total number of dropped transactions for this priority queuing policy.
-		"""
-		try :
-			return self._pqdropped
-		except Exception as e:
-			raise e
+    @property
+    def pqclientconnectionsrate(self) :
+        """Rate (/s) counter for pqtotclientconnections."""
+        try :
+            return self._pqclientconnectionsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def pqtotclientconnections(self) :
-		r"""Total number of server connections established for serving clients for this priority queuing policy.
-		"""
-		try :
-			return self._pqtotclientconnections
-		except Exception as e:
-			raise e
+    @property
+    def pqavgclienttransactiontimems(self) :
+        """Average time taken by a priority queuing client to complete its transaction for this  priority queuing policy."""
+        try :
+            return self._pqavgclienttransactiontimems
+        except Exception as e:
+            raise e
 
-	@property
-	def pqavgqueuewaittimerate(self) :
-		r"""Rate (/s) counter for pqtotavgqueuewaittime.
-		"""
-		try :
-			return self._pqavgqueuewaittimerate
-		except Exception as e:
-			raise e
+    @property
+    def pqavgclienttransactiontimemsrate(self) :
+        """Rate (/s) counter for pqavgclienttransactiontimems."""
+        try :
+            return self._pqavgclienttransactiontimemsrate
+        except Exception as e:
+            raise e
 
-	@property
-	def pqcurrentclientconnections(self) :
-		r"""Current number of server connections established for serving clients for this priority queuing policy.
-		"""
-		try :
-			return self._pqcurrentclientconnections
-		except Exception as e:
-			raise e
+    @property
+    def pqtotavgqueuewaittime(self) :
+        """Average wait time for clients for this priority queuing policy."""
+        try :
+            return self._pqtotavgqueuewaittime
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(pqpolicy_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.pqpolicy
-		except Exception as e :
-			raise e
+    @property
+    def pqdropped(self) :
+        """Total number of dropped transactions for this priority queuing policy."""
+        try :
+            return self._pqdropped
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.policyname is not None :
-				return str(self.policyname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def pqtotclientconnections(self) :
+        """Total number of server connections established for serving clients for this priority queuing policy."""
+        try :
+            return self._pqtotclientconnections
+        except Exception as e:
+            raise e
+
+    @property
+    def pqavgqueuewaittimerate(self) :
+        """Rate (/s) counter for pqtotavgqueuewaittime."""
+        try :
+            return self._pqavgqueuewaittimerate
+        except Exception as e:
+            raise e
+
+    @property
+    def pqcurrentclientconnections(self) :
+        """Current number of server connections established for serving clients for this priority queuing policy."""
+        try :
+            return self._pqcurrentclientconnections
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(pqpolicy_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.pqpolicy
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.policyname is not None :
+                return str(self.policyname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all pqpolicy_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = pqpolicy_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			else :
-				obj.policyname = name
-				response = obj.stat_resource(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all pqpolicy_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = pqpolicy_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            else :
+                obj.policyname = name
+                response = obj.stat_resource(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class pqpolicy_response(base_response) :
-	def __init__(self, length=1) :
-		self.pqpolicy = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.pqpolicy = [pqpolicy_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.pqpolicy = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.pqpolicy = [pqpolicy_stats() for _ in range(length)]
 

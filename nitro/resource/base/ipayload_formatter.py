@@ -17,34 +17,70 @@
 import abc
 
 class ipayload_formatter: 
-    """ ipayload_formatter is the interface class for Json.
+    """ipayload_formatter is the interface class for Json.
     This includes methods for converting Json to nitro resource and vice versa.
-    Provides classes necessary to create base_resource, base_response, Json, login, logout and 
+    Provides classes necessary to create base_resource, base_response, Json, login, logout and
     reboot objects.
+
+
     """
     
     __metaclass__ = abc.ABCMeta
     
     @abc.abstractmethod
     def resource_to_string_convert(self, resrc):
+        """
+
+        :param resrc: 
+
+        """
         pass
     
     @abc.abstractmethod
     def resource_to_string(self, resrc):
+        """
+
+        :param resrc: 
+
+        """
         pass
     
     @abc.abstractmethod
     def unset_string(self, resrc, args):
+        """
+
+        :param resrc: 
+        :param args: 
+
+        """
         pass
     
     @abc.abstractmethod
     def unset_string_bulk(self, resrcources, args):
+        """
+
+        :param resrcources: 
+        :param args: 
+
+        """
         pass
     
     @abc.abstractmethod
     def resource_to_string_bulk(self, resrcources):
+        """
+
+        :param resrcources: 
+
+        """
         pass
 
     @abc.abstractmethod
     def string_to_resource(self, responseClass, response_dict, resrc_type):
+        """
+
+        :param responseClass: 
+        :param response_dict: 
+        :param resrc_type: 
+
+        """
         pass

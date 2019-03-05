@@ -16,26 +16,27 @@
 
 
 class vpnicadtlsconnection_args :
-	r""" Provides additional arguments required for fetching the vpnicadtlsconnection resource.
-	"""
-	def __init__(self) :
-		self._username = ""
+    """Provides additional arguments required for fetching the vpnicadtlsconnection resource."""
+    def __init__(self) :
+        self._username = ""
 
-	@property
-	def username(self) :
-		r"""User name for which to display connections.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._username
-		except Exception as e:
-			raise e
+    @property
+    def username(self) :
+        """User name for which to display connections.<br/>Minimum length =  1."""
+        try :
+            return self._username
+        except Exception as e:
+            raise e
 
-	@username.setter
-	def username(self, username) :
-		r"""User name for which to display connections.<br/>Minimum length =  1
-		"""
-		try :
-			self._username = username
-		except Exception as e:
-			raise e
+    @username.setter
+    def username(self, username) :
+        """User name for which to display connections.<br/>Minimum length =  1
+
+        :param username: 
+
+        """
+        try :
+            self._username = username
+        except Exception as e:
+            raise e
 

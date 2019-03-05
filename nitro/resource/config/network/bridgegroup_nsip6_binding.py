@@ -22,237 +22,277 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class bridgegroup_nsip6_binding(base_resource) :
-	""" Binding class showing the nsip6 that can be bound to bridgegroup.
-	"""
-	def __init__(self) :
-		self._ipaddress = ""
-		self._td = 0
-		self._rnat = False
-		self._id = 0
-		self._netmask = ""
-		self.___count = 0
+    """Binding class showing the nsip6 that can be bound to bridgegroup."""
+    def __init__(self) :
+        self._ipaddress = ""
+        self._td = 0
+        self._rnat = False
+        self._id = 0
+        self._netmask = ""
+        self.___count = 0
 
-	@property
-	def id(self) :
-		r"""The integer that uniquely identifies the bridge group.<br/>Minimum value =  1<br/>Maximum value =  1000.
-		"""
-		try :
-			return self._id
-		except Exception as e:
-			raise e
+    @property
+    def id(self) :
+        """The integer that uniquely identifies the bridge group.<br/>Minimum value =  1<br/>Maximum value =  1000."""
+        try :
+            return self._id
+        except Exception as e:
+            raise e
 
-	@id.setter
-	def id(self, id) :
-		r"""The integer that uniquely identifies the bridge group.<br/>Minimum value =  1<br/>Maximum value =  1000
-		"""
-		try :
-			self._id = id
-		except Exception as e:
-			raise e
+    @id.setter
+    def id(self, id) :
+        """The integer that uniquely identifies the bridge group.<br/>Minimum value =  1<br/>Maximum value =  1000
 
-	@property
-	def td(self) :
-		r"""Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Minimum value =  0<br/>Maximum value =  4094.
-		"""
-		try :
-			return self._td
-		except Exception as e:
-			raise e
+        :param id: 
 
-	@td.setter
-	def td(self, td) :
-		r"""Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Minimum value =  0<br/>Maximum value =  4094
-		"""
-		try :
-			self._td = td
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._id = id
+        except Exception as e:
+            raise e
 
-	@property
-	def netmask(self) :
-		r"""A subnet mask associated with the network address.
-		"""
-		try :
-			return self._netmask
-		except Exception as e:
-			raise e
+    @property
+    def td(self) :
+        """Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Minimum value =  0<br/>Maximum value =  4094."""
+        try :
+            return self._td
+        except Exception as e:
+            raise e
 
-	@netmask.setter
-	def netmask(self, netmask) :
-		r"""A subnet mask associated with the network address.
-		"""
-		try :
-			self._netmask = netmask
-		except Exception as e:
-			raise e
+    @td.setter
+    def td(self, td) :
+        """Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.<br/>Minimum value =  0<br/>Maximum value =  4094
 
-	@property
-	def ipaddress(self) :
-		r"""The IP address assigned to the  bridge group.
-		"""
-		try :
-			return self._ipaddress
-		except Exception as e:
-			raise e
+        :param td: 
 
-	@ipaddress.setter
-	def ipaddress(self, ipaddress) :
-		r"""The IP address assigned to the  bridge group.
-		"""
-		try :
-			self._ipaddress = ipaddress
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._td = td
+        except Exception as e:
+            raise e
 
-	@property
-	def rnat(self) :
-		r"""Temporary flag used for internal purpose.
-		"""
-		try :
-			return self._rnat
-		except Exception as e:
-			raise e
+    @property
+    def netmask(self) :
+        """A subnet mask associated with the network address."""
+        try :
+            return self._netmask
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(bridgegroup_nsip6_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.bridgegroup_nsip6_binding
-		except Exception as e :
-			raise e
+    @netmask.setter
+    def netmask(self, netmask) :
+        """A subnet mask associated with the network address.
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.id is not None :
-				return str(self.id)
-			return None
-		except Exception as e :
-			raise e
+        :param netmask: 
+
+        """
+        try :
+            self._netmask = netmask
+        except Exception as e:
+            raise e
+
+    @property
+    def ipaddress(self) :
+        """The IP address assigned to the  bridge group."""
+        try :
+            return self._ipaddress
+        except Exception as e:
+            raise e
+
+    @ipaddress.setter
+    def ipaddress(self, ipaddress) :
+        """The IP address assigned to the  bridge group.
+
+        :param ipaddress: 
+
+        """
+        try :
+            self._ipaddress = ipaddress
+        except Exception as e:
+            raise e
+
+    @property
+    def rnat(self) :
+        """Temporary flag used for internal purpose."""
+        try :
+            return self._rnat
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(bridgegroup_nsip6_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.bridgegroup_nsip6_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.id is not None :
+                return str(self.id)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def add(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				updateresource = bridgegroup_nsip6_binding()
-				updateresource.id = resource.id
-				updateresource.ipaddress = resource.ipaddress
-				updateresource.netmask = resource.netmask
-				updateresource.td = resource.td
-				return updateresource.update_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					updateresources = [bridgegroup_nsip6_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].id = resource[i].id
-						updateresources[i].ipaddress = resource[i].ipaddress
-						updateresources[i].netmask = resource[i].netmask
-						updateresources[i].td = resource[i].td
-				return cls.update_bulk_request(client, updateresources)
-		except Exception as e :
-			raise e
+    @classmethod
+    def add(cls, client, resource) :
+        """
 
-	@classmethod
-	def delete(cls, client, resource) :
-		try :
-			if resource and type(resource) is not list :
-				deleteresource = bridgegroup_nsip6_binding()
-				deleteresource.id = resource.id
-				deleteresource.ipaddress = resource.ipaddress
-				deleteresource.netmask = resource.netmask
-				deleteresource.td = resource.td
-				return deleteresource.delete_resource(client)
-			else :
-				if resource and len(resource) > 0 :
-					deleteresources = [bridgegroup_nsip6_binding() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						deleteresources[i].id = resource[i].id
-						deleteresources[i].ipaddress = resource[i].ipaddress
-						deleteresources[i].netmask = resource[i].netmask
-						deleteresources[i].td = resource[i].td
-				return cls.delete_bulk_request(client, deleteresources)
-		except Exception as e :
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def get(cls, service, id) :
-		r""" Use this API to fetch bridgegroup_nsip6_binding resources.
-		"""
-		try :
-			obj = bridgegroup_nsip6_binding()
-			obj.id = id
-			response = obj.get_resources(service)
-			return response
-		except Exception as e:
-			raise e
+        """
+        try :
+            if resource and type(resource) is not list :
+                updateresource = bridgegroup_nsip6_binding()
+                updateresource.id = resource.id
+                updateresource.ipaddress = resource.ipaddress
+                updateresource.netmask = resource.netmask
+                updateresource.td = resource.td
+                return updateresource.update_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    updateresources = [bridgegroup_nsip6_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].id = resource[i].id
+                        updateresources[i].ipaddress = resource[i].ipaddress
+                        updateresources[i].netmask = resource[i].netmask
+                        updateresources[i].td = resource[i].td
+                return cls.update_bulk_request(client, updateresources)
+        except Exception as e :
+            raise e
 
-	@classmethod
-	def get_filtered(cls, service, id, filter_) :
-		r""" Use this API to fetch filtered set of bridgegroup_nsip6_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = bridgegroup_nsip6_binding()
-			obj.id = id
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def delete(cls, client, resource) :
+        """
 
-	@classmethod
-	def count(cls, service, id) :
-		r""" Use this API to count bridgegroup_nsip6_binding resources configued on NetScaler.
-		"""
-		try :
-			obj = bridgegroup_nsip6_binding()
-			obj.id = id
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        :param client: 
+        :param resource: 
 
-	@classmethod
-	def count_filtered(cls, service, id, filter_) :
-		r""" Use this API to count the filtered set of bridgegroup_nsip6_binding resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = bridgegroup_nsip6_binding()
-			obj.id = id
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(service, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e:
-			raise e
+        """
+        try :
+            if resource and type(resource) is not list :
+                deleteresource = bridgegroup_nsip6_binding()
+                deleteresource.id = resource.id
+                deleteresource.ipaddress = resource.ipaddress
+                deleteresource.netmask = resource.netmask
+                deleteresource.td = resource.td
+                return deleteresource.delete_resource(client)
+            else :
+                if resource and len(resource) > 0 :
+                    deleteresources = [bridgegroup_nsip6_binding() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        deleteresources[i].id = resource[i].id
+                        deleteresources[i].ipaddress = resource[i].ipaddress
+                        deleteresources[i].netmask = resource[i].netmask
+                        deleteresources[i].td = resource[i].td
+                return cls.delete_bulk_request(client, deleteresources)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, service, id) :
+        """Use this API to fetch bridgegroup_nsip6_binding resources.
+
+        :param service: 
+        :param id: 
+
+        """
+        try :
+            obj = bridgegroup_nsip6_binding()
+            obj.id = id
+            response = obj.get_resources(service)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def get_filtered(cls, service, id, filter_) :
+        """Use this API to fetch filtered set of bridgegroup_nsip6_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param id: 
+        :param filter_: 
+
+        """
+        try :
+            obj = bridgegroup_nsip6_binding()
+            obj.id = id
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count(cls, service, id) :
+        """Use this API to count bridgegroup_nsip6_binding resources configued on NetScaler.
+
+        :param service: 
+        :param id: 
+
+        """
+        try :
+            obj = bridgegroup_nsip6_binding()
+            obj.id = id
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
+
+    @classmethod
+    def count_filtered(cls, service, id, filter_) :
+        """Use this API to count the filtered set of bridgegroup_nsip6_binding resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param service: 
+        :param id: 
+        :param filter_: 
+
+        """
+        try :
+            obj = bridgegroup_nsip6_binding()
+            obj.id = id
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(service, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e:
+            raise e
 
 class bridgegroup_nsip6_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.bridgegroup_nsip6_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.bridgegroup_nsip6_binding = [bridgegroup_nsip6_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.bridgegroup_nsip6_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.bridgegroup_nsip6_binding = [bridgegroup_nsip6_binding() for _ in range(length)]
 

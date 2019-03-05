@@ -22,122 +22,133 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class authorizationpolicylabel_stats(base_resource) :
-	r""" Statistics for authorization policy label resource.
-	"""
-	def __init__(self) :
-		self._labelname = ""
-		self._clearstats = ""
-		self._pipolicylabelhits = 0
-		self._pipolicylabelhitsrate = 0
+    """Statistics for authorization policy label resource."""
+    def __init__(self) :
+        self._labelname = ""
+        self._clearstats = ""
+        self._pipolicylabelhits = 0
+        self._pipolicylabelhitsrate = 0
 
-	@property
-	def labelname(self) :
-		r"""Name of the authorization policy label.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._labelname
-		except Exception as e:
-			raise e
+    @property
+    def labelname(self) :
+        """Name of the authorization policy label.<br/>Minimum length =  1."""
+        try :
+            return self._labelname
+        except Exception as e:
+            raise e
 
-	@labelname.setter
-	def labelname(self, labelname) :
-		r"""Name of the authorization policy label.
-		"""
-		try :
-			self._labelname = labelname
-		except Exception as e:
-			raise e
+    @labelname.setter
+    def labelname(self, labelname) :
+        """Name of the authorization policy label.
 
-	@property
-	def clearstats(self) :
-		r"""Clear the statsistics / counters.<br/>Possible values = basic, full.
-		"""
-		try :
-			return self._clearstats
-		except Exception as e:
-			raise e
+        :param labelname: 
 
-	@clearstats.setter
-	def clearstats(self, clearstats) :
-		r"""Clear the statsistics / counters
-		"""
-		try :
-			self._clearstats = clearstats
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._labelname = labelname
+        except Exception as e:
+            raise e
 
-	@property
-	def pipolicylabelhitsrate(self) :
-		r"""Rate (/s) counter for pipolicylabelhits.
-		"""
-		try :
-			return self._pipolicylabelhitsrate
-		except Exception as e:
-			raise e
+    @property
+    def clearstats(self) :
+        """Clear the statsistics / counters.<br/>Possible values = basic, full."""
+        try :
+            return self._clearstats
+        except Exception as e:
+            raise e
 
-	@property
-	def pipolicylabelhits(self) :
-		r"""Number of times policy label was invoked. .
-		"""
-		try :
-			return self._pipolicylabelhits
-		except Exception as e:
-			raise e
+    @clearstats.setter
+    def clearstats(self, clearstats) :
+        """Clear the statsistics / counters
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(authorizationpolicylabel_response, response, self.__class__.__name__.replace('_stats',''))
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.authorizationpolicylabel
-		except Exception as e :
-			raise e
+        :param clearstats: 
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.labelname is not None :
-				return str(self.labelname)
-			return None
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._clearstats = clearstats
+        except Exception as e:
+            raise e
+
+    @property
+    def pipolicylabelhitsrate(self) :
+        """Rate (/s) counter for pipolicylabelhits."""
+        try :
+            return self._pipolicylabelhitsrate
+        except Exception as e:
+            raise e
+
+    @property
+    def pipolicylabelhits(self) :
+        """Number of times policy label was invoked. ."""
+        try :
+            return self._pipolicylabelhits
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(authorizationpolicylabel_response, response, self.__class__.__name__.replace('_stats',''))
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.authorizationpolicylabel
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.labelname is not None :
+                return str(self.labelname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def  get(cls, service, name="", option_="") :
-		r""" Use this API to fetch the statistics of all authorizationpolicylabel_stats resources that are configured on netscaler.
-		"""
-		try :
-			obj = authorizationpolicylabel_stats()
-			if not name :
-				response = obj.stat_resources(service, option_)
-			else :
-				obj.labelname = name
-				response = obj.stat_resource(service, option_)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def  get(cls, service, name="", option_="") :
+        """Use this API to fetch the statistics of all authorizationpolicylabel_stats resources that are configured on netscaler.
 
-	class Clearstats:
-		basic = "basic"
-		full = "full"
+        :param service: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            obj = authorizationpolicylabel_stats()
+            if not name :
+                response = obj.stat_resources(service, option_)
+            else :
+                obj.labelname = name
+                response = obj.stat_resource(service, option_)
+            return response
+        except Exception as e:
+            raise e
+
+    class Clearstats:
+        """ """
+        basic = "basic"
+        full = "full"
 
 class authorizationpolicylabel_response(base_response) :
-	def __init__(self, length=1) :
-		self.authorizationpolicylabel = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.authorizationpolicylabel = [authorizationpolicylabel_stats() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.authorizationpolicylabel = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.authorizationpolicylabel = [authorizationpolicylabel_stats() for _ in range(length)]
 

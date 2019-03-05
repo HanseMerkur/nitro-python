@@ -16,31 +16,33 @@
 
 
 class snmpoid_args :
-	r""" Provides additional arguments required for fetching the snmpoid resource.
-	"""
-	def __init__(self) :
-		self._entitytype = ""
+    """Provides additional arguments required for fetching the snmpoid resource."""
+    def __init__(self) :
+        self._entitytype = ""
 
-	@property
-	def entitytype(self) :
-		r"""The type of entity whose SNMP OIDs you want to displayType of entity whose SNMP OIDs you want the NetScaler appliance to display.<br/>Possible values = VSERVER, SERVICE, SERVICEGROUP.
-		"""
-		try :
-			return self._entitytype
-		except Exception as e:
-			raise e
+    @property
+    def entitytype(self) :
+        """The type of entity whose SNMP OIDs you want to displayType of entity whose SNMP OIDs you want the NetScaler appliance to display.<br/>Possible values = VSERVER, SERVICE, SERVICEGROUP."""
+        try :
+            return self._entitytype
+        except Exception as e:
+            raise e
 
-	@entitytype.setter
-	def entitytype(self, entitytype) :
-		r"""The type of entity whose SNMP OIDs you want to displayType of entity whose SNMP OIDs you want the NetScaler appliance to display.<br/>Possible values = VSERVER, SERVICE, SERVICEGROUP
-		"""
-		try :
-			self._entitytype = entitytype
-		except Exception as e:
-			raise e
+    @entitytype.setter
+    def entitytype(self, entitytype) :
+        """The type of entity whose SNMP OIDs you want to displayType of entity whose SNMP OIDs you want the NetScaler appliance to display.<br/>Possible values = VSERVER, SERVICE, SERVICEGROUP
 
-	class Entitytype:
-		VSERVER = "VSERVER"
-		SERVICE = "SERVICE"
-		SERVICEGROUP = "SERVICEGROUP"
+        :param entitytype: 
+
+        """
+        try :
+            self._entitytype = entitytype
+        except Exception as e:
+            raise e
+
+    class Entitytype:
+        """ """
+        VSERVER = "VSERVER"
+        SERVICE = "SERVICE"
+        SERVICEGROUP = "SERVICEGROUP"
 

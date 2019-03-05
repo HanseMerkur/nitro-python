@@ -22,202 +22,233 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslcipher_servicegroup_binding(base_resource) :
-	""" Binding class showing the servicegroup that can be bound to sslcipher.
-	"""
-	def __init__(self) :
-		self._ciphergroupname = ""
-		self._servicename = ""
-		self._service = False
-		self._servicegroupname = ""
-		self._servicegroup = False
-		self._cipheroperation = ""
-		self._ciphgrpals = ""
-		self._cipherpriority = 0
+    """Binding class showing the servicegroup that can be bound to sslcipher."""
+    def __init__(self) :
+        self._ciphergroupname = ""
+        self._servicename = ""
+        self._service = False
+        self._servicegroupname = ""
+        self._servicegroup = False
+        self._cipheroperation = ""
+        self._ciphgrpals = ""
+        self._cipherpriority = 0
 
-	@property
-	def cipherpriority(self) :
-		r"""Priority of the cipher to be added.<br/>Minimum value =  1<br/>Maximum value =  1000.
-		"""
-		try :
-			return self._cipherpriority
-		except Exception as e:
-			raise e
+    @property
+    def cipherpriority(self) :
+        """Priority of the cipher to be added.<br/>Minimum value =  1<br/>Maximum value =  1000."""
+        try :
+            return self._cipherpriority
+        except Exception as e:
+            raise e
 
-	@cipherpriority.setter
-	def cipherpriority(self, cipherpriority) :
-		r"""Priority of the cipher to be added.<br/>Minimum value =  1<br/>Maximum value =  1000
-		"""
-		try :
-			self._cipherpriority = cipherpriority
-		except Exception as e:
-			raise e
+    @cipherpriority.setter
+    def cipherpriority(self, cipherpriority) :
+        """Priority of the cipher to be added.<br/>Minimum value =  1<br/>Maximum value =  1000
 
-	@property
-	def ciphgrpals(self) :
-		r"""A cipher-suite can consist of an individual cipher name, the system predefined cipher-alias name, or user defined cipher-group name.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._ciphgrpals
-		except Exception as e:
-			raise e
+        :param cipherpriority: 
 
-	@ciphgrpals.setter
-	def ciphgrpals(self, ciphgrpals) :
-		r"""A cipher-suite can consist of an individual cipher name, the system predefined cipher-alias name, or user defined cipher-group name.<br/>Minimum length =  1
-		"""
-		try :
-			self._ciphgrpals = ciphgrpals
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._cipherpriority = cipherpriority
+        except Exception as e:
+            raise e
 
-	@property
-	def servicegroupname(self) :
-		try :
-			return self._servicegroupname
-		except Exception as e:
-			raise e
+    @property
+    def ciphgrpals(self) :
+        """A cipher-suite can consist of an individual cipher name, the system predefined cipher-alias name, or user defined cipher-group name.<br/>Minimum length =  1."""
+        try :
+            return self._ciphgrpals
+        except Exception as e:
+            raise e
 
-	@servicegroupname.setter
-	def servicegroupname(self, servicegroupname) :
-		try :
-			self._servicegroupname = servicegroupname
-		except Exception as e:
-			raise e
+    @ciphgrpals.setter
+    def ciphgrpals(self, ciphgrpals) :
+        """A cipher-suite can consist of an individual cipher name, the system predefined cipher-alias name, or user defined cipher-group name.<br/>Minimum length =  1
 
-	@property
-	def servicegroup(self) :
-		r"""Indicates that the cipher operation is to be performed on the named SSL service or service group.
-		"""
-		try :
-			return self._servicegroup
-		except Exception as e:
-			raise e
+        :param ciphgrpals: 
 
-	@servicegroup.setter
-	def servicegroup(self, servicegroup) :
-		r"""Indicates that the cipher operation is to be performed on the named SSL service or service group.
-		"""
-		try :
-			self._servicegroup = servicegroup
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._ciphgrpals = ciphgrpals
+        except Exception as e:
+            raise e
 
-	@property
-	def service(self) :
-		r"""Indicates that the cipher operation is to be performed on the named SSL service or service group.
-		"""
-		try :
-			return self._service
-		except Exception as e:
-			raise e
+    @property
+    def servicegroupname(self) :
+        """ """
+        try :
+            return self._servicegroupname
+        except Exception as e:
+            raise e
 
-	@service.setter
-	def service(self, service) :
-		r"""Indicates that the cipher operation is to be performed on the named SSL service or service group.
-		"""
-		try :
-			self._service = service
-		except Exception as e:
-			raise e
+    @servicegroupname.setter
+    def servicegroupname(self, servicegroupname) :
+        """
 
-	@property
-	def servicename(self) :
-		try :
-			return self._servicename
-		except Exception as e:
-			raise e
+        :param servicegroupname: 
 
-	@servicename.setter
-	def servicename(self, servicename) :
-		try :
-			self._servicename = servicename
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._servicegroupname = servicegroupname
+        except Exception as e:
+            raise e
 
-	@property
-	def ciphergroupname(self) :
-		r"""Name of the user-defined cipher group.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._ciphergroupname
-		except Exception as e:
-			raise e
+    @property
+    def servicegroup(self) :
+        """Indicates that the cipher operation is to be performed on the named SSL service or service group."""
+        try :
+            return self._servicegroup
+        except Exception as e:
+            raise e
 
-	@ciphergroupname.setter
-	def ciphergroupname(self, ciphergroupname) :
-		r"""Name of the user-defined cipher group.<br/>Minimum length =  1
-		"""
-		try :
-			self._ciphergroupname = ciphergroupname
-		except Exception as e:
-			raise e
+    @servicegroup.setter
+    def servicegroup(self, servicegroup) :
+        """Indicates that the cipher operation is to be performed on the named SSL service or service group.
 
-	@property
-	def cipheroperation(self) :
-		r"""The operation that is performed when adding the cipher-suite.
-		Possible cipher operations are:
-		ADD - Appends the given cipher-suite to the existing one configured for the virtual server.
-		REM - Removes the given cipher-suite from the existing one configured for the virtual server.
-		ORD - Overrides the current configured cipher-suite for the virtual server with the given cipher-suite.<br/>Default value: 0<br/>Possible values = ADD, REM, ORD.
-		"""
-		try :
-			return self._cipheroperation
-		except Exception as e:
-			raise e
+        :param servicegroup: 
 
-	@cipheroperation.setter
-	def cipheroperation(self, cipheroperation) :
-		r"""The operation that is performed when adding the cipher-suite.
-		Possible cipher operations are:
-		ADD - Appends the given cipher-suite to the existing one configured for the virtual server.
-		REM - Removes the given cipher-suite from the existing one configured for the virtual server.
-		ORD - Overrides the current configured cipher-suite for the virtual server with the given cipher-suite.<br/>Default value: 0<br/>Possible values = ADD, REM, ORD
-		"""
-		try :
-			self._cipheroperation = cipheroperation
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._servicegroup = servicegroup
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslcipher_servicegroup_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslcipher_servicegroup_binding
-		except Exception as e :
-			raise e
+    @property
+    def service(self) :
+        """Indicates that the cipher operation is to be performed on the named SSL service or service group."""
+        try :
+            return self._service
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.ciphergroupname is not None :
-				return str(self.ciphergroupname)
-			return None
-		except Exception as e :
-			raise e
+    @service.setter
+    def service(self, service) :
+        """Indicates that the cipher operation is to be performed on the named SSL service or service group.
+
+        :param service: 
+
+        """
+        try :
+            self._service = service
+        except Exception as e:
+            raise e
+
+    @property
+    def servicename(self) :
+        """ """
+        try :
+            return self._servicename
+        except Exception as e:
+            raise e
+
+    @servicename.setter
+    def servicename(self, servicename) :
+        """
+
+        :param servicename: 
+
+        """
+        try :
+            self._servicename = servicename
+        except Exception as e:
+            raise e
+
+    @property
+    def ciphergroupname(self) :
+        """Name of the user-defined cipher group.<br/>Minimum length =  1."""
+        try :
+            return self._ciphergroupname
+        except Exception as e:
+            raise e
+
+    @ciphergroupname.setter
+    def ciphergroupname(self, ciphergroupname) :
+        """Name of the user-defined cipher group.<br/>Minimum length =  1
+
+        :param ciphergroupname: 
+
+        """
+        try :
+            self._ciphergroupname = ciphergroupname
+        except Exception as e:
+            raise e
+
+    @property
+    def cipheroperation(self) :
+        """The operation that is performed when adding the cipher-suite.
+        Possible cipher operations are:
+        ADD - Appends the given cipher-suite to the existing one configured for the virtual server.
+        REM - Removes the given cipher-suite from the existing one configured for the virtual server.
+        ORD - Overrides the current configured cipher-suite for the virtual server with the given cipher-suite.<br/>Default value: 0<br/>Possible values = ADD, REM, ORD.
 
 
+        """
+        try :
+            return self._cipheroperation
+        except Exception as e:
+            raise e
 
-	class Cipheroperation:
-		ADD = "ADD"
-		REM = "REM"
-		ORD = "ORD"
+    @cipheroperation.setter
+    def cipheroperation(self, cipheroperation) :
+        """The operation that is performed when adding the cipher-suite.
+        Possible cipher operations are:
+        ADD - Appends the given cipher-suite to the existing one configured for the virtual server.
+        REM - Removes the given cipher-suite from the existing one configured for the virtual server.
+        ORD - Overrides the current configured cipher-suite for the virtual server with the given cipher-suite.<br/>Default value: 0<br/>Possible values = ADD, REM, ORD
+
+        :param cipheroperation: 
+
+        """
+        try :
+            self._cipheroperation = cipheroperation
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslcipher_servicegroup_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslcipher_servicegroup_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.ciphergroupname is not None :
+                return str(self.ciphergroupname)
+            return None
+        except Exception as e :
+            raise e
+
+
+
+    class Cipheroperation:
+        """ """
+        ADD = "ADD"
+        REM = "REM"
+        ORD = "ORD"
 
 class sslcipher_servicegroup_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslcipher_servicegroup_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslcipher_servicegroup_binding = [sslcipher_servicegroup_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslcipher_servicegroup_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslcipher_servicegroup_binding = [sslcipher_servicegroup_binding() for _ in range(length)]
 

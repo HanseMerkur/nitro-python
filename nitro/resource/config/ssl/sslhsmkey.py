@@ -22,207 +22,239 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslhsmkey(base_resource) :
-	""" Configuration for HSM key resource. """
-	def __init__(self) :
-		self._hsmkeyname = ""
-		self._key = ""
-		self.___count = 0
+    """Configuration for HSM key resource."""
+    def __init__(self) :
+        self._hsmkeyname = ""
+        self._key = ""
+        self.___count = 0
 
-	@property
-	def hsmkeyname(self) :
-		r""".<br/>Minimum length =  1.
-		"""
-		try :
-			return self._hsmkeyname
-		except Exception as e:
-			raise e
+    @property
+    def hsmkeyname(self) :
+        """.<br/>Minimum length =  1."""
+        try :
+            return self._hsmkeyname
+        except Exception as e:
+            raise e
 
-	@hsmkeyname.setter
-	def hsmkeyname(self, hsmkeyname) :
-		r""".<br/>Minimum length =  1
-		"""
-		try :
-			self._hsmkeyname = hsmkeyname
-		except Exception as e:
-			raise e
+    @hsmkeyname.setter
+    def hsmkeyname(self, hsmkeyname) :
+        """.<br/>Minimum length =  1
 
-	@property
-	def key(self) :
-		r"""Name of and, optionally, path to the HSM key file. /var/opt/nfast/kmdata/local/ is the default path.<br/>Maximum length =  63.
-		"""
-		try :
-			return self._key
-		except Exception as e:
-			raise e
+        :param hsmkeyname: 
 
-	@key.setter
-	def key(self, key) :
-		r"""Name of and, optionally, path to the HSM key file. /var/opt/nfast/kmdata/local/ is the default path.<br/>Maximum length =  63
-		"""
-		try :
-			self._key = key
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._hsmkeyname = hsmkeyname
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslhsmkey_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslhsmkey
-		except Exception as e :
-			raise e
+    @property
+    def key(self) :
+        """Name of and, optionally, path to the HSM key file. /var/opt/nfast/kmdata/local/ is the default path.<br/>Maximum length =  63."""
+        try :
+            return self._key
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.hsmkeyname is not None :
-				return str(self.hsmkeyname)
-			return None
-		except Exception as e :
-			raise e
+    @key.setter
+    def key(self, key) :
+        """Name of and, optionally, path to the HSM key file. /var/opt/nfast/kmdata/local/ is the default path.<br/>Maximum length =  63
 
+        :param key: 
 
+        """
+        try :
+            self._key = key
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		r""" Use this API to add sslhsmkey.
-		"""
-		try :
-			if type(resource) is not list :
-				addresource = sslhsmkey()
-				addresource.hsmkeyname = resource.hsmkeyname
-				addresource.key = resource.key
-				return addresource.add_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					addresources = [ sslhsmkey() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						addresources[i].hsmkeyname = resource[i].hsmkeyname
-						addresources[i].key = resource[i].key
-				result = cls.add_bulk_request(client, addresources)
-			return result
-		except Exception as e :
-			raise e
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete sslhsmkey.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = sslhsmkey()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.hsmkeyname = resource
-				else :
-					deleteresource.hsmkeyname = resource.hsmkeyname
-				return deleteresource.delete_resource(client)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ sslhsmkey() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].hsmkeyname = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ sslhsmkey() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].hsmkeyname = resource[i].hsmkeyname
-				result = cls.delete_bulk_request(client, deleteresources)
-			return result
-		except Exception as e :
-			raise e
+        :param service: 
+        :param response: 
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the sslhsmkey resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = sslhsmkey()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = sslhsmkey()
-						obj.hsmkeyname = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [sslhsmkey() for _ in range(len(name))]
-							obj = [sslhsmkey() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = sslhsmkey()
-								obj[i].hsmkeyname = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslhsmkey_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslhsmkey
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.hsmkeyname is not None :
+                return str(self.hsmkeyname)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of sslhsmkey resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslhsmkey()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def add(cls, client, resource) :
+        """Use this API to add sslhsmkey.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                addresource = sslhsmkey()
+                addresource.hsmkeyname = resource.hsmkeyname
+                addresource.key = resource.key
+                return addresource.add_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    addresources = [ sslhsmkey() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        addresources[i].hsmkeyname = resource[i].hsmkeyname
+                        addresources[i].key = resource[i].key
+                result = cls.add_bulk_request(client, addresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete sslhsmkey.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = sslhsmkey()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.hsmkeyname = resource
+                else :
+                    deleteresource.hsmkeyname = resource.hsmkeyname
+                return deleteresource.delete_resource(client)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ sslhsmkey() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].hsmkeyname = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ sslhsmkey() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].hsmkeyname = resource[i].hsmkeyname
+                result = cls.delete_bulk_request(client, deleteresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the sslhsmkey resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = sslhsmkey()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = sslhsmkey()
+                        obj.hsmkeyname = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [sslhsmkey() for _ in range(len(name))]
+                            obj = [sslhsmkey() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = sslhsmkey()
+                                obj[i].hsmkeyname = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the sslhsmkey resources configured on NetScaler.
-		"""
-		try :
-			obj = sslhsmkey()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of sslhsmkey resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of sslhsmkey resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = sslhsmkey()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslhsmkey()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the sslhsmkey resources configured on NetScaler.
+
+        :param client: 
+
+        """
+        try :
+            obj = sslhsmkey()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of sslhsmkey resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = sslhsmkey()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
 
 
 class sslhsmkey_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslhsmkey = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslhsmkey = [sslhsmkey() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslhsmkey = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslhsmkey = [sslhsmkey() for _ in range(length)]
 

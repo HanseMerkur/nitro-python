@@ -22,378 +22,431 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class spilloverpolicy(base_resource) :
-	""" Configuration for Spillover policy resource. """
-	def __init__(self) :
-		self._name = ""
-		self._rule = ""
-		self._action = ""
-		self._comment = ""
-		self._newname = ""
-		self._hits = 0
-		self._undefhits = 0
-		self._builtin = []
-		self.___count = 0
+    """Configuration for Spillover policy resource."""
+    def __init__(self) :
+        self._name = ""
+        self._rule = ""
+        self._action = ""
+        self._comment = ""
+        self._newname = ""
+        self._hits = 0
+        self._undefhits = 0
+        self._builtin = []
+        self.___count = 0
 
-	@property
-	def name(self) :
-		r"""Name of the spillover policy.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
+    @property
+    def name(self) :
+        """Name of the spillover policy."""
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@name.setter
-	def name(self, name) :
-		r"""Name of the spillover policy.
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name of the spillover policy.
 
-	@property
-	def rule(self) :
-		r"""Expression to be used by the spillover policy.
-		"""
-		try :
-			return self._rule
-		except Exception as e:
-			raise e
+        :param name: 
 
-	@rule.setter
-	def rule(self, rule) :
-		r"""Expression to be used by the spillover policy.
-		"""
-		try :
-			self._rule = rule
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@property
-	def action(self) :
-		r"""Action for the spillover policy. Action is created using add spillover action command.
-		"""
-		try :
-			return self._action
-		except Exception as e:
-			raise e
+    @property
+    def rule(self) :
+        """Expression to be used by the spillover policy."""
+        try :
+            return self._rule
+        except Exception as e:
+            raise e
 
-	@action.setter
-	def action(self, action) :
-		r"""Action for the spillover policy. Action is created using add spillover action command.
-		"""
-		try :
-			self._action = action
-		except Exception as e:
-			raise e
+    @rule.setter
+    def rule(self, rule) :
+        """Expression to be used by the spillover policy.
 
-	@property
-	def comment(self) :
-		r"""Any comments that you might want to associate with the spillover policy.
-		"""
-		try :
-			return self._comment
-		except Exception as e:
-			raise e
+        :param rule: 
 
-	@comment.setter
-	def comment(self, comment) :
-		r"""Any comments that you might want to associate with the spillover policy.
-		"""
-		try :
-			self._comment = comment
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._rule = rule
+        except Exception as e:
+            raise e
 
-	@property
-	def newname(self) :
-		r"""New name for the spillover policy. Must begin with an ASCII alphabetic or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at (@), equals (=), and hyphen (-) characters.
-		Choose a name that reflects the function that the policy performs. 
-		The following requirement applies only to the NetScaler CLI:
-		If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my policy" or 'my policy').<br/>Minimum length =  1.
-		"""
-		try :
-			return self._newname
-		except Exception as e:
-			raise e
+    @property
+    def action(self) :
+        """Action for the spillover policy. Action is created using add spillover action command."""
+        try :
+            return self._action
+        except Exception as e:
+            raise e
 
-	@newname.setter
-	def newname(self, newname) :
-		r"""New name for the spillover policy. Must begin with an ASCII alphabetic or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at (@), equals (=), and hyphen (-) characters.
-		Choose a name that reflects the function that the policy performs. 
-		The following requirement applies only to the NetScaler CLI:
-		If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my policy" or 'my policy').<br/>Minimum length =  1
-		"""
-		try :
-			self._newname = newname
-		except Exception as e:
-			raise e
+    @action.setter
+    def action(self, action) :
+        """Action for the spillover policy. Action is created using add spillover action command.
 
-	@property
-	def hits(self) :
-		r"""The number of times the policy has been hit.
-		"""
-		try :
-			return self._hits
-		except Exception as e:
-			raise e
+        :param action: 
 
-	@property
-	def undefhits(self) :
-		r"""Number of policy UNDEF hits.
-		"""
-		try :
-			return self._undefhits
-		except Exception as e:
-			raise e
+        """
+        try :
+            self._action = action
+        except Exception as e:
+            raise e
 
-	@property
-	def builtin(self) :
-		r"""Flag to determine if compression policy is builtin or not.<br/>Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL.
-		"""
-		try :
-			return self._builtin
-		except Exception as e:
-			raise e
+    @property
+    def comment(self) :
+        """Any comments that you might want to associate with the spillover policy."""
+        try :
+            return self._comment
+        except Exception as e:
+            raise e
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(spilloverpolicy_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.spilloverpolicy
-		except Exception as e :
-			raise e
+    @comment.setter
+    def comment(self, comment) :
+        """Any comments that you might want to associate with the spillover policy.
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+        :param comment: 
+
+        """
+        try :
+            self._comment = comment
+        except Exception as e:
+            raise e
+
+    @property
+    def newname(self) :
+        """New name for the spillover policy. Must begin with an ASCII alphabetic or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at (@), equals (=), and hyphen (-) characters.
+        Choose a name that reflects the function that the policy performs.
+        The following requirement applies only to the NetScaler CLI:
+        If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my policy" or 'my policy').<br/>Minimum length =  1.
 
 
+        """
+        try :
+            return self._newname
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		r""" Use this API to add spilloverpolicy.
-		"""
-		try :
-			if type(resource) is not list :
-				addresource = spilloverpolicy()
-				addresource.name = resource.name
-				addresource.rule = resource.rule
-				addresource.action = resource.action
-				addresource.comment = resource.comment
-				return addresource.add_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					addresources = [ spilloverpolicy() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						addresources[i].name = resource[i].name
-						addresources[i].rule = resource[i].rule
-						addresources[i].action = resource[i].action
-						addresources[i].comment = resource[i].comment
-				result = cls.add_bulk_request(client, addresources)
-			return result
-		except Exception as e :
-			raise e
+    @newname.setter
+    def newname(self, newname) :
+        """New name for the spillover policy. Must begin with an ASCII alphabetic or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at (@), equals (=), and hyphen (-) characters.
+        Choose a name that reflects the function that the policy performs.
+        The following requirement applies only to the NetScaler CLI:
+        If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, "my policy" or 'my policy').<br/>Minimum length =  1
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete spilloverpolicy.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = spilloverpolicy()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.name = resource
-				else :
-					deleteresource.name = resource.name
-				return deleteresource.delete_resource(client)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ spilloverpolicy() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].name = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ spilloverpolicy() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].name = resource[i].name
-				result = cls.delete_bulk_request(client, deleteresources)
-			return result
-		except Exception as e :
-			raise e
+        :param newname: 
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update spilloverpolicy.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = spilloverpolicy()
-				updateresource.name = resource.name
-				updateresource.rule = resource.rule
-				updateresource.action = resource.action
-				updateresource.comment = resource.comment
-				return updateresource.update_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					updateresources = [ spilloverpolicy() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].name = resource[i].name
-						updateresources[i].rule = resource[i].rule
-						updateresources[i].action = resource[i].action
-						updateresources[i].comment = resource[i].comment
-				result = cls.update_bulk_request(client, updateresources)
-			return result
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._newname = newname
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of spilloverpolicy resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = spilloverpolicy()
-				if type(resource) !=  type(unsetresource):
-					unsetresource.name = resource
-				else :
-					unsetresource.name = resource.name
-				return unsetresource.unset_resource(client, args)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						unsetresources = [ spilloverpolicy() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							unsetresources[i].name = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						unsetresources = [ spilloverpolicy() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							unsetresources[i].name = resource[i].name
-				result = cls.unset_bulk_request(client, unsetresources, args)
-			return result
-		except Exception as e :
-			raise e
+    @property
+    def hits(self) :
+        """The number of times the policy has been hit."""
+        try :
+            return self._hits
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def rename(cls, client, resource, new_name) :
-		r""" Use this API to rename a spilloverpolicy resource.
-		"""
-		try :
-			renameresource = spilloverpolicy()
-			if type(resource) == cls :
-				renameresource.name = resource.name
-			else :
-				renameresource.name = resource
-			return renameresource.rename_resource(client,new_name)
-		except Exception as e :
-			raise e
+    @property
+    def undefhits(self) :
+        """Number of policy UNDEF hits."""
+        try :
+            return self._undefhits
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the spilloverpolicy resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = spilloverpolicy()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = spilloverpolicy()
-						obj.name = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [spilloverpolicy() for _ in range(len(name))]
-							obj = [spilloverpolicy() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = spilloverpolicy()
-								obj[i].name = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    @property
+    def builtin(self) :
+        """Flag to determine if compression policy is builtin or not.<br/>Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL."""
+        try :
+            return self._builtin
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(spilloverpolicy_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.spilloverpolicy
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of spilloverpolicy resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = spilloverpolicy()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+
+    @classmethod
+    def add(cls, client, resource) :
+        """Use this API to add spilloverpolicy.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                addresource = spilloverpolicy()
+                addresource.name = resource.name
+                addresource.rule = resource.rule
+                addresource.action = resource.action
+                addresource.comment = resource.comment
+                return addresource.add_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    addresources = [ spilloverpolicy() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        addresources[i].name = resource[i].name
+                        addresources[i].rule = resource[i].rule
+                        addresources[i].action = resource[i].action
+                        addresources[i].comment = resource[i].comment
+                result = cls.add_bulk_request(client, addresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete spilloverpolicy.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = spilloverpolicy()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.name = resource
+                else :
+                    deleteresource.name = resource.name
+                return deleteresource.delete_resource(client)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ spilloverpolicy() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].name = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ spilloverpolicy() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].name = resource[i].name
+                result = cls.delete_bulk_request(client, deleteresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update spilloverpolicy.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = spilloverpolicy()
+                updateresource.name = resource.name
+                updateresource.rule = resource.rule
+                updateresource.action = resource.action
+                updateresource.comment = resource.comment
+                return updateresource.update_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    updateresources = [ spilloverpolicy() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].name = resource[i].name
+                        updateresources[i].rule = resource[i].rule
+                        updateresources[i].action = resource[i].action
+                        updateresources[i].comment = resource[i].comment
+                result = cls.update_bulk_request(client, updateresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of spilloverpolicy resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = spilloverpolicy()
+                if type(resource) !=  type(unsetresource):
+                    unsetresource.name = resource
+                else :
+                    unsetresource.name = resource.name
+                return unsetresource.unset_resource(client, args)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        unsetresources = [ spilloverpolicy() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            unsetresources[i].name = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        unsetresources = [ spilloverpolicy() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            unsetresources[i].name = resource[i].name
+                result = cls.unset_bulk_request(client, unsetresources, args)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def rename(cls, client, resource, new_name) :
+        """Use this API to rename a spilloverpolicy resource.
+
+        :param client: 
+        :param resource: 
+        :param new_name: 
+
+        """
+        try :
+            renameresource = spilloverpolicy()
+            if type(resource) == cls :
+                renameresource.name = resource.name
+            else :
+                renameresource.name = resource
+            return renameresource.rename_resource(client,new_name)
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the spilloverpolicy resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = spilloverpolicy()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = spilloverpolicy()
+                        obj.name = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [spilloverpolicy() for _ in range(len(name))]
+                            obj = [spilloverpolicy() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = spilloverpolicy()
+                                obj[i].name = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the spilloverpolicy resources configured on NetScaler.
-		"""
-		try :
-			obj = spilloverpolicy()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of spilloverpolicy resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of spilloverpolicy resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = spilloverpolicy()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = spilloverpolicy()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
 
 
-	class Builtin:
-		MODIFIABLE = "MODIFIABLE"
-		DELETABLE = "DELETABLE"
-		IMMUTABLE = "IMMUTABLE"
-		PARTITION_ALL = "PARTITION_ALL"
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the spilloverpolicy resources configured on NetScaler.
+
+        :param client: 
+
+        """
+        try :
+            obj = spilloverpolicy()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of spilloverpolicy resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = spilloverpolicy()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+
+    class Builtin:
+        """ """
+        MODIFIABLE = "MODIFIABLE"
+        DELETABLE = "DELETABLE"
+        IMMUTABLE = "IMMUTABLE"
+        PARTITION_ALL = "PARTITION_ALL"
 
 class spilloverpolicy_response(base_response) :
-	def __init__(self, length=1) :
-		self.spilloverpolicy = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.spilloverpolicy = [spilloverpolicy() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.spilloverpolicy = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.spilloverpolicy = [spilloverpolicy() for _ in range(length)]
 

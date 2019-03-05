@@ -22,93 +22,101 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class sslcertchain_binding(base_resource):
-	""" Binding class showing the resources that can be bound to sslcertchain_binding. 
-	"""
-	def __init__(self) :
-		self._certkeyname = ""
-		self.sslcertchain_sslcertkey_binding = []
+    """Binding class showing the resources that can be bound to sslcertchain_binding."""
+    def __init__(self) :
+        self._certkeyname = ""
+        self.sslcertchain_sslcertkey_binding = []
 
-	@property
-	def certkeyname(self) :
-		r"""Name of the Certificate.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._certkeyname
-		except Exception as e:
-			raise e
+    @property
+    def certkeyname(self) :
+        """Name of the Certificate.<br/>Minimum length =  1."""
+        try :
+            return self._certkeyname
+        except Exception as e:
+            raise e
 
-	@certkeyname.setter
-	def certkeyname(self, certkeyname) :
-		r"""Name of the Certificate.<br/>Minimum length =  1
-		"""
-		try :
-			self._certkeyname = certkeyname
-		except Exception as e:
-			raise e
+    @certkeyname.setter
+    def certkeyname(self, certkeyname) :
+        """Name of the Certificate.<br/>Minimum length =  1
 
-	@property
-	def sslcertchain_sslcertkey_bindings(self) :
-		r"""sslcertkey that can be bound to sslcertchain.
-		"""
-		try :
-			return self._sslcertchain_sslcertkey_binding
-		except Exception as e:
-			raise e
+        :param certkeyname: 
 
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(sslcertchain_binding_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.sslcertchain_binding
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._certkeyname = certkeyname
+        except Exception as e:
+            raise e
 
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.certkeyname is not None :
-				return str(self.certkeyname)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def sslcertchain_sslcertkey_bindings(self) :
+        """sslcertkey that can be bound to sslcertchain."""
+        try :
+            return self._sslcertchain_sslcertkey_binding
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(sslcertchain_binding_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.sslcertchain_binding
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.certkeyname is not None :
+                return str(self.certkeyname)
+            return None
+        except Exception as e :
+            raise e
 
 
 
-	@classmethod
-	def get(self, service, certkeyname) :
-		r""" Use this API to fetch sslcertchain_binding resource.
-		"""
-		try :
-			if type(certkeyname) is not list :
-				obj = sslcertchain_binding()
-				obj.certkeyname = certkeyname
-				response = obj.get_resource(service)
-			else :
-				if certkeyname and len(certkeyname) > 0 :
-					obj = [sslcertchain_binding() for _ in range(len(certkeyname))]
-					for i in range(len(certkeyname)) :
-						obj[i].certkeyname = certkeyname[i];
-						response[i] = obj[i].get_resource(service)
-			return response
-		except Exception as e:
-			raise e
+    @classmethod
+    def get(self, service, certkeyname) :
+        """Use this API to fetch sslcertchain_binding resource.
+
+        :param service: 
+        :param certkeyname: 
+
+        """
+        try :
+            if type(certkeyname) is not list :
+                obj = sslcertchain_binding()
+                obj.certkeyname = certkeyname
+                response = obj.get_resource(service)
+            else :
+                if certkeyname and len(certkeyname) > 0 :
+                    obj = [sslcertchain_binding() for _ in range(len(certkeyname))]
+                    for i in range(len(certkeyname)) :
+                        obj[i].certkeyname = certkeyname[i];
+                        response[i] = obj[i].get_resource(service)
+            return response
+        except Exception as e:
+            raise e
 
 class sslcertchain_binding_response(base_response) :
-	def __init__(self, length=1) :
-		self.sslcertchain_binding = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.sslcertchain_binding = [sslcertchain_binding() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.sslcertchain_binding = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.sslcertchain_binding = [sslcertchain_binding() for _ in range(length)]
 

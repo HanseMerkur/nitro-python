@@ -22,346 +22,401 @@ from nitro.exception.nitro_exception import nitro_exception
 from nitro.util.nitro_util import nitro_util
 
 class authenticationdfaaction(base_resource) :
-	""" Configuration for Dfa authentication action resource. """
-	def __init__(self) :
-		self._name = ""
-		self._clientid = ""
-		self._serverurl = ""
-		self._passphrase = ""
-		self._defaultauthenticationgroup = ""
-		self._success = 0
-		self._failure = 0
-		self.___count = 0
+    """Configuration for Dfa authentication action resource."""
+    def __init__(self) :
+        self._name = ""
+        self._clientid = ""
+        self._serverurl = ""
+        self._passphrase = ""
+        self._defaultauthenticationgroup = ""
+        self._success = 0
+        self._failure = 0
+        self.___count = 0
 
-	@property
-	def name(self) :
-		r"""Name for the DFA action. 
-		Must begin with a letter, number, or the underscore character (_), and must contain only letters, numbers, and the hyphen (-), period (.) pound (#), space ( ), at (@), equals (=), colon (:), and underscore characters. Cannot be changed after the DFA action is added.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._name
-		except Exception as e:
-			raise e
-
-	@name.setter
-	def name(self, name) :
-		r"""Name for the DFA action. 
-		Must begin with a letter, number, or the underscore character (_), and must contain only letters, numbers, and the hyphen (-), period (.) pound (#), space ( ), at (@), equals (=), colon (:), and underscore characters. Cannot be changed after the DFA action is added.<br/>Minimum length =  1
-		"""
-		try :
-			self._name = name
-		except Exception as e:
-			raise e
-
-	@property
-	def clientid(self) :
-		r"""If configured, this string is sent to the DFA server as the X-Citrix-Exchange header value.
-		"""
-		try :
-			return self._clientid
-		except Exception as e:
-			raise e
-
-	@clientid.setter
-	def clientid(self, clientid) :
-		r"""If configured, this string is sent to the DFA server as the X-Citrix-Exchange header value.
-		"""
-		try :
-			self._clientid = clientid
-		except Exception as e:
-			raise e
-
-	@property
-	def serverurl(self) :
-		r"""DFA Server URL.
-		"""
-		try :
-			return self._serverurl
-		except Exception as e:
-			raise e
-
-	@serverurl.setter
-	def serverurl(self, serverurl) :
-		r"""DFA Server URL.
-		"""
-		try :
-			self._serverurl = serverurl
-		except Exception as e:
-			raise e
-
-	@property
-	def passphrase(self) :
-		r"""Key shared between the DFA server and the NetScaler appliance. 
-		Required to allow the NetScaler appliance to communicate with the DFA server.<br/>Minimum length =  1.
-		"""
-		try :
-			return self._passphrase
-		except Exception as e:
-			raise e
-
-	@passphrase.setter
-	def passphrase(self, passphrase) :
-		r"""Key shared between the DFA server and the NetScaler appliance. 
-		Required to allow the NetScaler appliance to communicate with the DFA server.<br/>Minimum length =  1
-		"""
-		try :
-			self._passphrase = passphrase
-		except Exception as e:
-			raise e
-
-	@property
-	def defaultauthenticationgroup(self) :
-		r"""This is the default group that is chosen when the authentication succeeds in addition to extracted groups.
-		"""
-		try :
-			return self._defaultauthenticationgroup
-		except Exception as e:
-			raise e
-
-	@defaultauthenticationgroup.setter
-	def defaultauthenticationgroup(self, defaultauthenticationgroup) :
-		r"""This is the default group that is chosen when the authentication succeeds in addition to extracted groups.
-		"""
-		try :
-			self._defaultauthenticationgroup = defaultauthenticationgroup
-		except Exception as e:
-			raise e
-
-	@property
-	def success(self) :
-		try :
-			return self._success
-		except Exception as e:
-			raise e
-
-	@property
-	def failure(self) :
-		try :
-			return self._failure
-		except Exception as e:
-			raise e
-
-	def _get_nitro_response(self, service, response) :
-		r""" converts nitro response into object and returns the object array in case of get request.
-		"""
-		try :
-			result = service.payload_formatter.string_to_resource(authenticationdfaaction_response, response, self.__class__.__name__)
-			if(result.errorcode != 0) :
-				if (result.errorcode == 444) :
-					service.clear_session(self)
-				if result.severity :
-					if (result.severity == "ERROR") :
-						raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-				else :
-					raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
-			return result.authenticationdfaaction
-		except Exception as e :
-			raise e
-
-	def _get_object_name(self) :
-		r""" Returns the value of object identifier argument
-		"""
-		try :
-			if self.name is not None :
-				return str(self.name)
-			return None
-		except Exception as e :
-			raise e
+    @property
+    def name(self) :
+        """Name for the DFA action.
+        Must begin with a letter, number, or the underscore character (_), and must contain only letters, numbers, and the hyphen (-), period (.) pound (#), space ( ), at (@), equals (=), colon (:), and underscore characters. Cannot be changed after the DFA action is added.<br/>Minimum length =  1.
 
 
+        """
+        try :
+            return self._name
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def add(cls, client, resource) :
-		r""" Use this API to add authenticationdfaaction.
-		"""
-		try :
-			if type(resource) is not list :
-				addresource = authenticationdfaaction()
-				addresource.name = resource.name
-				addresource.clientid = resource.clientid
-				addresource.serverurl = resource.serverurl
-				addresource.passphrase = resource.passphrase
-				addresource.defaultauthenticationgroup = resource.defaultauthenticationgroup
-				return addresource.add_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					addresources = [ authenticationdfaaction() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						addresources[i].name = resource[i].name
-						addresources[i].clientid = resource[i].clientid
-						addresources[i].serverurl = resource[i].serverurl
-						addresources[i].passphrase = resource[i].passphrase
-						addresources[i].defaultauthenticationgroup = resource[i].defaultauthenticationgroup
-				result = cls.add_bulk_request(client, addresources)
-			return result
-		except Exception as e :
-			raise e
+    @name.setter
+    def name(self, name) :
+        """Name for the DFA action.
+        Must begin with a letter, number, or the underscore character (_), and must contain only letters, numbers, and the hyphen (-), period (.) pound (#), space ( ), at (@), equals (=), colon (:), and underscore characters. Cannot be changed after the DFA action is added.<br/>Minimum length =  1
 
-	@classmethod
-	def delete(cls, client, resource) :
-		r""" Use this API to delete authenticationdfaaction.
-		"""
-		try :
-			if type(resource) is not list :
-				deleteresource = authenticationdfaaction()
-				if type(resource) !=  type(deleteresource):
-					deleteresource.name = resource
-				else :
-					deleteresource.name = resource.name
-				return deleteresource.delete_resource(client)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ authenticationdfaaction() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].name = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						deleteresources = [ authenticationdfaaction() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							deleteresources[i].name = resource[i].name
-				result = cls.delete_bulk_request(client, deleteresources)
-			return result
-		except Exception as e :
-			raise e
+        :param name: 
 
-	@classmethod
-	def update(cls, client, resource) :
-		r""" Use this API to update authenticationdfaaction.
-		"""
-		try :
-			if type(resource) is not list :
-				updateresource = authenticationdfaaction()
-				updateresource.name = resource.name
-				updateresource.clientid = resource.clientid
-				updateresource.serverurl = resource.serverurl
-				updateresource.passphrase = resource.passphrase
-				updateresource.defaultauthenticationgroup = resource.defaultauthenticationgroup
-				return updateresource.update_resource(client)
-			else :
-				if (resource and len(resource) > 0) :
-					updateresources = [ authenticationdfaaction() for _ in range(len(resource))]
-					for i in range(len(resource)) :
-						updateresources[i].name = resource[i].name
-						updateresources[i].clientid = resource[i].clientid
-						updateresources[i].serverurl = resource[i].serverurl
-						updateresources[i].passphrase = resource[i].passphrase
-						updateresources[i].defaultauthenticationgroup = resource[i].defaultauthenticationgroup
-				result = cls.update_bulk_request(client, updateresources)
-			return result
-		except Exception as e :
-			raise e
+        """
+        try :
+            self._name = name
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def unset(cls, client, resource, args) :
-		r""" Use this API to unset the properties of authenticationdfaaction resource.
-		Properties that need to be unset are specified in args array.
-		"""
-		try :
-			if type(resource) is not list :
-				unsetresource = authenticationdfaaction()
-				if type(resource) !=  type(unsetresource):
-					unsetresource.name = resource
-				else :
-					unsetresource.name = resource.name
-				return unsetresource.unset_resource(client, args)
-			else :
-				if type(resource[0]) != cls :
-					if (resource and len(resource) > 0) :
-						unsetresources = [ authenticationdfaaction() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							unsetresources[i].name = resource[i]
-				else :
-					if (resource and len(resource) > 0) :
-						unsetresources = [ authenticationdfaaction() for _ in range(len(resource))]
-						for i in range(len(resource)) :
-							unsetresources[i].name = resource[i].name
-				result = cls.unset_bulk_request(client, unsetresources, args)
-			return result
-		except Exception as e :
-			raise e
+    @property
+    def clientid(self) :
+        """If configured, this string is sent to the DFA server as the X-Citrix-Exchange header value."""
+        try :
+            return self._clientid
+        except Exception as e:
+            raise e
 
-	@classmethod
-	def get(cls, client, name="", option_="") :
-		r""" Use this API to fetch all the authenticationdfaaction resources that are configured on netscaler.
-		"""
-		try :
-			if not name :
-				obj = authenticationdfaaction()
-				response = obj.get_resources(client, option_)
-			else :
-				if type(name) != cls :
-					if type(name) is not list :
-						obj = authenticationdfaaction()
-						obj.name = name
-						response = obj.get_resource(client, option_)
-					else :
-						if name and len(name) > 0 :
-							response = [authenticationdfaaction() for _ in range(len(name))]
-							obj = [authenticationdfaaction() for _ in range(len(name))]
-							for i in range(len(name)) :
-								obj[i] = authenticationdfaaction()
-								obj[i].name = name[i]
-								response[i] = obj[i].get_resource(client, option_)
-			return response
-		except Exception as e :
-			raise e
+    @clientid.setter
+    def clientid(self, clientid) :
+        """If configured, this string is sent to the DFA server as the X-Citrix-Exchange header value.
+
+        :param clientid: 
+
+        """
+        try :
+            self._clientid = clientid
+        except Exception as e:
+            raise e
+
+    @property
+    def serverurl(self) :
+        """DFA Server URL."""
+        try :
+            return self._serverurl
+        except Exception as e:
+            raise e
+
+    @serverurl.setter
+    def serverurl(self, serverurl) :
+        """DFA Server URL.
+
+        :param serverurl: 
+
+        """
+        try :
+            self._serverurl = serverurl
+        except Exception as e:
+            raise e
+
+    @property
+    def passphrase(self) :
+        """Key shared between the DFA server and the NetScaler appliance.
+        Required to allow the NetScaler appliance to communicate with the DFA server.<br/>Minimum length =  1.
 
 
-	@classmethod
-	def get_filtered(cls, client, filter_) :
-		r""" Use this API to fetch filtered set of authenticationdfaaction resources.
-		filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = authenticationdfaaction()
-			option_ = options()
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			return response
-		except Exception as e :
-			raise e
+        """
+        try :
+            return self._passphrase
+        except Exception as e:
+            raise e
+
+    @passphrase.setter
+    def passphrase(self, passphrase) :
+        """Key shared between the DFA server and the NetScaler appliance.
+        Required to allow the NetScaler appliance to communicate with the DFA server.<br/>Minimum length =  1
+
+        :param passphrase: 
+
+        """
+        try :
+            self._passphrase = passphrase
+        except Exception as e:
+            raise e
+
+    @property
+    def defaultauthenticationgroup(self) :
+        """This is the default group that is chosen when the authentication succeeds in addition to extracted groups."""
+        try :
+            return self._defaultauthenticationgroup
+        except Exception as e:
+            raise e
+
+    @defaultauthenticationgroup.setter
+    def defaultauthenticationgroup(self, defaultauthenticationgroup) :
+        """This is the default group that is chosen when the authentication succeeds in addition to extracted groups.
+
+        :param defaultauthenticationgroup: 
+
+        """
+        try :
+            self._defaultauthenticationgroup = defaultauthenticationgroup
+        except Exception as e:
+            raise e
+
+    @property
+    def success(self) :
+        """ """
+        try :
+            return self._success
+        except Exception as e:
+            raise e
+
+    @property
+    def failure(self) :
+        """ """
+        try :
+            return self._failure
+        except Exception as e:
+            raise e
+
+    def _get_nitro_response(self, service, response) :
+        """converts nitro response into object and returns the object array in case of get request.
+
+        :param service: 
+        :param response: 
+
+        """
+        try :
+            result = service.payload_formatter.string_to_resource(authenticationdfaaction_response, response, self.__class__.__name__)
+            if(result.errorcode != 0) :
+                if (result.errorcode == 444) :
+                    service.clear_session(self)
+                if result.severity :
+                    if (result.severity == "ERROR") :
+                        raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+                else :
+                    raise nitro_exception(result.errorcode, str(result.message), str(result.severity))
+            return result.authenticationdfaaction
+        except Exception as e :
+            raise e
+
+    def _get_object_name(self) :
+        """Returns the value of object identifier argument"""
+        try :
+            if self.name is not None :
+                return str(self.name)
+            return None
+        except Exception as e :
+            raise e
 
 
-	@classmethod
-	def count(cls, client) :
-		r""" Use this API to count the authenticationdfaaction resources configured on NetScaler.
-		"""
-		try :
-			obj = authenticationdfaaction()
-			option_ = options()
-			option_.count = True
-			response = obj.get_resources(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
 
-	@classmethod
-	def count_filtered(cls, client, filter_) :
-		r""" Use this API to count filtered the set of authenticationdfaaction resources.
-		Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
-		"""
-		try :
-			obj = authenticationdfaaction()
-			option_ = options()
-			option_.count = True
-			option_.filter = filter_
-			response = obj.getfiltered(client, option_)
-			if response :
-				return response[0].__dict__['___count']
-			return 0
-		except Exception as e :
-			raise e
+    @classmethod
+    def add(cls, client, resource) :
+        """Use this API to add authenticationdfaaction.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                addresource = authenticationdfaaction()
+                addresource.name = resource.name
+                addresource.clientid = resource.clientid
+                addresource.serverurl = resource.serverurl
+                addresource.passphrase = resource.passphrase
+                addresource.defaultauthenticationgroup = resource.defaultauthenticationgroup
+                return addresource.add_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    addresources = [ authenticationdfaaction() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        addresources[i].name = resource[i].name
+                        addresources[i].clientid = resource[i].clientid
+                        addresources[i].serverurl = resource[i].serverurl
+                        addresources[i].passphrase = resource[i].passphrase
+                        addresources[i].defaultauthenticationgroup = resource[i].defaultauthenticationgroup
+                result = cls.add_bulk_request(client, addresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def delete(cls, client, resource) :
+        """Use this API to delete authenticationdfaaction.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                deleteresource = authenticationdfaaction()
+                if type(resource) !=  type(deleteresource):
+                    deleteresource.name = resource
+                else :
+                    deleteresource.name = resource.name
+                return deleteresource.delete_resource(client)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ authenticationdfaaction() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].name = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        deleteresources = [ authenticationdfaaction() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            deleteresources[i].name = resource[i].name
+                result = cls.delete_bulk_request(client, deleteresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def update(cls, client, resource) :
+        """Use this API to update authenticationdfaaction.
+
+        :param client: 
+        :param resource: 
+
+        """
+        try :
+            if type(resource) is not list :
+                updateresource = authenticationdfaaction()
+                updateresource.name = resource.name
+                updateresource.clientid = resource.clientid
+                updateresource.serverurl = resource.serverurl
+                updateresource.passphrase = resource.passphrase
+                updateresource.defaultauthenticationgroup = resource.defaultauthenticationgroup
+                return updateresource.update_resource(client)
+            else :
+                if (resource and len(resource) > 0) :
+                    updateresources = [ authenticationdfaaction() for _ in range(len(resource))]
+                    for i in range(len(resource)) :
+                        updateresources[i].name = resource[i].name
+                        updateresources[i].clientid = resource[i].clientid
+                        updateresources[i].serverurl = resource[i].serverurl
+                        updateresources[i].passphrase = resource[i].passphrase
+                        updateresources[i].defaultauthenticationgroup = resource[i].defaultauthenticationgroup
+                result = cls.update_bulk_request(client, updateresources)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def unset(cls, client, resource, args) :
+        """Use this API to unset the properties of authenticationdfaaction resource.
+        Properties that need to be unset are specified in args array.
+
+        :param client: 
+        :param resource: 
+        :param args: 
+
+        """
+        try :
+            if type(resource) is not list :
+                unsetresource = authenticationdfaaction()
+                if type(resource) !=  type(unsetresource):
+                    unsetresource.name = resource
+                else :
+                    unsetresource.name = resource.name
+                return unsetresource.unset_resource(client, args)
+            else :
+                if type(resource[0]) != cls :
+                    if (resource and len(resource) > 0) :
+                        unsetresources = [ authenticationdfaaction() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            unsetresources[i].name = resource[i]
+                else :
+                    if (resource and len(resource) > 0) :
+                        unsetresources = [ authenticationdfaaction() for _ in range(len(resource))]
+                        for i in range(len(resource)) :
+                            unsetresources[i].name = resource[i].name
+                result = cls.unset_bulk_request(client, unsetresources, args)
+            return result
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def get(cls, client, name="", option_="") :
+        """Use this API to fetch all the authenticationdfaaction resources that are configured on netscaler.
+
+        :param client: 
+        :param name:  (Default value = "")
+        :param option_:  (Default value = "")
+
+        """
+        try :
+            if not name :
+                obj = authenticationdfaaction()
+                response = obj.get_resources(client, option_)
+            else :
+                if type(name) != cls :
+                    if type(name) is not list :
+                        obj = authenticationdfaaction()
+                        obj.name = name
+                        response = obj.get_resource(client, option_)
+                    else :
+                        if name and len(name) > 0 :
+                            response = [authenticationdfaaction() for _ in range(len(name))]
+                            obj = [authenticationdfaaction() for _ in range(len(name))]
+                            for i in range(len(name)) :
+                                obj[i] = authenticationdfaaction()
+                                obj[i].name = name[i]
+                                response[i] = obj[i].get_resource(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    @classmethod
+    def get_filtered(cls, client, filter_) :
+        """Use this API to fetch filtered set of authenticationdfaaction resources.
+        filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = authenticationdfaaction()
+            option_ = options()
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            return response
+        except Exception as e :
+            raise e
+
+
+    @classmethod
+    def count(cls, client) :
+        """Use this API to count the authenticationdfaaction resources configured on NetScaler.
+
+        :param client: 
+
+        """
+        try :
+            obj = authenticationdfaaction()
+            option_ = options()
+            option_.count = True
+            response = obj.get_resources(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
+
+    @classmethod
+    def count_filtered(cls, client, filter_) :
+        """Use this API to count filtered the set of authenticationdfaaction resources.
+        Filter string should be in JSON format.eg: "port:80,servicetype:HTTP".
+
+        :param client: 
+        :param filter_: 
+
+        """
+        try :
+            obj = authenticationdfaaction()
+            option_ = options()
+            option_.count = True
+            option_.filter = filter_
+            response = obj.getfiltered(client, option_)
+            if response :
+                return response[0].__dict__['___count']
+            return 0
+        except Exception as e :
+            raise e
 
 
 class authenticationdfaaction_response(base_response) :
-	def __init__(self, length=1) :
-		self.authenticationdfaaction = []
-		self.errorcode = 0
-		self.message = ""
-		self.severity = ""
-		self.sessionid = ""
-		self.authenticationdfaaction = [authenticationdfaaction() for _ in range(length)]
+    """ """
+    def __init__(self, length=1) :
+        self.authenticationdfaaction = []
+        self.errorcode = 0
+        self.message = ""
+        self.severity = ""
+        self.sessionid = ""
+        self.authenticationdfaaction = [authenticationdfaaction() for _ in range(length)]
 
