@@ -1,0 +1,896 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.ssl.sslservicegroup module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.config.ssl.sslservicegroup_args module" href="nitro.resource.config.ssl.sslservicegroup_args.html" />
+    <link rel="prev" title="nitro.resource.config.ssl.sslservice_sslpolicy_binding module" href="nitro.resource.config.ssl.sslservice_sslpolicy_binding.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.html">nitro.resource.config package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.ssl.html">nitro.resource.config.ssl package</a> &raquo;</li>
+        
+      <li>nitro.resource.config.ssl.sslservicegroup module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.config.ssl.sslservicegroup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.config.ssl.sslservicegroup">
+<span id="nitro-resource-config-ssl-sslservicegroup-module"></span><h1>nitro.resource.config.ssl.sslservicegroup module<a class="headerlink" href="#module-nitro.resource.config.ssl.sslservicegroup" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.ssl.sslservicegroup.</code><code class="descname">sslservicegroup</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<p>Configuration for SSL service group resource.</p>
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Cipherredirect">
+<em class="property">class </em><code class="descname">Cipherredirect</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Cipherredirect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Cipherredirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Cipherredirect.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Cipherredirect.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Cipherredirect.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Cipherredirect.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientauth">
+<em class="property">class </em><code class="descname">Clientauth</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Clientauth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientauth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientauth.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientauth.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientauth.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientauth.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientcert">
+<em class="property">class </em><code class="descname">Clientcert</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Clientcert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientcert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientcert.Mandatory">
+<code class="descname">Mandatory</code><em class="property"> = 'Mandatory'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientcert.Mandatory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientcert.Optional">
+<code class="descname">Optional</code><em class="property"> = 'Optional'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientcert.Optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Crlcheck">
+<em class="property">class </em><code class="descname">Crlcheck</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Crlcheck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Crlcheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Crlcheck.Mandatory">
+<code class="descname">Mandatory</code><em class="property"> = 'Mandatory'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Crlcheck.Mandatory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Crlcheck.Optional">
+<code class="descname">Optional</code><em class="property"> = 'Optional'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Crlcheck.Optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dh">
+<em class="property">class </em><code class="descname">Dh</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Dh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dh.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dh.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dh.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dh.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dhkeyexpsizelimit">
+<em class="property">class </em><code class="descname">Dhkeyexpsizelimit</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Dhkeyexpsizelimit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dhkeyexpsizelimit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dhkeyexpsizelimit.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dhkeyexpsizelimit.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dhkeyexpsizelimit.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dhkeyexpsizelimit.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ersa">
+<em class="property">class </em><code class="descname">Ersa</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Ersa"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ersa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ersa.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ersa.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ersa.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ersa.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Nonfipsciphers">
+<em class="property">class </em><code class="descname">Nonfipsciphers</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Nonfipsciphers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Nonfipsciphers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Nonfipsciphers.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Nonfipsciphers.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Nonfipsciphers.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Nonfipsciphers.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ocspcheck">
+<em class="property">class </em><code class="descname">Ocspcheck</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Ocspcheck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ocspcheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ocspcheck.Mandatory">
+<code class="descname">Mandatory</code><em class="property"> = 'Mandatory'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ocspcheck.Mandatory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ocspcheck.Optional">
+<code class="descname">Optional</code><em class="property"> = 'Optional'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ocspcheck.Optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Redirectportrewrite">
+<em class="property">class </em><code class="descname">Redirectportrewrite</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Redirectportrewrite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Redirectportrewrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Redirectportrewrite.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Redirectportrewrite.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Redirectportrewrite.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Redirectportrewrite.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sendclosenotify">
+<em class="property">class </em><code class="descname">Sendclosenotify</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Sendclosenotify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sendclosenotify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sendclosenotify.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sendclosenotify.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sendclosenotify.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sendclosenotify.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Serverauth">
+<em class="property">class </em><code class="descname">Serverauth</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Serverauth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Serverauth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Serverauth.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Serverauth.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Serverauth.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Serverauth.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sessreuse">
+<em class="property">class </em><code class="descname">Sessreuse</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Sessreuse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sessreuse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sessreuse.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sessreuse.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sessreuse.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sessreuse.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl2">
+<em class="property">class </em><code class="descname">Ssl2</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Ssl2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl2.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl2.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl2.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl2.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl3">
+<em class="property">class </em><code class="descname">Ssl3</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Ssl3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl3.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl3.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl3.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl3.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslredirect">
+<em class="property">class </em><code class="descname">Sslredirect</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Sslredirect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslredirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslredirect.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslredirect.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslredirect.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslredirect.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslv2redirect">
+<em class="property">class </em><code class="descname">Sslv2redirect</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Sslv2redirect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslv2redirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslv2redirect.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslv2redirect.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslv2redirect.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslv2redirect.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls1">
+<em class="property">class </em><code class="descname">Tls1</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Tls1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls1.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls1.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls1.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls1.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls11">
+<em class="property">class </em><code class="descname">Tls11</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Tls11"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls11" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls11.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls11.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls11.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls11.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls12">
+<em class="property">class </em><code class="descname">Tls12</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.Tls12"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls12" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls12.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls12.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls12.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls12.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.ca">
+<code class="descname">ca</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.ca" title="Permalink to this definition">¶</a></dt>
+<dd><p>CA certificate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.cipherdetails">
+<code class="descname">cipherdetails</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.cipherdetails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display details of the individual ciphers bound to the SSL service group.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.cipherredirect">
+<code class="descname">cipherredirect</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.cipherredirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state of Cipher Redirect feature. Cipher Redirect feature can be used to provide more readable information to SSL clients about mismatch in ciphers between the client and the SSL vserver.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.cipherurl">
+<code class="descname">cipherurl</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.cipherurl" title="Permalink to this definition">¶</a></dt>
+<dd><p>The redirect URL to be used with the  Cipher  Redirect  feature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.cleartextport">
+<code class="descname">cleartextport</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.cleartextport" title="Permalink to this definition">¶</a></dt>
+<dd><p>The port on the back-end web-servers where the clear-text data is sent by system. Use this setting for the wildcard IP based SSL Acceleration configuration (<a href="#id1"><span class="problematic" id="id2">*</span></a>:443).&lt;br/&gt;Range 1 - 65535.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.clientauth">
+<code class="descname">clientauth</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.clientauth" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state of Client-Authentication support for the SSL service group.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.clientcert">
+<code class="descname">clientcert</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.clientcert" title="Permalink to this definition">¶</a></dt>
+<dd><p>The rule for client certificate requirement in client authentication.&lt;br/&gt;Possible values = Mandatory, Optional.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.commonname">
+<code class="descname">commonname</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.commonname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name to be checked against the CommonName (CN) field in the server certificate bound to the SSL server.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.count">
+<em class="property">classmethod </em><code class="descname">count</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count the sslservicegroup resources configured on NetScaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>client</strong> – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.count_filtered">
+<em class="property">classmethod </em><code class="descname">count_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.count_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.count_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count filtered the set of sslservicegroup resources.
+Filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.crlcheck">
+<code class="descname">crlcheck</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.crlcheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state of the CRL check parameter. (Mandatory/Optional).&lt;br/&gt;Possible values = Mandatory, Optional.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.dh">
+<code class="descname">dh</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.dh" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state of DH key exchange support for the SSL service group.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.dhcount">
+<code class="descname">dhcount</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.dhcount" title="Permalink to this definition">¶</a></dt>
+<dd><p>The  refresh  count  for  the re-generation of DH public-key and private-key from the DH parameter.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.dhfile">
+<code class="descname">dhfile</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.dhfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>The  file name and path for the DH parameter.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.dhkeyexpsizelimit">
+<code class="descname">dhkeyexpsizelimit</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.dhkeyexpsizelimit" title="Permalink to this definition">¶</a></dt>
+<dd><p>This option enables the use of NIST recommended (NIST Special Publication 800-56A) bit size for private-key size. For example, for DH params of size 2048bit, the private-key size recommended is 224bits. This is rounded-up to 256bits.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.ersa">
+<code class="descname">ersa</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.ersa" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state of Ephemeral RSA key exchange support for the SSL service group.Ephemeral RSA is used for export ciphers.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.ersacount">
+<code class="descname">ersacount</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.ersacount" title="Permalink to this definition">¶</a></dt>
+<dd><p>The  refresh  count  for the re-generation of RSA public-key and private-key pair.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch all the sslservicegroup resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.get_args">
+<em class="property">classmethod </em><code class="descname">get_args</code><span class="sig-paren">(</span><em>client</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.get_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.get_args" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Use this API to fetch all the sslservicegroup resources that are configured on netscaler.</dt>
+<dd># This uses sslservicegroup_args which is a way to provide additional arguments while fetching the resources.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.get_filtered">
+<em class="property">classmethod </em><code class="descname">get_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.get_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.get_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch filtered set of sslservicegroup resources.
+filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.nonfipsciphers">
+<code class="descname">nonfipsciphers</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.nonfipsciphers" title="Permalink to this definition">¶</a></dt>
+<dd><p>State of usage of ciphers that are not FIPS approved. Valid only for an SSL service bound with a FIPS key and certificate.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.ocspcheck">
+<code class="descname">ocspcheck</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.ocspcheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state of the OCSP check parameter. (Mandatory/Optional).&lt;br/&gt;Possible values = Mandatory, Optional.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.redirectportrewrite">
+<code class="descname">redirectportrewrite</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.redirectportrewrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state of port-rewrite feature.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sendclosenotify">
+<code class="descname">sendclosenotify</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sendclosenotify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable sending SSL Close-Notify at the end of a transaction.&lt;br/&gt;Default value: YES&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.serverauth">
+<code class="descname">serverauth</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.serverauth" title="Permalink to this definition">¶</a></dt>
+<dd><p>State of server authentication support for the SSL service group.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.servicegroupname">
+<code class="descname">servicegroupname</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.servicegroupname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the SSL service group for which to set advanced configuration.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.servicename">
+<code class="descname">servicename</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.servicename" title="Permalink to this definition">¶</a></dt>
+<dd><p>The service name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sessreuse">
+<code class="descname">sessreuse</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sessreuse" title="Permalink to this definition">¶</a></dt>
+<dd><p>State of session reuse. Establishing the initial handshake requires CPU-intensive public key encryption operations. With the ENABLED setting, session key exchange is avoided for session resumption requests received from the client.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sesstimeout">
+<code class="descname">sesstimeout</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sesstimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time, in seconds, for which to keep the session active. Any session resumption request received after the timeout period will require a fresh SSL handshake and establishment of a new SSL session.&lt;br/&gt;Default value: 300&lt;br/&gt;Maximum length =  0xFFFFFFFE.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.snicert">
+<code class="descname">snicert</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.snicert" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the CertKey. Use this option to bind Certkey(s) which will be used in SNI processing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.ssl2">
+<code class="descname">ssl2</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.ssl2" title="Permalink to this definition">¶</a></dt>
+<dd><p>The  state of SSLv2 protocol support for the SSL service group.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.ssl3">
+<code class="descname">ssl3</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.ssl3" title="Permalink to this definition">¶</a></dt>
+<dd><p>State of SSLv3 protocol support for the SSL service group.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sslprofile">
+<code class="descname">sslprofile</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sslprofile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the SSL profile that contains SSL settings for the Service Group.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  127.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sslredirect">
+<code class="descname">sslredirect</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sslredirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state of HTTPS redirects for the SSL service group.
+This is required for the proper functioning of the redirect messages from the server. The redirect message from the server provides the new location for the moved object. This is contained in the HTTP header field: Location, e.g. Location: <a class="reference external" href="http://www.moved.org/here.html">http://www.moved.org/here.html</a>
+For the SSL session, if the client browser receives this message, the browser will try to connect to the new location. This will break the secure SSL session, as the object has moved from a secure site (<a class="reference external" href="https://">https://</a>) to an un-secure one (<a class="reference external" href="http://">http://</a>). Generally browsers flash a warning message on the screen and prompt the user, either to continue or disconnect.
+The above feature, when enabled will automatically convert all such <a class="reference external" href="http://">http://</a> redirect message to <a class="reference external" href="https://">https://</a>. This will not break the client SSL session.
+Note: The set ssl service command can be used for configuring a front-end SSL service for service based SSL Off-Loading, or a backend SSL service for backend-encryption setup.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sslv2redirect">
+<code class="descname">sslv2redirect</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sslv2redirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state of SSLv2 Redirect feature.SSLv2 Redirect feature can be used to provide more readable information to SSL client about non-support of SSLv2 protocol on the SSL vserver.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sslv2url">
+<code class="descname">sslv2url</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.sslv2url" title="Permalink to this definition">¶</a></dt>
+<dd><p>The  redirect URL to be used with SSLv2 Redirect feature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.tls1">
+<code class="descname">tls1</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.tls1" title="Permalink to this definition">¶</a></dt>
+<dd><p>State of TLSv1.0 protocol support for the SSL service group.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.tls11">
+<code class="descname">tls11</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.tls11" title="Permalink to this definition">¶</a></dt>
+<dd><p>State of TLSv1.1 protocol support for the SSL service group.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.tls12">
+<code class="descname">tls12</code><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.tls12" title="Permalink to this definition">¶</a></dt>
+<dd><p>State of TLSv1.2 protocol support for the SSL service group.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.unset">
+<em class="property">classmethod </em><code class="descname">unset</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.unset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.unset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to unset the properties of sslservicegroup resource.
+Properties that need to be unset are specified in args array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup.update">
+<em class="property">classmethod </em><code class="descname">update</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to update sslservicegroup.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslservicegroup.sslservicegroup_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.ssl.sslservicegroup.</code><code class="descname">sslservicegroup_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslservicegroup.html#sslservicegroup_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslservicegroup.sslservicegroup_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.config.ssl.sslservicegroup_args.html" class="btn btn-neutral float-right" title="nitro.resource.config.ssl.sslservicegroup_args module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.config.ssl.sslservice_sslpolicy_binding.html" class="btn btn-neutral float-left" title="nitro.resource.config.ssl.sslservice_sslpolicy_binding module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1122 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.feo.feoaction &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.feo.feoaction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.feo.feoaction</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="feoaction"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.feo.feoaction.html#nitro.resource.config.feo.feoaction.feoaction">[docs]</a><span class="k">class</span> <span class="nc">feoaction</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for Front end optimization action resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pageextendcache</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_imgshrinktoattrib</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_imggiftopng</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_imgtowebp</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_imgtojpegxr</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_imginline</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cssimginline</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_jpgoptimize</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_imglazyload</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cssminify</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cssinline</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_csscombine</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_convertimporttolink</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_jsminify</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_jsinline</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_htmlminify</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cssmovetohead</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_jsmovetoend</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_domainsharding</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dnsshards</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clientsidemeasurements</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_imgadddimensions</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_imgshrinkformobile</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_imgweaken</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_jpgprogressive</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cssflattenimports</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_jscombine</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_htmlrmdefaultattribs</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_htmlrmattribquotes</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_htmltrimurls</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hits</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_undefhits</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_builtin</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">___count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The name of the front end optimization action.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The name of the front end optimization action.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param name: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pageextendcache</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Extend the time period during which the browser can use the cached resource.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pageextendcache</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@pageextendcache</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">pageextendcache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageextendcache</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Extend the time period during which the browser can use the cached resource.</span>
+
+<span class="sd">        :param pageextendcache: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pageextendcache</span> <span class="o">=</span> <span class="n">pageextendcache</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">imgshrinktoattrib</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Shrink image dimensions as per the height and width attributes specified in the &lt;img&gt; tag.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imgshrinktoattrib</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@imgshrinktoattrib</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">imgshrinktoattrib</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgshrinktoattrib</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Shrink image dimensions as per the height and width attributes specified in the &lt;img&gt; tag.</span>
+
+<span class="sd">        :param imgshrinktoattrib: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_imgshrinktoattrib</span> <span class="o">=</span> <span class="n">imgshrinktoattrib</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">imggiftopng</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert GIF image formats to PNG formats.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imggiftopng</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@imggiftopng</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">imggiftopng</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imggiftopng</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert GIF image formats to PNG formats.</span>
+
+<span class="sd">        :param imggiftopng: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_imggiftopng</span> <span class="o">=</span> <span class="n">imggiftopng</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">imgtowebp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert JPEG, GIF, PNG image formats to WEBP format.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imgtowebp</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@imgtowebp</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">imgtowebp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgtowebp</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert JPEG, GIF, PNG image formats to WEBP format.</span>
+
+<span class="sd">        :param imgtowebp: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_imgtowebp</span> <span class="o">=</span> <span class="n">imgtowebp</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">imgtojpegxr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert JPEG, GIF, PNG image formats to JXR format.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imgtojpegxr</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@imgtojpegxr</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">imgtojpegxr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgtojpegxr</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert JPEG, GIF, PNG image formats to JXR format.</span>
+
+<span class="sd">        :param imgtojpegxr: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_imgtojpegxr</span> <span class="o">=</span> <span class="n">imgtojpegxr</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">imginline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Inline images whose size is less than 2KB.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imginline</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@imginline</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">imginline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imginline</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Inline images whose size is less than 2KB.</span>
+
+<span class="sd">        :param imginline: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_imginline</span> <span class="o">=</span> <span class="n">imginline</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cssimginline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Inline small images (less than 2KB) referred within CSS files as background-URLs.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cssimginline</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@cssimginline</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cssimginline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cssimginline</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Inline small images (less than 2KB) referred within CSS files as background-URLs.</span>
+
+<span class="sd">        :param cssimginline: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cssimginline</span> <span class="o">=</span> <span class="n">cssimginline</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">jpgoptimize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Remove non-image data such as comments from JPEG images.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_jpgoptimize</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@jpgoptimize</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">jpgoptimize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jpgoptimize</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Remove non-image data such as comments from JPEG images.</span>
+
+<span class="sd">        :param jpgoptimize: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_jpgoptimize</span> <span class="o">=</span> <span class="n">jpgoptimize</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">imglazyload</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Download images, only when the user scrolls the page to view them.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imglazyload</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@imglazyload</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">imglazyload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imglazyload</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Download images, only when the user scrolls the page to view them.</span>
+
+<span class="sd">        :param imglazyload: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_imglazyload</span> <span class="o">=</span> <span class="n">imglazyload</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cssminify</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Remove comments and whitespaces from CSSs.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cssminify</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@cssminify</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cssminify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cssminify</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Remove comments and whitespaces from CSSs.</span>
+
+<span class="sd">        :param cssminify: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cssminify</span> <span class="o">=</span> <span class="n">cssminify</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cssinline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Inline CSS files, whose size is less than 2KB, within the main page.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cssinline</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@cssinline</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cssinline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cssinline</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Inline CSS files, whose size is less than 2KB, within the main page.</span>
+
+<span class="sd">        :param cssinline: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cssinline</span> <span class="o">=</span> <span class="n">cssinline</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">csscombine</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Combine one or more CSS files into one file.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_csscombine</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@csscombine</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">csscombine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">csscombine</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Combine one or more CSS files into one file.</span>
+
+<span class="sd">        :param csscombine: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_csscombine</span> <span class="o">=</span> <span class="n">csscombine</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">convertimporttolink</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert CSS import statements to HTML link tags.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convertimporttolink</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@convertimporttolink</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">convertimporttolink</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">convertimporttolink</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert CSS import statements to HTML link tags.</span>
+
+<span class="sd">        :param convertimporttolink: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_convertimporttolink</span> <span class="o">=</span> <span class="n">convertimporttolink</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">jsminify</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Remove comments and whitespaces from JavaScript.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_jsminify</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@jsminify</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">jsminify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jsminify</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Remove comments and whitespaces from JavaScript.</span>
+
+<span class="sd">        :param jsminify: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_jsminify</span> <span class="o">=</span> <span class="n">jsminify</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">jsinline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert linked JavaScript files (less than 2KB) to inline JavaScript files.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_jsinline</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@jsinline</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">jsinline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jsinline</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert linked JavaScript files (less than 2KB) to inline JavaScript files.</span>
+
+<span class="sd">        :param jsinline: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_jsinline</span> <span class="o">=</span> <span class="n">jsinline</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">htmlminify</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Remove comments and whitespaces from an HTML page.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_htmlminify</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@htmlminify</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">htmlminify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">htmlminify</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Remove comments and whitespaces from an HTML page.</span>
+
+<span class="sd">        :param htmlminify: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_htmlminify</span> <span class="o">=</span> <span class="n">htmlminify</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cssmovetohead</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Move any CSS file present within the body tag of an HTML page to the head tag.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cssmovetohead</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@cssmovetohead</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cssmovetohead</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cssmovetohead</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Move any CSS file present within the body tag of an HTML page to the head tag.</span>
+
+<span class="sd">        :param cssmovetohead: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cssmovetohead</span> <span class="o">=</span> <span class="n">cssmovetohead</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">jsmovetoend</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Move any JavaScript present in the body tag to the end of the body tag.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_jsmovetoend</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@jsmovetoend</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">jsmovetoend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jsmovetoend</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Move any JavaScript present in the body tag to the end of the body tag.</span>
+
+<span class="sd">        :param jsmovetoend: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_jsmovetoend</span> <span class="o">=</span> <span class="n">jsmovetoend</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">domainsharding</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Domain name of the server.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_domainsharding</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@domainsharding</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">domainsharding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domainsharding</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Domain name of the server.</span>
+
+<span class="sd">        :param domainsharding: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_domainsharding</span> <span class="o">=</span> <span class="n">domainsharding</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dnsshards</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Set of domain names that replaces the parent domain.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dnsshards</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@dnsshards</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dnsshards</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dnsshards</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Set of domain names that replaces the parent domain.</span>
+
+<span class="sd">        :param dnsshards: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dnsshards</span> <span class="o">=</span> <span class="n">dnsshards</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">clientsidemeasurements</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Send AppFlow records about the web pages optimized by this action. The records provide FEO statistics, such as the number of HTTP requests that have been reduced for this page. You must enable the Appflow feature before enabling this parameter.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clientsidemeasurements</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@clientsidemeasurements</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">clientsidemeasurements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clientsidemeasurements</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Send AppFlow records about the web pages optimized by this action. The records provide FEO statistics, such as the number of HTTP requests that have been reduced for this page. You must enable the Appflow feature before enabling this parameter.</span>
+
+<span class="sd">        :param clientsidemeasurements: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_clientsidemeasurements</span> <span class="o">=</span> <span class="n">clientsidemeasurements</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">imgadddimensions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Add dimension attributes to images, if not specified within the &lt;img&gt; tag.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imgadddimensions</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">imgshrinkformobile</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Serve smaller images for mobile users.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imgshrinkformobile</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">imgweaken</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Reduce the image quality.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imgweaken</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">jpgprogressive</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Convert JPEG image formats to progressive formats.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_jpgprogressive</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cssflattenimports</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Replace CSS import statements with the file content.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cssflattenimports</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">jscombine</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Combine one or more JavaScript files into one file.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_jscombine</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">htmlrmdefaultattribs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Remove default redundant attributes from an HTML file.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_htmlrmdefaultattribs</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">htmlrmattribquotes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Remove unnecessary quotes present within the HTML attributes.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_htmlrmattribquotes</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">htmltrimurls</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Trim URLs.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_htmltrimurls</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hits</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The number of times the action has been taken.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hits</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">undefhits</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Total number of undefined policy hits.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_undefhits</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">builtin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flag to determine if front end optimization action is built-in or not.&lt;br/&gt;Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_builtin</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">feoaction_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">feoaction</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="feoaction.add"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.feo.feoaction.html#nitro.resource.config.feo.feoaction.feoaction.add">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to add feoaction.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">addresource</span> <span class="o">=</span> <span class="n">feoaction</span><span class="p">()</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">pageextendcache</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">pageextendcache</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">imgshrinktoattrib</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">imgshrinktoattrib</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">imggiftopng</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">imggiftopng</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">imgtowebp</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">imgtowebp</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">imgtojpegxr</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">imgtojpegxr</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">imginline</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">imginline</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">cssimginline</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">cssimginline</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">jpgoptimize</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">jpgoptimize</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">imglazyload</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">imglazyload</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">cssminify</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">cssminify</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">cssinline</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">cssinline</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">csscombine</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">csscombine</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">convertimporttolink</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">convertimporttolink</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">jsminify</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">jsminify</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">jsinline</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">jsinline</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">htmlminify</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">htmlminify</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">cssmovetohead</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">cssmovetohead</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">jsmovetoend</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">jsmovetoend</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">domainsharding</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">domainsharding</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">dnsshards</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">dnsshards</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">clientsidemeasurements</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">clientsidemeasurements</span>
+                <span class="k">return</span> <span class="n">addresource</span><span class="o">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">addresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">feoaction</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">pageextendcache</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">pageextendcache</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imgshrinktoattrib</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imgshrinktoattrib</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imggiftopng</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imggiftopng</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imgtowebp</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imgtowebp</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imgtojpegxr</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imgtojpegxr</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imginline</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imginline</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssimginline</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssimginline</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jpgoptimize</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jpgoptimize</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imglazyload</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imglazyload</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssminify</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssminify</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssinline</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssinline</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">csscombine</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">csscombine</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">convertimporttolink</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">convertimporttolink</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jsminify</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jsminify</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jsinline</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jsinline</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">htmlminify</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">htmlminify</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssmovetohead</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssmovetohead</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jsmovetoend</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jsmovetoend</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">domainsharding</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">domainsharding</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dnsshards</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dnsshards</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clientsidemeasurements</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clientsidemeasurements</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">add_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">addresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="feoaction.update"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.feo.feoaction.html#nitro.resource.config.feo.feoaction.feoaction.update">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to update feoaction.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">updateresource</span> <span class="o">=</span> <span class="n">feoaction</span><span class="p">()</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">pageextendcache</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">pageextendcache</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">imgshrinktoattrib</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">imgshrinktoattrib</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">imggiftopng</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">imggiftopng</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">imgtowebp</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">imgtowebp</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">imgtojpegxr</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">imgtojpegxr</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">imginline</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">imginline</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">cssimginline</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">cssimginline</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">jpgoptimize</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">jpgoptimize</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">imglazyload</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">imglazyload</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">cssminify</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">cssminify</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">cssinline</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">cssinline</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">csscombine</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">csscombine</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">convertimporttolink</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">convertimporttolink</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">jsminify</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">jsminify</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">jsinline</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">jsinline</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">htmlminify</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">htmlminify</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">cssmovetohead</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">cssmovetohead</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">jsmovetoend</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">jsmovetoend</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">domainsharding</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">domainsharding</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">dnsshards</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">dnsshards</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">clientsidemeasurements</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">clientsidemeasurements</span>
+                <span class="k">return</span> <span class="n">updateresource</span><span class="o">.</span><span class="n">update_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">updateresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">feoaction</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">pageextendcache</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">pageextendcache</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imgshrinktoattrib</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imgshrinktoattrib</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imggiftopng</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imggiftopng</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imgtowebp</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imgtowebp</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imgtojpegxr</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imgtojpegxr</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imginline</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imginline</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssimginline</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssimginline</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jpgoptimize</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jpgoptimize</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imglazyload</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imglazyload</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssminify</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssminify</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssinline</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssinline</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">csscombine</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">csscombine</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">convertimporttolink</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">convertimporttolink</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jsminify</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jsminify</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jsinline</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jsinline</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">htmlminify</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">htmlminify</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssmovetohead</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">cssmovetohead</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jsmovetoend</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">jsmovetoend</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">domainsharding</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">domainsharding</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dnsshards</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dnsshards</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clientsidemeasurements</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clientsidemeasurements</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">update_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">updateresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="feoaction.unset"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.feo.feoaction.html#nitro.resource.config.feo.feoaction.feoaction.unset">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">unset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to unset the properties of feoaction resource.</span>
+<span class="sd">        Properties that need to be unset are specified in args array.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">unsetresource</span> <span class="o">=</span> <span class="n">feoaction</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">!=</span>  <span class="nb">type</span><span class="p">(</span><span class="n">unsetresource</span><span class="p">):</span>
+                    <span class="n">unsetresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">unsetresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">return</span> <span class="n">unsetresource</span><span class="o">.</span><span class="n">unset_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">unsetresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">feoaction</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">unsetresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">unsetresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">feoaction</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">unsetresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">unset_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">unsetresources</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="feoaction.delete"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.feo.feoaction.html#nitro.resource.config.feo.feoaction.feoaction.delete">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to delete feoaction.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">deleteresource</span> <span class="o">=</span> <span class="n">feoaction</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">!=</span>  <span class="nb">type</span><span class="p">(</span><span class="n">deleteresource</span><span class="p">):</span>
+                    <span class="n">deleteresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">deleteresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">return</span> <span class="n">deleteresource</span><span class="o">.</span><span class="n">delete_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">deleteresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">feoaction</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">deleteresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">deleteresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">feoaction</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">deleteresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">delete_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">deleteresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="feoaction.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.feo.feoaction.html#nitro.resource.config.feo.feoaction.feoaction.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the feoaction resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">feoaction</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                        <span class="n">obj</span> <span class="o">=</span> <span class="n">feoaction</span><span class="p">()</span>
+                        <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+                        <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+                    <span class="k">else</span> <span class="p">:</span>
+                        <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+                            <span class="n">response</span> <span class="o">=</span> <span class="p">[</span><span class="n">feoaction</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))]</span>
+                            <span class="n">obj</span> <span class="o">=</span> <span class="p">[</span><span class="n">feoaction</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))]</span>
+                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="p">:</span>
+                                <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">feoaction</span><span class="p">()</span>
+                                <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                                <span class="n">response</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="feoaction.get_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.feo.feoaction.html#nitro.resource.config.feo.feoaction.feoaction.get_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch filtered set of feoaction resources.</span>
+<span class="sd">        filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">feoaction</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="feoaction.count"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.feo.feoaction.html#nitro.resource.config.feo.feoaction.feoaction.count">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count the feoaction resources configured on NetScaler.</span>
+
+<span class="sd">        :param client: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">feoaction</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="feoaction.count_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.feo.feoaction.html#nitro.resource.config.feo.feoaction.feoaction.count_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count filtered the set of feoaction resources.</span>
+<span class="sd">        Filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">feoaction</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="feoaction.Builtin"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.feo.feoaction.html#nitro.resource.config.feo.feoaction.feoaction.Builtin">[docs]</a>    <span class="k">class</span> <span class="nc">Builtin</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">MODIFIABLE</span> <span class="o">=</span> <span class="s2">&quot;MODIFIABLE&quot;</span>
+        <span class="n">DELETABLE</span> <span class="o">=</span> <span class="s2">&quot;DELETABLE&quot;</span>
+        <span class="n">IMMUTABLE</span> <span class="o">=</span> <span class="s2">&quot;IMMUTABLE&quot;</span>
+        <span class="n">PARTITION_ALL</span> <span class="o">=</span> <span class="s2">&quot;PARTITION_ALL&quot;</span></div></div>
+
+<div class="viewcode-block" id="feoaction_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.feo.feoaction.html#nitro.resource.config.feo.feoaction.feoaction_response">[docs]</a><span class="k">class</span> <span class="nc">feoaction_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feoaction</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feoaction</span> <span class="o">=</span> <span class="p">[</span><span class="n">feoaction</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

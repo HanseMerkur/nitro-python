@@ -1,0 +1,793 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.lldp.lldpneighbors module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.config.lldp.lldpparam module" href="nitro.resource.config.lldp.lldpparam.html" />
+    <link rel="prev" title="nitro.resource.config.lldp package" href="nitro.resource.config.lldp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.html">nitro.resource.config package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.lldp.html">nitro.resource.config.lldp package</a> &raquo;</li>
+        
+      <li>nitro.resource.config.lldp.lldpneighbors module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.config.lldp.lldpneighbors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.config.lldp.lldpneighbors">
+<span id="nitro-resource-config-lldp-lldpneighbors-module"></span><h1>nitro.resource.config.lldp.lldpneighbors module<a class="headerlink" href="#module-nitro.resource.config.lldp.lldpneighbors" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.lldp.lldpneighbors.</code><code class="descname">lldpneighbors</code><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<p>Configuration for lldp neighbors resource.</p>
+<dl class="class">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegenabled">
+<em class="property">class </em><code class="descname">Autonegenabled</code><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.Autonegenabled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegenabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegenabled.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegenabled.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegenabled.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegenabled.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegmautype">
+<em class="property">class </em><code class="descname">Autonegmautype</code><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.Autonegmautype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegmautype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegmautype.AUI">
+<code class="descname">AUI</code><em class="property"> = 'AUI'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegmautype.AUI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegmautype.Foirl">
+<code class="descname">Foirl</code><em class="property"> = 'Foirl'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegmautype.Foirl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegmautype.Not_Recieved">
+<code class="descname">Not_Recieved</code><em class="property"> = 'Not Recieved'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegmautype.Not_Recieved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegsupport">
+<em class="property">class </em><code class="descname">Autonegsupport</code><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.Autonegsupport"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegsupport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegsupport.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegsupport.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegsupport.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegsupport.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype">
+<em class="property">class </em><code class="descname">Chassisidsubtype</code><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.Chassisidsubtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.Component">
+<code class="descname">Component</code><em class="property"> = 'Component'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.Component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.Interface_Alias">
+<code class="descname">Interface_Alias</code><em class="property"> = 'Interface Alias'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.Interface_Alias" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.Interface_Name">
+<code class="descname">Interface_Name</code><em class="property"> = 'Interface Name'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.Interface_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.Locally_Assigned">
+<code class="descname">Locally_Assigned</code><em class="property"> = 'Locally Assigned'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.Locally_Assigned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.MAC_Address">
+<code class="descname">MAC_Address</code><em class="property"> = 'MAC Address'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.MAC_Address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.NONE">
+<code class="descname">NONE</code><em class="property"> = 'NONE'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.Network_Address">
+<code class="descname">Network_Address</code><em class="property"> = 'Network Address'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.Network_Address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.Port_Component">
+<code class="descname">Port_Component</code><em class="property"> = 'Port Component'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype.Port_Component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Iftype">
+<em class="property">class </em><code class="descname">Iftype</code><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.Iftype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Iftype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Iftype.UNKNOWN">
+<code class="descname">UNKNOWN</code><em class="property"> = 'UNKNOWN'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Iftype.UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Iftype.ifIndex">
+<code class="descname">ifIndex</code><em class="property"> = 'ifIndex'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Iftype.ifIndex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Iftype.system_port_number">
+<code class="descname">system_port_number</code><em class="property"> = 'system port number'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Iftype.system_port_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrcapable">
+<em class="property">class </em><code class="descname">Linkaggrcapable</code><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.Linkaggrcapable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrcapable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrcapable.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrcapable.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrcapable.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrcapable.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrenabled">
+<em class="property">class </em><code class="descname">Linkaggrenabled</code><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.Linkaggrenabled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrenabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrenabled.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrenabled.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrenabled.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrenabled.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Mgmtaddresssubtype">
+<em class="property">class </em><code class="descname">Mgmtaddresssubtype</code><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.Mgmtaddresssubtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Mgmtaddresssubtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Mgmtaddresssubtype.IPv4">
+<code class="descname">IPv4</code><em class="property"> = 'IPv4'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Mgmtaddresssubtype.IPv4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Mgmtaddresssubtype.IPv6">
+<code class="descname">IPv6</code><em class="property"> = 'IPv6'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Mgmtaddresssubtype.IPv6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Mgmtaddresssubtype.OTHER">
+<code class="descname">OTHER</code><em class="property"> = 'OTHER'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Mgmtaddresssubtype.OTHER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype">
+<em class="property">class </em><code class="descname">Portidsubtype</code><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.Portidsubtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.Agent_Circuit_ID">
+<code class="descname">Agent_Circuit_ID</code><em class="property"> = 'Agent Circuit ID'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.Agent_Circuit_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.Interface_Alias">
+<code class="descname">Interface_Alias</code><em class="property"> = 'Interface Alias'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.Interface_Alias" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.Interface_Name">
+<code class="descname">Interface_Name</code><em class="property"> = 'Interface Name'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.Interface_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.Locally_Assigned">
+<code class="descname">Locally_Assigned</code><em class="property"> = 'Locally Assigned'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.Locally_Assigned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.MAC_Address">
+<code class="descname">MAC_Address</code><em class="property"> = 'MAC Address'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.MAC_Address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.NONE">
+<code class="descname">NONE</code><em class="property"> = 'NONE'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.Network_Address">
+<code class="descname">Network_Address</code><em class="property"> = 'Network Address'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.Network_Address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.Port_Component">
+<code class="descname">Port_Component</code><em class="property"> = 'Port Component'</em><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype.Port_Component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.autonegadvertised">
+<code class="descname">autonegadvertised</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.autonegadvertised" title="Permalink to this definition">¶</a></dt>
+<dd><p>MAC/PHY autonegotiation advetised.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.autonegenabled">
+<code class="descname">autonegenabled</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.autonegenabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>MAC/PHY autonegotiation enabled.&lt;br/&gt;Possible values = NO, YES.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.autonegmautype">
+<code class="descname">autonegmautype</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.autonegmautype" title="Permalink to this definition">¶</a></dt>
+<dd><p>MAC/PHY Medium Attachment Unit (MAU) type of the port. Description listed below:
+AUI           - no internal MAU, view from AUI
+10Base5       - thick coax MAU
+Foirl         - FOIRL MAU
+10Base2       - thin coax MAU
+10BaseT       - UTP MAU
+10BaseFP      - passive fiber MAU
+10BaseFB      - sync fiber MAU
+10BaseFL      - async fiber MAU
+10Broad36     - broadband DTE MAU
+10BaseTHD     - UTP MAU, half duplex mode
+10BaseTFD     - UTP MAU, full duplex mode
+10BaseFLHD    - async fiber MAU, half duplex mode
+10BaseFLDF    - async fiber MAU, full duplex mode
+10BaseT4      - 4 pair category 3 UTP
+100BaseTXHD   - 2 pair category 5 UTP, half duplex mode
+100BaseTXFD   - 2 pair category 5 UTP, full duplex mode
+100BaseFXHD   - X fiber over PMT, half duplex mode
+100BaseFXFD   - X fiber over PMT, full duplex mode
+100BaseT2HD   - 2 pair category 3 UTP, half duplex mode
+100BaseT2DF   - 2 pair category 3 UTP, full duplex mode
+1000BaseXHD   - PCS/PMA, unknown PMD, half duplex mode
+1000BaseXFD   - PCS/PMA, unknown PMD, full duplex mode
+1000BaseLXHD  - Fiber over long-wavelength laser, half duplex mode
+1000BaseLXFD  - Fiber over long-wavelength laser, full duplex mode
+1000BaseSXHD  - Fiber over short-wavelength laser, half duplex mode
+1000BaseSXFD  - Fiber over short-wavelength laser, full duplex mode
+1000BaseCXHD  - Copper over 150-Ohm balanced cable, half duplex mode
+1000BaseCXFD  - Copper over 150-Ohm balanced cable, full duplex mode
+1000BaseTHD   - Four-pair Category 5 UTP, half duplex mode
+1000BaseTFD   - Four-pair Category 5 UTP, full duplex mode
+10GigBaseX    - X PCS/PMA, unknown PMD
+10GigBaseLX4  - X fiber over WWDM optics
+10GigBaseR    - R PCS/PMA, unknown PMD
+10GigBaseER   - R fiber over 1550 nm optics
+10GigBaseLR   - R fiber over 1310 nm optics
+10GigBaseSR   - R fiber over 850 nm optics
+10GigBaseW    - W PCS/PMA, unknown PMD
+10GigBaseEW   - W fiber over 1550 nm optics
+10GigBaseLW   - W fiber over 1310 nm optics
+10GigBaseSW   - W fiber over 850 nm optics.&lt;br/&gt;Possible values = Not Recieved, AUI, 10Base5, Foirl, 10Base2, 10BaseT, 10BaseFP, 10BaseFB, 10BaseFL, 10Broad36, 10BaseTHD, 10BaseTFD, 10BaseFLHD, 10BaseFLDF, 10BaseT4, 100BaseTXHD, 100BaseTXFD, 100BaseFXHD, 100BaseFXFD, 100BaseT2HD, 100BaseT2DF, 1000BaseXHD, 1000BaseXFD, 1000BaseLXHD, 1000BaseLXFD, 1000BaseSXHD, 1000BaseSXFD, 1000BaseCXHD, 1000BaseCXFD, 1000BaseTHD, 1000BaseTFD, 10GigBaseX, 10GigBaseLX4, 10GigBaseR, 10GigBaseER, 10GigBaseLR, 10GigBaseSR, 10GigBaseW, 10GigBaseEW, 10GigBaseLW, 10GigBaseSW.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.autonegsupport">
+<code class="descname">autonegsupport</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.autonegsupport" title="Permalink to this definition">¶</a></dt>
+<dd><p>MAC/PHY autonegotiation support.&lt;br/&gt;Possible values = NO, YES.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.chassisid">
+<code class="descname">chassisid</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.chassisid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chassis Id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.chassisidsubtype">
+<code class="descname">chassisidsubtype</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.chassisidsubtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chassis id sub type.&lt;br/&gt;Possible values = NONE, Component, Interface Alias, Port Component, MAC Address, Network Address, Interface Name, Locally Assigned.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.clear">
+<em class="property">classmethod </em><code class="descname">clear</code><span class="sig-paren">(</span><em>client</em>, <em>resource=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to clear lldpneighbors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.count">
+<em class="property">classmethod </em><code class="descname">count</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count the lldpneighbors resources configured on NetScaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>client</strong> – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.count_filtered">
+<em class="property">classmethod </em><code class="descname">count_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.count_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.count_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count filtered the set of lldpneighbors resources.
+Filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.flag">
+<code class="descname">flag</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.flag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch all the lldpneighbors resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.get_filtered">
+<em class="property">classmethod </em><code class="descname">get_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors.get_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.get_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch filtered set of lldpneighbors resources.
+filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.ifnum">
+<code class="descname">ifnum</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.ifnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface Name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.ifnumber">
+<code class="descname">ifnumber</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.ifnumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface Number.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.iftype">
+<code class="descname">iftype</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.iftype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface subtype.&lt;br/&gt;Possible values = UNKNOWN, ifIndex, system port number.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.linkaggrcapable">
+<code class="descname">linkaggrcapable</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.linkaggrcapable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is neighbor Link Aggregation Capable.&lt;br/&gt;Possible values = NO, YES.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.linkaggrenabled">
+<code class="descname">linkaggrenabled</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.linkaggrenabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is link aggregation Enabled.&lt;br/&gt;Possible values = NO, YES.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.linkaggrid">
+<code class="descname">linkaggrid</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.linkaggrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Link Aggregation Id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.mgmtaddress">
+<code class="descname">mgmtaddress</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.mgmtaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Management Address.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.mgmtaddresssubtype">
+<code class="descname">mgmtaddresssubtype</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.mgmtaddresssubtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Management Address Type.&lt;br/&gt;Possible values = OTHER, IPv4, IPv6.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.mtu">
+<code class="descname">mtu</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.mtu" title="Permalink to this definition">¶</a></dt>
+<dd><p>MTU of Remote Device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portdescription">
+<code class="descname">portdescription</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portdescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port Description.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portid">
+<code class="descname">portid</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port Id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portidsubtype">
+<code class="descname">portidsubtype</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portidsubtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port id subtype.&lt;br/&gt;Possible values = NONE, Interface Alias, Port Component, MAC Address, Network Address, Interface Name, Agent Circuit ID, Locally Assigned.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portprotoenabled">
+<code class="descname">portprotoenabled</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portprotoenabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to show Port Protocol support enabled.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portprotoid">
+<code class="descname">portprotoid</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portprotoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port Protocol ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portprotosupported">
+<code class="descname">portprotosupported</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portprotosupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to show Port Protocol Support.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portvlanid">
+<code class="descname">portvlanid</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.portvlanid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port Vlan Id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.protocolid">
+<code class="descname">protocolid</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.protocolid" title="Permalink to this definition">¶</a></dt>
+<dd><p>port vlan id name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.sys">
+<code class="descname">sys</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.sys" title="Permalink to this definition">¶</a></dt>
+<dd><p>System Name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.syscapabilities">
+<code class="descname">syscapabilities</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.syscapabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acronyms for remote system capabilities:
+OT : Other.
+RE : Repeater(IETF RFC 2108).
+BR : MAC Bridge(IEEE Std 802.1D).
+WL : WLAN Access Point(IEEE Std 802.11 MIB).
+RO : ROuter(IETF RFC 1812).
+TE : Telephone(IETF RFC 4293).
+DO : DOCSIS cable device(IETF RFC 4639 and IETF RFC 4546).
+ST : STation only(IETF RFC 4293).
+CV : C-VLAN component of a VLAN Bridge(IEEE Std 802.1Q).
+SV : S-VLAN component of a VLAN Bridge(IEEE Std 802.1Q).
+MR : Two port MAC Relay(IEEE Std 802.1Q).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.syscapenabled">
+<code class="descname">syscapenabled</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.syscapenabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acronyms for remote system enabled capabilities:
+OT : Other.
+RE : Repeater(IETF RFC 2108).
+BR : MAC Bridge(IEEE Std 802.1D).
+WL : WLAN Access Point(IEEE Std 802.11 MIB).
+RO : ROuter(IETF RFC 1812).
+TE : Telephone(IETF RFC 4293).
+DO : DOCSIS cable device(IETF RFC 4639 and IETF RFC 4546).
+ST : STation only(IETF RFC 4293).
+CV : C-VLAN component of a VLAN Bridge(IEEE Std 802.1Q).
+SV : S-VLAN component of a VLAN Bridge(IEEE Std 802.1Q).
+MR : Two port MAC Relay(IEEE Std 802.1Q).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.sysdesc">
+<code class="descname">sysdesc</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.sysdesc" title="Permalink to this definition">¶</a></dt>
+<dd><p>System Description.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.ttl">
+<code class="descname">ttl</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.ttl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time to Live.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.vlan">
+<code class="descname">vlan</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.vlan" title="Permalink to this definition">¶</a></dt>
+<dd><p>vlan name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors.vlanid">
+<code class="descname">vlanid</code><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.vlanid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vlan Id.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lldp.lldpneighbors.lldpneighbors_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.lldp.lldpneighbors.</code><code class="descname">lldpneighbors_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lldp/lldpneighbors.html#lldpneighbors_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lldp.lldpneighbors.lldpneighbors_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.config.lldp.lldpparam.html" class="btn btn-neutral float-right" title="nitro.resource.config.lldp.lldpparam module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.config.lldp.html" class="btn btn-neutral float-left" title="nitro.resource.config.lldp package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

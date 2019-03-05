@@ -1,0 +1,868 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.cluster.clusternode &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.cluster.clusternode</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.cluster.clusternode</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="clusternode"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode">[docs]</a><span class="k">class</span> <span class="nc">clusternode</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for cluster node resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nodeid</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ipaddress</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_backplane</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_priority</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nodegroup</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clearnodegroupconfig</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clusterhealth</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_effectivestate</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_operationalsyncstate</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_masterstate</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_health</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_isconfigurationcoordinator</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_islocalnode</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nodersskeymismatch</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nodelicensemismatch</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nodejumbonotsupported</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nodelist</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ifaceslist</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_enabledifaces</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_disabledifaces</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_partialfailifaces</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hamonifaces</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cfgflags</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">___count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nodeid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Unique number that identifies the cluster node.&lt;br/&gt;Maximum length =  31.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodeid</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@nodeid</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nodeid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodeid</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Unique number that identifies the cluster node.&lt;br/&gt;Maximum length =  31</span>
+
+<span class="sd">        :param nodeid: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nodeid</span> <span class="o">=</span> <span class="n">nodeid</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ipaddress</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;NetScaler IP (NSIP) address of the appliance to add to the cluster. Must be an IPv4 address.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ipaddress</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ipaddress</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ipaddress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ipaddress</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;NetScaler IP (NSIP) address of the appliance to add to the cluster. Must be an IPv4 address.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param ipaddress: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ipaddress</span> <span class="o">=</span> <span class="n">ipaddress</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Admin state of the cluster node. The available settings function as follows:</span>
+<span class="sd">        ACTIVE - The node serves traffic.</span>
+<span class="sd">        SPARE - The node does not serve traffic unless an ACTIVE node goes down.</span>
+<span class="sd">        PASSIVE - The node does not serve traffic, unless you change its state. PASSIVE state is useful during temporary maintenance activities in which you want the node to take part in the consensus protocol but not to serve traffic.&lt;br/&gt;Default value: PASSIVE&lt;br/&gt;Possible values = ACTIVE, SPARE, PASSIVE.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@state</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Admin state of the cluster node. The available settings function as follows:</span>
+<span class="sd">        ACTIVE - The node serves traffic.</span>
+<span class="sd">        SPARE - The node does not serve traffic unless an ACTIVE node goes down.</span>
+<span class="sd">        PASSIVE - The node does not serve traffic, unless you change its state. PASSIVE state is useful during temporary maintenance activities in which you want the node to take part in the consensus protocol but not to serve traffic.&lt;br/&gt;Default value: PASSIVE&lt;br/&gt;Possible values = ACTIVE, SPARE, PASSIVE</span>
+
+<span class="sd">        :param state: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">backplane</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Interface through which the node communicates with the other nodes in the cluster. Must be specified in the three-tuple form n/c/u, where n represents the node ID and c/u refers to the interface on the appliance.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backplane</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@backplane</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">backplane</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">backplane</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Interface through which the node communicates with the other nodes in the cluster. Must be specified in the three-tuple form n/c/u, where n represents the node ID and c/u refers to the interface on the appliance.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param backplane: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_backplane</span> <span class="o">=</span> <span class="n">backplane</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">priority</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Preference for selecting a node as the configuration coordinator. The node with the lowest priority value is selected as the configuration coordinator.</span>
+<span class="sd">        When the current configuration coordinator goes down, the node with the next lowest priority is made the new configuration coordinator. When the original node comes back up, it will preempt the new configuration coordinator and take over as the configuration coordinator.</span>
+<span class="sd">        Note: When priority is not configured for any of the nodes or if multiple nodes have the same priority, the cluster elects one of the nodes as the configuration coordinator.&lt;br/&gt;Default value: 31&lt;br/&gt;Maximum length =  31.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_priority</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@priority</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">priority</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">priority</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Preference for selecting a node as the configuration coordinator. The node with the lowest priority value is selected as the configuration coordinator.</span>
+<span class="sd">        When the current configuration coordinator goes down, the node with the next lowest priority is made the new configuration coordinator. When the original node comes back up, it will preempt the new configuration coordinator and take over as the configuration coordinator.</span>
+<span class="sd">        Note: When priority is not configured for any of the nodes or if multiple nodes have the same priority, the cluster elects one of the nodes as the configuration coordinator.&lt;br/&gt;Default value: 31&lt;br/&gt;Maximum length =  31</span>
+
+<span class="sd">        :param priority: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_priority</span> <span class="o">=</span> <span class="n">priority</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nodegroup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The default node group in a Cluster system.&lt;br/&gt;Default value: DEFAULT_NG&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodegroup</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@nodegroup</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nodegroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodegroup</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The default node group in a Cluster system.&lt;br/&gt;Default value: DEFAULT_NG&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param nodegroup: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nodegroup</span> <span class="o">=</span> <span class="n">nodegroup</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">clearnodegroupconfig</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Option to remove nodegroup config.&lt;br/&gt;Default value: YES&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clearnodegroupconfig</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@clearnodegroupconfig</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">clearnodegroupconfig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clearnodegroupconfig</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Option to remove nodegroup config.&lt;br/&gt;Default value: YES&lt;br/&gt;Possible values = YES, NO</span>
+
+<span class="sd">        :param clearnodegroupconfig: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_clearnodegroupconfig</span> <span class="o">=</span> <span class="n">clearnodegroupconfig</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">clusterhealth</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Node clusterd state.&lt;br/&gt;Possible values = UP, Configurations of the node are lagging behind the cluster by more than 256 commands, The config sync operation has exceeded the time limit of 60 seconds, The config sync operation (full sync) is in progress, The node is not in sync with the cluster configurations as sync is disabled on this node, The execution of a configuration command has failed on this node, UNKNOWN.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clusterhealth</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">effectivestate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Node effective health state.&lt;br/&gt;Possible values = UP, NOT UP, UNKNOWN, INIT.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_effectivestate</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">operationalsyncstate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Node Operational Reconciliation state.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, SUCCESS, IN PROGRESS, FAILED, INCREMENTAL SYNC DISABLED, DISABLED, UNKNOWN.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_operationalsyncstate</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">masterstate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Node Master state.&lt;br/&gt;Possible values = INACTIVE, ACTIVE, UNKNOWN.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_masterstate</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">health</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Node Health state.&lt;br/&gt;Possible values = UNKNOWN, INIT, DOWN, UP, Some enabled and HAMON interfaces of the node are down, All interfaces of the node are down or disabled, SSL card(s) of the node have failed, Route Monitor(s) of the node have failed, Service state is being synchronized with the cluster, The backplane interface is not set,  is down,  or is disabled, The CLAG member(s) of the node are down, Persistence sessions are being synchronized with the cluster, The Syn Cookie is being synchronized with the cluster, Unknown Health, AAA keys are being sychronized with the cluster.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_health</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">isconfigurationcoordinator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;This argument is used to determine whether the node is configuration coordinator (CCO).&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_isconfigurationcoordinator</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">islocalnode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;This argument is used to determine whether it is local node.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_islocalnode</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nodersskeymismatch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;This argument is used to determine if there is a RSS key mismatch at cluster node level.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodersskeymismatch</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nodelicensemismatch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;This argument is used to determine if there is a License mismatch at cluster node level.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodelicensemismatch</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nodejumbonotsupported</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;This argument is used to determine if Jumbo framework not supported at cluster node level.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodejumbonotsupported</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nodelist</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Nodelist for displaying Heartbeat not seen interfaces on a cluster node.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodelist</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ifaceslist</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Interface list corresponding to nodelist for Heartbeat not seen interfaces on a cluster node.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ifaceslist</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">enabledifaces</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enabled Interfaces on a cluster node.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_enabledifaces</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">disabledifaces</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Disabled Interfaces on a cluster node.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disabledifaces</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">partialfailifaces</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Partial Failure Interfaces on a cluster node.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_partialfailifaces</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hamonifaces</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Hamon Interfaces on a cluster node.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hamonifaces</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the state specific nodegroup.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cfgflags</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flag indicates whether the node is bound to cluster nodegroup.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cfgflags</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">clusternode_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">clusternode</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodeid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodeid</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="clusternode.add"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.add">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to add clusternode.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">addresource</span> <span class="o">=</span> <span class="n">clusternode</span><span class="p">()</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">nodeid</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">ipaddress</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ipaddress</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">state</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">backplane</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">backplane</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">priority</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">nodegroup</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">nodegroup</span>
+                <span class="k">return</span> <span class="n">addresource</span><span class="o">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">addresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">clusternode</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodeid</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ipaddress</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ipaddress</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">state</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">backplane</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">backplane</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">priority</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodegroup</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodegroup</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">add_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">addresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="clusternode.update"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.update">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to update clusternode.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">updateresource</span> <span class="o">=</span> <span class="n">clusternode</span><span class="p">()</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">nodeid</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">state</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">backplane</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">backplane</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">priority</span>
+                <span class="k">return</span> <span class="n">updateresource</span><span class="o">.</span><span class="n">update_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">updateresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">clusternode</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodeid</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">state</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">backplane</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">backplane</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">priority</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">update_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">updateresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="clusternode.unset"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.unset">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">unset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to unset the properties of clusternode resource.</span>
+<span class="sd">        Properties that need to be unset are specified in args array.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">unsetresource</span> <span class="o">=</span> <span class="n">clusternode</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">!=</span>  <span class="nb">type</span><span class="p">(</span><span class="n">unsetresource</span><span class="p">):</span>
+                    <span class="n">unsetresource</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">resource</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">unsetresource</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">nodeid</span>
+                <span class="k">return</span> <span class="n">unsetresource</span><span class="o">.</span><span class="n">unset_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">unsetresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">clusternode</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">unsetresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">unsetresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">clusternode</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">unsetresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodeid</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">unset_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">unsetresources</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="clusternode.delete"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.delete">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to delete clusternode.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">deleteresource</span> <span class="o">=</span> <span class="n">clusternode</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">!=</span>  <span class="nb">type</span><span class="p">(</span><span class="n">deleteresource</span><span class="p">):</span>
+                    <span class="n">deleteresource</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">resource</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">deleteresource</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">nodeid</span>
+                    <span class="n">deleteresource</span><span class="o">.</span><span class="n">clearnodegroupconfig</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">clearnodegroupconfig</span>
+                <span class="k">return</span> <span class="n">deleteresource</span><span class="o">.</span><span class="n">delete_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">deleteresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">clusternode</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">deleteresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">deleteresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">clusternode</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">deleteresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodeid</span>
+                            <span class="n">deleteresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clearnodegroupconfig</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clearnodegroupconfig</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">delete_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">deleteresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="clusternode.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the clusternode resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">clusternode</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                        <span class="n">obj</span> <span class="o">=</span> <span class="n">clusternode</span><span class="p">()</span>
+                        <span class="n">obj</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">name</span>
+                        <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+                    <span class="k">else</span> <span class="p">:</span>
+                        <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+                            <span class="n">response</span> <span class="o">=</span> <span class="p">[</span><span class="n">clusternode</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))]</span>
+                            <span class="n">obj</span> <span class="o">=</span> <span class="p">[</span><span class="n">clusternode</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))]</span>
+                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="p">:</span>
+                                <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">clusternode</span><span class="p">()</span>
+                                <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                                <span class="n">response</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="clusternode.get_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.get_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch filtered set of clusternode resources.</span>
+<span class="sd">        filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">clusternode</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="clusternode.count"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.count">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count the clusternode resources configured on NetScaler.</span>
+
+<span class="sd">        :param client: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">clusternode</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="clusternode.count_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.count_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count filtered the set of clusternode resources.</span>
+<span class="sd">        Filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">clusternode</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="clusternode.State"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.State">[docs]</a>    <span class="k">class</span> <span class="nc">State</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ACTIVE</span> <span class="o">=</span> <span class="s2">&quot;ACTIVE&quot;</span>
+        <span class="n">SPARE</span> <span class="o">=</span> <span class="s2">&quot;SPARE&quot;</span>
+        <span class="n">PASSIVE</span> <span class="o">=</span> <span class="s2">&quot;PASSIVE&quot;</span></div>
+
+<div class="viewcode-block" id="clusternode.Clearnodegroupconfig"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.Clearnodegroupconfig">[docs]</a>    <span class="k">class</span> <span class="nc">Clearnodegroupconfig</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="clusternode.Operationalsyncstate"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.Operationalsyncstate">[docs]</a>    <span class="k">class</span> <span class="nc">Operationalsyncstate</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">SUCCESS</span> <span class="o">=</span> <span class="s2">&quot;SUCCESS&quot;</span>
+        <span class="n">IN_PROGRESS</span> <span class="o">=</span> <span class="s2">&quot;IN PROGRESS&quot;</span>
+        <span class="n">FAILED</span> <span class="o">=</span> <span class="s2">&quot;FAILED&quot;</span>
+        <span class="n">INCREMENTAL_SYNC_DISABLED</span> <span class="o">=</span> <span class="s2">&quot;INCREMENTAL SYNC DISABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span>
+        <span class="n">UNKNOWN</span> <span class="o">=</span> <span class="s2">&quot;UNKNOWN&quot;</span></div>
+
+<div class="viewcode-block" id="clusternode.Effectivestate"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.Effectivestate">[docs]</a>    <span class="k">class</span> <span class="nc">Effectivestate</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">UP</span> <span class="o">=</span> <span class="s2">&quot;UP&quot;</span>
+        <span class="n">NOT_UP</span> <span class="o">=</span> <span class="s2">&quot;NOT UP&quot;</span>
+        <span class="n">UNKNOWN</span> <span class="o">=</span> <span class="s2">&quot;UNKNOWN&quot;</span>
+        <span class="n">INIT</span> <span class="o">=</span> <span class="s2">&quot;INIT&quot;</span></div>
+
+<div class="viewcode-block" id="clusternode.Health"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.Health">[docs]</a>    <span class="k">class</span> <span class="nc">Health</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">UNKNOWN</span> <span class="o">=</span> <span class="s2">&quot;UNKNOWN&quot;</span>
+        <span class="n">INIT</span> <span class="o">=</span> <span class="s2">&quot;INIT&quot;</span>
+        <span class="n">DOWN</span> <span class="o">=</span> <span class="s2">&quot;DOWN&quot;</span>
+        <span class="n">UP</span> <span class="o">=</span> <span class="s2">&quot;UP&quot;</span>
+        <span class="n">Some_enabled_and_HAMON_interfaces_of_the_node_are_down</span> <span class="o">=</span> <span class="s2">&quot;Some enabled and HAMON interfaces of the node are down&quot;</span>
+        <span class="n">All_interfaces_of_the_node_are_down_or_disabled</span> <span class="o">=</span> <span class="s2">&quot;All interfaces of the node are down or disabled&quot;</span>
+        <span class="n">SSL_card_s__of_the_node_have_failed</span> <span class="o">=</span> <span class="s2">&quot;SSL card(s) of the node have failed&quot;</span>
+        <span class="n">Route_Monitor_s__of_the_node_have_failed</span> <span class="o">=</span> <span class="s2">&quot;Route Monitor(s) of the node have failed&quot;</span>
+        <span class="n">Service_state_is_being_synchronized_with_the_cluster</span> <span class="o">=</span> <span class="s2">&quot;Service state is being synchronized with the cluster&quot;</span>
+        <span class="n">The_backplane_interface_is_not_set</span> <span class="o">=</span> <span class="s2">&quot;The backplane interface is not set&quot;</span>
+        <span class="n">_is_down</span> <span class="o">=</span> <span class="s2">&quot; is down&quot;</span>
+        <span class="n">_or_is_disabled</span> <span class="o">=</span> <span class="s2">&quot; or is disabled&quot;</span>
+        <span class="n">The_CLAG_member_s__of_the_node_are_down</span> <span class="o">=</span> <span class="s2">&quot;The CLAG member(s) of the node are down&quot;</span>
+        <span class="n">Persistence_sessions_are_being_synchronized_with_the_cluster</span> <span class="o">=</span> <span class="s2">&quot;Persistence sessions are being synchronized with the cluster&quot;</span>
+        <span class="n">The_Syn_Cookie_is_being_synchronized_with_the_cluster</span> <span class="o">=</span> <span class="s2">&quot;The Syn Cookie is being synchronized with the cluster&quot;</span>
+        <span class="n">Unknown_Health</span> <span class="o">=</span> <span class="s2">&quot;Unknown Health&quot;</span>
+        <span class="n">AAA_keys_are_being_sychronized_with_the_cluster</span> <span class="o">=</span> <span class="s2">&quot;AAA keys are being sychronized with the cluster&quot;</span></div>
+
+<div class="viewcode-block" id="clusternode.Clusterhealth"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.Clusterhealth">[docs]</a>    <span class="k">class</span> <span class="nc">Clusterhealth</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">UP</span> <span class="o">=</span> <span class="s2">&quot;UP&quot;</span>
+        <span class="n">Configurations_of_the_node_are_lagging_behind_the_cluster_by_more_than_256_commands</span> <span class="o">=</span> <span class="s2">&quot;Configurations of the node are lagging behind the cluster by more than 256 commands&quot;</span>
+        <span class="n">The_config_sync_operation_has_exceeded_the_time_limit_of_60_seconds</span> <span class="o">=</span> <span class="s2">&quot;The config sync operation has exceeded the time limit of 60 seconds&quot;</span>
+        <span class="n">The_config_sync_operation__full_sync__is_in_progress</span> <span class="o">=</span> <span class="s2">&quot;The config sync operation (full sync) is in progress&quot;</span>
+        <span class="n">The_node_is_not_in_sync_with_the_cluster_configurations_as_sync_is_disabled_on_this_node</span> <span class="o">=</span> <span class="s2">&quot;The node is not in sync with the cluster configurations as sync is disabled on this node&quot;</span>
+        <span class="n">The_execution_of_a_configuration_command_has_failed_on_this_node</span> <span class="o">=</span> <span class="s2">&quot;The execution of a configuration command has failed on this node&quot;</span>
+        <span class="n">UNKNOWN</span> <span class="o">=</span> <span class="s2">&quot;UNKNOWN&quot;</span></div>
+
+<div class="viewcode-block" id="clusternode.Masterstate"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode.Masterstate">[docs]</a>    <span class="k">class</span> <span class="nc">Masterstate</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">INACTIVE</span> <span class="o">=</span> <span class="s2">&quot;INACTIVE&quot;</span>
+        <span class="n">ACTIVE</span> <span class="o">=</span> <span class="s2">&quot;ACTIVE&quot;</span>
+        <span class="n">UNKNOWN</span> <span class="o">=</span> <span class="s2">&quot;UNKNOWN&quot;</span></div></div>
+
+<div class="viewcode-block" id="clusternode_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cluster.clusternode.html#nitro.resource.config.cluster.clusternode.clusternode_response">[docs]</a><span class="k">class</span> <span class="nc">clusternode_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clusternode</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clusternode</span> <span class="o">=</span> <span class="p">[</span><span class="n">clusternode</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

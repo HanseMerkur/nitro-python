@@ -1,0 +1,992 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.stat.appfw.appfw_stats module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.stat.appfw.appfwpolicy_stats module" href="nitro.resource.stat.appfw.appfwpolicy_stats.html" />
+    <link rel="prev" title="nitro.resource.stat.appfw package" href="nitro.resource.stat.appfw.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.stat.html">nitro.resource.stat package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.stat.appfw.html">nitro.resource.stat.appfw package</a> &raquo;</li>
+        
+      <li>nitro.resource.stat.appfw.appfw_stats module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.stat.appfw.appfw_stats.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.stat.appfw.appfw_stats">
+<span id="nitro-resource-stat-appfw-appfw-stats-module"></span><h1>nitro.resource.stat.appfw.appfw_stats module<a class="headerlink" href="#module-nitro.resource.stat.appfw.appfw_stats" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.stat.appfw.appfw_stats.</code><code class="descname">appfw_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/stat/appfw/appfw_stats.html#appfw_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats">
+<em class="property">class </em><code class="descclassname">nitro.resource.stat.appfw.appfw_stats.</code><code class="descname">appfw_stats</code><a class="reference internal" href="../_modules/nitro/resource/stat/appfw/appfw_stats.html#appfw_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<dl class="class">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.Clearstats">
+<em class="property">class </em><code class="descname">Clearstats</code><a class="reference internal" href="../_modules/nitro/resource/stat/appfw/appfw_stats.html#appfw_stats.Clearstats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.Clearstats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.Clearstats.basic">
+<code class="descname">basic</code><em class="property"> = 'basic'</em><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.Clearstats.basic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.Clearstats.full">
+<code class="descname">full</code><em class="property"> = 'full'</em><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.Clearstats.full" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallaborts">
+<code class="descname">appfirewallaborts</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallaborts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Incomplete HTTP/HTTPS requests aborted by the client before the Application Firewall could finish processing them.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallabortsrate">
+<code class="descname">appfirewallabortsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallabortsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallaborts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogbufferoverflow">
+<code class="descname">appfirewalllogbufferoverflow</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogbufferoverflow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Buffer Overflow security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogbufferoverflowrate">
+<code class="descname">appfirewalllogbufferoverflowrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogbufferoverflowrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogbufferoverflow.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcontenttype">
+<code class="descname">appfirewalllogcontenttype</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcontenttype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of content type security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcontenttyperate">
+<code class="descname">appfirewalllogcontenttyperate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcontenttyperate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogcontenttype.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcookie">
+<code class="descname">appfirewalllogcookie</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcookie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Cookie Consistency security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcookierate">
+<code class="descname">appfirewalllogcookierate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcookierate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogcookie.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcreditcard">
+<code class="descname">appfirewalllogcreditcard</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcreditcard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Credit Card security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcreditcardrate">
+<code class="descname">appfirewalllogcreditcardrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcreditcardrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogcreditcard.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcsrftag">
+<code class="descname">appfirewalllogcsrftag</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcsrftag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Cross Site Request Forgery form tag security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcsrftagrate">
+<code class="descname">appfirewalllogcsrftagrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogcsrftagrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogcsrftag.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogdenyurl">
+<code class="descname">appfirewalllogdenyurl</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogdenyurl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Deny URL security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogdenyurlrate">
+<code class="descname">appfirewalllogdenyurlrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogdenyurlrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogdenyurl.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogfieldconsistency">
+<code class="descname">appfirewalllogfieldconsistency</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogfieldconsistency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Field Consistency security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogfieldconsistencyrate">
+<code class="descname">appfirewalllogfieldconsistencyrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogfieldconsistencyrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogfieldconsistency.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogfieldformat">
+<code class="descname">appfirewalllogfieldformat</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogfieldformat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Field Format security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogfieldformatrate">
+<code class="descname">appfirewalllogfieldformatrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogfieldformatrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogfieldformat.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllograte">
+<code class="descname">appfirewalllograte</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllograte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalltotallog.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogrefererheader">
+<code class="descname">appfirewalllogrefererheader</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogrefererheader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Referer Header security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogrefererheaderrate">
+<code class="descname">appfirewalllogrefererheaderrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogrefererheaderrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogrefererheader.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogsafeobject">
+<code class="descname">appfirewalllogsafeobject</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogsafeobject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Safe Object security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogsafeobjectrate">
+<code class="descname">appfirewalllogsafeobjectrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogsafeobjectrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogsafeobject.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogsql">
+<code class="descname">appfirewalllogsql</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogsql" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of HTML SQL Injection security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogsqlrate">
+<code class="descname">appfirewalllogsqlrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogsqlrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogsql.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogstarturl">
+<code class="descname">appfirewalllogstarturl</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogstarturl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Start URL security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogstarturlrate">
+<code class="descname">appfirewalllogstarturlrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogstarturlrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogstarturl.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogtransformsql">
+<code class="descname">appfirewalllogtransformsql</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogtransformsql" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of HTML SQL Injection security check transform log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogtransformsqlrate">
+<code class="descname">appfirewalllogtransformsqlrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogtransformsqlrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogtransformsql.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogtransformxss">
+<code class="descname">appfirewalllogtransformxss</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogtransformxss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of HTML Cross-Site Scripting security check transform log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogtransformxssrate">
+<code class="descname">appfirewalllogtransformxssrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogtransformxssrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogtransformxss.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogxss">
+<code class="descname">appfirewalllogxss</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogxss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of HTML Cross-Site Scripting security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogxssrate">
+<code class="descname">appfirewalllogxssrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllogxssrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalllogxss.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllongavgresptime">
+<code class="descname">appfirewalllongavgresptime</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalllongavgresptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Average backend response time in milliseconds since reboot.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallmsgvallogs">
+<code class="descname">appfirewallmsgvallogs</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallmsgvallogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of XML Message Validation security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallmsgvallogsrate">
+<code class="descname">appfirewallmsgvallogsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallmsgvallogsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallmsgvallogs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallredirects">
+<code class="descname">appfirewallredirects</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallredirects" title="Permalink to this definition">¶</a></dt>
+<dd><p>HTTP/HTTPS requests redirected by the Application Firewall to a different Web page or web server. (HTTP 302).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallredirectsrate">
+<code class="descname">appfirewallredirectsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallredirectsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallredirects.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallreqbytes">
+<code class="descname">appfirewallreqbytes</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallreqbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of bytes transfered for requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallreqbytesrate">
+<code class="descname">appfirewallreqbytesrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallreqbytesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallreqbytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallrequests">
+<code class="descname">appfirewallrequests</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallrequests" title="Permalink to this definition">¶</a></dt>
+<dd><p>HTTP/HTTPS requests sent to your protected web servers via the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallrequestsrate">
+<code class="descname">appfirewallrequestsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallrequestsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallrequests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallresbytes">
+<code class="descname">appfirewallresbytes</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallresbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of bytes transfered for responses.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallresbytesrate">
+<code class="descname">appfirewallresbytesrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallresbytesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallresbytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallresponses">
+<code class="descname">appfirewallresponses</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallresponses" title="Permalink to this definition">¶</a></dt>
+<dd><p>HTTP/HTTPS responses sent by your protected web servers via the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallresponsesrate">
+<code class="descname">appfirewallresponsesrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallresponsesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallresponses.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallret4xx">
+<code class="descname">appfirewallret4xx</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallret4xx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of requests returning HTTP 4xx from the backend server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallret4xxrate">
+<code class="descname">appfirewallret4xxrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallret4xxrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallret4xx.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallret5xx">
+<code class="descname">appfirewallret5xx</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallret5xx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of requests returning HTTP 5xx from the backend server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallret5xxrate">
+<code class="descname">appfirewallret5xxrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallret5xxrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallret5xx.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallshortavgresptime">
+<code class="descname">appfirewallshortavgresptime</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallshortavgresptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Average backend response time in milliseconds over the last 7 seconds.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallsignaturelogs">
+<code class="descname">appfirewallsignaturelogs</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallsignaturelogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Signature logs generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallsignaturelogsrate">
+<code class="descname">appfirewallsignaturelogsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallsignaturelogsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallsignaturelogs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalltotallog">
+<code class="descname">appfirewalltotallog</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalltotallog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalltotalviol">
+<code class="descname">appfirewalltotalviol</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalltotalviol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalltrapsdropped">
+<code class="descname">appfirewalltrapsdropped</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewalltrapsdropped" title="Permalink to this definition">¶</a></dt>
+<dd><p>AppFirewall SNMP traps dropped due to time limit.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolbufferoverflow">
+<code class="descname">appfirewallviolbufferoverflow</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolbufferoverflow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Buffer Overflow security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolbufferoverflowrate">
+<code class="descname">appfirewallviolbufferoverflowrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolbufferoverflowrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolbufferoverflow.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcontenttype">
+<code class="descname">appfirewallviolcontenttype</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcontenttype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Content type security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcontenttyperate">
+<code class="descname">appfirewallviolcontenttyperate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcontenttyperate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolcontenttype.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcookie">
+<code class="descname">appfirewallviolcookie</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcookie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Cookie Consistency security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcookierate">
+<code class="descname">appfirewallviolcookierate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcookierate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolcookie.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcreditcard">
+<code class="descname">appfirewallviolcreditcard</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcreditcard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Credit Card security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcreditcardrate">
+<code class="descname">appfirewallviolcreditcardrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcreditcardrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolcreditcard.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcsrftag">
+<code class="descname">appfirewallviolcsrftag</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcsrftag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Cross Site Request Forgery form tag security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcsrftagrate">
+<code class="descname">appfirewallviolcsrftagrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolcsrftagrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolcsrftag.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallvioldenyurl">
+<code class="descname">appfirewallvioldenyurl</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallvioldenyurl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Deny URL security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallvioldenyurlrate">
+<code class="descname">appfirewallvioldenyurlrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallvioldenyurlrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallvioldenyurl.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolfieldconsistency">
+<code class="descname">appfirewallviolfieldconsistency</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolfieldconsistency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Field Consistency security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolfieldconsistencyrate">
+<code class="descname">appfirewallviolfieldconsistencyrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolfieldconsistencyrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolfieldconsistency.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolfieldformat">
+<code class="descname">appfirewallviolfieldformat</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolfieldformat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Field Format security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolfieldformatrate">
+<code class="descname">appfirewallviolfieldformatrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolfieldformatrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolfieldformat.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolmsgvalviolations">
+<code class="descname">appfirewallviolmsgvalviolations</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolmsgvalviolations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of XML Message Validation security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolmsgvalviolationsrate">
+<code class="descname">appfirewallviolmsgvalviolationsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolmsgvalviolationsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolmsgvalviolations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolrate">
+<code class="descname">appfirewallviolrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewalltotalviol.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolrefererheader">
+<code class="descname">appfirewallviolrefererheader</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolrefererheader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Referer Header security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolrefererheaderrate">
+<code class="descname">appfirewallviolrefererheaderrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolrefererheaderrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolrefererheader.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolsafeobject">
+<code class="descname">appfirewallviolsafeobject</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolsafeobject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Safe Object security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolsafeobjectrate">
+<code class="descname">appfirewallviolsafeobjectrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolsafeobjectrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolsafeobject.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolsignature">
+<code class="descname">appfirewallviolsignature</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolsignature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Signature violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolsignaturerate">
+<code class="descname">appfirewallviolsignaturerate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolsignaturerate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolsignature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolsql">
+<code class="descname">appfirewallviolsql</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolsql" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of HTML SQL Injection security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolsqlrate">
+<code class="descname">appfirewallviolsqlrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolsqlrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolsql.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolstarturl">
+<code class="descname">appfirewallviolstarturl</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolstarturl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Start URL security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolstarturlrate">
+<code class="descname">appfirewallviolstarturlrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolstarturlrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolstarturl.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolwellformednessviolations">
+<code class="descname">appfirewallviolwellformednessviolations</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolwellformednessviolations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of XML Format security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolwellformednessviolationsrate">
+<code class="descname">appfirewallviolwellformednessviolationsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolwellformednessviolationsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolwellformednessviolations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolwsiviolations">
+<code class="descname">appfirewallviolwsiviolations</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolwsiviolations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Web Services Interoperability (WS-I) security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolwsiviolationsrate">
+<code class="descname">appfirewallviolwsiviolationsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolwsiviolationsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolwsiviolations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxdosviolations">
+<code class="descname">appfirewallviolxdosviolations</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxdosviolations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of XML Denial-of-Service security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxdosviolationsrate">
+<code class="descname">appfirewallviolxdosviolationsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxdosviolationsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolxdosviolations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlattachmentviolations">
+<code class="descname">appfirewallviolxmlattachmentviolations</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlattachmentviolations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of XML Attachment security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlattachmentviolationsrate">
+<code class="descname">appfirewallviolxmlattachmentviolationsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlattachmentviolationsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolxmlattachmentviolations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlgenviolations">
+<code class="descname">appfirewallviolxmlgenviolations</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlgenviolations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of requests returning XML generic error from the backend server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlgenviolationsrate">
+<code class="descname">appfirewallviolxmlgenviolationsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlgenviolationsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolxmlgenviolations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlsoapfaultviolations">
+<code class="descname">appfirewallviolxmlsoapfaultviolations</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlsoapfaultviolations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of requests returning soap:fault from the backend server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlsoapfaultviolationsrate">
+<code class="descname">appfirewallviolxmlsoapfaultviolationsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlsoapfaultviolationsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolxmlsoapfaultviolations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlsqlviolations">
+<code class="descname">appfirewallviolxmlsqlviolations</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlsqlviolations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of XML SQL Injection security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlsqlviolationsrate">
+<code class="descname">appfirewallviolxmlsqlviolationsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlsqlviolationsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolxmlsqlviolations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlxssviolations">
+<code class="descname">appfirewallviolxmlxssviolations</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlxssviolations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of XML Cross-Site Scripting (XSS) security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlxssviolationsrate">
+<code class="descname">appfirewallviolxmlxssviolationsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxmlxssviolationsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolxmlxssviolations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxss">
+<code class="descname">appfirewallviolxss</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of HTML Cross-Site Scripting security check violations seen by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxssrate">
+<code class="descname">appfirewallviolxssrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallviolxssrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallviolxss.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallwellformednesslogs">
+<code class="descname">appfirewallwellformednesslogs</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallwellformednesslogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of XML Format security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallwellformednesslogsrate">
+<code class="descname">appfirewallwellformednesslogsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallwellformednesslogsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallwellformednesslogs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallwsilogs">
+<code class="descname">appfirewallwsilogs</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallwsilogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Web Services Interoperability (WS-I) security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallwsilogsrate">
+<code class="descname">appfirewallwsilogsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallwsilogsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallwsilogs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxdoslogs">
+<code class="descname">appfirewallxdoslogs</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxdoslogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of XML Denial-of-Service security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxdoslogsrate">
+<code class="descname">appfirewallxdoslogsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxdoslogsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallxdoslogs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlattachmentlogs">
+<code class="descname">appfirewallxmlattachmentlogs</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlattachmentlogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of XML Attachment security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlattachmentlogsrate">
+<code class="descname">appfirewallxmlattachmentlogsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlattachmentlogsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallxmlattachmentlogs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlgenlogs">
+<code class="descname">appfirewallxmlgenlogs</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlgenlogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of requests generating XML generic error log messages.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlgenlogsrate">
+<code class="descname">appfirewallxmlgenlogsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlgenlogsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallxmlgenlogs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlsoapfaultlogs">
+<code class="descname">appfirewallxmlsoapfaultlogs</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlsoapfaultlogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of requests generating soap:fault log messages.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlsoapfaultlogsrate">
+<code class="descname">appfirewallxmlsoapfaultlogsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlsoapfaultlogsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallxmlsoapfaultlogs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlsqllogs">
+<code class="descname">appfirewallxmlsqllogs</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlsqllogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of XML SQL Injection security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlsqllogsrate">
+<code class="descname">appfirewallxmlsqllogsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlsqllogsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallxmlsqllogs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlxsslogs">
+<code class="descname">appfirewallxmlxsslogs</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlxsslogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of XML Cross-Site Scripting (XSS) security check log messages generated by the Application Firewall.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlxsslogsrate">
+<code class="descname">appfirewallxmlxsslogsrate</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.appfirewallxmlxsslogsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for appfirewallxmlxsslogs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.clearstats">
+<code class="descname">clearstats</code><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.clearstats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the statsistics / counters.&lt;br/&gt;Possible values = basic, full.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.stat.appfw.appfw_stats.appfw_stats.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>service</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/stat/appfw/appfw_stats.html#appfw_stats.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.stat.appfw.appfw_stats.appfw_stats.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch the statistics of all appfw_stats resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>service</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.stat.appfw.appfwpolicy_stats.html" class="btn btn-neutral float-right" title="nitro.resource.stat.appfw.appfwpolicy_stats module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.stat.appfw.html" class="btn btn-neutral float-left" title="nitro.resource.stat.appfw package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

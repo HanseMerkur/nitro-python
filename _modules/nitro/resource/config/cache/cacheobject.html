@@ -1,0 +1,1343 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.cache.cacheobject &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.cache.cacheobject</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.cache.cacheobject</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="cacheobject"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject">[docs]</a><span class="k">class</span> <span class="nc">cacheobject</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for cache object resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_locator</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpstatus</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_host</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_groupname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpmethod</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ignoremarkerobjects</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_includenotreadyobjects</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tosecondary</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cacheressize</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachereshdrsize</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cacheetag</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpstatusoutput</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachereslastmod</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecontrol</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cacheresdate</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_contentgroup</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_destipv46</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_destport</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellcomplex</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hitparams</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hitvalues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellreqtime</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellrestime</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecurage</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellexpires</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellexpiresmillisec</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_flushed</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prefetch</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prefetchperiod</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prefetchperiodmillisec</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellcurreaders</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellcurmisses</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellhits</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellmisses</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecelldhits</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellcompressionformat</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellappfwmetadataexists</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellhttp11</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellweaketag</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellresbadsize</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_markerreason</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellpolleverytime</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecelletaginserted</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellreadywithlastbyte</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cacheinmemory</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cacheindisk</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cacheinsecondary</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachedirname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachefilename</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecelldestipverified</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellfwpxyobj</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellbasefile</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellminhitflag</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellminhit</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_policy</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_policyname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_selectorname</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rule</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_selectorvalue</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cacheurls</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_warnbucketskip</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_totalobjs</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpcalloutcell</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpcalloutname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_returntype</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpcalloutresult</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_locatorshow</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ceflags</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">___count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">url</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;URL of the particular object whose details is required. Parameter &quot;host&quot; must be specified along with the URL.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_url</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@url</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;URL of the particular object whose details is required. Parameter &quot;host&quot; must be specified along with the URL.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param url: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_url</span> <span class="o">=</span> <span class="n">url</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">locator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;ID of the cached object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_locator</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@locator</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">locator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locator</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;ID of the cached object.</span>
+
+<span class="sd">        :param locator: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_locator</span> <span class="o">=</span> <span class="n">locator</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">httpstatus</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;HTTP status of the object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_httpstatus</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@httpstatus</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">httpstatus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">httpstatus</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;HTTP status of the object.</span>
+
+<span class="sd">        :param httpstatus: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_httpstatus</span> <span class="o">=</span> <span class="n">httpstatus</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">host</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Host name of the object. Parameter &quot;url&quot; must be specified.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_host</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@host</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">host</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Host name of the object. Parameter &quot;url&quot; must be specified.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param host: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_host</span> <span class="o">=</span> <span class="n">host</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">port</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Host port of the object. You must also set the Host parameter.&lt;br/&gt;Default value: 80&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_port</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@port</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Host port of the object. You must also set the Host parameter.&lt;br/&gt;Default value: 80&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param port: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="n">port</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">groupname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the content group to which the object belongs. It will display only the objects belonging to the specified content group. You must also set the Host parameter.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_groupname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@groupname</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">groupname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupname</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the content group to which the object belongs. It will display only the objects belonging to the specified content group. You must also set the Host parameter.</span>
+
+<span class="sd">        :param groupname: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_groupname</span> <span class="o">=</span> <span class="n">groupname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">httpmethod</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;HTTP request method that caused the object to be stored.&lt;br/&gt;Default value: GET&lt;br/&gt;Possible values = GET, POST.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_httpmethod</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@httpmethod</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">httpmethod</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">httpmethod</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;HTTP request method that caused the object to be stored.&lt;br/&gt;Default value: GET&lt;br/&gt;Possible values = GET, POST</span>
+
+<span class="sd">        :param httpmethod: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_httpmethod</span> <span class="o">=</span> <span class="n">httpmethod</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">group</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the content group whose objects should be listed.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@group</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the content group whose objects should be listed.</span>
+
+<span class="sd">        :param group: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ignoremarkerobjects</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Ignore marker objects. Marker objects are created when a response exceeds the maximum or minimum response size for the content group or has not yet received the minimum number of hits for the content group.&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ignoremarkerobjects</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ignoremarkerobjects</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ignoremarkerobjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ignoremarkerobjects</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Ignore marker objects. Marker objects are created when a response exceeds the maximum or minimum response size for the content group or has not yet received the minimum number of hits for the content group.&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param ignoremarkerobjects: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ignoremarkerobjects</span> <span class="o">=</span> <span class="n">ignoremarkerobjects</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">includenotreadyobjects</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Include responses that have not yet reached a minimum number of hits before being cached.&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_includenotreadyobjects</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@includenotreadyobjects</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">includenotreadyobjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">includenotreadyobjects</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Include responses that have not yet reached a minimum number of hits before being cached.&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param includenotreadyobjects: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_includenotreadyobjects</span> <span class="o">=</span> <span class="n">includenotreadyobjects</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tosecondary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Object will be saved onto Secondary.&lt;br/&gt;Default value: NO&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tosecondary</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@tosecondary</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">tosecondary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tosecondary</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Object will be saved onto Secondary.&lt;br/&gt;Default value: NO&lt;br/&gt;Possible values = YES, NO</span>
+
+<span class="sd">        :param tosecondary: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tosecondary</span> <span class="o">=</span> <span class="n">tosecondary</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cacheressize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Cache response size of the object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cacheressize</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachereshdrsize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Cache response header size of the object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachereshdrsize</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cacheetag</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Cache ETag of the object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cacheetag</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">httpstatusoutput</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;HTTP status of the object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_httpstatusoutput</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachereslastmod</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Value of &quot;Last-modified&quot; header.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachereslastmod</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecontrol</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Cache-Control header of the object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecontrol</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cacheresdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Value of &quot;Date&quot; header.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cacheresdate</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">contentgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the contentgroup in which it is stored.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contentgroup</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">destipv46</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Destination IP.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_destipv46</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">destport</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Destination Port.&lt;br/&gt;Range 1 - 65535.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_destport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellcomplex</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of the parameterized caching on this cell.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellcomplex</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hitparams</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Parameterized hit evaluation of an object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hitparams</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hitvalues</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Values of hitparams for this object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hitvalues</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellreqtime</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Required time of the cache cell object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellreqtime</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellrestime</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Response time to the cache cell object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellrestime</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecurage</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Current age of the cache object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecurage</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellexpires</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Expiry time of the cache cell object in seconds.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellexpires</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellexpiresmillisec</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Expiry time of the cache cell object in milliseconds.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellexpiresmillisec</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">flushed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Specifies whether the object is flushed.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flushed</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">prefetch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Specifies whether Integrated Cache should attempt to refresh an object immediately before it goes stale.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prefetch</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">prefetchperiod</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The duration in seconds of the period during which prefetch should be attempted, immediately before the object&#39;s calculated expiry time.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prefetchperiod</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">prefetchperiodmillisec</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The duration in milliseconds of the period during which prefetch should be attempted, immediately before the object&#39;s calculated expiry time.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prefetchperiodmillisec</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellcurreaders</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Current readers of the cache cell object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellcurreaders</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellcurmisses</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Current misses of the cache cell object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellcurmisses</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellhits</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Cache cell hits.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellhits</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellmisses</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Cache cell misses.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellmisses</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecelldhits</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Cache cell disk hits.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecelldhits</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellcompressionformat</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Compression format of this object. Identity means not compressed.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellcompressionformat</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellappfwmetadataexists</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;AppFirewall cache object.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellappfwmetadataexists</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellhttp11</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of the response to be HTTP/1.1.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellhttp11</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellweaketag</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of the weak HTTP Entity Tag in the cell.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellweaketag</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellresbadsize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The marked state of the cell.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellresbadsize</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">markerreason</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Reason for marking the cell.&lt;br/&gt;Possible values = Waiting for min hit, Response header is too big, Content-length header said response size is not in group size limit, Content-length response received more data, Content-length response received less data, Content-length response data is not in group size limit, Chunk response received more data, Chunk response data is not in group size limit, Bad chunk format, Fin terminated response data is not in group size limit.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_markerreason</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellpolleverytime</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state to poll every time on object.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellpolleverytime</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecelletaginserted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of the ETag to be inserted by IC for this object.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecelletaginserted</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellreadywithlastbyte</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of the complete arrived response.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellreadywithlastbyte</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cacheinmemory</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The cache data is available in memory.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cacheinmemory</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cacheindisk</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The cache data is available in disk.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cacheindisk</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cacheinsecondary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The cache data is available in secondary in HA deployment.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cacheinsecondary</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachedirname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The directory name used if saved.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachedirname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachefilename</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The filename used if saved.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachefilename</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecelldestipverified</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of DNS verification.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecelldestipverified</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellfwpxyobj</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of the object to be stored on a request to a forward proxy.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellfwpxyobj</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellbasefile</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of delta being used as a basefile.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellbasefile</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellminhitflag</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of the minhit feature on this cell.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellminhitflag</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachecellminhit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Min hit value for the object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachecellminhit</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">policy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Policy info for the object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_policy</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">policyname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Policy which created the object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_policyname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">selectorname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The hit selector for the object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selectorname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">rule</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Selectors for this object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rule</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">selectorvalue</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The HTTP request method that caused the object to be stored.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selectorvalue</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cacheurls</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;List of cache object URLs.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cacheurls</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">warnbucketskip</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Bucket skipped warning.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_warnbucketskip</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">totalobjs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Total objects.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_totalobjs</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">httpcalloutcell</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Is it a http callout cell ?.&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_httpcalloutcell</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">httpcalloutname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the http callout.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_httpcalloutname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">returntype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_returntype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">httpcalloutresult</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;First few bytes of http callout response.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_httpcalloutresult</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">locatorshow</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;ID of the cached object.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_locatorshow</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ceflags</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Indicates state and type of cached cell.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ceflags</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">cacheobject_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">cacheobject</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="cacheobject.expire"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.expire">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">expire</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to expire cacheobject.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">expireresource</span> <span class="o">=</span> <span class="n">cacheobject</span><span class="p">()</span>
+                <span class="n">expireresource</span><span class="o">.</span><span class="n">locator</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">locator</span>
+                <span class="n">expireresource</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">url</span>
+                <span class="n">expireresource</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">host</span>
+                <span class="n">expireresource</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">port</span>
+                <span class="n">expireresource</span><span class="o">.</span><span class="n">groupname</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">groupname</span>
+                <span class="n">expireresource</span><span class="o">.</span><span class="n">httpmethod</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">httpmethod</span>
+                <span class="k">return</span> <span class="n">expireresource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="s2">&quot;expire&quot;</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">expireresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">cacheobject</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">expireresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">locator</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">locator</span>
+                        <span class="n">expireresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">url</span>
+                        <span class="n">expireresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">host</span>
+                        <span class="n">expireresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">port</span>
+                        <span class="n">expireresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">groupname</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">groupname</span>
+                        <span class="n">expireresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">httpmethod</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">httpmethod</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">perform_operation_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">expireresources</span><span class="p">,</span><span class="s2">&quot;expire&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="cacheobject.flush"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.flush">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">flush</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to flush cacheobject.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">flushresource</span> <span class="o">=</span> <span class="n">cacheobject</span><span class="p">()</span>
+                <span class="n">flushresource</span><span class="o">.</span><span class="n">locator</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">locator</span>
+                <span class="n">flushresource</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">url</span>
+                <span class="n">flushresource</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">host</span>
+                <span class="n">flushresource</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">port</span>
+                <span class="n">flushresource</span><span class="o">.</span><span class="n">groupname</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">groupname</span>
+                <span class="n">flushresource</span><span class="o">.</span><span class="n">httpmethod</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">httpmethod</span>
+                <span class="k">return</span> <span class="n">flushresource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="s2">&quot;flush&quot;</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">flushresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">cacheobject</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">flushresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">locator</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">locator</span>
+                        <span class="n">flushresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">url</span>
+                        <span class="n">flushresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">host</span>
+                        <span class="n">flushresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">port</span>
+                        <span class="n">flushresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">groupname</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">groupname</span>
+                        <span class="n">flushresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">httpmethod</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">httpmethod</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">perform_operation_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">flushresources</span><span class="p">,</span><span class="s2">&quot;flush&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="cacheobject.save"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.save">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to save cacheobject.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">saveresource</span> <span class="o">=</span> <span class="n">cacheobject</span><span class="p">()</span>
+                <span class="n">saveresource</span><span class="o">.</span><span class="n">locator</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">locator</span>
+                <span class="n">saveresource</span><span class="o">.</span><span class="n">tosecondary</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">tosecondary</span>
+                <span class="k">return</span> <span class="n">saveresource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="s2">&quot;save&quot;</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">saveresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">cacheobject</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">saveresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">locator</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">locator</span>
+                        <span class="n">saveresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tosecondary</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tosecondary</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">perform_operation_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">saveresources</span><span class="p">,</span><span class="s2">&quot;save&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="cacheobject.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the cacheobject resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">cacheobject</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="cacheobject.get_args"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.get_args">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_args</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the cacheobject resources that are configured on netscaler.</span>
+<span class="sd">            # This uses cacheobject_args which is a way to provide additional arguments while fetching the resources.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">cacheobject</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">nitro_util</span><span class="o">.</span><span class="n">object_to_string_withoutquotes</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="cacheobject.get_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.get_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch filtered set of cacheobject resources.</span>
+<span class="sd">        filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">cacheobject</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="cacheobject.count"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.count">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count the cacheobject resources configured on NetScaler.</span>
+
+<span class="sd">        :param client: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">cacheobject</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="cacheobject.count_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.count_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count filtered the set of cacheobject resources.</span>
+<span class="sd">        Filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">cacheobject</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="cacheobject.Cachecellfwpxyobj"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cachecellfwpxyobj">[docs]</a>    <span class="k">class</span> <span class="nc">Cachecellfwpxyobj</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Tosecondary"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Tosecondary">[docs]</a>    <span class="k">class</span> <span class="nc">Tosecondary</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cachecellbasefile"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cachecellbasefile">[docs]</a>    <span class="k">class</span> <span class="nc">Cachecellbasefile</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cachecellcomplex"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cachecellcomplex">[docs]</a>    <span class="k">class</span> <span class="nc">Cachecellcomplex</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cachecellweaketag"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cachecellweaketag">[docs]</a>    <span class="k">class</span> <span class="nc">Cachecellweaketag</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Ignoremarkerobjects"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Ignoremarkerobjects">[docs]</a>    <span class="k">class</span> <span class="nc">Ignoremarkerobjects</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cachecellreadywithlastbyte"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cachecellreadywithlastbyte">[docs]</a>    <span class="k">class</span> <span class="nc">Cachecellreadywithlastbyte</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Flushed"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Flushed">[docs]</a>    <span class="k">class</span> <span class="nc">Flushed</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cachecelldestipverified"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cachecelldestipverified">[docs]</a>    <span class="k">class</span> <span class="nc">Cachecelldestipverified</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cachecellhttp11"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cachecellhttp11">[docs]</a>    <span class="k">class</span> <span class="nc">Cachecellhttp11</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Includenotreadyobjects"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Includenotreadyobjects">[docs]</a>    <span class="k">class</span> <span class="nc">Includenotreadyobjects</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cachecellminhitflag"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cachecellminhitflag">[docs]</a>    <span class="k">class</span> <span class="nc">Cachecellminhitflag</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cacheindisk"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cacheindisk">[docs]</a>    <span class="k">class</span> <span class="nc">Cacheindisk</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Markerreason"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Markerreason">[docs]</a>    <span class="k">class</span> <span class="nc">Markerreason</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Waiting_for_min_hit</span> <span class="o">=</span> <span class="s2">&quot;Waiting for min hit&quot;</span>
+        <span class="n">Response_header_is_too_big</span> <span class="o">=</span> <span class="s2">&quot;Response header is too big&quot;</span>
+        <span class="n">Content_length_header_said_response_size_is_not_in_group_size_limit</span> <span class="o">=</span> <span class="s2">&quot;Content-length header said response size is not in group size limit&quot;</span>
+        <span class="n">Content_length_response_received_more_data</span> <span class="o">=</span> <span class="s2">&quot;Content-length response received more data&quot;</span>
+        <span class="n">Content_length_response_received_less_data</span> <span class="o">=</span> <span class="s2">&quot;Content-length response received less data&quot;</span>
+        <span class="n">Content_length_response_data_is_not_in_group_size_limit</span> <span class="o">=</span> <span class="s2">&quot;Content-length response data is not in group size limit&quot;</span>
+        <span class="n">Chunk_response_received_more_data</span> <span class="o">=</span> <span class="s2">&quot;Chunk response received more data&quot;</span>
+        <span class="n">Chunk_response_data_is_not_in_group_size_limit</span> <span class="o">=</span> <span class="s2">&quot;Chunk response data is not in group size limit&quot;</span>
+        <span class="n">Bad_chunk_format</span> <span class="o">=</span> <span class="s2">&quot;Bad chunk format&quot;</span>
+        <span class="n">Fin_terminated_response_data_is_not_in_group_size_limit</span> <span class="o">=</span> <span class="s2">&quot;Fin terminated response data is not in group size limit&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cachecellpolleverytime"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cachecellpolleverytime">[docs]</a>    <span class="k">class</span> <span class="nc">Cachecellpolleverytime</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Httpmethod"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Httpmethod">[docs]</a>    <span class="k">class</span> <span class="nc">Httpmethod</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">GET</span> <span class="o">=</span> <span class="s2">&quot;GET&quot;</span>
+        <span class="n">POST</span> <span class="o">=</span> <span class="s2">&quot;POST&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Returntype"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Returntype">[docs]</a>    <span class="k">class</span> <span class="nc">Returntype</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">BOOL</span> <span class="o">=</span> <span class="s2">&quot;BOOL&quot;</span>
+        <span class="n">NUM</span> <span class="o">=</span> <span class="s2">&quot;NUM&quot;</span>
+        <span class="n">TEXT</span> <span class="o">=</span> <span class="s2">&quot;TEXT&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Httpcalloutcell"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Httpcalloutcell">[docs]</a>    <span class="k">class</span> <span class="nc">Httpcalloutcell</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cachecelletaginserted"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cachecelletaginserted">[docs]</a>    <span class="k">class</span> <span class="nc">Cachecelletaginserted</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cacheinmemory"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cacheinmemory">[docs]</a>    <span class="k">class</span> <span class="nc">Cacheinmemory</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cachecellappfwmetadataexists"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cachecellappfwmetadataexists">[docs]</a>    <span class="k">class</span> <span class="nc">Cachecellappfwmetadataexists</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cachecellresbadsize"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cachecellresbadsize">[docs]</a>    <span class="k">class</span> <span class="nc">Cachecellresbadsize</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Prefetch"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Prefetch">[docs]</a>    <span class="k">class</span> <span class="nc">Prefetch</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="cacheobject.Cacheinsecondary"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject.Cacheinsecondary">[docs]</a>    <span class="k">class</span> <span class="nc">Cacheinsecondary</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div></div>
+
+<div class="viewcode-block" id="cacheobject_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.cache.cacheobject.html#nitro.resource.config.cache.cacheobject.cacheobject_response">[docs]</a><span class="k">class</span> <span class="nc">cacheobject_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cacheobject</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cacheobject</span> <span class="o">=</span> <span class="p">[</span><span class="n">cacheobject</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

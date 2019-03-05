@@ -1,0 +1,1016 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.ssl.sslservicegroup &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.ssl.sslservicegroup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.ssl.sslservicegroup</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="sslservicegroup"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup">[docs]</a><span class="k">class</span> <span class="nc">sslservicegroup</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for SSL service group resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_servicegroupname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sslprofile</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sessreuse</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sesstimeout</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nonfipsciphers</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ssl3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tls1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tls11</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tls12</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_serverauth</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_commonname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sendclosenotify</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cipherdetails</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dh</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dhfile</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dhcount</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dhkeyexpsizelimit</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ersa</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ersacount</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cipherredirect</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cipherurl</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sslv2redirect</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sslv2url</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clientauth</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clientcert</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sslredirect</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_redirectportrewrite</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ssl2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ocspcheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_crlcheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cleartextport</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_servicename</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ca</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_snicert</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">___count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">servicegroupname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the SSL service group for which to set advanced configuration.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_servicegroupname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@servicegroupname</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">servicegroupname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">servicegroupname</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the SSL service group for which to set advanced configuration.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param servicegroupname: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_servicegroupname</span> <span class="o">=</span> <span class="n">servicegroupname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sslprofile</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the SSL profile that contains SSL settings for the Service Group.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  127.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslprofile</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@sslprofile</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sslprofile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sslprofile</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the SSL profile that contains SSL settings for the Service Group.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  127</span>
+
+<span class="sd">        :param sslprofile: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sslprofile</span> <span class="o">=</span> <span class="n">sslprofile</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sessreuse</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of session reuse. Establishing the initial handshake requires CPU-intensive public key encryption operations. With the ENABLED setting, session key exchange is avoided for session resumption requests received from the client.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sessreuse</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@sessreuse</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sessreuse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sessreuse</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of session reuse. Establishing the initial handshake requires CPU-intensive public key encryption operations. With the ENABLED setting, session key exchange is avoided for session resumption requests received from the client.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param sessreuse: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sessreuse</span> <span class="o">=</span> <span class="n">sessreuse</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sesstimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Time, in seconds, for which to keep the session active. Any session resumption request received after the timeout period will require a fresh SSL handshake and establishment of a new SSL session.&lt;br/&gt;Default value: 300&lt;br/&gt;Maximum length =  0xFFFFFFFE.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sesstimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@sesstimeout</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sesstimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sesstimeout</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Time, in seconds, for which to keep the session active. Any session resumption request received after the timeout period will require a fresh SSL handshake and establishment of a new SSL session.&lt;br/&gt;Default value: 300&lt;br/&gt;Maximum length =  0xFFFFFFFE</span>
+
+<span class="sd">        :param sesstimeout: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sesstimeout</span> <span class="o">=</span> <span class="n">sesstimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nonfipsciphers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of usage of ciphers that are not FIPS approved. Valid only for an SSL service bound with a FIPS key and certificate.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nonfipsciphers</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@nonfipsciphers</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nonfipsciphers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nonfipsciphers</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of usage of ciphers that are not FIPS approved. Valid only for an SSL service bound with a FIPS key and certificate.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param nonfipsciphers: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nonfipsciphers</span> <span class="o">=</span> <span class="n">nonfipsciphers</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ssl3</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of SSLv3 protocol support for the SSL service group.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ssl3</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ssl3</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ssl3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ssl3</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of SSLv3 protocol support for the SSL service group.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param ssl3: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ssl3</span> <span class="o">=</span> <span class="n">ssl3</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tls1</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of TLSv1.0 protocol support for the SSL service group.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tls1</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@tls1</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">tls1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tls1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of TLSv1.0 protocol support for the SSL service group.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param tls1: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tls1</span> <span class="o">=</span> <span class="n">tls1</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tls11</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of TLSv1.1 protocol support for the SSL service group.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tls11</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@tls11</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">tls11</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tls11</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of TLSv1.1 protocol support for the SSL service group.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param tls11: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tls11</span> <span class="o">=</span> <span class="n">tls11</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tls12</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of TLSv1.2 protocol support for the SSL service group.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tls12</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@tls12</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">tls12</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tls12</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of TLSv1.2 protocol support for the SSL service group.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param tls12: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tls12</span> <span class="o">=</span> <span class="n">tls12</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">serverauth</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of server authentication support for the SSL service group.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serverauth</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@serverauth</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">serverauth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serverauth</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;State of server authentication support for the SSL service group.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param serverauth: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_serverauth</span> <span class="o">=</span> <span class="n">serverauth</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">commonname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name to be checked against the CommonName (CN) field in the server certificate bound to the SSL server.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_commonname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@commonname</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">commonname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">commonname</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name to be checked against the CommonName (CN) field in the server certificate bound to the SSL server.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param commonname: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_commonname</span> <span class="o">=</span> <span class="n">commonname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sendclosenotify</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable sending SSL Close-Notify at the end of a transaction.&lt;br/&gt;Default value: YES&lt;br/&gt;Possible values = YES, NO.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sendclosenotify</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@sendclosenotify</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sendclosenotify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sendclosenotify</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable sending SSL Close-Notify at the end of a transaction.&lt;br/&gt;Default value: YES&lt;br/&gt;Possible values = YES, NO</span>
+
+<span class="sd">        :param sendclosenotify: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sendclosenotify</span> <span class="o">=</span> <span class="n">sendclosenotify</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cipherdetails</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Display details of the individual ciphers bound to the SSL service group.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cipherdetails</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@cipherdetails</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cipherdetails</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cipherdetails</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Display details of the individual ciphers bound to the SSL service group.</span>
+
+<span class="sd">        :param cipherdetails: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cipherdetails</span> <span class="o">=</span> <span class="n">cipherdetails</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of DH key exchange support for the SSL service group.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dh</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dhfile</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The  file name and path for the DH parameter.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dhfile</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dhcount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The  refresh  count  for  the re-generation of DH public-key and private-key from the DH parameter.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dhcount</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dhkeyexpsizelimit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;This option enables the use of NIST recommended (NIST Special Publication 800-56A) bit size for private-key size. For example, for DH params of size 2048bit, the private-key size recommended is 224bits. This is rounded-up to 256bits.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dhkeyexpsizelimit</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ersa</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of Ephemeral RSA key exchange support for the SSL service group.Ephemeral RSA is used for export ciphers.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ersa</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ersacount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The  refresh  count  for the re-generation of RSA public-key and private-key pair.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ersacount</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cipherredirect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of Cipher Redirect feature. Cipher Redirect feature can be used to provide more readable information to SSL clients about mismatch in ciphers between the client and the SSL vserver.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cipherredirect</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cipherurl</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The redirect URL to be used with the  Cipher  Redirect  feature.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cipherurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sslv2redirect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of SSLv2 Redirect feature.SSLv2 Redirect feature can be used to provide more readable information to SSL client about non-support of SSLv2 protocol on the SSL vserver.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslv2redirect</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sslv2url</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The  redirect URL to be used with SSLv2 Redirect feature.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslv2url</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">clientauth</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of Client-Authentication support for the SSL service group.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clientauth</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">clientcert</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The rule for client certificate requirement in client authentication.&lt;br/&gt;Possible values = Mandatory, Optional.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clientcert</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sslredirect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of HTTPS redirects for the SSL service group.</span>
+<span class="sd">        This is required for the proper functioning of the redirect messages from the server. The redirect message from the server provides the new location for the moved object. This is contained in the HTTP header field: Location, e.g. Location: http://www.moved.org/here.html</span>
+<span class="sd">        For the SSL session, if the client browser receives this message, the browser will try to connect to the new location. This will break the secure SSL session, as the object has moved from a secure site (https://) to an un-secure one (http://). Generally browsers flash a warning message on the screen and prompt the user, either to continue or disconnect.</span>
+<span class="sd">        The above feature, when enabled will automatically convert all such http:// redirect message to https://. This will not break the client SSL session.</span>
+<span class="sd">        Note: The set ssl service command can be used for configuring a front-end SSL service for service based SSL Off-Loading, or a backend SSL service for backend-encryption setup.&lt;br/&gt;Possible values = ENABLED, DISABLED.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslredirect</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">redirectportrewrite</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of port-rewrite feature.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_redirectportrewrite</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ssl2</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The  state of SSLv2 protocol support for the SSL service group.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ssl2</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ocspcheck</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of the OCSP check parameter. (Mandatory/Optional).&lt;br/&gt;Possible values = Mandatory, Optional.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ocspcheck</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">crlcheck</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The state of the CRL check parameter. (Mandatory/Optional).&lt;br/&gt;Possible values = Mandatory, Optional.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_crlcheck</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cleartextport</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The port on the back-end web-servers where the clear-text data is sent by system. Use this setting for the wildcard IP based SSL Acceleration configuration (*:443).&lt;br/&gt;Range 1 - 65535.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cleartextport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">servicename</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The service name.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_servicename</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ca</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;CA certificate.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ca</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">snicert</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The name of the CertKey. Use this option to bind Certkey(s) which will be used in SNI processing.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_snicert</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">sslservicegroup_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">sslservicegroup</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">servicegroupname</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">servicegroupname</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="sslservicegroup.update"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.update">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to update sslservicegroup.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">updateresource</span> <span class="o">=</span> <span class="n">sslservicegroup</span><span class="p">()</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">servicegroupname</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">servicegroupname</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">sslprofile</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sslprofile</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">sessreuse</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sessreuse</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">sesstimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sesstimeout</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">nonfipsciphers</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">nonfipsciphers</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">ssl3</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ssl3</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">tls1</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">tls1</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">tls11</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">tls11</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">tls12</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">tls12</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">serverauth</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">serverauth</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">commonname</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">commonname</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">sendclosenotify</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sendclosenotify</span>
+                <span class="k">return</span> <span class="n">updateresource</span><span class="o">.</span><span class="n">update_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">updateresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">sslservicegroup</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">servicegroupname</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">servicegroupname</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sslprofile</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sslprofile</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sessreuse</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sessreuse</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sesstimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sesstimeout</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nonfipsciphers</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nonfipsciphers</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ssl3</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ssl3</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tls1</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tls1</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tls11</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tls11</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tls12</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tls12</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">serverauth</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">serverauth</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">commonname</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">commonname</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sendclosenotify</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sendclosenotify</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">update_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">updateresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.unset"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.unset">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">unset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to unset the properties of sslservicegroup resource.</span>
+<span class="sd">        Properties that need to be unset are specified in args array.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">unsetresource</span> <span class="o">=</span> <span class="n">sslservicegroup</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">!=</span>  <span class="nb">type</span><span class="p">(</span><span class="n">unsetresource</span><span class="p">):</span>
+                    <span class="n">unsetresource</span><span class="o">.</span><span class="n">servicegroupname</span> <span class="o">=</span> <span class="n">resource</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">unsetresource</span><span class="o">.</span><span class="n">servicegroupname</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">servicegroupname</span>
+                <span class="k">return</span> <span class="n">unsetresource</span><span class="o">.</span><span class="n">unset_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">unsetresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">sslservicegroup</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">unsetresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">servicegroupname</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">unsetresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">sslservicegroup</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">unsetresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">servicegroupname</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">servicegroupname</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">unset_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">unsetresources</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the sslservicegroup resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">sslservicegroup</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                        <span class="n">obj</span> <span class="o">=</span> <span class="n">sslservicegroup</span><span class="p">()</span>
+                        <span class="n">obj</span><span class="o">.</span><span class="n">servicegroupname</span> <span class="o">=</span> <span class="n">name</span>
+                        <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+                    <span class="k">else</span> <span class="p">:</span>
+                        <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+                            <span class="n">response</span> <span class="o">=</span> <span class="p">[</span><span class="n">sslservicegroup</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))]</span>
+                            <span class="n">obj</span> <span class="o">=</span> <span class="p">[</span><span class="n">sslservicegroup</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))]</span>
+                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="p">:</span>
+                                <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sslservicegroup</span><span class="p">()</span>
+                                <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">servicegroupname</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                                <span class="n">response</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="sslservicegroup.get_args"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.get_args">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_args</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the sslservicegroup resources that are configured on netscaler.</span>
+<span class="sd">            # This uses sslservicegroup_args which is a way to provide additional arguments while fetching the resources.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">sslservicegroup</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">nitro_util</span><span class="o">.</span><span class="n">object_to_string_withoutquotes</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="sslservicegroup.get_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.get_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch filtered set of sslservicegroup resources.</span>
+<span class="sd">        filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">sslservicegroup</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="sslservicegroup.count"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.count">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count the sslservicegroup resources configured on NetScaler.</span>
+
+<span class="sd">        :param client: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">sslservicegroup</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.count_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.count_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count filtered the set of sslservicegroup resources.</span>
+<span class="sd">        Filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">sslservicegroup</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="sslservicegroup.Sslredirect"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslredirect">[docs]</a>    <span class="k">class</span> <span class="nc">Sslredirect</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Ersa"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ersa">[docs]</a>    <span class="k">class</span> <span class="nc">Ersa</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Redirectportrewrite"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Redirectportrewrite">[docs]</a>    <span class="k">class</span> <span class="nc">Redirectportrewrite</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Sessreuse"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sessreuse">[docs]</a>    <span class="k">class</span> <span class="nc">Sessreuse</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Ssl3"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl3">[docs]</a>    <span class="k">class</span> <span class="nc">Ssl3</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Tls1"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls1">[docs]</a>    <span class="k">class</span> <span class="nc">Tls1</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Sslv2redirect"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sslv2redirect">[docs]</a>    <span class="k">class</span> <span class="nc">Sslv2redirect</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Sendclosenotify"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Sendclosenotify">[docs]</a>    <span class="k">class</span> <span class="nc">Sendclosenotify</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Tls11"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls11">[docs]</a>    <span class="k">class</span> <span class="nc">Tls11</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Dh"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dh">[docs]</a>    <span class="k">class</span> <span class="nc">Dh</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Tls12"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Tls12">[docs]</a>    <span class="k">class</span> <span class="nc">Tls12</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Serverauth"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Serverauth">[docs]</a>    <span class="k">class</span> <span class="nc">Serverauth</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Nonfipsciphers"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Nonfipsciphers">[docs]</a>    <span class="k">class</span> <span class="nc">Nonfipsciphers</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Cipherredirect"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Cipherredirect">[docs]</a>    <span class="k">class</span> <span class="nc">Cipherredirect</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Clientcert"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientcert">[docs]</a>    <span class="k">class</span> <span class="nc">Clientcert</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Mandatory</span> <span class="o">=</span> <span class="s2">&quot;Mandatory&quot;</span>
+        <span class="n">Optional</span> <span class="o">=</span> <span class="s2">&quot;Optional&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Dhkeyexpsizelimit"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Dhkeyexpsizelimit">[docs]</a>    <span class="k">class</span> <span class="nc">Dhkeyexpsizelimit</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Crlcheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Crlcheck">[docs]</a>    <span class="k">class</span> <span class="nc">Crlcheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Mandatory</span> <span class="o">=</span> <span class="s2">&quot;Mandatory&quot;</span>
+        <span class="n">Optional</span> <span class="o">=</span> <span class="s2">&quot;Optional&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Clientauth"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Clientauth">[docs]</a>    <span class="k">class</span> <span class="nc">Clientauth</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Ssl2"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ssl2">[docs]</a>    <span class="k">class</span> <span class="nc">Ssl2</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="sslservicegroup.Ocspcheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup.Ocspcheck">[docs]</a>    <span class="k">class</span> <span class="nc">Ocspcheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Mandatory</span> <span class="o">=</span> <span class="s2">&quot;Mandatory&quot;</span>
+        <span class="n">Optional</span> <span class="o">=</span> <span class="s2">&quot;Optional&quot;</span></div></div>
+
+<div class="viewcode-block" id="sslservicegroup_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ssl.sslservicegroup.html#nitro.resource.config.ssl.sslservicegroup.sslservicegroup_response">[docs]</a><span class="k">class</span> <span class="nc">sslservicegroup_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sslservicegroup</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sslservicegroup</span> <span class="o">=</span> <span class="p">[</span><span class="n">sslservicegroup</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

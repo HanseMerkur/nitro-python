@@ -1,0 +1,1314 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.authentication.authenticationvserver &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.authentication.authenticationvserver</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.authentication.authenticationvserver</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="authenticationvserver"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver">[docs]</a><span class="k">class</span> <span class="nc">authenticationvserver</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for authentication virtual server resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_servicetype</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ipv46</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_range</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_authentication</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_authenticationdomain</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_comment</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_td</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_appflowlog</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxloginattempts</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_failedlogintimeout</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_newname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ip</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_curstate</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_status</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachetype</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_redirect</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_precedence</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_redirecturl</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_curaaausers</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rule</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_policy</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_servicename</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_weight</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cachevserver</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_backupvserver</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clttimeout</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_somethod</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sothreshold</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sopersistence</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sopersistencetimeout</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_priority</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_downstateflush</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_disableprimaryondown</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_listenpolicy</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_listenpriority</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tcpprofilename</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpprofilename</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vstype</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ngname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_secondary</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_groupextraction</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">___count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name for the new authentication virtual server.</span>
+<span class="sd">        Must begin with a letter, number, or the underscore character (_), and must contain only letters, numbers, and the hyphen (-), period (.) pound (#), space ( ), at (@), equals (=), colon (:), and underscore characters. Can be changed after the authentication virtual server is added by using the rename authentication vserver command.</span>
+<span class="sd">        The following requirement applies only to the NetScaler CLI:</span>
+<span class="sd">        If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, &quot;my authentication policy&quot; or &#39;my authentication policy&#39;).&lt;br/&gt;Minimum length =  1.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name for the new authentication virtual server.</span>
+<span class="sd">        Must begin with a letter, number, or the underscore character (_), and must contain only letters, numbers, and the hyphen (-), period (.) pound (#), space ( ), at (@), equals (=), colon (:), and underscore characters. Can be changed after the authentication virtual server is added by using the rename authentication vserver command.</span>
+<span class="sd">        The following requirement applies only to the NetScaler CLI:</span>
+<span class="sd">        If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, &quot;my authentication policy&quot; or &#39;my authentication policy&#39;).&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param name: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">servicetype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Protocol type of the authentication virtual server. Always SSL.&lt;br/&gt;Default value: SSL&lt;br/&gt;Possible values = SSL.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_servicetype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@servicetype</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">servicetype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">servicetype</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Protocol type of the authentication virtual server. Always SSL.&lt;br/&gt;Default value: SSL&lt;br/&gt;Possible values = SSL</span>
+
+<span class="sd">        :param servicetype: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_servicetype</span> <span class="o">=</span> <span class="n">servicetype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ipv46</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;IP address of the authentication virtual server, if a single IP address is assigned to the virtual server.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ipv46</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ipv46</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ipv46</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ipv46</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;IP address of the authentication virtual server, if a single IP address is assigned to the virtual server.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param ipv46: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ipv46</span> <span class="o">=</span> <span class="n">ipv46</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">range</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;If you are creating a series of virtual servers with a range of IP addresses assigned to them, the length of the range.</span>
+<span class="sd">        The new range of authentication virtual servers will have IP addresses consecutively numbered, starting with the primary address specified with the IP Address parameter.&lt;br/&gt;Default value: 1&lt;br/&gt;Minimum length =  1.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_range</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@range</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">range</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;If you are creating a series of virtual servers with a range of IP addresses assigned to them, the length of the range.</span>
+<span class="sd">        The new range of authentication virtual servers will have IP addresses consecutively numbered, starting with the primary address specified with the IP Address parameter.&lt;br/&gt;Default value: 1&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param range: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_range</span> <span class="o">=</span> <span class="nb">range</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">port</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;TCP port on which the virtual server accepts connections.&lt;br/&gt;Range 1 - 65535.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_port</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@port</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;TCP port on which the virtual server accepts connections.&lt;br/&gt;Range 1 - 65535</span>
+
+<span class="sd">        :param port: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="n">port</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Initial state of the new virtual server.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@state</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Initial state of the new virtual server.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param state: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">authentication</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Require users to be authenticated before sending traffic through this virtual server.&lt;br/&gt;Default value: ON&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_authentication</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@authentication</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">authentication</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authentication</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Require users to be authenticated before sending traffic through this virtual server.&lt;br/&gt;Default value: ON&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param authentication: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_authentication</span> <span class="o">=</span> <span class="n">authentication</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">authenticationdomain</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The domain of the authentication cookie set by Authentication vserver.&lt;br/&gt;Minimum length =  3&lt;br/&gt;Maximum length =  252.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_authenticationdomain</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@authenticationdomain</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">authenticationdomain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authenticationdomain</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The domain of the authentication cookie set by Authentication vserver.&lt;br/&gt;Minimum length =  3&lt;br/&gt;Maximum length =  252</span>
+
+<span class="sd">        :param authenticationdomain: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_authenticationdomain</span> <span class="o">=</span> <span class="n">authenticationdomain</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">comment</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Any comments associated with this virtual server.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_comment</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@comment</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">comment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comment</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Any comments associated with this virtual server.</span>
+
+<span class="sd">        :param comment: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_comment</span> <span class="o">=</span> <span class="n">comment</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">td</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.&lt;br/&gt;Maximum length =  4094.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_td</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@td</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">td</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">td</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.&lt;br/&gt;Maximum length =  4094</span>
+
+<span class="sd">        :param td: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_td</span> <span class="o">=</span> <span class="n">td</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">appflowlog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log AppFlow flow information.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_appflowlog</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@appflowlog</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">appflowlog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">appflowlog</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log AppFlow flow information.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param appflowlog: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_appflowlog</span> <span class="o">=</span> <span class="n">appflowlog</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maxloginattempts</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum Number of login Attempts.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxloginattempts</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@maxloginattempts</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maxloginattempts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxloginattempts</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum Number of login Attempts.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param maxloginattempts: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maxloginattempts</span> <span class="o">=</span> <span class="n">maxloginattempts</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">failedlogintimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Number of minutes an account will be locked if user exceeds maximum permissible attempts.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_failedlogintimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@failedlogintimeout</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">failedlogintimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">failedlogintimeout</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Number of minutes an account will be locked if user exceeds maximum permissible attempts.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param failedlogintimeout: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_failedlogintimeout</span> <span class="o">=</span> <span class="n">failedlogintimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">newname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;New name of the authentication virtual server.</span>
+<span class="sd">        Must begin with a letter, number, or the underscore character (_), and must contain only letters, numbers, and the hyphen (-), period (.) pound (#), space ( ), at (@), equals (=), colon (:), and underscore characters.</span>
+<span class="sd">        The following requirement applies only to the NetScaler CLI:</span>
+<span class="sd">        If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, &#39;my authentication policy&#39; or &quot;my authentication policy&quot;).&lt;br/&gt;Minimum length =  1.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_newname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@newname</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">newname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newname</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;New name of the authentication virtual server.</span>
+<span class="sd">        Must begin with a letter, number, or the underscore character (_), and must contain only letters, numbers, and the hyphen (-), period (.) pound (#), space ( ), at (@), equals (=), colon (:), and underscore characters.</span>
+<span class="sd">        The following requirement applies only to the NetScaler CLI:</span>
+<span class="sd">        If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, &#39;my authentication policy&#39; or &quot;my authentication policy&quot;).&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param newname: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_newname</span> <span class="o">=</span> <span class="n">newname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ip</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The Virtual IP address of the authentication vserver.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ip</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Indicates whether or not the certificate is bound or if SSL offload is disabled.&lt;br/&gt;Possible values = Certkey not bound, SSL feature disabled.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The type of Virtual Server, e.g. CONTENT based or ADDRESS based.&lt;br/&gt;Possible values = CONTENT, ADDRESS.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">curstate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The current state of the Virtual server, e.g. UP, DOWN, BUSY, etc.&lt;br/&gt;Possible values = UP, DOWN, UNKNOWN, BUSY, OUT OF SERVICE, GOING OUT OF SERVICE, DOWN WHEN GOING OUT OF SERVICE, NS_EMPTY_STR, Unknown, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curstate</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Whether or not this vserver responds to ARPs and whether or not round-robin selection is temporarily in effect.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_status</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachetype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Virtual server&#39;s cache type. The options are: TRANSPARENT, REVERSE and FORWARD.&lt;br/&gt;Possible values = TRANSPARENT, REVERSE, FORWARD.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachetype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">redirect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The cache redirect policy.</span>
+<span class="sd">        The valid redirect policies are:</span>
+<span class="sd">        l.    CACHE - Directs all requests to the cache.</span>
+<span class="sd">        2.    POLICY - Applies cache redirection policy to determine whether the request should be directed to the cache or origin. This is the default setting.</span>
+<span class="sd">        3.    ORIGIN - Directs all requests to the origin server.&lt;br/&gt;Possible values = CACHE, POLICY, ORIGIN.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_redirect</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">precedence</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;This argument is used only when configuring content switching on the specified virtual server. This is applicable only</span>
+<span class="sd">        if both the URL and RULE-based policies have been configured on the same virtual server.</span>
+<span class="sd">        It specifies the type of policy (URL or RULE) that takes precedence on the content switching virtual server. The default setting is RULE.</span>
+<span class="sd">        l    URL - In this case, the incoming request is matched against the URL-based policies before the rule-based policies.</span>
+<span class="sd">        l    RULE - In this case, the incoming request is matched against the rule-based policies before the URL-based policies.</span>
+<span class="sd">        For all URL-based policies, the precedence hierarchy is:</span>
+<span class="sd">        1.    Domain and exact URL</span>
+<span class="sd">        2.    Domain, prefix and suffix</span>
+<span class="sd">        3.    Domain and suffix</span>
+<span class="sd">        4.    Domain and prefix</span>
+<span class="sd">        5.    Domain only</span>
+<span class="sd">        6.    Exact URL</span>
+<span class="sd">        7.    Prefix and suffix</span>
+<span class="sd">        8.    Suffix only</span>
+<span class="sd">        9.    Prefix only</span>
+<span class="sd">        10.    Default.&lt;br/&gt;Possible values = RULE, URL.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precedence</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">redirecturl</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The URL where traffic is redirected if the virtual server in system becomes unavailable. WARNING!    Make sure that the domain you specify in the URL does not match the domain specified in the -d domainName argument of the ###add cs policy### command. If the same domain is specified in both arguments, the request will be continuously redirected to the same unavailable virtual server in the system. If so, the user may not get the requested content.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_redirecturl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">curaaausers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The number of current users logged in to this vserver.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curaaausers</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">rule</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The name of the rule, or expression, if any, that policy for the authentication server is to use. Rules are combinations of Expressions. Expressions are simple conditions, such as a test for equality, applied to operands, such as a URL string or an IP address. Expression syntax is described in the Installation and Configuration Guide. The default rule is ns_true.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rule</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">policy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The name of the policy, if any, bound to the authentication vserver.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_policy</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">servicename</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The name of the service, if any, to which the vserver policy is bound.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_servicename</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">weight</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Weight for this service, if any. This weight is used when the system performs load balancing, giving greater priority to a specific service. It is useful when the services bound to a virtual server are of different capacity.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_weight</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cachevserver</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The name of the default target cache virtual server, if any, to which requests are redirected.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cachevserver</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">backupvserver</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The name of the backup vpn virtual server for this vpn virtual server.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backupvserver</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">clttimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The idle time, if any, in seconds after which the client connection is terminated.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clttimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">somethod</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;VPN client applications are allocated from a block of Intranet IP addresses.</span>
+<span class="sd">        That block may be exhausted after a certain number of connections. This switch specifies the</span>
+<span class="sd">        method used to determine whether or not a new connection will spillover, or exhaust, the allocated block of</span>
+<span class="sd">        Intranet IP addresses for that application. Possible values are CONNECTION or DYNAMICCONNECTION.</span>
+<span class="sd">        CONNECTION means that a static integer value is the hard limit for the spillover threshold. The spillover</span>
+<span class="sd">        threshold is described below. DYNAMICCONNECTION means that the spillover threshold is set according to</span>
+<span class="sd">        the maximum number of connections defined for the vpn vserver.&lt;br/&gt;Possible values = CONNECTION, DYNAMICCONNECTION, BANDWIDTH, HEALTH, NONE.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_somethod</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sothreshold</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;VPN client applications are allocated from a block of Intranet IP addresses.</span>
+<span class="sd">        That block may be exhausted after a certain number of connections.</span>
+<span class="sd">        The value of this option is number of client connections after which the Mapped IP address is used</span>
+<span class="sd">        as the client source IP address instead of an address from the allocated block of Intranet IP addresses.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sothreshold</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sopersistence</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Whether or not cookie-based site persistance is enabled for this VPN vserver. Possible values are &#39;ConnectionProxy&#39;, HTTPRedirect, or NONE.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sopersistence</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sopersistencetimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The timeout, if any, for cookie-based site persistance of this VPN vserver.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sopersistencetimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">priority</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The priority, if any, of the vpn vserver policy.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_priority</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">downstateflush</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Perform delayed clean up of connections on this vserver.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_downstateflush</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">disableprimaryondown</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Tells whether traffic will continue reaching backup vservers even after primary comes UP from DOWN state.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disableprimaryondown</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">listenpolicy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Listenpolicy configured for authentication vserver.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_listenpolicy</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">listenpriority</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Priority of listen policy for authentication vserver.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_listenpriority</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tcpprofilename</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The name of the TCP profile.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tcpprofilename</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">httpprofilename</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the HTTP profile.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_httpprofilename</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vstype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Virtual Server Type, e.g. Load Balancing, Content Switch, Cache Redirection.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vstype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ngname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Nodegroup devno to which this  authentication vsever belongs to.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ngname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">secondary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Bind the authentication policy to the secondary chain.</span>
+<span class="sd">        Provides for multifactor authentication in which a user must authenticate via both a primary authentication method and, afterward, via a secondary authentication method.</span>
+<span class="sd">        Because user groups are aggregated across authentication systems, usernames must be the same on all authentication servers. Passwords can be different.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_secondary</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">groupextraction</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Bind the Authentication policy to a tertiary chain which will be used only for group extraction.  The user will not authenticate against this server, and this will only be called if primary and/or secondary authentication has succeeded.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_groupextraction</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">authenticationvserver_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">authenticationvserver</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="authenticationvserver.add"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.add">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to add authenticationvserver.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">addresource</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">servicetype</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">servicetype</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">ipv46</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ipv46</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">range</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">port</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">state</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">authentication</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">authentication</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">authenticationdomain</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">authenticationdomain</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">comment</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">td</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">td</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">appflowlog</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">appflowlog</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">maxloginattempts</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">maxloginattempts</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">failedlogintimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">failedlogintimeout</span>
+                <span class="k">return</span> <span class="n">addresource</span><span class="o">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">addresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">servicetype</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">servicetype</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ipv46</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ipv46</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">range</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">port</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">state</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">authentication</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">authentication</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">authenticationdomain</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">authenticationdomain</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">td</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">td</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">appflowlog</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">appflowlog</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">maxloginattempts</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">maxloginattempts</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">failedlogintimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">failedlogintimeout</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">add_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">addresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.delete"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.delete">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to delete authenticationvserver.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">deleteresource</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">!=</span>  <span class="nb">type</span><span class="p">(</span><span class="n">deleteresource</span><span class="p">):</span>
+                    <span class="n">deleteresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">deleteresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">return</span> <span class="n">deleteresource</span><span class="o">.</span><span class="n">delete_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">deleteresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">deleteresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">deleteresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">deleteresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">delete_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">deleteresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.update"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.update">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to update authenticationvserver.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">updateresource</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">ipv46</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ipv46</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">authentication</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">authentication</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">authenticationdomain</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">authenticationdomain</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">comment</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">appflowlog</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">appflowlog</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">maxloginattempts</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">maxloginattempts</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">failedlogintimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">failedlogintimeout</span>
+                <span class="k">return</span> <span class="n">updateresource</span><span class="o">.</span><span class="n">update_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">updateresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ipv46</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ipv46</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">authentication</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">authentication</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">authenticationdomain</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">authenticationdomain</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">appflowlog</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">appflowlog</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">maxloginattempts</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">maxloginattempts</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">failedlogintimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">failedlogintimeout</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">update_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">updateresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.unset"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.unset">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">unset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to unset the properties of authenticationvserver resource.</span>
+<span class="sd">        Properties that need to be unset are specified in args array.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">unsetresource</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">!=</span>  <span class="nb">type</span><span class="p">(</span><span class="n">unsetresource</span><span class="p">):</span>
+                    <span class="n">unsetresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">unsetresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">return</span> <span class="n">unsetresource</span><span class="o">.</span><span class="n">unset_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">unsetresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">unsetresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">unsetresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">unsetresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">unset_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">unsetresources</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.enable"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.enable">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">enable</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to enable authenticationvserver.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">enableresource</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">!=</span>  <span class="nb">type</span><span class="p">(</span><span class="n">enableresource</span><span class="p">):</span>
+                    <span class="n">enableresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">enableresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">return</span> <span class="n">enableresource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="s2">&quot;enable&quot;</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">enableresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">enableresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">enableresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">enableresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">perform_operation_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">enableresources</span><span class="p">,</span><span class="s2">&quot;enable&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.disable"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.disable">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">disable</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to disable authenticationvserver.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">disableresource</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">!=</span>  <span class="nb">type</span><span class="p">(</span><span class="n">disableresource</span><span class="p">):</span>
+                    <span class="n">disableresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">disableresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">return</span> <span class="n">disableresource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">disableresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">disableresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">disableresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">disableresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">perform_operation_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">disableresources</span><span class="p">,</span><span class="s2">&quot;disable&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.rename"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.rename">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">rename</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">new_name</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to rename a authenticationvserver resource.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+<span class="sd">        :param new_name: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">renameresource</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">==</span> <span class="bp">cls</span> <span class="p">:</span>
+                <span class="n">renameresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="n">renameresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span>
+            <span class="k">return</span> <span class="n">renameresource</span><span class="o">.</span><span class="n">rename_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="n">new_name</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the authenticationvserver resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                        <span class="n">obj</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+                        <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+                        <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+                    <span class="k">else</span> <span class="p">:</span>
+                        <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+                            <span class="n">response</span> <span class="o">=</span> <span class="p">[</span><span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))]</span>
+                            <span class="n">obj</span> <span class="o">=</span> <span class="p">[</span><span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))]</span>
+                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="p">:</span>
+                                <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+                                <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                                <span class="n">response</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="authenticationvserver.get_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.get_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch filtered set of authenticationvserver resources.</span>
+<span class="sd">        filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="authenticationvserver.count"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.count">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count the authenticationvserver resources configured on NetScaler.</span>
+
+<span class="sd">        :param client: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.count_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.count_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count filtered the set of authenticationvserver resources.</span>
+<span class="sd">        Filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">authenticationvserver</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="authenticationvserver.Authentication"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Authentication">[docs]</a>    <span class="k">class</span> <span class="nc">Authentication</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.State"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.State">[docs]</a>    <span class="k">class</span> <span class="nc">State</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.Cachetype"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Cachetype">[docs]</a>    <span class="k">class</span> <span class="nc">Cachetype</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">TRANSPARENT</span> <span class="o">=</span> <span class="s2">&quot;TRANSPARENT&quot;</span>
+        <span class="n">REVERSE</span> <span class="o">=</span> <span class="s2">&quot;REVERSE&quot;</span>
+        <span class="n">FORWARD</span> <span class="o">=</span> <span class="s2">&quot;FORWARD&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.Downstateflush"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Downstateflush">[docs]</a>    <span class="k">class</span> <span class="nc">Downstateflush</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.Servicetype"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Servicetype">[docs]</a>    <span class="k">class</span> <span class="nc">Servicetype</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">SSL</span> <span class="o">=</span> <span class="s2">&quot;SSL&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.Value"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Value">[docs]</a>    <span class="k">class</span> <span class="nc">Value</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Certkey_not_bound</span> <span class="o">=</span> <span class="s2">&quot;Certkey not bound&quot;</span>
+        <span class="n">SSL_feature_disabled</span> <span class="o">=</span> <span class="s2">&quot;SSL feature disabled&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.Disableprimaryondown"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Disableprimaryondown">[docs]</a>    <span class="k">class</span> <span class="nc">Disableprimaryondown</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.Type"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Type">[docs]</a>    <span class="k">class</span> <span class="nc">Type</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">CONTENT</span> <span class="o">=</span> <span class="s2">&quot;CONTENT&quot;</span>
+        <span class="n">ADDRESS</span> <span class="o">=</span> <span class="s2">&quot;ADDRESS&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.Somethod"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod">[docs]</a>    <span class="k">class</span> <span class="nc">Somethod</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">CONNECTION</span> <span class="o">=</span> <span class="s2">&quot;CONNECTION&quot;</span>
+        <span class="n">DYNAMICCONNECTION</span> <span class="o">=</span> <span class="s2">&quot;DYNAMICCONNECTION&quot;</span>
+        <span class="n">BANDWIDTH</span> <span class="o">=</span> <span class="s2">&quot;BANDWIDTH&quot;</span>
+        <span class="n">HEALTH</span> <span class="o">=</span> <span class="s2">&quot;HEALTH&quot;</span>
+        <span class="n">NONE</span> <span class="o">=</span> <span class="s2">&quot;NONE&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.Sopersistence"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Sopersistence">[docs]</a>    <span class="k">class</span> <span class="nc">Sopersistence</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.Redirect"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Redirect">[docs]</a>    <span class="k">class</span> <span class="nc">Redirect</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">CACHE</span> <span class="o">=</span> <span class="s2">&quot;CACHE&quot;</span>
+        <span class="n">POLICY</span> <span class="o">=</span> <span class="s2">&quot;POLICY&quot;</span>
+        <span class="n">ORIGIN</span> <span class="o">=</span> <span class="s2">&quot;ORIGIN&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.Appflowlog"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Appflowlog">[docs]</a>    <span class="k">class</span> <span class="nc">Appflowlog</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.Precedence"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Precedence">[docs]</a>    <span class="k">class</span> <span class="nc">Precedence</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">RULE</span> <span class="o">=</span> <span class="s2">&quot;RULE&quot;</span>
+        <span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;URL&quot;</span></div>
+
+<div class="viewcode-block" id="authenticationvserver.Curstate"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate">[docs]</a>    <span class="k">class</span> <span class="nc">Curstate</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">UP</span> <span class="o">=</span> <span class="s2">&quot;UP&quot;</span>
+        <span class="n">DOWN</span> <span class="o">=</span> <span class="s2">&quot;DOWN&quot;</span>
+        <span class="n">UNKNOWN</span> <span class="o">=</span> <span class="s2">&quot;UNKNOWN&quot;</span>
+        <span class="n">BUSY</span> <span class="o">=</span> <span class="s2">&quot;BUSY&quot;</span>
+        <span class="n">OUT_OF_SERVICE</span> <span class="o">=</span> <span class="s2">&quot;OUT OF SERVICE&quot;</span>
+        <span class="n">GOING_OUT_OF_SERVICE</span> <span class="o">=</span> <span class="s2">&quot;GOING OUT OF SERVICE&quot;</span>
+        <span class="n">DOWN_WHEN_GOING_OUT_OF_SERVICE</span> <span class="o">=</span> <span class="s2">&quot;DOWN WHEN GOING OUT OF SERVICE&quot;</span>
+        <span class="n">NS_EMPTY_STR</span> <span class="o">=</span> <span class="s2">&quot;NS_EMPTY_STR&quot;</span>
+        <span class="n">Unknown</span> <span class="o">=</span> <span class="s2">&quot;Unknown&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div></div>
+
+<div class="viewcode-block" id="authenticationvserver_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.authentication.authenticationvserver.html#nitro.resource.config.authentication.authenticationvserver.authenticationvserver_response">[docs]</a><span class="k">class</span> <span class="nc">authenticationvserver_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">authenticationvserver</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">authenticationvserver</span> <span class="o">=</span> <span class="p">[</span><span class="n">authenticationvserver</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

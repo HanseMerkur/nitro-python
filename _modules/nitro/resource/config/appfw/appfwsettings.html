@@ -1,0 +1,701 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.appfw.appfwsettings &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.appfw.appfwsettings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.appfw.appfwsettings</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="appfwsettings"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwsettings.html#nitro.resource.config.appfw.appfwsettings.appfwsettings">[docs]</a><span class="k">class</span> <span class="nc">appfwsettings</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for AS settings resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_defaultprofile</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_undefaction</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sessiontimeout</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_learnratelimit</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sessionlifetime</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sessioncookiename</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clientiploggingheader</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_importsizelimit</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_signatureautoupdate</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_signatureurl</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cookiepostencryptprefix</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logmalformedreq</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_geolocationlogging</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ceflogging</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_entitydecoding</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_useconfigurablesecretkey</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">defaultprofile</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Profile to use when a connection does not match any policy. Default setting is APPFW_BYPASS, which sends unmatched connections back to the NetScaler appliance without attempting to filter them further.&lt;br/&gt;Default value: APPFW_BYPASS&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_defaultprofile</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@defaultprofile</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">defaultprofile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">defaultprofile</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Profile to use when a connection does not match any policy. Default setting is APPFW_BYPASS, which sends unmatched connections back to the NetScaler appliance without attempting to filter them further.&lt;br/&gt;Default value: APPFW_BYPASS&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param defaultprofile: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_defaultprofile</span> <span class="o">=</span> <span class="n">defaultprofile</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">undefaction</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Profile to use when an application firewall policy evaluates to undefined (UNDEF).</span>
+<span class="sd">        An UNDEF event indicates an internal error condition. The APPFW_BLOCK built-in profile is the default setting. You can specify a different built-in or user-created profile as the UNDEF profile.&lt;br/&gt;Default value: APPFW_BLOCK&lt;br/&gt;Minimum length =  1.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_undefaction</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@undefaction</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">undefaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">undefaction</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Profile to use when an application firewall policy evaluates to undefined (UNDEF).</span>
+<span class="sd">        An UNDEF event indicates an internal error condition. The APPFW_BLOCK built-in profile is the default setting. You can specify a different built-in or user-created profile as the UNDEF profile.&lt;br/&gt;Default value: APPFW_BLOCK&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param undefaction: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_undefaction</span> <span class="o">=</span> <span class="n">undefaction</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sessiontimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Timeout, in seconds, after which a user session is terminated. Before continuing to use the protected web site, the user must establish a new session by opening a designated start URL.&lt;br/&gt;Default value: 900&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  65535.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sessiontimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@sessiontimeout</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sessiontimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sessiontimeout</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Timeout, in seconds, after which a user session is terminated. Before continuing to use the protected web site, the user must establish a new session by opening a designated start URL.&lt;br/&gt;Default value: 900&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  65535</span>
+
+<span class="sd">        :param sessiontimeout: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sessiontimeout</span> <span class="o">=</span> <span class="n">sessiontimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">learnratelimit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of connections per second that the application firewall learning engine examines to generate new relaxations for learning-enabled security checks. The application firewall drops any connections above this limit from the list of connections used by the learning engine.&lt;br/&gt;Default value: 400&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  1000.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_learnratelimit</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@learnratelimit</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">learnratelimit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">learnratelimit</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of connections per second that the application firewall learning engine examines to generate new relaxations for learning-enabled security checks. The application firewall drops any connections above this limit from the list of connections used by the learning engine.&lt;br/&gt;Default value: 400&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  1000</span>
+
+<span class="sd">        :param learnratelimit: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_learnratelimit</span> <span class="o">=</span> <span class="n">learnratelimit</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sessionlifetime</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum amount of time (in seconds) that the application firewall allows a user session to remain active, regardless of user activity. After this time, the user session is terminated. Before continuing to use the protected web site, the user must establish a new session by opening a designated start URL.&lt;br/&gt;Default value: 0&lt;br/&gt;Maximum length =  2147483647.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sessionlifetime</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@sessionlifetime</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sessionlifetime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sessionlifetime</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum amount of time (in seconds) that the application firewall allows a user session to remain active, regardless of user activity. After this time, the user session is terminated. Before continuing to use the protected web site, the user must establish a new session by opening a designated start URL.&lt;br/&gt;Default value: 0&lt;br/&gt;Maximum length =  2147483647</span>
+
+<span class="sd">        :param sessionlifetime: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sessionlifetime</span> <span class="o">=</span> <span class="n">sessionlifetime</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sessioncookiename</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the session cookie that the application firewall uses to track user sessions.</span>
+<span class="sd">        Must begin with a letter or number, and can consist of from 1 to 31 letters, numbers, and the hyphen (-) and underscore (_) symbols.</span>
+<span class="sd">        The following requirement applies only to the NetScaler CLI:</span>
+<span class="sd">        If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, &quot;my cookie name&quot; or &#39;my cookie name&#39;).&lt;br/&gt;Minimum length =  1.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sessioncookiename</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@sessioncookiename</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sessioncookiename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sessioncookiename</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the session cookie that the application firewall uses to track user sessions.</span>
+<span class="sd">        Must begin with a letter or number, and can consist of from 1 to 31 letters, numbers, and the hyphen (-) and underscore (_) symbols.</span>
+<span class="sd">        The following requirement applies only to the NetScaler CLI:</span>
+<span class="sd">        If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, &quot;my cookie name&quot; or &#39;my cookie name&#39;).&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param sessioncookiename: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sessioncookiename</span> <span class="o">=</span> <span class="n">sessioncookiename</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">clientiploggingheader</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of an HTTP header that contains the IP address that the client used to connect to the protected web site or service.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clientiploggingheader</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@clientiploggingheader</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">clientiploggingheader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clientiploggingheader</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of an HTTP header that contains the IP address that the client used to connect to the protected web site or service.</span>
+
+<span class="sd">        :param clientiploggingheader: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_clientiploggingheader</span> <span class="o">=</span> <span class="n">clientiploggingheader</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">importsizelimit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Cumulative total maximum number of bytes in web forms imported to a protected web site. If a user attempts to upload files with a total byte count higher than the specified limit, the application firewall blocks the request.&lt;br/&gt;Default value: 134217728&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  134217728.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_importsizelimit</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@importsizelimit</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">importsizelimit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">importsizelimit</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Cumulative total maximum number of bytes in web forms imported to a protected web site. If a user attempts to upload files with a total byte count higher than the specified limit, the application firewall blocks the request.&lt;br/&gt;Default value: 134217728&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  134217728</span>
+
+<span class="sd">        :param importsizelimit: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_importsizelimit</span> <span class="o">=</span> <span class="n">importsizelimit</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">signatureautoupdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flag used to enable/disable auto update signatures.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_signatureautoupdate</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@signatureautoupdate</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">signatureautoupdate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">signatureautoupdate</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flag used to enable/disable auto update signatures.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param signatureautoupdate: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_signatureautoupdate</span> <span class="o">=</span> <span class="n">signatureautoupdate</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">signatureurl</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;URL to download the mapping file from server.&lt;br/&gt;Default value: https://s3.amazonaws.com/NSAppFwSignatures/SignaturesMapping.xml.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_signatureurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@signatureurl</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">signatureurl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">signatureurl</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;URL to download the mapping file from server.&lt;br/&gt;Default value: https://s3.amazonaws.com/NSAppFwSignatures/SignaturesMapping.xml</span>
+
+<span class="sd">        :param signatureurl: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_signatureurl</span> <span class="o">=</span> <span class="n">signatureurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cookiepostencryptprefix</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;String that is prepended to all encrypted cookie values.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cookiepostencryptprefix</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@cookiepostencryptprefix</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cookiepostencryptprefix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cookiepostencryptprefix</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;String that is prepended to all encrypted cookie values.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param cookiepostencryptprefix: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cookiepostencryptprefix</span> <span class="o">=</span> <span class="n">cookiepostencryptprefix</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">logmalformedreq</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log requests that are so malformed that application firewall parsing doesn&#39;t occur.&lt;br/&gt;Default value: ON&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logmalformedreq</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@logmalformedreq</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">logmalformedreq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logmalformedreq</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log requests that are so malformed that application firewall parsing doesn&#39;t occur.&lt;br/&gt;Default value: ON&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param logmalformedreq: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logmalformedreq</span> <span class="o">=</span> <span class="n">logmalformedreq</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">geolocationlogging</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable Geo-Location Logging in CEF format logs.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_geolocationlogging</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@geolocationlogging</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">geolocationlogging</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">geolocationlogging</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable Geo-Location Logging in CEF format logs.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param geolocationlogging: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_geolocationlogging</span> <span class="o">=</span> <span class="n">geolocationlogging</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ceflogging</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable CEF format logs.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ceflogging</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ceflogging</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ceflogging</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ceflogging</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable CEF format logs.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param ceflogging: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ceflogging</span> <span class="o">=</span> <span class="n">ceflogging</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">entitydecoding</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Transform multibyte (double- or half-width) characters to single width characters.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_entitydecoding</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@entitydecoding</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">entitydecoding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entitydecoding</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Transform multibyte (double- or half-width) characters to single width characters.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param entitydecoding: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_entitydecoding</span> <span class="o">=</span> <span class="n">entitydecoding</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">useconfigurablesecretkey</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use configurable secret key in AppFw operations.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_useconfigurablesecretkey</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@useconfigurablesecretkey</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">useconfigurablesecretkey</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">useconfigurablesecretkey</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use configurable secret key in AppFw operations.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param useconfigurablesecretkey: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_useconfigurablesecretkey</span> <span class="o">=</span> <span class="n">useconfigurablesecretkey</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">appfwsettings_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">appfwsettings</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="appfwsettings.update"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwsettings.html#nitro.resource.config.appfw.appfwsettings.appfwsettings.update">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to update appfwsettings.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">updateresource</span> <span class="o">=</span> <span class="n">appfwsettings</span><span class="p">()</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">defaultprofile</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">defaultprofile</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">undefaction</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">undefaction</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">sessiontimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sessiontimeout</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">learnratelimit</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">learnratelimit</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">sessionlifetime</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sessionlifetime</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">sessioncookiename</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sessioncookiename</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">clientiploggingheader</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">clientiploggingheader</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">importsizelimit</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">importsizelimit</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">signatureautoupdate</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">signatureautoupdate</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">signatureurl</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">signatureurl</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">cookiepostencryptprefix</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">cookiepostencryptprefix</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">logmalformedreq</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">logmalformedreq</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">geolocationlogging</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">geolocationlogging</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">ceflogging</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ceflogging</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">entitydecoding</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">entitydecoding</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">useconfigurablesecretkey</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">useconfigurablesecretkey</span>
+                <span class="k">return</span> <span class="n">updateresource</span><span class="o">.</span><span class="n">update_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="appfwsettings.unset"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwsettings.html#nitro.resource.config.appfw.appfwsettings.appfwsettings.unset">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">unset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to unset the properties of appfwsettings resource.</span>
+<span class="sd">        Properties that need to be unset are specified in args array.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">unsetresource</span> <span class="o">=</span> <span class="n">appfwsettings</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">unsetresource</span><span class="o">.</span><span class="n">unset_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="appfwsettings.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwsettings.html#nitro.resource.config.appfw.appfwsettings.appfwsettings.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the appfwsettings resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">appfwsettings</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="appfwsettings.Ceflogging"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwsettings.html#nitro.resource.config.appfw.appfwsettings.appfwsettings.Ceflogging">[docs]</a>    <span class="k">class</span> <span class="nc">Ceflogging</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwsettings.Logmalformedreq"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwsettings.html#nitro.resource.config.appfw.appfwsettings.appfwsettings.Logmalformedreq">[docs]</a>    <span class="k">class</span> <span class="nc">Logmalformedreq</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwsettings.Signatureautoupdate"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwsettings.html#nitro.resource.config.appfw.appfwsettings.appfwsettings.Signatureautoupdate">[docs]</a>    <span class="k">class</span> <span class="nc">Signatureautoupdate</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwsettings.Useconfigurablesecretkey"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwsettings.html#nitro.resource.config.appfw.appfwsettings.appfwsettings.Useconfigurablesecretkey">[docs]</a>    <span class="k">class</span> <span class="nc">Useconfigurablesecretkey</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwsettings.Geolocationlogging"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwsettings.html#nitro.resource.config.appfw.appfwsettings.appfwsettings.Geolocationlogging">[docs]</a>    <span class="k">class</span> <span class="nc">Geolocationlogging</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwsettings.Entitydecoding"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwsettings.html#nitro.resource.config.appfw.appfwsettings.appfwsettings.Entitydecoding">[docs]</a>    <span class="k">class</span> <span class="nc">Entitydecoding</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div></div>
+
+<div class="viewcode-block" id="appfwsettings_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwsettings.html#nitro.resource.config.appfw.appfwsettings.appfwsettings_response">[docs]</a><span class="k">class</span> <span class="nc">appfwsettings_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">appfwsettings</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">appfwsettings</span> <span class="o">=</span> <span class="p">[</span><span class="n">appfwsettings</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

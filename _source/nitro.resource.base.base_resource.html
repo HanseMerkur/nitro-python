@@ -1,0 +1,892 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.base.base_resource module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.base.base_response module" href="nitro.resource.base.base_response.html" />
+    <link rel="prev" title="nitro.resource.base.Json module" href="nitro.resource.base.Json.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.base.html">nitro.resource.base package</a> &raquo;</li>
+        
+      <li>nitro.resource.base.base_resource module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.base.base_resource.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.base.base_resource">
+<span id="nitro-resource-base-base-resource-module"></span><h1>nitro.resource.base.base_resource module<a class="headerlink" href="#module-nitro.resource.base.base_resource" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.base.base_resource.base_resource">
+<em class="property">class </em><code class="descclassname">nitro.resource.base.base_resource.</code><code class="descname">base_resource</code><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="classmethod">
+<dt id="nitro.resource.base.base_resource.base_resource.add_bulk_request">
+<em class="property">classmethod </em><code class="descname">add_bulk_request</code><span class="sig-paren">(</span><em>service</em>, <em>resources</em>, <em>opt=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.add_bulk_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.add_bulk_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a add operation on netscaler resources.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>resources</strong> – Nitro resources to be added on netscaler</li>
+<li><strong>opt</strong> – options class object (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the performed operation.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.add_resource">
+<code class="descname">add_resource</code><span class="sig-paren">(</span><em>service</em>, <em>opt=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.add_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.add_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a add operation on netscaler resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>opt</strong> – options class object (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the operation performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.base.base_resource.base_resource.delete_bulk_request">
+<em class="property">classmethod </em><code class="descname">delete_bulk_request</code><span class="sig-paren">(</span><em>service</em>, <em>resources</em>, <em>opt=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.delete_bulk_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.delete_bulk_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a delete operation on netscaler resources.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>resources</strong> – Nitro resources to be deleted on netscaler</li>
+<li><strong>opt</strong> – options class object (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the performed operation.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.delete_request">
+<code class="descname">delete_request</code><span class="sig-paren">(</span><em>service</em>, <em>req_args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.delete_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.delete_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method, forms the http DELETE request, applies on the netscaler.
+Reads the response from the netscaler and converts it to base response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>req_args</strong> – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Array of requested resources.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.delete_resource">
+<code class="descname">delete_resource</code><span class="sig-paren">(</span><em>service</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.delete_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.delete_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a delete operation on netscaler resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>service</strong> – nitro_service object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">status of the operation performed.</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.base.base_resource.base_resource.get_object_type">
+<em class="property">classmethod </em><code class="descname">get_object_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.get_object_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.get_object_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the resource type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">lbvserver, csvserver.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Resource Type. eg</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.get_request">
+<code class="descname">get_request</code><span class="sig-paren">(</span><em>service</em>, <em>opt</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.get_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.get_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method, forms the http GET request, applies on the netscaler.
+Reads the response from the netscaler and converts it to corresponding
+resource type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>opt</strong> – Options class object</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Array of requested resources.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.get_resource">
+<code class="descname">get_resource</code><span class="sig-paren">(</span><em>service</em>, <em>opt=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.get_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.get_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a get operation on netscaler resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>opt</strong> – options class object (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Array of nitro resources of specified type.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.get_resources">
+<code class="descname">get_resources</code><span class="sig-paren">(</span><em>service</em>, <em>opt=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.get_resources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.get_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a get operation on netscaler resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>opt</strong> – options class object (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Array of nitro resources of specified type.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.getfiltered">
+<code class="descname">getfiltered</code><span class="sig-paren">(</span><em>service</em>, <em>opt</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.getfiltered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.getfiltered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a filtered get operation on netscaler resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>opt</strong> – options class object</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Array of nitro resources of given resource type.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.perform_operation">
+<code class="descname">perform_operation</code><span class="sig-paren">(</span><em>service</em>, <em>action=''</em>, <em>opt=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.perform_operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.perform_operation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a clear/sync/link/unlink/save …etc
+operation on netscaler resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>action</strong> – action needs to be taken on resource (Default value = “”)</li>
+<li><strong>opt</strong> – options object with action that is to be performed set (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the operation performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.perform_operationEx">
+<code class="descname">perform_operationEx</code><span class="sig-paren">(</span><em>service</em>, <em>action</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.perform_operationEx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.perform_operationEx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a POST operation that returns a resource …etc
+operation on netscaler resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>action</strong> – action needs to be taken on resource</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">requested resource</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.base.base_resource.base_resource.perform_operation_bulk_request">
+<em class="property">classmethod </em><code class="descname">perform_operation_bulk_request</code><span class="sig-paren">(</span><em>service</em>, <em>resources</em>, <em>action</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.perform_operation_bulk_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.perform_operation_bulk_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a clear/sync/link/unlink/save …etc
+operation on netscaler resources.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>resources</strong> – Array of Nitro resources on which the specified action to be performed</li>
+<li><strong>opt</strong> – options object with action that is to be performed set</li>
+<li><strong>action</strong> – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the operation performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.base.base_resource.base_resource.post_bulk_data">
+<em class="property">classmethod </em><code class="descname">post_bulk_data</code><span class="sig-paren">(</span><em>service</em>, <em>request</em>, <em>opt=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.post_bulk_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.post_bulk_data" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>service</strong> – </li>
+<li><strong>request</strong> – </li>
+<li><strong>opt</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.post_data">
+<code class="descname">post_data</code><span class="sig-paren">(</span><em>service</em>, <em>request</em>, <em>opt</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.post_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.post_data" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>service</strong> – </li>
+<li><strong>request</strong> – </li>
+<li><strong>opt</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.post_dataEx">
+<code class="descname">post_dataEx</code><span class="sig-paren">(</span><em>service</em>, <em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.post_dataEx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.post_dataEx" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>service</strong> – </li>
+<li><strong>request</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.post_request">
+<code class="descname">post_request</code><span class="sig-paren">(</span><em>service</em>, <em>opt</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.post_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.post_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a Add operation on netscaler resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>opt</strong> – Options class object</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the operation performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.post_requestEx">
+<code class="descname">post_requestEx</code><span class="sig-paren">(</span><em>service</em>, <em>opt</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.post_requestEx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.post_requestEx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a POST operation on netscaler resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>opt</strong> – Options class object</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">requested resource.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.base.base_resource.base_resource.put_bulk_data">
+<em class="property">classmethod </em><code class="descname">put_bulk_data</code><span class="sig-paren">(</span><em>service</em>, <em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.put_bulk_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.put_bulk_data" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>service</strong> – </li>
+<li><strong>request</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.put_data">
+<code class="descname">put_data</code><span class="sig-paren">(</span><em>service</em>, <em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.put_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.put_data" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>service</strong> – </li>
+<li><strong>request</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.rename_resource">
+<code class="descname">rename_resource</code><span class="sig-paren">(</span><em>service</em>, <em>newname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.rename_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.rename_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a rename operation on netscaler resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>newname</strong> – new name to be set to the specified resource</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the operation performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.resource_to_string">
+<code class="descname">resource_to_string</code><span class="sig-paren">(</span><em>service</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.resource_to_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.resource_to_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts netscaler resource to Json string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>service</strong> – nitro_service object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">string in Json format.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.stat_request">
+<code class="descname">stat_request</code><span class="sig-paren">(</span><em>service</em>, <em>opt</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.stat_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.stat_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method, forms the http GET request, applies on the netscaler.
+Reads the response from the netscaler and converts it to corresponding stat resource type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – </li>
+<li><strong>opt</strong> – Options class object</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Array of requested resources.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.stat_resource">
+<code class="descname">stat_resource</code><span class="sig-paren">(</span><em>service</em>, <em>opt=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.stat_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.stat_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a stat operation on a netscaler resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>opt</strong> – options class object (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Requested Nitro stat resource.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.stat_resources">
+<code class="descname">stat_resources</code><span class="sig-paren">(</span><em>service</em>, <em>opt=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.stat_resources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.stat_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a stat operation on netscaler resources.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>opt</strong> – options class object (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Array of nitro stat resources of specified type.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.base.base_resource.base_resource.unset_bulk_request">
+<em class="property">classmethod </em><code class="descname">unset_bulk_request</code><span class="sig-paren">(</span><em>service</em>, <em>resources</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.unset_bulk_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.unset_bulk_request" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>service</strong> – </li>
+<li><strong>resources</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.unset_request">
+<code class="descname">unset_request</code><span class="sig-paren">(</span><em>service</em>, <em>opt</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.unset_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.unset_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform an Unset operation on netscaler resource.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>service - nitro_service object.
+opt - options class object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – </li>
+<li><strong>opt</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the operation performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.unset_resource">
+<code class="descname">unset_resource</code><span class="sig-paren">(</span><em>service</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.unset_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.unset_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform an Unset operation on netscaler resource.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>service - nitro_service object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the operation performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.unset_string">
+<code class="descname">unset_string</code><span class="sig-paren">(</span><em>service</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.unset_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.unset_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>forms a String for unset operation on a resource.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>service - nitro_service object.
+id - session id.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">string in Json format.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.base.base_resource.base_resource.update_bulk_request">
+<em class="property">classmethod </em><code class="descname">update_bulk_request</code><span class="sig-paren">(</span><em>service</em>, <em>resources</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.update_bulk_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.update_bulk_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform an update operation on netscaler resources.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>resources</strong> – Array of nitro resources to be updated</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the operation performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.resource.base.base_resource.base_resource.update_resource">
+<code class="descname">update_resource</code><span class="sig-paren">(</span><em>service</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/base/base_resource.html#base_resource.update_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.base.base_resource.base_resource.update_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to perform a modify operation on netscaler resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> – nitro_service object</li>
+<li><strong>opt</strong> – options class object</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the operation performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Throws:</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.base.base_response.html" class="btn btn-neutral float-right" title="nitro.resource.base.base_response module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.base.Json.html" class="btn btn-neutral float-left" title="nitro.resource.base.Json module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

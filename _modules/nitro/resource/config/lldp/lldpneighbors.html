@@ -1,0 +1,829 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.lldp.lldpneighbors &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.lldp.lldpneighbors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.lldp.lldpneighbors</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="lldpneighbors"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors">[docs]</a><span class="k">class</span> <span class="nc">lldpneighbors</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for lldp neighbors resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ifnum</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_chassisidsubtype</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_chassisid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_portidsubtype</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_portid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ttl</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_portdescription</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sys</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sysdesc</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mgmtaddresssubtype</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mgmtaddress</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_iftype</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ifnumber</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vlan</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vlanid</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_portprotosupported</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_portprotoenabled</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_portprotoid</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_portvlanid</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_protocolid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_linkaggrcapable</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_linkaggrenabled</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_linkaggrid</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_flag</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_syscapabilities</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_syscapenabled</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_autonegsupport</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_autonegenabled</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_autonegadvertised</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_autonegmautype</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mtu</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">___count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ifnum</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Interface Name.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ifnum</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ifnum</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ifnum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ifnum</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Interface Name.</span>
+
+<span class="sd">        :param ifnum: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ifnum</span> <span class="o">=</span> <span class="n">ifnum</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">chassisidsubtype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Chassis id sub type.&lt;br/&gt;Possible values = NONE, Component, Interface Alias, Port Component, MAC Address, Network Address, Interface Name, Locally Assigned.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chassisidsubtype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">chassisid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Chassis Id.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chassisid</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">portidsubtype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Port id subtype.&lt;br/&gt;Possible values = NONE, Interface Alias, Port Component, MAC Address, Network Address, Interface Name, Agent Circuit ID, Locally Assigned.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_portidsubtype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">portid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Port Id.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_portid</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ttl</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Time to Live.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ttl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">portdescription</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Port Description.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_portdescription</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;System Name.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sys</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sysdesc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;System Description.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sysdesc</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mgmtaddresssubtype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Management Address Type.&lt;br/&gt;Possible values = OTHER, IPv4, IPv6.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mgmtaddresssubtype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mgmtaddress</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Management Address.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mgmtaddress</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">iftype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Interface subtype.&lt;br/&gt;Possible values = UNKNOWN, ifIndex, system port number.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iftype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ifnumber</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Interface Number.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ifnumber</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vlan</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;vlan name.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vlan</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vlanid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Vlan Id.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vlanid</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">portprotosupported</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flag to show Port Protocol Support.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_portprotosupported</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">portprotoenabled</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flag to show Port Protocol support enabled.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_portprotoenabled</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">portprotoid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Port Protocol ID.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_portprotoid</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">portvlanid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Port Vlan Id.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_portvlanid</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">protocolid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;port vlan id name.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_protocolid</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">linkaggrcapable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Is neighbor Link Aggregation Capable.&lt;br/&gt;Possible values = NO, YES.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linkaggrcapable</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">linkaggrenabled</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Is link aggregation Enabled.&lt;br/&gt;Possible values = NO, YES.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linkaggrenabled</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">linkaggrid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Link Aggregation Id.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linkaggrid</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">flag</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flag</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">syscapabilities</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Acronyms for remote system capabilities:</span>
+<span class="sd">        OT : Other.</span>
+<span class="sd">        RE : Repeater(IETF RFC 2108).</span>
+<span class="sd">        BR : MAC Bridge(IEEE Std 802.1D).</span>
+<span class="sd">        WL : WLAN Access Point(IEEE Std 802.11 MIB).</span>
+<span class="sd">        RO : ROuter(IETF RFC 1812).</span>
+<span class="sd">        TE : Telephone(IETF RFC 4293).</span>
+<span class="sd">        DO : DOCSIS cable device(IETF RFC 4639 and IETF RFC 4546).</span>
+<span class="sd">        ST : STation only(IETF RFC 4293).</span>
+<span class="sd">        CV : C-VLAN component of a VLAN Bridge(IEEE Std 802.1Q).</span>
+<span class="sd">        SV : S-VLAN component of a VLAN Bridge(IEEE Std 802.1Q).</span>
+<span class="sd">        MR : Two port MAC Relay(IEEE Std 802.1Q).</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_syscapabilities</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">syscapenabled</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Acronyms for remote system enabled capabilities:</span>
+<span class="sd">        OT : Other.</span>
+<span class="sd">        RE : Repeater(IETF RFC 2108).</span>
+<span class="sd">        BR : MAC Bridge(IEEE Std 802.1D).</span>
+<span class="sd">        WL : WLAN Access Point(IEEE Std 802.11 MIB).</span>
+<span class="sd">        RO : ROuter(IETF RFC 1812).</span>
+<span class="sd">        TE : Telephone(IETF RFC 4293).</span>
+<span class="sd">        DO : DOCSIS cable device(IETF RFC 4639 and IETF RFC 4546).</span>
+<span class="sd">        ST : STation only(IETF RFC 4293).</span>
+<span class="sd">        CV : C-VLAN component of a VLAN Bridge(IEEE Std 802.1Q).</span>
+<span class="sd">        SV : S-VLAN component of a VLAN Bridge(IEEE Std 802.1Q).</span>
+<span class="sd">        MR : Two port MAC Relay(IEEE Std 802.1Q).</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_syscapenabled</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">autonegsupport</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;MAC/PHY autonegotiation support.&lt;br/&gt;Possible values = NO, YES.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_autonegsupport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">autonegenabled</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;MAC/PHY autonegotiation enabled.&lt;br/&gt;Possible values = NO, YES.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_autonegenabled</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">autonegadvertised</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;MAC/PHY autonegotiation advetised.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_autonegadvertised</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">autonegmautype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;MAC/PHY Medium Attachment Unit (MAU) type of the port. Description listed below:</span>
+<span class="sd">        AUI           - no internal MAU, view from AUI</span>
+<span class="sd">        10Base5       - thick coax MAU</span>
+<span class="sd">        Foirl         - FOIRL MAU</span>
+<span class="sd">        10Base2       - thin coax MAU</span>
+<span class="sd">        10BaseT       - UTP MAU</span>
+<span class="sd">        10BaseFP      - passive fiber MAU</span>
+<span class="sd">        10BaseFB      - sync fiber MAU</span>
+<span class="sd">        10BaseFL      - async fiber MAU</span>
+<span class="sd">        10Broad36     - broadband DTE MAU</span>
+<span class="sd">        10BaseTHD     - UTP MAU, half duplex mode</span>
+<span class="sd">        10BaseTFD     - UTP MAU, full duplex mode</span>
+<span class="sd">        10BaseFLHD    - async fiber MAU, half duplex mode</span>
+<span class="sd">        10BaseFLDF    - async fiber MAU, full duplex mode</span>
+<span class="sd">        10BaseT4      - 4 pair category 3 UTP</span>
+<span class="sd">        100BaseTXHD   - 2 pair category 5 UTP, half duplex mode</span>
+<span class="sd">        100BaseTXFD   - 2 pair category 5 UTP, full duplex mode</span>
+<span class="sd">        100BaseFXHD   - X fiber over PMT, half duplex mode</span>
+<span class="sd">        100BaseFXFD   - X fiber over PMT, full duplex mode</span>
+<span class="sd">        100BaseT2HD   - 2 pair category 3 UTP, half duplex mode</span>
+<span class="sd">        100BaseT2DF   - 2 pair category 3 UTP, full duplex mode</span>
+<span class="sd">        1000BaseXHD   - PCS/PMA, unknown PMD, half duplex mode</span>
+<span class="sd">        1000BaseXFD   - PCS/PMA, unknown PMD, full duplex mode</span>
+<span class="sd">        1000BaseLXHD  - Fiber over long-wavelength laser, half duplex mode</span>
+<span class="sd">        1000BaseLXFD  - Fiber over long-wavelength laser, full duplex mode</span>
+<span class="sd">        1000BaseSXHD  - Fiber over short-wavelength laser, half duplex mode</span>
+<span class="sd">        1000BaseSXFD  - Fiber over short-wavelength laser, full duplex mode</span>
+<span class="sd">        1000BaseCXHD  - Copper over 150-Ohm balanced cable, half duplex mode</span>
+<span class="sd">        1000BaseCXFD  - Copper over 150-Ohm balanced cable, full duplex mode</span>
+<span class="sd">        1000BaseTHD   - Four-pair Category 5 UTP, half duplex mode</span>
+<span class="sd">        1000BaseTFD   - Four-pair Category 5 UTP, full duplex mode</span>
+<span class="sd">        10GigBaseX    - X PCS/PMA, unknown PMD</span>
+<span class="sd">        10GigBaseLX4  - X fiber over WWDM optics</span>
+<span class="sd">        10GigBaseR    - R PCS/PMA, unknown PMD</span>
+<span class="sd">        10GigBaseER   - R fiber over 1550 nm optics</span>
+<span class="sd">        10GigBaseLR   - R fiber over 1310 nm optics</span>
+<span class="sd">        10GigBaseSR   - R fiber over 850 nm optics</span>
+<span class="sd">        10GigBaseW    - W PCS/PMA, unknown PMD</span>
+<span class="sd">        10GigBaseEW   - W fiber over 1550 nm optics</span>
+<span class="sd">        10GigBaseLW   - W fiber over 1310 nm optics</span>
+<span class="sd">        10GigBaseSW   - W fiber over 850 nm optics.&lt;br/&gt;Possible values = Not Recieved, AUI, 10Base5, Foirl, 10Base2, 10BaseT, 10BaseFP, 10BaseFB, 10BaseFL, 10Broad36, 10BaseTHD, 10BaseTFD, 10BaseFLHD, 10BaseFLDF, 10BaseT4, 100BaseTXHD, 100BaseTXFD, 100BaseFXHD, 100BaseFXFD, 100BaseT2HD, 100BaseT2DF, 1000BaseXHD, 1000BaseXFD, 1000BaseLXHD, 1000BaseLXFD, 1000BaseSXHD, 1000BaseSXFD, 1000BaseCXHD, 1000BaseCXFD, 1000BaseTHD, 1000BaseTFD, 10GigBaseX, 10GigBaseLX4, 10GigBaseR, 10GigBaseER, 10GigBaseLR, 10GigBaseSR, 10GigBaseW, 10GigBaseEW, 10GigBaseLW, 10GigBaseSW.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_autonegmautype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mtu</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;MTU of Remote Device.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mtu</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">lldpneighbors_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">lldpneighbors</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ifnum</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ifnum</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="lldpneighbors.clear"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.clear">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to clear lldpneighbors.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">clearresource</span> <span class="o">=</span> <span class="n">lldpneighbors</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">clearresource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="s2">&quot;clear&quot;</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">clearresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">lldpneighbors</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">perform_operation_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">clearresources</span><span class="p">,</span><span class="s2">&quot;clear&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="lldpneighbors.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the lldpneighbors resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">lldpneighbors</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                        <span class="n">obj</span> <span class="o">=</span> <span class="n">lldpneighbors</span><span class="p">()</span>
+                        <span class="n">obj</span><span class="o">.</span><span class="n">ifnum</span> <span class="o">=</span> <span class="n">name</span>
+                        <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+                    <span class="k">else</span> <span class="p">:</span>
+                        <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+                            <span class="n">response</span> <span class="o">=</span> <span class="p">[</span><span class="n">lldpneighbors</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))]</span>
+                            <span class="n">obj</span> <span class="o">=</span> <span class="p">[</span><span class="n">lldpneighbors</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))]</span>
+                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="p">:</span>
+                                <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lldpneighbors</span><span class="p">()</span>
+                                <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ifnum</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                                <span class="n">response</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="lldpneighbors.get_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.get_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch filtered set of lldpneighbors resources.</span>
+<span class="sd">        filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">lldpneighbors</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="lldpneighbors.count"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.count">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count the lldpneighbors resources configured on NetScaler.</span>
+
+<span class="sd">        :param client: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">lldpneighbors</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="lldpneighbors.count_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.count_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count filtered the set of lldpneighbors resources.</span>
+<span class="sd">        Filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">lldpneighbors</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="lldpneighbors.Mgmtaddresssubtype"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Mgmtaddresssubtype">[docs]</a>    <span class="k">class</span> <span class="nc">Mgmtaddresssubtype</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">OTHER</span> <span class="o">=</span> <span class="s2">&quot;OTHER&quot;</span>
+        <span class="n">IPv4</span> <span class="o">=</span> <span class="s2">&quot;IPv4&quot;</span>
+        <span class="n">IPv6</span> <span class="o">=</span> <span class="s2">&quot;IPv6&quot;</span></div>
+
+<div class="viewcode-block" id="lldpneighbors.Autonegmautype"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegmautype">[docs]</a>    <span class="k">class</span> <span class="nc">Autonegmautype</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Not_Recieved</span> <span class="o">=</span> <span class="s2">&quot;Not Recieved&quot;</span>
+        <span class="n">AUI</span> <span class="o">=</span> <span class="s2">&quot;AUI&quot;</span>
+        <span class="n">_10Base5</span> <span class="o">=</span> <span class="s2">&quot;10Base5&quot;</span>
+        <span class="n">Foirl</span> <span class="o">=</span> <span class="s2">&quot;Foirl&quot;</span>
+        <span class="n">_10Base2</span> <span class="o">=</span> <span class="s2">&quot;10Base2&quot;</span>
+        <span class="n">_10BaseT</span> <span class="o">=</span> <span class="s2">&quot;10BaseT&quot;</span>
+        <span class="n">_10BaseFP</span> <span class="o">=</span> <span class="s2">&quot;10BaseFP&quot;</span>
+        <span class="n">_10BaseFB</span> <span class="o">=</span> <span class="s2">&quot;10BaseFB&quot;</span>
+        <span class="n">_10BaseFL</span> <span class="o">=</span> <span class="s2">&quot;10BaseFL&quot;</span>
+        <span class="n">_10Broad36</span> <span class="o">=</span> <span class="s2">&quot;10Broad36&quot;</span>
+        <span class="n">_10BaseTHD</span> <span class="o">=</span> <span class="s2">&quot;10BaseTHD&quot;</span>
+        <span class="n">_10BaseTFD</span> <span class="o">=</span> <span class="s2">&quot;10BaseTFD&quot;</span>
+        <span class="n">_10BaseFLHD</span> <span class="o">=</span> <span class="s2">&quot;10BaseFLHD&quot;</span>
+        <span class="n">_10BaseFLDF</span> <span class="o">=</span> <span class="s2">&quot;10BaseFLDF&quot;</span>
+        <span class="n">_10BaseT4</span> <span class="o">=</span> <span class="s2">&quot;10BaseT4&quot;</span>
+        <span class="n">_100BaseTXHD</span> <span class="o">=</span> <span class="s2">&quot;100BaseTXHD&quot;</span>
+        <span class="n">_100BaseTXFD</span> <span class="o">=</span> <span class="s2">&quot;100BaseTXFD&quot;</span>
+        <span class="n">_100BaseFXHD</span> <span class="o">=</span> <span class="s2">&quot;100BaseFXHD&quot;</span>
+        <span class="n">_100BaseFXFD</span> <span class="o">=</span> <span class="s2">&quot;100BaseFXFD&quot;</span>
+        <span class="n">_100BaseT2HD</span> <span class="o">=</span> <span class="s2">&quot;100BaseT2HD&quot;</span>
+        <span class="n">_100BaseT2DF</span> <span class="o">=</span> <span class="s2">&quot;100BaseT2DF&quot;</span>
+        <span class="n">_1000BaseXHD</span> <span class="o">=</span> <span class="s2">&quot;1000BaseXHD&quot;</span>
+        <span class="n">_1000BaseXFD</span> <span class="o">=</span> <span class="s2">&quot;1000BaseXFD&quot;</span>
+        <span class="n">_1000BaseLXHD</span> <span class="o">=</span> <span class="s2">&quot;1000BaseLXHD&quot;</span>
+        <span class="n">_1000BaseLXFD</span> <span class="o">=</span> <span class="s2">&quot;1000BaseLXFD&quot;</span>
+        <span class="n">_1000BaseSXHD</span> <span class="o">=</span> <span class="s2">&quot;1000BaseSXHD&quot;</span>
+        <span class="n">_1000BaseSXFD</span> <span class="o">=</span> <span class="s2">&quot;1000BaseSXFD&quot;</span>
+        <span class="n">_1000BaseCXHD</span> <span class="o">=</span> <span class="s2">&quot;1000BaseCXHD&quot;</span>
+        <span class="n">_1000BaseCXFD</span> <span class="o">=</span> <span class="s2">&quot;1000BaseCXFD&quot;</span>
+        <span class="n">_1000BaseTHD</span> <span class="o">=</span> <span class="s2">&quot;1000BaseTHD&quot;</span>
+        <span class="n">_1000BaseTFD</span> <span class="o">=</span> <span class="s2">&quot;1000BaseTFD&quot;</span>
+        <span class="n">_10GigBaseX</span> <span class="o">=</span> <span class="s2">&quot;10GigBaseX&quot;</span>
+        <span class="n">_10GigBaseLX4</span> <span class="o">=</span> <span class="s2">&quot;10GigBaseLX4&quot;</span>
+        <span class="n">_10GigBaseR</span> <span class="o">=</span> <span class="s2">&quot;10GigBaseR&quot;</span>
+        <span class="n">_10GigBaseER</span> <span class="o">=</span> <span class="s2">&quot;10GigBaseER&quot;</span>
+        <span class="n">_10GigBaseLR</span> <span class="o">=</span> <span class="s2">&quot;10GigBaseLR&quot;</span>
+        <span class="n">_10GigBaseSR</span> <span class="o">=</span> <span class="s2">&quot;10GigBaseSR&quot;</span>
+        <span class="n">_10GigBaseW</span> <span class="o">=</span> <span class="s2">&quot;10GigBaseW&quot;</span>
+        <span class="n">_10GigBaseEW</span> <span class="o">=</span> <span class="s2">&quot;10GigBaseEW&quot;</span>
+        <span class="n">_10GigBaseLW</span> <span class="o">=</span> <span class="s2">&quot;10GigBaseLW&quot;</span>
+        <span class="n">_10GigBaseSW</span> <span class="o">=</span> <span class="s2">&quot;10GigBaseSW&quot;</span></div>
+
+<div class="viewcode-block" id="lldpneighbors.Linkaggrcapable"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrcapable">[docs]</a>    <span class="k">class</span> <span class="nc">Linkaggrcapable</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span></div>
+
+<div class="viewcode-block" id="lldpneighbors.Autonegsupport"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegsupport">[docs]</a>    <span class="k">class</span> <span class="nc">Autonegsupport</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span></div>
+
+<div class="viewcode-block" id="lldpneighbors.Chassisidsubtype"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Chassisidsubtype">[docs]</a>    <span class="k">class</span> <span class="nc">Chassisidsubtype</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">NONE</span> <span class="o">=</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="n">Component</span> <span class="o">=</span> <span class="s2">&quot;Component&quot;</span>
+        <span class="n">Interface_Alias</span> <span class="o">=</span> <span class="s2">&quot;Interface Alias&quot;</span>
+        <span class="n">Port_Component</span> <span class="o">=</span> <span class="s2">&quot;Port Component&quot;</span>
+        <span class="n">MAC_Address</span> <span class="o">=</span> <span class="s2">&quot;MAC Address&quot;</span>
+        <span class="n">Network_Address</span> <span class="o">=</span> <span class="s2">&quot;Network Address&quot;</span>
+        <span class="n">Interface_Name</span> <span class="o">=</span> <span class="s2">&quot;Interface Name&quot;</span>
+        <span class="n">Locally_Assigned</span> <span class="o">=</span> <span class="s2">&quot;Locally Assigned&quot;</span></div>
+
+<div class="viewcode-block" id="lldpneighbors.Portidsubtype"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Portidsubtype">[docs]</a>    <span class="k">class</span> <span class="nc">Portidsubtype</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">NONE</span> <span class="o">=</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="n">Interface_Alias</span> <span class="o">=</span> <span class="s2">&quot;Interface Alias&quot;</span>
+        <span class="n">Port_Component</span> <span class="o">=</span> <span class="s2">&quot;Port Component&quot;</span>
+        <span class="n">MAC_Address</span> <span class="o">=</span> <span class="s2">&quot;MAC Address&quot;</span>
+        <span class="n">Network_Address</span> <span class="o">=</span> <span class="s2">&quot;Network Address&quot;</span>
+        <span class="n">Interface_Name</span> <span class="o">=</span> <span class="s2">&quot;Interface Name&quot;</span>
+        <span class="n">Agent_Circuit_ID</span> <span class="o">=</span> <span class="s2">&quot;Agent Circuit ID&quot;</span>
+        <span class="n">Locally_Assigned</span> <span class="o">=</span> <span class="s2">&quot;Locally Assigned&quot;</span></div>
+
+<div class="viewcode-block" id="lldpneighbors.Autonegenabled"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Autonegenabled">[docs]</a>    <span class="k">class</span> <span class="nc">Autonegenabled</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span></div>
+
+<div class="viewcode-block" id="lldpneighbors.Iftype"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Iftype">[docs]</a>    <span class="k">class</span> <span class="nc">Iftype</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">UNKNOWN</span> <span class="o">=</span> <span class="s2">&quot;UNKNOWN&quot;</span>
+        <span class="n">ifIndex</span> <span class="o">=</span> <span class="s2">&quot;ifIndex&quot;</span>
+        <span class="n">system_port_number</span> <span class="o">=</span> <span class="s2">&quot;system port number&quot;</span></div>
+
+<div class="viewcode-block" id="lldpneighbors.Linkaggrenabled"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors.Linkaggrenabled">[docs]</a>    <span class="k">class</span> <span class="nc">Linkaggrenabled</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span></div></div>
+
+<div class="viewcode-block" id="lldpneighbors_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.lldp.lldpneighbors.html#nitro.resource.config.lldp.lldpneighbors.lldpneighbors_response">[docs]</a><span class="k">class</span> <span class="nc">lldpneighbors_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lldpneighbors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lldpneighbors</span> <span class="o">=</span> <span class="p">[</span><span class="n">lldpneighbors</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

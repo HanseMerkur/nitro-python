@@ -1,0 +1,1426 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.wi.wisite &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.wi.wisite</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.wi.wisite</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="wisite"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite">[docs]</a><span class="k">class</span> <span class="nc">wisite</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for WI site resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sitepath</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_agurl</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_staurl</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_secondstaurl</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sessionreliability</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_usetwotickets</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_authenticationpoint</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_agauthenticationmethod</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wiauthenticationmethods</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_defaultcustomtextlocale</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_websessiontimeout</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_defaultaccessmethod</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logintitle</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_appwelcomemessage</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_welcomemessage</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_footertext</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_loginsysmessage</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_preloginbutton</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_preloginmessage</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prelogintitle</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_domainselection</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sitetype</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_userinterfacebranding</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_publishedresourcetype</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kioskmode</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_showsearch</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_showrefresh</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wiuserinterfacemodes</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_userinterfacelayouts</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_restrictdomains</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logindomains</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hidedomainfield</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_agcallbackurl</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">___count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sitepath</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Path to the Web Interface site being created on the NetScaler appliance.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  250.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sitepath</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@sitepath</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sitepath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sitepath</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Path to the Web Interface site being created on the NetScaler appliance.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  250</span>
+
+<span class="sd">        :param sitepath: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sitepath</span> <span class="o">=</span> <span class="n">sitepath</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">agurl</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Call back URL of the Gateway.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@agurl</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">agurl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agurl</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Call back URL of the Gateway.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param agurl: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_agurl</span> <span class="o">=</span> <span class="n">agurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">staurl</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;URL of the Secure Ticket Authority (STA) server.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_staurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@staurl</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">staurl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">staurl</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;URL of the Secure Ticket Authority (STA) server.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param staurl: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_staurl</span> <span class="o">=</span> <span class="n">staurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">secondstaurl</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;URL of the second Secure Ticket Authority (STA) server.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_secondstaurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@secondstaurl</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">secondstaurl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secondstaurl</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;URL of the second Secure Ticket Authority (STA) server.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param secondstaurl: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_secondstaurl</span> <span class="o">=</span> <span class="n">secondstaurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sessionreliability</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable session reliability through Access Gateway.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sessionreliability</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@sessionreliability</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sessionreliability</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sessionreliability</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable session reliability through Access Gateway.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param sessionreliability: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sessionreliability</span> <span class="o">=</span> <span class="n">sessionreliability</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">usetwotickets</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Request tickets issued by two separate Secure Ticket Authorities (STA) when a resource is accessed.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_usetwotickets</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@usetwotickets</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">usetwotickets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">usetwotickets</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Request tickets issued by two separate Secure Ticket Authorities (STA) when a resource is accessed.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param usetwotickets: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_usetwotickets</span> <span class="o">=</span> <span class="n">usetwotickets</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">authenticationpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Authentication point for the Web Interface site.&lt;br/&gt;Possible values = WebInterface, AccessGateway.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_authenticationpoint</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@authenticationpoint</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">authenticationpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authenticationpoint</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Authentication point for the Web Interface site.&lt;br/&gt;Possible values = WebInterface, AccessGateway</span>
+
+<span class="sd">        :param authenticationpoint: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_authenticationpoint</span> <span class="o">=</span> <span class="n">authenticationpoint</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">agauthenticationmethod</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Method for authenticating a Web Interface site if you have specified Web Interface as the authentication point.</span>
+<span class="sd">        Available settings function as follows:</span>
+<span class="sd">        * Explicit - Users must provide a user name and password to log on to the Web Interface.</span>
+<span class="sd">        * Anonymous - Users can log on to the Web Interface without providing a user name and password. They have access to resources published for anonymous users.&lt;br/&gt;Possible values = Explicit, SmartCard.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agauthenticationmethod</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@agauthenticationmethod</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">agauthenticationmethod</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agauthenticationmethod</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Method for authenticating a Web Interface site if you have specified Web Interface as the authentication point.</span>
+<span class="sd">        Available settings function as follows:</span>
+<span class="sd">        * Explicit - Users must provide a user name and password to log on to the Web Interface.</span>
+<span class="sd">        * Anonymous - Users can log on to the Web Interface without providing a user name and password. They have access to resources published for anonymous users.&lt;br/&gt;Possible values = Explicit, SmartCard</span>
+
+<span class="sd">        :param agauthenticationmethod: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_agauthenticationmethod</span> <span class="o">=</span> <span class="n">agauthenticationmethod</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">wiauthenticationmethods</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The method of authentication to be used at Web Interface.&lt;br/&gt;Default value: Explicit&lt;br/&gt;Possible values = Explicit, Anonymous.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wiauthenticationmethods</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@wiauthenticationmethods</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">wiauthenticationmethods</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wiauthenticationmethods</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The method of authentication to be used at Web Interface.&lt;br/&gt;Default value: Explicit&lt;br/&gt;Possible values = Explicit, Anonymous</span>
+
+<span class="sd">        :param wiauthenticationmethods: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wiauthenticationmethods</span> <span class="o">=</span> <span class="n">wiauthenticationmethods</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">defaultcustomtextlocale</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Default language for the Web Interface site.&lt;br/&gt;Default value: English&lt;br/&gt;Possible values = German, English, Spanish, French, Japanese, Korean, Russian, Chinese_simplified, Chinese_traditional.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_defaultcustomtextlocale</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@defaultcustomtextlocale</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">defaultcustomtextlocale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">defaultcustomtextlocale</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Default language for the Web Interface site.&lt;br/&gt;Default value: English&lt;br/&gt;Possible values = German, English, Spanish, French, Japanese, Korean, Russian, Chinese_simplified, Chinese_traditional</span>
+
+<span class="sd">        :param defaultcustomtextlocale: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_defaultcustomtextlocale</span> <span class="o">=</span> <span class="n">defaultcustomtextlocale</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">websessiontimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Time-out, in minutes, for idle Web Interface browser sessions. If a client&#39;s session is idle for a time that exceeds the time-out value, the NetScaler appliance terminates the connection.&lt;br/&gt;Default value: 20&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  1440.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_websessiontimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@websessiontimeout</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">websessiontimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">websessiontimeout</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Time-out, in minutes, for idle Web Interface browser sessions. If a client&#39;s session is idle for a time that exceeds the time-out value, the NetScaler appliance terminates the connection.&lt;br/&gt;Default value: 20&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  1440</span>
+
+<span class="sd">        :param websessiontimeout: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_websessiontimeout</span> <span class="o">=</span> <span class="n">websessiontimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">defaultaccessmethod</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Default access method for clients accessing the Web Interface site.</span>
+<span class="sd">        Note: Before you configure an access method based on the client IP address, you must enable USIP mode on the Web Interface service to make the client&#39;s IP address available with the Web Interface.</span>
+<span class="sd">        Depending on whether the Web Interface site is configured to use an HTTP or HTTPS virtual server or to use access gateway, you can send clients or access gateway the IP address, or the alternate address, of a XenApp or XenDesktop server. Or, you can send the IP address translated from a mapping entry, which defines mapping of an internal address and port to an external address and port.</span>
+<span class="sd">        Note: In the NetScaler command line, mapping entries can be created by using the bind wi site command.&lt;br/&gt;Possible values = Direct, Alternate, Translated, GatewayDirect, GatewayAlternate, GatewayTranslated.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_defaultaccessmethod</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@defaultaccessmethod</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">defaultaccessmethod</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">defaultaccessmethod</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Default access method for clients accessing the Web Interface site.</span>
+<span class="sd">        Note: Before you configure an access method based on the client IP address, you must enable USIP mode on the Web Interface service to make the client&#39;s IP address available with the Web Interface.</span>
+<span class="sd">        Depending on whether the Web Interface site is configured to use an HTTP or HTTPS virtual server or to use access gateway, you can send clients or access gateway the IP address, or the alternate address, of a XenApp or XenDesktop server. Or, you can send the IP address translated from a mapping entry, which defines mapping of an internal address and port to an external address and port.</span>
+<span class="sd">        Note: In the NetScaler command line, mapping entries can be created by using the bind wi site command.&lt;br/&gt;Possible values = Direct, Alternate, Translated, GatewayDirect, GatewayAlternate, GatewayTranslated</span>
+
+<span class="sd">        :param defaultaccessmethod: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_defaultaccessmethod</span> <span class="o">=</span> <span class="n">defaultaccessmethod</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">logintitle</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;A custom login page title for the Web Interface site.&lt;br/&gt;Default value: &quot;Welcome to Web Interface on NetScaler&quot;&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logintitle</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@logintitle</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">logintitle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logintitle</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;A custom login page title for the Web Interface site.&lt;br/&gt;Default value: &quot;Welcome to Web Interface on NetScaler&quot;&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param logintitle: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logintitle</span> <span class="o">=</span> <span class="n">logintitle</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">appwelcomemessage</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Specifies localized text to appear at the top of the main content area of the Applications screen. LanguageCode is en, de, es, fr, ja, or any other supported language identifier.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_appwelcomemessage</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@appwelcomemessage</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">appwelcomemessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">appwelcomemessage</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Specifies localized text to appear at the top of the main content area of the Applications screen. LanguageCode is en, de, es, fr, ja, or any other supported language identifier.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param appwelcomemessage: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_appwelcomemessage</span> <span class="o">=</span> <span class="n">appwelcomemessage</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">welcomemessage</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Localized welcome message that appears on the welcome area of the login screen.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_welcomemessage</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@welcomemessage</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">welcomemessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">welcomemessage</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Localized welcome message that appears on the welcome area of the login screen.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param welcomemessage: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_welcomemessage</span> <span class="o">=</span> <span class="n">welcomemessage</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">footertext</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Localized text that appears in the footer area of all pages.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_footertext</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@footertext</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">footertext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">footertext</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Localized text that appears in the footer area of all pages.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param footertext: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_footertext</span> <span class="o">=</span> <span class="n">footertext</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">loginsysmessage</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Localized text that appears at the bottom of the main content area of the login screen.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loginsysmessage</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@loginsysmessage</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">loginsysmessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loginsysmessage</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Localized text that appears at the bottom of the main content area of the login screen.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param loginsysmessage: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_loginsysmessage</span> <span class="o">=</span> <span class="n">loginsysmessage</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">preloginbutton</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Localized text that appears as the name of the pre-login message confirmation button.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_preloginbutton</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@preloginbutton</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">preloginbutton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preloginbutton</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Localized text that appears as the name of the pre-login message confirmation button.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param preloginbutton: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_preloginbutton</span> <span class="o">=</span> <span class="n">preloginbutton</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">preloginmessage</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Localized text that appears on the pre-login message page.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  2048.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_preloginmessage</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@preloginmessage</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">preloginmessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preloginmessage</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Localized text that appears on the pre-login message page.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  2048</span>
+
+<span class="sd">        :param preloginmessage: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_preloginmessage</span> <span class="o">=</span> <span class="n">preloginmessage</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">prelogintitle</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Localized text that appears as the title of the pre-login message page.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prelogintitle</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@prelogintitle</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">prelogintitle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prelogintitle</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Localized text that appears as the title of the pre-login message page.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param prelogintitle: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_prelogintitle</span> <span class="o">=</span> <span class="n">prelogintitle</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">domainselection</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Domain names listed on the login screen for explicit authentication.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_domainselection</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@domainselection</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">domainselection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domainselection</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Domain names listed on the login screen for explicit authentication.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param domainselection: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_domainselection</span> <span class="o">=</span> <span class="n">domainselection</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sitetype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Type of access to the Web Interface site. Available settings function as follows:</span>
+<span class="sd">        * XenApp/XenDesktop web site - Configures the Web Interface site for access by a web browser.</span>
+<span class="sd">        * XenApp/XenDesktop services site - Configures the Web Interface site for access by the XenApp plug-in.&lt;br/&gt;Default value: XenAppWeb&lt;br/&gt;Possible values = XenAppWeb, XenAppServices.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sitetype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@sitetype</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sitetype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sitetype</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Type of access to the Web Interface site. Available settings function as follows:</span>
+<span class="sd">        * XenApp/XenDesktop web site - Configures the Web Interface site for access by a web browser.</span>
+<span class="sd">        * XenApp/XenDesktop services site - Configures the Web Interface site for access by the XenApp plug-in.&lt;br/&gt;Default value: XenAppWeb&lt;br/&gt;Possible values = XenAppWeb, XenAppServices</span>
+
+<span class="sd">        :param sitetype: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sitetype</span> <span class="o">=</span> <span class="n">sitetype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">userinterfacebranding</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Specifies whether the site is focused towards users accessing applications or desktops. Setting the parameter to Desktops changes the functionality of the site to improve the experience for XenDesktop users. Citrix recommends using this setting for any deployment that includes XenDesktop.&lt;br/&gt;Default value: Applications&lt;br/&gt;Possible values = Desktops, Applications.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_userinterfacebranding</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@userinterfacebranding</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">userinterfacebranding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userinterfacebranding</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Specifies whether the site is focused towards users accessing applications or desktops. Setting the parameter to Desktops changes the functionality of the site to improve the experience for XenDesktop users. Citrix recommends using this setting for any deployment that includes XenDesktop.&lt;br/&gt;Default value: Applications&lt;br/&gt;Possible values = Desktops, Applications</span>
+
+<span class="sd">        :param userinterfacebranding: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_userinterfacebranding</span> <span class="o">=</span> <span class="n">userinterfacebranding</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">publishedresourcetype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Method for accessing the published XenApp and XenDesktop resources.</span>
+<span class="sd">        Available settings function as follows:</span>
+<span class="sd">        * Online - Allows applications to be launched on the XenApp and XenDesktop servers.</span>
+<span class="sd">        * Offline - Allows streaming of applications to the client.</span>
+<span class="sd">        * DualMode - Allows both online and offline modes.&lt;br/&gt;Default value: Online&lt;br/&gt;Possible values = Online, Offline, DualMode.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_publishedresourcetype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@publishedresourcetype</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">publishedresourcetype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">publishedresourcetype</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Method for accessing the published XenApp and XenDesktop resources.</span>
+<span class="sd">        Available settings function as follows:</span>
+<span class="sd">        * Online - Allows applications to be launched on the XenApp and XenDesktop servers.</span>
+<span class="sd">        * Offline - Allows streaming of applications to the client.</span>
+<span class="sd">        * DualMode - Allows both online and offline modes.&lt;br/&gt;Default value: Online&lt;br/&gt;Possible values = Online, Offline, DualMode</span>
+
+<span class="sd">        :param publishedresourcetype: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_publishedresourcetype</span> <span class="o">=</span> <span class="n">publishedresourcetype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">kioskmode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;User settings do not persist from one session to another.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kioskmode</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@kioskmode</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">kioskmode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kioskmode</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;User settings do not persist from one session to another.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param kioskmode: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_kioskmode</span> <span class="o">=</span> <span class="n">kioskmode</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">showsearch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enables search option on XenApp websites.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_showsearch</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@showsearch</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">showsearch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showsearch</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enables search option on XenApp websites.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param showsearch: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_showsearch</span> <span class="o">=</span> <span class="n">showsearch</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">showrefresh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Provides the Refresh button on the applications screen.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_showrefresh</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@showrefresh</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">showrefresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showrefresh</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Provides the Refresh button on the applications screen.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param showrefresh: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_showrefresh</span> <span class="o">=</span> <span class="n">showrefresh</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">wiuserinterfacemodes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Appearance of the login screen.</span>
+<span class="sd">        * Simple - Only the login fields for the selected authentication method are displayed.</span>
+<span class="sd">        * Advanced - Displays the navigation bar, which provides access to the pre-login messages and preferences screens.&lt;br/&gt;Default value: SIMPLE&lt;br/&gt;Possible values = SIMPLE, ADVANCED.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wiuserinterfacemodes</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@wiuserinterfacemodes</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">wiuserinterfacemodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wiuserinterfacemodes</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Appearance of the login screen.</span>
+<span class="sd">        * Simple - Only the login fields for the selected authentication method are displayed.</span>
+<span class="sd">        * Advanced - Displays the navigation bar, which provides access to the pre-login messages and preferences screens.&lt;br/&gt;Default value: SIMPLE&lt;br/&gt;Possible values = SIMPLE, ADVANCED</span>
+
+<span class="sd">        :param wiuserinterfacemodes: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wiuserinterfacemodes</span> <span class="o">=</span> <span class="n">wiuserinterfacemodes</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">userinterfacelayouts</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Specifies whether or not to use the compact user interface.&lt;br/&gt;Default value: AUTO&lt;br/&gt;Possible values = AUTO, NORMAL, COMPACT.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_userinterfacelayouts</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@userinterfacelayouts</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">userinterfacelayouts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userinterfacelayouts</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Specifies whether or not to use the compact user interface.&lt;br/&gt;Default value: AUTO&lt;br/&gt;Possible values = AUTO, NORMAL, COMPACT</span>
+
+<span class="sd">        :param userinterfacelayouts: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_userinterfacelayouts</span> <span class="o">=</span> <span class="n">userinterfacelayouts</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">restrictdomains</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The RestrictDomains setting is used to enable/disable domain restrictions. If domain restriction is enabled, the LoginDomains list is used for validating the login domain. It is applied to all the authentication methods except Anonymous for XenApp Web and XenApp Services sites.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_restrictdomains</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@restrictdomains</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">restrictdomains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">restrictdomains</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The RestrictDomains setting is used to enable/disable domain restrictions. If domain restriction is enabled, the LoginDomains list is used for validating the login domain. It is applied to all the authentication methods except Anonymous for XenApp Web and XenApp Services sites.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param restrictdomains: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_restrictdomains</span> <span class="o">=</span> <span class="n">restrictdomains</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">logindomains</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;[List of NetBIOS domain names], Domain names to use for access restriction.</span>
+<span class="sd">        Only takes effect when used in conjunction with the RestrictDomains setting.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logindomains</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@logindomains</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">logindomains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logindomains</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;[List of NetBIOS domain names], Domain names to use for access restriction.</span>
+<span class="sd">        Only takes effect when used in conjunction with the RestrictDomains setting.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param logindomains: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logindomains</span> <span class="o">=</span> <span class="n">logindomains</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hidedomainfield</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The HideDomainField setting is used to control whether the domain field is displayed on the logon screen.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hidedomainfield</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@hidedomainfield</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">hidedomainfield</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hidedomainfield</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The HideDomainField setting is used to control whether the domain field is displayed on the logon screen.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param hidedomainfield: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_hidedomainfield</span> <span class="o">=</span> <span class="n">hidedomainfield</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">agcallbackurl</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Callback AGURL to which Web Interface contacts. .&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agcallbackurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@agcallbackurl</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">agcallbackurl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agcallbackurl</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Callback AGURL to which Web Interface contacts. .&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param agcallbackurl: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_agcallbackurl</span> <span class="o">=</span> <span class="n">agcallbackurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">wisite_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">wisite</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sitepath</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sitepath</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="wisite.add"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.add">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to add wisite.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">addresource</span> <span class="o">=</span> <span class="n">wisite</span><span class="p">()</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sitepath</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">agurl</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">agurl</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">staurl</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">staurl</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">secondstaurl</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">secondstaurl</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">sessionreliability</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sessionreliability</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">usetwotickets</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">usetwotickets</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">authenticationpoint</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">authenticationpoint</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">agauthenticationmethod</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">agauthenticationmethod</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">wiauthenticationmethods</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">wiauthenticationmethods</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">defaultcustomtextlocale</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">defaultcustomtextlocale</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">websessiontimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">websessiontimeout</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">defaultaccessmethod</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">defaultaccessmethod</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">logintitle</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">logintitle</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">appwelcomemessage</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">appwelcomemessage</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">welcomemessage</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">welcomemessage</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">footertext</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">footertext</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">loginsysmessage</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">loginsysmessage</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">preloginbutton</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">preloginbutton</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">preloginmessage</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">preloginmessage</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">prelogintitle</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">prelogintitle</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">domainselection</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">domainselection</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">sitetype</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sitetype</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">userinterfacebranding</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">userinterfacebranding</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">publishedresourcetype</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">publishedresourcetype</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">kioskmode</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">kioskmode</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">showsearch</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">showsearch</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">showrefresh</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">showrefresh</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">wiuserinterfacemodes</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">wiuserinterfacemodes</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">userinterfacelayouts</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">userinterfacelayouts</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">restrictdomains</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">restrictdomains</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">logindomains</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">logindomains</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">hidedomainfield</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">hidedomainfield</span>
+                <span class="n">addresource</span><span class="o">.</span><span class="n">agcallbackurl</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">agcallbackurl</span>
+                <span class="k">return</span> <span class="n">addresource</span><span class="o">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">addresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">wisite</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitepath</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">agurl</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">agurl</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">staurl</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">staurl</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">secondstaurl</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">secondstaurl</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sessionreliability</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sessionreliability</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">usetwotickets</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">usetwotickets</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">authenticationpoint</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">authenticationpoint</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">agauthenticationmethod</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">agauthenticationmethod</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">wiauthenticationmethods</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">wiauthenticationmethods</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">defaultcustomtextlocale</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">defaultcustomtextlocale</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">websessiontimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">websessiontimeout</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">defaultaccessmethod</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">defaultaccessmethod</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">logintitle</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">logintitle</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">appwelcomemessage</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">appwelcomemessage</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">welcomemessage</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">welcomemessage</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">footertext</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">footertext</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">loginsysmessage</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">loginsysmessage</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">preloginbutton</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">preloginbutton</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">preloginmessage</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">preloginmessage</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">prelogintitle</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">prelogintitle</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">domainselection</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">domainselection</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitetype</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitetype</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">userinterfacebranding</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">userinterfacebranding</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">publishedresourcetype</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">publishedresourcetype</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">kioskmode</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">kioskmode</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">showsearch</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">showsearch</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">showrefresh</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">showrefresh</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">wiuserinterfacemodes</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">wiuserinterfacemodes</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">userinterfacelayouts</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">userinterfacelayouts</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">restrictdomains</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">restrictdomains</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">logindomains</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">logindomains</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hidedomainfield</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hidedomainfield</span>
+                        <span class="n">addresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">agcallbackurl</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">agcallbackurl</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">add_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">addresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="wisite.delete"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.delete">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to delete wisite.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">deleteresource</span> <span class="o">=</span> <span class="n">wisite</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">!=</span>  <span class="nb">type</span><span class="p">(</span><span class="n">deleteresource</span><span class="p">):</span>
+                    <span class="n">deleteresource</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">resource</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">deleteresource</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sitepath</span>
+                <span class="k">return</span> <span class="n">deleteresource</span><span class="o">.</span><span class="n">delete_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">deleteresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">wisite</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">deleteresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">deleteresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">wisite</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">deleteresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitepath</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">delete_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">deleteresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="wisite.update"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.update">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to update wisite.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">updateresource</span> <span class="o">=</span> <span class="n">wisite</span><span class="p">()</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sitepath</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">agurl</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">agurl</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">staurl</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">staurl</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">sessionreliability</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sessionreliability</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">usetwotickets</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">usetwotickets</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">secondstaurl</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">secondstaurl</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">wiauthenticationmethods</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">wiauthenticationmethods</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">defaultaccessmethod</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">defaultaccessmethod</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">defaultcustomtextlocale</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">defaultcustomtextlocale</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">websessiontimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">websessiontimeout</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">logintitle</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">logintitle</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">appwelcomemessage</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">appwelcomemessage</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">welcomemessage</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">welcomemessage</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">footertext</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">footertext</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">loginsysmessage</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">loginsysmessage</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">preloginbutton</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">preloginbutton</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">preloginmessage</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">preloginmessage</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">prelogintitle</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">prelogintitle</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">domainselection</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">domainselection</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">userinterfacebranding</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">userinterfacebranding</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">authenticationpoint</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">authenticationpoint</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">agauthenticationmethod</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">agauthenticationmethod</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">publishedresourcetype</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">publishedresourcetype</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">kioskmode</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">kioskmode</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">showsearch</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">showsearch</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">showrefresh</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">showrefresh</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">wiuserinterfacemodes</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">wiuserinterfacemodes</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">userinterfacelayouts</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">userinterfacelayouts</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">restrictdomains</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">restrictdomains</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">logindomains</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">logindomains</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">hidedomainfield</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">hidedomainfield</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">agcallbackurl</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">agcallbackurl</span>
+                <span class="k">return</span> <span class="n">updateresource</span><span class="o">.</span><span class="n">update_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">updateresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">wisite</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitepath</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">agurl</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">agurl</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">staurl</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">staurl</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sessionreliability</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sessionreliability</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">usetwotickets</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">usetwotickets</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">secondstaurl</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">secondstaurl</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">wiauthenticationmethods</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">wiauthenticationmethods</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">defaultaccessmethod</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">defaultaccessmethod</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">defaultcustomtextlocale</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">defaultcustomtextlocale</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">websessiontimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">websessiontimeout</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">logintitle</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">logintitle</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">appwelcomemessage</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">appwelcomemessage</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">welcomemessage</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">welcomemessage</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">footertext</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">footertext</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">loginsysmessage</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">loginsysmessage</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">preloginbutton</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">preloginbutton</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">preloginmessage</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">preloginmessage</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">prelogintitle</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">prelogintitle</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">domainselection</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">domainselection</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">userinterfacebranding</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">userinterfacebranding</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">authenticationpoint</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">authenticationpoint</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">agauthenticationmethod</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">agauthenticationmethod</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">publishedresourcetype</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">publishedresourcetype</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">kioskmode</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">kioskmode</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">showsearch</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">showsearch</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">showrefresh</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">showrefresh</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">wiuserinterfacemodes</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">wiuserinterfacemodes</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">userinterfacelayouts</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">userinterfacelayouts</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">restrictdomains</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">restrictdomains</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">logindomains</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">logindomains</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hidedomainfield</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hidedomainfield</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">agcallbackurl</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">agcallbackurl</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">update_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">updateresources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="wisite.unset"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.unset">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">unset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to unset the properties of wisite resource.</span>
+<span class="sd">        Properties that need to be unset are specified in args array.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">unsetresource</span> <span class="o">=</span> <span class="n">wisite</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">!=</span>  <span class="nb">type</span><span class="p">(</span><span class="n">unsetresource</span><span class="p">):</span>
+                    <span class="n">unsetresource</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">resource</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">unsetresource</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sitepath</span>
+                <span class="k">return</span> <span class="n">unsetresource</span><span class="o">.</span><span class="n">unset_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">unsetresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">wisite</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">unsetresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">unsetresources</span> <span class="o">=</span> <span class="p">[</span> <span class="n">wisite</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                            <span class="n">unsetresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitepath</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">unset_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">unsetresources</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="wisite.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the wisite resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">wisite</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">cls</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                        <span class="n">obj</span> <span class="o">=</span> <span class="n">wisite</span><span class="p">()</span>
+                        <span class="n">obj</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">name</span>
+                        <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+                    <span class="k">else</span> <span class="p">:</span>
+                        <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+                            <span class="n">response</span> <span class="o">=</span> <span class="p">[</span><span class="n">wisite</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))]</span>
+                            <span class="n">obj</span> <span class="o">=</span> <span class="p">[</span><span class="n">wisite</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))]</span>
+                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="p">:</span>
+                                <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">wisite</span><span class="p">()</span>
+                                <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sitepath</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                                <span class="n">response</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="wisite.get_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.get_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch filtered set of wisite resources.</span>
+<span class="sd">        filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">wisite</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="wisite.count"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.count">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count the wisite resources configured on NetScaler.</span>
+
+<span class="sd">        :param client: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">wisite</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="wisite.count_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.count_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count filtered the set of wisite resources.</span>
+<span class="sd">        Filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">wisite</span><span class="p">()</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="wisite.Sessionreliability"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Sessionreliability">[docs]</a>    <span class="k">class</span> <span class="nc">Sessionreliability</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Showsearch"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Showsearch">[docs]</a>    <span class="k">class</span> <span class="nc">Showsearch</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Showrefresh"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Showrefresh">[docs]</a>    <span class="k">class</span> <span class="nc">Showrefresh</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Userinterfacelayouts"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Userinterfacelayouts">[docs]</a>    <span class="k">class</span> <span class="nc">Userinterfacelayouts</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">AUTO</span> <span class="o">=</span> <span class="s2">&quot;AUTO&quot;</span>
+        <span class="n">NORMAL</span> <span class="o">=</span> <span class="s2">&quot;NORMAL&quot;</span>
+        <span class="n">COMPACT</span> <span class="o">=</span> <span class="s2">&quot;COMPACT&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Wiauthenticationmethods"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Wiauthenticationmethods">[docs]</a>    <span class="k">class</span> <span class="nc">Wiauthenticationmethods</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Explicit</span> <span class="o">=</span> <span class="s2">&quot;Explicit&quot;</span>
+        <span class="n">Anonymous</span> <span class="o">=</span> <span class="s2">&quot;Anonymous&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Defaultaccessmethod"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Defaultaccessmethod">[docs]</a>    <span class="k">class</span> <span class="nc">Defaultaccessmethod</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Direct</span> <span class="o">=</span> <span class="s2">&quot;Direct&quot;</span>
+        <span class="n">Alternate</span> <span class="o">=</span> <span class="s2">&quot;Alternate&quot;</span>
+        <span class="n">Translated</span> <span class="o">=</span> <span class="s2">&quot;Translated&quot;</span>
+        <span class="n">GatewayDirect</span> <span class="o">=</span> <span class="s2">&quot;GatewayDirect&quot;</span>
+        <span class="n">GatewayAlternate</span> <span class="o">=</span> <span class="s2">&quot;GatewayAlternate&quot;</span>
+        <span class="n">GatewayTranslated</span> <span class="o">=</span> <span class="s2">&quot;GatewayTranslated&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Wiuserinterfacemodes"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Wiuserinterfacemodes">[docs]</a>    <span class="k">class</span> <span class="nc">Wiuserinterfacemodes</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">SIMPLE</span> <span class="o">=</span> <span class="s2">&quot;SIMPLE&quot;</span>
+        <span class="n">ADVANCED</span> <span class="o">=</span> <span class="s2">&quot;ADVANCED&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Publishedresourcetype"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Publishedresourcetype">[docs]</a>    <span class="k">class</span> <span class="nc">Publishedresourcetype</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Online</span> <span class="o">=</span> <span class="s2">&quot;Online&quot;</span>
+        <span class="n">Offline</span> <span class="o">=</span> <span class="s2">&quot;Offline&quot;</span>
+        <span class="n">DualMode</span> <span class="o">=</span> <span class="s2">&quot;DualMode&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Usetwotickets"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Usetwotickets">[docs]</a>    <span class="k">class</span> <span class="nc">Usetwotickets</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Agauthenticationmethod"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Agauthenticationmethod">[docs]</a>    <span class="k">class</span> <span class="nc">Agauthenticationmethod</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Explicit</span> <span class="o">=</span> <span class="s2">&quot;Explicit&quot;</span>
+        <span class="n">SmartCard</span> <span class="o">=</span> <span class="s2">&quot;SmartCard&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Hidedomainfield"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Hidedomainfield">[docs]</a>    <span class="k">class</span> <span class="nc">Hidedomainfield</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Authenticationpoint"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Authenticationpoint">[docs]</a>    <span class="k">class</span> <span class="nc">Authenticationpoint</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">WebInterface</span> <span class="o">=</span> <span class="s2">&quot;WebInterface&quot;</span>
+        <span class="n">AccessGateway</span> <span class="o">=</span> <span class="s2">&quot;AccessGateway&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Restrictdomains"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Restrictdomains">[docs]</a>    <span class="k">class</span> <span class="nc">Restrictdomains</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Sitetype"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Sitetype">[docs]</a>    <span class="k">class</span> <span class="nc">Sitetype</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">XenAppWeb</span> <span class="o">=</span> <span class="s2">&quot;XenAppWeb&quot;</span>
+        <span class="n">XenAppServices</span> <span class="o">=</span> <span class="s2">&quot;XenAppServices&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Userinterfacebranding"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Userinterfacebranding">[docs]</a>    <span class="k">class</span> <span class="nc">Userinterfacebranding</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Desktops</span> <span class="o">=</span> <span class="s2">&quot;Desktops&quot;</span>
+        <span class="n">Applications</span> <span class="o">=</span> <span class="s2">&quot;Applications&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Defaultcustomtextlocale"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Defaultcustomtextlocale">[docs]</a>    <span class="k">class</span> <span class="nc">Defaultcustomtextlocale</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">German</span> <span class="o">=</span> <span class="s2">&quot;German&quot;</span>
+        <span class="n">English</span> <span class="o">=</span> <span class="s2">&quot;English&quot;</span>
+        <span class="n">Spanish</span> <span class="o">=</span> <span class="s2">&quot;Spanish&quot;</span>
+        <span class="n">French</span> <span class="o">=</span> <span class="s2">&quot;French&quot;</span>
+        <span class="n">Japanese</span> <span class="o">=</span> <span class="s2">&quot;Japanese&quot;</span>
+        <span class="n">Korean</span> <span class="o">=</span> <span class="s2">&quot;Korean&quot;</span>
+        <span class="n">Russian</span> <span class="o">=</span> <span class="s2">&quot;Russian&quot;</span>
+        <span class="n">Chinese_simplified</span> <span class="o">=</span> <span class="s2">&quot;Chinese_simplified&quot;</span>
+        <span class="n">Chinese_traditional</span> <span class="o">=</span> <span class="s2">&quot;Chinese_traditional&quot;</span></div>
+
+<div class="viewcode-block" id="wisite.Kioskmode"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite.Kioskmode">[docs]</a>    <span class="k">class</span> <span class="nc">Kioskmode</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div></div>
+
+<div class="viewcode-block" id="wisite_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.wi.wisite.html#nitro.resource.config.wi.wisite.wisite_response">[docs]</a><span class="k">class</span> <span class="nc">wisite_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wisite</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wisite</span> <span class="o">=</span> <span class="p">[</span><span class="n">wisite</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1040 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.basic.nstrace &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.basic.nstrace</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.basic.nstrace</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="nstrace"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace">[docs]</a><span class="k">class</span> <span class="nc">nstrace</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for nstrace operations resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nf</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pernic</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fileid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filter</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_link</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filesize</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_traceformat</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_merge</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_doruntimecleanup</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tracebuffers</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_skiprpc</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_inmemorytrace</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_scope</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tracelocation</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nf</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Number of files to be generated in cycle.&lt;br/&gt;Default value: 24&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  100.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nf</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@nf</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nf</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Number of files to be generated in cycle.&lt;br/&gt;Default value: 24&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  100</span>
+
+<span class="sd">        :param nf: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nf</span> <span class="o">=</span> <span class="n">nf</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Time per file (sec).&lt;br/&gt;Default value: 3600&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@time</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Time per file (sec).&lt;br/&gt;Default value: 3600&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param time: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_time</span> <span class="o">=</span> <span class="n">time</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Size of the captured data. Set 0 for full packet trace.&lt;br/&gt;Default value: 164&lt;br/&gt;Maximum length =  1514.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@size</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Size of the captured data. Set 0 for full packet trace.&lt;br/&gt;Default value: 164&lt;br/&gt;Maximum length =  1514</span>
+
+<span class="sd">        :param size: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Capturing mode for trace. Mode can be any of the following values or combination of these values:</span>
+<span class="sd">        RX          Received packets before NIC pipelining (Filter does not work when RX capturing mode is ON)</span>
+<span class="sd">        NEW_RX      Received packets after NIC pipelining</span>
+<span class="sd">        TX          Transmitted packets</span>
+<span class="sd">        TXB         Packets buffered for transmission</span>
+<span class="sd">        IPV6        Translated IPv6 packets</span>
+<span class="sd">        C2C         Capture C2C message</span>
+<span class="sd">        NS_FR_TX    TX/TXB packets are not captured in flow receiver.</span>
+<span class="sd">        SSLPLAIN    Decrypted SSL packets</span>
+<span class="sd">        MPTCP       MPTCP master flow</span>
+<span class="sd">        Default mode: NEW_RX TXB .&lt;br/&gt;Default value: DEFAULT_MODE&lt;br/&gt;Possible values = TX, TXB, RX, IPV6, NEW_RX, C2C, NS_FR_TX, APPFW, SSLPLAIN, MPTCP.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@mode</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Capturing mode for trace. Mode can be any of the following values or combination of these values:</span>
+<span class="sd">        RX          Received packets before NIC pipelining (Filter does not work when RX capturing mode is ON)</span>
+<span class="sd">        NEW_RX      Received packets after NIC pipelining</span>
+<span class="sd">        TX          Transmitted packets</span>
+<span class="sd">        TXB         Packets buffered for transmission</span>
+<span class="sd">        IPV6        Translated IPv6 packets</span>
+<span class="sd">        C2C         Capture C2C message</span>
+<span class="sd">        NS_FR_TX    TX/TXB packets are not captured in flow receiver.</span>
+<span class="sd">        SSLPLAIN    Decrypted SSL packets</span>
+<span class="sd">        MPTCP       MPTCP master flow</span>
+<span class="sd">        Default mode: NEW_RX TXB .&lt;br/&gt;Default value: DEFAULT_MODE&lt;br/&gt;Possible values = TX, TXB, RX, IPV6, NEW_RX, C2C, NS_FR_TX, APPFW, SSLPLAIN, MPTCP</span>
+
+<span class="sd">        :param mode: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pernic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use separate trace files for each interface. Works only with tcpdump format.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pernic</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@pernic</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">pernic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pernic</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use separate trace files for each interface. Works only with tcpdump format.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param pernic: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pernic</span> <span class="o">=</span> <span class="n">pernic</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">filename</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the trace file.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@filename</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">filename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the trace file.</span>
+
+<span class="sd">        :param filename: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="n">filename</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fileid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;ID for the trace file name for uniqueness. Should be used only with -name option.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fileid</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@fileid</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">fileid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileid</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;ID for the trace file name for uniqueness. Should be used only with -name option.</span>
+
+<span class="sd">        :param fileid: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_fileid</span> <span class="o">=</span> <span class="n">fileid</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Filter expression for nstrace. Maximum length of filter is 255 and it can be of following format:</span>
+<span class="sd">        &lt;expression&gt; [&lt;relop&gt; &lt;expression&gt;]</span>
+<span class="sd">        &lt;relop&gt; = ( &amp;&amp; | || )</span>
+<span class="sd">        nstrace supports two types of filter expressions:</span>
+<span class="sd">        Classic Expressions:</span>
+<span class="sd">        [Note: Classic Expressions are not supported in non-default partitions]</span>
+<span class="sd">        &lt;expression&gt; = the expression string in the format:</span>
+<span class="sd">        &lt;qualifier&gt; &lt;operator&gt; &lt;qualifier-value&gt;</span>
+<span class="sd">        &lt;qualifier&gt; = SOURCEIP.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid IP address</span>
+<span class="sd">        &lt;qualifier&gt; = SOURCEPORT.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid port number.</span>
+<span class="sd">        &lt;qualifier&gt; = DESTIP.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid IP address.</span>
+<span class="sd">        &lt;qualifier&gt; = DESTPORT.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid port number.</span>
+<span class="sd">        &lt;qualifier&gt; = IP.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid IP address.</span>
+<span class="sd">        &lt;qualifier&gt; = PORT.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid port number.</span>
+<span class="sd">        &lt;qualifier&gt; = SVCNAME.</span>
+<span class="sd">        &lt;qualifier-value&gt; = The name of a service.</span>
+<span class="sd">        &lt;qualifier&gt; = VSVRNAME.</span>
+<span class="sd">        &lt;qualifier-value&gt; = The name of a vserver.</span>
+<span class="sd">        &lt;qualifier&gt; = CONNID</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid PCB dev number.</span>
+<span class="sd">        &lt;qualifier&gt; = VLAN</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid VLAN ID.</span>
+<span class="sd">        &lt;qualifier&gt; = INTF</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid interface id in the form of x/y</span>
+<span class="sd">        (n/x/y in case of cluster interface).</span>
+<span class="sd">        &lt;operator&gt; = ( == | eq | != | neq | &gt; | gt</span>
+<span class="sd">        | &lt; | lt | &gt;= | ge | &lt;= | le | BETWEEN )</span>
+<span class="sd">        eg: start nstrace -filter &quot;SOURCEIP == 10.102.34.201 || (SVCNAME != s1 &amp;&amp; SOURCEPORT &gt; 80)&quot;</span>
+<span class="sd">        The filter expression should be given in double quotes.</span>
+<span class="sd">        Default Expressions:</span>
+<span class="sd">        &lt;expression&gt; =:</span>
+<span class="sd">        CONNECTION.&lt;qualifier&gt;.&lt;qualifier-method&gt;.(&lt;qualifier-value&gt;)</span>
+<span class="sd">        &lt;qualifier&gt; = SRCIP</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv4 address.</span>
+<span class="sd">        example = CONNECTION.SRCIP.EQ(127.0.0.1)</span>
+<span class="sd">        &lt;qualifier&gt; = DSTIP</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv4 address.</span>
+<span class="sd">        example = CONNECTION.DSTIP.EQ(127.0.0.1)</span>
+<span class="sd">        &lt;qualifier&gt; = IP</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv4 address.</span>
+<span class="sd">        example = CONNECTION.IP.EQ(127.0.0.1)</span>
+<span class="sd">        &lt;qualifier&gt; = SRCIPv6</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv6 address.</span>
+<span class="sd">        example = CONNECTION.SRCIPv6.EQ(2001:db8:0:0:1::1)</span>
+<span class="sd">        &lt;qualifier&gt; = DSTIPv6</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv6 address.</span>
+<span class="sd">        example = CONNECTION.DSTIPv6.EQ(2001:db8:0:0:1::1)</span>
+<span class="sd">        &lt;qualifier&gt; = IPv6</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv6 address.</span>
+<span class="sd">        example = CONNECTION.IPv6.EQ(2001:db8:0:0:1::1)</span>
+<span class="sd">        &lt;qualifier&gt; = SRCPORT</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid port number.</span>
+<span class="sd">        example = CONNECTION.SRCPORT.EQ(80)</span>
+<span class="sd">        &lt;qualifier&gt; = DSTPORT</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid port number.</span>
+<span class="sd">        example = CONNECTION.DSTPORT.EQ(80)</span>
+<span class="sd">        &lt;qualifier&gt; = PORT</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid port number.</span>
+<span class="sd">        example = CONNECTION.PORT.EQ(80)</span>
+<span class="sd">        &lt;qualifier&gt; = VLANID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid VLAN ID.</span>
+<span class="sd">        example = CONNECTION.VLANID.EQ(0)</span>
+<span class="sd">        &lt;qualifier&gt; = CONNID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid PCB dev number.</span>
+<span class="sd">        example = CONNECTION.CONNID.EQ(0)</span>
+<span class="sd">        &lt;qualifier&gt; = PPEID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid core ID.</span>
+<span class="sd">        example = CONNECTION.PPEID.EQ(0)</span>
+<span class="sd">        &lt;qualifier&gt; = SVCNAME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | CONTAINS | STARTSWITH</span>
+<span class="sd">        | ENDSWITH ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid text string.</span>
+<span class="sd">        example = CONNECTION.SVCNAME.EQ(&quot;name&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = LB_VSERVER.NAME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | CONTAINS | STARTSWITH</span>
+<span class="sd">        | ENDSWITH ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = LB vserver name.</span>
+<span class="sd">        example = CONNECTION.LB_VSERVER.NAME.EQ(&quot;name&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = CS_VSERVER.NAME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | CONTAINS | STARTSWITH</span>
+<span class="sd">        | ENDSWITH ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = CS vserver name.</span>
+<span class="sd">        example = CONNECTION.CS_VSERVER.NAME.EQ(&quot;name&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = INTF</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  =  A valid interface id in the</span>
+<span class="sd">        form of x/y.</span>
+<span class="sd">        example = CONNECTION.INTF.EQ(&quot;x/y&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = SERVICE_TYPE</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = ( SVC_HTTP | FTP | TCP | UDP | SSL |</span>
+<span class="sd">        SSL_BRIDGE | SSL_TCP | NNTP | RPCSVR | RPCSVRS |</span>
+<span class="sd">        RPCCLNT | SVC_DNS | ADNS | SNMP | RTSP | DHCPRA | ANY|</span>
+<span class="sd">        MONITOR | MONITOR_UDP | MONITOR_PING | SIP_UDP |</span>
+<span class="sd">        SVC_MYSQL | SVC_MSSQL | SERVICE_UNKNOWN )</span>
+<span class="sd">        example = CONNECTION.SERVICE_TYPE.EQ(ANY)</span>
+<span class="sd">        &lt;qualifier&gt; = TRAFFIC_DOMAIN_ID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid traffic domain ID.</span>
+<span class="sd">        example = CONNECTION.TRAFFIC_DOMAIN_ID.EQ(0)</span>
+<span class="sd">        eg: start nstrace -filter &quot;CONNECTION.SRCIP.EQ(127.0.0.1) || (CONNECTION.SVCNAME.NE(&quot;s1&quot;) &amp;&amp; CONNECTION.SRCPORT.EQ(80))&quot;</span>
+<span class="sd">        The filter expression should be given in double quotes.</span>
+<span class="sd">        common use cases:</span>
+<span class="sd">        Trace capturing full sized traffic from/to ip 10.102.44.111, excluding loopback traffic</span>
+<span class="sd">        start nstrace -size 0 -filter &quot;CONNECTION.IP.NE(127.0.0.1) &amp;&amp; CONNECTION.IP.EQ(10.102.44.111)&quot;</span>
+<span class="sd">        Trace capturing all traffic to (terminating at) port 80 or 443</span>
+<span class="sd">        start nstrace -size 0 -filter &quot;CONNECTION.DSTPORT.EQ(443) || CONNECTION.DSTPORT.EQ(80)&quot;</span>
+<span class="sd">        Trace capturing all backend traffic specific to service service1 along with corresponding client side traffic</span>
+<span class="sd">        start nstrace -size 0 -filter &quot;CONNECTION.SVCNAME.EQ(&quot;service1&quot;)&quot; -link ENABLED</span>
+<span class="sd">        Trace capturing all traffic through NS interface 1/1</span>
+<span class="sd">        start nstrace -filter &quot;CONNECTION.INTF.EQ(&quot;1/1&quot;)&quot;</span>
+<span class="sd">        Trace capturing all traffic specific through vlan 2</span>
+<span class="sd">        start nstrace -filter &quot;CONNECTION.VLANID.EQ(2)&quot;</span>
+<span class="sd">        Trace capturing all frontend (client side) traffic specific to lb vserver vserver1 along with corresponding server side traffic</span>
+<span class="sd">        start nstrace -size 0 -filter &quot;CONNECTION.LB_VSERVER.NAME.EQ(&quot;vserver1&quot;)&quot; -link ENABLED .</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@filter</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">filter</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Filter expression for nstrace. Maximum length of filter is 255 and it can be of following format:</span>
+<span class="sd">        &lt;expression&gt; [&lt;relop&gt; &lt;expression&gt;]</span>
+<span class="sd">        &lt;relop&gt; = ( &amp;&amp; | || )</span>
+<span class="sd">        nstrace supports two types of filter expressions:</span>
+<span class="sd">        Classic Expressions:</span>
+<span class="sd">        [Note: Classic Expressions are not supported in non-default partitions]</span>
+<span class="sd">        &lt;expression&gt; = the expression string in the format:</span>
+<span class="sd">        &lt;qualifier&gt; &lt;operator&gt; &lt;qualifier-value&gt;</span>
+<span class="sd">        &lt;qualifier&gt; = SOURCEIP.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid IP address</span>
+<span class="sd">        &lt;qualifier&gt; = SOURCEPORT.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid port number.</span>
+<span class="sd">        &lt;qualifier&gt; = DESTIP.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid IP address.</span>
+<span class="sd">        &lt;qualifier&gt; = DESTPORT.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid port number.</span>
+<span class="sd">        &lt;qualifier&gt; = IP.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid IP address.</span>
+<span class="sd">        &lt;qualifier&gt; = PORT.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid port number.</span>
+<span class="sd">        &lt;qualifier&gt; = SVCNAME.</span>
+<span class="sd">        &lt;qualifier-value&gt; = The name of a service.</span>
+<span class="sd">        &lt;qualifier&gt; = VSVRNAME.</span>
+<span class="sd">        &lt;qualifier-value&gt; = The name of a vserver.</span>
+<span class="sd">        &lt;qualifier&gt; = CONNID</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid PCB dev number.</span>
+<span class="sd">        &lt;qualifier&gt; = VLAN</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid VLAN ID.</span>
+<span class="sd">        &lt;qualifier&gt; = INTF</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid interface id in the form of x/y</span>
+<span class="sd">        (n/x/y in case of cluster interface).</span>
+<span class="sd">        &lt;operator&gt; = ( == | eq | != | neq | &gt; | gt</span>
+<span class="sd">        | &lt; | lt | &gt;= | ge | &lt;= | le | BETWEEN )</span>
+<span class="sd">        eg: start nstrace -filter &quot;SOURCEIP == 10.102.34.201 || (SVCNAME != s1 &amp;&amp; SOURCEPORT &gt; 80)&quot;</span>
+<span class="sd">        The filter expression should be given in double quotes.</span>
+<span class="sd">        Default Expressions:</span>
+<span class="sd">        &lt;expression&gt; =:</span>
+<span class="sd">        CONNECTION.&lt;qualifier&gt;.&lt;qualifier-method&gt;.(&lt;qualifier-value&gt;)</span>
+<span class="sd">        &lt;qualifier&gt; = SRCIP</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv4 address.</span>
+<span class="sd">        example = CONNECTION.SRCIP.EQ(127.0.0.1)</span>
+<span class="sd">        &lt;qualifier&gt; = DSTIP</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv4 address.</span>
+<span class="sd">        example = CONNECTION.DSTIP.EQ(127.0.0.1)</span>
+<span class="sd">        &lt;qualifier&gt; = IP</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv4 address.</span>
+<span class="sd">        example = CONNECTION.IP.EQ(127.0.0.1)</span>
+<span class="sd">        &lt;qualifier&gt; = SRCIPv6</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv6 address.</span>
+<span class="sd">        example = CONNECTION.SRCIPv6.EQ(2001:db8:0:0:1::1)</span>
+<span class="sd">        &lt;qualifier&gt; = DSTIPv6</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv6 address.</span>
+<span class="sd">        example = CONNECTION.DSTIPv6.EQ(2001:db8:0:0:1::1)</span>
+<span class="sd">        &lt;qualifier&gt; = IPv6</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv6 address.</span>
+<span class="sd">        example = CONNECTION.IPv6.EQ(2001:db8:0:0:1::1)</span>
+<span class="sd">        &lt;qualifier&gt; = SRCPORT</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid port number.</span>
+<span class="sd">        example = CONNECTION.SRCPORT.EQ(80)</span>
+<span class="sd">        &lt;qualifier&gt; = DSTPORT</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid port number.</span>
+<span class="sd">        example = CONNECTION.DSTPORT.EQ(80)</span>
+<span class="sd">        &lt;qualifier&gt; = PORT</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid port number.</span>
+<span class="sd">        example = CONNECTION.PORT.EQ(80)</span>
+<span class="sd">        &lt;qualifier&gt; = VLANID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid VLAN ID.</span>
+<span class="sd">        example = CONNECTION.VLANID.EQ(0)</span>
+<span class="sd">        &lt;qualifier&gt; = CONNID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid PCB dev number.</span>
+<span class="sd">        example = CONNECTION.CONNID.EQ(0)</span>
+<span class="sd">        &lt;qualifier&gt; = PPEID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid core ID.</span>
+<span class="sd">        example = CONNECTION.PPEID.EQ(0)</span>
+<span class="sd">        &lt;qualifier&gt; = SVCNAME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | CONTAINS | STARTSWITH</span>
+<span class="sd">        | ENDSWITH ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid text string.</span>
+<span class="sd">        example = CONNECTION.SVCNAME.EQ(&quot;name&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = LB_VSERVER.NAME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | CONTAINS | STARTSWITH</span>
+<span class="sd">        | ENDSWITH ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = LB vserver name.</span>
+<span class="sd">        example = CONNECTION.LB_VSERVER.NAME.EQ(&quot;name&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = CS_VSERVER.NAME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | CONTAINS | STARTSWITH</span>
+<span class="sd">        | ENDSWITH ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = CS vserver name.</span>
+<span class="sd">        example = CONNECTION.CS_VSERVER.NAME.EQ(&quot;name&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = INTF</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  =  A valid interface id in the</span>
+<span class="sd">        form of x/y.</span>
+<span class="sd">        example = CONNECTION.INTF.EQ(&quot;x/y&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = SERVICE_TYPE</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = ( SVC_HTTP | FTP | TCP | UDP | SSL |</span>
+<span class="sd">        SSL_BRIDGE | SSL_TCP | NNTP | RPCSVR | RPCSVRS |</span>
+<span class="sd">        RPCCLNT | SVC_DNS | ADNS | SNMP | RTSP | DHCPRA | ANY|</span>
+<span class="sd">        MONITOR | MONITOR_UDP | MONITOR_PING | SIP_UDP |</span>
+<span class="sd">        SVC_MYSQL | SVC_MSSQL | SERVICE_UNKNOWN )</span>
+<span class="sd">        example = CONNECTION.SERVICE_TYPE.EQ(ANY)</span>
+<span class="sd">        &lt;qualifier&gt; = TRAFFIC_DOMAIN_ID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid traffic domain ID.</span>
+<span class="sd">        example = CONNECTION.TRAFFIC_DOMAIN_ID.EQ(0)</span>
+<span class="sd">        eg: start nstrace -filter &quot;CONNECTION.SRCIP.EQ(127.0.0.1) || (CONNECTION.SVCNAME.NE(&quot;s1&quot;) &amp;&amp; CONNECTION.SRCPORT.EQ(80))&quot;</span>
+<span class="sd">        The filter expression should be given in double quotes.</span>
+<span class="sd">        common use cases:</span>
+<span class="sd">        Trace capturing full sized traffic from/to ip 10.102.44.111, excluding loopback traffic</span>
+<span class="sd">        start nstrace -size 0 -filter &quot;CONNECTION.IP.NE(127.0.0.1) &amp;&amp; CONNECTION.IP.EQ(10.102.44.111)&quot;</span>
+<span class="sd">        Trace capturing all traffic to (terminating at) port 80 or 443</span>
+<span class="sd">        start nstrace -size 0 -filter &quot;CONNECTION.DSTPORT.EQ(443) || CONNECTION.DSTPORT.EQ(80)&quot;</span>
+<span class="sd">        Trace capturing all backend traffic specific to service service1 along with corresponding client side traffic</span>
+<span class="sd">        start nstrace -size 0 -filter &quot;CONNECTION.SVCNAME.EQ(&quot;service1&quot;)&quot; -link ENABLED</span>
+<span class="sd">        Trace capturing all traffic through NS interface 1/1</span>
+<span class="sd">        start nstrace -filter &quot;CONNECTION.INTF.EQ(&quot;1/1&quot;)&quot;</span>
+<span class="sd">        Trace capturing all traffic specific through vlan 2</span>
+<span class="sd">        start nstrace -filter &quot;CONNECTION.VLANID.EQ(2)&quot;</span>
+<span class="sd">        Trace capturing all frontend (client side) traffic specific to lb vserver vserver1 along with corresponding server side traffic</span>
+<span class="sd">        start nstrace -size 0 -filter &quot;CONNECTION.LB_VSERVER.NAME.EQ(&quot;vserver1&quot;)&quot; -link ENABLED .</span>
+
+<span class="sd">        :param filter: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_filter</span> <span class="o">=</span> <span class="nb">filter</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">link</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Includes filtered connection&#39;s peer traffic.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_link</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@link</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Includes filtered connection&#39;s peer traffic.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param link: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_link</span> <span class="o">=</span> <span class="n">link</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Nodes on which tracing is started.</span>
+<span class="sd">        &lt;br/&gt;Maximum length =  32.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodes</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@nodes</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodes</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Nodes on which tracing is started.</span>
+<span class="sd">        &lt;br/&gt;Maximum length =  32</span>
+
+<span class="sd">        :param nodes: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nodes</span> <span class="o">=</span> <span class="n">nodes</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">filesize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;File size, in MB, treshold for rollover.</span>
+<span class="sd">        &lt;br/&gt;Default value: 0&lt;br/&gt;Maximum length =  65536.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filesize</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@filesize</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">filesize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filesize</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;File size, in MB, treshold for rollover.</span>
+<span class="sd">        &lt;br/&gt;Default value: 0&lt;br/&gt;Maximum length =  65536</span>
+
+<span class="sd">        :param filesize: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_filesize</span> <span class="o">=</span> <span class="n">filesize</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">traceformat</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Format in which trace will be generated</span>
+<span class="sd">        .&lt;br/&gt;Default value: 0&lt;br/&gt;Possible values = NSCAP, PCAP.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_traceformat</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@traceformat</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">traceformat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">traceformat</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Format in which trace will be generated</span>
+<span class="sd">        .&lt;br/&gt;Default value: 0&lt;br/&gt;Possible values = NSCAP, PCAP</span>
+
+<span class="sd">        :param traceformat: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_traceformat</span> <span class="o">=</span> <span class="n">traceformat</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Specify how traces across PE&#39;s are merged</span>
+<span class="sd">        .&lt;br/&gt;Default value: 0&lt;br/&gt;Possible values = ONSTOP, ONTHEFLY, NOMERGE.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_merge</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@merge</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">merge</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Specify how traces across PE&#39;s are merged</span>
+<span class="sd">        .&lt;br/&gt;Default value: 0&lt;br/&gt;Possible values = ONSTOP, ONTHEFLY, NOMERGE</span>
+
+<span class="sd">        :param merge: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_merge</span> <span class="o">=</span> <span class="n">merge</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">doruntimecleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable runtime temp file cleanup.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doruntimecleanup</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@doruntimecleanup</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">doruntimecleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doruntimecleanup</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable runtime temp file cleanup.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param doruntimecleanup: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_doruntimecleanup</span> <span class="o">=</span> <span class="n">doruntimecleanup</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tracebuffers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Number of 16KB trace buffers.&lt;br/&gt;Default value: 5000&lt;br/&gt;Minimum length =  1000.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tracebuffers</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@tracebuffers</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">tracebuffers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracebuffers</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Number of 16KB trace buffers.&lt;br/&gt;Default value: 5000&lt;br/&gt;Minimum length =  1000</span>
+
+<span class="sd">        :param tracebuffers: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tracebuffers</span> <span class="o">=</span> <span class="n">tracebuffers</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">skiprpc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;skip RPC packets.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_skiprpc</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@skiprpc</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">skiprpc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">skiprpc</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;skip RPC packets.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param skiprpc: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_skiprpc</span> <span class="o">=</span> <span class="n">skiprpc</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">inmemorytrace</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Logs packets in appliance&#39;s memory and dumps the trace file on stopping the nstrace operation.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inmemorytrace</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@inmemorytrace</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">inmemorytrace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inmemorytrace</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Logs packets in appliance&#39;s memory and dumps the trace file on stopping the nstrace operation.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param inmemorytrace: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_inmemorytrace</span> <span class="o">=</span> <span class="n">inmemorytrace</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Current running state of trace.&lt;br/&gt;Default value: 0&lt;br/&gt;Possible values = RUNNING, STOPPED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">scope</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Scope of started trace, local or cluster level.&lt;br/&gt;Default value: 0&lt;br/&gt;Possible values = CLUSTER, LOCAL.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scope</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tracelocation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Directory where current trace files are saved.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tracelocation</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">nstrace_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">nstrace</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="nstrace.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the nstrace resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">nstrace</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="nstrace.Skiprpc"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace.Skiprpc">[docs]</a>    <span class="k">class</span> <span class="nc">Skiprpc</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstrace.Mode"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace.Mode">[docs]</a>    <span class="k">class</span> <span class="nc">Mode</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">TX</span> <span class="o">=</span> <span class="s2">&quot;TX&quot;</span>
+        <span class="n">TXB</span> <span class="o">=</span> <span class="s2">&quot;TXB&quot;</span>
+        <span class="n">RX</span> <span class="o">=</span> <span class="s2">&quot;RX&quot;</span>
+        <span class="n">IPV6</span> <span class="o">=</span> <span class="s2">&quot;IPV6&quot;</span>
+        <span class="n">NEW_RX</span> <span class="o">=</span> <span class="s2">&quot;NEW_RX&quot;</span>
+        <span class="n">C2C</span> <span class="o">=</span> <span class="s2">&quot;C2C&quot;</span>
+        <span class="n">NS_FR_TX</span> <span class="o">=</span> <span class="s2">&quot;NS_FR_TX&quot;</span>
+        <span class="n">APPFW</span> <span class="o">=</span> <span class="s2">&quot;APPFW&quot;</span>
+        <span class="n">SSLPLAIN</span> <span class="o">=</span> <span class="s2">&quot;SSLPLAIN&quot;</span>
+        <span class="n">MPTCP</span> <span class="o">=</span> <span class="s2">&quot;MPTCP&quot;</span></div>
+
+<div class="viewcode-block" id="nstrace.State"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace.State">[docs]</a>    <span class="k">class</span> <span class="nc">State</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">RUNNING</span> <span class="o">=</span> <span class="s2">&quot;RUNNING&quot;</span>
+        <span class="n">STOPPED</span> <span class="o">=</span> <span class="s2">&quot;STOPPED&quot;</span></div>
+
+<div class="viewcode-block" id="nstrace.Traceformat"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace.Traceformat">[docs]</a>    <span class="k">class</span> <span class="nc">Traceformat</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">NSCAP</span> <span class="o">=</span> <span class="s2">&quot;NSCAP&quot;</span>
+        <span class="n">PCAP</span> <span class="o">=</span> <span class="s2">&quot;PCAP&quot;</span></div>
+
+<div class="viewcode-block" id="nstrace.Scope"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace.Scope">[docs]</a>    <span class="k">class</span> <span class="nc">Scope</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">CLUSTER</span> <span class="o">=</span> <span class="s2">&quot;CLUSTER&quot;</span>
+        <span class="n">LOCAL</span> <span class="o">=</span> <span class="s2">&quot;LOCAL&quot;</span></div>
+
+<div class="viewcode-block" id="nstrace.Doruntimecleanup"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace.Doruntimecleanup">[docs]</a>    <span class="k">class</span> <span class="nc">Doruntimecleanup</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstrace.Pernic"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace.Pernic">[docs]</a>    <span class="k">class</span> <span class="nc">Pernic</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstrace.Merge"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace.Merge">[docs]</a>    <span class="k">class</span> <span class="nc">Merge</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ONSTOP</span> <span class="o">=</span> <span class="s2">&quot;ONSTOP&quot;</span>
+        <span class="n">ONTHEFLY</span> <span class="o">=</span> <span class="s2">&quot;ONTHEFLY&quot;</span>
+        <span class="n">NOMERGE</span> <span class="o">=</span> <span class="s2">&quot;NOMERGE&quot;</span></div>
+
+<div class="viewcode-block" id="nstrace.Link"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace.Link">[docs]</a>    <span class="k">class</span> <span class="nc">Link</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstrace.Inmemorytrace"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace.Inmemorytrace">[docs]</a>    <span class="k">class</span> <span class="nc">Inmemorytrace</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div></div>
+
+<div class="viewcode-block" id="nstrace_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.basic.nstrace.html#nitro.resource.config.basic.nstrace.nstrace_response">[docs]</a><span class="k">class</span> <span class="nc">nstrace_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nstrace</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nstrace</span> <span class="o">=</span> <span class="p">[</span><span class="n">nstrace</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

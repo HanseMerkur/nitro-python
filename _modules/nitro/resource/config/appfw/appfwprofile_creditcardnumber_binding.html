@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding">[docs]</a><span class="k">class</span> <span class="nc">appfwprofile_creditcardnumber_binding</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Binding class showing the creditcardnumber that can be bound to appfwprofile.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_creditcardnumber</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_creditcardnumberurl</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_comment</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">___count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">creditcardnumberurl</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The url for which the list of credit card numbers are needed to be bypassed from inspection.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_creditcardnumberurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@creditcardnumberurl</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">creditcardnumberurl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">creditcardnumberurl</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The url for which the list of credit card numbers are needed to be bypassed from inspection.</span>
+
+<span class="sd">        :param creditcardnumberurl: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_creditcardnumberurl</span> <span class="o">=</span> <span class="n">creditcardnumberurl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enabled.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@state</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enabled.&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param state: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the profile to which to bind an exemption or rule.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name of the profile to which to bind an exemption or rule.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param name: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">creditcardnumber</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The object expression that is to be excluded from safe commerce check.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_creditcardnumber</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@creditcardnumber</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">creditcardnumber</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">creditcardnumber</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The object expression that is to be excluded from safe commerce check.</span>
+
+<span class="sd">        :param creditcardnumber: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_creditcardnumber</span> <span class="o">=</span> <span class="n">creditcardnumber</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">comment</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Any comments about the purpose of profile, or other useful information about the profile.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_comment</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@comment</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">comment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comment</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Any comments about the purpose of profile, or other useful information about the profile.</span>
+
+<span class="sd">        :param comment: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_comment</span> <span class="o">=</span> <span class="n">comment</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">appfwprofile_creditcardnumber_binding_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">appfwprofile_creditcardnumber_binding</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.add"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.add">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">resource</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">updateresource</span> <span class="o">=</span> <span class="n">appfwprofile_creditcardnumber_binding</span><span class="p">()</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">comment</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">state</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">creditcardnumber</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">creditcardnumber</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">creditcardnumberurl</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">creditcardnumberurl</span>
+                <span class="k">return</span> <span class="n">updateresource</span><span class="o">.</span><span class="n">update_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+                    <span class="n">updateresources</span> <span class="o">=</span> <span class="p">[</span><span class="n">appfwprofile_creditcardnumber_binding</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">state</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">creditcardnumber</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">creditcardnumber</span>
+                        <span class="n">updateresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">creditcardnumberurl</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">creditcardnumberurl</span>
+                <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">update_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">updateresources</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.delete"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.delete">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">resource</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">deleteresource</span> <span class="o">=</span> <span class="n">appfwprofile_creditcardnumber_binding</span><span class="p">()</span>
+                <span class="n">deleteresource</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">deleteresource</span><span class="o">.</span><span class="n">creditcardnumber</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">creditcardnumber</span>
+                <span class="n">deleteresource</span><span class="o">.</span><span class="n">creditcardnumberurl</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">creditcardnumberurl</span>
+                <span class="k">return</span> <span class="n">deleteresource</span><span class="o">.</span><span class="n">delete_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="n">resource</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+                    <span class="n">deleteresources</span> <span class="o">=</span> <span class="p">[</span><span class="n">appfwprofile_creditcardnumber_binding</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="n">deleteresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+                        <span class="n">deleteresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">creditcardnumber</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">creditcardnumber</span>
+                        <span class="n">deleteresources</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">creditcardnumberurl</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">creditcardnumberurl</span>
+                <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">delete_bulk_request</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">deleteresources</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch appfwprofile_creditcardnumber_binding resources.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param name: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">appfwprofile_creditcardnumber_binding</span><span class="p">()</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.get_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.get_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch filtered set of appfwprofile_creditcardnumber_binding resources.</span>
+<span class="sd">        Filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param name: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">appfwprofile_creditcardnumber_binding</span><span class="p">()</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.count"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.count">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count appfwprofile_creditcardnumber_binding resources configued on NetScaler.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param name: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">appfwprofile_creditcardnumber_binding</span><span class="p">()</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.count_filtered"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.count_filtered">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">count_filtered</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">filter_</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to count the filtered set of appfwprofile_creditcardnumber_binding resources.</span>
+<span class="sd">        Filter string should be in JSON format.eg: &quot;port:80,servicetype:HTTP&quot;.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param name: </span>
+<span class="sd">        :param filter_: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">appfwprofile_creditcardnumber_binding</span><span class="p">()</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="n">option_</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">option_</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">filter_</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">getfiltered</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;___count&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.As_scan_location_xmlsql"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.As_scan_location_xmlsql">[docs]</a>    <span class="k">class</span> <span class="nc">As_scan_location_xmlsql</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ELEMENT</span> <span class="o">=</span> <span class="s2">&quot;ELEMENT&quot;</span>
+        <span class="n">ATTRIBUTE</span> <span class="o">=</span> <span class="s2">&quot;ATTRIBUTE&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxelementdepthcheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxelementdepthcheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxelementdepthcheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxattachmentsizecheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxattachmentsizecheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxattachmentsizecheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlsoaparraycheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlsoaparraycheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlsoaparraycheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.State"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.State">[docs]</a>    <span class="k">class</span> <span class="nc">State</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxelementnamelengthcheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxelementnamelengthcheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxelementnamelengthcheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Isregex_ff"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Isregex_ff">[docs]</a>    <span class="k">class</span> <span class="nc">Isregex_ff</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">REGEX</span> <span class="o">=</span> <span class="s2">&quot;REGEX&quot;</span>
+        <span class="n">NOTREGEX</span> <span class="o">=</span> <span class="s2">&quot;NOTREGEX&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxelementscheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxelementscheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxelementscheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlendpointcheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlendpointcheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlendpointcheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ABSOLUTE</span> <span class="o">=</span> <span class="s2">&quot;ABSOLUTE&quot;</span>
+        <span class="n">RELATIVE</span> <span class="o">=</span> <span class="s2">&quot;RELATIVE&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxnamespacescheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxnamespacescheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxnamespacescheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxfilesizecheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxfilesizecheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxfilesizecheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxattributenamelengthcheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxattributenamelengthcheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxattributenamelengthcheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Isvalueregex_xss"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Isvalueregex_xss">[docs]</a>    <span class="k">class</span> <span class="nc">Isvalueregex_xss</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">REGEX</span> <span class="o">=</span> <span class="s2">&quot;REGEX&quot;</span>
+        <span class="n">NOTREGEX</span> <span class="o">=</span> <span class="s2">&quot;NOTREGEX&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlblockdtd"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlblockdtd">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlblockdtd</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlblockpi"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlblockpi">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlblockpi</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Isregex_sql"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Isregex_sql">[docs]</a>    <span class="k">class</span> <span class="nc">Isregex_sql</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">REGEX</span> <span class="o">=</span> <span class="s2">&quot;REGEX&quot;</span>
+        <span class="n">NOTREGEX</span> <span class="o">=</span> <span class="s2">&quot;NOTREGEX&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlvalidateresponse"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlvalidateresponse">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlvalidateresponse</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxelementchildrencheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxelementchildrencheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxelementchildrencheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Isregex"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Isregex">[docs]</a>    <span class="k">class</span> <span class="nc">Isregex</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">REGEX</span> <span class="o">=</span> <span class="s2">&quot;REGEX&quot;</span>
+        <span class="n">NOTREGEX</span> <span class="o">=</span> <span class="s2">&quot;NOTREGEX&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxentityexpansionscheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxentityexpansionscheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxentityexpansionscheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxnamespaceurilengthcheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxnamespaceurilengthcheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxnamespaceurilengthcheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.As_scan_location_xss"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.As_scan_location_xss">[docs]</a>    <span class="k">class</span> <span class="nc">As_scan_location_xss</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">FORMFIELD</span> <span class="o">=</span> <span class="s2">&quot;FORMFIELD&quot;</span>
+        <span class="n">HEADER</span> <span class="o">=</span> <span class="s2">&quot;HEADER&quot;</span>
+        <span class="n">COOKIE</span> <span class="o">=</span> <span class="s2">&quot;COOKIE&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxentityexpansiondepthcheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxentityexpansiondepthcheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxentityexpansiondepthcheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.As_scan_location_xmlxss"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.As_scan_location_xmlxss">[docs]</a>    <span class="k">class</span> <span class="nc">As_scan_location_xmlxss</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ELEMENT</span> <span class="o">=</span> <span class="s2">&quot;ELEMENT&quot;</span>
+        <span class="n">ATTRIBUTE</span> <span class="o">=</span> <span class="s2">&quot;ATTRIBUTE&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxattributevaluelengthcheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxattributevaluelengthcheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxattributevaluelengthcheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Isvalueregex_sql"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Isvalueregex_sql">[docs]</a>    <span class="k">class</span> <span class="nc">Isvalueregex_sql</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">REGEX</span> <span class="o">=</span> <span class="s2">&quot;REGEX&quot;</span>
+        <span class="n">NOTREGEX</span> <span class="o">=</span> <span class="s2">&quot;NOTREGEX&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.As_scan_location_sql"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.As_scan_location_sql">[docs]</a>    <span class="k">class</span> <span class="nc">As_scan_location_sql</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">FORMFIELD</span> <span class="o">=</span> <span class="s2">&quot;FORMFIELD&quot;</span>
+        <span class="n">HEADER</span> <span class="o">=</span> <span class="s2">&quot;HEADER&quot;</span>
+        <span class="n">COOKIE</span> <span class="o">=</span> <span class="s2">&quot;COOKIE&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Isregex_ffc"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Isregex_ffc">[docs]</a>    <span class="k">class</span> <span class="nc">Isregex_ffc</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">REGEX</span> <span class="o">=</span> <span class="s2">&quot;REGEX&quot;</span>
+        <span class="n">NOTREGEX</span> <span class="o">=</span> <span class="s2">&quot;NOTREGEX&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlattachmentcontenttypecheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlattachmentcontenttypecheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlattachmentcontenttypecheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Isregex_xmlsql"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Isregex_xmlsql">[docs]</a>    <span class="k">class</span> <span class="nc">Isregex_xmlsql</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">REGEX</span> <span class="o">=</span> <span class="s2">&quot;REGEX&quot;</span>
+        <span class="n">NOTREGEX</span> <span class="o">=</span> <span class="s2">&quot;NOTREGEX&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlvalidatesoapenvelope"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlvalidatesoapenvelope">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlvalidatesoapenvelope</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxchardatalengthcheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxchardatalengthcheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxchardatalengthcheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlminfilesizecheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlminfilesizecheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlminfilesizecheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Isregex_xss"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Isregex_xss">[docs]</a>    <span class="k">class</span> <span class="nc">Isregex_xss</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">REGEX</span> <span class="o">=</span> <span class="s2">&quot;REGEX&quot;</span>
+        <span class="n">NOTREGEX</span> <span class="o">=</span> <span class="s2">&quot;NOTREGEX&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.As_value_type_sql"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.As_value_type_sql">[docs]</a>    <span class="k">class</span> <span class="nc">As_value_type_sql</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Keyword</span> <span class="o">=</span> <span class="s2">&quot;Keyword&quot;</span>
+        <span class="n">SpecialString</span> <span class="o">=</span> <span class="s2">&quot;SpecialString&quot;</span>
+        <span class="n">Wildchar</span> <span class="o">=</span> <span class="s2">&quot;Wildchar&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Isregex_xmlxss"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Isregex_xmlxss">[docs]</a>    <span class="k">class</span> <span class="nc">Isregex_xmlxss</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">REGEX</span> <span class="o">=</span> <span class="s2">&quot;REGEX&quot;</span>
+        <span class="n">NOTREGEX</span> <span class="o">=</span> <span class="s2">&quot;NOTREGEX&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmladditionalsoapheaders"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmladditionalsoapheaders">[docs]</a>    <span class="k">class</span> <span class="nc">Xmladditionalsoapheaders</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlmaxattributescheck"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlmaxattributescheck">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlmaxattributescheck</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Action"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Action">[docs]</a>    <span class="k">class</span> <span class="nc">Action</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">none</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
+        <span class="n">block</span> <span class="o">=</span> <span class="s2">&quot;block&quot;</span>
+        <span class="n">log</span> <span class="o">=</span> <span class="s2">&quot;log&quot;</span>
+        <span class="n">remove</span> <span class="o">=</span> <span class="s2">&quot;remove&quot;</span>
+        <span class="n">stats</span> <span class="o">=</span> <span class="s2">&quot;stats&quot;</span>
+        <span class="n">xout</span> <span class="o">=</span> <span class="s2">&quot;xout&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.As_value_type_xss"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.As_value_type_xss">[docs]</a>    <span class="k">class</span> <span class="nc">As_value_type_xss</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">Tag</span> <span class="o">=</span> <span class="s2">&quot;Tag&quot;</span>
+        <span class="n">Attribute</span> <span class="o">=</span> <span class="s2">&quot;Attribute&quot;</span>
+        <span class="n">Pattern</span> <span class="o">=</span> <span class="s2">&quot;Pattern&quot;</span></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding.Xmlblockexternalentities"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding.Xmlblockexternalentities">[docs]</a>    <span class="k">class</span> <span class="nc">Xmlblockexternalentities</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div></div>
+
+<div class="viewcode-block" id="appfwprofile_creditcardnumber_binding_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.html#nitro.resource.config.appfw.appfwprofile_creditcardnumber_binding.appfwprofile_creditcardnumber_binding_response">[docs]</a><span class="k">class</span> <span class="nc">appfwprofile_creditcardnumber_binding_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">appfwprofile_creditcardnumber_binding</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">appfwprofile_creditcardnumber_binding</span> <span class="o">=</span> <span class="p">[</span><span class="n">appfwprofile_creditcardnumber_binding</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.ns.nstcpparam &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.ns.nstcpparam</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.ns.nstcpparam</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="nstcpparam"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam">[docs]</a><span class="k">class</span> <span class="nc">nstcpparam</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for tcp parameters resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ws</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wsval</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sack</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_learnvsvrmss</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxburst</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initialcwnd</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_recvbuffsize</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delayedack</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_downstaterst</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nagle</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_limitedpersist</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_oooqsize</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ackonpush</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxpktpermss</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pktperretx</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_minrto</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_slowstartincr</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxdynserverprobes</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_synholdfastgiveup</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxsynholdperprobe</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxsynhold</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_msslearninterval</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_msslearndelay</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxtimewaitconn</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kaprobeupdatelastactivity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxsynackretx</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_synattackdetection</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_connflushifnomem</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_connflushthres</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpconcloseonpassivesf</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpchecksum</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpsftimeout</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpsfreplacetimeout</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpmaxsf</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpmaxpendingsf</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mptcppendingjointhreshold</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mptcprtostoswitchsf</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpusebackupondss</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tcpmaxretries</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpimmediatesfcloseonfin</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpclosemptcpsessiononlastsfclose</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_builtin</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ws</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable window scaling.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ws</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ws</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ws</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ws</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable window scaling.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param ws: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ws</span> <span class="o">=</span> <span class="n">ws</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">wsval</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Factor used to calculate the new window size.</span>
+<span class="sd">        This argument is needed only when the window scaling is enabled.&lt;br/&gt;Default value: 4&lt;br/&gt;Maximum length =  14.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wsval</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@wsval</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">wsval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wsval</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Factor used to calculate the new window size.</span>
+<span class="sd">        This argument is needed only when the window scaling is enabled.&lt;br/&gt;Default value: 4&lt;br/&gt;Maximum length =  14</span>
+
+<span class="sd">        :param wsval: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wsval</span> <span class="o">=</span> <span class="n">wsval</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable Selective ACKnowledgement (SACK).&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sack</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@sack</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sack</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable Selective ACKnowledgement (SACK).&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param sack: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sack</span> <span class="o">=</span> <span class="n">sack</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">learnvsvrmss</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable maximum segment size (MSS) learning for virtual servers.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_learnvsvrmss</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@learnvsvrmss</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">learnvsvrmss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">learnvsvrmss</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable maximum segment size (MSS) learning for virtual servers.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param learnvsvrmss: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_learnvsvrmss</span> <span class="o">=</span> <span class="n">learnvsvrmss</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maxburst</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of TCP segments allowed in a burst.&lt;br/&gt;Default value: 6&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxburst</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@maxburst</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maxburst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxburst</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of TCP segments allowed in a burst.&lt;br/&gt;Default value: 6&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param maxburst: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maxburst</span> <span class="o">=</span> <span class="n">maxburst</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">initialcwnd</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Initial maximum upper limit on the number of TCP packets that can be outstanding on the TCP link to the server.&lt;br/&gt;Default value: 4&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  44.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initialcwnd</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@initialcwnd</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">initialcwnd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initialcwnd</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Initial maximum upper limit on the number of TCP packets that can be outstanding on the TCP link to the server.&lt;br/&gt;Default value: 4&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  44</span>
+
+<span class="sd">        :param initialcwnd: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_initialcwnd</span> <span class="o">=</span> <span class="n">initialcwnd</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">recvbuffsize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;TCP Receive buffer size.&lt;br/&gt;Default value: 8190&lt;br/&gt;Minimum length =  8190&lt;br/&gt;Maximum length =  20971520.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recvbuffsize</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@recvbuffsize</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">recvbuffsize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recvbuffsize</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;TCP Receive buffer size.&lt;br/&gt;Default value: 8190&lt;br/&gt;Minimum length =  8190&lt;br/&gt;Maximum length =  20971520</span>
+
+<span class="sd">        :param recvbuffsize: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_recvbuffsize</span> <span class="o">=</span> <span class="n">recvbuffsize</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">delayedack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Timeout for TCP delayed ACK, in milliseconds.&lt;br/&gt;Default value: 100&lt;br/&gt;Minimum length =  10&lt;br/&gt;Maximum length =  300.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delayedack</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@delayedack</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">delayedack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delayedack</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Timeout for TCP delayed ACK, in milliseconds.&lt;br/&gt;Default value: 100&lt;br/&gt;Minimum length =  10&lt;br/&gt;Maximum length =  300</span>
+
+<span class="sd">        :param delayedack: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_delayedack</span> <span class="o">=</span> <span class="n">delayedack</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">downstaterst</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flag to switch on RST on down services.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_downstaterst</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@downstaterst</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">downstaterst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">downstaterst</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flag to switch on RST on down services.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param downstaterst: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_downstaterst</span> <span class="o">=</span> <span class="n">downstaterst</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nagle</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable the Nagle algorithm on TCP connections.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nagle</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@nagle</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nagle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nagle</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable the Nagle algorithm on TCP connections.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param nagle: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nagle</span> <span class="o">=</span> <span class="n">nagle</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">limitedpersist</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Limit the number of persist (zero window) probes.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_limitedpersist</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@limitedpersist</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">limitedpersist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limitedpersist</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Limit the number of persist (zero window) probes.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param limitedpersist: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_limitedpersist</span> <span class="o">=</span> <span class="n">limitedpersist</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">oooqsize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum size of out-of-order packets queue. A value of 0 means no limit.&lt;br/&gt;Default value: 64&lt;br/&gt;Maximum length =  65535.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_oooqsize</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@oooqsize</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">oooqsize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oooqsize</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum size of out-of-order packets queue. A value of 0 means no limit.&lt;br/&gt;Default value: 64&lt;br/&gt;Maximum length =  65535</span>
+
+<span class="sd">        :param oooqsize: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_oooqsize</span> <span class="o">=</span> <span class="n">oooqsize</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ackonpush</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Send immediate positive acknowledgement (ACK) on receipt of TCP packets with PUSH flag.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ackonpush</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ackonpush</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ackonpush</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ackonpush</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Send immediate positive acknowledgement (ACK) on receipt of TCP packets with PUSH flag.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param ackonpush: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ackonpush</span> <span class="o">=</span> <span class="n">ackonpush</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maxpktpermss</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of TCP packets allowed per maximum segment size (MSS).&lt;br/&gt;Maximum length =  1460.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxpktpermss</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@maxpktpermss</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maxpktpermss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxpktpermss</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of TCP packets allowed per maximum segment size (MSS).&lt;br/&gt;Maximum length =  1460</span>
+
+<span class="sd">        :param maxpktpermss: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maxpktpermss</span> <span class="o">=</span> <span class="n">maxpktpermss</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pktperretx</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum limit on the number of packets that should be retransmitted on receiving a partial ACK.&lt;br/&gt;Default value: 1&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  100.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pktperretx</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@pktperretx</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">pktperretx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pktperretx</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum limit on the number of packets that should be retransmitted on receiving a partial ACK.&lt;br/&gt;Default value: 1&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  100</span>
+
+<span class="sd">        :param pktperretx: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pktperretx</span> <span class="o">=</span> <span class="n">pktperretx</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">minrto</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Minimum retransmission timeout, in milliseconds, specified in 10-millisecond increments (value must yield a whole number if divided by 10).&lt;br/&gt;Default value: 1000&lt;br/&gt;Minimum length =  10&lt;br/&gt;Maximum length =  64000.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_minrto</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@minrto</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">minrto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">minrto</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Minimum retransmission timeout, in milliseconds, specified in 10-millisecond increments (value must yield a whole number if divided by 10).&lt;br/&gt;Default value: 1000&lt;br/&gt;Minimum length =  10&lt;br/&gt;Maximum length =  64000</span>
+
+<span class="sd">        :param minrto: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_minrto</span> <span class="o">=</span> <span class="n">minrto</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">slowstartincr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Multiplier that determines the rate at which slow start increases the size of the TCP transmission window after each acknowledgement of successful transmission.&lt;br/&gt;Default value: 2&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  100.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_slowstartincr</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@slowstartincr</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">slowstartincr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slowstartincr</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Multiplier that determines the rate at which slow start increases the size of the TCP transmission window after each acknowledgement of successful transmission.&lt;br/&gt;Default value: 2&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  100</span>
+
+<span class="sd">        :param slowstartincr: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_slowstartincr</span> <span class="o">=</span> <span class="n">slowstartincr</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maxdynserverprobes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of probes that NetScaler can send out in 10 milliseconds, to dynamically learn a service. NetScaler probes for the existence of the origin in case of wildcard virtual server or services.&lt;br/&gt;Default value: 7&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  65535.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxdynserverprobes</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@maxdynserverprobes</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maxdynserverprobes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxdynserverprobes</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of probes that NetScaler can send out in 10 milliseconds, to dynamically learn a service. NetScaler probes for the existence of the origin in case of wildcard virtual server or services.&lt;br/&gt;Default value: 7&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  65535</span>
+
+<span class="sd">        :param maxdynserverprobes: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maxdynserverprobes</span> <span class="o">=</span> <span class="n">maxdynserverprobes</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">synholdfastgiveup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum threshold. After crossing this threshold number of outstanding probes for origin, the NetScaler reduces the number of connection retries for probe connections.&lt;br/&gt;Default value: 1024&lt;br/&gt;Minimum length =  256&lt;br/&gt;Maximum length =  65535.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_synholdfastgiveup</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@synholdfastgiveup</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">synholdfastgiveup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">synholdfastgiveup</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum threshold. After crossing this threshold number of outstanding probes for origin, the NetScaler reduces the number of connection retries for probe connections.&lt;br/&gt;Default value: 1024&lt;br/&gt;Minimum length =  256&lt;br/&gt;Maximum length =  65535</span>
+
+<span class="sd">        :param synholdfastgiveup: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_synholdfastgiveup</span> <span class="o">=</span> <span class="n">synholdfastgiveup</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maxsynholdperprobe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Limit the number of client connections (SYN) waiting for status of single probe. Any new SYN packets will be dropped.&lt;br/&gt;Default value: 128&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxsynholdperprobe</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@maxsynholdperprobe</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maxsynholdperprobe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxsynholdperprobe</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Limit the number of client connections (SYN) waiting for status of single probe. Any new SYN packets will be dropped.&lt;br/&gt;Default value: 128&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255</span>
+
+<span class="sd">        :param maxsynholdperprobe: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maxsynholdperprobe</span> <span class="o">=</span> <span class="n">maxsynholdperprobe</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maxsynhold</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Limit the number of client connections (SYN) waiting for status of probe system wide. Any new SYN packets will be dropped.&lt;br/&gt;Default value: 16384&lt;br/&gt;Minimum length =  256&lt;br/&gt;Maximum length =  65535.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxsynhold</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@maxsynhold</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maxsynhold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxsynhold</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Limit the number of client connections (SYN) waiting for status of probe system wide. Any new SYN packets will be dropped.&lt;br/&gt;Default value: 16384&lt;br/&gt;Minimum length =  256&lt;br/&gt;Maximum length =  65535</span>
+
+<span class="sd">        :param maxsynhold: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maxsynhold</span> <span class="o">=</span> <span class="n">maxsynhold</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">msslearninterval</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Duration, in seconds, to sample the Maximum Segment Size (MSS) of the services. The NetScaler appliance determines the best MSS to set for the virtual server based on this sampling. The argument to enable maximum segment size (MSS) for virtual servers must be enabled.&lt;br/&gt;Default value: 180&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  1048576.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_msslearninterval</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@msslearninterval</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">msslearninterval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msslearninterval</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Duration, in seconds, to sample the Maximum Segment Size (MSS) of the services. The NetScaler appliance determines the best MSS to set for the virtual server based on this sampling. The argument to enable maximum segment size (MSS) for virtual servers must be enabled.&lt;br/&gt;Default value: 180&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  1048576</span>
+
+<span class="sd">        :param msslearninterval: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_msslearninterval</span> <span class="o">=</span> <span class="n">msslearninterval</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">msslearndelay</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Frequency, in seconds, at which the virtual servers learn the Maximum segment size (MSS) from the services. The argument to enable maximum segment size (MSS) for virtual servers must be enabled.&lt;br/&gt;Default value: 3600&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  1048576.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_msslearndelay</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@msslearndelay</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">msslearndelay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msslearndelay</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Frequency, in seconds, at which the virtual servers learn the Maximum segment size (MSS) from the services. The argument to enable maximum segment size (MSS) for virtual servers must be enabled.&lt;br/&gt;Default value: 3600&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  1048576</span>
+
+<span class="sd">        :param msslearndelay: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_msslearndelay</span> <span class="o">=</span> <span class="n">msslearndelay</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maxtimewaitconn</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of connections to hold in the TCP TIME_WAIT state on a packet engine. New connections entering TIME_WAIT state are proactively cleaned up.&lt;br/&gt;Default value: 7000&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxtimewaitconn</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@maxtimewaitconn</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maxtimewaitconn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxtimewaitconn</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of connections to hold in the TCP TIME_WAIT state on a packet engine. New connections entering TIME_WAIT state are proactively cleaned up.&lt;br/&gt;Default value: 7000&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param maxtimewaitconn: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maxtimewaitconn</span> <span class="o">=</span> <span class="n">maxtimewaitconn</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">kaprobeupdatelastactivity</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Update last activity for KA probes.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kaprobeupdatelastactivity</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@kaprobeupdatelastactivity</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">kaprobeupdatelastactivity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kaprobeupdatelastactivity</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Update last activity for KA probes.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param kaprobeupdatelastactivity: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_kaprobeupdatelastactivity</span> <span class="o">=</span> <span class="n">kaprobeupdatelastactivity</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maxsynackretx</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;When &#39;syncookie&#39; is disabled in the TCP profile that is bound to the virtual server or service, and the number of TCP SYN+ACK retransmission by NetScaler for that virtual server or service crosses this threshold, the NetScaler appliance responds by using the TCP SYN-Cookie mechanism.&lt;br/&gt;Default value: 100&lt;br/&gt;Minimum length =  100&lt;br/&gt;Maximum length =  1048576.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxsynackretx</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@maxsynackretx</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maxsynackretx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxsynackretx</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;When &#39;syncookie&#39; is disabled in the TCP profile that is bound to the virtual server or service, and the number of TCP SYN+ACK retransmission by NetScaler for that virtual server or service crosses this threshold, the NetScaler appliance responds by using the TCP SYN-Cookie mechanism.&lt;br/&gt;Default value: 100&lt;br/&gt;Minimum length =  100&lt;br/&gt;Maximum length =  1048576</span>
+
+<span class="sd">        :param maxsynackretx: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maxsynackretx</span> <span class="o">=</span> <span class="n">maxsynackretx</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">synattackdetection</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Detect TCP SYN packet flood and send an SNMP trap.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_synattackdetection</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@synattackdetection</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">synattackdetection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">synattackdetection</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Detect TCP SYN packet flood and send an SNMP trap.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param synattackdetection: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_synattackdetection</span> <span class="o">=</span> <span class="n">synattackdetection</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">connflushifnomem</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flush an existing connection if no memory can be obtained for new connection.</span>
+<span class="sd">        HALF_CLOSED_AND_IDLE: Flush a connection that is closed by us but not by peer, or failing that, a connection that is past configured idle time.  New connection fails if no such connection can be found.</span>
+<span class="sd">        FIFO: If no half-closed or idle connection can be found, flush the oldest non-management connection, even if it is active.  New connection fails if the oldest few connections are management connections.</span>
+<span class="sd">        Note: If you enable this setting, you should also consider lowering the zombie timeout and half-close timeout, while setting the NetScaler timeout.</span>
+<span class="sd">        See Also: connFlushThres argument below.</span>
+<span class="sd">        &lt;br/&gt;Default value: 5&lt;br/&gt;Possible values = NONE, HALFCLOSED_AND_IDLE, FIFO.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connflushifnomem</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@connflushifnomem</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">connflushifnomem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connflushifnomem</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flush an existing connection if no memory can be obtained for new connection.</span>
+<span class="sd">        HALF_CLOSED_AND_IDLE: Flush a connection that is closed by us but not by peer, or failing that, a connection that is past configured idle time.  New connection fails if no such connection can be found.</span>
+<span class="sd">        FIFO: If no half-closed or idle connection can be found, flush the oldest non-management connection, even if it is active.  New connection fails if the oldest few connections are management connections.</span>
+<span class="sd">        Note: If you enable this setting, you should also consider lowering the zombie timeout and half-close timeout, while setting the NetScaler timeout.</span>
+<span class="sd">        See Also: connFlushThres argument below.</span>
+<span class="sd">        &lt;br/&gt;Default value: 5&lt;br/&gt;Possible values = NONE, HALFCLOSED_AND_IDLE, FIFO</span>
+
+<span class="sd">        :param connflushifnomem: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_connflushifnomem</span> <span class="o">=</span> <span class="n">connflushifnomem</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">connflushthres</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flush an existing connection (as configured through -connFlushIfNoMem FIFO) if the system has more than specified number of connections, and a new connection is to be established.  Note: This value may be rounded down to be a whole multiple of the number of packet engines running.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connflushthres</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@connflushthres</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">connflushthres</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connflushthres</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flush an existing connection (as configured through -connFlushIfNoMem FIFO) if the system has more than specified number of connections, and a new connection is to be established.  Note: This value may be rounded down to be a whole multiple of the number of packet engines running.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param connflushthres: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_connflushthres</span> <span class="o">=</span> <span class="n">connflushthres</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mptcpconcloseonpassivesf</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Accept DATA_FIN/FAST_CLOSE on passive subflow.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpconcloseonpassivesf</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@mptcpconcloseonpassivesf</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mptcpconcloseonpassivesf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mptcpconcloseonpassivesf</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Accept DATA_FIN/FAST_CLOSE on passive subflow.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param mptcpconcloseonpassivesf: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpconcloseonpassivesf</span> <span class="o">=</span> <span class="n">mptcpconcloseonpassivesf</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mptcpchecksum</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use MPTCP DSS checksum.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpchecksum</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@mptcpchecksum</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mptcpchecksum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mptcpchecksum</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use MPTCP DSS checksum.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param mptcpchecksum: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpchecksum</span> <span class="o">=</span> <span class="n">mptcpchecksum</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mptcpsftimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The timeout value in seconds for idle mptcp subflows. If this timeout is not set, idle subflows are cleared after cltTimeout of vserver.&lt;br/&gt;Default value: 0&lt;br/&gt;Maximum length =  31536000.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpsftimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@mptcpsftimeout</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mptcpsftimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mptcpsftimeout</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The timeout value in seconds for idle mptcp subflows. If this timeout is not set, idle subflows are cleared after cltTimeout of vserver.&lt;br/&gt;Default value: 0&lt;br/&gt;Maximum length =  31536000</span>
+
+<span class="sd">        :param mptcpsftimeout: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpsftimeout</span> <span class="o">=</span> <span class="n">mptcpsftimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mptcpsfreplacetimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The minimum idle time value in seconds for idle mptcp subflows after which the sublow is replaced by new incoming subflow if maximum subflow limit is reached. The priority for replacement is given to those subflow without any transaction.&lt;br/&gt;Default value: 10&lt;br/&gt;Maximum length =  31536000.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpsfreplacetimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@mptcpsfreplacetimeout</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mptcpsfreplacetimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mptcpsfreplacetimeout</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The minimum idle time value in seconds for idle mptcp subflows after which the sublow is replaced by new incoming subflow if maximum subflow limit is reached. The priority for replacement is given to those subflow without any transaction.&lt;br/&gt;Default value: 10&lt;br/&gt;Maximum length =  31536000</span>
+
+<span class="sd">        :param mptcpsfreplacetimeout: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpsfreplacetimeout</span> <span class="o">=</span> <span class="n">mptcpsfreplacetimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mptcpmaxsf</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of subflow connections supported in established state per mptcp connection.&lt;br/&gt;Default value: 4&lt;br/&gt;Minimum length =  2&lt;br/&gt;Maximum length =  6.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpmaxsf</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@mptcpmaxsf</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mptcpmaxsf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mptcpmaxsf</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of subflow connections supported in established state per mptcp connection.&lt;br/&gt;Default value: 4&lt;br/&gt;Minimum length =  2&lt;br/&gt;Maximum length =  6</span>
+
+<span class="sd">        :param mptcpmaxsf: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpmaxsf</span> <span class="o">=</span> <span class="n">mptcpmaxsf</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mptcpmaxpendingsf</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of subflow connections supported in pending join state per mptcp connection.&lt;br/&gt;Default value: 4&lt;br/&gt;Maximum length =  4.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpmaxpendingsf</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@mptcpmaxpendingsf</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mptcpmaxpendingsf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mptcpmaxpendingsf</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of subflow connections supported in pending join state per mptcp connection.&lt;br/&gt;Default value: 4&lt;br/&gt;Maximum length =  4</span>
+
+<span class="sd">        :param mptcpmaxpendingsf: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpmaxpendingsf</span> <span class="o">=</span> <span class="n">mptcpmaxpendingsf</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mptcppendingjointhreshold</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum system level pending join connections allowed.&lt;br/&gt;Default value: 0&lt;br/&gt;Maximum length =  0xFFFFFFFE.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mptcppendingjointhreshold</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@mptcppendingjointhreshold</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mptcppendingjointhreshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mptcppendingjointhreshold</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum system level pending join connections allowed.&lt;br/&gt;Default value: 0&lt;br/&gt;Maximum length =  0xFFFFFFFE</span>
+
+<span class="sd">        :param mptcppendingjointhreshold: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mptcppendingjointhreshold</span> <span class="o">=</span> <span class="n">mptcppendingjointhreshold</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mptcprtostoswitchsf</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Number of RTO&#39;s at subflow level, after which MPCTP should start using other subflow.&lt;br/&gt;Default value: 2&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  6.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mptcprtostoswitchsf</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@mptcprtostoswitchsf</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mptcprtostoswitchsf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mptcprtostoswitchsf</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Number of RTO&#39;s at subflow level, after which MPCTP should start using other subflow.&lt;br/&gt;Default value: 2&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  6</span>
+
+<span class="sd">        :param mptcprtostoswitchsf: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mptcprtostoswitchsf</span> <span class="o">=</span> <span class="n">mptcprtostoswitchsf</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mptcpusebackupondss</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;When enabled, if NS receives a DSS on a backup subflow, NS will start using that subflow to send data. And if disabled, NS will continue to transmit on current chosen subflow. In case there is some error on a subflow (like RTO&#39;s/RST etc.) then NS can choose a backup subflow irrespective of this tunable.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpusebackupondss</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@mptcpusebackupondss</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mptcpusebackupondss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mptcpusebackupondss</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;When enabled, if NS receives a DSS on a backup subflow, NS will start using that subflow to send data. And if disabled, NS will continue to transmit on current chosen subflow. In case there is some error on a subflow (like RTO&#39;s/RST etc.) then NS can choose a backup subflow irrespective of this tunable.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param mptcpusebackupondss: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpusebackupondss</span> <span class="o">=</span> <span class="n">mptcpusebackupondss</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tcpmaxretries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Number of RTO&#39;s after which a connection should be freed.&lt;br/&gt;Default value: 7&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  7.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tcpmaxretries</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@tcpmaxretries</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">tcpmaxretries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tcpmaxretries</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Number of RTO&#39;s after which a connection should be freed.&lt;br/&gt;Default value: 7&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  7</span>
+
+<span class="sd">        :param tcpmaxretries: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tcpmaxretries</span> <span class="o">=</span> <span class="n">tcpmaxretries</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mptcpimmediatesfcloseonfin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Allow subflows to close immediately on FIN before the DATA_FIN exchange is completed at mptcp level.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpimmediatesfcloseonfin</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@mptcpimmediatesfcloseonfin</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mptcpimmediatesfcloseonfin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mptcpimmediatesfcloseonfin</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Allow subflows to close immediately on FIN before the DATA_FIN exchange is completed at mptcp level.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param mptcpimmediatesfcloseonfin: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpimmediatesfcloseonfin</span> <span class="o">=</span> <span class="n">mptcpimmediatesfcloseonfin</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mptcpclosemptcpsessiononlastsfclose</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Allow to send DATA FIN or FAST CLOSE on mptcp connection while sending FIN or RST on the last subflow.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpclosemptcpsessiononlastsfclose</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@mptcpclosemptcpsessiononlastsfclose</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mptcpclosemptcpsessiononlastsfclose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mptcpclosemptcpsessiononlastsfclose</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Allow to send DATA FIN or FAST CLOSE on mptcp connection while sending FIN or RST on the last subflow.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param mptcpclosemptcpsessiononlastsfclose: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mptcpclosemptcpsessiononlastsfclose</span> <span class="o">=</span> <span class="n">mptcpclosemptcpsessiononlastsfclose</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">builtin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Flag to determine if the tcp param is built-in or not.&lt;br/&gt;Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_builtin</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">nstcpparam_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">nstcpparam</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="nstcpparam.update"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.update">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to update nstcpparam.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">updateresource</span> <span class="o">=</span> <span class="n">nstcpparam</span><span class="p">()</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">ws</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ws</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">wsval</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">wsval</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">sack</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sack</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">learnvsvrmss</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">learnvsvrmss</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">maxburst</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">maxburst</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">initialcwnd</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">initialcwnd</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">recvbuffsize</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">recvbuffsize</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">delayedack</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">delayedack</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">downstaterst</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">downstaterst</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">nagle</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">nagle</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">limitedpersist</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">limitedpersist</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">oooqsize</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">oooqsize</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">ackonpush</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ackonpush</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">maxpktpermss</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">maxpktpermss</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">pktperretx</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">pktperretx</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">minrto</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">minrto</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">slowstartincr</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">slowstartincr</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">maxdynserverprobes</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">maxdynserverprobes</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">synholdfastgiveup</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">synholdfastgiveup</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">maxsynholdperprobe</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">maxsynholdperprobe</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">maxsynhold</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">maxsynhold</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">msslearninterval</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">msslearninterval</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">msslearndelay</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">msslearndelay</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">maxtimewaitconn</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">maxtimewaitconn</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">kaprobeupdatelastactivity</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">kaprobeupdatelastactivity</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">maxsynackretx</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">maxsynackretx</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">synattackdetection</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">synattackdetection</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">connflushifnomem</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">connflushifnomem</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">connflushthres</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">connflushthres</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">mptcpconcloseonpassivesf</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">mptcpconcloseonpassivesf</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">mptcpchecksum</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">mptcpchecksum</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">mptcpsftimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">mptcpsftimeout</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">mptcpsfreplacetimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">mptcpsfreplacetimeout</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">mptcpmaxsf</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">mptcpmaxsf</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">mptcpmaxpendingsf</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">mptcpmaxpendingsf</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">mptcppendingjointhreshold</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">mptcppendingjointhreshold</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">mptcprtostoswitchsf</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">mptcprtostoswitchsf</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">mptcpusebackupondss</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">mptcpusebackupondss</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">tcpmaxretries</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">tcpmaxretries</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">mptcpimmediatesfcloseonfin</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">mptcpimmediatesfcloseonfin</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">mptcpclosemptcpsessiononlastsfclose</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">mptcpclosemptcpsessiononlastsfclose</span>
+                <span class="k">return</span> <span class="n">updateresource</span><span class="o">.</span><span class="n">update_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="nstcpparam.unset"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.unset">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">unset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to unset the properties of nstcpparam resource.</span>
+<span class="sd">        Properties that need to be unset are specified in args array.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">unsetresource</span> <span class="o">=</span> <span class="n">nstcpparam</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">unsetresource</span><span class="o">.</span><span class="n">unset_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="nstcpparam.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the nstcpparam resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">nstcpparam</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="nstcpparam.Kaprobeupdatelastactivity"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Kaprobeupdatelastactivity">[docs]</a>    <span class="k">class</span> <span class="nc">Kaprobeupdatelastactivity</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Mptcpusebackupondss"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Mptcpusebackupondss">[docs]</a>    <span class="k">class</span> <span class="nc">Mptcpusebackupondss</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Mptcpclosemptcpsessiononlastsfclose"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Mptcpclosemptcpsessiononlastsfclose">[docs]</a>    <span class="k">class</span> <span class="nc">Mptcpclosemptcpsessiononlastsfclose</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Connflushifnomem"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Connflushifnomem">[docs]</a>    <span class="k">class</span> <span class="nc">Connflushifnomem</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">NONE</span> <span class="o">=</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="n">HALFCLOSED_AND_IDLE</span> <span class="o">=</span> <span class="s2">&quot;HALFCLOSED_AND_IDLE&quot;</span>
+        <span class="n">FIFO</span> <span class="o">=</span> <span class="s2">&quot;FIFO&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Mptcpconcloseonpassivesf"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Mptcpconcloseonpassivesf">[docs]</a>    <span class="k">class</span> <span class="nc">Mptcpconcloseonpassivesf</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Builtin"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Builtin">[docs]</a>    <span class="k">class</span> <span class="nc">Builtin</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">MODIFIABLE</span> <span class="o">=</span> <span class="s2">&quot;MODIFIABLE&quot;</span>
+        <span class="n">DELETABLE</span> <span class="o">=</span> <span class="s2">&quot;DELETABLE&quot;</span>
+        <span class="n">IMMUTABLE</span> <span class="o">=</span> <span class="s2">&quot;IMMUTABLE&quot;</span>
+        <span class="n">PARTITION_ALL</span> <span class="o">=</span> <span class="s2">&quot;PARTITION_ALL&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Learnvsvrmss"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Learnvsvrmss">[docs]</a>    <span class="k">class</span> <span class="nc">Learnvsvrmss</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Synattackdetection"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Synattackdetection">[docs]</a>    <span class="k">class</span> <span class="nc">Synattackdetection</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Mptcpimmediatesfcloseonfin"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Mptcpimmediatesfcloseonfin">[docs]</a>    <span class="k">class</span> <span class="nc">Mptcpimmediatesfcloseonfin</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Sack"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Sack">[docs]</a>    <span class="k">class</span> <span class="nc">Sack</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Ws"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Ws">[docs]</a>    <span class="k">class</span> <span class="nc">Ws</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Ackonpush"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Ackonpush">[docs]</a>    <span class="k">class</span> <span class="nc">Ackonpush</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Downstaterst"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Downstaterst">[docs]</a>    <span class="k">class</span> <span class="nc">Downstaterst</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Nagle"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Nagle">[docs]</a>    <span class="k">class</span> <span class="nc">Nagle</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Limitedpersist"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Limitedpersist">[docs]</a>    <span class="k">class</span> <span class="nc">Limitedpersist</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nstcpparam.Mptcpchecksum"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam.Mptcpchecksum">[docs]</a>    <span class="k">class</span> <span class="nc">Mptcpchecksum</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div></div>
+
+<div class="viewcode-block" id="nstcpparam_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nstcpparam.html#nitro.resource.config.ns.nstcpparam.nstcpparam_response">[docs]</a><span class="k">class</span> <span class="nc">nstcpparam_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nstcpparam</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nstcpparam</span> <span class="o">=</span> <span class="p">[</span><span class="n">nstcpparam</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

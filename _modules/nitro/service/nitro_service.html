@@ -1,0 +1,794 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.service.nitro_service &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.service.nitro_service</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.service.nitro_service</h1><div class="highlight"><pre>
+<span></span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#   you may not use self file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+
+
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.Json</span> <span class="k">import</span> <span class="n">Json</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.login</span> <span class="k">import</span> <span class="n">login</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.logout</span> <span class="k">import</span> <span class="n">logout</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.loginchallengeresponse</span> <span class="k">import</span> <span class="n">loginchallengeresponse</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.config.ha.hafailover</span> <span class="k">import</span> <span class="n">hafailover</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.config.ha.hasync</span> <span class="k">import</span> <span class="n">hasync</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.config.ns.nsconfig</span> <span class="k">import</span> <span class="n">nsconfig</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.config.ns.reboot</span> <span class="k">import</span> <span class="n">reboot</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.config.ns.nsfeature</span> <span class="k">import</span> <span class="n">nsfeature</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.config.ns.nsmode</span> <span class="k">import</span> <span class="n">nsmode</span>
+
+
+<div class="viewcode-block" id="nitro_service"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service">[docs]</a><span class="k">class</span> <span class="nc">nitro_service</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;nitro_service is client interface through which Nitro operations are performed on resources.&quot;&quot;&quot;</span>
+    <span class="n">_password</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">_username</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">_ipaddress</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">_version</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">_protocol</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">_sessionid</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+    <span class="n">_warning</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+    <span class="n">_timeout</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">_onerror</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+    <span class="n">_format</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">_certvalidation</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="n">payload_format</span><span class="o">=</span><span class="n">Json</span><span class="p">()):</span>
+        <span class="sd">&quot;&quot;&quot; nitro_service class constructor specifying ip, format and protocol.</span>
+<span class="sd">        </span>
+<span class="sd">        @param ip Ipadress of the netscaler on which configuration is to be run.</span>
+<span class="sd">        @param format format wire language to be used. eg: Json,XML</span>
+<span class="sd">        @param protocol Protocol.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ipaddress</span> <span class="o">=</span> <span class="n">ip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_version</span> <span class="o">=</span> <span class="s2">&quot;v1&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_protocol</span> <span class="o">=</span> <span class="n">protocol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_format</span> <span class="o">=</span> <span class="n">payload_format</span>
+        <span class="k">if</span> <span class="n">protocol</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">!=</span><span class="s2">&quot;http&quot;</span> <span class="ow">and</span> <span class="n">protocol</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">!=</span><span class="s2">&quot;https&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="s2">&quot;error: protocol value &quot;</span> <span class="o">+</span> <span class="n">protocol</span> <span class="o">+</span> <span class="s2">&quot; is not supported&quot;</span><span class="p">)</span>
+
+            
+<div class="viewcode-block" id="nitro_service.set_credential"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.set_credential">[docs]</a>    <span class="k">def</span> <span class="nf">set_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;sets the credentials for the netscaler.</span>
+
+<span class="sd">        :param username: Username of the netscaler</span>
+<span class="sd">        :param password: Password for the netscaler.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">_username</span> <span class="o">=</span> <span class="n">username</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_password</span> <span class="o">=</span> <span class="n">password</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+    <span class="nd">@property</span>     
+    <span class="k">def</span> <span class="nf">sessionid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the sessionId.</span>
+
+
+<span class="sd">        :returns: sessionId.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sessionid</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>     
+    <span class="k">def</span> <span class="nf">version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the nitro version.</span>
+
+
+<span class="sd">        :returns: Nitro version.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_version</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+    <span class="nd">@property</span>     
+    <span class="k">def</span> <span class="nf">ipaddress</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the Ipaddress of the netscaler.</span>
+
+
+<span class="sd">        :returns: Ipadress.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ipaddress</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">warning</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>   
+        <span class="sd">&quot;&quot;&quot;Gets the warning status.</span>
+
+
+<span class="sd">        :returns: warning status.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_warning</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the timeout.</span>
+
+
+<span class="sd">        :returns: timeout.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+    <span class="nd">@timeout</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;sets the session inactivity timeout for the netscaler.</span>
+
+<span class="sd">        :param timeout: session timeout of the netscaler. Default is 30mins.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span> <span class="o">=</span> <span class="n">timeout</span>    
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+            
+    <span class="nd">@warning</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">warning</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;sets the flag for warning.</span>
+
+<span class="sd">        :param warning: set self to true for getting warnings in nitro response.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">_warning</span> <span class="o">=</span> <span class="n">warning</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+        
+
+<div class="viewcode-block" id="nitro_service.isLogin"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.isLogin">[docs]</a>    <span class="k">def</span> <span class="nf">isLogin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks login status.</span>
+
+
+<span class="sd">        :returns: true if logged-in else false.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sessionid</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>    </div>
+    
+    
+    <span class="nd">@property</span>     
+    <span class="k">def</span> <span class="nf">onerror</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the onerror status of the netscaler.</span>
+
+
+<span class="sd">        :returns: onerror status.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_onerror</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>        
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_onerror</span><span class="p">)</span> 
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+    
+        
+    <span class="nd">@onerror</span><span class="o">.</span><span class="n">setter</span>     
+    <span class="k">def</span> <span class="nf">onerror</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets the onerror status of the netscaler.</span>
+<span class="sd">        </span>
+<span class="sd">        @set onerror self option is applicable for bulk requests.</span>
+<span class="sd">        possible values: EXIT, CONTINUE, ROLLBACK.</span>
+<span class="sd">        if set with EXIT: exists on the first encountered error.</span>
+<span class="sd">        if set with CONTINUE: executes all the requests irrespective of individual response status.</span>
+<span class="sd">        if set with ROLLBACK: rolls back the successful requests upon encountering an error.</span>
+
+<span class="sd">        :param val: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">_onerror</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    
+<div class="viewcode-block" id="nitro_service.login"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.login">[docs]</a>    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use self API to login into Netscaler.</span>
+
+<span class="sd">        :param username: Username (Default value = &quot;&quot;)</span>
+<span class="sd">        :param password: Password for the Netscaler. (Default value = &quot;&quot;)</span>
+<span class="sd">        :param timeout: timeout for netscaler session.Default is 1800secs</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        @throws Exception nitro exception is thrown.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">username</span> <span class="ow">and</span> <span class="n">password</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_credential</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">timeout</span> <span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+            <span class="n">_login</span> <span class="o">=</span> <span class="n">login</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_password</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span><span class="p">)</span>    
+            <span class="n">result</span> <span class="o">=</span> <span class="n">_login</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">1034</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_sessionid</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">sessionid</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+    
+        
+<div class="viewcode-block" id="nitro_service.loginchallengeresponse"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.loginchallengeresponse">[docs]</a>    <span class="k">def</span> <span class="nf">loginchallengeresponse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use self API to loginchallengeresponse into Netscaler with challenge response.</span>
+
+<span class="sd">        :param response: </span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        @throws nitro_exception nitro exception is thrown.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>    
+            <span class="n">logincr</span> <span class="o">=</span> <span class="n">loginchallengeresponse</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">logincr</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_sessionid</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">sessionid</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+    
+<div class="viewcode-block" id="nitro_service.reboot"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.reboot">[docs]</a>    <span class="k">def</span> <span class="nf">reboot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">warm</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use self API to reboot Netscaler.</span>
+
+<span class="sd">        :param warm: set self to true for warm reboot.</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="n">resource</span> <span class="o">=</span> <span class="n">reboot</span><span class="p">()</span>
+            <span class="n">resource</span><span class="o">.</span><span class="n">warm</span> <span class="o">=</span> <span class="n">warm</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+    
+<div class="viewcode-block" id="nitro_service.forcehasync"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.forcehasync">[docs]</a>    <span class="k">def</span> <span class="nf">forcehasync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="p">,</span> <span class="n">save</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use self API to force the sync in secondary Netscaler.</span>
+
+<span class="sd">        :param force: set self to true for forcesync</span>
+<span class="sd">        :param save: set self to YES,if want to save the configuration after sync.</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="n">resource</span> <span class="o">=</span> <span class="n">hasync</span><span class="p">()</span>
+            <span class="n">resource</span><span class="o">.</span><span class="n">force</span> <span class="o">=</span> <span class="n">force</span>
+            <span class="n">resource</span><span class="o">.</span><span class="n">save</span> <span class="o">=</span> <span class="n">save</span>
+            <span class="n">option</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;force&quot;</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+    
+    
+<div class="viewcode-block" id="nitro_service.forcehafailover"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.forcehafailover">[docs]</a>    <span class="k">def</span> <span class="nf">forcehafailover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use self API to invoke force failover in primary Netscaler.</span>
+
+<span class="sd">        :param force: set self to true if force failover is needed.</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="n">resource</span> <span class="o">=</span> <span class="n">hafailover</span><span class="p">()</span>
+            <span class="n">resource</span><span class="o">.</span><span class="n">force</span> <span class="o">=</span> <span class="n">force</span>
+            <span class="n">option</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;force&quot;</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+    
+<div class="viewcode-block" id="nitro_service.clear_config"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.clear_config">[docs]</a>    <span class="k">def</span> <span class="nf">clear_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use self API to clear configuration.</span>
+
+<span class="sd">        :param force: clear confirmation without prompting. (Default value = &quot;&quot;)</span>
+<span class="sd">        :param level: clear config according to the level. eg: basic, extended, full (Default value = &quot;&quot;)</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="k">if</span> <span class="n">level</span> <span class="ow">and</span> <span class="n">force</span> <span class="p">:</span>
+                <span class="n">resource</span> <span class="o">=</span> <span class="n">nsconfig</span><span class="p">()</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">force</span><span class="p">):</span>
+                    <span class="n">resource</span><span class="o">.</span><span class="n">force</span> <span class="o">=</span> <span class="n">force</span>
+                <span class="n">resource</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span>
+                <span class="n">option</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+                <span class="n">option</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;clear&quot;</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">result</span>                
+            <span class="k">elif</span> <span class="n">force</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear_config</span><span class="p">(</span><span class="n">force</span><span class="p">,</span> <span class="s2">&quot;basic&quot;</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear_config</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="s2">&quot;basic&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+    
+
+    
+<div class="viewcode-block" id="nitro_service.save_config"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.save_config">[docs]</a>    <span class="k">def</span> <span class="nf">save_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use self API to save configuration on Netscaler.</span>
+
+
+<span class="sd">        :returns: status of the operation performed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="n">resource</span> <span class="o">=</span> <span class="n">nsconfig</span><span class="p">()</span>
+            <span class="n">option</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;save&quot;</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+    
+    
+<div class="viewcode-block" id="nitro_service.get_features"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.get_features">[docs]</a>    <span class="k">def</span> <span class="nf">get_features</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;get_&quot;</span>
+            
+            <span class="n">methods</span> <span class="o">=</span> <span class="n">nsfeature</span><span class="o">.</span><span class="vm">__dict__</span>
+            <span class="c1"># Loop through the methods and find the ones that correspond to</span>
+            <span class="c1"># feature names.</span>
+            <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">methods</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">method</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">method</span> <span class="o">!=</span><span class="p">(</span><span class="s2">&quot;get_feature&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">method</span> <span class="o">!=</span><span class="p">(</span><span class="s2">&quot;get_object_name&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">method</span> <span class="o">!=</span><span class="p">(</span><span class="s2">&quot;get_nitro_response&quot;</span><span class="p">)))</span> <span class="p">:</span>
+                    <span class="n">feature_name</span> <span class="o">=</span> <span class="n">method</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">prefix</span><span class="p">):]</span>
+                    <span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature_name</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">features</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="nitro_service.get_enabled_features"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.get_enabled_features">[docs]</a>    <span class="k">def</span> <span class="nf">get_enabled_features</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>            
+            <span class="n">feature</span> <span class="o">=</span> <span class="n">nsfeature</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">enabled_features</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">feature</span>
+            <span class="c1"># Loop through the methods and find the ones that correspond to</span>
+            <span class="c1"># feature names.</span>
+            <span class="k">return</span> <span class="n">enabled_features</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="nitro_service.get_modes"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.get_modes">[docs]</a>    <span class="k">def</span> <span class="nf">get_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">modes</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;get_&quot;</span>
+            
+            <span class="n">methods</span> <span class="o">=</span> <span class="n">nsmode</span><span class="o">.</span><span class="vm">__dict__</span>
+            <span class="c1"># Loop through the methods and find the ones that correspond to</span>
+            <span class="c1"># feature names.</span>
+            <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">methods</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">method</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">method</span> <span class="o">!=</span><span class="p">(</span><span class="s2">&quot;get_mode&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">method</span> <span class="o">!=</span><span class="p">(</span><span class="s2">&quot;get_object_name&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">method</span> <span class="o">!=</span><span class="p">(</span><span class="s2">&quot;get_nitro_response&quot;</span><span class="p">)))</span> <span class="p">:</span>
+                    <span class="n">mode_name</span> <span class="o">=</span> <span class="n">method</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">prefix</span><span class="p">):]</span>
+                    <span class="n">modes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mode_name</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">modes</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="nitro_service.get_enabled_modes"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.get_enabled_modes">[docs]</a>    <span class="k">def</span> <span class="nf">get_enabled_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>            
+            <span class="n">mode</span> <span class="o">=</span> <span class="n">nsmode</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">enabled_modes</span> <span class="o">=</span> <span class="n">mode</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span>
+            <span class="c1"># Loop through the methods and find the ones that correspond to</span>
+            <span class="c1"># feature names.</span>
+            <span class="k">return</span> <span class="n">enabled_modes</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="nitro_service.enable_features"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.enable_features">[docs]</a>    <span class="k">def</span> <span class="nf">enable_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="p">):</span>    
+        <span class="sd">&quot;&quot;&quot;Use self API to enable the feature on Netscaler.</span>
+
+<span class="sd">        :param features: features to be enabled.</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        @throws Exception Nitro exception.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">resource</span> <span class="o">=</span> <span class="n">nsfeature</span><span class="p">()</span>
+            <span class="n">resource</span><span class="o">.</span><span class="n">feature</span> <span class="o">=</span> <span class="n">features</span>
+            <span class="n">option</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;enable&quot;</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="nitro_service.enable_modes"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.enable_modes">[docs]</a>    <span class="k">def</span> <span class="nf">enable_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">modes</span><span class="p">):</span>    
+        <span class="sd">&quot;&quot;&quot;Use self API to enable the mode on Netscaler.</span>
+
+<span class="sd">        :param modes: modes to be enabled.</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        @throws Exception Nitro exception.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">resource</span> <span class="o">=</span> <span class="n">nsmode</span><span class="p">()</span>
+            <span class="n">resource</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">modes</span>
+            <span class="n">option</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;enable&quot;</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="nitro_service.disable_features"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.disable_features">[docs]</a>    <span class="k">def</span> <span class="nf">disable_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="p">):</span>    
+        <span class="sd">&quot;&quot;&quot;Use self API to disable the feature on Netscaler.</span>
+
+<span class="sd">        :param features: features to be disabled.</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        @throws Exception Nitro exception.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">resource</span> <span class="o">=</span> <span class="n">nsfeature</span><span class="p">()</span>
+            <span class="n">resource</span><span class="o">.</span><span class="n">feature</span> <span class="o">=</span> <span class="n">features</span>
+            <span class="n">option</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;disable&quot;</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="nitro_service.disable_modes"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.disable_modes">[docs]</a>    <span class="k">def</span> <span class="nf">disable_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">modes</span><span class="p">):</span>    
+        <span class="sd">&quot;&quot;&quot;Use self API to disable the mode on Netscaler.</span>
+
+<span class="sd">        :param modes: modes to be disabled.</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        @throws Exception Nitro exception.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">resource</span> <span class="o">=</span> <span class="n">nsmode</span><span class="p">()</span>
+            <span class="n">resource</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">modes</span>
+            <span class="n">option</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">option</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;disable&quot;</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+        
+       
+    
+<div class="viewcode-block" id="nitro_service.clear_session"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.clear_session">[docs]</a>    <span class="k">def</span> <span class="nf">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use self API to clear the current session.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sessionid</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+    
+        
+<div class="viewcode-block" id="nitro_service.relogin"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.relogin">[docs]</a>    <span class="k">def</span> <span class="nf">relogin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use self to API to re login into Netsclaer.</span>
+
+
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        @throws Exception nitro exception is thrown.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sessionid</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+    
+<div class="viewcode-block" id="nitro_service.logout"><a class="viewcode-back" href="../../../_source/nitro.service.nitro_service.html#nitro.service.nitro_service.nitro_service.logout">[docs]</a>    <span class="k">def</span> <span class="nf">logout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use self API to logout from current session.</span>
+
+
+<span class="sd">        :returns: status of the operation performed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>    
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">logout_</span> <span class="o">=</span> <span class="n">logout</span><span class="p">()</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">logout_</span><span class="o">.</span><span class="n">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">_sessionid</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">_username</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">_password</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+    
+    <span class="nd">@property</span>    
+    <span class="k">def</span> <span class="nf">protocol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the protocol.</span>
+
+
+<span class="sd">        :returns: Returns the protocol.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_protocol</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+    
+    
+    <span class="nd">@protocol</span><span class="o">.</span><span class="n">setter</span>     
+    <span class="k">def</span> <span class="nf">protocol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">protocol</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets the protocol.</span>
+
+<span class="sd">        :param protocol: The protocol to be set.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="k">if</span> <span class="n">protocol</span> <span class="ow">or</span> <span class="n">protocol</span><span class="o">.</span><span class="n">lower</span><span class="o">!=</span><span class="s2">&quot;http&quot;</span> <span class="ow">or</span> <span class="n">protocol</span><span class="o">.</span><span class="n">lower</span><span class="o">!=</span><span class="s2">&quot;https&quot;</span><span class="p">:</span> 
+                <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="s2">&quot;error: protocol value &quot;</span> <span class="o">+</span> <span class="n">protocol</span> <span class="o">+</span> <span class="s2">&quot; is not supported&quot;</span><span class="p">)</span>       
+            <span class="bp">self</span><span class="o">.</span><span class="n">_protocol</span> <span class="o">=</span> <span class="n">protocol</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+    
+    
+    <span class="nd">@property</span>     
+    <span class="k">def</span> <span class="nf">payload_formatter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns payload format.</span>
+
+
+<span class="sd">        :returns: Returns json.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>     
+    <span class="k">def</span> <span class="nf">certvalidation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns certificate validation flag status.</span>
+
+
+<span class="sd">        :returns: Returns the json.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_certvalidation</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@certvalidation</span><span class="o">.</span><span class="n">setter</span>     
+    <span class="k">def</span> <span class="nf">certvalidation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns certificate validation flag status.</span>
+
+<span class="sd">        :param flag: </span>
+<span class="sd">        :returns: Returns the json.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">_certvalidation</span> <span class="o">=</span> <span class="n">flag</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

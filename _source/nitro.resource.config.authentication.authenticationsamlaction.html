@@ -1,0 +1,918 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.authentication.authenticationsamlaction module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.config.authentication.authenticationsamlidppolicy module" href="nitro.resource.config.authentication.authenticationsamlidppolicy.html" />
+    <link rel="prev" title="nitro.resource.config.authentication.authenticationradiuspolicy_vpnvserver_binding module" href="nitro.resource.config.authentication.authenticationradiuspolicy_vpnvserver_binding.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.html">nitro.resource.config package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.authentication.html">nitro.resource.config.authentication package</a> &raquo;</li>
+        
+      <li>nitro.resource.config.authentication.authenticationsamlaction module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.config.authentication.authenticationsamlaction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.config.authentication.authenticationsamlaction">
+<span id="nitro-resource-config-authentication-authenticationsamlaction-module"></span><h1>nitro.resource.config.authentication.authenticationsamlaction module<a class="headerlink" href="#module-nitro.resource.config.authentication.authenticationsamlaction" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.authentication.authenticationsamlaction.</code><code class="descname">authenticationsamlaction</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<p>Configuration for AAA Saml action resource.</p>
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref">
+<em class="property">class </em><code class="descname">Authnctxclassref</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.Authnctxclassref"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.AuthenticatedTelephony">
+<code class="descname">AuthenticatedTelephony</code><em class="property"> = 'AuthenticatedTelephony'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.AuthenticatedTelephony" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.InternetProtocol">
+<code class="descname">InternetProtocol</code><em class="property"> = 'InternetProtocol'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.InternetProtocol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.InternetProtocolPassword">
+<code class="descname">InternetProtocolPassword</code><em class="property"> = 'InternetProtocolPassword'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.InternetProtocolPassword" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.Kerberos">
+<code class="descname">Kerberos</code><em class="property"> = 'Kerberos'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.Kerberos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.MobileOneFactorContract">
+<code class="descname">MobileOneFactorContract</code><em class="property"> = 'MobileOneFactorContract'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.MobileOneFactorContract" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.MobileOneFactorUnregistered">
+<code class="descname">MobileOneFactorUnregistered</code><em class="property"> = 'MobileOneFactorUnregistered'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.MobileOneFactorUnregistered" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.MobileTwoFactorContract">
+<code class="descname">MobileTwoFactorContract</code><em class="property"> = 'MobileTwoFactorContract'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.MobileTwoFactorContract" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.MobileTwoFactorUnregistered">
+<code class="descname">MobileTwoFactorUnregistered</code><em class="property"> = 'MobileTwoFactorUnregistered'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.MobileTwoFactorUnregistered" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.NomadTelephony">
+<code class="descname">NomadTelephony</code><em class="property"> = 'NomadTelephony'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.NomadTelephony" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.PGP">
+<code class="descname">PGP</code><em class="property"> = 'PGP'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.PGP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.Password">
+<code class="descname">Password</code><em class="property"> = 'Password'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.Password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.PasswordProtectedTransport">
+<code class="descname">PasswordProtectedTransport</code><em class="property"> = 'PasswordProtectedTransport'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.PasswordProtectedTransport" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.PersonalTelephony">
+<code class="descname">PersonalTelephony</code><em class="property"> = 'PersonalTelephony'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.PersonalTelephony" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.PreviousSession">
+<code class="descname">PreviousSession</code><em class="property"> = 'PreviousSession'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.PreviousSession" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.SPKI">
+<code class="descname">SPKI</code><em class="property"> = 'SPKI'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.SPKI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.SecureRemotePassword">
+<code class="descname">SecureRemotePassword</code><em class="property"> = 'SecureRemotePassword'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.SecureRemotePassword" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.Smartcard">
+<code class="descname">Smartcard</code><em class="property"> = 'Smartcard'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.Smartcard" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.SmartcardPKI">
+<code class="descname">SmartcardPKI</code><em class="property"> = 'SmartcardPKI'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.SmartcardPKI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.SoftwarePKI">
+<code class="descname">SoftwarePKI</code><em class="property"> = 'SoftwarePKI'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.SoftwarePKI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.TLSClient">
+<code class="descname">TLSClient</code><em class="property"> = 'TLSClient'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.TLSClient" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.Telephony">
+<code class="descname">Telephony</code><em class="property"> = 'Telephony'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.Telephony" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.TimeSyncToken">
+<code class="descname">TimeSyncToken</code><em class="property"> = 'TimeSyncToken'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.TimeSyncToken" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.Unspecified">
+<code class="descname">Unspecified</code><em class="property"> = 'Unspecified'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.Unspecified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.Windows">
+<code class="descname">Windows</code><em class="property"> = 'Windows'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.Windows" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.X509">
+<code class="descname">X509</code><em class="property"> = 'X509'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.X509" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.XMLDSig">
+<code class="descname">XMLDSig</code><em class="property"> = 'XMLDSig'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Authnctxclassref.XMLDSig" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Digestmethod">
+<em class="property">class </em><code class="descname">Digestmethod</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.Digestmethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Digestmethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Digestmethod.SHA1">
+<code class="descname">SHA1</code><em class="property"> = 'SHA1'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Digestmethod.SHA1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Digestmethod.SHA256">
+<code class="descname">SHA256</code><em class="property"> = 'SHA256'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Digestmethod.SHA256" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Enforceusername">
+<em class="property">class </em><code class="descname">Enforceusername</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.Enforceusername"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Enforceusername" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Enforceusername.OFF">
+<code class="descname">OFF</code><em class="property"> = 'OFF'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Enforceusername.OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Enforceusername.ON">
+<code class="descname">ON</code><em class="property"> = 'ON'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Enforceusername.ON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Requestedauthncontext">
+<em class="property">class </em><code class="descname">Requestedauthncontext</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.Requestedauthncontext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Requestedauthncontext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Requestedauthncontext.better">
+<code class="descname">better</code><em class="property"> = 'better'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Requestedauthncontext.better" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Requestedauthncontext.exact">
+<code class="descname">exact</code><em class="property"> = 'exact'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Requestedauthncontext.exact" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Requestedauthncontext.maximum">
+<code class="descname">maximum</code><em class="property"> = 'maximum'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Requestedauthncontext.maximum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Requestedauthncontext.minimum">
+<code class="descname">minimum</code><em class="property"> = 'minimum'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Requestedauthncontext.minimum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlbinding">
+<em class="property">class </em><code class="descname">Samlbinding</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.Samlbinding"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlbinding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlbinding.ARTIFACT">
+<code class="descname">ARTIFACT</code><em class="property"> = 'ARTIFACT'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlbinding.ARTIFACT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlbinding.POST">
+<code class="descname">POST</code><em class="property"> = 'POST'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlbinding.POST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlbinding.REDIRECT">
+<code class="descname">REDIRECT</code><em class="property"> = 'REDIRECT'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlbinding.REDIRECT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlrejectunsignedassertion">
+<em class="property">class </em><code class="descname">Samlrejectunsignedassertion</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.Samlrejectunsignedassertion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlrejectunsignedassertion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlrejectunsignedassertion.OFF">
+<code class="descname">OFF</code><em class="property"> = 'OFF'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlrejectunsignedassertion.OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlrejectunsignedassertion.ON">
+<code class="descname">ON</code><em class="property"> = 'ON'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlrejectunsignedassertion.ON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlrejectunsignedassertion.STRICT">
+<code class="descname">STRICT</code><em class="property"> = 'STRICT'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samlrejectunsignedassertion.STRICT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samltwofactor">
+<em class="property">class </em><code class="descname">Samltwofactor</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.Samltwofactor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samltwofactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samltwofactor.OFF">
+<code class="descname">OFF</code><em class="property"> = 'OFF'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samltwofactor.OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samltwofactor.ON">
+<code class="descname">ON</code><em class="property"> = 'ON'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Samltwofactor.ON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Sendthumbprint">
+<em class="property">class </em><code class="descname">Sendthumbprint</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.Sendthumbprint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Sendthumbprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Sendthumbprint.OFF">
+<code class="descname">OFF</code><em class="property"> = 'OFF'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Sendthumbprint.OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Sendthumbprint.ON">
+<code class="descname">ON</code><em class="property"> = 'ON'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Sendthumbprint.ON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Signaturealg">
+<em class="property">class </em><code class="descname">Signaturealg</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.Signaturealg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Signaturealg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Signaturealg.RSA_SHA1">
+<code class="descname">RSA_SHA1</code><em class="property"> = 'RSA-SHA1'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Signaturealg.RSA_SHA1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Signaturealg.RSA_SHA256">
+<code class="descname">RSA_SHA256</code><em class="property"> = 'RSA-SHA256'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.Signaturealg.RSA_SHA256" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.add">
+<em class="property">classmethod </em><code class="descname">add</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to add authenticationsamlaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.artifactresolutionserviceurl">
+<code class="descname">artifactresolutionserviceurl</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.artifactresolutionserviceurl" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of the Artifact Resolution Service on IdP to which Netscaler will post artifact to get actual SAML token.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute1">
+<code class="descname">attribute1</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute10">
+<code class="descname">attribute10</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute10" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute10.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute11">
+<code class="descname">attribute11</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute11" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute11.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute12">
+<code class="descname">attribute12</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute12" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute12.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute13">
+<code class="descname">attribute13</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute13" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute13.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute14">
+<code class="descname">attribute14</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute14" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute14.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute15">
+<code class="descname">attribute15</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute15" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute15.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute16">
+<code class="descname">attribute16</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute16.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute2">
+<code class="descname">attribute2</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute2.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute3">
+<code class="descname">attribute3</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute3.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute4">
+<code class="descname">attribute4</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute4.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute5">
+<code class="descname">attribute5</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute5.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute6">
+<code class="descname">attribute6</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute6.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute7">
+<code class="descname">attribute7</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute7" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute7.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute8">
+<code class="descname">attribute8</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute8.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute9">
+<code class="descname">attribute9</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attribute9" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the attribute in SAML Assertion whose value needs to be extracted and stored as attribute9.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attributeconsumingserviceindex">
+<code class="descname">attributeconsumingserviceindex</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.attributeconsumingserviceindex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index/ID of the attribute specification at Identity Provider (IdP). IdP will locate attributes requested by SP using this index and send those attributes in Assertion.&lt;br/&gt;Default value: 255&lt;br/&gt;Maximum length =  255.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.authnctxclassref">
+<code class="descname">authnctxclassref</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.authnctxclassref" title="Permalink to this definition">¶</a></dt>
+<dd><p>This element specifies the authentication class types that are requested from IdP (IdentityProvider).
+InternetProtocol: This is applicable when a principal is authenticated through the use of a provided IP address.
+InternetProtocolPassword: This is applicable when a principal is authenticated through the use of a provided IP address, in addition to a username/password.
+Kerberos: This is applicable when the principal has authenticated using a password to a local authentication authority, in order to acquire a Kerberos ticket.
+MobileOneFactorUnregistered: This indicates authentication of the mobile device without requiring explicit end-user interaction.
+MobileTwoFactorUnregistered: This indicates two-factor based authentication during mobile customer registration process, such as secure device and user PIN.
+MobileOneFactorContract: Reflects mobile contract customer registration procedures and a single factor authentication.
+MobileTwoFactorContract: Reflects mobile contract customer registration procedures and a two-factor based authentication.
+Password: This class is applicable when a principal authenticates using password over unprotected http session.
+PasswordProtectedTransport: This class is applicable when a principal authenticates to an authentication authority through the presentation of a password over a protected session.
+PreviousSession: This class is applicable when a principal had authenticated to an authentication authority at some point in the past using any authentication context.
+X509: This indicates that the principal authenticated by means of a digital signature where the key was validated as part of an X.509 Public Key Infrastructure.
+PGP: This indicates that the principal authenticated by means of a digital signature where the key was validated as part of a PGP Public Key Infrastructure.
+SPKI: This indicates that the principal authenticated by means of a digital signature where the key was validated via an SPKI Infrastructure.
+XMLDSig: This indicates that the principal authenticated by means of a digital signature according to the processing rules specified in the XML Digital Signature specification.
+Smartcard: This indicates that the principal has authenticated using smartcard.
+SmartcardPKI: This class is applicable when a principal authenticates to an authentication authority through a two-factor authentication mechanism using a smartcard with enclosed private key and a PIN.
+SoftwarePKI: This class is applicable when a principal uses an X.509 certificate stored in software to authenticate to the authentication authority.
+Telephony: This class is used to indicate that the principal authenticated via the provision of a fixed-line telephone number, transported via a telephony protocol such as ADSL.
+NomadTelephony: Indicates that the principal is “roaming” and authenticates via the means of the line number, a user suffix, and a password element.
+PersonalTelephony: This class is used to indicate that the principal authenticated via the provision of a fixed-line telephone.
+AuthenticatedTelephony: Indicates that the principal authenticated via the means of the line number, a user suffix, and a password element.
+SecureRemotePassword: This class is applicable when the authentication was performed by means of Secure Remote Password.
+TLSClient: This class indicates that the principal authenticated by means of a client certificate, secured with the SSL/TLS transport.
+TimeSyncToken: This is applicable when a principal authenticates through a time synchronization token.
+Unspecified: This indicates that the authentication was performed by unspecified means.
+Windows: This indicates that Windows integrated authentication is utilized for authentication.&lt;br/&gt;Possible values = InternetProtocol, InternetProtocolPassword, Kerberos, MobileOneFactorUnregistered, MobileTwoFactorUnregistered, MobileOneFactorContract, MobileTwoFactorContract, Password, PasswordProtectedTransport, PreviousSession, X509, PGP, SPKI, XMLDSig, Smartcard, SmartcardPKI, SoftwarePKI, Telephony, NomadTelephony, PersonalTelephony, AuthenticatedTelephony, SecureRemotePassword, TLSClient, TimeSyncToken, Unspecified, Windows.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.count">
+<em class="property">classmethod </em><code class="descname">count</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count the authenticationsamlaction resources configured on NetScaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>client</strong> – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.count_filtered">
+<em class="property">classmethod </em><code class="descname">count_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.count_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.count_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count filtered the set of authenticationsamlaction resources.
+Filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.defaultauthenticationgroup">
+<code class="descname">defaultauthenticationgroup</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.defaultauthenticationgroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the default group that is chosen when the authentication succeeds in addition to extracted groups.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.delete">
+<em class="property">classmethod </em><code class="descname">delete</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to delete authenticationsamlaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.digestmethod">
+<code class="descname">digestmethod</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.digestmethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Algorithm to be used to compute/verify digest for SAML transactions.&lt;br/&gt;Default value: SHA1&lt;br/&gt;Possible values = SHA1, SHA256.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.enforceusername">
+<code class="descname">enforceusername</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.enforceusername" title="Permalink to this definition">¶</a></dt>
+<dd><p>Option to choose whether the username that is extracted from SAML assertion can be edited in login page while doing second factor.&lt;br/&gt;Default value: ON&lt;br/&gt;Possible values = ON, OFF.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch all the authenticationsamlaction resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.get_filtered">
+<em class="property">classmethod </em><code class="descname">get_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.get_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.get_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch filtered set of authenticationsamlaction resources.
+filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.logouturl">
+<code class="descname">logouturl</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.logouturl" title="Permalink to this definition">¶</a></dt>
+<dd><p>SingleLogout URL on IdP to which logoutRequest will be sent on Netscaler session cleanup.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.name">
+<code class="descname">name</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for the SAML server profile (action).
+Must begin with a letter, number, or the underscore character (_), and must contain only letters, numbers, and the hyphen (-), period (.) pound (#), space ( ), at (&#64;), equals (=), colon (:), and underscore characters. Cannot be changed after SAML profile is created.
+The following requirement applies only to the NetScaler CLI:
+If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, “my authentication action” or ‘my authentication action’).&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.requestedauthncontext">
+<code class="descname">requestedauthncontext</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.requestedauthncontext" title="Permalink to this definition">¶</a></dt>
+<dd><p>This element specifies the authentication context requirements of authentication statements returned in the response.&lt;br/&gt;Default value: exact&lt;br/&gt;Possible values = exact, minimum, maximum, better.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlacsindex">
+<code class="descname">samlacsindex</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlacsindex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index/ID of the metadata entry corresponding to this configuration.&lt;br/&gt;Default value: 255&lt;br/&gt;Maximum length =  255.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlbinding">
+<code class="descname">samlbinding</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlbinding" title="Permalink to this definition">¶</a></dt>
+<dd><p>This element specifies the transport mechanism of saml messages.&lt;br/&gt;Default value: POST&lt;br/&gt;Possible values = REDIRECT, POST, ARTIFACT.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlidpcertname">
+<code class="descname">samlidpcertname</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlidpcertname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the SAML server as given in that server’s SSL certificate.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlissuername">
+<code class="descname">samlissuername</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlissuername" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name to be used in requests sent from    Netscaler to IdP to uniquely identify Netscaler.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlredirecturl">
+<code class="descname">samlredirecturl</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlredirecturl" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL to which users are redirected for authentication.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlrejectunsignedassertion">
+<code class="descname">samlrejectunsignedassertion</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlrejectunsignedassertion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reject unsigned SAML assertions.&lt;br/&gt;Default value: ON&lt;br/&gt;Possible values = ON, OFF, STRICT.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlsigningcertname">
+<code class="descname">samlsigningcertname</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samlsigningcertname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the signing authority as given in the SAML server’s SSL certificate.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samltwofactor">
+<code class="descname">samltwofactor</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samltwofactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Option to enable second factor after SAML.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samluserfield">
+<code class="descname">samluserfield</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.samluserfield" title="Permalink to this definition">¶</a></dt>
+<dd><p>SAML user ID, as given in the SAML assertion.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.sendthumbprint">
+<code class="descname">sendthumbprint</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.sendthumbprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Option to send thumbprint instead of x509 certificate in SAML request.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.signaturealg">
+<code class="descname">signaturealg</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.signaturealg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Algorithm to be used to sign/verify SAML transactions.&lt;br/&gt;Default value: RSA-SHA1&lt;br/&gt;Possible values = RSA-SHA1, RSA-SHA256.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.skewtime">
+<code class="descname">skewtime</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.skewtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>This option specifies the allowed clock skew in number of minutes that Netscaler ServiceProvider allows on an incoming assertion. For example, if skewTime is 10, then assertion would be valid from (current time - 10) min to (current time + 10) min, ie 20min in all.&lt;br/&gt;Default value: 5.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.unset">
+<em class="property">classmethod </em><code class="descname">unset</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.unset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.unset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to unset the properties of authenticationsamlaction resource.
+Properties that need to be unset are specified in args array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.update">
+<em class="property">classmethod </em><code class="descname">update</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to update authenticationsamlaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.authentication.authenticationsamlaction.</code><code class="descname">authenticationsamlaction_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationsamlaction.html#authenticationsamlaction_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationsamlaction.authenticationsamlaction_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.config.authentication.authenticationsamlidppolicy.html" class="btn btn-neutral float-right" title="nitro.resource.config.authentication.authenticationsamlidppolicy module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.config.authentication.authenticationradiuspolicy_vpnvserver_binding.html" class="btn btn-neutral float-left" title="nitro.resource.config.authentication.authenticationradiuspolicy_vpnvserver_binding module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

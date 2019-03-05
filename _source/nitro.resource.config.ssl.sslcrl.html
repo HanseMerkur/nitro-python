@@ -1,0 +1,694 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.ssl.sslcrl module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.config.ssl.sslcrl_binding module" href="nitro.resource.config.ssl.sslcrl_binding.html" />
+    <link rel="prev" title="nitro.resource.config.ssl.sslciphersuite module" href="nitro.resource.config.ssl.sslciphersuite.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.html">nitro.resource.config package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.ssl.html">nitro.resource.config.ssl package</a> &raquo;</li>
+        
+      <li>nitro.resource.config.ssl.sslcrl module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.config.ssl.sslcrl.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.config.ssl.sslcrl">
+<span id="nitro-resource-config-ssl-sslcrl-module"></span><h1>nitro.resource.config.ssl.sslcrl module<a class="headerlink" href="#module-nitro.resource.config.ssl.sslcrl" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.ssl.sslcrl.</code><code class="descname">sslcrl</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<p>Configuration for Certificate Revocation List resource.</p>
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Binary">
+<em class="property">class </em><code class="descname">Binary</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.Binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Binary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Binary.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Binary.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Binary.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Binary.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Inform">
+<em class="property">class </em><code class="descname">Inform</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.Inform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Inform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Inform.DER">
+<code class="descname">DER</code><em class="property"> = 'DER'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Inform.DER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Inform.PEM">
+<code class="descname">PEM</code><em class="property"> = 'PEM'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Inform.PEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Interval">
+<em class="property">class </em><code class="descname">Interval</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.Interval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Interval.DAILY">
+<code class="descname">DAILY</code><em class="property"> = 'DAILY'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Interval.DAILY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Interval.MONTHLY">
+<code class="descname">MONTHLY</code><em class="property"> = 'MONTHLY'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Interval.MONTHLY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Interval.NONE">
+<code class="descname">NONE</code><em class="property"> = 'NONE'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Interval.NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Interval.WEEKLY">
+<code class="descname">WEEKLY</code><em class="property"> = 'WEEKLY'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Interval.WEEKLY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Method">
+<em class="property">class </em><code class="descname">Method</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.Method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Method.HTTP">
+<code class="descname">HTTP</code><em class="property"> = 'HTTP'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Method.HTTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Method.LDAP">
+<code class="descname">LDAP</code><em class="property"> = 'LDAP'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Method.LDAP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Refresh">
+<em class="property">class </em><code class="descname">Refresh</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.Refresh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Refresh.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Refresh.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Refresh.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Refresh.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Scope">
+<em class="property">class </em><code class="descname">Scope</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.Scope"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Scope.Base">
+<code class="descname">Base</code><em class="property"> = 'Base'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Scope.Base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.Scope.One">
+<code class="descname">One</code><em class="property"> = 'One'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.Scope.One" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.add">
+<em class="property">classmethod </em><code class="descname">add</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to add sslcrl.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.basedn">
+<code class="descname">basedn</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.basedn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base distinguished name (DN), which is used in an LDAP search to search for a CRL. Citrix recommends searching for the Base DN instead of the Issuer Name from the CA certificate, because the Issuer Name field might not exactly match the LDAP directory structure’s DN.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.binary">
+<code class="descname">binary</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.binary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the LDAP-based CRL retrieval mode to binary.&lt;br/&gt;Default value: NO&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.binddn">
+<code class="descname">binddn</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.binddn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bind distinguished name (DN) to be used to access the CRL object in the LDAP repository if access to the LDAP repository is restricted or anonymous access is not allowed.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.cacert">
+<code class="descname">cacert</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.cacert" title="Permalink to this definition">¶</a></dt>
+<dd><p>CA certificate that has issued the CRL. Required if CRL Auto Refresh is selected. Install the CA certificate on the appliance before adding the CRL.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.cacertfile">
+<code class="descname">cacertfile</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.cacertfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of and, optionally, path to the CA certificate file.
+/nsconfig/ssl/ is the default path.&lt;br/&gt;Maximum length =  63.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.cakeyfile">
+<code class="descname">cakeyfile</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.cakeyfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of and, optionally, path to the CA key file. /nsconfig/ssl/ is the default path.&lt;br/&gt;Maximum length =  63.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.count">
+<em class="property">classmethod </em><code class="descname">count</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count the sslcrl resources configured on NetScaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>client</strong> – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.count_filtered">
+<em class="property">classmethod </em><code class="descname">count_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.count_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.count_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count filtered the set of sslcrl resources.
+Filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.create">
+<em class="property">classmethod </em><code class="descname">create</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to create sslcrl.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.crlname">
+<code class="descname">crlname</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.crlname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for the Certificate Revocation List (CRL). Must begin with an ASCII alphanumeric or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at (&#64;), equals (=), and hyphen (-) characters. Cannot be changed after the CRL is created.
+The following requirement applies only to the NetScaler CLI:
+If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, “my crl” or ‘my crl’).&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.crlpath">
+<code class="descname">crlpath</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.crlpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to the CRL file. /var/netscaler/ssl/ is the default path.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.day">
+<code class="descname">day</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.day" title="Permalink to this definition">¶</a></dt>
+<dd><p>Day on which to refresh the CRL, or, if the Interval parameter is not set, the number of days after which to refresh the CRL. If Interval is set to MONTHLY, specify the date. If Interval is set to WEEKLY, specify the day of the week (for example, Sun=0 and Sat=6). This parameter is not applicable if the Interval is set to DAILY.&lt;br/&gt;Maximum length =  0x1F.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.daystoexpiration">
+<code class="descname">daystoexpiration</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.daystoexpiration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of days remaining for the CRL to expire.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.delete">
+<em class="property">classmethod </em><code class="descname">delete</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to delete sslcrl.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.flags">
+<code class="descname">flags</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.flags" title="Permalink to this definition">¶</a></dt>
+<dd><p>CRL status flag.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.gencrl">
+<code class="descname">gencrl</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.gencrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of and, optionally, path to the CRL file to be generated. The list of certificates that have been revoked is obtained from the index file. /nsconfig/ssl/ is the default path.&lt;br/&gt;Maximum length =  63.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch all the sslcrl resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.get_filtered">
+<em class="property">classmethod </em><code class="descname">get_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.get_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.get_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch filtered set of sslcrl resources.
+filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.indexfile">
+<code class="descname">indexfile</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.indexfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of and, optionally, path to the file containing the serial numbers of all the certificates that are revoked. Revoked certificates are appended to the file. /nsconfig/ssl/ is the default path.&lt;br/&gt;Maximum length =  63.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.inform">
+<code class="descname">inform</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.inform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input format of the CRL file. The two formats supported on the appliance are:
+PEM - Privacy Enhanced Mail.
+DER - Distinguished Encoding Rule.&lt;br/&gt;Default value: PEM&lt;br/&gt;Possible values = DER, PEM.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.interval">
+<code class="descname">interval</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>CRL refresh interval. Use the NONE setting to unset this parameter.&lt;br/&gt;Possible values = MONTHLY, WEEKLY, DAILY, NONE.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.issuer">
+<code class="descname">issuer</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.issuer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Issuer name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.lastupdate">
+<code class="descname">lastupdate</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.lastupdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Last update time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.lastupdatetime">
+<code class="descname">lastupdatetime</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.lastupdatetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Last CRL refresh time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.method">
+<code class="descname">method</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for CRL refresh. If LDAP is selected, specify the method, CA certificate, base DN, port, and LDAP server name. If HTTP is selected, specify the CA certificate, method, URL, and port. Cannot be changed after a CRL is added.&lt;br/&gt;Possible values = HTTP, LDAP.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.nextupdate">
+<code class="descname">nextupdate</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.nextupdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Next update time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.password">
+<code class="descname">password</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Password to access the CRL in the LDAP repository if access to the LDAP repository is restricted or anonymous access is not allowed.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.port">
+<code class="descname">port</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port for the LDAP server.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.refresh">
+<code class="descname">refresh</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set CRL auto refresh.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.revoke">
+<code class="descname">revoke</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.revoke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of and, optionally, path to the certificate to be revoked. /nsconfig/ssl/ is the default path.&lt;br/&gt;Maximum length =  63.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.scope">
+<code class="descname">scope</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extent of the search operation on the LDAP server. Available settings function as follows:
+One - One level below Base DN.
+Base - Exactly the same level as Base DN.&lt;br/&gt;Default value: One&lt;br/&gt;Possible values = Base, One.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.server">
+<code class="descname">server</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.server" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP address of the LDAP server from which to fetch the CRLs.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.signaturealgo">
+<code class="descname">signaturealgo</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.signaturealgo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signature algorithm.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.time">
+<code class="descname">time</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time, in hours (1-24) and minutes (1-60), at which to refresh the CRL.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.unset">
+<em class="property">classmethod </em><code class="descname">unset</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.unset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.unset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to unset the properties of sslcrl resource.
+Properties that need to be unset are specified in args array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.update">
+<em class="property">classmethod </em><code class="descname">update</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to update sslcrl.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.url">
+<code class="descname">url</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of the CRL distribution point.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl.version">
+<code class="descname">version</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>CRL version.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcrl.sslcrl_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.ssl.sslcrl.</code><code class="descname">sslcrl_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcrl.html#sslcrl_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcrl.sslcrl_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.config.ssl.sslcrl_binding.html" class="btn btn-neutral float-right" title="nitro.resource.config.ssl.sslcrl_binding module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.config.ssl.sslciphersuite.html" class="btn btn-neutral float-left" title="nitro.resource.config.ssl.sslciphersuite module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

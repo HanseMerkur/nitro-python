@@ -1,0 +1,1097 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.base.base_resource &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.base.base_resource</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.base.base_resource</h1><div class="highlight"><pre>
+<span></span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_response</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_responses</span> <span class="k">import</span> <span class="n">base_responses</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<div class="viewcode-block" id="base_resource"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource">[docs]</a><span class="k">class</span> <span class="nc">base_resource</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span>
+    
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param string: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+    
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>    
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="base_resource.get_object_type"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.get_object_type">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_object_type</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the resource type.</span>
+
+
+<span class="sd">        :returns: lbvserver, csvserver.</span>
+
+<span class="sd">        :rtype: Resource Type. eg</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span></div>
+
+    <span class="k">def</span> <span class="nf">resource_to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Converts netscaler resource to Json string.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param id: sessionId</span>
+<span class="sd">        :returns: string in Json format.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">resource_to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+<div class="viewcode-block" id="base_resource.resource_to_string"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.resource_to_string">[docs]</a>    <span class="k">def</span> <span class="nf">resource_to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Converts netscaler resource to Json string.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :returns: string in Json format.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">resource_to_string</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+        
+<div class="viewcode-block" id="base_resource.unset_string"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.unset_string">[docs]</a>    <span class="k">def</span> <span class="nf">unset_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;forms a String for unset operation on a resource.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">            service - nitro_service object.</span>
+<span class="sd">            id - session id.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param args: </span>
+<span class="sd">        :returns: string in Json format.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">get_object_type</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">:&quot;</span> 
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">unset_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;}&quot;</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+    
+<div class="viewcode-block" id="base_resource.post_requestEx"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.post_requestEx">[docs]</a>    <span class="k">def</span> <span class="nf">post_requestEx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a POST operation on netscaler resource.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param opt: Options class object</span>
+<span class="sd">        :returns: requested resource.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_to_string</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_dataEx</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+    
+
+<div class="viewcode-block" id="base_resource.post_request"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.post_request">[docs]</a>    <span class="k">def</span> <span class="nf">post_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a Add operation on netscaler resource.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param opt: Options class object</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_to_string</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_data</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="base_resource.unset_request"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.unset_request">[docs]</a>    <span class="k">def</span> <span class="nf">unset_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform an Unset operation on netscaler resource.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">            service - nitro_service object.</span>
+<span class="sd">            opt - options class object.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param opt: </span>
+<span class="sd">        :param args: </span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unset_string</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_data</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+   
+<div class="viewcode-block" id="base_resource.add_resource"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.add_resource">[docs]</a>    <span class="k">def</span> <span class="nf">add_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a add operation on netscaler resource.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param opt: options class object (Default value = &quot;&quot;)</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">():</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_to_string</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_data</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>     </div>
+    
+
+<div class="viewcode-block" id="base_resource.update_resource"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.update_resource">[docs]</a>    <span class="k">def</span> <span class="nf">update_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a modify operation on netscaler resource.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param opt: options class object</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">():</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_to_string</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">put_data</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="base_resource.delete_resource"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.delete_resource">[docs]</a>    <span class="k">def</span> <span class="nf">delete_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a delete operation on netscaler resource.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">()</span> <span class="p">:</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">str_</span> <span class="o">=</span> <span class="n">nitro_util</span><span class="o">.</span><span class="n">object_to_string_withoutquotes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">delete_request</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">str_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+            
+<div class="viewcode-block" id="base_resource.getfiltered"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.getfiltered">[docs]</a>    <span class="k">def</span> <span class="nf">getfiltered</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a filtered get operation on netscaler resource.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param opt: options class object</span>
+<span class="sd">        :returns: Array of nitro resources of given resource type.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">()):</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_request</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+ 
+<div class="viewcode-block" id="base_resource.get_resources"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.get_resources">[docs]</a>    <span class="k">def</span> <span class="nf">get_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a get operation on netscaler resource.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param opt: options class object (Default value = &quot;&quot;)</span>
+<span class="sd">        :returns: Array of nitro resources of specified type.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">()):</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_request</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+            
+<div class="viewcode-block" id="base_resource.get_resource"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.get_resource">[docs]</a>    <span class="k">def</span> <span class="nf">get_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a get operation on netscaler resource.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param opt: options class object (Default value = &quot;&quot;)</span>
+<span class="sd">        :returns: Array of nitro resources of specified type.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">()):</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_request</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">response</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="base_resource.stat_resources"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.stat_resources">[docs]</a>    <span class="k">def</span> <span class="nf">stat_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a stat operation on netscaler resources.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param opt: options class object (Default value = &quot;&quot;)</span>
+<span class="sd">        :returns: Array of nitro stat resources of specified type.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">()</span> <span class="p">:</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stat_request</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+            
+<div class="viewcode-block" id="base_resource.stat_resource"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.stat_resource">[docs]</a>    <span class="k">def</span> <span class="nf">stat_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a stat operation on a netscaler resource.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param opt: options class object (Default value = &quot;&quot;)</span>
+<span class="sd">        :returns: Requested Nitro stat resource.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">()):</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stat_request</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">response</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+    
+
+<div class="viewcode-block" id="base_resource.perform_operation"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.perform_operation">[docs]</a>    <span class="k">def</span> <span class="nf">perform_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a clear/sync/link/unlink/save ...etc</span>
+<span class="sd">        operation on netscaler resource.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param action: action needs to be taken on resource (Default value = &quot;&quot;)</span>
+<span class="sd">        :param opt: options object with action that is to be performed set (Default value = &quot;&quot;)</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">get_object_type</span><span class="p">()</span><span class="o">!=</span><span class="s2">&quot;login&quot;</span><span class="p">):</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">opt</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">action</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_request</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="ow">not</span> <span class="n">opt</span> <span class="p">:</span>
+                <span class="n">opt</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+                <span class="n">opt</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_request</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="base_resource.perform_operationEx"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.perform_operationEx">[docs]</a>    <span class="k">def</span> <span class="nf">perform_operationEx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a POST operation that returns a resource ...etc</span>
+<span class="sd">        operation on netscaler resource.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param action: action needs to be taken on resource</span>
+<span class="sd">        :returns: requested resource</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">get_object_type</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;login&quot;</span><span class="p">):</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">opt</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">opt</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_requestEx</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="base_resource.perform_operation_bulk_request"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.perform_operation_bulk_request">[docs]</a>    <span class="nd">@classmethod</span>       
+    <span class="k">def</span> <span class="nf">perform_operation_bulk_request</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">resources</span><span class="p">,</span> <span class="n">action</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a clear/sync/link/unlink/save ...etc</span>
+<span class="sd">        operation on netscaler resources.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param resources: Array of Nitro resources on which the specified action to be performed</span>
+<span class="sd">        :param opt: options object with action that is to be performed set</span>
+<span class="sd">        :param action: </span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">()):</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+
+            <span class="n">opt</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">opt</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>        
+            <span class="n">request</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">resource_to_string_bulk</span><span class="p">(</span><span class="n">resources</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">post_bulk_data</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+            
+<div class="viewcode-block" id="base_resource.rename_resource"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.rename_resource">[docs]</a>    <span class="k">def</span> <span class="nf">rename_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">newname</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a rename operation on netscaler resource.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param newname: new name to be set to the specified resource</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">():</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+                
+            <span class="k">if</span> <span class="s1">&#39;_newname&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="p">:</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">newname</span> <span class="o">=</span> <span class="n">newname</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;Rename is not supported for this resource&quot;</span><span class="p">),)</span>
+            <span class="n">opt</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">opt</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;rename&quot;</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_request</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="base_resource.unset_resource"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.unset_resource">[docs]</a>    <span class="k">def</span> <span class="nf">unset_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform an Unset operation on netscaler resource.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">            service - nitro_service object.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param args: </span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">():</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">opt</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">opt</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;unset&quot;</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unset_request</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="base_resource.update_bulk_request"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.update_bulk_request">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update_bulk_request</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">resources</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform an update operation on netscaler resources.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param resources: Array of nitro resources to be updated</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">()):</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">resource_to_string_bulk</span><span class="p">(</span><span class="n">resources</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">put_bulk_data</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+    
+<div class="viewcode-block" id="base_resource.unset_bulk_request"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.unset_bulk_request">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">unset_bulk_request</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">resources</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param resources: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">()):</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+        
+            <span class="n">opt</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">opt</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;unset&quot;</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">unset_string_bulk</span><span class="p">(</span><span class="n">resources</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">post_bulk_data</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+    
+<div class="viewcode-block" id="base_resource.add_bulk_request"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.add_bulk_request">[docs]</a>    <span class="nd">@classmethod</span>       
+    <span class="k">def</span> <span class="nf">add_bulk_request</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">resources</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a add operation on netscaler resources.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param resources: Nitro resources to be added on netscaler</span>
+<span class="sd">        :param opt: options class object (Default value = &quot;&quot;)</span>
+<span class="sd">        :returns: status of the performed operation.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">():</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">resource_to_string_bulk</span><span class="p">(</span><span class="n">resources</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">post_bulk_data</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+    
+<div class="viewcode-block" id="base_resource.delete_bulk_request"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.delete_bulk_request">[docs]</a>    <span class="nd">@classmethod</span>   
+    <span class="k">def</span> <span class="nf">delete_bulk_request</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">resources</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Use this method to perform a delete operation on netscaler resources.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param resources: Nitro resources to be deleted on netscaler</span>
+<span class="sd">        :param opt: options class object (Default value = &quot;&quot;)</span>
+<span class="sd">        :returns: status of the performed operation.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">service</span><span class="o">.</span><span class="n">isLogin</span><span class="p">()):</span>
+                <span class="n">service</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+            <span class="n">opt</span> <span class="o">=</span> <span class="n">options</span><span class="p">()</span>
+            <span class="n">opt</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;rm&quot;</span>
+            <span class="n">type_</span> <span class="o">=</span> <span class="n">resources</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">get_object_type</span><span class="p">()</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">type_</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;_binding&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">opt</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;unbind&quot;</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">resource_to_string_bulk</span><span class="p">(</span><span class="n">resources</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">post_bulk_data</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_put</span><span class="p">(</span><span class="n">resourcetype</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">bulk</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This method, forms the http PUT request, applies on the netscaler.</span>
+<span class="sd">        Reads the response from the netscaler and converts it to base response.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param request: Json request</span>
+<span class="sd">        :param resourcetype: </span>
+<span class="sd">        :param bulk:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">ipaddress</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">ipaddress</span>
+            <span class="n">version</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">version</span>
+            <span class="n">protocol</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">protocol</span>
+            <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">resourcetype</span><span class="p">)</span> <span class="p">:</span>
+                <span class="n">resrc_type</span> <span class="o">=</span> <span class="n">resourcetype</span><span class="o">.</span><span class="n">get_object_type</span><span class="p">()</span>
+                <span class="n">urlstr</span> <span class="o">=</span> <span class="n">protocol</span><span class="o">+</span><span class="s2">&quot;://&quot;</span> <span class="o">+</span> <span class="n">ipaddress</span> <span class="o">+</span> <span class="s2">&quot;/nitro/&quot;</span> <span class="o">+</span> <span class="n">version</span> <span class="o">+</span> <span class="s2">&quot;/config/&quot;</span> <span class="o">+</span> <span class="n">resrc_type</span>     
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="n">resrc_type</span> <span class="o">=</span> <span class="n">resourcetype</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">get_object_type</span><span class="p">()</span>
+                <span class="n">urlstr</span> <span class="o">=</span> <span class="n">protocol</span><span class="o">+</span><span class="s2">&quot;://&quot;</span> <span class="o">+</span> <span class="n">ipaddress</span> <span class="o">+</span> <span class="s2">&quot;/nitro/&quot;</span> <span class="o">+</span> <span class="n">version</span> <span class="o">+</span> <span class="s2">&quot;/config/&quot;</span> <span class="o">+</span> <span class="n">resrc_type</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">resourcetype</span><span class="o">.</span><span class="n">_get_object_name</span><span class="p">())</span>
+            <span class="n">warning</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">warning</span>
+            <span class="n">onerror</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">onerror</span>
+            <span class="k">if</span><span class="p">((</span><span class="n">warning</span> <span class="ow">and</span> <span class="n">warning</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">or</span> <span class="n">onerror</span><span class="p">):</span> 
+                <span class="k">if</span> <span class="n">warning</span> <span class="ow">and</span> <span class="n">warning</span><span class="o">==</span><span class="kc">True</span> <span class="p">:</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span> <span class="s2">&quot;?warning=yes&quot;</span>
+                <span class="k">if</span> <span class="n">onerror</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">warning</span> <span class="ow">and</span> <span class="n">warning</span><span class="o">==</span><span class="kc">True</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span> <span class="s2">&quot;&amp;onerror=&quot;</span> <span class="o">+</span> <span class="n">onerror</span>
+                    <span class="k">else</span> <span class="p">:</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span> <span class="s2">&quot;?onerror=&quot;</span> <span class="o">+</span> <span class="n">onerror</span>
+            <span class="k">if</span> <span class="n">bulk</span> <span class="p">:</span>
+                <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/vnd.com.citrix.netscaler.&#39;</span><span class="o">+</span> <span class="n">resrc_type</span> <span class="o">+</span><span class="s1">&#39;_list+json&#39;</span><span class="p">,</span><span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">,</span> <span class="s1">&#39;Set-Cookie&#39;</span><span class="p">:</span><span class="s1">&#39;NITRO_AUTH_TOKEN=&#39;</span><span class="o">+</span> <span class="n">service</span><span class="o">.</span><span class="n">sessionid</span><span class="p">}</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/vnd.com.citrix.netscaler.&#39;</span><span class="o">+</span> <span class="n">resrc_type</span> <span class="o">+</span><span class="s1">&#39;+json&#39;</span><span class="p">,</span><span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">,</span> <span class="s1">&#39;Set-Cookie&#39;</span><span class="p">:</span><span class="s1">&#39;NITRO_AUTH_TOKEN=&#39;</span><span class="o">+</span> <span class="n">service</span><span class="o">.</span><span class="n">sessionid</span><span class="p">}</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">urlstr</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">service</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span> <span class="n">verify</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">certvalidation</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">((</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;errorcode&#39;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">]))</span>
+            <span class="k">elif</span> <span class="n">bulk</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">nitro_response</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">nitro_response</span><span class="p">[</span><span class="s1">&#39;errorcode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">nitro_response</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Done&quot;</span>
+                <span class="n">nitro_response</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">]</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">nitro_response</span><span class="p">)</span>      
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+       
+<div class="viewcode-block" id="base_resource.put_data"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.put_data">[docs]</a>    <span class="k">def</span> <span class="nf">put_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param request: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">base_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">):</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">):</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span>  <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="base_resource.put_bulk_data"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.put_bulk_data">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">put_bulk_data</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param request: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span><span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">base_responses</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">):</span> 
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">):</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_post</span><span class="p">(</span><span class="n">resourcetype</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">opt</span><span class="p">,</span> <span class="n">bulk</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This method, forms the http POST request, applies on the netscaler.</span>
+<span class="sd">        Reads the response from the netscaler and converts it to base response.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param request: Json request</span>
+<span class="sd">        :param resourcetype: </span>
+<span class="sd">        :param opt: </span>
+<span class="sd">        :param bulk:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :returns: status of the operation performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ipaddress</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">ipaddress</span>
+            <span class="n">version</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">version</span>
+            <span class="n">protocol</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">protocol</span>
+            <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">resourcetype</span><span class="p">)</span> <span class="p">:</span>
+                <span class="n">resrc_type</span> <span class="o">=</span> <span class="n">resourcetype</span><span class="o">.</span><span class="n">get_object_type</span><span class="p">()</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="n">resrc_type</span> <span class="o">=</span> <span class="n">resourcetype</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">get_object_type</span><span class="p">()</span>
+            <span class="n">urlstr</span> <span class="o">=</span> <span class="n">protocol</span><span class="o">+</span><span class="s2">&quot;://&quot;</span> <span class="o">+</span> <span class="n">ipaddress</span> <span class="o">+</span> <span class="s2">&quot;/nitro/&quot;</span> <span class="o">+</span> <span class="n">version</span> <span class="o">+</span> <span class="s2">&quot;/config/&quot;</span> <span class="o">+</span> <span class="n">resrc_type</span> 
+            <span class="n">warning</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">warning</span>
+            <span class="n">onerror</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">onerror</span>
+            <span class="k">if</span><span class="p">(</span> <span class="n">opt</span> <span class="ow">or</span> <span class="p">(</span><span class="n">warning</span> <span class="ow">and</span> <span class="n">warning</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">or</span> <span class="n">onerror</span><span class="p">):</span> 
+                <span class="k">if</span> <span class="n">opt</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="n">opt</span><span class="o">.</span><span class="n">action</span> <span class="p">:</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span> <span class="s2">&quot;?action=&quot;</span> <span class="o">+</span> <span class="n">opt</span><span class="o">.</span><span class="n">action</span>
+                <span class="k">if</span> <span class="n">warning</span> <span class="ow">and</span> <span class="n">warning</span><span class="o">==</span><span class="kc">True</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="n">opt</span> <span class="p">:</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span> <span class="s2">&quot;&amp;warning=yes&quot;</span>
+                    <span class="k">else</span> <span class="p">:</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span> <span class="s2">&quot;?warning=yes&quot;</span>
+                <span class="k">if</span> <span class="n">onerror</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="n">opt</span> <span class="ow">or</span> <span class="p">(</span><span class="n">warning</span> <span class="ow">and</span> <span class="n">warning</span><span class="o">==</span><span class="kc">True</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span> <span class="s2">&quot;&amp;onerror=&quot;</span> <span class="o">+</span> <span class="n">onerror</span>
+                    <span class="k">else</span> <span class="p">:</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span> <span class="s2">&quot;?onerror=&quot;</span> <span class="o">+</span> <span class="n">onerror</span>
+            <span class="k">if</span> <span class="n">service</span><span class="o">.</span><span class="n">sessionid</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="n">bulk</span> <span class="p">:</span>
+                    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/vnd.com.citrix.netscaler.&#39;</span><span class="o">+</span> <span class="n">resrc_type</span> <span class="o">+</span><span class="s1">&#39;_list+json&#39;</span><span class="p">,</span><span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">,</span> <span class="s1">&#39;Set-Cookie&#39;</span><span class="p">:</span><span class="s1">&#39;NITRO_AUTH_TOKEN=&#39;</span><span class="o">+</span> <span class="n">service</span><span class="o">.</span><span class="n">sessionid</span><span class="p">}</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/vnd.com.citrix.netscaler.&#39;</span><span class="o">+</span> <span class="n">resrc_type</span> <span class="o">+</span><span class="s1">&#39;+json&#39;</span><span class="p">,</span><span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">,</span> <span class="s1">&#39;Set-Cookie&#39;</span><span class="p">:</span><span class="s1">&#39;NITRO_AUTH_TOKEN=&#39;</span><span class="o">+</span> <span class="n">service</span><span class="o">.</span><span class="n">sessionid</span><span class="p">}</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/vnd.com.citrix.netscaler.&#39;</span><span class="o">+</span> <span class="n">resrc_type</span> <span class="o">+</span><span class="s1">&#39;+json&#39;</span><span class="p">,</span><span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">}</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">urlstr</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">service</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span> <span class="n">verify</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">certvalidation</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">((</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;errorcode&#39;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">]))</span>
+            <span class="k">elif</span> <span class="n">bulk</span> <span class="ow">and</span>  <span class="n">response</span><span class="o">.</span><span class="n">text</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">nitro_response</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="k">if</span> <span class="n">resrc_type</span> <span class="o">==</span> <span class="s2">&quot;login&quot;</span> <span class="p">:</span>
+                    <span class="n">nitro_response</span><span class="p">[</span><span class="s1">&#39;sessionid&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">nitro_util</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">cookies</span><span class="p">[</span><span class="s1">&#39;NITRO_AUTH_TOKEN&#39;</span><span class="p">])</span>
+                <span class="n">nitro_response</span><span class="p">[</span><span class="s1">&#39;errorcode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">nitro_response</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Done&quot;</span>
+                <span class="n">nitro_response</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">]</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">nitro_response</span><span class="p">)</span>      
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+    
+<div class="viewcode-block" id="base_resource.post_dataEx"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.post_dataEx">[docs]</a>    <span class="k">def</span> <span class="nf">post_dataEx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param request: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nitro_response</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+    
+    
+<div class="viewcode-block" id="base_resource.post_data"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.post_data">[docs]</a>    <span class="k">def</span> <span class="nf">post_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">opt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param request: </span>
+<span class="sd">        :param opt: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">base_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">1034</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">):</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="base_resource.post_bulk_data"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.post_bulk_data">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">post_bulk_data</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param request: </span>
+<span class="sd">        :param opt:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">opt</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">base_responses</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">):</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="base_resource.get_request"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.get_request">[docs]</a>    <span class="k">def</span> <span class="nf">get_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">opt</span><span class="p">):</span> 
+        <span class="sd">&quot;&quot;&quot;This method, forms the http GET request, applies on the netscaler.</span>
+<span class="sd">        Reads the response from the netscaler and converts it to corresponding</span>
+<span class="sd">        resource type.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param opt: Options class object</span>
+<span class="sd">        :returns: Array of requested resources.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ipaddress</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">ipaddress</span>
+            <span class="n">version</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">version</span>
+            <span class="n">sessionid</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">sessionid</span>
+            <span class="n">objtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">get_object_type</span><span class="p">()</span>
+            <span class="n">protocol</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">protocol</span>
+
+            <span class="c1"># build URL</span>
+            <span class="n">urlstr</span> <span class="o">=</span> <span class="n">protocol</span> <span class="o">+</span> <span class="s2">&quot;://&quot;</span> <span class="o">+</span> <span class="n">ipaddress</span> <span class="o">+</span> <span class="s2">&quot;/nitro/&quot;</span> <span class="o">+</span> <span class="n">version</span> <span class="o">+</span> <span class="s2">&quot;/config/&quot;</span> <span class="o">+</span> <span class="n">objtype</span><span class="p">;</span>
+
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_object_name</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">nitro_util</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">nitro_util</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">name</span><span class="p">)))</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">opt</span> <span class="ow">or</span> <span class="p">(</span><span class="n">service</span><span class="o">.</span><span class="n">warning</span><span class="p">)):</span>
+                <span class="n">optionstr</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">opt</span><span class="p">):</span>
+                    <span class="n">optionstr</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">optionstr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span><span class="s2">&quot;?&quot;</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span> <span class="n">optionstr</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">service</span><span class="o">.</span><span class="n">warning</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">opt</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">optionstr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span><span class="o">+</span><span class="s2">&quot;&amp;&quot;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span><span class="o">+</span><span class="s2">&quot;?&quot;</span>
+                    <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span><span class="o">+</span><span class="s2">&quot;warning=yes&quot;</span>
+            <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/vnd.com.citrix.netscaler.&#39;</span><span class="o">+</span> <span class="n">objtype</span> <span class="o">+</span><span class="s1">&#39;+json&#39;</span><span class="p">,</span><span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">,</span> <span class="s1">&#39;Set-Cookie&#39;</span><span class="p">:</span><span class="s1">&#39;NITRO_AUTH_TOKEN=&#39;</span><span class="o">+</span><span class="n">sessionid</span><span class="p">}</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">urlstr</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">service</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span> <span class="n">verify</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">certvalidation</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">((</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;errorcode&#39;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nitro_response</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+            
+
+<div class="viewcode-block" id="base_resource.stat_request"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.stat_request">[docs]</a>    <span class="k">def</span> <span class="nf">stat_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span><span class="n">opt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This method, forms the http GET request, applies on the netscaler.</span>
+<span class="sd">        Reads the response from the netscaler and converts it to corresponding stat resource type.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param opt: Options class object</span>
+<span class="sd">        :returns: Array of requested resources.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ipaddress</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">ipaddress</span>
+            <span class="n">version</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">version</span>
+            <span class="n">sessionid</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">sessionid</span>
+            <span class="n">objtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">get_object_type</span><span class="p">()</span>
+            <span class="n">objtype</span> <span class="o">=</span> <span class="n">objtype</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_stats&#39;</span><span class="p">)</span>
+            <span class="n">objtype</span> <span class="o">=</span> <span class="n">objtype</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">protocol</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">protocol</span>
+
+            <span class="c1"># build URL</span>
+            <span class="n">urlstr</span> <span class="o">=</span> <span class="n">protocol</span> <span class="o">+</span> <span class="s2">&quot;://&quot;</span> <span class="o">+</span> <span class="n">ipaddress</span> <span class="o">+</span> <span class="s2">&quot;/nitro/&quot;</span> <span class="o">+</span> <span class="n">version</span> <span class="o">+</span> <span class="s2">&quot;/stat/&quot;</span> <span class="o">+</span> <span class="n">objtype</span><span class="p">;</span>
+
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_object_name</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">nitro_util</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">nitro_util</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">name</span><span class="p">)))</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">opt</span> <span class="ow">or</span> <span class="n">service</span><span class="o">.</span><span class="n">warning</span><span class="p">):</span>
+                <span class="n">optionstr</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">opt</span><span class="p">):</span>
+                    <span class="n">optionstr</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">optionstr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span><span class="s2">&quot;?&quot;</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span> <span class="n">optionstr</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">service</span><span class="o">.</span><span class="n">warning</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">opt</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">optionstr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span><span class="o">+</span><span class="s2">&quot;&amp;&quot;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span><span class="o">+</span><span class="s2">&quot;?&quot;</span>
+                    <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span><span class="o">+</span><span class="s2">&quot;warning=yes&quot;</span>
+            <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/vnd.com.citrix.netscaler.&#39;</span><span class="o">+</span> <span class="n">objtype</span> <span class="o">+</span><span class="s1">&#39;+json&#39;</span><span class="p">,</span><span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">,</span> <span class="s1">&#39;Set-Cookie&#39;</span><span class="p">:</span><span class="s1">&#39;NITRO_AUTH_TOKEN=&#39;</span><span class="o">+</span><span class="n">sessionid</span><span class="p">}</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">urlstr</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">service</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span> <span class="n">verify</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">certvalidation</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">((</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;errorcode&#39;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nitro_response</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="base_resource.delete_request"><a class="viewcode-back" href="../../../../_source/nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource.delete_request">[docs]</a>    <span class="k">def</span> <span class="nf">delete_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">req_args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This method, forms the http DELETE request, applies on the netscaler.</span>
+<span class="sd">        Reads the response from the netscaler and converts it to base response.</span>
+
+<span class="sd">        :param service: nitro_service object</span>
+<span class="sd">        :param req_args: </span>
+<span class="sd">        :returns: Array of requested resources.</span>
+<span class="sd">        </span>
+<span class="sd">        Throws:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ipaddress</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">ipaddress</span>
+            <span class="n">version</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">version</span>
+            <span class="n">sessionid</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">sessionid</span>
+            <span class="n">objtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">get_object_type</span><span class="p">()</span>
+            <span class="n">protocol</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">protocol</span>
+
+            <span class="c1"># build URL</span>
+            <span class="n">urlstr</span> <span class="o">=</span> <span class="n">protocol</span> <span class="o">+</span> <span class="s2">&quot;://&quot;</span> <span class="o">+</span> <span class="n">ipaddress</span> <span class="o">+</span> <span class="s2">&quot;/nitro/&quot;</span> <span class="o">+</span> <span class="n">version</span> <span class="o">+</span> <span class="s2">&quot;/config/&quot;</span> <span class="o">+</span> <span class="n">objtype</span>
+
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_object_name</span><span class="p">()</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">nitro_util</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">nitro_util</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="n">req_args</span> <span class="ow">or</span> <span class="n">service</span><span class="o">.</span><span class="n">warning</span><span class="p">):</span>
+                <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span><span class="o">+</span><span class="s2">&quot;?&quot;</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">req_args</span><span class="p">):</span>
+                    <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span> <span class="s2">&quot;args=&quot;</span> <span class="o">+</span> <span class="n">req_args</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">service</span><span class="o">.</span><span class="n">warning</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">req_args</span><span class="p">):</span>
+                        <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span><span class="o">+</span><span class="s2">&quot;&amp;&quot;</span>
+                    <span class="n">urlstr</span> <span class="o">=</span> <span class="n">urlstr</span> <span class="o">+</span> <span class="s2">&quot;warning=yes&quot;</span>
+            <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/vnd.com.citrix.netscaler.&#39;</span><span class="o">+</span> <span class="n">objtype</span> <span class="o">+</span><span class="s1">&#39;+json&#39;</span><span class="p">,</span><span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">,</span> <span class="s1">&#39;Set-Cookie&#39;</span><span class="p">:</span><span class="s1">&#39;NITRO_AUTH_TOKEN=&#39;</span><span class="o">+</span><span class="n">sessionid</span><span class="p">}</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">urlstr</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">service</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span> <span class="n">verify</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">certvalidation</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">((</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;errorcode&#39;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;severity&#39;</span><span class="p">]))</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">base_response</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span> 
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">):</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> 
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>          
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span> 
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span> </div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

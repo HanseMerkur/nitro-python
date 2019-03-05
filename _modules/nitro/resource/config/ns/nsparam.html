@@ -1,0 +1,1250 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.ns.nsparam &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.ns.nsparam</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.ns.nsparam</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="nsparam"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam">[docs]</a><span class="k">class</span> <span class="nc">nsparam</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for netscaler parameters resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpport</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxconn</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxreq</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cip</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cipheader</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cookieversion</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_securecookie</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pmtumin</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pmtutimeout</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ftpportrange</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_crportrange</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_grantquotamaxclient</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_exclusivequotamaxclient</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_grantquotaspillover</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_exclusivequotaspillover</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_useproxyport</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_internaluserlogin</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_aftpallowrandomsourceport</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_icaports</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tcpcip</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_servicepathingressvlan</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">httpport</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;HTTP ports on the web server. This allows the system to perform connection off-load for any client request that has a destination port matching one of these configured ports.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  65535.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_httpport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@httpport</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">httpport</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">httpport</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;HTTP ports on the web server. This allows the system to perform connection off-load for any client request that has a destination port matching one of these configured ports.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  65535</span>
+
+<span class="sd">        :param httpport: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_httpport</span> <span class="o">=</span> <span class="n">httpport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maxconn</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of connections that will be made from the appliance to the web server(s) attached to it. The value entered here is applied globally to all attached servers.&lt;br/&gt;Default value: 0&lt;br/&gt;Maximum length =  4294967294.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxconn</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@maxconn</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maxconn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxconn</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of connections that will be made from the appliance to the web server(s) attached to it. The value entered here is applied globally to all attached servers.&lt;br/&gt;Default value: 0&lt;br/&gt;Maximum length =  4294967294</span>
+
+<span class="sd">        :param maxconn: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maxconn</span> <span class="o">=</span> <span class="n">maxconn</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maxreq</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of requests that the system can pass on a particular connection between the appliance and a server attached to it. Setting this value to 0 allows an unlimited number of requests to be passed. This value is overridden by the maximum number of requests configured on the individual service.&lt;br/&gt;Maximum length =  65535.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxreq</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@maxreq</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maxreq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxreq</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of requests that the system can pass on a particular connection between the appliance and a server attached to it. Setting this value to 0 allows an unlimited number of requests to be passed. This value is overridden by the maximum number of requests configured on the individual service.&lt;br/&gt;Maximum length =  65535</span>
+
+<span class="sd">        :param maxreq: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maxreq</span> <span class="o">=</span> <span class="n">maxreq</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cip</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable the insertion of the actual client IP address into the HTTP header request passed from the client to one, some, or all servers attached to the system. The passed address can then be accessed through a minor modification to the server.</span>
+<span class="sd">        * If the CIP header is specified, it will be used as the client IP header.</span>
+<span class="sd">        * If the CIP header is not specified, the value that has been set will be used as the client IP header.&lt;br/&gt;Possible values = ENABLED, DISABLED.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cip</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@cip</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cip</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable the insertion of the actual client IP address into the HTTP header request passed from the client to one, some, or all servers attached to the system. The passed address can then be accessed through a minor modification to the server.</span>
+<span class="sd">        * If the CIP header is specified, it will be used as the client IP header.</span>
+<span class="sd">        * If the CIP header is not specified, the value that has been set will be used as the client IP header.&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param cip: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cip</span> <span class="o">=</span> <span class="n">cip</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cipheader</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Text that will be used as the client IP address header.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cipheader</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@cipheader</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cipheader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cipheader</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Text that will be used as the client IP address header.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param cipheader: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cipheader</span> <span class="o">=</span> <span class="n">cipheader</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cookieversion</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Version of the cookie inserted by the system.&lt;br/&gt;Possible values = 0, 1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cookieversion</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@cookieversion</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cookieversion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cookieversion</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Version of the cookie inserted by the system.&lt;br/&gt;Possible values = 0, 1</span>
+
+<span class="sd">        :param cookieversion: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cookieversion</span> <span class="o">=</span> <span class="n">cookieversion</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">securecookie</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable secure flag for persistence cookie.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_securecookie</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@securecookie</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">securecookie</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">securecookie</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable secure flag for persistence cookie.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param securecookie: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_securecookie</span> <span class="o">=</span> <span class="n">securecookie</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pmtumin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Minimum path MTU value that NetScaler will process in the ICMP fragmentation needed message. If the ICMP message contains a value less than this value, then this value is used instead.&lt;br/&gt;Default value: 576&lt;br/&gt;Minimum length =  168&lt;br/&gt;Maximum length =  1500.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pmtumin</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@pmtumin</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">pmtumin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pmtumin</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Minimum path MTU value that NetScaler will process in the ICMP fragmentation needed message. If the ICMP message contains a value less than this value, then this value is used instead.&lt;br/&gt;Default value: 576&lt;br/&gt;Minimum length =  168&lt;br/&gt;Maximum length =  1500</span>
+
+<span class="sd">        :param pmtumin: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pmtumin</span> <span class="o">=</span> <span class="n">pmtumin</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pmtutimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Interval, in minutes, for flushing the PMTU entries.&lt;br/&gt;Default value: 10&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  1440.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pmtutimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@pmtutimeout</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">pmtutimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pmtutimeout</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Interval, in minutes, for flushing the PMTU entries.&lt;br/&gt;Default value: 10&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  1440</span>
+
+<span class="sd">        :param pmtutimeout: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pmtutimeout</span> <span class="o">=</span> <span class="n">pmtutimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ftpportrange</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Minimum and maximum port (port range) that FTP services are allowed to use.&lt;br/&gt;Minimum length =  1024&lt;br/&gt;Maximum length =  64000.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ftpportrange</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ftpportrange</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ftpportrange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ftpportrange</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Minimum and maximum port (port range) that FTP services are allowed to use.&lt;br/&gt;Minimum length =  1024&lt;br/&gt;Maximum length =  64000</span>
+
+<span class="sd">        :param ftpportrange: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ftpportrange</span> <span class="o">=</span> <span class="n">ftpportrange</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">crportrange</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Port range for cache redirection services.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  65535.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_crportrange</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@crportrange</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">crportrange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">crportrange</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Port range for cache redirection services.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  65535</span>
+
+<span class="sd">        :param crportrange: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_crportrange</span> <span class="o">=</span> <span class="n">crportrange</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">timezone</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Time zone for the NetScaler appliance. Name of the time zone should be specified as argument.&lt;br/&gt;Possible values = CoordinatedUniversalTime, GMT+01:00-CET-Europe/Andorra, GMT+04:00-GST-Asia/Dubai, GMT+04:30-AFT-Asia/Kabul, GMT-04:00-AST-America/Antigua, GMT-04:00-AST-America/Anguilla, GMT+01:00-CET-Europe/Tirane, GMT+04:00-AMT-Asia/Yerevan, GMT+01:00-WAT-Africa/Luanda, GMT+13:00-NZDT-Antarctica/McMurdo, GMT+13:00-NZDT-Antarctica/South_Pole, GMT-03:00-ROTT-Antarctica/Rothera, GMT-04:00-CLT-Antarctica/Palmer, GMT+05:00-MAWT-Antarctica/Mawson, GMT+07:00-DAVT-Antarctica/Davis, GMT+08:00-WST-Antarctica/Casey, GMT+06:00-VOST-Antarctica/Vostok, GMT+10:00-DDUT-Antarctica/DumontDUrville, GMT+03:00-SYOT-Antarctica/Syowa, GMT+11:00-MIST-Antarctica/Macquarie, GMT-03:00-ART-America/Argentina/Buenos_Aires, GMT-03:00-ART-America/Argentina/Cordoba, GMT-03:00-ART-America/Argentina/Salta, GMT-03:00-ART-America/Argentina/Jujuy, GMT-03:00-ART-America/Argentina/Tucuman, GMT-03:00-ART-America/Argentina/Catamarca, GMT-03:00-ART-America/Argentina/La_Rioja, GMT-03:00-ART-America/Argentina/San_Juan, GMT-03:00-ART-America/Argentina/Mendoza, GMT-03:00-WARST-America/Argentina/San_Luis, GMT-03:00-ART-America/Argentina/Rio_Gallegos, GMT-03:00-ART-America/Argentina/Ushuaia, GMT-11:00-SST-Pacific/Pago_Pago, GMT+01:00-CET-Europe/Vienna, GMT+11:00-LHST-Australia/Lord_Howe, GMT+11:00-EST-Australia/Hobart, GMT+11:00-EST-Australia/Currie, GMT+11:00-EST-Australia/Melbourne, GMT+11:00-EST-Australia/Sydney, GMT+10:30-CST-Australia/Broken_Hill, GMT+10:00-EST-Australia/Brisbane, GMT+10:00-EST-Australia/Lindeman, GMT+10:30-CST-Australia/Adelaide, GMT+09:30-CST-Australia/Darwin, GMT+08:00-WST-Australia/Perth, GMT+08:45-CWST-Australia/Eucla, GMT-04:00-AST-America/Aruba, GMT+02:00-EET-Europe/Mariehamn, GMT+04:00-AZT-Asia/Baku, GMT+01:00-CET-Europe/Sarajevo, GMT-04:00-AST-America/Barbados, GMT+06:00-BDT-Asia/Dhaka, GMT+01:00-CET-Europe/Brussels, GMT+00:00-GMT-Africa/Ouagadougou, GMT+02:00-EET-Europe/Sofia, GMT+03:00-AST-Asia/Bahrain, GMT+02:00-CAT-Africa/Bujumbura, GMT+01:00-WAT-Africa/Porto-Novo, GMT-04:00-AST-America/St_Barthelemy, GMT-03:00-ADT-Atlantic/Bermuda, GMT+08:00-BNT-Asia/Brunei, GMT-04:00-BOT-America/La_Paz, GMT-02:00-FNT-America/Noronha, GMT-03:00-BRT-America/Belem, GMT-03:00-BRT-America/Fortaleza, GMT-03:00-BRT-America/Recife, GMT-03:00-BRT-America/Araguaina, GMT-03:00-BRT-America/Maceio, GMT-03:00-BRT-America/Bahia, GMT-03:00-BRT-America/Sao_Paulo, GMT-04:00-AMT-America/Campo_Grande, GMT-04:00-AMT-America/Cuiaba, GMT-03:00-BRT-America/Santarem, GMT-04:00-AMT-America/Porto_Velho, GMT-04:00-AMT-America/Boa_Vista, GMT-04:00-AMT-America/Manaus, GMT-04:00-AMT-America/Eirunepe, GMT-04:00-AMT-America/Rio_Branco, GMT-04:00-EDT-America/Nassau, GMT+06:00-BTT-Asia/Thimphu, GMT+02:00-CAT-Africa/Gaborone, GMT+03:00-FET-Europe/Minsk, GMT-06:00-CST-America/Belize, GMT-02:30-NDT-America/St_Johns, GMT-03:00-ADT-America/Halifax, GMT-03:00-ADT-America/Glace_Bay, GMT-03:00-ADT-America/Moncton, GMT-03:00-ADT-America/Goose_Bay, GMT-04:00-AST-America/Blanc-Sablon, GMT-04:00-EDT-America/Montreal, GMT-04:00-EDT-America/Toronto, GMT-04:00-EDT-America/Nipigon, GMT-04:00-EDT-America/Thunder_Bay, GMT-04:00-EDT-America/Iqaluit, GMT-04:00-EDT-America/Pangnirtung, GMT-05:00-CDT-America/Resolute, GMT-05:00-EST-America/Atikokan, GMT-05:00-CDT-America/Rankin_Inlet, GMT-05:00-CDT-America/Winnipeg, GMT-05:00-CDT-America/Rainy_River, GMT-06:00-CST-America/Regina, GMT-06:00-CST-America/Swift_Current, GMT-06:00-MDT-America/Edmonton, GMT-06:00-MDT-America/Cambridge_Bay, GMT-06:00-MDT-America/Yellowknife, GMT-06:00-MDT-America/Inuvik, GMT-07:00-MST-America/Dawson_Creek, GMT-07:00-PDT-America/Vancouver, GMT-07:00-PDT-America/Whitehorse, GMT-07:00-PDT-America/Dawson, GMT+06:30-CCT-Indian/Cocos, GMT+01:00-WAT-Africa/Kinshasa, GMT+02:00-CAT-Africa/Lubumbashi, GMT+01:00-WAT-Africa/Bangui, GMT+01:00-WAT-Africa/Brazzaville, GMT+01:00-CET-Europe/Zurich, GMT+00:00-GMT-Africa/Abidjan, GMT-10:00-CKT-Pacific/Rarotonga, GMT-04:00-CLT-America/Santiago, GMT-06:00-EAST-Pacific/Easter, GMT+01:00-WAT-Africa/Douala, GMT+08:00-CST-Asia/Shanghai, GMT+08:00-CST-Asia/Harbin, GMT+08:00-CST-Asia/Chongqing, GMT+08:00-CST-Asia/Urumqi, GMT+08:00-CST-Asia/Kashgar, GMT-05:00-COT-America/Bogota, GMT-06:00-CST-America/Costa_Rica, GMT-04:00-CDT-America/Havana, GMT-01:00-CVT-Atlantic/Cape_Verde, GMT+07:00-CXT-Indian/Christmas, GMT+02:00-EET-Asia/Nicosia, GMT+01:00-CET-Europe/Prague, GMT+01:00-CET-Europe/Berlin, GMT+03:00-EAT-Africa/Djibouti, GMT+01:00-CET-Europe/Copenhagen, GMT-04:00-AST-America/Dominica, GMT-04:00-AST-America/Santo_Domingo, GMT+01:00-CET-Africa/Algiers, GMT-05:00-ECT-America/Guayaquil, GMT-06:00-GALT-Pacific/Galapagos, GMT+02:00-EET-Europe/Tallinn, GMT+02:00-EET-Africa/Cairo, GMT+00:00-WET-Africa/El_Aaiun, GMT+03:00-EAT-Africa/Asmara, GMT+01:00-CET-Europe/Madrid, GMT+01:00-CET-Africa/Ceuta, GMT+00:00-WET-Atlantic/Canary, GMT+03:00-EAT-Africa/Addis_Ababa, GMT+02:00-EET-Europe/Helsinki, GMT+12:00-FJT-Pacific/Fiji, GMT-03:00-FKST-Atlantic/Stanley, GMT+10:00-CHUT-Pacific/Chuuk, GMT+11:00-PONT-Pacific/Pohnpei, GMT+11:00-KOST-Pacific/Kosrae, GMT+00:00-WET-Atlantic/Faroe, GMT+01:00-CET-Europe/Paris, GMT+01:00-WAT-Africa/Libreville, GMT+00:00-GMT-Europe/London, GMT-04:00-AST-America/Grenada, GMT+04:00-GET-Asia/Tbilisi, GMT-03:00-GFT-America/Cayenne, GMT+00:00-GMT-Europe/Guernsey, GMT+00:00-GMT-Africa/Accra, GMT+01:00-CET-Europe/Gibraltar, GMT-03:00-WGT-America/Godthab, GMT+00:00-GMT-America/Danmarkshavn, GMT-01:00-EGT-America/Scoresbysund, GMT-03:00-ADT-America/Thule, GMT+00:00-GMT-Africa/Banjul, GMT+00:00-GMT-Africa/Conakry, GMT-04:00-AST-America/Guadeloupe, GMT+01:00-WAT-Africa/Malabo, GMT+02:00-EET-Europe/Athens, GMT-02:00-GST-Atlantic/South_Georgia, GMT-06:00-CST-America/Guatemala, GMT+10:00-ChST-Pacific/Guam, GMT+00:00-GMT-Africa/Bissau, GMT-04:00-GYT-America/Guyana, GMT+08:00-HKT-Asia/Hong_Kong, GMT-06:00-CST-America/Tegucigalpa, GMT+01:00-CET-Europe/Zagreb, GMT-05:00-EST-America/Port-au-Prince, GMT+01:00-CET-Europe/Budapest, GMT+07:00-WIT-Asia/Jakarta, GMT+07:00-WIT-Asia/Pontianak, GMT+08:00-CIT-Asia/Makassar, GMT+09:00-EIT-Asia/Jayapura, GMT+00:00-GMT-Europe/Dublin, GMT+02:00-IST-Asia/Jerusalem, GMT+00:00-GMT-Europe/Isle_of_Man, GMT+05:30-IST-Asia/Kolkata, GMT+06:00-IOT-Indian/Chagos, GMT+03:00-AST-Asia/Baghdad, GMT+03:30-IRST-Asia/Tehran, GMT+00:00-GMT-Atlantic/Reykjavik, GMT+01:00-CET-Europe/Rome, GMT+00:00-GMT-Europe/Jersey, GMT-05:00-EST-America/Jamaica, GMT+02:00-EET-Asia/Amman, GMT+09:00-JST-Asia/Tokyo, GMT+03:00-EAT-Africa/Nairobi, GMT+06:00-KGT-Asia/Bishkek, GMT+07:00-ICT-Asia/Phnom_Penh, GMT+12:00-GILT-Pacific/Tarawa, GMT+13:00-PHOT-Pacific/Enderbury, GMT+14:00-LINT-Pacific/Kiritimati, GMT+03:00-EAT-Indian/Comoro, GMT-04:00-AST-America/St_Kitts, GMT+09:00-KST-Asia/Pyongyang, GMT+09:00-KST-Asia/Seoul, GMT+03:00-AST-Asia/Kuwait, GMT-05:00-EST-America/Cayman, GMT+06:00-ALMT-Asia/Almaty, GMT+06:00-QYZT-Asia/Qyzylorda, GMT+05:00-AQTT-Asia/Aqtobe, GMT+05:00-AQTT-Asia/Aqtau, GMT+05:00-ORAT-Asia/Oral, GMT+07:00-ICT-Asia/Vientiane, GMT+02:00-EET-Asia/Beirut, GMT-04:00-AST-America/St_Lucia, GMT+01:00-CET-Europe/Vaduz, GMT+05:30-IST-Asia/Colombo, GMT+00:00-GMT-Africa/Monrovia, GMT+02:00-SAST-Africa/Maseru, GMT+02:00-EET-Europe/Vilnius, GMT+01:00-CET-Europe/Luxembourg, GMT+02:00-EET-Europe/Riga, GMT+02:00-EET-Africa/Tripoli, GMT+00:00-WET-Africa/Casablanca, GMT+01:00-CET-Europe/Monaco, GMT+02:00-EET-Europe/Chisinau, GMT+01:00-CET-Europe/Podgorica, GMT-04:00-AST-America/Marigot, GMT+03:00-EAT-Indian/Antananarivo, GMT+12:00-MHT-Pacific/Majuro, GMT+12:00-MHT-Pacific/Kwajalein, GMT+01:00-CET-Europe/Skopje, GMT+00:00-GMT-Africa/Bamako, GMT+06:30-MMT-Asia/Rangoon, GMT+08:00-ULAT-Asia/Ulaanbaatar, GMT+07:00-HOVT-Asia/Hovd, GMT+08:00-CHOT-Asia/Choibalsan, GMT+08:00-CST-Asia/Macau, GMT+10:00-ChST-Pacific/Saipan, GMT-04:00-AST-America/Martinique, GMT+00:00-GMT-Africa/Nouakchott, GMT-04:00-AST-America/Montserrat, GMT+01:00-CET-Europe/Malta, GMT+04:00-MUT-Indian/Mauritius, GMT+05:00-MVT-Indian/Maldives, GMT+02:00-CAT-Africa/Blantyre, GMT-06:00-CST-America/Mexico_City, GMT-06:00-CST-America/Cancun, GMT-06:00-CST-America/Merida, GMT-06:00-CST-America/Monterrey, GMT-05:00-CDT-America/Matamoros, GMT-07:00-MST-America/Mazatlan, GMT-07:00-MST-America/Chihuahua, GMT-06:00-MDT-America/Ojinaga, GMT-07:00-MST-America/Hermosillo, GMT-07:00-PDT-America/Tijuana, GMT-08:00-PST-America/Santa_Isabel, GMT-06:00-CST-America/Bahia_Banderas, GMT+08:00-MYT-Asia/Kuala_Lumpur, GMT+08:00-MYT-Asia/Kuching, GMT+02:00-CAT-Africa/Maputo, GMT+02:00-WAST-Africa/Windhoek, GMT+11:00-NCT-Pacific/Noumea, GMT+01:00-WAT-Africa/Niamey, GMT+11:30-NFT-Pacific/Norfolk, GMT+01:00-WAT-Africa/Lagos, GMT-06:00-CST-America/Managua, GMT+01:00-CET-Europe/Amsterdam, GMT+01:00-CET-Europe/Oslo, GMT+05:45-NPT-Asia/Kathmandu, GMT+12:00-NRT-Pacific/Nauru, GMT-11:00-NUT-Pacific/Niue, GMT+13:00-NZDT-Pacific/Auckland, GMT+13:45-CHADT-Pacific/Chatham, GMT+04:00-GST-Asia/Muscat, GMT-05:00-EST-America/Panama, GMT-05:00-PET-America/Lima, GMT-10:00-TAHT-Pacific/Tahiti, GMT-09:30-MART-Pacific/Marquesas, GMT-09:00-GAMT-Pacific/Gambier, GMT+10:00-PGT-Pacific/Port_Moresby, GMT+08:00-PHT-Asia/Manila, GMT+05:00-PKT-Asia/Karachi, GMT+01:00-CET-Europe/Warsaw, GMT-02:00-PMDT-America/Miquelon, GMT-08:00-PST-Pacific/Pitcairn, GMT-04:00-AST-America/Puerto_Rico, GMT+02:00-EET-Asia/Gaza, GMT+02:00-EET-Asia/Hebron, GMT+00:00-WET-Europe/Lisbon, GMT+00:00-WET-Atlantic/Madeira, GMT-01:00-AZOT-Atlantic/Azores, GMT+09:00-PWT-Pacific/Palau, GMT-03:00-PYST-America/Asuncion, GMT+03:00-AST-Asia/Qatar, GMT+04:00-RET-Indian/Reunion, GMT+02:00-EET-Europe/Bucharest, GMT+01:00-CET-Europe/Belgrade, GMT+03:00-FET-Europe/Kaliningrad, GMT+04:00-MSK-Europe/Moscow, GMT+04:00-VOLT-Europe/Volgograd, GMT+04:00-SAMT-Europe/Samara, GMT+06:00-YEKT-Asia/Yekaterinburg, GMT+07:00-OMST-Asia/Omsk, GMT+07:00-NOVT-Asia/Novosibirsk, GMT+07:00-NOVT-Asia/Novokuznetsk, GMT+08:00-KRAT-Asia/Krasnoyarsk, GMT+09:00-IRKT-Asia/Irkutsk, GMT+10:00-YAKT-Asia/Yakutsk, GMT+11:00-VLAT-Asia/Vladivostok, GMT+11:00-SAKT-Asia/Sakhalin, GMT+12:00-MAGT-Asia/Magadan, GMT+12:00-PETT-Asia/Kamchatka, GMT+12:00-ANAT-Asia/Anadyr, GMT+02:00-CAT-Africa/Kigali, GMT+03:00-AST-Asia/Riyadh, GMT+11:00-SBT-Pacific/Guadalcanal, GMT+04:00-SCT-Indian/Mahe, GMT+03:00-EAT-Africa/Khartoum, GMT+01:00-CET-Europe/Stockholm, GMT+08:00-SGT-Asia/Singapore, GMT+00:00-GMT-Atlantic/St_Helena, GMT+01:00-CET-Europe/Ljubljana, GMT+01:00-CET-Arctic/Longyearbyen, GMT+01:00-CET-Europe/Bratislava, GMT+00:00-GMT-Africa/Freetown, GMT+01:00-CET-Europe/San_Marino, GMT+00:00-GMT-Africa/Dakar, GMT+03:00-EAT-Africa/Mogadishu, GMT-03:00-SRT-America/Paramaribo, GMT+00:00-GMT-Africa/Sao_Tome, GMT-06:00-CST-America/El_Salvador, GMT+02:00-EET-Asia/Damascus, GMT+02:00-SAST-Africa/Mbabane, GMT-04:00-EDT-America/Grand_Turk, GMT+01:00-WAT-Africa/Ndjamena, GMT+05:00-TFT-Indian/Kerguelen, GMT+00:00-GMT-Africa/Lome, GMT+07:00-ICT-Asia/Bangkok, GMT+05:00-TJT-Asia/Dushanbe, GMT-10:00-TKT-Pacific/Fakaofo, GMT+09:00-TLT-Asia/Dili, GMT+05:00-TMT-Asia/Ashgabat, GMT+01:00-CET-Africa/Tunis, GMT+13:00-TOT-Pacific/Tongatapu, GMT+02:00-EET-Europe/Istanbul, GMT-04:00-AST-America/Port_of_Spain, GMT+12:00-TVT-Pacific/Funafuti, GMT+08:00-CST-Asia/Taipei, GMT+03:00-EAT-Africa/Dar_es_Salaam, GMT+02:00-EET-Europe/Kiev, GMT+02:00-EET-Europe/Uzhgorod, GMT+02:00-EET-Europe/Zaporozhye, GMT+02:00-EET-Europe/Simferopol, GMT+03:00-EAT-Africa/Kampala, GMT-10:00-HST-Pacific/Johnston, GMT-11:00-SST-Pacific/Midway, GMT+12:00-WAKT-Pacific/Wake, GMT-04:00-EDT-America/New_York, GMT-04:00-EDT-America/Detroit, GMT-04:00-EDT-America/Kentucky/Louisville, GMT-04:00-EDT-America/Kentucky/Monticello, GMT-04:00-EDT-America/Indiana/Indianapolis, GMT-04:00-EDT-America/Indiana/Vincennes, GMT-04:00-EDT-America/Indiana/Winamac, GMT-04:00-EDT-America/Indiana/Marengo, GMT-04:00-EDT-America/Indiana/Petersburg, GMT-04:00-EDT-America/Indiana/Vevay, GMT-05:00-CDT-America/Chicago, GMT-05:00-CDT-America/Indiana/Tell_City, GMT-05:00-CDT-America/Indiana/Knox, GMT-05:00-CDT-America/Menominee, GMT-05:00-CDT-America/North_Dakota/Center, GMT-05:00-CDT-America/North_Dakota/New_Salem, GMT-05:00-CDT-America/North_Dakota/Beulah, GMT-06:00-MDT-America/Denver, GMT-06:00-MDT-America/Boise, GMT-06:00-MDT-America/Shiprock, GMT-07:00-MST-America/Phoenix, GMT-07:00-PDT-America/Los_Angeles, GMT-08:00-AKDT-America/Anchorage, GMT-08:00-AKDT-America/Juneau, GMT-08:00-AKDT-America/Sitka, GMT-08:00-AKDT-America/Yakutat, GMT-08:00-AKDT-America/Nome, GMT-09:00-HADT-America/Adak, GMT-08:00-MeST-America/Metlakatla, GMT-10:00-HST-Pacific/Honolulu, GMT-03:00-UYT-America/Montevideo, GMT+05:00-UZT-Asia/Samarkand, GMT+05:00-UZT-Asia/Tashkent, GMT+01:00-CET-Europe/Vatican, GMT-04:00-AST-America/St_Vincent, GMT-04:30-VET-America/Caracas, GMT-04:00-AST-America/Tortola, GMT-04:00-AST-America/St_Thomas, GMT+07:00-ICT-Asia/Ho_Chi_Minh, GMT+11:00-VUT-Pacific/Efate, GMT+12:00-WFT-Pacific/Wallis, GMT+14:00-WSDT-Pacific/Apia, GMT+03:00-AST-Asia/Aden, GMT+03:00-EAT-Indian/Mayotte, GMT+02:00-SAST-Africa/Johannesburg, GMT+02:00-CAT-Africa/Lusaka, GMT+02:00-CAT-Africa/Harare.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@timezone</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">timezone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timezone</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Time zone for the NetScaler appliance. Name of the time zone should be specified as argument.&lt;br/&gt;Possible values = CoordinatedUniversalTime, GMT+01:00-CET-Europe/Andorra, GMT+04:00-GST-Asia/Dubai, GMT+04:30-AFT-Asia/Kabul, GMT-04:00-AST-America/Antigua, GMT-04:00-AST-America/Anguilla, GMT+01:00-CET-Europe/Tirane, GMT+04:00-AMT-Asia/Yerevan, GMT+01:00-WAT-Africa/Luanda, GMT+13:00-NZDT-Antarctica/McMurdo, GMT+13:00-NZDT-Antarctica/South_Pole, GMT-03:00-ROTT-Antarctica/Rothera, GMT-04:00-CLT-Antarctica/Palmer, GMT+05:00-MAWT-Antarctica/Mawson, GMT+07:00-DAVT-Antarctica/Davis, GMT+08:00-WST-Antarctica/Casey, GMT+06:00-VOST-Antarctica/Vostok, GMT+10:00-DDUT-Antarctica/DumontDUrville, GMT+03:00-SYOT-Antarctica/Syowa, GMT+11:00-MIST-Antarctica/Macquarie, GMT-03:00-ART-America/Argentina/Buenos_Aires, GMT-03:00-ART-America/Argentina/Cordoba, GMT-03:00-ART-America/Argentina/Salta, GMT-03:00-ART-America/Argentina/Jujuy, GMT-03:00-ART-America/Argentina/Tucuman, GMT-03:00-ART-America/Argentina/Catamarca, GMT-03:00-ART-America/Argentina/La_Rioja, GMT-03:00-ART-America/Argentina/San_Juan, GMT-03:00-ART-America/Argentina/Mendoza, GMT-03:00-WARST-America/Argentina/San_Luis, GMT-03:00-ART-America/Argentina/Rio_Gallegos, GMT-03:00-ART-America/Argentina/Ushuaia, GMT-11:00-SST-Pacific/Pago_Pago, GMT+01:00-CET-Europe/Vienna, GMT+11:00-LHST-Australia/Lord_Howe, GMT+11:00-EST-Australia/Hobart, GMT+11:00-EST-Australia/Currie, GMT+11:00-EST-Australia/Melbourne, GMT+11:00-EST-Australia/Sydney, GMT+10:30-CST-Australia/Broken_Hill, GMT+10:00-EST-Australia/Brisbane, GMT+10:00-EST-Australia/Lindeman, GMT+10:30-CST-Australia/Adelaide, GMT+09:30-CST-Australia/Darwin, GMT+08:00-WST-Australia/Perth, GMT+08:45-CWST-Australia/Eucla, GMT-04:00-AST-America/Aruba, GMT+02:00-EET-Europe/Mariehamn, GMT+04:00-AZT-Asia/Baku, GMT+01:00-CET-Europe/Sarajevo, GMT-04:00-AST-America/Barbados, GMT+06:00-BDT-Asia/Dhaka, GMT+01:00-CET-Europe/Brussels, GMT+00:00-GMT-Africa/Ouagadougou, GMT+02:00-EET-Europe/Sofia, GMT+03:00-AST-Asia/Bahrain, GMT+02:00-CAT-Africa/Bujumbura, GMT+01:00-WAT-Africa/Porto-Novo, GMT-04:00-AST-America/St_Barthelemy, GMT-03:00-ADT-Atlantic/Bermuda, GMT+08:00-BNT-Asia/Brunei, GMT-04:00-BOT-America/La_Paz, GMT-02:00-FNT-America/Noronha, GMT-03:00-BRT-America/Belem, GMT-03:00-BRT-America/Fortaleza, GMT-03:00-BRT-America/Recife, GMT-03:00-BRT-America/Araguaina, GMT-03:00-BRT-America/Maceio, GMT-03:00-BRT-America/Bahia, GMT-03:00-BRT-America/Sao_Paulo, GMT-04:00-AMT-America/Campo_Grande, GMT-04:00-AMT-America/Cuiaba, GMT-03:00-BRT-America/Santarem, GMT-04:00-AMT-America/Porto_Velho, GMT-04:00-AMT-America/Boa_Vista, GMT-04:00-AMT-America/Manaus, GMT-04:00-AMT-America/Eirunepe, GMT-04:00-AMT-America/Rio_Branco, GMT-04:00-EDT-America/Nassau, GMT+06:00-BTT-Asia/Thimphu, GMT+02:00-CAT-Africa/Gaborone, GMT+03:00-FET-Europe/Minsk, GMT-06:00-CST-America/Belize, GMT-02:30-NDT-America/St_Johns, GMT-03:00-ADT-America/Halifax, GMT-03:00-ADT-America/Glace_Bay, GMT-03:00-ADT-America/Moncton, GMT-03:00-ADT-America/Goose_Bay, GMT-04:00-AST-America/Blanc-Sablon, GMT-04:00-EDT-America/Montreal, GMT-04:00-EDT-America/Toronto, GMT-04:00-EDT-America/Nipigon, GMT-04:00-EDT-America/Thunder_Bay, GMT-04:00-EDT-America/Iqaluit, GMT-04:00-EDT-America/Pangnirtung, GMT-05:00-CDT-America/Resolute, GMT-05:00-EST-America/Atikokan, GMT-05:00-CDT-America/Rankin_Inlet, GMT-05:00-CDT-America/Winnipeg, GMT-05:00-CDT-America/Rainy_River, GMT-06:00-CST-America/Regina, GMT-06:00-CST-America/Swift_Current, GMT-06:00-MDT-America/Edmonton, GMT-06:00-MDT-America/Cambridge_Bay, GMT-06:00-MDT-America/Yellowknife, GMT-06:00-MDT-America/Inuvik, GMT-07:00-MST-America/Dawson_Creek, GMT-07:00-PDT-America/Vancouver, GMT-07:00-PDT-America/Whitehorse, GMT-07:00-PDT-America/Dawson, GMT+06:30-CCT-Indian/Cocos, GMT+01:00-WAT-Africa/Kinshasa, GMT+02:00-CAT-Africa/Lubumbashi, GMT+01:00-WAT-Africa/Bangui, GMT+01:00-WAT-Africa/Brazzaville, GMT+01:00-CET-Europe/Zurich, GMT+00:00-GMT-Africa/Abidjan, GMT-10:00-CKT-Pacific/Rarotonga, GMT-04:00-CLT-America/Santiago, GMT-06:00-EAST-Pacific/Easter, GMT+01:00-WAT-Africa/Douala, GMT+08:00-CST-Asia/Shanghai, GMT+08:00-CST-Asia/Harbin, GMT+08:00-CST-Asia/Chongqing, GMT+08:00-CST-Asia/Urumqi, GMT+08:00-CST-Asia/Kashgar, GMT-05:00-COT-America/Bogota, GMT-06:00-CST-America/Costa_Rica, GMT-04:00-CDT-America/Havana, GMT-01:00-CVT-Atlantic/Cape_Verde, GMT+07:00-CXT-Indian/Christmas, GMT+02:00-EET-Asia/Nicosia, GMT+01:00-CET-Europe/Prague, GMT+01:00-CET-Europe/Berlin, GMT+03:00-EAT-Africa/Djibouti, GMT+01:00-CET-Europe/Copenhagen, GMT-04:00-AST-America/Dominica, GMT-04:00-AST-America/Santo_Domingo, GMT+01:00-CET-Africa/Algiers, GMT-05:00-ECT-America/Guayaquil, GMT-06:00-GALT-Pacific/Galapagos, GMT+02:00-EET-Europe/Tallinn, GMT+02:00-EET-Africa/Cairo, GMT+00:00-WET-Africa/El_Aaiun, GMT+03:00-EAT-Africa/Asmara, GMT+01:00-CET-Europe/Madrid, GMT+01:00-CET-Africa/Ceuta, GMT+00:00-WET-Atlantic/Canary, GMT+03:00-EAT-Africa/Addis_Ababa, GMT+02:00-EET-Europe/Helsinki, GMT+12:00-FJT-Pacific/Fiji, GMT-03:00-FKST-Atlantic/Stanley, GMT+10:00-CHUT-Pacific/Chuuk, GMT+11:00-PONT-Pacific/Pohnpei, GMT+11:00-KOST-Pacific/Kosrae, GMT+00:00-WET-Atlantic/Faroe, GMT+01:00-CET-Europe/Paris, GMT+01:00-WAT-Africa/Libreville, GMT+00:00-GMT-Europe/London, GMT-04:00-AST-America/Grenada, GMT+04:00-GET-Asia/Tbilisi, GMT-03:00-GFT-America/Cayenne, GMT+00:00-GMT-Europe/Guernsey, GMT+00:00-GMT-Africa/Accra, GMT+01:00-CET-Europe/Gibraltar, GMT-03:00-WGT-America/Godthab, GMT+00:00-GMT-America/Danmarkshavn, GMT-01:00-EGT-America/Scoresbysund, GMT-03:00-ADT-America/Thule, GMT+00:00-GMT-Africa/Banjul, GMT+00:00-GMT-Africa/Conakry, GMT-04:00-AST-America/Guadeloupe, GMT+01:00-WAT-Africa/Malabo, GMT+02:00-EET-Europe/Athens, GMT-02:00-GST-Atlantic/South_Georgia, GMT-06:00-CST-America/Guatemala, GMT+10:00-ChST-Pacific/Guam, GMT+00:00-GMT-Africa/Bissau, GMT-04:00-GYT-America/Guyana, GMT+08:00-HKT-Asia/Hong_Kong, GMT-06:00-CST-America/Tegucigalpa, GMT+01:00-CET-Europe/Zagreb, GMT-05:00-EST-America/Port-au-Prince, GMT+01:00-CET-Europe/Budapest, GMT+07:00-WIT-Asia/Jakarta, GMT+07:00-WIT-Asia/Pontianak, GMT+08:00-CIT-Asia/Makassar, GMT+09:00-EIT-Asia/Jayapura, GMT+00:00-GMT-Europe/Dublin, GMT+02:00-IST-Asia/Jerusalem, GMT+00:00-GMT-Europe/Isle_of_Man, GMT+05:30-IST-Asia/Kolkata, GMT+06:00-IOT-Indian/Chagos, GMT+03:00-AST-Asia/Baghdad, GMT+03:30-IRST-Asia/Tehran, GMT+00:00-GMT-Atlantic/Reykjavik, GMT+01:00-CET-Europe/Rome, GMT+00:00-GMT-Europe/Jersey, GMT-05:00-EST-America/Jamaica, GMT+02:00-EET-Asia/Amman, GMT+09:00-JST-Asia/Tokyo, GMT+03:00-EAT-Africa/Nairobi, GMT+06:00-KGT-Asia/Bishkek, GMT+07:00-ICT-Asia/Phnom_Penh, GMT+12:00-GILT-Pacific/Tarawa, GMT+13:00-PHOT-Pacific/Enderbury, GMT+14:00-LINT-Pacific/Kiritimati, GMT+03:00-EAT-Indian/Comoro, GMT-04:00-AST-America/St_Kitts, GMT+09:00-KST-Asia/Pyongyang, GMT+09:00-KST-Asia/Seoul, GMT+03:00-AST-Asia/Kuwait, GMT-05:00-EST-America/Cayman, GMT+06:00-ALMT-Asia/Almaty, GMT+06:00-QYZT-Asia/Qyzylorda, GMT+05:00-AQTT-Asia/Aqtobe, GMT+05:00-AQTT-Asia/Aqtau, GMT+05:00-ORAT-Asia/Oral, GMT+07:00-ICT-Asia/Vientiane, GMT+02:00-EET-Asia/Beirut, GMT-04:00-AST-America/St_Lucia, GMT+01:00-CET-Europe/Vaduz, GMT+05:30-IST-Asia/Colombo, GMT+00:00-GMT-Africa/Monrovia, GMT+02:00-SAST-Africa/Maseru, GMT+02:00-EET-Europe/Vilnius, GMT+01:00-CET-Europe/Luxembourg, GMT+02:00-EET-Europe/Riga, GMT+02:00-EET-Africa/Tripoli, GMT+00:00-WET-Africa/Casablanca, GMT+01:00-CET-Europe/Monaco, GMT+02:00-EET-Europe/Chisinau, GMT+01:00-CET-Europe/Podgorica, GMT-04:00-AST-America/Marigot, GMT+03:00-EAT-Indian/Antananarivo, GMT+12:00-MHT-Pacific/Majuro, GMT+12:00-MHT-Pacific/Kwajalein, GMT+01:00-CET-Europe/Skopje, GMT+00:00-GMT-Africa/Bamako, GMT+06:30-MMT-Asia/Rangoon, GMT+08:00-ULAT-Asia/Ulaanbaatar, GMT+07:00-HOVT-Asia/Hovd, GMT+08:00-CHOT-Asia/Choibalsan, GMT+08:00-CST-Asia/Macau, GMT+10:00-ChST-Pacific/Saipan, GMT-04:00-AST-America/Martinique, GMT+00:00-GMT-Africa/Nouakchott, GMT-04:00-AST-America/Montserrat, GMT+01:00-CET-Europe/Malta, GMT+04:00-MUT-Indian/Mauritius, GMT+05:00-MVT-Indian/Maldives, GMT+02:00-CAT-Africa/Blantyre, GMT-06:00-CST-America/Mexico_City, GMT-06:00-CST-America/Cancun, GMT-06:00-CST-America/Merida, GMT-06:00-CST-America/Monterrey, GMT-05:00-CDT-America/Matamoros, GMT-07:00-MST-America/Mazatlan, GMT-07:00-MST-America/Chihuahua, GMT-06:00-MDT-America/Ojinaga, GMT-07:00-MST-America/Hermosillo, GMT-07:00-PDT-America/Tijuana, GMT-08:00-PST-America/Santa_Isabel, GMT-06:00-CST-America/Bahia_Banderas, GMT+08:00-MYT-Asia/Kuala_Lumpur, GMT+08:00-MYT-Asia/Kuching, GMT+02:00-CAT-Africa/Maputo, GMT+02:00-WAST-Africa/Windhoek, GMT+11:00-NCT-Pacific/Noumea, GMT+01:00-WAT-Africa/Niamey, GMT+11:30-NFT-Pacific/Norfolk, GMT+01:00-WAT-Africa/Lagos, GMT-06:00-CST-America/Managua, GMT+01:00-CET-Europe/Amsterdam, GMT+01:00-CET-Europe/Oslo, GMT+05:45-NPT-Asia/Kathmandu, GMT+12:00-NRT-Pacific/Nauru, GMT-11:00-NUT-Pacific/Niue, GMT+13:00-NZDT-Pacific/Auckland, GMT+13:45-CHADT-Pacific/Chatham, GMT+04:00-GST-Asia/Muscat, GMT-05:00-EST-America/Panama, GMT-05:00-PET-America/Lima, GMT-10:00-TAHT-Pacific/Tahiti, GMT-09:30-MART-Pacific/Marquesas, GMT-09:00-GAMT-Pacific/Gambier, GMT+10:00-PGT-Pacific/Port_Moresby, GMT+08:00-PHT-Asia/Manila, GMT+05:00-PKT-Asia/Karachi, GMT+01:00-CET-Europe/Warsaw, GMT-02:00-PMDT-America/Miquelon, GMT-08:00-PST-Pacific/Pitcairn, GMT-04:00-AST-America/Puerto_Rico, GMT+02:00-EET-Asia/Gaza, GMT+02:00-EET-Asia/Hebron, GMT+00:00-WET-Europe/Lisbon, GMT+00:00-WET-Atlantic/Madeira, GMT-01:00-AZOT-Atlantic/Azores, GMT+09:00-PWT-Pacific/Palau, GMT-03:00-PYST-America/Asuncion, GMT+03:00-AST-Asia/Qatar, GMT+04:00-RET-Indian/Reunion, GMT+02:00-EET-Europe/Bucharest, GMT+01:00-CET-Europe/Belgrade, GMT+03:00-FET-Europe/Kaliningrad, GMT+04:00-MSK-Europe/Moscow, GMT+04:00-VOLT-Europe/Volgograd, GMT+04:00-SAMT-Europe/Samara, GMT+06:00-YEKT-Asia/Yekaterinburg, GMT+07:00-OMST-Asia/Omsk, GMT+07:00-NOVT-Asia/Novosibirsk, GMT+07:00-NOVT-Asia/Novokuznetsk, GMT+08:00-KRAT-Asia/Krasnoyarsk, GMT+09:00-IRKT-Asia/Irkutsk, GMT+10:00-YAKT-Asia/Yakutsk, GMT+11:00-VLAT-Asia/Vladivostok, GMT+11:00-SAKT-Asia/Sakhalin, GMT+12:00-MAGT-Asia/Magadan, GMT+12:00-PETT-Asia/Kamchatka, GMT+12:00-ANAT-Asia/Anadyr, GMT+02:00-CAT-Africa/Kigali, GMT+03:00-AST-Asia/Riyadh, GMT+11:00-SBT-Pacific/Guadalcanal, GMT+04:00-SCT-Indian/Mahe, GMT+03:00-EAT-Africa/Khartoum, GMT+01:00-CET-Europe/Stockholm, GMT+08:00-SGT-Asia/Singapore, GMT+00:00-GMT-Atlantic/St_Helena, GMT+01:00-CET-Europe/Ljubljana, GMT+01:00-CET-Arctic/Longyearbyen, GMT+01:00-CET-Europe/Bratislava, GMT+00:00-GMT-Africa/Freetown, GMT+01:00-CET-Europe/San_Marino, GMT+00:00-GMT-Africa/Dakar, GMT+03:00-EAT-Africa/Mogadishu, GMT-03:00-SRT-America/Paramaribo, GMT+00:00-GMT-Africa/Sao_Tome, GMT-06:00-CST-America/El_Salvador, GMT+02:00-EET-Asia/Damascus, GMT+02:00-SAST-Africa/Mbabane, GMT-04:00-EDT-America/Grand_Turk, GMT+01:00-WAT-Africa/Ndjamena, GMT+05:00-TFT-Indian/Kerguelen, GMT+00:00-GMT-Africa/Lome, GMT+07:00-ICT-Asia/Bangkok, GMT+05:00-TJT-Asia/Dushanbe, GMT-10:00-TKT-Pacific/Fakaofo, GMT+09:00-TLT-Asia/Dili, GMT+05:00-TMT-Asia/Ashgabat, GMT+01:00-CET-Africa/Tunis, GMT+13:00-TOT-Pacific/Tongatapu, GMT+02:00-EET-Europe/Istanbul, GMT-04:00-AST-America/Port_of_Spain, GMT+12:00-TVT-Pacific/Funafuti, GMT+08:00-CST-Asia/Taipei, GMT+03:00-EAT-Africa/Dar_es_Salaam, GMT+02:00-EET-Europe/Kiev, GMT+02:00-EET-Europe/Uzhgorod, GMT+02:00-EET-Europe/Zaporozhye, GMT+02:00-EET-Europe/Simferopol, GMT+03:00-EAT-Africa/Kampala, GMT-10:00-HST-Pacific/Johnston, GMT-11:00-SST-Pacific/Midway, GMT+12:00-WAKT-Pacific/Wake, GMT-04:00-EDT-America/New_York, GMT-04:00-EDT-America/Detroit, GMT-04:00-EDT-America/Kentucky/Louisville, GMT-04:00-EDT-America/Kentucky/Monticello, GMT-04:00-EDT-America/Indiana/Indianapolis, GMT-04:00-EDT-America/Indiana/Vincennes, GMT-04:00-EDT-America/Indiana/Winamac, GMT-04:00-EDT-America/Indiana/Marengo, GMT-04:00-EDT-America/Indiana/Petersburg, GMT-04:00-EDT-America/Indiana/Vevay, GMT-05:00-CDT-America/Chicago, GMT-05:00-CDT-America/Indiana/Tell_City, GMT-05:00-CDT-America/Indiana/Knox, GMT-05:00-CDT-America/Menominee, GMT-05:00-CDT-America/North_Dakota/Center, GMT-05:00-CDT-America/North_Dakota/New_Salem, GMT-05:00-CDT-America/North_Dakota/Beulah, GMT-06:00-MDT-America/Denver, GMT-06:00-MDT-America/Boise, GMT-06:00-MDT-America/Shiprock, GMT-07:00-MST-America/Phoenix, GMT-07:00-PDT-America/Los_Angeles, GMT-08:00-AKDT-America/Anchorage, GMT-08:00-AKDT-America/Juneau, GMT-08:00-AKDT-America/Sitka, GMT-08:00-AKDT-America/Yakutat, GMT-08:00-AKDT-America/Nome, GMT-09:00-HADT-America/Adak, GMT-08:00-MeST-America/Metlakatla, GMT-10:00-HST-Pacific/Honolulu, GMT-03:00-UYT-America/Montevideo, GMT+05:00-UZT-Asia/Samarkand, GMT+05:00-UZT-Asia/Tashkent, GMT+01:00-CET-Europe/Vatican, GMT-04:00-AST-America/St_Vincent, GMT-04:30-VET-America/Caracas, GMT-04:00-AST-America/Tortola, GMT-04:00-AST-America/St_Thomas, GMT+07:00-ICT-Asia/Ho_Chi_Minh, GMT+11:00-VUT-Pacific/Efate, GMT+12:00-WFT-Pacific/Wallis, GMT+14:00-WSDT-Pacific/Apia, GMT+03:00-AST-Asia/Aden, GMT+03:00-EAT-Indian/Mayotte, GMT+02:00-SAST-Africa/Johannesburg, GMT+02:00-CAT-Africa/Lusaka, GMT+02:00-CAT-Africa/Harare</span>
+
+<span class="sd">        :param timezone: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span> <span class="o">=</span> <span class="n">timezone</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">grantquotamaxclient</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Percentage of shared quota to be granted at a time for maxClient.&lt;br/&gt;Default value: 10&lt;br/&gt;Maximum length =  100.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_grantquotamaxclient</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@grantquotamaxclient</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">grantquotamaxclient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grantquotamaxclient</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Percentage of shared quota to be granted at a time for maxClient.&lt;br/&gt;Default value: 10&lt;br/&gt;Maximum length =  100</span>
+
+<span class="sd">        :param grantquotamaxclient: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_grantquotamaxclient</span> <span class="o">=</span> <span class="n">grantquotamaxclient</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">exclusivequotamaxclient</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Percentage of maxClient to be given to PEs.&lt;br/&gt;Default value: 80&lt;br/&gt;Maximum length =  100.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exclusivequotamaxclient</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@exclusivequotamaxclient</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">exclusivequotamaxclient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exclusivequotamaxclient</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Percentage of maxClient to be given to PEs.&lt;br/&gt;Default value: 80&lt;br/&gt;Maximum length =  100</span>
+
+<span class="sd">        :param exclusivequotamaxclient: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_exclusivequotamaxclient</span> <span class="o">=</span> <span class="n">exclusivequotamaxclient</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">grantquotaspillover</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Percentage of shared quota to be granted at a time for spillover.&lt;br/&gt;Default value: 10&lt;br/&gt;Maximum length =  100.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_grantquotaspillover</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@grantquotaspillover</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">grantquotaspillover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grantquotaspillover</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Percentage of shared quota to be granted at a time for spillover.&lt;br/&gt;Default value: 10&lt;br/&gt;Maximum length =  100</span>
+
+<span class="sd">        :param grantquotaspillover: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_grantquotaspillover</span> <span class="o">=</span> <span class="n">grantquotaspillover</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">exclusivequotaspillover</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Percentage of maximum limit to be given to PEs.&lt;br/&gt;Default value: 80&lt;br/&gt;Maximum length =  100.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exclusivequotaspillover</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@exclusivequotaspillover</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">exclusivequotaspillover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exclusivequotaspillover</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Percentage of maximum limit to be given to PEs.&lt;br/&gt;Default value: 80&lt;br/&gt;Maximum length =  100</span>
+
+<span class="sd">        :param exclusivequotaspillover: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_exclusivequotaspillover</span> <span class="o">=</span> <span class="n">exclusivequotaspillover</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">useproxyport</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable/Disable use_proxy_port setting.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_useproxyport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@useproxyport</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">useproxyport</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">useproxyport</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable/Disable use_proxy_port setting.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param useproxyport: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_useproxyport</span> <span class="o">=</span> <span class="n">useproxyport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">internaluserlogin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enables/disables the internal user from logging in to the appliance. Before disabling internal user login, you must have key-based authentication set up on the appliance. The file name for the key pair must be &quot;ns_comm_key&quot;.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_internaluserlogin</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@internaluserlogin</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">internaluserlogin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">internaluserlogin</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enables/disables the internal user from logging in to the appliance. Before disabling internal user login, you must have key-based authentication set up on the appliance. The file name for the key pair must be &quot;ns_comm_key&quot;.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param internaluserlogin: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_internaluserlogin</span> <span class="o">=</span> <span class="n">internaluserlogin</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">aftpallowrandomsourceport</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Allow the FTP server to come from a random source port for active FTP data connections.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aftpallowrandomsourceport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@aftpallowrandomsourceport</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">aftpallowrandomsourceport</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aftpallowrandomsourceport</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Allow the FTP server to come from a random source port for active FTP data connections.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param aftpallowrandomsourceport: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_aftpallowrandomsourceport</span> <span class="o">=</span> <span class="n">aftpallowrandomsourceport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">icaports</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The ICA ports on the Web server. This allows the system to perform connection off-load for any</span>
+<span class="sd">        client request that has a destination port matching one of these configured ports.&lt;br/&gt;Minimum length =  1.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_icaports</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@icaports</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">icaports</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">icaports</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The ICA ports on the Web server. This allows the system to perform connection off-load for any</span>
+<span class="sd">        client request that has a destination port matching one of these configured ports.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param icaports: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_icaports</span> <span class="o">=</span> <span class="n">icaports</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tcpcip</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable the insertion of the client TCP/IP header in TCP payload passed from the client to one, some, or all servers attached to the system. The passed address can then be accessed through a minor modification to the server.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tcpcip</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@tcpcip</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">tcpcip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tcpcip</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable the insertion of the client TCP/IP header in TCP payload passed from the client to one, some, or all servers attached to the system. The passed address can then be accessed through a minor modification to the server.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param tcpcip: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tcpcip</span> <span class="o">=</span> <span class="n">tcpcip</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">servicepathingressvlan</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;VLAN on which the subscriber traffic arrives on the appliance.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_servicepathingressvlan</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@servicepathingressvlan</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">servicepathingressvlan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">servicepathingressvlan</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;VLAN on which the subscriber traffic arrives on the appliance.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param servicepathingressvlan: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_servicepathingressvlan</span> <span class="o">=</span> <span class="n">servicepathingressvlan</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">nsparam_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">nsparam</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="nsparam.update"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam.update">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to update nsparam.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">updateresource</span> <span class="o">=</span> <span class="n">nsparam</span><span class="p">()</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">httpport</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">httpport</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">maxconn</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">maxconn</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">maxreq</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">maxreq</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">cip</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">cip</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">cipheader</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">cipheader</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">cookieversion</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">cookieversion</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">securecookie</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">securecookie</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">pmtumin</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">pmtumin</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">pmtutimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">pmtutimeout</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">ftpportrange</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ftpportrange</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">crportrange</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">crportrange</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">timezone</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">grantquotamaxclient</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">grantquotamaxclient</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">exclusivequotamaxclient</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">exclusivequotamaxclient</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">grantquotaspillover</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">grantquotaspillover</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">exclusivequotaspillover</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">exclusivequotaspillover</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">useproxyport</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">useproxyport</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">internaluserlogin</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">internaluserlogin</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">aftpallowrandomsourceport</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">aftpallowrandomsourceport</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">icaports</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">icaports</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">tcpcip</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">tcpcip</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">servicepathingressvlan</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">servicepathingressvlan</span>
+                <span class="k">return</span> <span class="n">updateresource</span><span class="o">.</span><span class="n">update_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="nsparam.unset"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam.unset">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">unset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to unset the properties of nsparam resource.</span>
+<span class="sd">        Properties that need to be unset are specified in args array.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">unsetresource</span> <span class="o">=</span> <span class="n">nsparam</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">unsetresource</span><span class="o">.</span><span class="n">unset_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="nsparam.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the nsparam resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">nsparam</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="nsparam.Timezone"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam.Timezone">[docs]</a>    <span class="k">class</span> <span class="nc">Timezone</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">CoordinatedUniversalTime</span> <span class="o">=</span> <span class="s2">&quot;CoordinatedUniversalTime&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Andorra</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Andorra&quot;</span>
+        <span class="n">GMT_04_00_GST_Asia_Dubai</span> <span class="o">=</span> <span class="s2">&quot;GMT+04:00-GST-Asia/Dubai&quot;</span>
+        <span class="n">GMT_04_30_AFT_Asia_Kabul</span> <span class="o">=</span> <span class="s2">&quot;GMT+04:30-AFT-Asia/Kabul&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Antigua</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Antigua&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Anguilla</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Anguilla&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Tirane</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Tirane&quot;</span>
+        <span class="n">GMT_04_00_AMT_Asia_Yerevan</span> <span class="o">=</span> <span class="s2">&quot;GMT+04:00-AMT-Asia/Yerevan&quot;</span>
+        <span class="n">GMT_01_00_WAT_Africa_Luanda</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-WAT-Africa/Luanda&quot;</span>
+        <span class="n">GMT_13_00_NZDT_Antarctica_McMurdo</span> <span class="o">=</span> <span class="s2">&quot;GMT+13:00-NZDT-Antarctica/McMurdo&quot;</span>
+        <span class="n">GMT_13_00_NZDT_Antarctica_South_Pole</span> <span class="o">=</span> <span class="s2">&quot;GMT+13:00-NZDT-Antarctica/South_Pole&quot;</span>
+        <span class="n">GMT_03_00_ROTT_Antarctica_Rothera</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ROTT-Antarctica/Rothera&quot;</span>
+        <span class="n">GMT_04_00_CLT_Antarctica_Palmer</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-CLT-Antarctica/Palmer&quot;</span>
+        <span class="n">GMT_05_00_MAWT_Antarctica_Mawson</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:00-MAWT-Antarctica/Mawson&quot;</span>
+        <span class="n">GMT_07_00_DAVT_Antarctica_Davis</span> <span class="o">=</span> <span class="s2">&quot;GMT+07:00-DAVT-Antarctica/Davis&quot;</span>
+        <span class="n">GMT_08_00_WST_Antarctica_Casey</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-WST-Antarctica/Casey&quot;</span>
+        <span class="n">GMT_06_00_VOST_Antarctica_Vostok</span> <span class="o">=</span> <span class="s2">&quot;GMT+06:00-VOST-Antarctica/Vostok&quot;</span>
+        <span class="n">GMT_10_00_DDUT_Antarctica_DumontDUrville</span> <span class="o">=</span> <span class="s2">&quot;GMT+10:00-DDUT-Antarctica/DumontDUrville&quot;</span>
+        <span class="n">GMT_03_00_SYOT_Antarctica_Syowa</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-SYOT-Antarctica/Syowa&quot;</span>
+        <span class="n">GMT_11_00_MIST_Antarctica_Macquarie</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-MIST-Antarctica/Macquarie&quot;</span>
+        <span class="n">GMT_03_00_ART_America_Argentina_Buenos_Aires</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ART-America/Argentina/Buenos_Aires&quot;</span>
+        <span class="n">GMT_03_00_ART_America_Argentina_Cordoba</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ART-America/Argentina/Cordoba&quot;</span>
+        <span class="n">GMT_03_00_ART_America_Argentina_Salta</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ART-America/Argentina/Salta&quot;</span>
+        <span class="n">GMT_03_00_ART_America_Argentina_Jujuy</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ART-America/Argentina/Jujuy&quot;</span>
+        <span class="n">GMT_03_00_ART_America_Argentina_Tucuman</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ART-America/Argentina/Tucuman&quot;</span>
+        <span class="n">GMT_03_00_ART_America_Argentina_Catamarca</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ART-America/Argentina/Catamarca&quot;</span>
+        <span class="n">GMT_03_00_ART_America_Argentina_La_Rioja</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ART-America/Argentina/La_Rioja&quot;</span>
+        <span class="n">GMT_03_00_ART_America_Argentina_San_Juan</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ART-America/Argentina/San_Juan&quot;</span>
+        <span class="n">GMT_03_00_ART_America_Argentina_Mendoza</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ART-America/Argentina/Mendoza&quot;</span>
+        <span class="n">GMT_03_00_WARST_America_Argentina_San_Luis</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-WARST-America/Argentina/San_Luis&quot;</span>
+        <span class="n">GMT_03_00_ART_America_Argentina_Rio_Gallegos</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ART-America/Argentina/Rio_Gallegos&quot;</span>
+        <span class="n">GMT_03_00_ART_America_Argentina_Ushuaia</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ART-America/Argentina/Ushuaia&quot;</span>
+        <span class="n">GMT_11_00_SST_Pacific_Pago_Pago</span> <span class="o">=</span> <span class="s2">&quot;GMT-11:00-SST-Pacific/Pago_Pago&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Vienna</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Vienna&quot;</span>
+        <span class="n">GMT_11_00_LHST_Australia_Lord_Howe</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-LHST-Australia/Lord_Howe&quot;</span>
+        <span class="n">GMT_11_00_EST_Australia_Hobart</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-EST-Australia/Hobart&quot;</span>
+        <span class="n">GMT_11_00_EST_Australia_Currie</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-EST-Australia/Currie&quot;</span>
+        <span class="n">GMT_11_00_EST_Australia_Melbourne</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-EST-Australia/Melbourne&quot;</span>
+        <span class="n">GMT_11_00_EST_Australia_Sydney</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-EST-Australia/Sydney&quot;</span>
+        <span class="n">GMT_10_30_CST_Australia_Broken_Hill</span> <span class="o">=</span> <span class="s2">&quot;GMT+10:30-CST-Australia/Broken_Hill&quot;</span>
+        <span class="n">GMT_10_00_EST_Australia_Brisbane</span> <span class="o">=</span> <span class="s2">&quot;GMT+10:00-EST-Australia/Brisbane&quot;</span>
+        <span class="n">GMT_10_00_EST_Australia_Lindeman</span> <span class="o">=</span> <span class="s2">&quot;GMT+10:00-EST-Australia/Lindeman&quot;</span>
+        <span class="n">GMT_10_30_CST_Australia_Adelaide</span> <span class="o">=</span> <span class="s2">&quot;GMT+10:30-CST-Australia/Adelaide&quot;</span>
+        <span class="n">GMT_09_30_CST_Australia_Darwin</span> <span class="o">=</span> <span class="s2">&quot;GMT+09:30-CST-Australia/Darwin&quot;</span>
+        <span class="n">GMT_08_00_WST_Australia_Perth</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-WST-Australia/Perth&quot;</span>
+        <span class="n">GMT_08_45_CWST_Australia_Eucla</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:45-CWST-Australia/Eucla&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Aruba</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Aruba&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Mariehamn</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Mariehamn&quot;</span>
+        <span class="n">GMT_04_00_AZT_Asia_Baku</span> <span class="o">=</span> <span class="s2">&quot;GMT+04:00-AZT-Asia/Baku&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Sarajevo</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Sarajevo&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Barbados</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Barbados&quot;</span>
+        <span class="n">GMT_06_00_BDT_Asia_Dhaka</span> <span class="o">=</span> <span class="s2">&quot;GMT+06:00-BDT-Asia/Dhaka&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Brussels</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Brussels&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Ouagadougou</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Ouagadougou&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Sofia</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Sofia&quot;</span>
+        <span class="n">GMT_03_00_AST_Asia_Bahrain</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-AST-Asia/Bahrain&quot;</span>
+        <span class="n">GMT_02_00_CAT_Africa_Bujumbura</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-CAT-Africa/Bujumbura&quot;</span>
+        <span class="n">GMT_01_00_WAT_Africa_Porto_Novo</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-WAT-Africa/Porto-Novo&quot;</span>
+        <span class="n">GMT_04_00_AST_America_St_Barthelemy</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/St_Barthelemy&quot;</span>
+        <span class="n">GMT_03_00_ADT_Atlantic_Bermuda</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ADT-Atlantic/Bermuda&quot;</span>
+        <span class="n">GMT_08_00_BNT_Asia_Brunei</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-BNT-Asia/Brunei&quot;</span>
+        <span class="n">GMT_04_00_BOT_America_La_Paz</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-BOT-America/La_Paz&quot;</span>
+        <span class="n">GMT_02_00_FNT_America_Noronha</span> <span class="o">=</span> <span class="s2">&quot;GMT-02:00-FNT-America/Noronha&quot;</span>
+        <span class="n">GMT_03_00_BRT_America_Belem</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-BRT-America/Belem&quot;</span>
+        <span class="n">GMT_03_00_BRT_America_Fortaleza</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-BRT-America/Fortaleza&quot;</span>
+        <span class="n">GMT_03_00_BRT_America_Recife</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-BRT-America/Recife&quot;</span>
+        <span class="n">GMT_03_00_BRT_America_Araguaina</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-BRT-America/Araguaina&quot;</span>
+        <span class="n">GMT_03_00_BRT_America_Maceio</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-BRT-America/Maceio&quot;</span>
+        <span class="n">GMT_03_00_BRT_America_Bahia</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-BRT-America/Bahia&quot;</span>
+        <span class="n">GMT_03_00_BRT_America_Sao_Paulo</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-BRT-America/Sao_Paulo&quot;</span>
+        <span class="n">GMT_04_00_AMT_America_Campo_Grande</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AMT-America/Campo_Grande&quot;</span>
+        <span class="n">GMT_04_00_AMT_America_Cuiaba</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AMT-America/Cuiaba&quot;</span>
+        <span class="n">GMT_03_00_BRT_America_Santarem</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-BRT-America/Santarem&quot;</span>
+        <span class="n">GMT_04_00_AMT_America_Porto_Velho</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AMT-America/Porto_Velho&quot;</span>
+        <span class="n">GMT_04_00_AMT_America_Boa_Vista</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AMT-America/Boa_Vista&quot;</span>
+        <span class="n">GMT_04_00_AMT_America_Manaus</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AMT-America/Manaus&quot;</span>
+        <span class="n">GMT_04_00_AMT_America_Eirunepe</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AMT-America/Eirunepe&quot;</span>
+        <span class="n">GMT_04_00_AMT_America_Rio_Branco</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AMT-America/Rio_Branco&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Nassau</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Nassau&quot;</span>
+        <span class="n">GMT_06_00_BTT_Asia_Thimphu</span> <span class="o">=</span> <span class="s2">&quot;GMT+06:00-BTT-Asia/Thimphu&quot;</span>
+        <span class="n">GMT_02_00_CAT_Africa_Gaborone</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-CAT-Africa/Gaborone&quot;</span>
+        <span class="n">GMT_03_00_FET_Europe_Minsk</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-FET-Europe/Minsk&quot;</span>
+        <span class="n">GMT_06_00_CST_America_Belize</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/Belize&quot;</span>
+        <span class="n">GMT_02_30_NDT_America_St_Johns</span> <span class="o">=</span> <span class="s2">&quot;GMT-02:30-NDT-America/St_Johns&quot;</span>
+        <span class="n">GMT_03_00_ADT_America_Halifax</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ADT-America/Halifax&quot;</span>
+        <span class="n">GMT_03_00_ADT_America_Glace_Bay</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ADT-America/Glace_Bay&quot;</span>
+        <span class="n">GMT_03_00_ADT_America_Moncton</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ADT-America/Moncton&quot;</span>
+        <span class="n">GMT_03_00_ADT_America_Goose_Bay</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ADT-America/Goose_Bay&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Blanc_Sablon</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Blanc-Sablon&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Montreal</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Montreal&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Toronto</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Toronto&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Nipigon</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Nipigon&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Thunder_Bay</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Thunder_Bay&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Iqaluit</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Iqaluit&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Pangnirtung</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Pangnirtung&quot;</span>
+        <span class="n">GMT_05_00_CDT_America_Resolute</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-CDT-America/Resolute&quot;</span>
+        <span class="n">GMT_05_00_EST_America_Atikokan</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-EST-America/Atikokan&quot;</span>
+        <span class="n">GMT_05_00_CDT_America_Rankin_Inlet</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-CDT-America/Rankin_Inlet&quot;</span>
+        <span class="n">GMT_05_00_CDT_America_Winnipeg</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-CDT-America/Winnipeg&quot;</span>
+        <span class="n">GMT_05_00_CDT_America_Rainy_River</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-CDT-America/Rainy_River&quot;</span>
+        <span class="n">GMT_06_00_CST_America_Regina</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/Regina&quot;</span>
+        <span class="n">GMT_06_00_CST_America_Swift_Current</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/Swift_Current&quot;</span>
+        <span class="n">GMT_06_00_MDT_America_Edmonton</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-MDT-America/Edmonton&quot;</span>
+        <span class="n">GMT_06_00_MDT_America_Cambridge_Bay</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-MDT-America/Cambridge_Bay&quot;</span>
+        <span class="n">GMT_06_00_MDT_America_Yellowknife</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-MDT-America/Yellowknife&quot;</span>
+        <span class="n">GMT_06_00_MDT_America_Inuvik</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-MDT-America/Inuvik&quot;</span>
+        <span class="n">GMT_07_00_MST_America_Dawson_Creek</span> <span class="o">=</span> <span class="s2">&quot;GMT-07:00-MST-America/Dawson_Creek&quot;</span>
+        <span class="n">GMT_07_00_PDT_America_Vancouver</span> <span class="o">=</span> <span class="s2">&quot;GMT-07:00-PDT-America/Vancouver&quot;</span>
+        <span class="n">GMT_07_00_PDT_America_Whitehorse</span> <span class="o">=</span> <span class="s2">&quot;GMT-07:00-PDT-America/Whitehorse&quot;</span>
+        <span class="n">GMT_07_00_PDT_America_Dawson</span> <span class="o">=</span> <span class="s2">&quot;GMT-07:00-PDT-America/Dawson&quot;</span>
+        <span class="n">GMT_06_30_CCT_Indian_Cocos</span> <span class="o">=</span> <span class="s2">&quot;GMT+06:30-CCT-Indian/Cocos&quot;</span>
+        <span class="n">GMT_01_00_WAT_Africa_Kinshasa</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-WAT-Africa/Kinshasa&quot;</span>
+        <span class="n">GMT_02_00_CAT_Africa_Lubumbashi</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-CAT-Africa/Lubumbashi&quot;</span>
+        <span class="n">GMT_01_00_WAT_Africa_Bangui</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-WAT-Africa/Bangui&quot;</span>
+        <span class="n">GMT_01_00_WAT_Africa_Brazzaville</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-WAT-Africa/Brazzaville&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Zurich</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Zurich&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Abidjan</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Abidjan&quot;</span>
+        <span class="n">GMT_10_00_CKT_Pacific_Rarotonga</span> <span class="o">=</span> <span class="s2">&quot;GMT-10:00-CKT-Pacific/Rarotonga&quot;</span>
+        <span class="n">GMT_04_00_CLT_America_Santiago</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-CLT-America/Santiago&quot;</span>
+        <span class="n">GMT_06_00_EAST_Pacific_Easter</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-EAST-Pacific/Easter&quot;</span>
+        <span class="n">GMT_01_00_WAT_Africa_Douala</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-WAT-Africa/Douala&quot;</span>
+        <span class="n">GMT_08_00_CST_Asia_Shanghai</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-CST-Asia/Shanghai&quot;</span>
+        <span class="n">GMT_08_00_CST_Asia_Harbin</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-CST-Asia/Harbin&quot;</span>
+        <span class="n">GMT_08_00_CST_Asia_Chongqing</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-CST-Asia/Chongqing&quot;</span>
+        <span class="n">GMT_08_00_CST_Asia_Urumqi</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-CST-Asia/Urumqi&quot;</span>
+        <span class="n">GMT_08_00_CST_Asia_Kashgar</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-CST-Asia/Kashgar&quot;</span>
+        <span class="n">GMT_05_00_COT_America_Bogota</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-COT-America/Bogota&quot;</span>
+        <span class="n">GMT_06_00_CST_America_Costa_Rica</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/Costa_Rica&quot;</span>
+        <span class="n">GMT_04_00_CDT_America_Havana</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-CDT-America/Havana&quot;</span>
+        <span class="n">GMT_01_00_CVT_Atlantic_Cape_Verde</span> <span class="o">=</span> <span class="s2">&quot;GMT-01:00-CVT-Atlantic/Cape_Verde&quot;</span>
+        <span class="n">GMT_07_00_CXT_Indian_Christmas</span> <span class="o">=</span> <span class="s2">&quot;GMT+07:00-CXT-Indian/Christmas&quot;</span>
+        <span class="n">GMT_02_00_EET_Asia_Nicosia</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Asia/Nicosia&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Prague</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Prague&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Berlin</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Berlin&quot;</span>
+        <span class="n">GMT_03_00_EAT_Africa_Djibouti</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-EAT-Africa/Djibouti&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Copenhagen</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Copenhagen&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Dominica</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Dominica&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Santo_Domingo</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Santo_Domingo&quot;</span>
+        <span class="n">GMT_01_00_CET_Africa_Algiers</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Africa/Algiers&quot;</span>
+        <span class="n">GMT_05_00_ECT_America_Guayaquil</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-ECT-America/Guayaquil&quot;</span>
+        <span class="n">GMT_06_00_GALT_Pacific_Galapagos</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-GALT-Pacific/Galapagos&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Tallinn</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Tallinn&quot;</span>
+        <span class="n">GMT_02_00_EET_Africa_Cairo</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Africa/Cairo&quot;</span>
+        <span class="n">GMT_00_00_WET_Africa_El_Aaiun</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-WET-Africa/El_Aaiun&quot;</span>
+        <span class="n">GMT_03_00_EAT_Africa_Asmara</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-EAT-Africa/Asmara&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Madrid</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Madrid&quot;</span>
+        <span class="n">GMT_01_00_CET_Africa_Ceuta</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Africa/Ceuta&quot;</span>
+        <span class="n">GMT_00_00_WET_Atlantic_Canary</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-WET-Atlantic/Canary&quot;</span>
+        <span class="n">GMT_03_00_EAT_Africa_Addis_Ababa</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-EAT-Africa/Addis_Ababa&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Helsinki</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Helsinki&quot;</span>
+        <span class="n">GMT_12_00_FJT_Pacific_Fiji</span> <span class="o">=</span> <span class="s2">&quot;GMT+12:00-FJT-Pacific/Fiji&quot;</span>
+        <span class="n">GMT_03_00_FKST_Atlantic_Stanley</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-FKST-Atlantic/Stanley&quot;</span>
+        <span class="n">GMT_10_00_CHUT_Pacific_Chuuk</span> <span class="o">=</span> <span class="s2">&quot;GMT+10:00-CHUT-Pacific/Chuuk&quot;</span>
+        <span class="n">GMT_11_00_PONT_Pacific_Pohnpei</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-PONT-Pacific/Pohnpei&quot;</span>
+        <span class="n">GMT_11_00_KOST_Pacific_Kosrae</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-KOST-Pacific/Kosrae&quot;</span>
+        <span class="n">GMT_00_00_WET_Atlantic_Faroe</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-WET-Atlantic/Faroe&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Paris</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Paris&quot;</span>
+        <span class="n">GMT_01_00_WAT_Africa_Libreville</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-WAT-Africa/Libreville&quot;</span>
+        <span class="n">GMT_00_00_GMT_Europe_London</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Europe/London&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Grenada</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Grenada&quot;</span>
+        <span class="n">GMT_04_00_GET_Asia_Tbilisi</span> <span class="o">=</span> <span class="s2">&quot;GMT+04:00-GET-Asia/Tbilisi&quot;</span>
+        <span class="n">GMT_03_00_GFT_America_Cayenne</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-GFT-America/Cayenne&quot;</span>
+        <span class="n">GMT_00_00_GMT_Europe_Guernsey</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Europe/Guernsey&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Accra</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Accra&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Gibraltar</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Gibraltar&quot;</span>
+        <span class="n">GMT_03_00_WGT_America_Godthab</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-WGT-America/Godthab&quot;</span>
+        <span class="n">GMT_00_00_GMT_America_Danmarkshavn</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-America/Danmarkshavn&quot;</span>
+        <span class="n">GMT_01_00_EGT_America_Scoresbysund</span> <span class="o">=</span> <span class="s2">&quot;GMT-01:00-EGT-America/Scoresbysund&quot;</span>
+        <span class="n">GMT_03_00_ADT_America_Thule</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-ADT-America/Thule&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Banjul</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Banjul&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Conakry</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Conakry&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Guadeloupe</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Guadeloupe&quot;</span>
+        <span class="n">GMT_01_00_WAT_Africa_Malabo</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-WAT-Africa/Malabo&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Athens</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Athens&quot;</span>
+        <span class="n">GMT_02_00_GST_Atlantic_South_Georgia</span> <span class="o">=</span> <span class="s2">&quot;GMT-02:00-GST-Atlantic/South_Georgia&quot;</span>
+        <span class="n">GMT_06_00_CST_America_Guatemala</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/Guatemala&quot;</span>
+        <span class="n">GMT_10_00_ChST_Pacific_Guam</span> <span class="o">=</span> <span class="s2">&quot;GMT+10:00-ChST-Pacific/Guam&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Bissau</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Bissau&quot;</span>
+        <span class="n">GMT_04_00_GYT_America_Guyana</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-GYT-America/Guyana&quot;</span>
+        <span class="n">GMT_08_00_HKT_Asia_Hong_Kong</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-HKT-Asia/Hong_Kong&quot;</span>
+        <span class="n">GMT_06_00_CST_America_Tegucigalpa</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/Tegucigalpa&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Zagreb</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Zagreb&quot;</span>
+        <span class="n">GMT_05_00_EST_America_Port_au_Prince</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-EST-America/Port-au-Prince&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Budapest</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Budapest&quot;</span>
+        <span class="n">GMT_07_00_WIT_Asia_Jakarta</span> <span class="o">=</span> <span class="s2">&quot;GMT+07:00-WIT-Asia/Jakarta&quot;</span>
+        <span class="n">GMT_07_00_WIT_Asia_Pontianak</span> <span class="o">=</span> <span class="s2">&quot;GMT+07:00-WIT-Asia/Pontianak&quot;</span>
+        <span class="n">GMT_08_00_CIT_Asia_Makassar</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-CIT-Asia/Makassar&quot;</span>
+        <span class="n">GMT_09_00_EIT_Asia_Jayapura</span> <span class="o">=</span> <span class="s2">&quot;GMT+09:00-EIT-Asia/Jayapura&quot;</span>
+        <span class="n">GMT_00_00_GMT_Europe_Dublin</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Europe/Dublin&quot;</span>
+        <span class="n">GMT_02_00_IST_Asia_Jerusalem</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-IST-Asia/Jerusalem&quot;</span>
+        <span class="n">GMT_00_00_GMT_Europe_Isle_of_Man</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Europe/Isle_of_Man&quot;</span>
+        <span class="n">GMT_05_30_IST_Asia_Kolkata</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:30-IST-Asia/Kolkata&quot;</span>
+        <span class="n">GMT_06_00_IOT_Indian_Chagos</span> <span class="o">=</span> <span class="s2">&quot;GMT+06:00-IOT-Indian/Chagos&quot;</span>
+        <span class="n">GMT_03_00_AST_Asia_Baghdad</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-AST-Asia/Baghdad&quot;</span>
+        <span class="n">GMT_03_30_IRST_Asia_Tehran</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:30-IRST-Asia/Tehran&quot;</span>
+        <span class="n">GMT_00_00_GMT_Atlantic_Reykjavik</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Atlantic/Reykjavik&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Rome</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Rome&quot;</span>
+        <span class="n">GMT_00_00_GMT_Europe_Jersey</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Europe/Jersey&quot;</span>
+        <span class="n">GMT_05_00_EST_America_Jamaica</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-EST-America/Jamaica&quot;</span>
+        <span class="n">GMT_02_00_EET_Asia_Amman</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Asia/Amman&quot;</span>
+        <span class="n">GMT_09_00_JST_Asia_Tokyo</span> <span class="o">=</span> <span class="s2">&quot;GMT+09:00-JST-Asia/Tokyo&quot;</span>
+        <span class="n">GMT_03_00_EAT_Africa_Nairobi</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-EAT-Africa/Nairobi&quot;</span>
+        <span class="n">GMT_06_00_KGT_Asia_Bishkek</span> <span class="o">=</span> <span class="s2">&quot;GMT+06:00-KGT-Asia/Bishkek&quot;</span>
+        <span class="n">GMT_07_00_ICT_Asia_Phnom_Penh</span> <span class="o">=</span> <span class="s2">&quot;GMT+07:00-ICT-Asia/Phnom_Penh&quot;</span>
+        <span class="n">GMT_12_00_GILT_Pacific_Tarawa</span> <span class="o">=</span> <span class="s2">&quot;GMT+12:00-GILT-Pacific/Tarawa&quot;</span>
+        <span class="n">GMT_13_00_PHOT_Pacific_Enderbury</span> <span class="o">=</span> <span class="s2">&quot;GMT+13:00-PHOT-Pacific/Enderbury&quot;</span>
+        <span class="n">GMT_14_00_LINT_Pacific_Kiritimati</span> <span class="o">=</span> <span class="s2">&quot;GMT+14:00-LINT-Pacific/Kiritimati&quot;</span>
+        <span class="n">GMT_03_00_EAT_Indian_Comoro</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-EAT-Indian/Comoro&quot;</span>
+        <span class="n">GMT_04_00_AST_America_St_Kitts</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/St_Kitts&quot;</span>
+        <span class="n">GMT_09_00_KST_Asia_Pyongyang</span> <span class="o">=</span> <span class="s2">&quot;GMT+09:00-KST-Asia/Pyongyang&quot;</span>
+        <span class="n">GMT_09_00_KST_Asia_Seoul</span> <span class="o">=</span> <span class="s2">&quot;GMT+09:00-KST-Asia/Seoul&quot;</span>
+        <span class="n">GMT_03_00_AST_Asia_Kuwait</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-AST-Asia/Kuwait&quot;</span>
+        <span class="n">GMT_05_00_EST_America_Cayman</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-EST-America/Cayman&quot;</span>
+        <span class="n">GMT_06_00_ALMT_Asia_Almaty</span> <span class="o">=</span> <span class="s2">&quot;GMT+06:00-ALMT-Asia/Almaty&quot;</span>
+        <span class="n">GMT_06_00_QYZT_Asia_Qyzylorda</span> <span class="o">=</span> <span class="s2">&quot;GMT+06:00-QYZT-Asia/Qyzylorda&quot;</span>
+        <span class="n">GMT_05_00_AQTT_Asia_Aqtobe</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:00-AQTT-Asia/Aqtobe&quot;</span>
+        <span class="n">GMT_05_00_AQTT_Asia_Aqtau</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:00-AQTT-Asia/Aqtau&quot;</span>
+        <span class="n">GMT_05_00_ORAT_Asia_Oral</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:00-ORAT-Asia/Oral&quot;</span>
+        <span class="n">GMT_07_00_ICT_Asia_Vientiane</span> <span class="o">=</span> <span class="s2">&quot;GMT+07:00-ICT-Asia/Vientiane&quot;</span>
+        <span class="n">GMT_02_00_EET_Asia_Beirut</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Asia/Beirut&quot;</span>
+        <span class="n">GMT_04_00_AST_America_St_Lucia</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/St_Lucia&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Vaduz</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Vaduz&quot;</span>
+        <span class="n">GMT_05_30_IST_Asia_Colombo</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:30-IST-Asia/Colombo&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Monrovia</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Monrovia&quot;</span>
+        <span class="n">GMT_02_00_SAST_Africa_Maseru</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-SAST-Africa/Maseru&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Vilnius</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Vilnius&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Luxembourg</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Luxembourg&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Riga</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Riga&quot;</span>
+        <span class="n">GMT_02_00_EET_Africa_Tripoli</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Africa/Tripoli&quot;</span>
+        <span class="n">GMT_00_00_WET_Africa_Casablanca</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-WET-Africa/Casablanca&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Monaco</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Monaco&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Chisinau</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Chisinau&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Podgorica</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Podgorica&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Marigot</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Marigot&quot;</span>
+        <span class="n">GMT_03_00_EAT_Indian_Antananarivo</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-EAT-Indian/Antananarivo&quot;</span>
+        <span class="n">GMT_12_00_MHT_Pacific_Majuro</span> <span class="o">=</span> <span class="s2">&quot;GMT+12:00-MHT-Pacific/Majuro&quot;</span>
+        <span class="n">GMT_12_00_MHT_Pacific_Kwajalein</span> <span class="o">=</span> <span class="s2">&quot;GMT+12:00-MHT-Pacific/Kwajalein&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Skopje</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Skopje&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Bamako</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Bamako&quot;</span>
+        <span class="n">GMT_06_30_MMT_Asia_Rangoon</span> <span class="o">=</span> <span class="s2">&quot;GMT+06:30-MMT-Asia/Rangoon&quot;</span>
+        <span class="n">GMT_08_00_ULAT_Asia_Ulaanbaatar</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-ULAT-Asia/Ulaanbaatar&quot;</span>
+        <span class="n">GMT_07_00_HOVT_Asia_Hovd</span> <span class="o">=</span> <span class="s2">&quot;GMT+07:00-HOVT-Asia/Hovd&quot;</span>
+        <span class="n">GMT_08_00_CHOT_Asia_Choibalsan</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-CHOT-Asia/Choibalsan&quot;</span>
+        <span class="n">GMT_08_00_CST_Asia_Macau</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-CST-Asia/Macau&quot;</span>
+        <span class="n">GMT_10_00_ChST_Pacific_Saipan</span> <span class="o">=</span> <span class="s2">&quot;GMT+10:00-ChST-Pacific/Saipan&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Martinique</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Martinique&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Nouakchott</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Nouakchott&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Montserrat</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Montserrat&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Malta</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Malta&quot;</span>
+        <span class="n">GMT_04_00_MUT_Indian_Mauritius</span> <span class="o">=</span> <span class="s2">&quot;GMT+04:00-MUT-Indian/Mauritius&quot;</span>
+        <span class="n">GMT_05_00_MVT_Indian_Maldives</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:00-MVT-Indian/Maldives&quot;</span>
+        <span class="n">GMT_02_00_CAT_Africa_Blantyre</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-CAT-Africa/Blantyre&quot;</span>
+        <span class="n">GMT_06_00_CST_America_Mexico_City</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/Mexico_City&quot;</span>
+        <span class="n">GMT_06_00_CST_America_Cancun</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/Cancun&quot;</span>
+        <span class="n">GMT_06_00_CST_America_Merida</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/Merida&quot;</span>
+        <span class="n">GMT_06_00_CST_America_Monterrey</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/Monterrey&quot;</span>
+        <span class="n">GMT_05_00_CDT_America_Matamoros</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-CDT-America/Matamoros&quot;</span>
+        <span class="n">GMT_07_00_MST_America_Mazatlan</span> <span class="o">=</span> <span class="s2">&quot;GMT-07:00-MST-America/Mazatlan&quot;</span>
+        <span class="n">GMT_07_00_MST_America_Chihuahua</span> <span class="o">=</span> <span class="s2">&quot;GMT-07:00-MST-America/Chihuahua&quot;</span>
+        <span class="n">GMT_06_00_MDT_America_Ojinaga</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-MDT-America/Ojinaga&quot;</span>
+        <span class="n">GMT_07_00_MST_America_Hermosillo</span> <span class="o">=</span> <span class="s2">&quot;GMT-07:00-MST-America/Hermosillo&quot;</span>
+        <span class="n">GMT_07_00_PDT_America_Tijuana</span> <span class="o">=</span> <span class="s2">&quot;GMT-07:00-PDT-America/Tijuana&quot;</span>
+        <span class="n">GMT_08_00_PST_America_Santa_Isabel</span> <span class="o">=</span> <span class="s2">&quot;GMT-08:00-PST-America/Santa_Isabel&quot;</span>
+        <span class="n">GMT_06_00_CST_America_Bahia_Banderas</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/Bahia_Banderas&quot;</span>
+        <span class="n">GMT_08_00_MYT_Asia_Kuala_Lumpur</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-MYT-Asia/Kuala_Lumpur&quot;</span>
+        <span class="n">GMT_08_00_MYT_Asia_Kuching</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-MYT-Asia/Kuching&quot;</span>
+        <span class="n">GMT_02_00_CAT_Africa_Maputo</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-CAT-Africa/Maputo&quot;</span>
+        <span class="n">GMT_02_00_WAST_Africa_Windhoek</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-WAST-Africa/Windhoek&quot;</span>
+        <span class="n">GMT_11_00_NCT_Pacific_Noumea</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-NCT-Pacific/Noumea&quot;</span>
+        <span class="n">GMT_01_00_WAT_Africa_Niamey</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-WAT-Africa/Niamey&quot;</span>
+        <span class="n">GMT_11_30_NFT_Pacific_Norfolk</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:30-NFT-Pacific/Norfolk&quot;</span>
+        <span class="n">GMT_01_00_WAT_Africa_Lagos</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-WAT-Africa/Lagos&quot;</span>
+        <span class="n">GMT_06_00_CST_America_Managua</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/Managua&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Amsterdam</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Amsterdam&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Oslo</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Oslo&quot;</span>
+        <span class="n">GMT_05_45_NPT_Asia_Kathmandu</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:45-NPT-Asia/Kathmandu&quot;</span>
+        <span class="n">GMT_12_00_NRT_Pacific_Nauru</span> <span class="o">=</span> <span class="s2">&quot;GMT+12:00-NRT-Pacific/Nauru&quot;</span>
+        <span class="n">GMT_11_00_NUT_Pacific_Niue</span> <span class="o">=</span> <span class="s2">&quot;GMT-11:00-NUT-Pacific/Niue&quot;</span>
+        <span class="n">GMT_13_00_NZDT_Pacific_Auckland</span> <span class="o">=</span> <span class="s2">&quot;GMT+13:00-NZDT-Pacific/Auckland&quot;</span>
+        <span class="n">GMT_13_45_CHADT_Pacific_Chatham</span> <span class="o">=</span> <span class="s2">&quot;GMT+13:45-CHADT-Pacific/Chatham&quot;</span>
+        <span class="n">GMT_04_00_GST_Asia_Muscat</span> <span class="o">=</span> <span class="s2">&quot;GMT+04:00-GST-Asia/Muscat&quot;</span>
+        <span class="n">GMT_05_00_EST_America_Panama</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-EST-America/Panama&quot;</span>
+        <span class="n">GMT_05_00_PET_America_Lima</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-PET-America/Lima&quot;</span>
+        <span class="n">GMT_10_00_TAHT_Pacific_Tahiti</span> <span class="o">=</span> <span class="s2">&quot;GMT-10:00-TAHT-Pacific/Tahiti&quot;</span>
+        <span class="n">GMT_09_30_MART_Pacific_Marquesas</span> <span class="o">=</span> <span class="s2">&quot;GMT-09:30-MART-Pacific/Marquesas&quot;</span>
+        <span class="n">GMT_09_00_GAMT_Pacific_Gambier</span> <span class="o">=</span> <span class="s2">&quot;GMT-09:00-GAMT-Pacific/Gambier&quot;</span>
+        <span class="n">GMT_10_00_PGT_Pacific_Port_Moresby</span> <span class="o">=</span> <span class="s2">&quot;GMT+10:00-PGT-Pacific/Port_Moresby&quot;</span>
+        <span class="n">GMT_08_00_PHT_Asia_Manila</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-PHT-Asia/Manila&quot;</span>
+        <span class="n">GMT_05_00_PKT_Asia_Karachi</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:00-PKT-Asia/Karachi&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Warsaw</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Warsaw&quot;</span>
+        <span class="n">GMT_02_00_PMDT_America_Miquelon</span> <span class="o">=</span> <span class="s2">&quot;GMT-02:00-PMDT-America/Miquelon&quot;</span>
+        <span class="n">GMT_08_00_PST_Pacific_Pitcairn</span> <span class="o">=</span> <span class="s2">&quot;GMT-08:00-PST-Pacific/Pitcairn&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Puerto_Rico</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Puerto_Rico&quot;</span>
+        <span class="n">GMT_02_00_EET_Asia_Gaza</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Asia/Gaza&quot;</span>
+        <span class="n">GMT_02_00_EET_Asia_Hebron</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Asia/Hebron&quot;</span>
+        <span class="n">GMT_00_00_WET_Europe_Lisbon</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-WET-Europe/Lisbon&quot;</span>
+        <span class="n">GMT_00_00_WET_Atlantic_Madeira</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-WET-Atlantic/Madeira&quot;</span>
+        <span class="n">GMT_01_00_AZOT_Atlantic_Azores</span> <span class="o">=</span> <span class="s2">&quot;GMT-01:00-AZOT-Atlantic/Azores&quot;</span>
+        <span class="n">GMT_09_00_PWT_Pacific_Palau</span> <span class="o">=</span> <span class="s2">&quot;GMT+09:00-PWT-Pacific/Palau&quot;</span>
+        <span class="n">GMT_03_00_PYST_America_Asuncion</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-PYST-America/Asuncion&quot;</span>
+        <span class="n">GMT_03_00_AST_Asia_Qatar</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-AST-Asia/Qatar&quot;</span>
+        <span class="n">GMT_04_00_RET_Indian_Reunion</span> <span class="o">=</span> <span class="s2">&quot;GMT+04:00-RET-Indian/Reunion&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Bucharest</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Bucharest&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Belgrade</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Belgrade&quot;</span>
+        <span class="n">GMT_03_00_FET_Europe_Kaliningrad</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-FET-Europe/Kaliningrad&quot;</span>
+        <span class="n">GMT_04_00_MSK_Europe_Moscow</span> <span class="o">=</span> <span class="s2">&quot;GMT+04:00-MSK-Europe/Moscow&quot;</span>
+        <span class="n">GMT_04_00_VOLT_Europe_Volgograd</span> <span class="o">=</span> <span class="s2">&quot;GMT+04:00-VOLT-Europe/Volgograd&quot;</span>
+        <span class="n">GMT_04_00_SAMT_Europe_Samara</span> <span class="o">=</span> <span class="s2">&quot;GMT+04:00-SAMT-Europe/Samara&quot;</span>
+        <span class="n">GMT_06_00_YEKT_Asia_Yekaterinburg</span> <span class="o">=</span> <span class="s2">&quot;GMT+06:00-YEKT-Asia/Yekaterinburg&quot;</span>
+        <span class="n">GMT_07_00_OMST_Asia_Omsk</span> <span class="o">=</span> <span class="s2">&quot;GMT+07:00-OMST-Asia/Omsk&quot;</span>
+        <span class="n">GMT_07_00_NOVT_Asia_Novosibirsk</span> <span class="o">=</span> <span class="s2">&quot;GMT+07:00-NOVT-Asia/Novosibirsk&quot;</span>
+        <span class="n">GMT_07_00_NOVT_Asia_Novokuznetsk</span> <span class="o">=</span> <span class="s2">&quot;GMT+07:00-NOVT-Asia/Novokuznetsk&quot;</span>
+        <span class="n">GMT_08_00_KRAT_Asia_Krasnoyarsk</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-KRAT-Asia/Krasnoyarsk&quot;</span>
+        <span class="n">GMT_09_00_IRKT_Asia_Irkutsk</span> <span class="o">=</span> <span class="s2">&quot;GMT+09:00-IRKT-Asia/Irkutsk&quot;</span>
+        <span class="n">GMT_10_00_YAKT_Asia_Yakutsk</span> <span class="o">=</span> <span class="s2">&quot;GMT+10:00-YAKT-Asia/Yakutsk&quot;</span>
+        <span class="n">GMT_11_00_VLAT_Asia_Vladivostok</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-VLAT-Asia/Vladivostok&quot;</span>
+        <span class="n">GMT_11_00_SAKT_Asia_Sakhalin</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-SAKT-Asia/Sakhalin&quot;</span>
+        <span class="n">GMT_12_00_MAGT_Asia_Magadan</span> <span class="o">=</span> <span class="s2">&quot;GMT+12:00-MAGT-Asia/Magadan&quot;</span>
+        <span class="n">GMT_12_00_PETT_Asia_Kamchatka</span> <span class="o">=</span> <span class="s2">&quot;GMT+12:00-PETT-Asia/Kamchatka&quot;</span>
+        <span class="n">GMT_12_00_ANAT_Asia_Anadyr</span> <span class="o">=</span> <span class="s2">&quot;GMT+12:00-ANAT-Asia/Anadyr&quot;</span>
+        <span class="n">GMT_02_00_CAT_Africa_Kigali</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-CAT-Africa/Kigali&quot;</span>
+        <span class="n">GMT_03_00_AST_Asia_Riyadh</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-AST-Asia/Riyadh&quot;</span>
+        <span class="n">GMT_11_00_SBT_Pacific_Guadalcanal</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-SBT-Pacific/Guadalcanal&quot;</span>
+        <span class="n">GMT_04_00_SCT_Indian_Mahe</span> <span class="o">=</span> <span class="s2">&quot;GMT+04:00-SCT-Indian/Mahe&quot;</span>
+        <span class="n">GMT_03_00_EAT_Africa_Khartoum</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-EAT-Africa/Khartoum&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Stockholm</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Stockholm&quot;</span>
+        <span class="n">GMT_08_00_SGT_Asia_Singapore</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-SGT-Asia/Singapore&quot;</span>
+        <span class="n">GMT_00_00_GMT_Atlantic_St_Helena</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Atlantic/St_Helena&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Ljubljana</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Ljubljana&quot;</span>
+        <span class="n">GMT_01_00_CET_Arctic_Longyearbyen</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Arctic/Longyearbyen&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Bratislava</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Bratislava&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Freetown</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Freetown&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_San_Marino</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/San_Marino&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Dakar</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Dakar&quot;</span>
+        <span class="n">GMT_03_00_EAT_Africa_Mogadishu</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-EAT-Africa/Mogadishu&quot;</span>
+        <span class="n">GMT_03_00_SRT_America_Paramaribo</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-SRT-America/Paramaribo&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Sao_Tome</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Sao_Tome&quot;</span>
+        <span class="n">GMT_06_00_CST_America_El_Salvador</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-CST-America/El_Salvador&quot;</span>
+        <span class="n">GMT_02_00_EET_Asia_Damascus</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Asia/Damascus&quot;</span>
+        <span class="n">GMT_02_00_SAST_Africa_Mbabane</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-SAST-Africa/Mbabane&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Grand_Turk</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Grand_Turk&quot;</span>
+        <span class="n">GMT_01_00_WAT_Africa_Ndjamena</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-WAT-Africa/Ndjamena&quot;</span>
+        <span class="n">GMT_05_00_TFT_Indian_Kerguelen</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:00-TFT-Indian/Kerguelen&quot;</span>
+        <span class="n">GMT_00_00_GMT_Africa_Lome</span> <span class="o">=</span> <span class="s2">&quot;GMT+00:00-GMT-Africa/Lome&quot;</span>
+        <span class="n">GMT_07_00_ICT_Asia_Bangkok</span> <span class="o">=</span> <span class="s2">&quot;GMT+07:00-ICT-Asia/Bangkok&quot;</span>
+        <span class="n">GMT_05_00_TJT_Asia_Dushanbe</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:00-TJT-Asia/Dushanbe&quot;</span>
+        <span class="n">GMT_10_00_TKT_Pacific_Fakaofo</span> <span class="o">=</span> <span class="s2">&quot;GMT-10:00-TKT-Pacific/Fakaofo&quot;</span>
+        <span class="n">GMT_09_00_TLT_Asia_Dili</span> <span class="o">=</span> <span class="s2">&quot;GMT+09:00-TLT-Asia/Dili&quot;</span>
+        <span class="n">GMT_05_00_TMT_Asia_Ashgabat</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:00-TMT-Asia/Ashgabat&quot;</span>
+        <span class="n">GMT_01_00_CET_Africa_Tunis</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Africa/Tunis&quot;</span>
+        <span class="n">GMT_13_00_TOT_Pacific_Tongatapu</span> <span class="o">=</span> <span class="s2">&quot;GMT+13:00-TOT-Pacific/Tongatapu&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Istanbul</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Istanbul&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Port_of_Spain</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Port_of_Spain&quot;</span>
+        <span class="n">GMT_12_00_TVT_Pacific_Funafuti</span> <span class="o">=</span> <span class="s2">&quot;GMT+12:00-TVT-Pacific/Funafuti&quot;</span>
+        <span class="n">GMT_08_00_CST_Asia_Taipei</span> <span class="o">=</span> <span class="s2">&quot;GMT+08:00-CST-Asia/Taipei&quot;</span>
+        <span class="n">GMT_03_00_EAT_Africa_Dar_es_Salaam</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-EAT-Africa/Dar_es_Salaam&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Kiev</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Kiev&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Uzhgorod</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Uzhgorod&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Zaporozhye</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Zaporozhye&quot;</span>
+        <span class="n">GMT_02_00_EET_Europe_Simferopol</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-EET-Europe/Simferopol&quot;</span>
+        <span class="n">GMT_03_00_EAT_Africa_Kampala</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-EAT-Africa/Kampala&quot;</span>
+        <span class="n">GMT_10_00_HST_Pacific_Johnston</span> <span class="o">=</span> <span class="s2">&quot;GMT-10:00-HST-Pacific/Johnston&quot;</span>
+        <span class="n">GMT_11_00_SST_Pacific_Midway</span> <span class="o">=</span> <span class="s2">&quot;GMT-11:00-SST-Pacific/Midway&quot;</span>
+        <span class="n">GMT_12_00_WAKT_Pacific_Wake</span> <span class="o">=</span> <span class="s2">&quot;GMT+12:00-WAKT-Pacific/Wake&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_New_York</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/New_York&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Detroit</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Detroit&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Kentucky_Louisville</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Kentucky/Louisville&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Kentucky_Monticello</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Kentucky/Monticello&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Indiana_Indianapolis</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Indiana/Indianapolis&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Indiana_Vincennes</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Indiana/Vincennes&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Indiana_Winamac</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Indiana/Winamac&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Indiana_Marengo</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Indiana/Marengo&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Indiana_Petersburg</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Indiana/Petersburg&quot;</span>
+        <span class="n">GMT_04_00_EDT_America_Indiana_Vevay</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-EDT-America/Indiana/Vevay&quot;</span>
+        <span class="n">GMT_05_00_CDT_America_Chicago</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-CDT-America/Chicago&quot;</span>
+        <span class="n">GMT_05_00_CDT_America_Indiana_Tell_City</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-CDT-America/Indiana/Tell_City&quot;</span>
+        <span class="n">GMT_05_00_CDT_America_Indiana_Knox</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-CDT-America/Indiana/Knox&quot;</span>
+        <span class="n">GMT_05_00_CDT_America_Menominee</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-CDT-America/Menominee&quot;</span>
+        <span class="n">GMT_05_00_CDT_America_North_Dakota_Center</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-CDT-America/North_Dakota/Center&quot;</span>
+        <span class="n">GMT_05_00_CDT_America_North_Dakota_New_Salem</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-CDT-America/North_Dakota/New_Salem&quot;</span>
+        <span class="n">GMT_05_00_CDT_America_North_Dakota_Beulah</span> <span class="o">=</span> <span class="s2">&quot;GMT-05:00-CDT-America/North_Dakota/Beulah&quot;</span>
+        <span class="n">GMT_06_00_MDT_America_Denver</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-MDT-America/Denver&quot;</span>
+        <span class="n">GMT_06_00_MDT_America_Boise</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-MDT-America/Boise&quot;</span>
+        <span class="n">GMT_06_00_MDT_America_Shiprock</span> <span class="o">=</span> <span class="s2">&quot;GMT-06:00-MDT-America/Shiprock&quot;</span>
+        <span class="n">GMT_07_00_MST_America_Phoenix</span> <span class="o">=</span> <span class="s2">&quot;GMT-07:00-MST-America/Phoenix&quot;</span>
+        <span class="n">GMT_07_00_PDT_America_Los_Angeles</span> <span class="o">=</span> <span class="s2">&quot;GMT-07:00-PDT-America/Los_Angeles&quot;</span>
+        <span class="n">GMT_08_00_AKDT_America_Anchorage</span> <span class="o">=</span> <span class="s2">&quot;GMT-08:00-AKDT-America/Anchorage&quot;</span>
+        <span class="n">GMT_08_00_AKDT_America_Juneau</span> <span class="o">=</span> <span class="s2">&quot;GMT-08:00-AKDT-America/Juneau&quot;</span>
+        <span class="n">GMT_08_00_AKDT_America_Sitka</span> <span class="o">=</span> <span class="s2">&quot;GMT-08:00-AKDT-America/Sitka&quot;</span>
+        <span class="n">GMT_08_00_AKDT_America_Yakutat</span> <span class="o">=</span> <span class="s2">&quot;GMT-08:00-AKDT-America/Yakutat&quot;</span>
+        <span class="n">GMT_08_00_AKDT_America_Nome</span> <span class="o">=</span> <span class="s2">&quot;GMT-08:00-AKDT-America/Nome&quot;</span>
+        <span class="n">GMT_09_00_HADT_America_Adak</span> <span class="o">=</span> <span class="s2">&quot;GMT-09:00-HADT-America/Adak&quot;</span>
+        <span class="n">GMT_08_00_MeST_America_Metlakatla</span> <span class="o">=</span> <span class="s2">&quot;GMT-08:00-MeST-America/Metlakatla&quot;</span>
+        <span class="n">GMT_10_00_HST_Pacific_Honolulu</span> <span class="o">=</span> <span class="s2">&quot;GMT-10:00-HST-Pacific/Honolulu&quot;</span>
+        <span class="n">GMT_03_00_UYT_America_Montevideo</span> <span class="o">=</span> <span class="s2">&quot;GMT-03:00-UYT-America/Montevideo&quot;</span>
+        <span class="n">GMT_05_00_UZT_Asia_Samarkand</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:00-UZT-Asia/Samarkand&quot;</span>
+        <span class="n">GMT_05_00_UZT_Asia_Tashkent</span> <span class="o">=</span> <span class="s2">&quot;GMT+05:00-UZT-Asia/Tashkent&quot;</span>
+        <span class="n">GMT_01_00_CET_Europe_Vatican</span> <span class="o">=</span> <span class="s2">&quot;GMT+01:00-CET-Europe/Vatican&quot;</span>
+        <span class="n">GMT_04_00_AST_America_St_Vincent</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/St_Vincent&quot;</span>
+        <span class="n">GMT_04_30_VET_America_Caracas</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:30-VET-America/Caracas&quot;</span>
+        <span class="n">GMT_04_00_AST_America_Tortola</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/Tortola&quot;</span>
+        <span class="n">GMT_04_00_AST_America_St_Thomas</span> <span class="o">=</span> <span class="s2">&quot;GMT-04:00-AST-America/St_Thomas&quot;</span>
+        <span class="n">GMT_07_00_ICT_Asia_Ho_Chi_Minh</span> <span class="o">=</span> <span class="s2">&quot;GMT+07:00-ICT-Asia/Ho_Chi_Minh&quot;</span>
+        <span class="n">GMT_11_00_VUT_Pacific_Efate</span> <span class="o">=</span> <span class="s2">&quot;GMT+11:00-VUT-Pacific/Efate&quot;</span>
+        <span class="n">GMT_12_00_WFT_Pacific_Wallis</span> <span class="o">=</span> <span class="s2">&quot;GMT+12:00-WFT-Pacific/Wallis&quot;</span>
+        <span class="n">GMT_14_00_WSDT_Pacific_Apia</span> <span class="o">=</span> <span class="s2">&quot;GMT+14:00-WSDT-Pacific/Apia&quot;</span>
+        <span class="n">GMT_03_00_AST_Asia_Aden</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-AST-Asia/Aden&quot;</span>
+        <span class="n">GMT_03_00_EAT_Indian_Mayotte</span> <span class="o">=</span> <span class="s2">&quot;GMT+03:00-EAT-Indian/Mayotte&quot;</span>
+        <span class="n">GMT_02_00_SAST_Africa_Johannesburg</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-SAST-Africa/Johannesburg&quot;</span>
+        <span class="n">GMT_02_00_CAT_Africa_Lusaka</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-CAT-Africa/Lusaka&quot;</span>
+        <span class="n">GMT_02_00_CAT_Africa_Harare</span> <span class="o">=</span> <span class="s2">&quot;GMT+02:00-CAT-Africa/Harare&quot;</span></div>
+
+<div class="viewcode-block" id="nsparam.Useproxyport"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam.Useproxyport">[docs]</a>    <span class="k">class</span> <span class="nc">Useproxyport</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nsparam.Securecookie"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam.Securecookie">[docs]</a>    <span class="k">class</span> <span class="nc">Securecookie</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nsparam.Cip"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam.Cip">[docs]</a>    <span class="k">class</span> <span class="nc">Cip</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nsparam.Tcpcip"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam.Tcpcip">[docs]</a>    <span class="k">class</span> <span class="nc">Tcpcip</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nsparam.Aftpallowrandomsourceport"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam.Aftpallowrandomsourceport">[docs]</a>    <span class="k">class</span> <span class="nc">Aftpallowrandomsourceport</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="nsparam.Cookieversion"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam.Cookieversion">[docs]</a>    <span class="k">class</span> <span class="nc">Cookieversion</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">_0</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
+        <span class="n">_1</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span></div>
+
+<div class="viewcode-block" id="nsparam.Internaluserlogin"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam.Internaluserlogin">[docs]</a>    <span class="k">class</span> <span class="nc">Internaluserlogin</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div></div>
+
+<div class="viewcode-block" id="nsparam_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsparam.html#nitro.resource.config.ns.nsparam.nsparam_response">[docs]</a><span class="k">class</span> <span class="nc">nsparam_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nsparam</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nsparam</span> <span class="o">=</span> <span class="p">[</span><span class="n">nsparam</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

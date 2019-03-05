@@ -1,0 +1,844 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.authentication.authenticationldapaction module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.config.authentication.authenticationldappolicy module" href="nitro.resource.config.authentication.authenticationldappolicy.html" />
+    <link rel="prev" title="nitro.resource.config.authentication.authenticationdfapolicy_vpnvserver_binding module" href="nitro.resource.config.authentication.authenticationdfapolicy_vpnvserver_binding.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.html">nitro.resource.config package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.authentication.html">nitro.resource.config.authentication package</a> &raquo;</li>
+        
+      <li>nitro.resource.config.authentication.authenticationldapaction module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.config.authentication.authenticationldapaction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.config.authentication.authenticationldapaction">
+<span id="nitro-resource-config-authentication-authenticationldapaction-module"></span><h1>nitro.resource.config.authentication.authenticationldapaction module<a class="headerlink" href="#module-nitro.resource.config.authentication.authenticationldapaction" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.authentication.authenticationldapaction.</code><code class="descname">authenticationldapaction</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<p>Configuration for LDAP action resource.</p>
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Authentication">
+<em class="property">class </em><code class="descname">Authentication</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.Authentication"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Authentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Authentication.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Authentication.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Authentication.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Authentication.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Followreferrals">
+<em class="property">class </em><code class="descname">Followreferrals</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.Followreferrals"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Followreferrals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Followreferrals.OFF">
+<code class="descname">OFF</code><em class="property"> = 'OFF'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Followreferrals.OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Followreferrals.ON">
+<code class="descname">ON</code><em class="property"> = 'ON'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Followreferrals.ON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Nestedgroupextraction">
+<em class="property">class </em><code class="descname">Nestedgroupextraction</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.Nestedgroupextraction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Nestedgroupextraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Nestedgroupextraction.OFF">
+<code class="descname">OFF</code><em class="property"> = 'OFF'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Nestedgroupextraction.OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Nestedgroupextraction.ON">
+<code class="descname">ON</code><em class="property"> = 'ON'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Nestedgroupextraction.ON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Passwdchange">
+<em class="property">class </em><code class="descname">Passwdchange</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.Passwdchange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Passwdchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Passwdchange.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Passwdchange.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Passwdchange.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Passwdchange.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Referraldnslookup">
+<em class="property">class </em><code class="descname">Referraldnslookup</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.Referraldnslookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Referraldnslookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Referraldnslookup.A_REC">
+<code class="descname">A_REC</code><em class="property"> = 'A-REC'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Referraldnslookup.A_REC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Referraldnslookup.MSSRV_REC">
+<code class="descname">MSSRV_REC</code><em class="property"> = 'MSSRV-REC'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Referraldnslookup.MSSRV_REC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Referraldnslookup.SRV_REC">
+<code class="descname">SRV_REC</code><em class="property"> = 'SRV-REC'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Referraldnslookup.SRV_REC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Requireuser">
+<em class="property">class </em><code class="descname">Requireuser</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.Requireuser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Requireuser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Requireuser.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Requireuser.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Requireuser.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Requireuser.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Sectype">
+<em class="property">class </em><code class="descname">Sectype</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.Sectype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Sectype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Sectype.PLAINTEXT">
+<code class="descname">PLAINTEXT</code><em class="property"> = 'PLAINTEXT'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Sectype.PLAINTEXT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Sectype.SSL">
+<code class="descname">SSL</code><em class="property"> = 'SSL'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Sectype.SSL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Sectype.TLS">
+<code class="descname">TLS</code><em class="property"> = 'TLS'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Sectype.TLS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Svrtype">
+<em class="property">class </em><code class="descname">Svrtype</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.Svrtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Svrtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Svrtype.AD">
+<code class="descname">AD</code><em class="property"> = 'AD'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Svrtype.AD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Svrtype.NDS">
+<code class="descname">NDS</code><em class="property"> = 'NDS'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Svrtype.NDS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Validateservercert">
+<em class="property">class </em><code class="descname">Validateservercert</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.Validateservercert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Validateservercert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Validateservercert.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Validateservercert.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Validateservercert.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.Validateservercert.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.add">
+<em class="property">classmethod </em><code class="descname">add</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to add authenticationldapaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute1">
+<code class="descname">attribute1</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute1 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute10">
+<code class="descname">attribute10</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute10" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute10 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute11">
+<code class="descname">attribute11</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute11" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute11 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute12">
+<code class="descname">attribute12</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute12" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute12 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute13">
+<code class="descname">attribute13</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute13" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute13 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute14">
+<code class="descname">attribute14</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute14" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute14 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute15">
+<code class="descname">attribute15</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute15" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute15 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute16">
+<code class="descname">attribute16</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute16 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute2">
+<code class="descname">attribute2</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute2 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute3">
+<code class="descname">attribute3</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute3 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute4">
+<code class="descname">attribute4</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute4 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute5">
+<code class="descname">attribute5</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute5 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute6">
+<code class="descname">attribute6</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute6 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute7">
+<code class="descname">attribute7</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute7" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute7 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute8">
+<code class="descname">attribute8</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute8 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute9">
+<code class="descname">attribute9</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.attribute9" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression that would be evaluated to extract attribute9 from the ldap response.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.authentication">
+<code class="descname">authentication</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.authentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform LDAP authentication.
+If authentication is disabled, any LDAP authentication attempt returns authentication success if the user is found.
+CAUTION! Authentication should be disabled only for authorization group extraction or where other (non-LDAP) authentication methods are in use and either bound to a primary list or flagged as secondary.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.authtimeout">
+<code class="descname">authtimeout</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.authtimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of seconds the NetScaler appliance waits for a response from the RADIUS server.&lt;br/&gt;Default value: 3&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.count">
+<em class="property">classmethod </em><code class="descname">count</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count the authenticationldapaction resources configured on NetScaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>client</strong> – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.count_filtered">
+<em class="property">classmethod </em><code class="descname">count_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.count_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.count_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count filtered the set of authenticationldapaction resources.
+Filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.defaultauthenticationgroup">
+<code class="descname">defaultauthenticationgroup</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.defaultauthenticationgroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the default group that is chosen when the authentication succeeds in addition to extracted groups.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.delete">
+<em class="property">classmethod </em><code class="descname">delete</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to delete authenticationldapaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.failure">
+<code class="descname">failure</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.failure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.followreferrals">
+<code class="descname">followreferrals</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.followreferrals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting this option to ON enables following LDAP referrals received from the LDAP server.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch all the authenticationldapaction resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.get_filtered">
+<em class="property">classmethod </em><code class="descname">get_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.get_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.get_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch filtered set of authenticationldapaction resources.
+filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.groupattrname">
+<code class="descname">groupattrname</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.groupattrname" title="Permalink to this definition">¶</a></dt>
+<dd><p>LDAP group attribute name.
+Used for group extraction on the LDAP server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.groupnameidentifier">
+<code class="descname">groupnameidentifier</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.groupnameidentifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name that uniquely identifies a group in LDAP or Active Directory.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.groupsearchattribute">
+<code class="descname">groupsearchattribute</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.groupsearchattribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>LDAP group search attribute.
+Used to determine to which groups a group belongs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.groupsearchfilter">
+<code class="descname">groupsearchfilter</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.groupsearchfilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>String to be combined with the default LDAP group search string to form the search value.  For example, the group search filter “”vpnallowed=true”” when combined with the group identifier “”samaccount”” and the group name “”g1”” yields the LDAP search string “”(&amp;(vpnallowed=true)(samaccount=g1)”“. (Be sure to enclose the search string in two sets of double quotation marks; both sets are needed.).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.groupsearchsubattribute">
+<code class="descname">groupsearchsubattribute</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.groupsearchsubattribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>LDAP group search subattribute.
+Used to determine to which groups a group belongs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.ldapbase">
+<code class="descname">ldapbase</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.ldapbase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base (node) from which to start LDAP searches.
+If the LDAP server is running locally, the default value of base is dc=netscaler, dc=com.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.ldapbinddn">
+<code class="descname">ldapbinddn</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.ldapbinddn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Full distinguished name (DN) that is used to bind to the LDAP server.
+Default: cn=Manager,dc=netscaler,dc=com.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.ldapbinddnpassword">
+<code class="descname">ldapbinddnpassword</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.ldapbinddnpassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Password used to bind to the LDAP server.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.ldaphostname">
+<code class="descname">ldaphostname</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.ldaphostname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hostname for the LDAP server.  If -validateServerCert is ON then this must be the host name on the certificate from the LDAP server.
+A hostname mismatch will cause a connection failure.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.ldaploginname">
+<code class="descname">ldaploginname</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.ldaploginname" title="Permalink to this definition">¶</a></dt>
+<dd><p>LDAP login name attribute.
+The NetScaler appliance uses the LDAP login name to query external LDAP servers or Active Directories.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.maxldapreferrals">
+<code class="descname">maxldapreferrals</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.maxldapreferrals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the maximum number of nested referrals to follow.&lt;br/&gt;Default value: 1&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.maxnestinglevel">
+<code class="descname">maxnestinglevel</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.maxnestinglevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>If nested group extraction is ON, specifies the number of levels up to which group extraction is performed.&lt;br/&gt;Default value: 2&lt;br/&gt;Minimum length =  2.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.mssrvrecordlocation">
+<code class="descname">mssrvrecordlocation</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.mssrvrecordlocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>MSSRV Specific parameter. Used to locate the DNS node to which the SRV record pertains in the domainname. The domainname is appended to it to form the srv record.
+Example : For “dc._msdcs”, the srv record formed is _ldap._tcp.dc._msdcs.&lt;domainname&gt;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.name">
+<code class="descname">name</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for the new LDAP action.
+Must begin with a letter, number, or the underscore character (_), and must contain only letters, numbers, and the hyphen (-), period (.) pound (#), space ( ), at (&#64;), equals (=), colon (:), and underscore characters. Cannot be changed after the LDAP action is added.
+The following requirement applies only to the NetScaler CLI:
+If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, “my authentication action” or ‘my authentication action’).&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.nestedgroupextraction">
+<code class="descname">nestedgroupextraction</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.nestedgroupextraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allow nested group extraction, in which the NetScaler appliance queries external LDAP servers to determine whether a group is part of another group.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.passwdchange">
+<code class="descname">passwdchange</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.passwdchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allow password change requests.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.referraldnslookup">
+<code class="descname">referraldnslookup</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.referraldnslookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the DNS Record lookup Type for the referrals.&lt;br/&gt;Default value: A-REC&lt;br/&gt;Possible values = A-REC, SRV-REC, MSSRV-REC.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.requireuser">
+<code class="descname">requireuser</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.requireuser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Require a successful user search for authentication.&lt;br/&gt;Default value: YES&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.searchfilter">
+<code class="descname">searchfilter</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.searchfilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>String to be combined with the default LDAP user search string to form the search value. For example, if the search filter “vpnallowed=true” is combined with the LDAP login name “samaccount” and the user-supplied username is “bob”, the result is the LDAP search string “”(&amp;(vpnallowed=true)(samaccount=bob)”” (Be sure to enclose the search string in two sets of double quotation marks; both sets are needed.).&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.sectype">
+<code class="descname">sectype</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.sectype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of security used for communications between the NetScaler appliance and the LDAP server. For the PLAINTEXT setting, no encryption is required.&lt;br/&gt;Default value: PLAINTEXT&lt;br/&gt;Possible values = PLAINTEXT, TLS, SSL.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.serverip">
+<code class="descname">serverip</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.serverip" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP address assigned to the LDAP server.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.servername">
+<code class="descname">servername</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.servername" title="Permalink to this definition">¶</a></dt>
+<dd><p>LDAP server name as a FQDN.  Mutually exclusive with LDAP IP address.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.serverport">
+<code class="descname">serverport</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.serverport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port on which the LDAP server accepts connections.&lt;br/&gt;Default value: 389&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.ssonameattribute">
+<code class="descname">ssonameattribute</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.ssonameattribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>LDAP single signon (SSO) attribute.
+The NetScaler appliance uses the SSO name attribute to query external LDAP servers or Active Directories for an alternate username.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.subattributename">
+<code class="descname">subattributename</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.subattributename" title="Permalink to this definition">¶</a></dt>
+<dd><p>LDAP group sub-attribute name.
+Used for group extraction from the LDAP server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.success">
+<code class="descname">success</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.svrtype">
+<code class="descname">svrtype</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.svrtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of LDAP server.&lt;br/&gt;Default value: AAA_LDAP_SERVER_TYPE_DEFAULT&lt;br/&gt;Possible values = AD, NDS.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.unset">
+<em class="property">classmethod </em><code class="descname">unset</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.unset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.unset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to unset the properties of authenticationldapaction resource.
+Properties that need to be unset are specified in args array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.update">
+<em class="property">classmethod </em><code class="descname">update</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to update authenticationldapaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.validateservercert">
+<code class="descname">validateservercert</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction.validateservercert" title="Permalink to this definition">¶</a></dt>
+<dd><p>When to validate LDAP server certs.&lt;br/&gt;Default value: NO&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.authentication.authenticationldapaction.</code><code class="descname">authenticationldapaction_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationldapaction.html#authenticationldapaction_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationldapaction.authenticationldapaction_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.config.authentication.authenticationldappolicy.html" class="btn btn-neutral float-right" title="nitro.resource.config.authentication.authenticationldappolicy module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.config.authentication.authenticationdfapolicy_vpnvserver_binding.html" class="btn btn-neutral float-left" title="nitro.resource.config.authentication.authenticationdfapolicy_vpnvserver_binding module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

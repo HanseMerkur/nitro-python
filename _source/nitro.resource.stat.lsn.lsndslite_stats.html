@@ -1,0 +1,566 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.stat.lsn.lsndslite_stats module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.stat.lsn.lsngroup_stats module" href="nitro.resource.stat.lsn.lsngroup_stats.html" />
+    <link rel="prev" title="nitro.resource.stat.lsn.lsn_stats module" href="nitro.resource.stat.lsn.lsn_stats.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.stat.html">nitro.resource.stat package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.stat.lsn.html">nitro.resource.stat.lsn package</a> &raquo;</li>
+        
+      <li>nitro.resource.stat.lsn.lsndslite_stats module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.stat.lsn.lsndslite_stats.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.stat.lsn.lsndslite_stats">
+<span id="nitro-resource-stat-lsn-lsndslite-stats-module"></span><h1>nitro.resource.stat.lsn.lsndslite_stats module<a class="headerlink" href="#module-nitro.resource.stat.lsn.lsndslite_stats" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.stat.lsn.lsndslite_stats.</code><code class="descname">lsndslite_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/stat/lsn/lsndslite_stats.html#lsndslite_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats">
+<em class="property">class </em><code class="descclassname">nitro.resource.stat.lsn.lsndslite_stats.</code><code class="descname">lsndslite_stats</code><a class="reference internal" href="../_modules/nitro/resource/stat/lsn/lsndslite_stats.html#lsndslite_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<dl class="class">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.Clearstats">
+<em class="property">class </em><code class="descname">Clearstats</code><a class="reference internal" href="../_modules/nitro/resource/stat/lsn/lsndslite_stats.html#lsndslite_stats.Clearstats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.Clearstats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.Clearstats.basic">
+<code class="descname">basic</code><em class="property"> = 'basic'</em><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.Clearstats.basic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.Clearstats.full">
+<code class="descname">full</code><em class="property"> = 'full'</em><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.Clearstats.full" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.clearstats">
+<code class="descname">clearstats</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.clearstats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the statsistics / counters.&lt;br/&gt;Possible values = basic, full.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>service</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/stat/lsn/lsndslite_stats.html#lsndslite_stats.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch the statistics of all lsndslite_stats resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>service</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdsliteicmpsessions">
+<code class="descname">lsncurdsliteicmpsessions</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdsliteicmpsessions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite ICMP Current Sessions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdsliteicmpsessionsrate">
+<code class="descname">lsncurdsliteicmpsessionsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdsliteicmpsessionsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsncurdsliteicmpsessions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdslitesessions">
+<code class="descname">lsncurdslitesessions</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdslitesessions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current number of LSN DS-Lite sessions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdslitesessionsrate">
+<code class="descname">lsncurdslitesessionsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdslitesessionsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsncurdslitesessions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdslitetcpsessions">
+<code class="descname">lsncurdslitetcpsessions</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdslitetcpsessions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite TCP Current Sessions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdslitetcpsessionsrate">
+<code class="descname">lsncurdslitetcpsessionsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdslitetcpsessionsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsncurdslitetcpsessions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdsliteudpsessions">
+<code class="descname">lsncurdsliteudpsessions</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdsliteudpsessions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite UDP Current Sessions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdsliteudpsessionsrate">
+<code class="descname">lsncurdsliteudpsessionsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsncurdsliteudpsessionsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsncurdsliteudpsessions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitecursubscribers">
+<code class="descname">lsndslitecursubscribers</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitecursubscribers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current number of LSN DS-Lite subscribers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitecursubscribersrate">
+<code class="descname">lsndslitecursubscribersrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitecursubscribersrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsndslitecursubscribers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteicmpdrppktsrate">
+<code class="descname">lsndsliteicmpdrppktsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteicmpdrppktsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdsliteicmpdrppkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteicmprxbytesrate">
+<code class="descname">lsndsliteicmprxbytesrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteicmprxbytesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdsliteicmprxbytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteicmprxpktsrate">
+<code class="descname">lsndsliteicmprxpktsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteicmprxpktsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdsliteicmprxpkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteicmptxbytesrate">
+<code class="descname">lsndsliteicmptxbytesrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteicmptxbytesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdsliteicmptxbytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteicmptxpktsrate">
+<code class="descname">lsndsliteicmptxpktsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteicmptxpktsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdsliteicmptxpkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliterxbytesrate">
+<code class="descname">lsndsliterxbytesrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliterxbytesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdsliterxbytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliterxpktsrate">
+<code class="descname">lsndsliterxpktsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliterxpktsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdsliterxpkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetcpdrppktsrate">
+<code class="descname">lsndslitetcpdrppktsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetcpdrppktsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdslitetcpdrppkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetcprxbytesrate">
+<code class="descname">lsndslitetcprxbytesrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetcprxbytesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdslitetcprxbytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetcprxpktsrate">
+<code class="descname">lsndslitetcprxpktsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetcprxpktsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdslitetcprxpkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetcptxbytesrate">
+<code class="descname">lsndslitetcptxbytesrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetcptxbytesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdslitetcptxbytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetcptxpktsrate">
+<code class="descname">lsndslitetcptxpktsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetcptxpktsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdslitetcptxpkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetxbytesrate">
+<code class="descname">lsndslitetxbytesrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetxbytesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdslitetxbytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetxpktsrate">
+<code class="descname">lsndslitetxpktsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndslitetxpktsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdslitetxpkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteudpdrppktsrate">
+<code class="descname">lsndsliteudpdrppktsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteudpdrppktsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdsliteudpdrppkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteudprxbytesrate">
+<code class="descname">lsndsliteudprxbytesrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteudprxbytesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdsliteudprxbytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteudprxpktsrate">
+<code class="descname">lsndsliteudprxpktsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteudprxpktsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdsliteudprxpkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteudptxbytesrate">
+<code class="descname">lsndsliteudptxbytesrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteudptxbytesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdsliteudptxbytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteudptxpktsrate">
+<code class="descname">lsndsliteudptxpktsrate</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsndsliteudptxpktsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for lsntotdsliteudptxpkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteicmpdrppkts">
+<code class="descname">lsntotdsliteicmpdrppkts</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteicmpdrppkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite ICMP Dropped packets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteicmprxbytes">
+<code class="descname">lsntotdsliteicmprxbytes</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteicmprxbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite ICMP Received bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteicmprxpkts">
+<code class="descname">lsntotdsliteicmprxpkts</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteicmprxpkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite ICMP Received packets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteicmptxbytes">
+<code class="descname">lsntotdsliteicmptxbytes</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteicmptxbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite ICMP Transmitted bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteicmptxpkts">
+<code class="descname">lsntotdsliteicmptxpkts</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteicmptxpkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite ICMP Transmitted packets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliterxbytes">
+<code class="descname">lsntotdsliterxbytes</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliterxbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of LSN DS-Lite rx bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliterxpkts">
+<code class="descname">lsntotdsliterxpkts</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliterxpkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of LSN DS-Lite rx pkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetcpdrppkts">
+<code class="descname">lsntotdslitetcpdrppkts</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetcpdrppkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite TCP Dropped packets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetcprxbytes">
+<code class="descname">lsntotdslitetcprxbytes</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetcprxbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite TCP Received bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetcprxpkts">
+<code class="descname">lsntotdslitetcprxpkts</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetcprxpkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite TCP Received packets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetcptxbytes">
+<code class="descname">lsntotdslitetcptxbytes</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetcptxbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite TCP Transmitted bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetcptxpkts">
+<code class="descname">lsntotdslitetcptxpkts</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetcptxpkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite TCP Transmitted packets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetxbytes">
+<code class="descname">lsntotdslitetxbytes</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetxbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of LSN DS-Lite tx bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetxpkts">
+<code class="descname">lsntotdslitetxpkts</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdslitetxpkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of LSN DS-Lite tx pkts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteudpdrppkts">
+<code class="descname">lsntotdsliteudpdrppkts</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteudpdrppkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite UDP Dropped packets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteudprxbytes">
+<code class="descname">lsntotdsliteudprxbytes</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteudprxbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite UDP Received bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteudprxpkts">
+<code class="descname">lsntotdsliteudprxpkts</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteudprxpkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite UDP Received packets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteudptxbytes">
+<code class="descname">lsntotdsliteudptxbytes</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteudptxbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite UDP Transmitted bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteudptxpkts">
+<code class="descname">lsntotdsliteudptxpkts</code><a class="headerlink" href="#nitro.resource.stat.lsn.lsndslite_stats.lsndslite_stats.lsntotdsliteudptxpkts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of LSN DS-Lite UDP Transmitted packets.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.stat.lsn.lsngroup_stats.html" class="btn btn-neutral float-right" title="nitro.resource.stat.lsn.lsngroup_stats module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.stat.lsn.lsn_stats.html" class="btn btn-neutral float-left" title="nitro.resource.stat.lsn.lsn_stats module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

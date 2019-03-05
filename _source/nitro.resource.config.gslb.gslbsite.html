@@ -1,0 +1,607 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.gslb.gslbsite module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.config.gslb.gslbsite_binding module" href="nitro.resource.config.gslb.gslbsite_binding.html" />
+    <link rel="prev" title="nitro.resource.config.gslb.gslbservice_lbmonitor_binding module" href="nitro.resource.config.gslb.gslbservice_lbmonitor_binding.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.html">nitro.resource.config package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.gslb.html">nitro.resource.config.gslb package</a> &raquo;</li>
+        
+      <li>nitro.resource.config.gslb.gslbsite module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.config.gslb.gslbsite.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.config.gslb.gslbsite">
+<span id="nitro-resource-config-gslb-gslbsite-module"></span><h1>nitro.resource.config.gslb.gslbsite module<a class="headerlink" href="#module-nitro.resource.config.gslb.gslbsite" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.gslb.gslbsite.</code><code class="descname">gslbsite</code><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<p>Configuration for GSLB site resource.</p>
+<dl class="class">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Metricexchange">
+<em class="property">class </em><code class="descname">Metricexchange</code><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.Metricexchange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Metricexchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Metricexchange.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Metricexchange.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Metricexchange.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Metricexchange.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Nwmetricexchange">
+<em class="property">class </em><code class="descname">Nwmetricexchange</code><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.Nwmetricexchange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Nwmetricexchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Nwmetricexchange.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Nwmetricexchange.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Nwmetricexchange.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Nwmetricexchange.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Persistencemepstatus">
+<em class="property">class </em><code class="descname">Persistencemepstatus</code><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.Persistencemepstatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Persistencemepstatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Persistencemepstatus.ACTIVE">
+<code class="descname">ACTIVE</code><em class="property"> = 'ACTIVE'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Persistencemepstatus.ACTIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Persistencemepstatus.DOWN">
+<code class="descname">DOWN</code><em class="property"> = 'DOWN'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Persistencemepstatus.DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Persistencemepstatus.INACTIVE">
+<code class="descname">INACTIVE</code><em class="property"> = 'INACTIVE'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Persistencemepstatus.INACTIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Sessionexchange">
+<em class="property">class </em><code class="descname">Sessionexchange</code><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.Sessionexchange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Sessionexchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Sessionexchange.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Sessionexchange.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Sessionexchange.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Sessionexchange.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Sitetype">
+<em class="property">class </em><code class="descname">Sitetype</code><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.Sitetype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Sitetype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Sitetype.LOCAL">
+<code class="descname">LOCAL</code><em class="property"> = 'LOCAL'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Sitetype.LOCAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Sitetype.REMOTE">
+<code class="descname">REMOTE</code><em class="property"> = 'REMOTE'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Sitetype.REMOTE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Status">
+<em class="property">class </em><code class="descname">Status</code><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.Status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Status.ACTIVE">
+<code class="descname">ACTIVE</code><em class="property"> = 'ACTIVE'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Status.ACTIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Status.DOWN">
+<code class="descname">DOWN</code><em class="property"> = 'DOWN'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Status.DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Status.INACTIVE">
+<code class="descname">INACTIVE</code><em class="property"> = 'INACTIVE'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Status.INACTIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Triggermonitor">
+<em class="property">class </em><code class="descname">Triggermonitor</code><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.Triggermonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Triggermonitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Triggermonitor.ALWAYS">
+<code class="descname">ALWAYS</code><em class="property"> = 'ALWAYS'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Triggermonitor.ALWAYS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Triggermonitor.MEPDOWN">
+<code class="descname">MEPDOWN</code><em class="property"> = 'MEPDOWN'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Triggermonitor.MEPDOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.Triggermonitor.MEPDOWN_SVCDOWN">
+<code class="descname">MEPDOWN_SVCDOWN</code><em class="property"> = 'MEPDOWN_SVCDOWN'</em><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.Triggermonitor.MEPDOWN_SVCDOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.add">
+<em class="property">classmethod </em><code class="descname">add</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to add gslbsite.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.clip">
+<code class="descname">clip</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.clip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cluster IP address. Specify this parameter to connect to the remote cluster site for GSLB auto-sync. Note: The cluster IP address is defined when creating the cluster.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.count">
+<em class="property">classmethod </em><code class="descname">count</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count the gslbsite resources configured on NetScaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>client</strong> – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.count_filtered">
+<em class="property">classmethod </em><code class="descname">count_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.count_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.count_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count filtered the set of gslbsite resources.
+Filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.delete">
+<em class="property">classmethod </em><code class="descname">delete</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to delete gslbsite.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch all the gslbsite resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.get_filtered">
+<em class="property">classmethod </em><code class="descname">get_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.get_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.get_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch filtered set of gslbsite resources.
+filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.metricexchange">
+<code class="descname">metricexchange</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.metricexchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exchange metrics with other sites. Metrics are exchanged by using Metric Exchange Protocol (MEP). The appliances in the GSLB setup exchange health information once every second.
+If you disable metrics exchange, you can use only static load balancing methods (such as round robin, static proximity, or the hash-based methods), and if you disable metrics exchange when a dynamic load balancing method (such as least connection) is in operation, the appliance falls back to round robin. Also, if you disable metrics exchange, you must use a monitor to determine the state of GSLB services. Otherwise, the service is marked as DOWN.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.naptrreplacementsuffix">
+<code class="descname">naptrreplacementsuffix</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.naptrreplacementsuffix" title="Permalink to this definition">¶</a></dt>
+<dd><p>The naptr replacement suffix configured here will be used to construct the naptr replacement field in NAPTR record.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.nwmetricexchange">
+<code class="descname">nwmetricexchange</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.nwmetricexchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exchange, with other GSLB sites, network metrics such as round-trip time (RTT), learned from communications with various local DNS (LDNS) servers used by clients. RTT information is used in the dynamic RTT load balancing method, and is exchanged every 5 seconds.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.parentsite">
+<code class="descname">parentsite</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.parentsite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parent site of the GSLB site, in a parent-child topology.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.persistencemepstatus">
+<code class="descname">persistencemepstatus</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.persistencemepstatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network metric and persistence exchange MEP connection status.&lt;br/&gt;Possible values = ACTIVE, INACTIVE, DOWN.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.publicclip">
+<code class="descname">publicclip</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.publicclip" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP address to be used to globally access the remote cluster when it is deployed behind a NAT. It can be same as the normal cluster IP address.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.publicip">
+<code class="descname">publicip</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.publicip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Public IP address for the local site. Required only if the appliance is deployed in a private address space and the site has a public IP address hosted on an external firewall or a NAT device.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.sessionexchange">
+<code class="descname">sessionexchange</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.sessionexchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exchange persistent session entries with other GSLB sites every five seconds.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.siteipaddress">
+<code class="descname">siteipaddress</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.siteipaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP address for the GSLB site. The GSLB site uses this IP address to communicate with other GSLB sites. For a local site, use any IP address that is owned by the appliance (for example, a SNIP or MIP address, or the IP address of the ADNS service).&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.sitename">
+<code class="descname">sitename</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.sitename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for the GSLB site. Must begin with an ASCII alphanumeric or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at (&#64;), equals (=), and hyphen (-) characters. Cannot be changed after the virtual server is created.
+CLI Users: If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, “my gslbsite” or ‘my gslbsite’).&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.sitetype">
+<code class="descname">sitetype</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.sitetype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of site to create. If the type is not specified, the appliance automatically detects and sets the type on the basis of the IP address being assigned to the site. If the specified site IP address is owned by the appliance (for example, a MIP address or SNIP address), the site is a local site. Otherwise, it is a remote site.&lt;br/&gt;Default value: NONE&lt;br/&gt;Possible values = REMOTE, LOCAL.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.status">
+<code class="descname">status</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current metric exchange status.&lt;br/&gt;Possible values = ACTIVE, INACTIVE, DOWN.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.triggermonitor">
+<code class="descname">triggermonitor</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.triggermonitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the conditions under which the GSLB service must be monitored by a monitor, if one is bound. Available settings function as follows:
+* ALWAYS - Monitor the GSLB service at all times.
+* MEPDOWN - Monitor the GSLB service only when the exchange of metrics through the Metrics Exchange Protocol (MEP) is disabled.
+MEPDOWN_SVCDOWN - Monitor the service in either of the following situations:
+* The exchange of metrics through MEP is disabled.
+* The exchange of metrics through MEP is enabled but the status of the service, learned through metrics exchange, is DOWN.&lt;br/&gt;Default value: ALWAYS&lt;br/&gt;Possible values = ALWAYS, MEPDOWN, MEPDOWN_SVCDOWN.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.unset">
+<em class="property">classmethod </em><code class="descname">unset</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.unset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.unset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to unset the properties of gslbsite resource.
+Properties that need to be unset are specified in args array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.update">
+<em class="property">classmethod </em><code class="descname">update</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to update gslbsite.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite.version">
+<code class="descname">version</code><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>will be true if the remote site’s version is ncore compatible with the local site.(&gt;= 9.2).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.gslb.gslbsite.gslbsite_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.gslb.gslbsite.</code><code class="descname">gslbsite_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/gslb/gslbsite.html#gslbsite_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.gslb.gslbsite.gslbsite_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.config.gslb.gslbsite_binding.html" class="btn btn-neutral float-right" title="nitro.resource.config.gslb.gslbsite_binding module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.config.gslb.gslbservice_lbmonitor_binding.html" class="btn btn-neutral float-left" title="nitro.resource.config.gslb.gslbservice_lbmonitor_binding module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

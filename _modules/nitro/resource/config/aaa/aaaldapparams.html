@@ -1,0 +1,842 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.aaa.aaaldapparams &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.aaa.aaaldapparams</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.aaa.aaaldapparams</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="aaaldapparams"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.aaa.aaaldapparams.html#nitro.resource.config.aaa.aaaldapparams.aaaldapparams">[docs]</a><span class="k">class</span> <span class="nc">aaaldapparams</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for LDAP parameter resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_serverip</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_serverport</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_authtimeout</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ldapbase</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ldapbinddn</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ldapbinddnpassword</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ldaploginname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_searchfilter</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_groupattrname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_subattributename</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sectype</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_svrtype</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ssonameattribute</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_passwdchange</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nestedgroupextraction</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxnestinglevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_groupnameidentifier</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_groupsearchattribute</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_groupsearchsubattribute</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_groupsearchfilter</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_defaultauthenticationgroup</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_groupauthname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_builtin</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">serverip</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;IP address of your LDAP server.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serverip</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@serverip</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">serverip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serverip</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;IP address of your LDAP server.</span>
+
+<span class="sd">        :param serverip: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_serverip</span> <span class="o">=</span> <span class="n">serverip</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">serverport</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Port number on which the LDAP server listens for connections.&lt;br/&gt;Default value: 389&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serverport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@serverport</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">serverport</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serverport</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Port number on which the LDAP server listens for connections.&lt;br/&gt;Default value: 389&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param serverport: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_serverport</span> <span class="o">=</span> <span class="n">serverport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">authtimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of seconds that the NetScaler appliance waits for a response from the LDAP server.&lt;br/&gt;Default value: 3&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_authtimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@authtimeout</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">authtimeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">authtimeout</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Maximum number of seconds that the NetScaler appliance waits for a response from the LDAP server.&lt;br/&gt;Default value: 3&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param authtimeout: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_authtimeout</span> <span class="o">=</span> <span class="n">authtimeout</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ldapbase</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Base (the server and location) from which LDAP search commands should start.</span>
+<span class="sd">        If the LDAP server is running locally, the default value of base is dc=netscaler, dc=com.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ldapbase</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ldapbase</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ldapbase</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ldapbase</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Base (the server and location) from which LDAP search commands should start.</span>
+<span class="sd">        If the LDAP server is running locally, the default value of base is dc=netscaler, dc=com.</span>
+
+<span class="sd">        :param ldapbase: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ldapbase</span> <span class="o">=</span> <span class="n">ldapbase</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ldapbinddn</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Complete distinguished name (DN) string used for binding to the LDAP server.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ldapbinddn</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ldapbinddn</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ldapbinddn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ldapbinddn</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Complete distinguished name (DN) string used for binding to the LDAP server.</span>
+
+<span class="sd">        :param ldapbinddn: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ldapbinddn</span> <span class="o">=</span> <span class="n">ldapbinddn</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ldapbinddnpassword</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Password for binding to the LDAP server.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ldapbinddnpassword</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ldapbinddnpassword</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ldapbinddnpassword</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ldapbinddnpassword</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Password for binding to the LDAP server.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param ldapbinddnpassword: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ldapbinddnpassword</span> <span class="o">=</span> <span class="n">ldapbinddnpassword</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ldaploginname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name attribute that the NetScaler appliance uses to query the external LDAP server or an Active Directory.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ldaploginname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ldaploginname</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ldaploginname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ldaploginname</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Name attribute that the NetScaler appliance uses to query the external LDAP server or an Active Directory.</span>
+
+<span class="sd">        :param ldaploginname: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ldaploginname</span> <span class="o">=</span> <span class="n">ldaploginname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">searchfilter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;String to be combined with the default LDAP user search string to form the value to use when executing an LDAP search.</span>
+<span class="sd">        For example, the following values:</span>
+<span class="sd">        vpnallowed=true,</span>
+<span class="sd">        ldaploginame=&quot;&quot;samaccount&quot;&quot;</span>
+<span class="sd">        when combined with the user-supplied username &quot;&quot;bob&quot;&quot;, yield the following LDAP search string:</span>
+<span class="sd">        &quot;&quot;(&amp;(vpnallowed=true)(samaccount=bob)&quot;&quot;.&lt;br/&gt;Minimum length =  1.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_searchfilter</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@searchfilter</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">searchfilter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">searchfilter</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;String to be combined with the default LDAP user search string to form the value to use when executing an LDAP search.</span>
+<span class="sd">        For example, the following values:</span>
+<span class="sd">        vpnallowed=true,</span>
+<span class="sd">        ldaploginame=&quot;&quot;samaccount&quot;&quot;</span>
+<span class="sd">        when combined with the user-supplied username &quot;&quot;bob&quot;&quot;, yield the following LDAP search string:</span>
+<span class="sd">        &quot;&quot;(&amp;(vpnallowed=true)(samaccount=bob)&quot;&quot;.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param searchfilter: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_searchfilter</span> <span class="o">=</span> <span class="n">searchfilter</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">groupattrname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Attribute name used for group extraction from the LDAP server.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_groupattrname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@groupattrname</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">groupattrname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupattrname</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Attribute name used for group extraction from the LDAP server.</span>
+
+<span class="sd">        :param groupattrname: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_groupattrname</span> <span class="o">=</span> <span class="n">groupattrname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">subattributename</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Subattribute name used for group extraction from the LDAP server.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subattributename</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@subattributename</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">subattributename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subattributename</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Subattribute name used for group extraction from the LDAP server.</span>
+
+<span class="sd">        :param subattributename: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_subattributename</span> <span class="o">=</span> <span class="n">subattributename</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sectype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Type of security used for communications between the NetScaler appliance and the LDAP server. For the PLAINTEXT setting, no encryption is required.&lt;br/&gt;Default value: PLAINTEXT&lt;br/&gt;Possible values = PLAINTEXT, TLS, SSL.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sectype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@sectype</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sectype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sectype</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Type of security used for communications between the NetScaler appliance and the LDAP server. For the PLAINTEXT setting, no encryption is required.&lt;br/&gt;Default value: PLAINTEXT&lt;br/&gt;Possible values = PLAINTEXT, TLS, SSL</span>
+
+<span class="sd">        :param sectype: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sectype</span> <span class="o">=</span> <span class="n">sectype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">svrtype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The type of LDAP server.&lt;br/&gt;Default value: AAA_LDAP_SERVER_TYPE_DEFAULT&lt;br/&gt;Possible values = AD, NDS.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_svrtype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@svrtype</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">svrtype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">svrtype</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The type of LDAP server.&lt;br/&gt;Default value: AAA_LDAP_SERVER_TYPE_DEFAULT&lt;br/&gt;Possible values = AD, NDS</span>
+
+<span class="sd">        :param svrtype: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_svrtype</span> <span class="o">=</span> <span class="n">svrtype</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ssonameattribute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Attribute used by the NetScaler appliance to query an external LDAP server or Active Directory for an alternative username.</span>
+<span class="sd">        This alternative username is then used for single sign-on (SSO).</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ssonameattribute</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@ssonameattribute</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ssonameattribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ssonameattribute</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Attribute used by the NetScaler appliance to query an external LDAP server or Active Directory for an alternative username.</span>
+<span class="sd">        This alternative username is then used for single sign-on (SSO).</span>
+
+<span class="sd">        :param ssonameattribute: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ssonameattribute</span> <span class="o">=</span> <span class="n">ssonameattribute</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">passwdchange</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Accept password change requests.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_passwdchange</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@passwdchange</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">passwdchange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">passwdchange</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Accept password change requests.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param passwdchange: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_passwdchange</span> <span class="o">=</span> <span class="n">passwdchange</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nestedgroupextraction</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Queries the external LDAP server to determine whether the specified group belongs to another group.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nestedgroupextraction</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@nestedgroupextraction</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nestedgroupextraction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nestedgroupextraction</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Queries the external LDAP server to determine whether the specified group belongs to another group.&lt;br/&gt;Default value: OFF&lt;br/&gt;Possible values = ON, OFF</span>
+
+<span class="sd">        :param nestedgroupextraction: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nestedgroupextraction</span> <span class="o">=</span> <span class="n">nestedgroupextraction</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maxnestinglevel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Number of levels up to which the system can query nested LDAP groups.&lt;br/&gt;Default value: 2&lt;br/&gt;Minimum length =  2.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxnestinglevel</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@maxnestinglevel</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maxnestinglevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxnestinglevel</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Number of levels up to which the system can query nested LDAP groups.&lt;br/&gt;Default value: 2&lt;br/&gt;Minimum length =  2</span>
+
+<span class="sd">        :param maxnestinglevel: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maxnestinglevel</span> <span class="o">=</span> <span class="n">maxnestinglevel</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">groupnameidentifier</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;LDAP-group attribute that uniquely identifies the group. No two groups on one LDAP server can have the same group name identifier.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_groupnameidentifier</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@groupnameidentifier</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">groupnameidentifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupnameidentifier</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;LDAP-group attribute that uniquely identifies the group. No two groups on one LDAP server can have the same group name identifier.</span>
+
+<span class="sd">        :param groupnameidentifier: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_groupnameidentifier</span> <span class="o">=</span> <span class="n">groupnameidentifier</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">groupsearchattribute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;LDAP-group attribute that designates the parent group of the specified group. Use this attribute to search for a group&#39;s parent group.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_groupsearchattribute</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@groupsearchattribute</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">groupsearchattribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupsearchattribute</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;LDAP-group attribute that designates the parent group of the specified group. Use this attribute to search for a group&#39;s parent group.</span>
+
+<span class="sd">        :param groupsearchattribute: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_groupsearchattribute</span> <span class="o">=</span> <span class="n">groupsearchattribute</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">groupsearchsubattribute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;LDAP-group subattribute that designates the parent group of the specified group. Use this attribute to search for a group&#39;s parent group.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_groupsearchsubattribute</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@groupsearchsubattribute</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">groupsearchsubattribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupsearchsubattribute</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;LDAP-group subattribute that designates the parent group of the specified group. Use this attribute to search for a group&#39;s parent group.</span>
+
+<span class="sd">        :param groupsearchsubattribute: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_groupsearchsubattribute</span> <span class="o">=</span> <span class="n">groupsearchsubattribute</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">groupsearchfilter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Search-expression that can be specified for sending group-search requests to the LDAP server.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_groupsearchfilter</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@groupsearchfilter</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">groupsearchfilter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupsearchfilter</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Search-expression that can be specified for sending group-search requests to the LDAP server.</span>
+
+<span class="sd">        :param groupsearchfilter: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_groupsearchfilter</span> <span class="o">=</span> <span class="n">groupsearchfilter</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">defaultauthenticationgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;This is the default group that is chosen when the authentication succeeds in addition to extracted groups.&lt;br/&gt;Maximum length =  64.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_defaultauthenticationgroup</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@defaultauthenticationgroup</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">defaultauthenticationgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">defaultauthenticationgroup</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;This is the default group that is chosen when the authentication succeeds in addition to extracted groups.&lt;br/&gt;Maximum length =  64</span>
+
+<span class="sd">        :param defaultauthenticationgroup: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_defaultauthenticationgroup</span> <span class="o">=</span> <span class="n">defaultauthenticationgroup</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">groupauthname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;To associate AAA users with an AAA group, use the command</span>
+<span class="sd">        &quot;bind AAA group ... -username ...&quot;.</span>
+<span class="sd">        You can bind different policies to each AAA group. Use the command</span>
+<span class="sd">        &quot;bind AAA group ... -policy ...&quot;.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_groupauthname</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">builtin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Indicates that a variable is a built-in (SYSTEM INTERNAL) type.&lt;br/&gt;Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_builtin</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">aaaldapparams_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">aaaldapparams</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="aaaldapparams.update"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.aaa.aaaldapparams.html#nitro.resource.config.aaa.aaaldapparams.aaaldapparams.update">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to update aaaldapparams.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">updateresource</span> <span class="o">=</span> <span class="n">aaaldapparams</span><span class="p">()</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">serverip</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">serverip</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">serverport</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">serverport</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">authtimeout</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">authtimeout</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">ldapbase</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ldapbase</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">ldapbinddn</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ldapbinddn</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">ldapbinddnpassword</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ldapbinddnpassword</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">ldaploginname</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ldaploginname</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">searchfilter</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">searchfilter</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">groupattrname</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">groupattrname</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">subattributename</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">subattributename</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">sectype</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">sectype</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">svrtype</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">svrtype</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">ssonameattribute</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">ssonameattribute</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">passwdchange</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">passwdchange</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">nestedgroupextraction</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">nestedgroupextraction</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">maxnestinglevel</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">maxnestinglevel</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">groupnameidentifier</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">groupnameidentifier</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">groupsearchattribute</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">groupsearchattribute</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">groupsearchsubattribute</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">groupsearchsubattribute</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">groupsearchfilter</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">groupsearchfilter</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">defaultauthenticationgroup</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">defaultauthenticationgroup</span>
+                <span class="k">return</span> <span class="n">updateresource</span><span class="o">.</span><span class="n">update_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="aaaldapparams.unset"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.aaa.aaaldapparams.html#nitro.resource.config.aaa.aaaldapparams.aaaldapparams.unset">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">unset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to unset the properties of aaaldapparams resource.</span>
+<span class="sd">        Properties that need to be unset are specified in args array.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">unsetresource</span> <span class="o">=</span> <span class="n">aaaldapparams</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">unsetresource</span><span class="o">.</span><span class="n">unset_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="aaaldapparams.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.aaa.aaaldapparams.html#nitro.resource.config.aaa.aaaldapparams.aaaldapparams.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the aaaldapparams resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">aaaldapparams</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="aaaldapparams.Passwdchange"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.aaa.aaaldapparams.html#nitro.resource.config.aaa.aaaldapparams.aaaldapparams.Passwdchange">[docs]</a>    <span class="k">class</span> <span class="nc">Passwdchange</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="aaaldapparams.Sectype"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.aaa.aaaldapparams.html#nitro.resource.config.aaa.aaaldapparams.aaaldapparams.Sectype">[docs]</a>    <span class="k">class</span> <span class="nc">Sectype</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">PLAINTEXT</span> <span class="o">=</span> <span class="s2">&quot;PLAINTEXT&quot;</span>
+        <span class="n">TLS</span> <span class="o">=</span> <span class="s2">&quot;TLS&quot;</span>
+        <span class="n">SSL</span> <span class="o">=</span> <span class="s2">&quot;SSL&quot;</span></div>
+
+<div class="viewcode-block" id="aaaldapparams.Builtin"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.aaa.aaaldapparams.html#nitro.resource.config.aaa.aaaldapparams.aaaldapparams.Builtin">[docs]</a>    <span class="k">class</span> <span class="nc">Builtin</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">MODIFIABLE</span> <span class="o">=</span> <span class="s2">&quot;MODIFIABLE&quot;</span>
+        <span class="n">DELETABLE</span> <span class="o">=</span> <span class="s2">&quot;DELETABLE&quot;</span>
+        <span class="n">IMMUTABLE</span> <span class="o">=</span> <span class="s2">&quot;IMMUTABLE&quot;</span>
+        <span class="n">PARTITION_ALL</span> <span class="o">=</span> <span class="s2">&quot;PARTITION_ALL&quot;</span></div>
+
+<div class="viewcode-block" id="aaaldapparams.Svrtype"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.aaa.aaaldapparams.html#nitro.resource.config.aaa.aaaldapparams.aaaldapparams.Svrtype">[docs]</a>    <span class="k">class</span> <span class="nc">Svrtype</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">AD</span> <span class="o">=</span> <span class="s2">&quot;AD&quot;</span>
+        <span class="n">NDS</span> <span class="o">=</span> <span class="s2">&quot;NDS&quot;</span></div>
+
+<div class="viewcode-block" id="aaaldapparams.Nestedgroupextraction"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.aaa.aaaldapparams.html#nitro.resource.config.aaa.aaaldapparams.aaaldapparams.Nestedgroupextraction">[docs]</a>    <span class="k">class</span> <span class="nc">Nestedgroupextraction</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ON</span> <span class="o">=</span> <span class="s2">&quot;ON&quot;</span>
+        <span class="n">OFF</span> <span class="o">=</span> <span class="s2">&quot;OFF&quot;</span></div></div>
+
+<div class="viewcode-block" id="aaaldapparams_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.aaa.aaaldapparams.html#nitro.resource.config.aaa.aaaldapparams.aaaldapparams_response">[docs]</a><span class="k">class</span> <span class="nc">aaaldapparams_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aaaldapparams</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aaaldapparams</span> <span class="o">=</span> <span class="p">[</span><span class="n">aaaldapparams</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

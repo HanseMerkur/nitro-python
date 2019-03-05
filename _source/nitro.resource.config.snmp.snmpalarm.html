@@ -1,0 +1,976 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.snmp.snmpalarm module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.config.snmp.snmpcommunity module" href="nitro.resource.config.snmp.snmpcommunity.html" />
+    <link rel="prev" title="nitro.resource.config.snmp package" href="nitro.resource.config.snmp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.html">nitro.resource.config package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.snmp.html">nitro.resource.config.snmp package</a> &raquo;</li>
+        
+      <li>nitro.resource.config.snmp.snmpalarm module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.config.snmp.snmpalarm.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.config.snmp.snmpalarm">
+<span id="nitro-resource-config-snmp-snmpalarm-module"></span><h1>nitro.resource.config.snmp.snmpalarm module<a class="headerlink" href="#module-nitro.resource.config.snmp.snmpalarm" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.snmp.snmpalarm.</code><code class="descname">snmpalarm</code><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<p>Configuration for alarm resource.</p>
+<dl class="class">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Logging">
+<em class="property">class </em><code class="descname">Logging</code><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm.Logging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Logging.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Logging.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Logging.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Logging.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Severity">
+<em class="property">class </em><code class="descname">Severity</code><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm.Severity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Severity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Severity.Critical">
+<code class="descname">Critical</code><em class="property"> = 'Critical'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Severity.Critical" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Severity.Informational">
+<code class="descname">Informational</code><em class="property"> = 'Informational'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Severity.Informational" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Severity.Major">
+<code class="descname">Major</code><em class="property"> = 'Major'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Severity.Major" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Severity.Minor">
+<code class="descname">Minor</code><em class="property"> = 'Minor'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Severity.Minor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Severity.Warning">
+<code class="descname">Warning</code><em class="property"> = 'Warning'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Severity.Warning" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.State">
+<em class="property">class </em><code class="descname">State</code><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm.State"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.State.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.State.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.State.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.State.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname">
+<em class="property">class </em><code class="descname">Trapname</code><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm.Trapname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_BUFFER_OVERFLOW">
+<code class="descname">APPFW_BUFFER_OVERFLOW</code><em class="property"> = 'APPFW-BUFFER-OVERFLOW'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_BUFFER_OVERFLOW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_COOKIE">
+<code class="descname">APPFW_COOKIE</code><em class="property"> = 'APPFW-COOKIE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_COOKIE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_CSRF_TAG">
+<code class="descname">APPFW_CSRF_TAG</code><em class="property"> = 'APPFW-CSRF-TAG'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_CSRF_TAG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_DENY_URL">
+<code class="descname">APPFW_DENY_URL</code><em class="property"> = 'APPFW-DENY-URL'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_DENY_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_FIELD_CONSISTENCY">
+<code class="descname">APPFW_FIELD_CONSISTENCY</code><em class="property"> = 'APPFW-FIELD-CONSISTENCY'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_FIELD_CONSISTENCY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_FIELD_FORMAT">
+<code class="descname">APPFW_FIELD_FORMAT</code><em class="property"> = 'APPFW-FIELD-FORMAT'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_FIELD_FORMAT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_POLICY_HIT">
+<code class="descname">APPFW_POLICY_HIT</code><em class="property"> = 'APPFW-POLICY-HIT'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_POLICY_HIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_REFERER_HEADER">
+<code class="descname">APPFW_REFERER_HEADER</code><em class="property"> = 'APPFW-REFERER-HEADER'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_REFERER_HEADER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_SAFE_COMMERCE">
+<code class="descname">APPFW_SAFE_COMMERCE</code><em class="property"> = 'APPFW-SAFE-COMMERCE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_SAFE_COMMERCE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_SAFE_OBJECT">
+<code class="descname">APPFW_SAFE_OBJECT</code><em class="property"> = 'APPFW-SAFE-OBJECT'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_SAFE_OBJECT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_SQL">
+<code class="descname">APPFW_SQL</code><em class="property"> = 'APPFW-SQL'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_SQL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_START_URL">
+<code class="descname">APPFW_START_URL</code><em class="property"> = 'APPFW-START-URL'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_START_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_VIOLATIONS_TYPE">
+<code class="descname">APPFW_VIOLATIONS_TYPE</code><em class="property"> = 'APPFW-VIOLATIONS-TYPE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_VIOLATIONS_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_ATTACHMENT">
+<code class="descname">APPFW_XML_ATTACHMENT</code><em class="property"> = 'APPFW-XML-ATTACHMENT'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_ATTACHMENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_DOS">
+<code class="descname">APPFW_XML_DOS</code><em class="property"> = 'APPFW-XML-DOS'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_DOS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_SCHEMA_COMPILE">
+<code class="descname">APPFW_XML_SCHEMA_COMPILE</code><em class="property"> = 'APPFW-XML-SCHEMA-COMPILE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_SCHEMA_COMPILE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_SOAP_FAULT">
+<code class="descname">APPFW_XML_SOAP_FAULT</code><em class="property"> = 'APPFW-XML-SOAP-FAULT'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_SOAP_FAULT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_SQL">
+<code class="descname">APPFW_XML_SQL</code><em class="property"> = 'APPFW-XML-SQL'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_SQL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_VALIDATION">
+<code class="descname">APPFW_XML_VALIDATION</code><em class="property"> = 'APPFW-XML-VALIDATION'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_VALIDATION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_WSI">
+<code class="descname">APPFW_XML_WSI</code><em class="property"> = 'APPFW-XML-WSI'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_WSI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_XSS">
+<code class="descname">APPFW_XML_XSS</code><em class="property"> = 'APPFW-XML-XSS'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XML_XSS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XSS">
+<code class="descname">APPFW_XSS</code><em class="property"> = 'APPFW-XSS'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.APPFW_XSS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.AVERAGE_CPU">
+<code class="descname">AVERAGE_CPU</code><em class="property"> = 'AVERAGE-CPU'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.AVERAGE_CPU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CALLHOME_UPLOAD_EVENT">
+<code class="descname">CALLHOME_UPLOAD_EVENT</code><em class="property"> = 'CALLHOME-UPLOAD-EVENT'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CALLHOME_UPLOAD_EVENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_BACKPLANE_HB_MISSING">
+<code class="descname">CLUSTER_BACKPLANE_HB_MISSING</code><em class="property"> = 'CLUSTER-BACKPLANE-HB-MISSING'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_BACKPLANE_HB_MISSING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_CCO_CHANGE">
+<code class="descname">CLUSTER_CCO_CHANGE</code><em class="property"> = 'CLUSTER-CCO-CHANGE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_CCO_CHANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_NODE_HEALTH">
+<code class="descname">CLUSTER_NODE_HEALTH</code><em class="property"> = 'CLUSTER-NODE-HEALTH'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_NODE_HEALTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_NODE_QUORUM">
+<code class="descname">CLUSTER_NODE_QUORUM</code><em class="property"> = 'CLUSTER-NODE-QUORUM'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_NODE_QUORUM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_OVS_CHANGE">
+<code class="descname">CLUSTER_OVS_CHANGE</code><em class="property"> = 'CLUSTER-OVS-CHANGE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_OVS_CHANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_PROP_FAILURE">
+<code class="descname">CLUSTER_PROP_FAILURE</code><em class="property"> = 'CLUSTER-PROP-FAILURE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_PROP_FAILURE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_SYNC_FAILURE">
+<code class="descname">CLUSTER_SYNC_FAILURE</code><em class="property"> = 'CLUSTER-SYNC-FAILURE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_SYNC_FAILURE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_VERSION_MISMATCH">
+<code class="descname">CLUSTER_VERSION_MISMATCH</code><em class="property"> = 'CLUSTER-VERSION-MISMATCH'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CLUSTER_VERSION_MISMATCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.COMPACT_FLASH_ERRORS">
+<code class="descname">COMPACT_FLASH_ERRORS</code><em class="property"> = 'COMPACT-FLASH-ERRORS'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.COMPACT_FLASH_ERRORS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CONFIG_CHANGE">
+<code class="descname">CONFIG_CHANGE</code><em class="property"> = 'CONFIG-CHANGE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CONFIG_CHANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CONFIG_SAVE">
+<code class="descname">CONFIG_SAVE</code><em class="property"> = 'CONFIG-SAVE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CONFIG_SAVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CPU_TEMPERATURE_HIGH">
+<code class="descname">CPU_TEMPERATURE_HIGH</code><em class="property"> = 'CPU-TEMPERATURE-HIGH'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CPU_TEMPERATURE_HIGH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CPU_USAGE">
+<code class="descname">CPU_USAGE</code><em class="property"> = 'CPU-USAGE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.CPU_USAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.DISK_USAGE_HIGH">
+<code class="descname">DISK_USAGE_HIGH</code><em class="property"> = 'DISK-USAGE-HIGH'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.DISK_USAGE_HIGH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.DNSKEY_EXPIRY">
+<code class="descname">DNSKEY_EXPIRY</code><em class="property"> = 'DNSKEY-EXPIRY'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.DNSKEY_EXPIRY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.DUPLICATE_IPV6">
+<code class="descname">DUPLICATE_IPV6</code><em class="property"> = 'DUPLICATE-IPV6'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.DUPLICATE_IPV6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.ENTITY_NAME_CHANGE">
+<code class="descname">ENTITY_NAME_CHANGE</code><em class="property"> = 'ENTITY-NAME-CHANGE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.ENTITY_NAME_CHANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.ENTITY_RXRATE">
+<code class="descname">ENTITY_RXRATE</code><em class="property"> = 'ENTITY-RXRATE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.ENTITY_RXRATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.ENTITY_STATE">
+<code class="descname">ENTITY_STATE</code><em class="property"> = 'ENTITY-STATE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.ENTITY_STATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.ENTITY_SYNFLOOD">
+<code class="descname">ENTITY_SYNFLOOD</code><em class="property"> = 'ENTITY-SYNFLOOD'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.ENTITY_SYNFLOOD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.ENTITY_TXRATE">
+<code class="descname">ENTITY_TXRATE</code><em class="property"> = 'ENTITY-TXRATE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.ENTITY_TXRATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.FAN_SPEED_LOW">
+<code class="descname">FAN_SPEED_LOW</code><em class="property"> = 'FAN-SPEED-LOW'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.FAN_SPEED_LOW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HARD_DISK_DRIVE_ERRORS">
+<code class="descname">HARD_DISK_DRIVE_ERRORS</code><em class="property"> = 'HARD-DISK-DRIVE-ERRORS'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HARD_DISK_DRIVE_ERRORS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_BAD_SECONDARY_STATE">
+<code class="descname">HA_BAD_SECONDARY_STATE</code><em class="property"> = 'HA-BAD-SECONDARY-STATE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_BAD_SECONDARY_STATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_LICENSE_MISMATCH">
+<code class="descname">HA_LICENSE_MISMATCH</code><em class="property"> = 'HA-LICENSE-MISMATCH'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_LICENSE_MISMATCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_NO_HEARTBEATS">
+<code class="descname">HA_NO_HEARTBEATS</code><em class="property"> = 'HA-NO-HEARTBEATS'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_NO_HEARTBEATS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_PROP_FAILURE">
+<code class="descname">HA_PROP_FAILURE</code><em class="property"> = 'HA-PROP-FAILURE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_PROP_FAILURE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_STATE_CHANGE">
+<code class="descname">HA_STATE_CHANGE</code><em class="property"> = 'HA-STATE-CHANGE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_STATE_CHANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_STICKY_PRIMARY">
+<code class="descname">HA_STICKY_PRIMARY</code><em class="property"> = 'HA-STICKY-PRIMARY'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_STICKY_PRIMARY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_SYNC_FAILURE">
+<code class="descname">HA_SYNC_FAILURE</code><em class="property"> = 'HA-SYNC-FAILURE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_SYNC_FAILURE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_VERSION_MISMATCH">
+<code class="descname">HA_VERSION_MISMATCH</code><em class="property"> = 'HA-VERSION-MISMATCH'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.HA_VERSION_MISMATCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.INBAND_PROTOCOL_VERSION_MISMATCH">
+<code class="descname">INBAND_PROTOCOL_VERSION_MISMATCH</code><em class="property"> = 'INBAND-PROTOCOL-VERSION-MISMATCH'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.INBAND_PROTOCOL_VERSION_MISMATCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.INTERFACE_BW_USAGE">
+<code class="descname">INTERFACE_BW_USAGE</code><em class="property"> = 'INTERFACE-BW-USAGE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.INTERFACE_BW_USAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.INTERFACE_THROUGHPUT_LOW">
+<code class="descname">INTERFACE_THROUGHPUT_LOW</code><em class="property"> = 'INTERFACE-THROUGHPUT-LOW'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.INTERFACE_THROUGHPUT_LOW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.IP_CONFLICT">
+<code class="descname">IP_CONFLICT</code><em class="property"> = 'IP-CONFLICT'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.IP_CONFLICT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.LLDP_REMOTE_CHANGE">
+<code class="descname">LLDP_REMOTE_CHANGE</code><em class="property"> = 'LLDP-REMOTE-CHANGE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.LLDP_REMOTE_CHANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.LOGIN_FAILURE">
+<code class="descname">LOGIN_FAILURE</code><em class="property"> = 'LOGIN-FAILURE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.LOGIN_FAILURE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.LSN_PORTALLOC_FAILED">
+<code class="descname">LSN_PORTALLOC_FAILED</code><em class="property"> = 'LSN-PORTALLOC-FAILED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.LSN_PORTALLOC_FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.LSN_PORTQUOTA_EXCEED">
+<code class="descname">LSN_PORTQUOTA_EXCEED</code><em class="property"> = 'LSN-PORTQUOTA-EXCEED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.LSN_PORTQUOTA_EXCEED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.LSN_SESSIONQUOTA_EXCEED">
+<code class="descname">LSN_SESSIONQUOTA_EXCEED</code><em class="property"> = 'LSN-SESSIONQUOTA-EXCEED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.LSN_SESSIONQUOTA_EXCEED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.MEMORY">
+<code class="descname">MEMORY</code><em class="property"> = 'MEMORY'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.MEMORY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.MGMT_CPU_USAGE">
+<code class="descname">MGMT_CPU_USAGE</code><em class="property"> = 'MGMT-CPU-USAGE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.MGMT_CPU_USAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.MONITOR_RTO_THRESHOLD">
+<code class="descname">MONITOR_RTO_THRESHOLD</code><em class="property"> = 'MONITOR-RTO-THRESHOLD'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.MONITOR_RTO_THRESHOLD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.MON_PROBE_FAILED">
+<code class="descname">MON_PROBE_FAILED</code><em class="property"> = 'MON_PROBE_FAILED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.MON_PROBE_FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PARTITION_CONFIG_EVENT">
+<code class="descname">PARTITION_CONFIG_EVENT</code><em class="property"> = 'PARTITION-CONFIG-EVENT'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PARTITION_CONFIG_EVENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PARTITION_RATE_LIMIT">
+<code class="descname">PARTITION_RATE_LIMIT</code><em class="property"> = 'PARTITION-RATE-LIMIT'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PARTITION_RATE_LIMIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PARTITION_SWITCHED">
+<code class="descname">PARTITION_SWITCHED</code><em class="property"> = 'PARTITION-SWITCHED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PARTITION_SWITCHED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PF_RL_PPS_PKTS_DROPPED">
+<code class="descname">PF_RL_PPS_PKTS_DROPPED</code><em class="property"> = 'PF-RL-PPS-PKTS-DROPPED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PF_RL_PPS_PKTS_DROPPED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PF_RL_PPS_THRESHOLD">
+<code class="descname">PF_RL_PPS_THRESHOLD</code><em class="property"> = 'PF-RL-PPS-THRESHOLD'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PF_RL_PPS_THRESHOLD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PF_RL_RATE_PKTS_DROPPED">
+<code class="descname">PF_RL_RATE_PKTS_DROPPED</code><em class="property"> = 'PF-RL-RATE-PKTS-DROPPED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PF_RL_RATE_PKTS_DROPPED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PF_RL_RATE_THRESHOLD">
+<code class="descname">PF_RL_RATE_THRESHOLD</code><em class="property"> = 'PF-RL-RATE-THRESHOLD'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PF_RL_RATE_THRESHOLD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PORT_ALLOC_FAILED">
+<code class="descname">PORT_ALLOC_FAILED</code><em class="property"> = 'PORT-ALLOC-FAILED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.PORT_ALLOC_FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.POWER_SUPPLY_FAILURE">
+<code class="descname">POWER_SUPPLY_FAILURE</code><em class="property"> = 'POWER-SUPPLY-FAILURE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.POWER_SUPPLY_FAILURE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.RATE_LIMIT_THRESHOLD_EXCEEDED">
+<code class="descname">RATE_LIMIT_THRESHOLD_EXCEEDED</code><em class="property"> = 'RATE-LIMIT-THRESHOLD-EXCEEDED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.RATE_LIMIT_THRESHOLD_EXCEEDED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SERVICEGROUP_MEMBER_MAXCLIENTS">
+<code class="descname">SERVICEGROUP_MEMBER_MAXCLIENTS</code><em class="property"> = 'SERVICEGROUP-MEMBER-MAXCLIENTS'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SERVICEGROUP_MEMBER_MAXCLIENTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SERVICEGROUP_MEMBER_REQRATE">
+<code class="descname">SERVICEGROUP_MEMBER_REQRATE</code><em class="property"> = 'SERVICEGROUP-MEMBER-REQRATE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SERVICEGROUP_MEMBER_REQRATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SERVICE_MAXCLIENTS">
+<code class="descname">SERVICE_MAXCLIENTS</code><em class="property"> = 'SERVICE-MAXCLIENTS'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SERVICE_MAXCLIENTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SERVICE_REQRATE">
+<code class="descname">SERVICE_REQRATE</code><em class="property"> = 'SERVICE-REQRATE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SERVICE_REQRATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SSL_CARD_FAILED">
+<code class="descname">SSL_CARD_FAILED</code><em class="property"> = 'SSL-CARD-FAILED'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SSL_CARD_FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SSL_CARD_NORMAL">
+<code class="descname">SSL_CARD_NORMAL</code><em class="property"> = 'SSL-CARD-NORMAL'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SSL_CARD_NORMAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SSL_CERT_EXPIRY">
+<code class="descname">SSL_CERT_EXPIRY</code><em class="property"> = 'SSL-CERT-EXPIRY'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SSL_CERT_EXPIRY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SSL_CHIP_REINIT">
+<code class="descname">SSL_CHIP_REINIT</code><em class="property"> = 'SSL-CHIP-REINIT'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SSL_CHIP_REINIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SSL_CUR_SESSION_INUSE">
+<code class="descname">SSL_CUR_SESSION_INUSE</code><em class="property"> = 'SSL-CUR-SESSION-INUSE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SSL_CUR_SESSION_INUSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SYNFLOOD">
+<code class="descname">SYNFLOOD</code><em class="property"> = 'SYNFLOOD'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.SYNFLOOD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.TEMPERATURE_HIGH">
+<code class="descname">TEMPERATURE_HIGH</code><em class="property"> = 'TEMPERATURE-HIGH'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.TEMPERATURE_HIGH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.VOLTAGE_HIGH">
+<code class="descname">VOLTAGE_HIGH</code><em class="property"> = 'VOLTAGE-HIGH'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.VOLTAGE_HIGH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.VOLTAGE_LOW">
+<code class="descname">VOLTAGE_LOW</code><em class="property"> = 'VOLTAGE-LOW'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.VOLTAGE_LOW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.VRID_STATE_CHANGE">
+<code class="descname">VRID_STATE_CHANGE</code><em class="property"> = 'VRID-STATE-CHANGE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.VRID_STATE_CHANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.VSERVER_REQRATE">
+<code class="descname">VSERVER_REQRATE</code><em class="property"> = 'VSERVER-REQRATE'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.VSERVER_REQRATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.VSERVER_SPILLOVER">
+<code class="descname">VSERVER_SPILLOVER</code><em class="property"> = 'VSERVER-SPILLOVER'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.VSERVER_SPILLOVER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.WARM_RESTART_EVENT">
+<code class="descname">WARM_RESTART_EVENT</code><em class="property"> = 'WARM-RESTART-EVENT'</em><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.Trapname.WARM_RESTART_EVENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.count">
+<em class="property">classmethod </em><code class="descname">count</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count the snmpalarm resources configured on NetScaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>client</strong> – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.count_filtered">
+<em class="property">classmethod </em><code class="descname">count_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm.count_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.count_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count filtered the set of snmpalarm resources.
+Filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.disable">
+<em class="property">classmethod </em><code class="descname">disable</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm.disable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to disable snmpalarm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.enable">
+<em class="property">classmethod </em><code class="descname">enable</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm.enable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to enable snmpalarm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch all the snmpalarm resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.get_filtered">
+<em class="property">classmethod </em><code class="descname">get_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm.get_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.get_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch filtered set of snmpalarm resources.
+filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.logging">
+<code class="descname">logging</code><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logging status of the alarm. When logging is enabled, the NetScaler appliance logs every trap message that is generated for this alarm.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.normalvalue">
+<code class="descname">normalvalue</code><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.normalvalue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value for the normal threshold. A trap message is generated if the value of the respective attribute falls to or below this value after exceeding the high threshold.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.severity">
+<code class="descname">severity</code><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.severity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Severity level assigned to trap messages generated by this alarm. The severity levels are, in increasing order of severity, Informational, Warning, Minor, Major, and Critical.
+This parameter is useful when you want the NetScaler appliance to send trap messages to a trap listener on the basis of severity level. Trap messages with a severity level lower than the specified level (in the trap listener entry) are not sent.&lt;br/&gt;Default value: Unknown&lt;br/&gt;Possible values = Critical, Major, Minor, Warning, Informational.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.state">
+<code class="descname">state</code><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current state of the SNMP alarm. The NetScaler appliance generates trap messages only for SNMP alarms that are enabled. Some alarms are enabled by default, but you can disable them.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.thresholdvalue">
+<code class="descname">thresholdvalue</code><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.thresholdvalue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value for the high threshold. The NetScaler appliance generates an SNMP trap message when the value of the attribute associated with the alarm is greater than or equal to the specified high threshold value.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.time">
+<code class="descname">time</code><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interval, in seconds, at which the NetScaler appliance generates SNMP trap messages when the conditions specified in the SNMP alarm are met.Can be specified for the following alarms: SYNFLOOD, HA-VERSION-MISMATCH, HA-SYNC-FAILURE, HA-NO-HEARTBEATS,HA-BAD-SECONDARY-STATE, CLUSTER-NODE-HEALTH, CLUSTER-NODE-QUORUM, CLUSTER-VERSION-MISMATCH, CLUSTER-BKHB-FAILED, PORT-ALLOC-FAILED, COMPACT-FLASH-ERRORS, HARD-DISK-DRIVE-ERRORS and APPFW traps. Default trap time intervals: SYNFLOOD and APPFW traps = 1sec, PORT-ALLOC-FAILED = 3600sec(1 hour), Other Traps = 86400sec(1 day).&lt;br/&gt;Default value: 1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.timeout">
+<code class="descname">timeout</code><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>If DB is enabled and clear config is fired, then to reset timeinterval of alarm, corresponding default time value is needed. This hidden argument holds the default time value for the corresponding alarm.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.trapname">
+<code class="descname">trapname</code><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.trapname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the SNMP alarm. This parameter is required for identifying the SNMP alarm and cannot be modified.&lt;br/&gt;Possible values = CPU-USAGE, AVERAGE-CPU, MEMORY, MGMT-CPU-USAGE, SYNFLOOD, VSERVER-REQRATE, SERVICE-REQRATE, ENTITY-RXRATE, ENTITY-TXRATE, ENTITY-SYNFLOOD, SERVICE-MAXCLIENTS, HA-STATE-CHANGE, ENTITY-STATE, CONFIG-CHANGE, CONFIG-SAVE, SERVICEGROUP-MEMBER-REQRATE, SERVICEGROUP-MEMBER-MAXCLIENTS, MONITOR-RTO-THRESHOLD, LOGIN-FAILURE, SSL-CERT-EXPIRY, FAN-SPEED-LOW, VOLTAGE-LOW, VOLTAGE-HIGH, TEMPERATURE-HIGH, CPU-TEMPERATURE-HIGH, POWER-SUPPLY-FAILURE, DISK-USAGE-HIGH, INTERFACE-THROUGHPUT-LOW, MON_PROBE_FAILED, HA-VERSION-MISMATCH, HA-SYNC-FAILURE, HA-NO-HEARTBEATS, HA-BAD-SECONDARY-STATE, INTERFACE-BW-USAGE, RATE-LIMIT-THRESHOLD-EXCEEDED, ENTITY-NAME-CHANGE, HA-PROP-FAILURE, IP-CONFLICT, PF-RL-RATE-THRESHOLD, PF-RL-PPS-THRESHOLD, PF-RL-RATE-PKTS-DROPPED, PF-RL-PPS-PKTS-DROPPED, APPFW-START-URL, APPFW-DENY-URL, APPFW-VIOLATIONS-TYPE, APPFW-REFERER-HEADER, APPFW-CSRF-TAG, APPFW-COOKIE, APPFW-FIELD-CONSISTENCY, APPFW-BUFFER-OVERFLOW, APPFW-FIELD-FORMAT, APPFW-SAFE-COMMERCE, APPFW-SAFE-OBJECT, APPFW-POLICY-HIT, APPFW-XSS, APPFW-XML-XSS, APPFW-SQL, APPFW-XML-SQL, APPFW-XML-ATTACHMENT, APPFW-XML-DOS, APPFW-XML-VALIDATION, APPFW-XML-WSI, APPFW-XML-SCHEMA-COMPILE, APPFW-XML-SOAP-FAULT, DNSKEY-EXPIRY, HA-LICENSE-MISMATCH, SSL-CARD-FAILED, SSL-CARD-NORMAL, WARM-RESTART-EVENT, HARD-DISK-DRIVE-ERRORS, COMPACT-FLASH-ERRORS, CALLHOME-UPLOAD-EVENT, 1024KEY-EXCHANGE-RATE, 2048KEY-EXCHANGE-RATE, 4096KEY-EXCHANGE-RATE, SSL-CUR-SESSION-INUSE, CLUSTER-NODE-HEALTH, CLUSTER-NODE-QUORUM, CLUSTER-VERSION-MISMATCH, CLUSTER-CCO-CHANGE, CLUSTER-OVS-CHANGE, CLUSTER-SYNC-FAILURE, CLUSTER-PROP-FAILURE, HA-STICKY-PRIMARY, INBAND-PROTOCOL-VERSION-MISMATCH, SSL-CHIP-REINIT, VRID-STATE-CHANGE, PORT-ALLOC-FAILED, LLDP-REMOTE-CHANGE, DUPLICATE-IPV6, PARTITION-CONFIG-EVENT, PARTITION-SWITCHED, LSN-PORTALLOC-FAILED, LSN-PORTQUOTA-EXCEED, LSN-SESSIONQUOTA-EXCEED, VSERVER-SPILLOVER, PARTITION-RATE-LIMIT, CLUSTER-BACKPLANE-HB-MISSING.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.unset">
+<em class="property">classmethod </em><code class="descname">unset</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm.unset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.unset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to unset the properties of snmpalarm resource.
+Properties that need to be unset are specified in args array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm.update">
+<em class="property">classmethod </em><code class="descname">update</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to update snmpalarm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.snmp.snmpalarm.snmpalarm_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.snmp.snmpalarm.</code><code class="descname">snmpalarm_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/snmp/snmpalarm.html#snmpalarm_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.snmp.snmpalarm.snmpalarm_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.config.snmp.snmpcommunity.html" class="btn btn-neutral float-right" title="nitro.resource.config.snmp.snmpcommunity module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.config.snmp.html" class="btn btn-neutral float-left" title="nitro.resource.config.snmp package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

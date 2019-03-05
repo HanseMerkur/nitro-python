@@ -1,0 +1,1737 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.lb.lbmonitor module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.config.lb.lbmonitor_args module" href="nitro.resource.config.lb.lbmonitor_args.html" />
+    <link rel="prev" title="nitro.resource.config.lb.lbmonbindings_servicegroup_binding module" href="nitro.resource.config.lb.lbmonbindings_servicegroup_binding.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.html">nitro.resource.config package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.lb.html">nitro.resource.config.lb package</a> &raquo;</li>
+        
+      <li>nitro.resource.config.lb.lbmonitor module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.config.lb.lbmonitor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.config.lb.lbmonitor">
+<span id="nitro-resource-config-lb-lbmonitor-module"></span><h1>nitro.resource.config.lb.lbmonitor module<a class="headerlink" href="#module-nitro.resource.config.lb.lbmonitor" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.lb.lbmonitor.</code><code class="descname">lbmonitor</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<p>Configuration for monitor resource.</p>
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Action">
+<em class="property">class </em><code class="descname">Action</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Action.DOWN">
+<code class="descname">DOWN</code><em class="property"> = 'DOWN'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Action.DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Action.LOG">
+<code class="descname">LOG</code><em class="property"> = 'LOG'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Action.LOG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Action.NONE">
+<code class="descname">NONE</code><em class="property"> = 'NONE'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Action.NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Dup_state">
+<em class="property">class </em><code class="descname">Dup_state</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Dup_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Dup_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Dup_state.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Dup_state.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Dup_state.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Dup_state.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Inbandsecurityid">
+<em class="property">class </em><code class="descname">Inbandsecurityid</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Inbandsecurityid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Inbandsecurityid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Inbandsecurityid.NO_INBAND_SECURITY">
+<code class="descname">NO_INBAND_SECURITY</code><em class="property"> = 'NO_INBAND_SECURITY'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Inbandsecurityid.NO_INBAND_SECURITY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Inbandsecurityid.TLS">
+<code class="descname">TLS</code><em class="property"> = 'TLS'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Inbandsecurityid.TLS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Iptunnel">
+<em class="property">class </em><code class="descname">Iptunnel</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Iptunnel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Iptunnel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Iptunnel.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Iptunnel.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Iptunnel.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Iptunnel.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Lrtm">
+<em class="property">class </em><code class="descname">Lrtm</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Lrtm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Lrtm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Lrtm.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Lrtm.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Lrtm.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Lrtm.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Lrtmconfstr">
+<em class="property">class </em><code class="descname">Lrtmconfstr</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Lrtmconfstr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Lrtmconfstr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Lrtmconfstr.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Lrtmconfstr.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Lrtmconfstr.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Lrtmconfstr.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Mssqlprotocolversion">
+<em class="property">class </em><code class="descname">Mssqlprotocolversion</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Mssqlprotocolversion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Mssqlprotocolversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Querytype">
+<em class="property">class </em><code class="descname">Querytype</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Querytype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Querytype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Querytype.AAAA">
+<code class="descname">AAAA</code><em class="property"> = 'AAAA'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Querytype.AAAA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Querytype.Address">
+<code class="descname">Address</code><em class="property"> = 'Address'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Querytype.Address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Querytype.Zone">
+<code class="descname">Zone</code><em class="property"> = 'Zone'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Querytype.Zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Reverse">
+<em class="property">class </em><code class="descname">Reverse</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Reverse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Reverse.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Reverse.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Reverse.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Reverse.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Secure">
+<em class="property">class </em><code class="descname">Secure</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Secure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Secure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Secure.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Secure.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Secure.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Secure.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Sipmethod">
+<em class="property">class </em><code class="descname">Sipmethod</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Sipmethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Sipmethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Sipmethod.INVITE">
+<code class="descname">INVITE</code><em class="property"> = 'INVITE'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Sipmethod.INVITE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Sipmethod.OPTIONS">
+<code class="descname">OPTIONS</code><em class="property"> = 'OPTIONS'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Sipmethod.OPTIONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Sipmethod.REGISTER">
+<code class="descname">REGISTER</code><em class="property"> = 'REGISTER'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Sipmethod.REGISTER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Snmpoid">
+<code class="descname">Snmpoid</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Snmpoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>SNMP OID for SNMP monitors.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Snmpversion">
+<em class="property">class </em><code class="descname">Snmpversion</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Snmpversion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Snmpversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Snmpversion.V1">
+<code class="descname">V1</code><em class="property"> = 'V1'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Snmpversion.V1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Snmpversion.V2">
+<code class="descname">V2</code><em class="property"> = 'V2'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Snmpversion.V2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.State">
+<em class="property">class </em><code class="descname">State</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.State"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.State.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.State.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.State.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.State.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Storedb">
+<em class="property">class </em><code class="descname">Storedb</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Storedb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Storedb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Storedb.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Storedb.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Storedb.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Storedb.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Storefrontacctservice">
+<em class="property">class </em><code class="descname">Storefrontacctservice</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Storefrontacctservice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Storefrontacctservice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Storefrontacctservice.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Storefrontacctservice.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Storefrontacctservice.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Storefrontacctservice.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Storefrontcheckbackendservices">
+<em class="property">class </em><code class="descname">Storefrontcheckbackendservices</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Storefrontcheckbackendservices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Storefrontcheckbackendservices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Storefrontcheckbackendservices.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Storefrontcheckbackendservices.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Storefrontcheckbackendservices.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Storefrontcheckbackendservices.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Tos">
+<em class="property">class </em><code class="descname">Tos</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Tos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Tos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Tos.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Tos.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Tos.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Tos.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Transparent">
+<em class="property">class </em><code class="descname">Transparent</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Transparent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Transparent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Transparent.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Transparent.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Transparent.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Transparent.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type">
+<em class="property">class </em><code class="descname">Type</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.APPC">
+<code class="descname">APPC</code><em class="property"> = 'APPC'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.APPC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.ARP">
+<code class="descname">ARP</code><em class="property"> = 'ARP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.ARP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_AAC_LAS">
+<code class="descname">CITRIX_AAC_LAS</code><em class="property"> = 'CITRIX-AAC-LAS'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_AAC_LAS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_AAC_LOGINPAGE">
+<code class="descname">CITRIX_AAC_LOGINPAGE</code><em class="property"> = 'CITRIX-AAC-LOGINPAGE'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_AAC_LOGINPAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_AG">
+<code class="descname">CITRIX_AG</code><em class="property"> = 'CITRIX-AG'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_AG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_WEB_INTERFACE">
+<code class="descname">CITRIX_WEB_INTERFACE</code><em class="property"> = 'CITRIX-WEB-INTERFACE'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_WEB_INTERFACE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_WI_EXTENDED">
+<code class="descname">CITRIX_WI_EXTENDED</code><em class="property"> = 'CITRIX-WI-EXTENDED'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_WI_EXTENDED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_XDM">
+<code class="descname">CITRIX_XDM</code><em class="property"> = 'CITRIX-XDM'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_XDM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_XD_DDC">
+<code class="descname">CITRIX_XD_DDC</code><em class="property"> = 'CITRIX-XD-DDC'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_XD_DDC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_XML_SERVICE">
+<code class="descname">CITRIX_XML_SERVICE</code><em class="property"> = 'CITRIX-XML-SERVICE'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_XML_SERVICE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_XNC_ECV">
+<code class="descname">CITRIX_XNC_ECV</code><em class="property"> = 'CITRIX-XNC-ECV'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.CITRIX_XNC_ECV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.DIAMETER">
+<code class="descname">DIAMETER</code><em class="property"> = 'DIAMETER'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.DIAMETER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.DNS">
+<code class="descname">DNS</code><em class="property"> = 'DNS'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.DNS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.DNS_TCP">
+<code class="descname">DNS_TCP</code><em class="property"> = 'DNS-TCP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.DNS_TCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.FTP">
+<code class="descname">FTP</code><em class="property"> = 'FTP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.FTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.FTP_EXTENDED">
+<code class="descname">FTP_EXTENDED</code><em class="property"> = 'FTP-EXTENDED'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.FTP_EXTENDED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.HTTP">
+<code class="descname">HTTP</code><em class="property"> = 'HTTP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.HTTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.HTTP_ECV">
+<code class="descname">HTTP_ECV</code><em class="property"> = 'HTTP-ECV'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.HTTP_ECV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.HTTP_INLINE">
+<code class="descname">HTTP_INLINE</code><em class="property"> = 'HTTP-INLINE'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.HTTP_INLINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.LDAP">
+<code class="descname">LDAP</code><em class="property"> = 'LDAP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.LDAP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.LDNS_DNS">
+<code class="descname">LDNS_DNS</code><em class="property"> = 'LDNS-DNS'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.LDNS_DNS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.LDNS_PING">
+<code class="descname">LDNS_PING</code><em class="property"> = 'LDNS-PING'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.LDNS_PING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.LDNS_TCP">
+<code class="descname">LDNS_TCP</code><em class="property"> = 'LDNS-TCP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.LDNS_TCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.LOAD">
+<code class="descname">LOAD</code><em class="property"> = 'LOAD'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.LOAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.MSSQL_ECV">
+<code class="descname">MSSQL_ECV</code><em class="property"> = 'MSSQL-ECV'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.MSSQL_ECV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.MYSQL">
+<code class="descname">MYSQL</code><em class="property"> = 'MYSQL'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.MYSQL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.MYSQL_ECV">
+<code class="descname">MYSQL_ECV</code><em class="property"> = 'MYSQL-ECV'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.MYSQL_ECV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.ND6">
+<code class="descname">ND6</code><em class="property"> = 'ND6'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.ND6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.NNTP">
+<code class="descname">NNTP</code><em class="property"> = 'NNTP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.NNTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.ORACLE_ECV">
+<code class="descname">ORACLE_ECV</code><em class="property"> = 'ORACLE-ECV'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.ORACLE_ECV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.PING">
+<code class="descname">PING</code><em class="property"> = 'PING'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.PING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.POP3">
+<code class="descname">POP3</code><em class="property"> = 'POP3'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.POP3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.RADIUS">
+<code class="descname">RADIUS</code><em class="property"> = 'RADIUS'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.RADIUS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.RADIUS_ACCOUNTING">
+<code class="descname">RADIUS_ACCOUNTING</code><em class="property"> = 'RADIUS_ACCOUNTING'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.RADIUS_ACCOUNTING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.RTSP">
+<code class="descname">RTSP</code><em class="property"> = 'RTSP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.RTSP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.SIP_TCP">
+<code class="descname">SIP_TCP</code><em class="property"> = 'SIP-TCP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.SIP_TCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.SIP_UDP">
+<code class="descname">SIP_UDP</code><em class="property"> = 'SIP-UDP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.SIP_UDP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.SMPP">
+<code class="descname">SMPP</code><em class="property"> = 'SMPP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.SMPP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.SMTP">
+<code class="descname">SMTP</code><em class="property"> = 'SMTP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.SMTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.SNMP">
+<code class="descname">SNMP</code><em class="property"> = 'SNMP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.SNMP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.STOREFRONT">
+<code class="descname">STOREFRONT</code><em class="property"> = 'STOREFRONT'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.STOREFRONT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.TCP">
+<code class="descname">TCP</code><em class="property"> = 'TCP'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.TCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.TCP_ECV">
+<code class="descname">TCP_ECV</code><em class="property"> = 'TCP-ECV'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.TCP_ECV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.UDP_ECV">
+<code class="descname">UDP_ECV</code><em class="property"> = 'UDP-ECV'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.UDP_ECV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Type.USER">
+<code class="descname">USER</code><em class="property"> = 'USER'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Type.USER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units1">
+<em class="property">class </em><code class="descname">Units1</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Units1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units1.MIN">
+<code class="descname">MIN</code><em class="property"> = 'MIN'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units1.MIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units1.MSEC">
+<code class="descname">MSEC</code><em class="property"> = 'MSEC'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units1.MSEC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units1.SEC">
+<code class="descname">SEC</code><em class="property"> = 'SEC'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units1.SEC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units2">
+<em class="property">class </em><code class="descname">Units2</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Units2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units2.MIN">
+<code class="descname">MIN</code><em class="property"> = 'MIN'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units2.MIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units2.MSEC">
+<code class="descname">MSEC</code><em class="property"> = 'MSEC'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units2.MSEC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units2.SEC">
+<code class="descname">SEC</code><em class="property"> = 'SEC'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units2.SEC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units3">
+<em class="property">class </em><code class="descname">Units3</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Units3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units3.MIN">
+<code class="descname">MIN</code><em class="property"> = 'MIN'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units3.MIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units3.MSEC">
+<code class="descname">MSEC</code><em class="property"> = 'MSEC'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units3.MSEC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units3.SEC">
+<code class="descname">SEC</code><em class="property"> = 'SEC'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units3.SEC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units4">
+<em class="property">class </em><code class="descname">Units4</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Units4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units4.MIN">
+<code class="descname">MIN</code><em class="property"> = 'MIN'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units4.MIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units4.MSEC">
+<code class="descname">MSEC</code><em class="property"> = 'MSEC'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units4.MSEC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Units4.SEC">
+<code class="descname">SEC</code><em class="property"> = 'SEC'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Units4.SEC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Validatecred">
+<em class="property">class </em><code class="descname">Validatecred</code><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.Validatecred"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Validatecred" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Validatecred.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Validatecred.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.Validatecred.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.Validatecred.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.acctapplicationid">
+<code class="descname">acctapplicationid</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.acctapplicationid" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of Acct-Application-Id attribute value pairs (AVPs) for the Capabilities-Exchange-Request (CER) message to use for monitoring Diameter servers. A maximum of eight of these AVPs are supported in a monitoring message.&lt;br/&gt;Maximum length =  0xFFFFFFFF.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.action">
+<code class="descname">action</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Action to perform when the response to an inline monitor (a monitor of type HTTP-INLINE) indicates that the service is down. A service monitored by an inline monitor is considered DOWN if the response code is not one of the codes that have been specified for the Response Code parameter.
+Available settings function as follows:
+* NONE - Do not take any action. However, the show service command and the show lb monitor command indicate the total number of responses that were checked and the number of consecutive error responses received after the last successful probe.
+* LOG - Log the event in NSLOG or SYSLOG.
+* DOWN - Mark the service as being down, and then do not direct any traffic to the service until the configured down time has expired. Persistent connections to the service are terminated as soon as the service is marked as DOWN. Also, log the event in NSLOG or SYSLOG.&lt;br/&gt;Default value: DOWN&lt;br/&gt;Possible values = NONE, LOG, DOWN.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.add">
+<em class="property">classmethod </em><code class="descname">add</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to add lbmonitor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.alertretries">
+<code class="descname">alertretries</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.alertretries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of consecutive probe failures after which the appliance generates an SNMP trap called monProbeFailed.&lt;br/&gt;Maximum length =  32.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.application">
+<code class="descname">application</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.application" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the application used to determine the state of the service. Applicable to monitors of type CITRIX-XML-SERVICE.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.attribute">
+<code class="descname">attribute</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute to evaluate when the LDAP server responds to the query. Success or failure of the monitoring probe depends on whether the attribute exists in the response. Optional.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.authapplicationid">
+<code class="descname">authapplicationid</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.authapplicationid" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of Auth-Application-Id attribute value pairs (AVPs) for the Capabilities-Exchange-Request (CER) message to use for monitoring Diameter servers. A maximum of eight of these AVPs are supported in a monitoring CER message.&lt;br/&gt;Maximum length =  0xFFFFFFFF.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.basedn">
+<code class="descname">basedn</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.basedn" title="Permalink to this definition">¶</a></dt>
+<dd><p>The base distinguished name of the LDAP service, from where the LDAP server can begin the search for the attributes in the monitoring query. Required for LDAP service monitoring.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.binddn">
+<code class="descname">binddn</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.binddn" title="Permalink to this definition">¶</a></dt>
+<dd><p>The distinguished name with which an LDAP monitor can perform the Bind operation on the LDAP server. Optional. Applicable to LDAP monitors.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.count">
+<em class="property">classmethod </em><code class="descname">count</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count the lbmonitor resources configured on NetScaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>client</strong> – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.count_filtered">
+<em class="property">classmethod </em><code class="descname">count_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.count_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.count_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count filtered the set of lbmonitor resources.
+Filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.customheaders">
+<code class="descname">customheaders</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.customheaders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom header string to include in the monitoring probes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.database">
+<code class="descname">database</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the database to connect to during authentication.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.delete">
+<em class="property">classmethod </em><code class="descname">delete</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to delete lbmonitor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.destip">
+<code class="descname">destip</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.destip" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP address of the service to which to send probes. If the parameter is set to 0, the IP address of the server to which the monitor is bound is considered the destination IP address.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.destport">
+<code class="descname">destport</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.destport" title="Permalink to this definition">¶</a></dt>
+<dd><p>TCP or UDP port to which to send the probe. If the parameter is set to 0, the port number of the service to which the monitor is bound is considered the destination port. For a monitor of type USER, however, the destination port is the port number that is included in the HTTP request sent to the dispatcher. Does not apply to monitors of type PING.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.deviation">
+<code class="descname">deviation</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.deviation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time value added to the learned average response time in dynamic response time monitoring (DRTM). When a deviation is specified, the appliance learns the average response time of bound services and adds the deviation to the average. The final value is then continually adjusted to accommodate response time variations over time. Specified in milliseconds, seconds, or minutes.&lt;br/&gt;Maximum length =  20939000.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.disable">
+<em class="property">classmethod </em><code class="descname">disable</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.disable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to disable lbmonitor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.dispatcherip">
+<code class="descname">dispatcherip</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.dispatcherip" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP address of the dispatcher to which to send the probe.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.dispatcherport">
+<code class="descname">dispatcherport</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.dispatcherport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port number on which the dispatcher listens for the monitoring probe.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.domain">
+<code class="descname">domain</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Domain in which the XenDesktop Desktop Delivery Controller (DDC) servers or Web Interface servers are present. Required by CITRIX-XD-DDC and CITRIX-WI-EXTENDED monitors for logging on to the DDC servers and Web Interface servers, respectively.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.downtime">
+<code class="descname">downtime</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.downtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time duration for which to wait before probing a service that has been marked as DOWN. Expressed in milliseconds, seconds, or minutes.&lt;br/&gt;Default value: 30&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  20939000.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.dup_state">
+<code class="descname">dup_state</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.dup_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.dup_weight">
+<code class="descname">dup_weight</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.dup_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>.&lt;br/&gt;Default value: 1&lt;br/&gt;Minimum value =  1&lt;br/&gt;Maximum value =  100.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.dynamicinterval">
+<code class="descname">dynamicinterval</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.dynamicinterval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interval between monitoring probes for DRTM enabled monitor , calculated dynamically based monitor response time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.dynamicresponsetimeout">
+<code class="descname">dynamicresponsetimeout</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.dynamicresponsetimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Response timeout of the DRTM enabled monitor , calculated dynamically based on the history and current response time.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.enable">
+<em class="property">classmethod </em><code class="descname">enable</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.enable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to enable lbmonitor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.evalrule">
+<code class="descname">evalrule</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.evalrule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default syntax expression that evaluates the database server’s response to a MYSQL-ECV or MSSQL-ECV monitoring query. Must produce a Boolean result. The result determines the state of the server. If the expression returns TRUE, the probe succeeds.
+For example, if you want the appliance to evaluate the error message to determine the state of the server, use the rule MYSQL.RES.ROW(10) .TEXT_ELEM(2).EQ(“MySQL”).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.failureretries">
+<code class="descname">failureretries</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.failureretries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of retries that must fail, out of the number specified for the Retries parameter, for a service to be marked as DOWN. For example, if the Retries parameter is set to 10 and the Failure Retries parameter is set to 6, out of the ten probes sent, at least six probes must fail if the service is to be marked as DOWN. The default value of 0 means that all the retries must fail if the service is to be marked as DOWN.&lt;br/&gt;Maximum length =  32.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.filename">
+<code class="descname">filename</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of a file on the FTP server. The appliance monitors the FTP service by periodically checking the existence of the file on the server. Applicable to FTP-EXTENDED monitors.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.filter">
+<code class="descname">filter</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter criteria for the LDAP query. Optional.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.firmwarerevision">
+<code class="descname">firmwarerevision</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.firmwarerevision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Firmware-Revision value for the Capabilities-Exchange-Request (CER) message to use for monitoring Diameter servers.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch all the lbmonitor resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.get_args">
+<em class="property">classmethod </em><code class="descname">get_args</code><span class="sig-paren">(</span><em>client</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.get_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.get_args" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Use this API to fetch all the lbmonitor resources that are configured on netscaler.</dt>
+<dd># This uses lbmonitor_args which is a way to provide additional arguments while fetching the resources.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.get_filtered">
+<em class="property">classmethod </em><code class="descname">get_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.get_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.get_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch filtered set of lbmonitor resources.
+filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.group">
+<code class="descname">group</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of a newsgroup available on the NNTP service that is to be monitored. The appliance periodically generates an NNTP query for the name of the newsgroup and evaluates the response. If the newsgroup is found on the server, the service is marked as UP. If the newsgroup does not exist or if the search fails, the service is marked as DOWN. Applicable to NNTP monitors.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.hostipaddress">
+<code class="descname">hostipaddress</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.hostipaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host-IP-Address value for the Capabilities-Exchange-Request (CER) message to use for monitoring Diameter servers. If Host-IP-Address is not specified, the appliance inserts the mapped IP (MIP) address or subnet IP (SNIP) address from which the CER request (the monitoring probe) is sent.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.hostname">
+<code class="descname">hostname</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.hostname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hostname in the FQDN format (Example: porche.cars.org). Applicable to STOREFRONT monitors.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.httprequest">
+<code class="descname">httprequest</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.httprequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>HTTP request to send to the server (for example, “HEAD /file.html”).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.inbandsecurityid">
+<code class="descname">inbandsecurityid</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.inbandsecurityid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inband-Security-Id for the Capabilities-Exchange-Request (CER) message to use for monitoring Diameter servers.&lt;br/&gt;Possible values = NO_INBAND_SECURITY, TLS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.interval">
+<code class="descname">interval</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time interval between two successive probes. Must be greater than the value of Response Time-out.&lt;br/&gt;Default value: 5&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  20940000.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.ipaddress">
+<code class="descname">ipaddress</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.ipaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set of IP addresses expected in the monitoring response from the DNS server, if the record type is A or AAAA. Applicable to DNS monitors.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.iptunnel">
+<code class="descname">iptunnel</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.iptunnel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send the monitoring probe to the service through an IP tunnel. A destination IP address must be specified.&lt;br/&gt;Default value: NO&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.kcdaccount">
+<code class="descname">kcdaccount</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.kcdaccount" title="Permalink to this definition">¶</a></dt>
+<dd><p>KCD Account used by MSSQL monitor.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  32.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.lasversion">
+<code class="descname">lasversion</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.lasversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Version number of the Citrix Advanced Access Control Logon Agent. Required by the CITRIX-AAC-LAS monitor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.logonpointname">
+<code class="descname">logonpointname</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.logonpointname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the logon point that is configured for the Citrix Access Gateway Advanced Access Control software. Required if you want to monitor the associated login page or Logon Agent. Applicable to CITRIX-AAC-LAS and CITRIX-AAC-LOGINPAGE monitors.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.lrtm">
+<code class="descname">lrtm</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.lrtm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the least response times for bound services. If this parameter is not enabled, the appliance does not learn the response times of the bound services. Also used for LRTM load balancing.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.lrtmconf">
+<code class="descname">lrtmconf</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.lrtmconf" title="Permalink to this definition">¶</a></dt>
+<dd><p>State of LRTM configuration on the monitor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.lrtmconfstr">
+<code class="descname">lrtmconfstr</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.lrtmconfstr" title="Permalink to this definition">¶</a></dt>
+<dd><p>State of LRTM configuration on the monitor as STRING.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.maxforwards">
+<code class="descname">maxforwards</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.maxforwards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum number of hops that the SIP request used for monitoring can traverse to reach the server. Applicable only to monitors of type SIP-UDP.&lt;br/&gt;Default value: 1&lt;br/&gt;Maximum length =  255.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.metric">
+<code class="descname">metric</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metric name in the metric table, whose setting is changed. A value zero disables the metric and it will not be used for load calculation.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  37.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.metrictable">
+<code class="descname">metrictable</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.metrictable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metric table to which to bind metrics.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  99.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.metricthreshold">
+<code class="descname">metricthreshold</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.metricthreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold to be used for that metric.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.metricweight">
+<code class="descname">metricweight</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.metricweight" title="Permalink to this definition">¶</a></dt>
+<dd><p>The weight for the specified service metric with respect to others.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  100.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.monitorname">
+<code class="descname">monitorname</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.monitorname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for the monitor. Must begin with an ASCII alphanumeric or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at (&#64;), equals (=), and hyphen (-) characters.
+CLI Users:  If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, “my monitor” or ‘my monitor’).&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.mssqlprotocolversion">
+<code class="descname">mssqlprotocolversion</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.mssqlprotocolversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Version of MSSQL server that is to be monitored.&lt;br/&gt;Default value: 70&lt;br/&gt;Possible values = 70, 2000, 2000SP1, 2005, 2008, 2008R2, 2012, 2014.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.multimetrictable">
+<code class="descname">multimetrictable</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.multimetrictable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metric table to which to bind metrics, to be used only for output purposes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.netprofile">
+<code class="descname">netprofile</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.netprofile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the network profile.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  127.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.oraclesid">
+<code class="descname">oraclesid</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.oraclesid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the service identifier that is used to connect to the Oracle database during authentication.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.originhost">
+<code class="descname">originhost</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.originhost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Origin-Host value for the Capabilities-Exchange-Request (CER) message to use for monitoring Diameter servers.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.originrealm">
+<code class="descname">originrealm</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.originrealm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Origin-Realm value for the Capabilities-Exchange-Request (CER) message to use for monitoring Diameter servers.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.password">
+<code class="descname">password</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Password that is required for logging on to the RADIUS, NNTP, FTP, FTP-EXTENDED, MYSQL, MSSQL, POP3, CITRIX-AG, CITRIX-XD-DDC, CITRIX-WI-EXTENDED, CITRIX-XNC-ECV or CITRIX-XDM server. Used in conjunction with the user name specified for the User Name parameter.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.productname">
+<code class="descname">productname</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.productname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Product-Name value for the Capabilities-Exchange-Request (CER) message to use for monitoring Diameter servers.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.query">
+<code class="descname">query</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Domain name to resolve as part of monitoring the DNS service (for example, example.com).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.querytype">
+<code class="descname">querytype</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.querytype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of DNS record for which to send monitoring queries. Set to Address for querying A records, AAAA for querying AAAA records, and Zone for querying the SOA record.&lt;br/&gt;Possible values = Address, Zone, AAAA.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.radaccountsession">
+<code class="descname">radaccountsession</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.radaccountsession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Account Session ID to be used in Account Request Packet. Applicable to monitors of type RADIUS_ACCOUNTING.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.radaccounttype">
+<code class="descname">radaccounttype</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.radaccounttype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Account Type to be used in Account Request Packet. Applicable to monitors of type RADIUS_ACCOUNTING.&lt;br/&gt;Default value: 1&lt;br/&gt;Maximum length =  15.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.radapn">
+<code class="descname">radapn</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.radapn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called Station Id to be used in Account Request Packet. Applicable to monitors of type RADIUS_ACCOUNTING.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.radframedip">
+<code class="descname">radframedip</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.radframedip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Source ip with which the packet will go out . Applicable to monitors of type RADIUS_ACCOUNTING.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.radkey">
+<code class="descname">radkey</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.radkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Authentication key (shared secret text string) for RADIUS clients and servers to exchange. Applicable to monitors of type RADIUS and RADIUS_ACCOUNTING.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.radmsisdn">
+<code class="descname">radmsisdn</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.radmsisdn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calling Stations Id to be used in Account Request Packet. Applicable to monitors of type RADIUS_ACCOUNTING.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.radnasid">
+<code class="descname">radnasid</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.radnasid" title="Permalink to this definition">¶</a></dt>
+<dd><p>NAS-Identifier to send in the Access-Request packet. Applicable to monitors of type RADIUS.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.radnasip">
+<code class="descname">radnasip</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.radnasip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network Access Server (NAS) IP address to use as the source IP address when monitoring a RADIUS server. Applicable to monitors of type RADIUS and RADIUS_ACCOUNTING.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.recv">
+<code class="descname">recv</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.recv" title="Permalink to this definition">¶</a></dt>
+<dd><p>String expected from the server for the service to be marked as UP. Applicable to TCP-ECV, HTTP-ECV, and UDP-ECV monitors.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.respcode">
+<code class="descname">respcode</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.respcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Response codes for which to mark the service as UP. For any other response code, the action performed depends on the monitor type. HTTP monitors and RADIUS monitors mark the service as DOWN, while HTTP-INLINE monitors perform the action indicated by the Action parameter.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.resptimeout">
+<code class="descname">resptimeout</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.resptimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of time for which the appliance must wait before it marks a probe as FAILED.  Must be less than the value specified for the Interval parameter.
+Note: For UDP-ECV monitors for which a receive string is not configured, response timeout does not apply. For UDP-ECV monitors with no receive string, probe failure is indicated by an ICMP port unreachable error received from the service.&lt;br/&gt;Default value: 2&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  20939000.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.resptimeoutthresh">
+<code class="descname">resptimeoutthresh</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.resptimeoutthresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Response time threshold, specified as a percentage of the Response Time-out parameter. If the response to a monitor probe has not arrived when the threshold is reached, the appliance generates an SNMP trap called monRespTimeoutAboveThresh. After the response time returns to a value below the threshold, the appliance generates a monRespTimeoutBelowThresh SNMP trap. For the traps to be generated, the “MONITOR-RTO-THRESHOLD” alarm must also be enabled.&lt;br/&gt;Maximum length =  100.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.retries">
+<code class="descname">retries</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.retries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum number of probes to send to establish the state of a service for which a monitoring probe failed.&lt;br/&gt;Default value: 3&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  127.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.reverse">
+<code class="descname">reverse</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark a service as DOWN, instead of UP, when probe criteria are satisfied, and as UP instead of DOWN when probe criteria are not satisfied.&lt;br/&gt;Default value: NO&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.rtsprequest">
+<code class="descname">rtsprequest</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.rtsprequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>RTSP request to send to the server (for example, “OPTIONS <a href="#id1"><span class="problematic" id="id2">*</span></a>”).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.scriptargs">
+<code class="descname">scriptargs</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.scriptargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>String of arguments for the script. The string is copied verbatim into the request.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.scriptname">
+<code class="descname">scriptname</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.scriptname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path and name of the script to execute. The script must be available on the NetScaler appliance, in the /nsconfig/monitors/ directory.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.secondarypassword">
+<code class="descname">secondarypassword</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.secondarypassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Secondary password that users might have to provide to log on to the Access Gateway server. Applicable to CITRIX-AG monitors.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.secure">
+<code class="descname">secure</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.secure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use a secure SSL connection when monitoring a service. Applicable only to TCP based monitors. The secure option cannot be used with a CITRIX-AG monitor, because a CITRIX-AG monitor uses a secure connection by default.&lt;br/&gt;Default value: NO&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.send">
+<code class="descname">send</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>String to send to the service. Applicable to TCP-ECV, HTTP-ECV, and UDP-ECV monitors.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.servicegroupname">
+<code class="descname">servicegroupname</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.servicegroupname" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the service group to which the monitor is to be bound.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.servicename">
+<code class="descname">servicename</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.servicename" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the service to which the monitor is bound.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.sipmethod">
+<code class="descname">sipmethod</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.sipmethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>SIP method to use for the query. Applicable only to monitors of type SIP-UDP.&lt;br/&gt;Possible values = OPTIONS, INVITE, REGISTER.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.sipreguri">
+<code class="descname">sipreguri</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.sipreguri" title="Permalink to this definition">¶</a></dt>
+<dd><p>SIP user to be registered. Applicable only if the monitor is of type SIP-UDP and the SIP Method parameter is set to REGISTER.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.sipuri">
+<code class="descname">sipuri</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.sipuri" title="Permalink to this definition">¶</a></dt>
+<dd><p>SIP URI string to send to the service (for example, <a class="reference external" href="sip:sip.test">sip:sip.test</a>). Applicable only to monitors of type SIP-UDP.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.sitepath">
+<code class="descname">sitepath</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.sitepath" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of the logon page. For monitors of type CITRIX-WEB-INTERFACE, to monitor a dynamic page under the site path, terminate the site path with a slash (/). Applicable to CITRIX-WEB-INTERFACE, CITRIX-WI-EXTENDED and CITRIX-XDM monitors.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.snmpcommunity">
+<code class="descname">snmpcommunity</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.snmpcommunity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Community name for SNMP monitors.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.snmpthreshold">
+<code class="descname">snmpthreshold</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.snmpthreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold for SNMP monitors.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.snmpversion">
+<code class="descname">snmpversion</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.snmpversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>SNMP version to be used for SNMP monitors.&lt;br/&gt;Possible values = V1, V2.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.sqlquery">
+<code class="descname">sqlquery</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.sqlquery" title="Permalink to this definition">¶</a></dt>
+<dd><p>SQL query for a MYSQL-ECV or MSSQL-ECV monitor. Sent to the database server after the server authenticates the connection.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.state">
+<code class="descname">state</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>State of the monitor. The DISABLED setting disables not only the monitor being configured, but all monitors of the same type, until the parameter is set to ENABLED. If the monitor is bound to a service, the state of the monitor is not taken into account when the state of the service is determined.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.storedb">
+<code class="descname">storedb</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.storedb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store the database list populated with the responses to monitor probes. Used in database specific load balancing if MSSQL-ECV/MYSQL-ECV  monitor is configured.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.storefrontacctservice">
+<code class="descname">storefrontacctservice</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.storefrontacctservice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable/Disable probing for Account Service. Applicable only to Store Front monitors. For multi-tenancy configuration users my skip account service.&lt;br/&gt;Default value: YES&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.storefrontcheckbackendservices">
+<code class="descname">storefrontcheckbackendservices</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.storefrontcheckbackendservices" title="Permalink to this definition">¶</a></dt>
+<dd><p>This option will enable monitoring of services running on storefront server. Storefront services are monitored by probing to a Windows service that runs on the Storefront server and exposes details of which storefront services are running.&lt;br/&gt;Default value: NO&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.storename">
+<code class="descname">storename</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.storename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store Name. For monitors of type STOREFRONT, STORENAME is an optional argument defining storefront service store name. Applicable to STOREFRONT monitors.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.successretries">
+<code class="descname">successretries</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.successretries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of consecutive successful probes required to transition a service’s state from DOWN to UP.&lt;br/&gt;Default value: 1&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  32.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.supportedvendorids">
+<code class="descname">supportedvendorids</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.supportedvendorids" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of Supported-Vendor-Id attribute value pairs (AVPs) for the Capabilities-Exchange-Request (CER) message to use for monitoring Diameter servers. A maximum eight of these AVPs are supported in a monitoring message.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  0xFFFFFFFF.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.tos">
+<code class="descname">tos</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.tos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Probe the service by encoding the destination IP address in the IP TOS (6) bits.&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.tosid">
+<code class="descname">tosid</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.tosid" title="Permalink to this definition">¶</a></dt>
+<dd><p>The TOS ID of the specified destination IP. Applicable only when the TOS parameter is set.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  63.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.transparent">
+<code class="descname">transparent</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.transparent" title="Permalink to this definition">¶</a></dt>
+<dd><p>The monitor is bound to a transparent device such as a firewall or router. The state of a transparent device depends on the responsiveness of the services behind it. If a transparent device is being monitored, a destination IP address must be specified. The probe is sent to the specified IP address by using the MAC address of the transparent device.&lt;br/&gt;Default value: NO&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.trofscode">
+<code class="descname">trofscode</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.trofscode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code expected when the server is under maintenance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.trofsstring">
+<code class="descname">trofsstring</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.trofsstring" title="Permalink to this definition">¶</a></dt>
+<dd><p>String expected from the server for the service to be marked as trofs. Applicable to HTTP-ECV/TCP-ECV monitors.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.type">
+<code class="descname">type</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of monitor that you want to create.&lt;br/&gt;Possible values = PING, TCP, HTTP, TCP-ECV, HTTP-ECV, UDP-ECV, DNS, FTP, LDNS-PING, LDNS-TCP, LDNS-DNS, RADIUS, USER, HTTP-INLINE, SIP-UDP, SIP-TCP, LOAD, FTP-EXTENDED, SMTP, SNMP, NNTP, MYSQL, MYSQL-ECV, MSSQL-ECV, ORACLE-ECV, LDAP, POP3, CITRIX-XML-SERVICE, CITRIX-WEB-INTERFACE, DNS-TCP, RTSP, ARP, CITRIX-AG, CITRIX-AAC-LOGINPAGE, CITRIX-AAC-LAS, CITRIX-XD-DDC, ND6, CITRIX-WI-EXTENDED, DIAMETER, RADIUS_ACCOUNTING, STOREFRONT, APPC, SMPP, CITRIX-XNC-ECV, CITRIX-XDM.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.units1">
+<code class="descname">units1</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.units1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unit of measurement for the Deviation parameter. Cannot be changed after the monitor is created.&lt;br/&gt;Default value: SEC&lt;br/&gt;Possible values = SEC, MSEC, MIN.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.units2">
+<code class="descname">units2</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.units2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unit of measurement for the Down Time parameter. Cannot be changed after the monitor is created.&lt;br/&gt;Default value: SEC&lt;br/&gt;Possible values = SEC, MSEC, MIN.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.units3">
+<code class="descname">units3</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.units3" title="Permalink to this definition">¶</a></dt>
+<dd><p>monitor interval units.&lt;br/&gt;Default value: SEC&lt;br/&gt;Possible values = SEC, MSEC, MIN.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.units4">
+<code class="descname">units4</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.units4" title="Permalink to this definition">¶</a></dt>
+<dd><p>monitor response timeout units.&lt;br/&gt;Default value: SEC&lt;br/&gt;Possible values = SEC, MSEC, MIN.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.unset">
+<em class="property">classmethod </em><code class="descname">unset</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.unset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.unset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to unset the properties of lbmonitor resource.
+Properties that need to be unset are specified in args array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.update">
+<em class="property">classmethod </em><code class="descname">update</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to update lbmonitor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.username">
+<code class="descname">username</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.username" title="Permalink to this definition">¶</a></dt>
+<dd><p>User name with which to probe the RADIUS, NNTP, FTP, FTP-EXTENDED, MYSQL, MSSQL, POP3, CITRIX-AG, CITRIX-XD-DDC, CITRIX-WI-EXTENDED, CITRIX-XNC or CITRIX-XDM server.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.validatecred">
+<code class="descname">validatecred</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.validatecred" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the credentials of the Xen Desktop DDC server user. Applicable to monitors of type CITRIX-XD-DDC.&lt;br/&gt;Default value: NO&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.vendorid">
+<code class="descname">vendorid</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.vendorid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vendor-Id value for the Capabilities-Exchange-Request (CER) message to use for monitoring Diameter servers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.vendorspecificacctapplicationids">
+<code class="descname">vendorspecificacctapplicationids</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.vendorspecificacctapplicationids" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of Vendor-Specific-Acct-Application-Id attribute value pairs (AVPs) to use for monitoring Diameter servers. A maximum of eight of these AVPs are supported in a monitoring message. The specified value is combined with the value of vendorSpecificVendorId to obtain the Vendor-Specific-Application-Id AVP in the CER monitoring message.&lt;br/&gt;Maximum length =  0xFFFFFFFF.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.vendorspecificauthapplicationids">
+<code class="descname">vendorspecificauthapplicationids</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.vendorspecificauthapplicationids" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of Vendor-Specific-Auth-Application-Id attribute value pairs (AVPs) for the Capabilities-Exchange-Request (CER) message to use for monitoring Diameter servers. A maximum of eight of these AVPs are supported in a monitoring message. The specified value is combined with the value of vendorSpecificVendorId to obtain the Vendor-Specific-Application-Id AVP in the CER monitoring message.&lt;br/&gt;Maximum length =  0xFFFFFFFF.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.vendorspecificvendorid">
+<code class="descname">vendorspecificvendorid</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.vendorspecificvendorid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vendor-Id to use in the Vendor-Specific-Application-Id grouped attribute-value pair (AVP) in the monitoring CER message. To specify Auth-Application-Id or Acct-Application-Id in Vendor-Specific-Application-Id, use vendorSpecificAuthApplicationIds or vendorSpecificAcctApplicationIds, respectively. Only one Vendor-Id is supported for all the Vendor-Specific-Application-Id AVPs in a CER monitoring message.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor.weight">
+<code class="descname">weight</code><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor.weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>.&lt;br/&gt;Minimum value =  1&lt;br/&gt;Maximum value =  100.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.lb.lbmonitor.lbmonitor_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.lb.lbmonitor.</code><code class="descname">lbmonitor_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/lb/lbmonitor.html#lbmonitor_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.lb.lbmonitor.lbmonitor_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.config.lb.lbmonitor_args.html" class="btn btn-neutral float-right" title="nitro.resource.config.lb.lbmonitor_args module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.config.lb.lbmonbindings_servicegroup_binding.html" class="btn btn-neutral float-left" title="nitro.resource.config.lb.lbmonbindings_servicegroup_binding module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

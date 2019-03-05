@@ -1,0 +1,637 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.service.nitro_service module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.service.options module" href="nitro.service.options.html" />
+    <link rel="prev" title="nitro.service package" href="nitro.service.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.service.html">nitro.service package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.service.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.service.html#module-nitro.service">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.service.html">nitro.service package</a> &raquo;</li>
+        
+      <li>nitro.service.nitro_service module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.service.nitro_service.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.service.nitro_service">
+<span id="nitro-service-nitro-service-module"></span><h1>nitro.service.nitro_service module<a class="headerlink" href="#module-nitro.service.nitro_service" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.service.nitro_service.nitro_service">
+<em class="property">class </em><code class="descclassname">nitro.service.nitro_service.</code><code class="descname">nitro_service</code><span class="sig-paren">(</span><em>ip</em>, <em>protocol='http'</em>, <em>payload_format=&lt;nitro.resource.base.Json.Json object&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>nitro_service is client interface through which Nitro operations are performed on resources.</p>
+<dl class="attribute">
+<dt id="nitro.service.nitro_service.nitro_service.certvalidation">
+<code class="descname">certvalidation</code><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.certvalidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns certificate validation flag status.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns the json.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.clear_config">
+<code class="descname">clear_config</code><span class="sig-paren">(</span><em>force=''</em>, <em>level=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.clear_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.clear_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to clear configuration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>force</strong> – clear confirmation without prompting. (Default value = “”)</li>
+<li><strong>level</strong> – clear config according to the level. eg: basic, extended, full (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the operation performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.clear_session">
+<code class="descname">clear_session</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.clear_session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.clear_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to clear the current session.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.disable_features">
+<code class="descname">disable_features</code><span class="sig-paren">(</span><em>features</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.disable_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.disable_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to disable the feature on Netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>features</strong> – features to be disabled.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">status of the operation performed.</td>
+</tr>
+</tbody>
+</table>
+<p>&#64;throws Exception Nitro exception.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.disable_modes">
+<code class="descname">disable_modes</code><span class="sig-paren">(</span><em>modes</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.disable_modes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.disable_modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to disable the mode on Netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>modes</strong> – modes to be disabled.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">status of the operation performed.</td>
+</tr>
+</tbody>
+</table>
+<p>&#64;throws Exception Nitro exception.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.enable_features">
+<code class="descname">enable_features</code><span class="sig-paren">(</span><em>features</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.enable_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.enable_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to enable the feature on Netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>features</strong> – features to be enabled.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">status of the operation performed.</td>
+</tr>
+</tbody>
+</table>
+<p>&#64;throws Exception Nitro exception.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.enable_modes">
+<code class="descname">enable_modes</code><span class="sig-paren">(</span><em>modes</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.enable_modes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.enable_modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to enable the mode on Netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>modes</strong> – modes to be enabled.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">status of the operation performed.</td>
+</tr>
+</tbody>
+</table>
+<p>&#64;throws Exception Nitro exception.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.forcehafailover">
+<code class="descname">forcehafailover</code><span class="sig-paren">(</span><em>force</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.forcehafailover"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.forcehafailover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to invoke force failover in primary Netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> – set self to true if force failover is needed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">status of the operation performed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.forcehasync">
+<code class="descname">forcehasync</code><span class="sig-paren">(</span><em>force</em>, <em>save</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.forcehasync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.forcehasync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to force the sync in secondary Netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>force</strong> – set self to true for forcesync</li>
+<li><strong>save</strong> – set self to YES,if want to save the configuration after sync.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the operation performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.get_enabled_features">
+<code class="descname">get_enabled_features</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.get_enabled_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.get_enabled_features" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.get_enabled_modes">
+<code class="descname">get_enabled_modes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.get_enabled_modes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.get_enabled_modes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.get_features">
+<code class="descname">get_features</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.get_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.get_features" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.get_modes">
+<code class="descname">get_modes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.get_modes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.get_modes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.service.nitro_service.nitro_service.ipaddress">
+<code class="descname">ipaddress</code><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.ipaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the Ipaddress of the netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Ipadress.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.isLogin">
+<code class="descname">isLogin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.isLogin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.isLogin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks login status.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">true if logged-in else false.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.login">
+<code class="descname">login</code><span class="sig-paren">(</span><em>username=''</em>, <em>password=''</em>, <em>timeout=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to login into Netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>username</strong> – Username (Default value = “”)</li>
+<li><strong>password</strong> – Password for the Netscaler. (Default value = “”)</li>
+<li><strong>timeout</strong> – timeout for netscaler session.Default is 1800secs</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">status of the operation performed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&#64;throws Exception nitro exception is thrown.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.loginchallengeresponse">
+<code class="descname">loginchallengeresponse</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.loginchallengeresponse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.loginchallengeresponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to loginchallengeresponse into Netscaler with challenge response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>response</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">status of the operation performed.</td>
+</tr>
+</tbody>
+</table>
+<p>&#64;throws nitro_exception nitro exception is thrown.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.logout">
+<code class="descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.logout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.logout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to logout from current session.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">status of the operation performed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.service.nitro_service.nitro_service.onerror">
+<code class="descname">onerror</code><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.onerror" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the onerror status of the netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">onerror status.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.service.nitro_service.nitro_service.payload_formatter">
+<code class="descname">payload_formatter</code><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.payload_formatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns payload format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns json.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.service.nitro_service.nitro_service.protocol">
+<code class="descname">protocol</code><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the protocol.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns the protocol.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.reboot">
+<code class="descname">reboot</code><span class="sig-paren">(</span><em>warm</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.reboot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to reboot Netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>warm</strong> – set self to true for warm reboot.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">status of the operation performed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.relogin">
+<code class="descname">relogin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.relogin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.relogin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self to API to re login into Netsclaer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">status of the operation performed.</td>
+</tr>
+</tbody>
+</table>
+<p>&#64;throws Exception nitro exception is thrown.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.save_config">
+<code class="descname">save_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.save_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.save_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use self API to save configuration on Netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">status of the operation performed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.service.nitro_service.nitro_service.sessionid">
+<code class="descname">sessionid</code><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.sessionid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the sessionId.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">sessionId.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="nitro.service.nitro_service.nitro_service.set_credential">
+<code class="descname">set_credential</code><span class="sig-paren">(</span><em>username</em>, <em>password</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/service/nitro_service.html#nitro_service.set_credential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.set_credential" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the credentials for the netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>username</strong> – Username of the netscaler</li>
+<li><strong>password</strong> – Password for the netscaler.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.service.nitro_service.nitro_service.timeout">
+<code class="descname">timeout</code><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the timeout.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">timeout.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.service.nitro_service.nitro_service.version">
+<code class="descname">version</code><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the nitro version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nitro version.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.service.nitro_service.nitro_service.warning">
+<code class="descname">warning</code><a class="headerlink" href="#nitro.service.nitro_service.nitro_service.warning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the warning status.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">warning status.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.service.options.html" class="btn btn-neutral float-right" title="nitro.service.options module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.service.html" class="btn btn-neutral float-left" title="nitro.service package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

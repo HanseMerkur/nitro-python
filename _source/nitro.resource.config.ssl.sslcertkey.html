@@ -1,0 +1,684 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.ssl.sslcertkey module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.config.ssl.sslcertkey_binding module" href="nitro.resource.config.ssl.sslcertkey_binding.html" />
+    <link rel="prev" title="nitro.resource.config.ssl.sslcertfile module" href="nitro.resource.config.ssl.sslcertfile.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.html">nitro.resource.config package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.ssl.html">nitro.resource.config.ssl package</a> &raquo;</li>
+        
+      <li>nitro.resource.config.ssl.sslcertkey module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.config.ssl.sslcertkey.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.config.ssl.sslcertkey">
+<span id="nitro-resource-config-ssl-sslcertkey-module"></span><h1>nitro.resource.config.ssl.sslcertkey module<a class="headerlink" href="#module-nitro.resource.config.ssl.sslcertkey" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.ssl.sslcertkey.</code><code class="descname">sslcertkey</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<p>Configuration for certificate key resource.</p>
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Bundle">
+<em class="property">class </em><code class="descname">Bundle</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.Bundle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Bundle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Bundle.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Bundle.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Bundle.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Bundle.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Expirymonitor">
+<em class="property">class </em><code class="descname">Expirymonitor</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.Expirymonitor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Expirymonitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Expirymonitor.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Expirymonitor.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Expirymonitor.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Expirymonitor.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Inform">
+<em class="property">class </em><code class="descname">Inform</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.Inform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Inform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Inform.DER">
+<code class="descname">DER</code><em class="property"> = 'DER'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Inform.DER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Inform.PEM">
+<code class="descname">PEM</code><em class="property"> = 'PEM'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Inform.PEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Inform.PFX">
+<code class="descname">PFX</code><em class="property"> = 'PFX'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Inform.PFX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Status">
+<em class="property">class </em><code class="descname">Status</code><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.Status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Status.Expired">
+<code class="descname">Expired</code><em class="property"> = 'Expired'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Status.Expired" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Status.Not_yet_valid">
+<code class="descname">Not_yet_valid</code><em class="property"> = 'Not yet valid'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Status.Not_yet_valid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.Status.Valid">
+<code class="descname">Valid</code><em class="property"> = 'Valid'</em><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.Status.Valid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.add">
+<em class="property">classmethod </em><code class="descname">add</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to add sslcertkey.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.bundle">
+<code class="descname">bundle</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.bundle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the certificate chain as a single file after linking the server certificate to its issuer’s certificate within the file.&lt;br/&gt;Default value: NO&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.cert">
+<code class="descname">cert</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.cert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of and, optionally, path to the X509 certificate file that is used to form the certificate-key pair. The certificate file should be present on the appliance’s hard-disk drive or solid-state drive. Storing a certificate in any location other than the default might cause inconsistency in a high availability setup. /nsconfig/ssl/ is the default path.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.certkey">
+<code class="descname">certkey</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.certkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for the certificate and private-key pair. Must begin with an ASCII alphanumeric or underscore (_) character, and must contain only ASCII alphanumeric, underscore, hash (#), period (.), space, colon (:), at (&#64;), equals (=), and hyphen (-) characters. Cannot be changed after the certificate-key pair is created.
+The following requirement applies only to the NetScaler CLI:
+If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, “my cert” or ‘my cert’).&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.change">
+<em class="property">classmethod </em><code class="descname">change</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to change sslcertkey.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.clientcertnotafter">
+<code class="descname">clientcertnotafter</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.clientcertnotafter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not-After date.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.clientcertnotbefore">
+<code class="descname">clientcertnotbefore</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.clientcertnotbefore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not-Before date.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.count">
+<em class="property">classmethod </em><code class="descname">count</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count the sslcertkey resources configured on NetScaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>client</strong> – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.count_filtered">
+<em class="property">classmethod </em><code class="descname">count_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.count_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.count_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count filtered the set of sslcertkey resources.
+Filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.data">
+<code class="descname">data</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vserver Id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.daystoexpiration">
+<code class="descname">daystoexpiration</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.daystoexpiration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Days remaining for the certificate to expire.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.delete">
+<em class="property">classmethod </em><code class="descname">delete</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to delete sslcertkey.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.expirymonitor">
+<code class="descname">expirymonitor</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.expirymonitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Issue an alert when the certificate is about to expire.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.fipskey">
+<code class="descname">fipskey</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.fipskey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the FIPS key that was created inside the Hardware Security Module (HSM) of a FIPS appliance, or a key that was imported into the HSM.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch all the sslcertkey resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.get_filtered">
+<em class="property">classmethod </em><code class="descname">get_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.get_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.get_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch filtered set of sslcertkey resources.
+filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.hsmkey">
+<code class="descname">hsmkey</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.hsmkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the HSM key that was created in the External Hardware Security Module (HSM) of a FIPS appliance.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.inform">
+<code class="descname">inform</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.inform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input format of the certificate and the private-key files. The three formats supported by the appliance are:
+PEM - Privacy Enhanced Mail
+DER - Distinguished Encoding Rule
+PFX - Personal Information Exchange.&lt;br/&gt;Default value: PEM&lt;br/&gt;Possible values = DER, PEM, PFX.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.issuer">
+<code class="descname">issuer</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.issuer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Issuer name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.key">
+<code class="descname">key</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of and, optionally, path to the private-key file that is used to form the certificate-key pair. The certificate file should be present on the appliance’s hard-disk drive or solid-state drive. Storing a certificate in any location other than the default might cause inconsistency in a high availability setup. /nsconfig/ssl/ is the default path.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.link">
+<em class="property">classmethod </em><code class="descname">link</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.link"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.link" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to link sslcertkey.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.linkcertkeyname">
+<code class="descname">linkcertkeyname</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.linkcertkeyname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the Certificate Authority certificate-key pair to which to link a certificate-key pair.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.nodomaincheck">
+<code class="descname">nodomaincheck</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.nodomaincheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the check for matching domain names during a certificate update operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.notificationperiod">
+<code class="descname">notificationperiod</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.notificationperiod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time, in number of days, before certificate expiration, at which to generate an alert that the certificate is about to expire.&lt;br/&gt;Minimum length =  10&lt;br/&gt;Maximum length =  100.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.passcrypt">
+<code class="descname">passcrypt</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.passcrypt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Passcrypt.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.passplain">
+<code class="descname">passplain</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.passplain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pass phrase used to encrypt the private-key. Required when adding an encrypted private-key in PEM format.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.password">
+<code class="descname">password</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Passphrase that was used to encrypt the private-key. Use this option to load encrypted private-keys in PEM format.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.priority">
+<code class="descname">priority</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>ocsp priority.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.publickey">
+<code class="descname">publickey</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.publickey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Public key algorithm.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.publickeysize">
+<code class="descname">publickeysize</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.publickeysize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of the public key.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.serial">
+<code class="descname">serial</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.serial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serial number.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.servicename">
+<code class="descname">servicename</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.servicename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Service name to which the certificate key pair is bound.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.signaturealg">
+<code class="descname">signaturealg</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.signaturealg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signature algorithm.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.status">
+<code class="descname">status</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status of the certificate.&lt;br/&gt;Possible values = Valid, Not yet valid, Expired.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.subject">
+<code class="descname">subject</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subject name.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.unlink">
+<em class="property">classmethod </em><code class="descname">unlink</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.unlink"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.unlink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to unlink sslcertkey.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.unset">
+<em class="property">classmethod </em><code class="descname">unset</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.unset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.unset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to unset the properties of sslcertkey resource.
+Properties that need to be unset are specified in args array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.update">
+<em class="property">classmethod </em><code class="descname">update</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to update sslcertkey.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey.version">
+<code class="descname">version</code><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Version.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.ssl.sslcertkey.sslcertkey_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.ssl.sslcertkey.</code><code class="descname">sslcertkey_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/ssl/sslcertkey.html#sslcertkey_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.ssl.sslcertkey.sslcertkey_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.config.ssl.sslcertkey_binding.html" class="btn btn-neutral float-right" title="nitro.resource.config.ssl.sslcertkey_binding module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.config.ssl.sslcertfile.html" class="btn btn-neutral float-left" title="nitro.resource.config.ssl.sslcertfile module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

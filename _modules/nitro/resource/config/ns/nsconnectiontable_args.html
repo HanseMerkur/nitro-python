@@ -1,0 +1,670 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.ns.nsconnectiontable_args &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.ns.nsconnectiontable_args</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.ns.nsconnectiontable_args</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+
+<div class="viewcode-block" id="nsconnectiontable_args"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsconnectiontable_args.html#nitro.resource.config.ns.nsconnectiontable_args.nsconnectiontable_args">[docs]</a><span class="k">class</span> <span class="nc">nsconnectiontable_args</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Provides additional arguments required for fetching the nsconnectiontable resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filterexpression</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_link</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_detail</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_listen</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">filterexpression</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The maximum length of filter expression is 255 and it can be of following format:</span>
+<span class="sd">        &lt;expression&gt; [&lt;relop&gt; &lt;expression&gt;]</span>
+<span class="sd">        &lt;relop&gt; = ( &amp;&amp; | || )</span>
+<span class="sd">        connectiontable supports two types of filter expressions:</span>
+<span class="sd">        Classic Expressions:</span>
+<span class="sd">        [Note: Classic Expressions are not supported in non-default partitions]</span>
+<span class="sd">        &lt;expression&gt; = the expression string in the format:</span>
+<span class="sd">        &lt;qualifier&gt; &lt;operator&gt; &lt;qualifier-value&gt;</span>
+<span class="sd">        &lt;qualifier&gt; = SOURCEIP.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid IP address.</span>
+<span class="sd">        &lt;qualifier&gt; = SOURCEPORT.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid port number.</span>
+<span class="sd">        &lt;qualifier&gt; = DESTIP.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid IP address.</span>
+<span class="sd">        &lt;qualifier&gt; = DESTPORT.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid port number.</span>
+<span class="sd">        &lt;qualifier&gt; = IP.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid IP address.</span>
+<span class="sd">        &lt;qualifier&gt; = PORT.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid port number.</span>
+<span class="sd">        &lt;qualifier&gt; = IDLETIME.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A positive integer indicating the idle time.</span>
+<span class="sd">        &lt;qualifier&gt; = SVCNAME.</span>
+<span class="sd">        &lt;qualifier-value&gt; = The name of a service.</span>
+<span class="sd">        &lt;qualifier&gt; = VSVRNAME.</span>
+<span class="sd">        &lt;qualifier-value&gt; = The name of a vserver.</span>
+<span class="sd">        &lt;qualifier&gt; = CONNID</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid PCB dev number.</span>
+<span class="sd">        &lt;qualifier&gt; = INTF</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid interface id in the form of x/y</span>
+<span class="sd">        (n/x/y in case of cluster interface).</span>
+<span class="sd">        &lt;qualifier&gt; = VLAN</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid VLAN ID.</span>
+<span class="sd">        &lt;qualifier&gt; = STATE.</span>
+<span class="sd">        &lt;qualifier-value&gt; = ( CLOSE_WAIT | CLOSED | CLOSING | ESTABLISHED |</span>
+<span class="sd">        FIN_WAIT_1 | FIN_WAIT_2 | LAST_ACK | LISTEN |</span>
+<span class="sd">        SYN_RECEIVED | SYN_SENT | TIME_WAIT )</span>
+<span class="sd">        &lt;qualifier&gt; = SVCTYPE.</span>
+<span class="sd">        &lt;qualifier-value&gt; = ( HTTP | FTP | TCP | UDP | SSL |</span>
+<span class="sd">        SSL_BRIDGE | SSL_TCP | NNTP | RPCSVR | RPCSVRS |</span>
+<span class="sd">        RPCCLNT | DNS | ADNS | SNMP | RTSP | DHCPRA | ANY |</span>
+<span class="sd">        MONITOR | MONITOR_UDP | MONITOR_PING | SIP_UDP | MYSQL | MSSQL | UNKNOWN )</span>
+<span class="sd">        &lt;operator&gt; = ( == | eq | != | neq | &gt; | gt | &lt; | lt | &gt;= |</span>
+<span class="sd">        ge | &lt;= | le | BETWEEN )</span>
+<span class="sd">        Default Expressions:</span>
+<span class="sd">        &lt;expression&gt; =:</span>
+<span class="sd">        CONNECTION.&lt;qualifier&gt;.&lt;qualifier-method&gt;.(&lt;qualifier-value&gt;)</span>
+<span class="sd">        &lt;qualifier&gt; = SRCIP</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv4 address</span>
+<span class="sd">        example = CONNECTION.SRCIP.EQ(127.0.0.1)</span>
+<span class="sd">        &lt;qualifier&gt; = DSTIP</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv4 address.</span>
+<span class="sd">        example = CONNECTION.DSTIP.EQ(127.0.0.1)</span>
+<span class="sd">        &lt;qualifier&gt; = IP</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv4 address.</span>
+<span class="sd">        example = CONNECTION.IP.EQ(127.0.0.1)</span>
+<span class="sd">        &lt;qualifier&gt; = SRCIPv6</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv6 address.</span>
+<span class="sd">        example = CONNECTION.SRCIPv6.EQ(2001:db8:0:0:1::1)</span>
+<span class="sd">        &lt;qualifier&gt; = DSTIPv6</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv6 address.</span>
+<span class="sd">        example = CONNECTION.DSTIPv6.EQ(2001:db8:0:0:1::1)</span>
+<span class="sd">        &lt;qualifier&gt; = IPv6</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv6 address.</span>
+<span class="sd">        example = CONNECTION.IPv6.EQ(2001:db8:0:0:1::1)</span>
+<span class="sd">        &lt;qualifier&gt; = SRCPORT</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid port number.</span>
+<span class="sd">        example = CONNECTION.SRCPORT.EQ(80)</span>
+<span class="sd">        &lt;qualifier&gt; = DSTPORT</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid port number.</span>
+<span class="sd">        example = CONNECTION.DSTPORT.EQ(80)</span>
+<span class="sd">        &lt;qualifier&gt; = PORT</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid port number.</span>
+<span class="sd">        example = CONNECTION.PORT.EQ(80)</span>
+<span class="sd">        &lt;qualifier&gt; = SVCNAME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | CONTAINS | STARTSWITH</span>
+<span class="sd">        | ENDSWITH ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = service name.</span>
+<span class="sd">        example = CONNECTION.SVCNAME.EQ(&quot;name&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = LB_VSERVER.NAME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | CONTAINS | STARTSWITH</span>
+<span class="sd">        | ENDSWITH ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = LB vserver name.</span>
+<span class="sd">        example = CONNECTION.LB_VSERVER.NAME.EQ(&quot;name&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = CS_VSERVER.NAME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | CONTAINS | STARTSWITH</span>
+<span class="sd">        | ENDSWITH ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = CS vserver name.</span>
+<span class="sd">        example = CONNECTION.CS_VSERVER.NAME.EQ(&quot;name&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = INTF</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid interface id in the form of</span>
+<span class="sd">        x/y (n/x/y in case of cluster interface).</span>
+<span class="sd">        examle = CONNECTION.INTF.EQ(&quot;0/1/1&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = VLANID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid VLAN ID.</span>
+<span class="sd">        example = CONNECTION.VLANID.EQ(0)</span>
+<span class="sd">        &lt;qualifier&gt; = CONNID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid PCB dev number.</span>
+<span class="sd">        example = CONNECTION.CONNID.EQ(0)</span>
+<span class="sd">        &lt;qualifier&gt; = PPEID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid core ID.</span>
+<span class="sd">        example = CONNECTION.PPEID.EQ(0)</span>
+<span class="sd">        &lt;qualifier&gt; = IDLETIME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A positive integer indicating the</span>
+<span class="sd">        idletime.</span>
+<span class="sd">        example = CONNECTION.IDLETIME.LT(100)</span>
+<span class="sd">        &lt;qualifier&gt; = TCPSTATE</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = ( CLOSE_WAIT | CLOSED | CLOSING |</span>
+<span class="sd">        ESTABLISHED | FIN_WAIT_1 | FIN_WAIT_2 | LAST_ACK |</span>
+<span class="sd">        LISTEN | SYN_RECEIVED | SYN_SENT | TIME_WAIT |</span>
+<span class="sd">        NOT_APPLICABLE)</span>
+<span class="sd">        example = CONNECTION.TCPSTATE.EQ(LISTEN)</span>
+<span class="sd">        &lt;qualifier&gt; = SERVICE_TYPE</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = ( SVC_HTTP | FTP | TCP | UDP | SSL |</span>
+<span class="sd">        SSL_BRIDGE | SSL_TCP | NNTP | RPCSVR | RPCSVRS |</span>
+<span class="sd">        RPCCLNT | SVC_DNS | ADNS | SNMP | RTSP | DHCPRA | ANY|</span>
+<span class="sd">        MONITOR | MONITOR_UDP | MONITOR_PING | SIP_UDP |</span>
+<span class="sd">        SVC_MYSQL | SVC_MSSQL | SERVICE_UNKNOWN )</span>
+<span class="sd">        example = CONNECTION.SERVICE_TYPE.EQ(ANY)</span>
+<span class="sd">        &lt;qualifier&gt; = TRAFFIC_DOMAIN_ID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid traffic domain ID.</span>
+<span class="sd">        example = CONNECTION.TRAFFIC_DOMAIN_ID.EQ(0)</span>
+<span class="sd">        common usecases:</span>
+<span class="sd">        Filtering out loopback connections and view present</span>
+<span class="sd">        connections through netsclaer</span>
+<span class="sd">        show connectiontable &quot;CONNECTION.IP.NEQ(127.0.0.1) &amp;&amp;</span>
+<span class="sd">        CONNECTION.TCPSTATE.EQ(ESTABLISHED)&quot; -detail full</span>
+<span class="sd">        show connections from a particular sourceip and targeted</span>
+<span class="sd">        to port 80</span>
+<span class="sd">        show connectiontable &quot;CONNECTION.SRCIP.EQ(10.102.1.91) &amp;&amp;</span>
+<span class="sd">        CONNECTION.DSTPORT.EQ(80)&quot;</span>
+<span class="sd">        show connection particular to a service and its linked</span>
+<span class="sd">        client connections</span>
+<span class="sd">        show connectiontable &quot;CONNECTION.SVCNAME.EQ(&quot;S1&quot;)&quot;</span>
+<span class="sd">        -detail link</span>
+<span class="sd">        show connections for a particular servicetype(e.g.http)</span>
+<span class="sd">        show connectiontable &quot;CONNECTION.SERVICE_TYPE.EQ(TCP)&quot;</span>
+<span class="sd">        viewing connections that have been idle for a long time</span>
+<span class="sd">        show connectiontable &quot;CONNECTION.IDLETIME.GT(100)&quot;</span>
+<span class="sd">        show connections for a particular interface and vlan</span>
+<span class="sd">        show connectiontable &quot;CONNECTION.INTF.EQ(&quot;1/1&quot;) &amp;&amp;</span>
+<span class="sd">        CONNECTION.VLANID.EQ(1)&quot;</span>
+<span class="sd">        .</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filterexpression</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@filterexpression</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">filterexpression</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filterexpression</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;The maximum length of filter expression is 255 and it can be of following format:</span>
+<span class="sd">        &lt;expression&gt; [&lt;relop&gt; &lt;expression&gt;]</span>
+<span class="sd">        &lt;relop&gt; = ( &amp;&amp; | || )</span>
+<span class="sd">        connectiontable supports two types of filter expressions:</span>
+<span class="sd">        Classic Expressions:</span>
+<span class="sd">        [Note: Classic Expressions are not supported in non-default partitions]</span>
+<span class="sd">        &lt;expression&gt; = the expression string in the format:</span>
+<span class="sd">        &lt;qualifier&gt; &lt;operator&gt; &lt;qualifier-value&gt;</span>
+<span class="sd">        &lt;qualifier&gt; = SOURCEIP.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid IP address.</span>
+<span class="sd">        &lt;qualifier&gt; = SOURCEPORT.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid port number.</span>
+<span class="sd">        &lt;qualifier&gt; = DESTIP.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid IP address.</span>
+<span class="sd">        &lt;qualifier&gt; = DESTPORT.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid port number.</span>
+<span class="sd">        &lt;qualifier&gt; = IP.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid IP address.</span>
+<span class="sd">        &lt;qualifier&gt; = PORT.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid port number.</span>
+<span class="sd">        &lt;qualifier&gt; = IDLETIME.</span>
+<span class="sd">        &lt;qualifier-value&gt; = A positive integer indicating the idle time.</span>
+<span class="sd">        &lt;qualifier&gt; = SVCNAME.</span>
+<span class="sd">        &lt;qualifier-value&gt; = The name of a service.</span>
+<span class="sd">        &lt;qualifier&gt; = VSVRNAME.</span>
+<span class="sd">        &lt;qualifier-value&gt; = The name of a vserver.</span>
+<span class="sd">        &lt;qualifier&gt; = CONNID</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid PCB dev number.</span>
+<span class="sd">        &lt;qualifier&gt; = INTF</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid interface id in the form of x/y</span>
+<span class="sd">        (n/x/y in case of cluster interface).</span>
+<span class="sd">        &lt;qualifier&gt; = VLAN</span>
+<span class="sd">        &lt;qualifier-value&gt; = A valid VLAN ID.</span>
+<span class="sd">        &lt;qualifier&gt; = STATE.</span>
+<span class="sd">        &lt;qualifier-value&gt; = ( CLOSE_WAIT | CLOSED | CLOSING | ESTABLISHED |</span>
+<span class="sd">        FIN_WAIT_1 | FIN_WAIT_2 | LAST_ACK | LISTEN |</span>
+<span class="sd">        SYN_RECEIVED | SYN_SENT | TIME_WAIT )</span>
+<span class="sd">        &lt;qualifier&gt; = SVCTYPE.</span>
+<span class="sd">        &lt;qualifier-value&gt; = ( HTTP | FTP | TCP | UDP | SSL |</span>
+<span class="sd">        SSL_BRIDGE | SSL_TCP | NNTP | RPCSVR | RPCSVRS |</span>
+<span class="sd">        RPCCLNT | DNS | ADNS | SNMP | RTSP | DHCPRA | ANY |</span>
+<span class="sd">        MONITOR | MONITOR_UDP | MONITOR_PING | SIP_UDP | MYSQL | MSSQL | UNKNOWN )</span>
+<span class="sd">        &lt;operator&gt; = ( == | eq | != | neq | &gt; | gt | &lt; | lt | &gt;= |</span>
+<span class="sd">        ge | &lt;= | le | BETWEEN )</span>
+<span class="sd">        Default Expressions:</span>
+<span class="sd">        &lt;expression&gt; =:</span>
+<span class="sd">        CONNECTION.&lt;qualifier&gt;.&lt;qualifier-method&gt;.(&lt;qualifier-value&gt;)</span>
+<span class="sd">        &lt;qualifier&gt; = SRCIP</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv4 address</span>
+<span class="sd">        example = CONNECTION.SRCIP.EQ(127.0.0.1)</span>
+<span class="sd">        &lt;qualifier&gt; = DSTIP</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv4 address.</span>
+<span class="sd">        example = CONNECTION.DSTIP.EQ(127.0.0.1)</span>
+<span class="sd">        &lt;qualifier&gt; = IP</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv4 address.</span>
+<span class="sd">        example = CONNECTION.IP.EQ(127.0.0.1)</span>
+<span class="sd">        &lt;qualifier&gt; = SRCIPv6</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv6 address.</span>
+<span class="sd">        example = CONNECTION.SRCIPv6.EQ(2001:db8:0:0:1::1)</span>
+<span class="sd">        &lt;qualifier&gt; = DSTIPv6</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv6 address.</span>
+<span class="sd">        example = CONNECTION.DSTIPv6.EQ(2001:db8:0:0:1::1)</span>
+<span class="sd">        &lt;qualifier&gt; = IPv6</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid IPv6 address.</span>
+<span class="sd">        example = CONNECTION.IPv6.EQ(2001:db8:0:0:1::1)</span>
+<span class="sd">        &lt;qualifier&gt; = SRCPORT</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid port number.</span>
+<span class="sd">        example = CONNECTION.SRCPORT.EQ(80)</span>
+<span class="sd">        &lt;qualifier&gt; = DSTPORT</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid port number.</span>
+<span class="sd">        example = CONNECTION.DSTPORT.EQ(80)</span>
+<span class="sd">        &lt;qualifier&gt; = PORT</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid port number.</span>
+<span class="sd">        example = CONNECTION.PORT.EQ(80)</span>
+<span class="sd">        &lt;qualifier&gt; = SVCNAME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | CONTAINS | STARTSWITH</span>
+<span class="sd">        | ENDSWITH ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = service name.</span>
+<span class="sd">        example = CONNECTION.SVCNAME.EQ(&quot;name&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = LB_VSERVER.NAME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | CONTAINS | STARTSWITH</span>
+<span class="sd">        | ENDSWITH ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = LB vserver name.</span>
+<span class="sd">        example = CONNECTION.LB_VSERVER.NAME.EQ(&quot;name&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = CS_VSERVER.NAME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | CONTAINS | STARTSWITH</span>
+<span class="sd">        | ENDSWITH ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = CS vserver name.</span>
+<span class="sd">        example = CONNECTION.CS_VSERVER.NAME.EQ(&quot;name&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = INTF</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid interface id in the form of</span>
+<span class="sd">        x/y (n/x/y in case of cluster interface).</span>
+<span class="sd">        examle = CONNECTION.INTF.EQ(&quot;0/1/1&quot;)</span>
+<span class="sd">        &lt;qualifier&gt; = VLANID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid VLAN ID.</span>
+<span class="sd">        example = CONNECTION.VLANID.EQ(0)</span>
+<span class="sd">        &lt;qualifier&gt; = CONNID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid PCB dev number.</span>
+<span class="sd">        example = CONNECTION.CONNID.EQ(0)</span>
+<span class="sd">        &lt;qualifier&gt; = PPEID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid core ID.</span>
+<span class="sd">        example = CONNECTION.PPEID.EQ(0)</span>
+<span class="sd">        &lt;qualifier&gt; = IDLETIME</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A positive integer indicating the</span>
+<span class="sd">        idletime.</span>
+<span class="sd">        example = CONNECTION.IDLETIME.LT(100)</span>
+<span class="sd">        &lt;qualifier&gt; = TCPSTATE</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = ( CLOSE_WAIT | CLOSED | CLOSING |</span>
+<span class="sd">        ESTABLISHED | FIN_WAIT_1 | FIN_WAIT_2 | LAST_ACK |</span>
+<span class="sd">        LISTEN | SYN_RECEIVED | SYN_SENT | TIME_WAIT |</span>
+<span class="sd">        NOT_APPLICABLE)</span>
+<span class="sd">        example = CONNECTION.TCPSTATE.EQ(LISTEN)</span>
+<span class="sd">        &lt;qualifier&gt; = SERVICE_TYPE</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = ( SVC_HTTP | FTP | TCP | UDP | SSL |</span>
+<span class="sd">        SSL_BRIDGE | SSL_TCP | NNTP | RPCSVR | RPCSVRS |</span>
+<span class="sd">        RPCCLNT | SVC_DNS | ADNS | SNMP | RTSP | DHCPRA | ANY|</span>
+<span class="sd">        MONITOR | MONITOR_UDP | MONITOR_PING | SIP_UDP |</span>
+<span class="sd">        SVC_MYSQL | SVC_MSSQL | SERVICE_UNKNOWN )</span>
+<span class="sd">        example = CONNECTION.SERVICE_TYPE.EQ(ANY)</span>
+<span class="sd">        &lt;qualifier&gt; = TRAFFIC_DOMAIN_ID</span>
+<span class="sd">        &lt;qualifier-method&gt; = [ EQ | NE | GT | GE | LT | LE</span>
+<span class="sd">        | BETWEEN ]</span>
+<span class="sd">        &lt;qualifier-value&gt;  = A valid traffic domain ID.</span>
+<span class="sd">        example = CONNECTION.TRAFFIC_DOMAIN_ID.EQ(0)</span>
+<span class="sd">        common usecases:</span>
+<span class="sd">        Filtering out loopback connections and view present</span>
+<span class="sd">        connections through netsclaer</span>
+<span class="sd">        show connectiontable &quot;CONNECTION.IP.NEQ(127.0.0.1) &amp;&amp;</span>
+<span class="sd">        CONNECTION.TCPSTATE.EQ(ESTABLISHED)&quot; -detail full</span>
+<span class="sd">        show connections from a particular sourceip and targeted</span>
+<span class="sd">        to port 80</span>
+<span class="sd">        show connectiontable &quot;CONNECTION.SRCIP.EQ(10.102.1.91) &amp;&amp;</span>
+<span class="sd">        CONNECTION.DSTPORT.EQ(80)&quot;</span>
+<span class="sd">        show connection particular to a service and its linked</span>
+<span class="sd">        client connections</span>
+<span class="sd">        show connectiontable &quot;CONNECTION.SVCNAME.EQ(&quot;S1&quot;)&quot;</span>
+<span class="sd">        -detail link</span>
+<span class="sd">        show connections for a particular servicetype(e.g.http)</span>
+<span class="sd">        show connectiontable &quot;CONNECTION.SERVICE_TYPE.EQ(TCP)&quot;</span>
+<span class="sd">        viewing connections that have been idle for a long time</span>
+<span class="sd">        show connectiontable &quot;CONNECTION.IDLETIME.GT(100)&quot;</span>
+<span class="sd">        show connections for a particular interface and vlan</span>
+<span class="sd">        show connectiontable &quot;CONNECTION.INTF.EQ(&quot;1/1&quot;) &amp;&amp;</span>
+<span class="sd">        CONNECTION.VLANID.EQ(1)&quot;</span>
+<span class="sd">        .</span>
+
+<span class="sd">        :param filterexpression: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_filterexpression</span> <span class="o">=</span> <span class="n">filterexpression</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">link</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Display link information if available.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_link</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@link</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Display link information if available.</span>
+
+<span class="sd">        :param link: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_link</span> <span class="o">=</span> <span class="n">link</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Display name instead of IP for local entities.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Display name instead of IP for local entities.</span>
+
+<span class="sd">        :param name: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Specify display options for the connection table.</span>
+<span class="sd">        * LINK - Displays the linked PCB (Protocol Control Block).</span>
+<span class="sd">        * NAME - Displays along with the service name.</span>
+<span class="sd">        * CONNFAILOVER - Displays PCB with connection failover.</span>
+<span class="sd">        * FULL - Displays all available details.&lt;br/&gt;Possible values = LINK, NAME, CONNFAILOVER, FULL, NNM.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_detail</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@detail</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detail</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Specify display options for the connection table.</span>
+<span class="sd">        * LINK - Displays the linked PCB (Protocol Control Block).</span>
+<span class="sd">        * NAME - Displays along with the service name.</span>
+<span class="sd">        * CONNFAILOVER - Displays PCB with connection failover.</span>
+<span class="sd">        * FULL - Displays all available details.&lt;br/&gt;Possible values = LINK, NAME, CONNFAILOVER, FULL, NNM</span>
+
+<span class="sd">        :param detail: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_detail</span> <span class="o">=</span> <span class="n">detail</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">listen</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Display listening services only.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_listen</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@listen</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">listen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listen</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Display listening services only.</span>
+
+<span class="sd">        :param listen: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_listen</span> <span class="o">=</span> <span class="n">listen</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+<div class="viewcode-block" id="nsconnectiontable_args.Detail"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.ns.nsconnectiontable_args.html#nitro.resource.config.ns.nsconnectiontable_args.nsconnectiontable_args.Detail">[docs]</a>    <span class="k">class</span> <span class="nc">Detail</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">LINK</span> <span class="o">=</span> <span class="s2">&quot;LINK&quot;</span>
+        <span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;NAME&quot;</span>
+        <span class="n">CONNFAILOVER</span> <span class="o">=</span> <span class="s2">&quot;CONNFAILOVER&quot;</span>
+        <span class="n">FULL</span> <span class="o">=</span> <span class="s2">&quot;FULL&quot;</span>
+        <span class="n">NNM</span> <span class="o">=</span> <span class="s2">&quot;NNM&quot;</span></div></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

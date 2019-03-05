@@ -1,0 +1,764 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.audit.auditsyslogparams &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../_source/nitro.html">nitro package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nitro.resource.config.audit.auditsyslogparams</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nitro.resource.config.audit.auditsyslogparams</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2008-2015 Citrix Systems, Inc.</span>
+<span class="c1">#</span>
+<span class="c1">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;)</span>
+<span class="c1">#   you may not use this file except in compliance with the License.</span>
+<span class="c1">#   You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#   See the License for the specific language governing permissions and</span>
+<span class="c1">#   limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_resource</span>
+<span class="kn">from</span> <span class="nn">nitro.resource.base.base_resource</span> <span class="k">import</span> <span class="n">base_response</span>
+<span class="kn">from</span> <span class="nn">nitro.service.options</span> <span class="k">import</span> <span class="n">options</span>
+<span class="kn">from</span> <span class="nn">nitro.exception.nitro_exception</span> <span class="k">import</span> <span class="n">nitro_exception</span>
+
+<span class="kn">from</span> <span class="nn">nitro.util.nitro_util</span> <span class="k">import</span> <span class="n">nitro_util</span>
+
+<div class="viewcode-block" id="auditsyslogparams"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams">[docs]</a><span class="k">class</span> <span class="nc">auditsyslogparams</span><span class="p">(</span><span class="n">base_resource</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Configuration for system log parameters resource.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_serverip</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_serverport</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dateformat</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_loglevel</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logfacility</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tcp</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_acl</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_userdefinedauditlog</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_appflowexport</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lsn</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_alg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_subscriberlog</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dns</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_builtin</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">serverip</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;IP address of the syslog server.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serverip</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@serverip</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">serverip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serverip</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;IP address of the syslog server.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param serverip: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_serverip</span> <span class="o">=</span> <span class="n">serverip</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">serverport</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Port on which the syslog server accepts connections.&lt;br/&gt;Minimum length =  1.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serverport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@serverport</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">serverport</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serverport</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Port on which the syslog server accepts connections.&lt;br/&gt;Minimum length =  1</span>
+
+<span class="sd">        :param serverport: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_serverport</span> <span class="o">=</span> <span class="n">serverport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dateformat</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Format of dates in the logs.</span>
+<span class="sd">        Supported formats are:</span>
+<span class="sd">        * MMDDYYYY - U.S. style month/date/year format.</span>
+<span class="sd">        * DDMMYYYY. European style  -date/month/year format.</span>
+<span class="sd">        * YYYYMMDD - ISO style year/month/date format.&lt;br/&gt;Possible values = MMDDYYYY, DDMMYYYY, YYYYMMDD.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dateformat</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@dateformat</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dateformat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dateformat</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Format of dates in the logs.</span>
+<span class="sd">        Supported formats are:</span>
+<span class="sd">        * MMDDYYYY - U.S. style month/date/year format.</span>
+<span class="sd">        * DDMMYYYY. European style  -date/month/year format.</span>
+<span class="sd">        * YYYYMMDD - ISO style year/month/date format.&lt;br/&gt;Possible values = MMDDYYYY, DDMMYYYY, YYYYMMDD</span>
+
+<span class="sd">        :param dateformat: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dateformat</span> <span class="o">=</span> <span class="n">dateformat</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">loglevel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Types of information to be logged.</span>
+<span class="sd">        Available settings function as follows:</span>
+<span class="sd">        * ALL - All events.</span>
+<span class="sd">        * EMERGENCY - Events that indicate an immediate crisis on the server.</span>
+<span class="sd">        * ALERT - Events that might require action.</span>
+<span class="sd">        * CRITICAL - Events that indicate an imminent server crisis.</span>
+<span class="sd">        * ERROR - Events that indicate some type of error.</span>
+<span class="sd">        * WARNING - Events that require action in the near future.</span>
+<span class="sd">        * NOTICE - Events that the administrator should know about.</span>
+<span class="sd">        * INFORMATIONAL - All but low-level events.</span>
+<span class="sd">        * DEBUG - All events, in extreme detail.</span>
+<span class="sd">        * NONE - No events.&lt;br/&gt;Possible values = ALL, EMERGENCY, ALERT, CRITICAL, ERROR, WARNING, NOTICE, INFORMATIONAL, DEBUG, NONE.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loglevel</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@loglevel</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">loglevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loglevel</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Types of information to be logged.</span>
+<span class="sd">        Available settings function as follows:</span>
+<span class="sd">        * ALL - All events.</span>
+<span class="sd">        * EMERGENCY - Events that indicate an immediate crisis on the server.</span>
+<span class="sd">        * ALERT - Events that might require action.</span>
+<span class="sd">        * CRITICAL - Events that indicate an imminent server crisis.</span>
+<span class="sd">        * ERROR - Events that indicate some type of error.</span>
+<span class="sd">        * WARNING - Events that require action in the near future.</span>
+<span class="sd">        * NOTICE - Events that the administrator should know about.</span>
+<span class="sd">        * INFORMATIONAL - All but low-level events.</span>
+<span class="sd">        * DEBUG - All events, in extreme detail.</span>
+<span class="sd">        * NONE - No events.&lt;br/&gt;Possible values = ALL, EMERGENCY, ALERT, CRITICAL, ERROR, WARNING, NOTICE, INFORMATIONAL, DEBUG, NONE</span>
+
+<span class="sd">        :param loglevel: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_loglevel</span> <span class="o">=</span> <span class="n">loglevel</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">logfacility</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Facility value, as defined in RFC 3164, assigned to the log message.</span>
+<span class="sd">        Log facility values are numbers 0 to 7 (LOCAL0 through LOCAL7). Each number indicates where a specific message originated from, such as the NetScaler appliance itself, the VPN, or external.&lt;br/&gt;Possible values = LOCAL0, LOCAL1, LOCAL2, LOCAL3, LOCAL4, LOCAL5, LOCAL6, LOCAL7.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logfacility</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@logfacility</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">logfacility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logfacility</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Facility value, as defined in RFC 3164, assigned to the log message.</span>
+<span class="sd">        Log facility values are numbers 0 to 7 (LOCAL0 through LOCAL7). Each number indicates where a specific message originated from, such as the NetScaler appliance itself, the VPN, or external.&lt;br/&gt;Possible values = LOCAL0, LOCAL1, LOCAL2, LOCAL3, LOCAL4, LOCAL5, LOCAL6, LOCAL7</span>
+
+<span class="sd">        :param logfacility: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logfacility</span> <span class="o">=</span> <span class="n">logfacility</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tcp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log TCP messages.&lt;br/&gt;Possible values = NONE, ALL.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tcp</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@tcp</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">tcp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tcp</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log TCP messages.&lt;br/&gt;Possible values = NONE, ALL</span>
+
+<span class="sd">        :param tcp: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tcp</span> <span class="o">=</span> <span class="n">tcp</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">acl</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log access control list (ACL) messages.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@acl</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">acl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">acl</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log access control list (ACL) messages.&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param acl: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_acl</span> <span class="o">=</span> <span class="n">acl</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">timezone</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Time zone used for date and timestamps in the logs.</span>
+<span class="sd">        Available settings function as follows:</span>
+<span class="sd">        * GMT_TIME - Coordinated Universal Time.</span>
+<span class="sd">        * LOCAL_TIME  Use the server&#39;s timezone setting.&lt;br/&gt;Possible values = GMT_TIME, LOCAL_TIME.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@timezone</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">timezone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timezone</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Time zone used for date and timestamps in the logs.</span>
+<span class="sd">        Available settings function as follows:</span>
+<span class="sd">        * GMT_TIME - Coordinated Universal Time.</span>
+<span class="sd">        * LOCAL_TIME  Use the server&#39;s timezone setting.&lt;br/&gt;Possible values = GMT_TIME, LOCAL_TIME</span>
+
+<span class="sd">        :param timezone: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span> <span class="o">=</span> <span class="n">timezone</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">userdefinedauditlog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log user-configurable log messages to syslog.</span>
+<span class="sd">        Setting this parameter to NO causes audit to ignore all user-configured message actions. Setting this parameter to YES causes audit to log user-configured message actions that meet the other logging criteria.&lt;br/&gt;Possible values = YES, NO.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_userdefinedauditlog</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@userdefinedauditlog</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">userdefinedauditlog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userdefinedauditlog</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log user-configurable log messages to syslog.</span>
+<span class="sd">        Setting this parameter to NO causes audit to ignore all user-configured message actions. Setting this parameter to YES causes audit to log user-configured message actions that meet the other logging criteria.&lt;br/&gt;Possible values = YES, NO</span>
+
+<span class="sd">        :param userdefinedauditlog: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_userdefinedauditlog</span> <span class="o">=</span> <span class="n">userdefinedauditlog</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">appflowexport</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Export log messages to AppFlow collectors.</span>
+<span class="sd">        Appflow collectors are entities to which log messages can be sent so that some action can be performed on them.&lt;br/&gt;Possible values = ENABLED, DISABLED.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_appflowexport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@appflowexport</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">appflowexport</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">appflowexport</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Export log messages to AppFlow collectors.</span>
+<span class="sd">        Appflow collectors are entities to which log messages can be sent so that some action can be performed on them.&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param appflowexport: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_appflowexport</span> <span class="o">=</span> <span class="n">appflowexport</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">lsn</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log the LSN messages.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lsn</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@lsn</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">lsn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lsn</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log the LSN messages.&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param lsn: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_lsn</span> <span class="o">=</span> <span class="n">lsn</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">alg</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log the ALG messages.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_alg</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@alg</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">alg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alg</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log the ALG messages.&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param alg: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_alg</span> <span class="o">=</span> <span class="n">alg</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">subscriberlog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log subscriber session event information.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subscriberlog</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@subscriberlog</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">subscriberlog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subscriberlog</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log subscriber session event information.&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param subscriberlog: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_subscriberlog</span> <span class="o">=</span> <span class="n">subscriberlog</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dns</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log DNS related syslog messages.&lt;br/&gt;Possible values = ENABLED, DISABLED.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dns</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@dns</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dns</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Log DNS related syslog messages.&lt;br/&gt;Possible values = ENABLED, DISABLED</span>
+
+<span class="sd">        :param dns: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dns</span> <span class="o">=</span> <span class="n">dns</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">builtin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Indicates that a variable is a built-in (SYSTEM INTERNAL) type.&lt;br/&gt;Possible values = MODIFIABLE, DELETABLE, IMMUTABLE, PARTITION_ALL.&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_builtin</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_nitro_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;converts nitro response into object and returns the object array in case of get request.</span>
+
+<span class="sd">        :param service: </span>
+<span class="sd">        :param response: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">payload_formatter</span><span class="o">.</span><span class="n">string_to_resource</span><span class="p">(</span><span class="n">auditsyslogparams_response</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">==</span> <span class="mi">444</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="n">service</span><span class="o">.</span><span class="n">clear_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">nitro_exception</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">errorcode</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">severity</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">auditsyslogparams</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_object_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the value of object identifier argument&quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+
+
+<div class="viewcode-block" id="auditsyslogparams.update"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.update">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to update auditsyslogparams.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">updateresource</span> <span class="o">=</span> <span class="n">auditsyslogparams</span><span class="p">()</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">serverip</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">serverip</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">serverport</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">serverport</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">dateformat</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">dateformat</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">loglevel</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">loglevel</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">logfacility</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">logfacility</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">tcp</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">tcp</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">acl</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">acl</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">timezone</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">userdefinedauditlog</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">userdefinedauditlog</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">appflowexport</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">appflowexport</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">lsn</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">lsn</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">alg</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">alg</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">subscriberlog</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">subscriberlog</span>
+                <span class="n">updateresource</span><span class="o">.</span><span class="n">dns</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">dns</span>
+                <span class="k">return</span> <span class="n">updateresource</span><span class="o">.</span><span class="n">update_resource</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.unset"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.unset">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">unset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to unset the properties of auditsyslogparams resource.</span>
+<span class="sd">        Properties that need to be unset are specified in args array.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param resource: </span>
+<span class="sd">        :param args: </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">list</span> <span class="p">:</span>
+                <span class="n">unsetresource</span> <span class="o">=</span> <span class="n">auditsyslogparams</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">unsetresource</span><span class="o">.</span><span class="n">unset_resource</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.get"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">option_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Use this API to fetch all the auditsyslogparams resources that are configured on netscaler.</span>
+
+<span class="sd">        :param client: </span>
+<span class="sd">        :param name:  (Default value = &quot;&quot;)</span>
+<span class="sd">        :param option_:  (Default value = &quot;&quot;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">auditsyslogparams</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">option_</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="auditsyslogparams.Dns"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Dns">[docs]</a>    <span class="k">class</span> <span class="nc">Dns</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.Userdefinedauditlog"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Userdefinedauditlog">[docs]</a>    <span class="k">class</span> <span class="nc">Userdefinedauditlog</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">YES</span> <span class="o">=</span> <span class="s2">&quot;YES&quot;</span>
+        <span class="n">NO</span> <span class="o">=</span> <span class="s2">&quot;NO&quot;</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.Builtin"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Builtin">[docs]</a>    <span class="k">class</span> <span class="nc">Builtin</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">MODIFIABLE</span> <span class="o">=</span> <span class="s2">&quot;MODIFIABLE&quot;</span>
+        <span class="n">DELETABLE</span> <span class="o">=</span> <span class="s2">&quot;DELETABLE&quot;</span>
+        <span class="n">IMMUTABLE</span> <span class="o">=</span> <span class="s2">&quot;IMMUTABLE&quot;</span>
+        <span class="n">PARTITION_ALL</span> <span class="o">=</span> <span class="s2">&quot;PARTITION_ALL&quot;</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.Timezone"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Timezone">[docs]</a>    <span class="k">class</span> <span class="nc">Timezone</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">GMT_TIME</span> <span class="o">=</span> <span class="s2">&quot;GMT_TIME&quot;</span>
+        <span class="n">LOCAL_TIME</span> <span class="o">=</span> <span class="s2">&quot;LOCAL_TIME&quot;</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.Dateformat"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Dateformat">[docs]</a>    <span class="k">class</span> <span class="nc">Dateformat</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">MMDDYYYY</span> <span class="o">=</span> <span class="s2">&quot;MMDDYYYY&quot;</span>
+        <span class="n">DDMMYYYY</span> <span class="o">=</span> <span class="s2">&quot;DDMMYYYY&quot;</span>
+        <span class="n">YYYYMMDD</span> <span class="o">=</span> <span class="s2">&quot;YYYYMMDD&quot;</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.Acl"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Acl">[docs]</a>    <span class="k">class</span> <span class="nc">Acl</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.Lsn"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Lsn">[docs]</a>    <span class="k">class</span> <span class="nc">Lsn</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.Subscriberlog"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Subscriberlog">[docs]</a>    <span class="k">class</span> <span class="nc">Subscriberlog</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.Alg"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Alg">[docs]</a>    <span class="k">class</span> <span class="nc">Alg</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.Logfacility"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Logfacility">[docs]</a>    <span class="k">class</span> <span class="nc">Logfacility</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">LOCAL0</span> <span class="o">=</span> <span class="s2">&quot;LOCAL0&quot;</span>
+        <span class="n">LOCAL1</span> <span class="o">=</span> <span class="s2">&quot;LOCAL1&quot;</span>
+        <span class="n">LOCAL2</span> <span class="o">=</span> <span class="s2">&quot;LOCAL2&quot;</span>
+        <span class="n">LOCAL3</span> <span class="o">=</span> <span class="s2">&quot;LOCAL3&quot;</span>
+        <span class="n">LOCAL4</span> <span class="o">=</span> <span class="s2">&quot;LOCAL4&quot;</span>
+        <span class="n">LOCAL5</span> <span class="o">=</span> <span class="s2">&quot;LOCAL5&quot;</span>
+        <span class="n">LOCAL6</span> <span class="o">=</span> <span class="s2">&quot;LOCAL6&quot;</span>
+        <span class="n">LOCAL7</span> <span class="o">=</span> <span class="s2">&quot;LOCAL7&quot;</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.Loglevel"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Loglevel">[docs]</a>    <span class="k">class</span> <span class="nc">Loglevel</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ALL</span> <span class="o">=</span> <span class="s2">&quot;ALL&quot;</span>
+        <span class="n">EMERGENCY</span> <span class="o">=</span> <span class="s2">&quot;EMERGENCY&quot;</span>
+        <span class="n">ALERT</span> <span class="o">=</span> <span class="s2">&quot;ALERT&quot;</span>
+        <span class="n">CRITICAL</span> <span class="o">=</span> <span class="s2">&quot;CRITICAL&quot;</span>
+        <span class="n">ERROR</span> <span class="o">=</span> <span class="s2">&quot;ERROR&quot;</span>
+        <span class="n">WARNING</span> <span class="o">=</span> <span class="s2">&quot;WARNING&quot;</span>
+        <span class="n">NOTICE</span> <span class="o">=</span> <span class="s2">&quot;NOTICE&quot;</span>
+        <span class="n">INFORMATIONAL</span> <span class="o">=</span> <span class="s2">&quot;INFORMATIONAL&quot;</span>
+        <span class="n">DEBUG</span> <span class="o">=</span> <span class="s2">&quot;DEBUG&quot;</span>
+        <span class="n">NONE</span> <span class="o">=</span> <span class="s2">&quot;NONE&quot;</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.Tcp"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Tcp">[docs]</a>    <span class="k">class</span> <span class="nc">Tcp</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">NONE</span> <span class="o">=</span> <span class="s2">&quot;NONE&quot;</span>
+        <span class="n">ALL</span> <span class="o">=</span> <span class="s2">&quot;ALL&quot;</span></div>
+
+<div class="viewcode-block" id="auditsyslogparams.Appflowexport"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams.Appflowexport">[docs]</a>    <span class="k">class</span> <span class="nc">Appflowexport</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">ENABLED</span> <span class="o">=</span> <span class="s2">&quot;ENABLED&quot;</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s2">&quot;DISABLED&quot;</span></div></div>
+
+<div class="viewcode-block" id="auditsyslogparams_response"><a class="viewcode-back" href="../../../../../_source/nitro.resource.config.audit.auditsyslogparams.html#nitro.resource.config.audit.auditsyslogparams.auditsyslogparams_response">[docs]</a><span class="k">class</span> <span class="nc">auditsyslogparams_response</span><span class="p">(</span><span class="n">base_response</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auditsyslogparams</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errorcode</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessionid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auditsyslogparams</span> <span class="o">=</span> <span class="p">[</span><span class="n">auditsyslogparams</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

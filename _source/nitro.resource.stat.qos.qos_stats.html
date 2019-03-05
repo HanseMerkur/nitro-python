@@ -1,0 +1,764 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.stat.qos.qos_stats module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.stat.responder package" href="nitro.resource.stat.responder.html" />
+    <link rel="prev" title="nitro.resource.stat.qos package" href="nitro.resource.stat.qos.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.stat.html">nitro.resource.stat package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.stat.qos.html">nitro.resource.stat.qos package</a> &raquo;</li>
+        
+      <li>nitro.resource.stat.qos.qos_stats module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.stat.qos.qos_stats.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.stat.qos.qos_stats">
+<span id="nitro-resource-stat-qos-qos-stats-module"></span><h1>nitro.resource.stat.qos.qos_stats module<a class="headerlink" href="#module-nitro.resource.stat.qos.qos_stats" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.stat.qos.qos_stats.</code><code class="descname">qos_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/stat/qos/qos_stats.html#qos_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats">
+<em class="property">class </em><code class="descclassname">nitro.resource.stat.qos.qos_stats.</code><code class="descname">qos_stats</code><a class="reference internal" href="../_modules/nitro/resource/stat/qos/qos_stats.html#qos_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<dl class="class">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.Clearstats">
+<em class="property">class </em><code class="descname">Clearstats</code><a class="reference internal" href="../_modules/nitro/resource/stat/qos/qos_stats.html#qos_stats.Clearstats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.Clearstats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.Clearstats.basic">
+<code class="descname">basic</code><em class="property"> = 'basic'</em><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.Clearstats.basic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.Clearstats.full">
+<code class="descname">full</code><em class="property"> = 'full'</em><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.Clearstats.full" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.clearstats">
+<code class="descname">clearstats</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.clearstats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the statsistics / counters.&lt;br/&gt;Possible values = basic, full.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>service</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/stat/qos/qos_stats.html#qos_stats.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch the statistics of all qos_stats resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>service</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.ipcmessagesfailed">
+<code class="descname">ipcmessagesfailed</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.ipcmessagesfailed" title="Permalink to this definition">¶</a></dt>
+<dd><p>IPC messages failed to send from qos system.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.ipcmessagesfailedrate">
+<code class="descname">ipcmessagesfailedrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.ipcmessagesfailedrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for ipcmessagesfailed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.ipcmessagesreceived">
+<code class="descname">ipcmessagesreceived</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.ipcmessagesreceived" title="Permalink to this definition">¶</a></dt>
+<dd><p>IPC messages received by qos.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.ipcmessagesreceivedrate">
+<code class="descname">ipcmessagesreceivedrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.ipcmessagesreceivedrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for ipcmessagesreceived.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.ipcmessagessent">
+<code class="descname">ipcmessagessent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.ipcmessagessent" title="Permalink to this definition">¶</a></dt>
+<dd><p>IPC messages sent from qos system.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.ipcmessagessentrate">
+<code class="descname">ipcmessagessentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.ipcmessagessentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for ipcmessagessent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.ipcpe2qosfailed">
+<code class="descname">ipcpe2qosfailed</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.ipcpe2qosfailed" title="Permalink to this definition">¶</a></dt>
+<dd><p>IPC messages failed to send to qos system.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.ipcpe2qosfailedrate">
+<code class="descname">ipcpe2qosfailedrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.ipcpe2qosfailedrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for ipcpe2qosfailed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.ipcpe2qosreceived">
+<code class="descname">ipcpe2qosreceived</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.ipcpe2qosreceived" title="Permalink to this definition">¶</a></dt>
+<dd><p>IPC messages received from qos system.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.ipcpe2qosreceivedrate">
+<code class="descname">ipcpe2qosreceivedrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.ipcpe2qosreceivedrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for ipcpe2qosreceived.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.ipcpe2qossent">
+<code class="descname">ipcpe2qossent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.ipcpe2qossent" title="Permalink to this definition">¶</a></dt>
+<dd><p>IPC messages sent to qos system.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.ipcpe2qossentrate">
+<code class="descname">ipcpe2qossentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.ipcpe2qossentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for ipcpe2qossent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosbytesdropped">
+<code class="descname">qosbytesdropped</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosbytesdropped" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bytes QoS marked for drop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosbytesdroppednoconnection">
+<code class="descname">qosbytesdroppednoconnection</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosbytesdroppednoconnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bytes dropped by QoS when no connection was found.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosbytesdroppednoconnectionrate">
+<code class="descname">qosbytesdroppednoconnectionrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosbytesdroppednoconnectionrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qosbytesdroppednoconnection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosbytesdroppedrate">
+<code class="descname">qosbytesdroppedrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosbytesdroppedrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qosbytesdropped.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosbytessentnotclassified">
+<code class="descname">qosbytessentnotclassified</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosbytessentnotclassified" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bytes scheduled by QoS that were not classified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosbytessentnotclassifiedrate">
+<code class="descname">qosbytessentnotclassifiedrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosbytessentnotclassifiedrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qosbytessentnotclassified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosdroppackets">
+<code class="descname">qosdroppackets</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosdroppackets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packets Dropped by QoS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosdroppacketsrate">
+<code class="descname">qosdroppacketsrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosdroppacketsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qosdroppackets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosfreeheldlist">
+<code class="descname">qosfreeheldlist</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosfreeheldlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>No. more packets QoS can hold onto.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosinputbytes">
+<code class="descname">qosinputbytes</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosinputbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bytes sent to QoS for scheduling.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosinputbytesrate">
+<code class="descname">qosinputbytesrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosinputbytesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qosinputbytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosinputpackets">
+<code class="descname">qosinputpackets</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosinputpackets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packets sent to QoS for scheduling.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosinputpacketsrate">
+<code class="descname">qosinputpacketsrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosinputpacketsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qosinputpackets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslearnedmac">
+<code class="descname">qoslearnedmac</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslearnedmac" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS learned true MAC.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslearnedmacrate">
+<code class="descname">qoslearnedmacrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslearnedmacrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslearnedmac.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink00drop">
+<code class="descname">qoslink00drop</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink00drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes dropped on Link 00.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink00droprate">
+<code class="descname">qoslink00droprate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink00droprate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink00drop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink00sent">
+<code class="descname">qoslink00sent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink00sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes sent on Link 00.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink00sentrate">
+<code class="descname">qoslink00sentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink00sentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink00sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink01drop">
+<code class="descname">qoslink01drop</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink01drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes dropped on Link 01.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink01droprate">
+<code class="descname">qoslink01droprate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink01droprate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink01drop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink01sent">
+<code class="descname">qoslink01sent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink01sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes sent on Link 01.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink01sentrate">
+<code class="descname">qoslink01sentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink01sentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink01sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink02drop">
+<code class="descname">qoslink02drop</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink02drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes dropped on Link 02.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink02droprate">
+<code class="descname">qoslink02droprate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink02droprate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink02drop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink02sent">
+<code class="descname">qoslink02sent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink02sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes sent on Link 02.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink02sentrate">
+<code class="descname">qoslink02sentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink02sentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink02sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink03drop">
+<code class="descname">qoslink03drop</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink03drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes dropped on Link 03.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink03droprate">
+<code class="descname">qoslink03droprate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink03droprate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink03drop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink03sent">
+<code class="descname">qoslink03sent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink03sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes sent on Link 03.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink03sentrate">
+<code class="descname">qoslink03sentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink03sentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink03sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink04drop">
+<code class="descname">qoslink04drop</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink04drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes dropped on Link 04.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink04droprate">
+<code class="descname">qoslink04droprate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink04droprate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink04drop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink04sent">
+<code class="descname">qoslink04sent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink04sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes sent on Link 04.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink04sentrate">
+<code class="descname">qoslink04sentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink04sentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink04sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink05drop">
+<code class="descname">qoslink05drop</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink05drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes dropped on Link 05.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink05droprate">
+<code class="descname">qoslink05droprate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink05droprate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink05drop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink05sent">
+<code class="descname">qoslink05sent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink05sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes sent on Link 05.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink05sentrate">
+<code class="descname">qoslink05sentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink05sentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink05sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink06drop">
+<code class="descname">qoslink06drop</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink06drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes dropped on Link 06.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink06droprate">
+<code class="descname">qoslink06droprate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink06droprate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink06drop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink06sent">
+<code class="descname">qoslink06sent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink06sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes sent on Link 06.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink06sentrate">
+<code class="descname">qoslink06sentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink06sentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink06sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink07drop">
+<code class="descname">qoslink07drop</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink07drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes dropped on Link 07.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink07droprate">
+<code class="descname">qoslink07droprate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink07droprate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink07drop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink07sent">
+<code class="descname">qoslink07sent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink07sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes sent on Link 07.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink07sentrate">
+<code class="descname">qoslink07sentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink07sentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink07sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink08drop">
+<code class="descname">qoslink08drop</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink08drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes dropped on Link 08.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink08droprate">
+<code class="descname">qoslink08droprate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink08droprate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink08drop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink08sent">
+<code class="descname">qoslink08sent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink08sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes sent on Link 08.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink08sentrate">
+<code class="descname">qoslink08sentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink08sentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink08sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink09drop">
+<code class="descname">qoslink09drop</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink09drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes dropped on Link 09.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink09droprate">
+<code class="descname">qoslink09droprate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink09droprate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink09drop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink09sent">
+<code class="descname">qoslink09sent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink09sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes sent on Link 09.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink09sentrate">
+<code class="descname">qoslink09sentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink09sentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink09sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink10drop">
+<code class="descname">qoslink10drop</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink10drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes dropped on Link 10.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink10droprate">
+<code class="descname">qoslink10droprate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink10droprate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink10drop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink10sent">
+<code class="descname">qoslink10sent</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink10sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS bytes sent on Link 10.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qoslink10sentrate">
+<code class="descname">qoslink10sentrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qoslink10sentrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qoslink10sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosoutputbytes">
+<code class="descname">qosoutputbytes</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosoutputbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bytes received from QoS to be sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosoutputbytesrate">
+<code class="descname">qosoutputbytesrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosoutputbytesrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qosoutputbytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosoutputpackets">
+<code class="descname">qosoutputpackets</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosoutputpackets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packets from QoS to be sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosoutputpacketsrate">
+<code class="descname">qosoutputpacketsrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosoutputpacketsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qosoutputpackets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qospacketsclassified">
+<code class="descname">qospacketsclassified</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qospacketsclassified" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of packets with classification.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qospacketsclassifiedrate">
+<code class="descname">qospacketsclassifiedrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qospacketsclassifiedrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qospacketsclassified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qospacketsunclassified">
+<code class="descname">qospacketsunclassified</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qospacketsunclassified" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of packets without classification.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qospacketsunclassifiedrate">
+<code class="descname">qospacketsunclassifiedrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qospacketsunclassifiedrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qospacketsunclassified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosrewritemacs">
+<code class="descname">qosrewritemacs</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosrewritemacs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of packets with inband classification in source MAC.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.stat.qos.qos_stats.qos_stats.qosrewritemacsrate">
+<code class="descname">qosrewritemacsrate</code><a class="headerlink" href="#nitro.resource.stat.qos.qos_stats.qos_stats.qosrewritemacsrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate (/s) counter for qosrewritemacs.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.stat.responder.html" class="btn btn-neutral float-right" title="nitro.resource.stat.responder package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.stat.qos.html" class="btn btn-neutral float-left" title="nitro.resource.stat.qos package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

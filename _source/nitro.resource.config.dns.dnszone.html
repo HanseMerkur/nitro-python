@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.dns.dnszone module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.config.dns.dnszone_args module" href="nitro.resource.config.dns.dnszone_args.html" />
+    <link rel="prev" title="nitro.resource.config.dns.dnsview_gslbservice_binding module" href="nitro.resource.config.dns.dnsview_gslbservice_binding.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.html">nitro.resource.config package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.dns.html">nitro.resource.config.dns package</a> &raquo;</li>
+        
+      <li>nitro.resource.config.dns.dnszone module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.config.dns.dnszone.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.config.dns.dnszone">
+<span id="nitro-resource-config-dns-dnszone-module"></span><h1>nitro.resource.config.dns.dnszone module<a class="headerlink" href="#module-nitro.resource.config.dns.dnszone" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.config.dns.dnszone.dnszone">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.dns.dnszone.</code><code class="descname">dnszone</code><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<p>Configuration for DNS zone resource.</p>
+<dl class="class">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Dnssecoffload">
+<em class="property">class </em><code class="descname">Dnssecoffload</code><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.Dnssecoffload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Dnssecoffload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Dnssecoffload.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Dnssecoffload.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Dnssecoffload.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Dnssecoffload.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Nsec">
+<em class="property">class </em><code class="descname">Nsec</code><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.Nsec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Nsec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Nsec.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Nsec.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Nsec.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Nsec.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Proxymode">
+<em class="property">class </em><code class="descname">Proxymode</code><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.Proxymode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Proxymode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Proxymode.NO">
+<code class="descname">NO</code><em class="property"> = 'NO'</em><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Proxymode.NO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Proxymode.YES">
+<code class="descname">YES</code><em class="property"> = 'YES'</em><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Proxymode.YES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Type">
+<em class="property">class </em><code class="descname">Type</code><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.Type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Type.ADNS">
+<code class="descname">ADNS</code><em class="property"> = 'ADNS'</em><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Type.ADNS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Type.ALL">
+<code class="descname">ALL</code><em class="property"> = 'ALL'</em><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Type.ALL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.Type.PROXY">
+<code class="descname">PROXY</code><em class="property"> = 'PROXY'</em><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.Type.PROXY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.add">
+<em class="property">classmethod </em><code class="descname">add</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to add dnszone.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.count">
+<em class="property">classmethod </em><code class="descname">count</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count the dnszone resources configured on NetScaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>client</strong> – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.count_filtered">
+<em class="property">classmethod </em><code class="descname">count_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.count_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.count_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count filtered the set of dnszone resources.
+Filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.delete">
+<em class="property">classmethod </em><code class="descname">delete</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to delete dnszone.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.dnssecoffload">
+<code class="descname">dnssecoffload</code><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.dnssecoffload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable dnssec offload for this zone.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.flags">
+<code class="descname">flags</code><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.flags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flags controlling display.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch all the dnszone resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.get_args">
+<em class="property">classmethod </em><code class="descname">get_args</code><span class="sig-paren">(</span><em>client</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.get_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.get_args" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Use this API to fetch all the dnszone resources that are configured on netscaler.</dt>
+<dd># This uses dnszone_args which is a way to provide additional arguments while fetching the resources.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.get_filtered">
+<em class="property">classmethod </em><code class="descname">get_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.get_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.get_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch filtered set of dnszone resources.
+filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.keyname">
+<code class="descname">keyname</code><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.keyname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the public/private DNS key pair with which to sign the zone. You can sign a zone with up to four keys.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.nsec">
+<code class="descname">nsec</code><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.nsec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable nsec generation for dnssec offload.&lt;br/&gt;Default value: DISABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.proxymode">
+<code class="descname">proxymode</code><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.proxymode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deploy the zone in proxy mode. Enable in the following scenarios:
+* The load balanced DNS servers are authoritative for the zone and all resource records that are part of the zone.
+* The load balanced DNS servers are authoritative for the zone, but the NetScaler appliance owns a subset of the resource records that belong to the zone (partial zone ownership configuration). Typically seen in global server load balancing (GSLB) configurations, in which the appliance responds authoritatively to queries for GSLB domain names but forwards queries for other domain names in the zone to the load balanced servers.
+In either scenario, do not create the zone’s Start of Authority (SOA) and name server (NS) resource records on the appliance.
+Disable if the appliance is authoritative for the zone, but make sure that you have created the SOA and NS records on the appliance before you create the zone.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = YES, NO.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.sign">
+<em class="property">classmethod </em><code class="descname">sign</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.sign"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.sign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to sign dnszone.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.type">
+<code class="descname">type</code><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of zone to display. Mutually exclusive with the DNS Zone (zoneName) parameter. Available settings function as follows:
+* ADNS - Display all the zones for which the NetScaler appliance is authoritative.
+* PROXY - Display all the zones for which the NetScaler appliance is functioning as a proxy server.
+* ALL - Display all the zones configured on the appliance.&lt;br/&gt;Possible values = ALL, ADNS, PROXY.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.unset">
+<em class="property">classmethod </em><code class="descname">unset</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.unset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.unset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to unset the properties of dnszone resource.
+Properties that need to be unset are specified in args array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.unsign">
+<em class="property">classmethod </em><code class="descname">unsign</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.unsign"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.unsign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to unsign dnszone.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.update">
+<em class="property">classmethod </em><code class="descname">update</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to update dnszone.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.dns.dnszone.dnszone.zonename">
+<code class="descname">zonename</code><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone.zonename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the zone to create.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.dns.dnszone.dnszone_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.dns.dnszone.</code><code class="descname">dnszone_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/dns/dnszone.html#dnszone_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.dns.dnszone.dnszone_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.config.dns.dnszone_args.html" class="btn btn-neutral float-right" title="nitro.resource.config.dns.dnszone_args module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.config.dns.dnsview_gslbservice_binding.html" class="btn btn-neutral float-left" title="nitro.resource.config.dns.dnsview_gslbservice_binding module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

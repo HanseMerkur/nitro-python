@@ -1,0 +1,1035 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nitro.resource.config.authentication.authenticationvserver module &mdash; nitro-python 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nitro.resource.config.authentication.authenticationvserver_auditnslogpolicy_binding module" href="nitro.resource.config.authentication.authenticationvserver_auditnslogpolicy_binding.html" />
+    <link rel="prev" title="nitro.resource.config.authentication.authenticationtacacspolicy_vpnvserver_binding module" href="nitro.resource.config.authentication.authenticationtacacspolicy_vpnvserver_binding.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nitro-python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nitro.html">nitro package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nitro.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nitro.exception.html">nitro.exception package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nitro.resource.html">nitro.resource package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nitro.resource.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nitro.resource.html#module-nitro.resource">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.service.html">nitro.service package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitro.util.html">nitro.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nitro.html#module-nitro">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nitro-python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="nitro.html">nitro package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.html">nitro.resource package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.html">nitro.resource.config package</a> &raquo;</li>
+        
+          <li><a href="nitro.resource.config.authentication.html">nitro.resource.config.authentication package</a> &raquo;</li>
+        
+      <li>nitro.resource.config.authentication.authenticationvserver module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/nitro.resource.config.authentication.authenticationvserver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-nitro.resource.config.authentication.authenticationvserver">
+<span id="nitro-resource-config-authentication-authenticationvserver-module"></span><h1>nitro.resource.config.authentication.authenticationvserver module<a class="headerlink" href="#module-nitro.resource.config.authentication.authenticationvserver" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.authentication.authenticationvserver.</code><code class="descname">authenticationvserver</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_resource.html#nitro.resource.base.base_resource.base_resource" title="nitro.resource.base.base_resource.base_resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_resource.base_resource</span></code></a></p>
+<p>Configuration for authentication virtual server resource.</p>
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Appflowlog">
+<em class="property">class </em><code class="descname">Appflowlog</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Appflowlog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Appflowlog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Appflowlog.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Appflowlog.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Appflowlog.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Appflowlog.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Authentication">
+<em class="property">class </em><code class="descname">Authentication</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Authentication"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Authentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Authentication.OFF">
+<code class="descname">OFF</code><em class="property"> = 'OFF'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Authentication.OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Authentication.ON">
+<code class="descname">ON</code><em class="property"> = 'ON'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Authentication.ON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Cachetype">
+<em class="property">class </em><code class="descname">Cachetype</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Cachetype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Cachetype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Cachetype.FORWARD">
+<code class="descname">FORWARD</code><em class="property"> = 'FORWARD'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Cachetype.FORWARD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Cachetype.REVERSE">
+<code class="descname">REVERSE</code><em class="property"> = 'REVERSE'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Cachetype.REVERSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Cachetype.TRANSPARENT">
+<code class="descname">TRANSPARENT</code><em class="property"> = 'TRANSPARENT'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Cachetype.TRANSPARENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate">
+<em class="property">class </em><code class="descname">Curstate</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Curstate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.BUSY">
+<code class="descname">BUSY</code><em class="property"> = 'BUSY'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.BUSY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.DOWN">
+<code class="descname">DOWN</code><em class="property"> = 'DOWN'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.DOWN_WHEN_GOING_OUT_OF_SERVICE">
+<code class="descname">DOWN_WHEN_GOING_OUT_OF_SERVICE</code><em class="property"> = 'DOWN WHEN GOING OUT OF SERVICE'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.DOWN_WHEN_GOING_OUT_OF_SERVICE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.GOING_OUT_OF_SERVICE">
+<code class="descname">GOING_OUT_OF_SERVICE</code><em class="property"> = 'GOING OUT OF SERVICE'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.GOING_OUT_OF_SERVICE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.NS_EMPTY_STR">
+<code class="descname">NS_EMPTY_STR</code><em class="property"> = 'NS_EMPTY_STR'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.NS_EMPTY_STR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.OUT_OF_SERVICE">
+<code class="descname">OUT_OF_SERVICE</code><em class="property"> = 'OUT OF SERVICE'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.OUT_OF_SERVICE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.UNKNOWN">
+<code class="descname">UNKNOWN</code><em class="property"> = 'UNKNOWN'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.UP">
+<code class="descname">UP</code><em class="property"> = 'UP'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.UP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.Unknown">
+<code class="descname">Unknown</code><em class="property"> = 'Unknown'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Curstate.Unknown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Disableprimaryondown">
+<em class="property">class </em><code class="descname">Disableprimaryondown</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Disableprimaryondown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Disableprimaryondown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Disableprimaryondown.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Disableprimaryondown.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Disableprimaryondown.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Disableprimaryondown.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Downstateflush">
+<em class="property">class </em><code class="descname">Downstateflush</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Downstateflush"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Downstateflush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Downstateflush.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Downstateflush.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Downstateflush.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Downstateflush.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Precedence">
+<em class="property">class </em><code class="descname">Precedence</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Precedence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Precedence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Precedence.RULE">
+<code class="descname">RULE</code><em class="property"> = 'RULE'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Precedence.RULE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Precedence.URL">
+<code class="descname">URL</code><em class="property"> = 'URL'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Precedence.URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Redirect">
+<em class="property">class </em><code class="descname">Redirect</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Redirect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Redirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Redirect.CACHE">
+<code class="descname">CACHE</code><em class="property"> = 'CACHE'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Redirect.CACHE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Redirect.ORIGIN">
+<code class="descname">ORIGIN</code><em class="property"> = 'ORIGIN'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Redirect.ORIGIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Redirect.POLICY">
+<code class="descname">POLICY</code><em class="property"> = 'POLICY'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Redirect.POLICY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Servicetype">
+<em class="property">class </em><code class="descname">Servicetype</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Servicetype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Servicetype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Servicetype.SSL">
+<code class="descname">SSL</code><em class="property"> = 'SSL'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Servicetype.SSL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod">
+<em class="property">class </em><code class="descname">Somethod</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Somethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod.BANDWIDTH">
+<code class="descname">BANDWIDTH</code><em class="property"> = 'BANDWIDTH'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod.BANDWIDTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod.CONNECTION">
+<code class="descname">CONNECTION</code><em class="property"> = 'CONNECTION'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod.CONNECTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod.DYNAMICCONNECTION">
+<code class="descname">DYNAMICCONNECTION</code><em class="property"> = 'DYNAMICCONNECTION'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod.DYNAMICCONNECTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod.HEALTH">
+<code class="descname">HEALTH</code><em class="property"> = 'HEALTH'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod.HEALTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod.NONE">
+<code class="descname">NONE</code><em class="property"> = 'NONE'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Somethod.NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Sopersistence">
+<em class="property">class </em><code class="descname">Sopersistence</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Sopersistence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Sopersistence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Sopersistence.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Sopersistence.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Sopersistence.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Sopersistence.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.State">
+<em class="property">class </em><code class="descname">State</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.State"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.State.DISABLED">
+<code class="descname">DISABLED</code><em class="property"> = 'DISABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.State.DISABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.State.ENABLED">
+<code class="descname">ENABLED</code><em class="property"> = 'ENABLED'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.State.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Type">
+<em class="property">class </em><code class="descname">Type</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Type.ADDRESS">
+<code class="descname">ADDRESS</code><em class="property"> = 'ADDRESS'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Type.ADDRESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Type.CONTENT">
+<code class="descname">CONTENT</code><em class="property"> = 'CONTENT'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Type.CONTENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Value">
+<em class="property">class </em><code class="descname">Value</code><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.Value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Value.Certkey_not_bound">
+<code class="descname">Certkey_not_bound</code><em class="property"> = 'Certkey not bound'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Value.Certkey_not_bound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Value.SSL_feature_disabled">
+<code class="descname">SSL_feature_disabled</code><em class="property"> = 'SSL feature disabled'</em><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.Value.SSL_feature_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.add">
+<em class="property">classmethod </em><code class="descname">add</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to add authenticationvserver.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.appflowlog">
+<code class="descname">appflowlog</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.appflowlog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log AppFlow flow information.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.authentication">
+<code class="descname">authentication</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.authentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Require users to be authenticated before sending traffic through this virtual server.&lt;br/&gt;Default value: ON&lt;br/&gt;Possible values = ON, OFF.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.authenticationdomain">
+<code class="descname">authenticationdomain</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.authenticationdomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>The domain of the authentication cookie set by Authentication vserver.&lt;br/&gt;Minimum length =  3&lt;br/&gt;Maximum length =  252.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.backupvserver">
+<code class="descname">backupvserver</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.backupvserver" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the backup vpn virtual server for this vpn virtual server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.cachetype">
+<code class="descname">cachetype</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.cachetype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual server’s cache type. The options are: TRANSPARENT, REVERSE and FORWARD.&lt;br/&gt;Possible values = TRANSPARENT, REVERSE, FORWARD.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.cachevserver">
+<code class="descname">cachevserver</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.cachevserver" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the default target cache virtual server, if any, to which requests are redirected.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.clttimeout">
+<code class="descname">clttimeout</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.clttimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>The idle time, if any, in seconds after which the client connection is terminated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.comment">
+<code class="descname">comment</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Any comments associated with this virtual server.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.count">
+<em class="property">classmethod </em><code class="descname">count</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count the authenticationvserver resources configured on NetScaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>client</strong> – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.count_filtered">
+<em class="property">classmethod </em><code class="descname">count_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.count_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.count_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to count filtered the set of authenticationvserver resources.
+Filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.curaaausers">
+<code class="descname">curaaausers</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.curaaausers" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of current users logged in to this vserver.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.curstate">
+<code class="descname">curstate</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.curstate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current state of the Virtual server, e.g. UP, DOWN, BUSY, etc.&lt;br/&gt;Possible values = UP, DOWN, UNKNOWN, BUSY, OUT OF SERVICE, GOING OUT OF SERVICE, DOWN WHEN GOING OUT OF SERVICE, NS_EMPTY_STR, Unknown, DISABLED.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.delete">
+<em class="property">classmethod </em><code class="descname">delete</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to delete authenticationvserver.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.disable">
+<em class="property">classmethod </em><code class="descname">disable</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.disable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to disable authenticationvserver.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.disableprimaryondown">
+<code class="descname">disableprimaryondown</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.disableprimaryondown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tells whether traffic will continue reaching backup vservers even after primary comes UP from DOWN state.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.downstateflush">
+<code class="descname">downstateflush</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.downstateflush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform delayed clean up of connections on this vserver.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.enable">
+<em class="property">classmethod </em><code class="descname">enable</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.enable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to enable authenticationvserver.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.failedlogintimeout">
+<code class="descname">failedlogintimeout</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.failedlogintimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of minutes an account will be locked if user exceeds maximum permissible attempts.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>name=''</em>, <em>option_=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch all the authenticationvserver resources that are configured on netscaler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>name</strong> – (Default value = “”)</li>
+<li><strong>option</strong> – (Default value = “”)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.get_filtered">
+<em class="property">classmethod </em><code class="descname">get_filtered</code><span class="sig-paren">(</span><em>client</em>, <em>filter_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.get_filtered"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.get_filtered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to fetch filtered set of authenticationvserver resources.
+filter string should be in JSON format.eg: “port:80,servicetype:HTTP”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>filter</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.groupextraction">
+<code class="descname">groupextraction</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.groupextraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bind the Authentication policy to a tertiary chain which will be used only for group extraction.  The user will not authenticate against this server, and this will only be called if primary and/or secondary authentication has succeeded.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.httpprofilename">
+<code class="descname">httpprofilename</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.httpprofilename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the HTTP profile.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.ip">
+<code class="descname">ip</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Virtual IP address of the authentication vserver.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.ipv46">
+<code class="descname">ipv46</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.ipv46" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP address of the authentication virtual server, if a single IP address is assigned to the virtual server.&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.listenpolicy">
+<code class="descname">listenpolicy</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.listenpolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Listenpolicy configured for authentication vserver.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.listenpriority">
+<code class="descname">listenpriority</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.listenpriority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Priority of listen policy for authentication vserver.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.maxloginattempts">
+<code class="descname">maxloginattempts</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.maxloginattempts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum Number of login Attempts.&lt;br/&gt;Minimum length =  1&lt;br/&gt;Maximum length =  255.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.name">
+<code class="descname">name</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for the new authentication virtual server.
+Must begin with a letter, number, or the underscore character (_), and must contain only letters, numbers, and the hyphen (-), period (.) pound (#), space ( ), at (&#64;), equals (=), colon (:), and underscore characters. Can be changed after the authentication virtual server is added by using the rename authentication vserver command.
+The following requirement applies only to the NetScaler CLI:
+If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, “my authentication policy” or ‘my authentication policy’).&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.newname">
+<code class="descname">newname</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.newname" title="Permalink to this definition">¶</a></dt>
+<dd><p>New name of the authentication virtual server.
+Must begin with a letter, number, or the underscore character (_), and must contain only letters, numbers, and the hyphen (-), period (.) pound (#), space ( ), at (&#64;), equals (=), colon (:), and underscore characters.
+The following requirement applies only to the NetScaler CLI:
+If the name includes one or more spaces, enclose the name in double or single quotation marks (for example, ‘my authentication policy’ or “my authentication policy”).&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.ngname">
+<code class="descname">ngname</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.ngname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nodegroup devno to which this  authentication vsever belongs to.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.policy">
+<code class="descname">policy</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the policy, if any, bound to the authentication vserver.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.port">
+<code class="descname">port</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.port" title="Permalink to this definition">¶</a></dt>
+<dd><p>TCP port on which the virtual server accepts connections.&lt;br/&gt;Range 1 - 65535.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.precedence">
+<code class="descname">precedence</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.precedence" title="Permalink to this definition">¶</a></dt>
+<dd><p>This argument is used only when configuring content switching on the specified virtual server. This is applicable only
+if both the URL and RULE-based policies have been configured on the same virtual server.
+It specifies the type of policy (URL or RULE) that takes precedence on the content switching virtual server. The default setting is RULE.
+l    URL - In this case, the incoming request is matched against the URL-based policies before the rule-based policies.
+l    RULE - In this case, the incoming request is matched against the rule-based policies before the URL-based policies.
+For all URL-based policies, the precedence hierarchy is:
+1.    Domain and exact URL
+2.    Domain, prefix and suffix
+3.    Domain and suffix
+4.    Domain and prefix
+5.    Domain only
+6.    Exact URL
+7.    Prefix and suffix
+8.    Suffix only
+9.    Prefix only
+10.    Default.&lt;br/&gt;Possible values = RULE, URL.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.priority">
+<code class="descname">priority</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>The priority, if any, of the vpn vserver policy.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.range">
+<code class="descname">range</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.range" title="Permalink to this definition">¶</a></dt>
+<dd><p>If you are creating a series of virtual servers with a range of IP addresses assigned to them, the length of the range.
+The new range of authentication virtual servers will have IP addresses consecutively numbered, starting with the primary address specified with the IP Address parameter.&lt;br/&gt;Default value: 1&lt;br/&gt;Minimum length =  1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.redirect">
+<code class="descname">redirect</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.redirect" title="Permalink to this definition">¶</a></dt>
+<dd><p>The cache redirect policy.
+The valid redirect policies are:
+l.    CACHE - Directs all requests to the cache.
+2.    POLICY - Applies cache redirection policy to determine whether the request should be directed to the cache or origin. This is the default setting.
+3.    ORIGIN - Directs all requests to the origin server.&lt;br/&gt;Possible values = CACHE, POLICY, ORIGIN.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.redirecturl">
+<code class="descname">redirecturl</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.redirecturl" title="Permalink to this definition">¶</a></dt>
+<dd><p>The URL where traffic is redirected if the virtual server in system becomes unavailable. WARNING!    Make sure that the domain you specify in the URL does not match the domain specified in the -d domainName argument of the ###add cs policy### command. If the same domain is specified in both arguments, the request will be continuously redirected to the same unavailable virtual server in the system. If so, the user may not get the requested content.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.rename">
+<em class="property">classmethod </em><code class="descname">rename</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em>, <em>new_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.rename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to rename a authenticationvserver resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+<li><strong>new_name</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.rule">
+<code class="descname">rule</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the rule, or expression, if any, that policy for the authentication server is to use. Rules are combinations of Expressions. Expressions are simple conditions, such as a test for equality, applied to operands, such as a URL string or an IP address. Expression syntax is described in the Installation and Configuration Guide. The default rule is ns_true.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.secondary">
+<code class="descname">secondary</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.secondary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bind the authentication policy to the secondary chain.
+Provides for multifactor authentication in which a user must authenticate via both a primary authentication method and, afterward, via a secondary authentication method.
+Because user groups are aggregated across authentication systems, usernames must be the same on all authentication servers. Passwords can be different.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.servicename">
+<code class="descname">servicename</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.servicename" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the service, if any, to which the vserver policy is bound.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.servicetype">
+<code class="descname">servicetype</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.servicetype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Protocol type of the authentication virtual server. Always SSL.&lt;br/&gt;Default value: SSL&lt;br/&gt;Possible values = SSL.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.somethod">
+<code class="descname">somethod</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.somethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>VPN client applications are allocated from a block of Intranet IP addresses.
+That block may be exhausted after a certain number of connections. This switch specifies the
+method used to determine whether or not a new connection will spillover, or exhaust, the allocated block of
+Intranet IP addresses for that application. Possible values are CONNECTION or DYNAMICCONNECTION.
+CONNECTION means that a static integer value is the hard limit for the spillover threshold. The spillover
+threshold is described below. DYNAMICCONNECTION means that the spillover threshold is set according to
+the maximum number of connections defined for the vpn vserver.&lt;br/&gt;Possible values = CONNECTION, DYNAMICCONNECTION, BANDWIDTH, HEALTH, NONE.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.sopersistence">
+<code class="descname">sopersistence</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.sopersistence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not cookie-based site persistance is enabled for this VPN vserver. Possible values are ‘ConnectionProxy’, HTTPRedirect, or NONE.&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.sopersistencetimeout">
+<code class="descname">sopersistencetimeout</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.sopersistencetimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timeout, if any, for cookie-based site persistance of this VPN vserver.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.sothreshold">
+<code class="descname">sothreshold</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.sothreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>VPN client applications are allocated from a block of Intranet IP addresses.
+That block may be exhausted after a certain number of connections.
+The value of this option is number of client connections after which the Mapped IP address is used
+as the client source IP address instead of an address from the allocated block of Intranet IP addresses.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.state">
+<code class="descname">state</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial state of the new virtual server.&lt;br/&gt;Default value: ENABLED&lt;br/&gt;Possible values = ENABLED, DISABLED.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.status">
+<code class="descname">status</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not this vserver responds to ARPs and whether or not round-robin selection is temporarily in effect.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.tcpprofilename">
+<code class="descname">tcpprofilename</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.tcpprofilename" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the TCP profile.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.td">
+<code class="descname">td</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.td" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integer value that uniquely identifies the traffic domain in which you want to configure the entity. If you do not specify an ID, the entity becomes part of the default traffic domain, which has an ID of 0.&lt;br/&gt;Maximum length =  4094.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.type">
+<code class="descname">type</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of Virtual Server, e.g. CONTENT based or ADDRESS based.&lt;br/&gt;Possible values = CONTENT, ADDRESS.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.unset">
+<em class="property">classmethod </em><code class="descname">unset</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.unset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.unset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to unset the properties of authenticationvserver resource.
+Properties that need to be unset are specified in args array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+<li><strong>args</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.update">
+<em class="property">classmethod </em><code class="descname">update</code><span class="sig-paren">(</span><em>client</em>, <em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this API to update authenticationvserver.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> – </li>
+<li><strong>resource</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.value">
+<code class="descname">value</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not the certificate is bound or if SSL offload is disabled.&lt;br/&gt;Possible values = Certkey not bound, SSL feature disabled.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.vstype">
+<code class="descname">vstype</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.vstype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual Server Type, e.g. Load Balancing, Content Switch, Cache Redirection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver.weight">
+<code class="descname">weight</code><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver.weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weight for this service, if any. This weight is used when the system performs load balancing, giving greater priority to a specific service. It is useful when the services bound to a virtual server are of different capacity.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nitro.resource.config.authentication.authenticationvserver.authenticationvserver_response">
+<em class="property">class </em><code class="descclassname">nitro.resource.config.authentication.authenticationvserver.</code><code class="descname">authenticationvserver_response</code><span class="sig-paren">(</span><em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nitro/resource/config/authentication/authenticationvserver.html#authenticationvserver_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nitro.resource.config.authentication.authenticationvserver.authenticationvserver_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nitro.resource.base.base_response.html#nitro.resource.base.base_response.base_response" title="nitro.resource.base.base_response.base_response"><code class="xref py py-class docutils literal notranslate"><span class="pre">nitro.resource.base.base_response.base_response</span></code></a></p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nitro.resource.config.authentication.authenticationvserver_auditnslogpolicy_binding.html" class="btn btn-neutral float-right" title="nitro.resource.config.authentication.authenticationvserver_auditnslogpolicy_binding module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nitro.resource.config.authentication.authenticationtacacspolicy_vpnvserver_binding.html" class="btn btn-neutral float-left" title="nitro.resource.config.authentication.authenticationtacacspolicy_vpnvserver_binding module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Citrix
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
